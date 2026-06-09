@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4553691376685410387}
   m_Layer: 0
-  m_Name: DiRenItem
+  m_Name: MonsterItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 19df7b051136e914a801bc9e7e6d8a8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1fb01d00967f0ca4ab7b4472ec5c708d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -144,10 +144,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7522599870389313700}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.49369812, y: -1.108902}
-  m_SizeDelta: {x: -36.8477, y: -51.6192}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.3380013, y: 2.268299}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8367062187811307083
 CanvasRenderer:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ed6ab3f202279248911e77d66feb766, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 009025da0a8416c4ab9f0deedc185791, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

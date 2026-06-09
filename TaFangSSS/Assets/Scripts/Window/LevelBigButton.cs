@@ -12,6 +12,8 @@ public class LevelBigButton : MonoBehaviour
    public TextMeshProUGUI Name;
    public Button Button;
    public RectTransform RectTransform;
+   public GameObject mask;
+   public GameObject Suo;
    private void OnEnable()
    {
       Name.text=LevelConfig.LevelBigNameDic[LevelBigType];
@@ -29,6 +31,19 @@ public class LevelBigButton : MonoBehaviour
 
    public void RefreshList()
    {
+      switch (PlayerData.S.LevelBigJieSuoDic[LevelBigType])
+      {
+         case true:
+            Button.interactable=true;
+            mask.SetActive(false);
+            Suo.SetActive(false);
+            break;
+         case false:
+            Button.interactable=false;
+            mask.SetActive(true);
+            Suo.SetActive(true);
+            break;
+      }
       switch (PlayerData.S.LevelZhanKaiDic[LevelBigType])
       {
          case false:

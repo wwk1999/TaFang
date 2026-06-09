@@ -11,6 +11,8 @@ public class LevelSmallButton : MonoBehaviour
     public Image LevelIcon;
     public TextMeshProUGUI LevelName;
     public Button LevelButton;
+    public GameObject mask;
+    public GameObject Suo;
 
     private void Start()
     {
@@ -19,6 +21,19 @@ public class LevelSmallButton : MonoBehaviour
 
     private void OnEnable()
     {
+        switch (PlayerData.S.LevelSmallJieSuoDic[levelSmallType])
+        {
+            case false:
+                LevelButton.interactable=false;
+                mask.SetActive(true);
+                Suo.SetActive(true);
+                break;
+            case true:
+                LevelButton.interactable=true;
+                mask.SetActive(false);
+                Suo.SetActive(false);
+                break;
+        }
         switch (levelSmallType)
         {
             case LevelSmallType.花果山:

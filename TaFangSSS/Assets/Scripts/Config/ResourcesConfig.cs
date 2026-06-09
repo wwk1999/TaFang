@@ -4,6 +4,27 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+   //道具图片
+   // 道具icon
+   public static Sprite 全职业经验值;
+   public static Sprite 功德;
+   public static Sprite 头盔锻造石;
+   public static Sprite 射手经验值;
+   public static Sprite 戒指锻造石;
+   public static Sprite 战士经验值;
+   public static Sprite 护手锻造石;
+   public static Sprite 招募卷;
+   public static Sprite 控制经验值;
+   public static Sprite 法师经验值;
+   public static Sprite 洗练石;
+   public static Sprite 灵魂;
+   public static Sprite 衣服锻造石;
+   public static Sprite 辅助经验值;
+   public static Sprite 鞋子锻造石;
+   public static Sprite 项链锻造石;
+   public static Sprite 领主经验值;
+   public static Sprite 高级招募卷;
+   
    // 关卡图片
    public static Sprite 花果山;
    public static Sprite 水帘洞;
@@ -187,6 +208,27 @@ public class ResourcesConfig : MonoBehaviour
 
    public static void Init()
    {
+      //道具图片
+      全职业经验值 = Resources.Load<Sprite>("Sprite/DaoJu/全职业经验值");
+      功德 = Resources.Load<Sprite>("Sprite/DaoJu/功德");
+      头盔锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/头盔锻造石");
+      射手经验值 = Resources.Load<Sprite>("Sprite/DaoJu/射手经验值");
+      戒指锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/戒指锻造石");
+      战士经验值 = Resources.Load<Sprite>("Sprite/DaoJu/战士经验值");
+      护手锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/护手锻造石");
+      招募卷 = Resources.Load<Sprite>("Sprite/DaoJu/招募卷");
+      控制经验值 = Resources.Load<Sprite>("Sprite/DaoJu/控制经验值");
+      法师经验值 = Resources.Load<Sprite>("Sprite/DaoJu/法师经验值");
+      洗练石 = Resources.Load<Sprite>("Sprite/DaoJu/洗练石");
+      灵魂 = Resources.Load<Sprite>("Sprite/DaoJu/灵魂");
+      衣服锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/衣服锻造石");
+      辅助经验值 = Resources.Load<Sprite>("Sprite/DaoJu/辅助经验值");
+      鞋子锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/鞋子锻造石");
+      项链锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/项链锻造石");
+      领主经验值 = Resources.Load<Sprite>("Sprite/DaoJu/领主经验值");
+      高级招募卷 = Resources.Load<Sprite>("Sprite/DaoJu/高级招募卷");
+      
+      
       // 关卡图片
       花果山 = Resources.Load<Sprite>("Sprite/GuanKa/花果山");
       水帘洞 = Resources.Load<Sprite>("Sprite/GuanKa/水帘洞");

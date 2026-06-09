@@ -17,4 +17,33 @@ public class PlayerData : XSingleton<PlayerData>
         { LevelBigType.南瞻部洲 ,false },
         { LevelBigType.北俱芦洲 ,false },
     };
+
+    public Dictionary<LevelBigType, bool> LevelBigJieSuoDic = new Dictionary<LevelBigType, bool>()
+    {
+        { LevelBigType.东胜神州, true },
+        { LevelBigType.西牛贺洲, false },
+        { LevelBigType.南瞻部洲, false },
+        { LevelBigType.北俱芦洲, false },
+    };
+
+    public Dictionary<LevelSmallType, bool> LevelSmallJieSuoDic = new Dictionary<LevelSmallType, bool>()
+    {
+        { LevelSmallType.花果山, true },
+        { LevelSmallType.水帘洞, false },
+        { LevelSmallType.傲来国, false },
+        { LevelSmallType.东海龙宫, false },
+        { LevelSmallType.蓬莱仙岛, false },
+        { LevelSmallType.五行山, false },
+        { LevelSmallType.高老庄, false },
+        { LevelSmallType.平顶山, false },
+        { LevelSmallType.车迟国, false },
+        { LevelSmallType.女儿国, false },
+        { LevelSmallType.火焰山, false },
+        { LevelSmallType.盘丝洞, false },
+        { LevelSmallType.狮驼岭, false },
+        { LevelSmallType.天竺国, false },
+        { LevelSmallType.小雷音寺, false },
+        { LevelSmallType.流沙河, false },
+        { LevelSmallType.芭蕉洞, false },
+    };
 }
