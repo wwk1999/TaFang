@@ -14,6 +14,7 @@ public class MainWindow : MonoBehaviour
     public TextMeshProUGUI MaxExp;
     public TextMeshProUGUI LingQi;
     public TextMeshProUGUI GongDe;
+    public Button LevelBtn;
 
     public void Init()
     {
@@ -25,6 +26,22 @@ public class MainWindow : MonoBehaviour
         MaxExp.text=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType].ToString();
         LingQi.text=PlayerData.S.LingQi.ToString();
         GongDe.text=PlayerData.S.GongDe.ToString();
+        InitWindow();
+        ResourcesConfig.Init();
+    }
+
+    public void InitWindow()
+    {
+        WindowController.S.LevelWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/LevelWindow"));
+        WindowController.S.LevelWindow.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        LevelBtn.onClick.AddListener(() =>
+        {
+            WindowController.S.LevelWindow.gameObject.SetActive(true);
+        });
     }
 
     private void OnEnable()

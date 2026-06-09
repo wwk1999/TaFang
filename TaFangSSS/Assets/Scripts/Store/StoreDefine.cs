@@ -16,6 +16,13 @@ public class StoreDefine : XSingleton<StoreController>
         public int Exp;
         public int LingQi;
         public int GongDe;
+        public Dictionary<LevelBigType, bool> LevelZhanKaiDic = new Dictionary<LevelBigType, bool>()
+        {
+            { LevelBigType.东胜神州 ,false },
+            { LevelBigType.西牛贺洲 ,false },
+            { LevelBigType.南瞻部洲 ,false },
+            { LevelBigType.北俱芦洲 ,false },
+        };
 
         public void CopyFromRuntime(PlayerData runtime)
         {
@@ -24,6 +31,7 @@ public class StoreDefine : XSingleton<StoreController>
             Exp = runtime.Exp;
             LingQi = runtime.LingQi;
             GongDe = runtime.GongDe;
+            LevelZhanKaiDic = runtime.LevelZhanKaiDic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -33,6 +41,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.Exp = Exp;
             runtime.LingQi = LingQi;
             runtime.GongDe = GongDe;
+            runtime.LevelZhanKaiDic = LevelZhanKaiDic;
         }
     }
 }
