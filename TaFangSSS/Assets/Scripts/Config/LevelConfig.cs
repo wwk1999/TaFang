@@ -44,13 +44,13 @@ public class LevelDiaoLuo
 
 public class LevelConfig : MonoBehaviour
 {
-    public static Dictionary<LevelSmallType, HashSet<MonsterType>> LevelMonsterDic =
-    new Dictionary<LevelSmallType, HashSet<MonsterType>>()
+    public static Dictionary<LevelSmallType, HashSet<MonsterTypeName>> LevelMonsterDic =
+    new Dictionary<LevelSmallType, HashSet<MonsterTypeName>>()
     {
-        { LevelSmallType.花果山, new HashSet<MonsterType>() { MonsterType.猴精, MonsterType.山魈, MonsterType.马猴头领 } },
-        { LevelSmallType.水帘洞, new HashSet<MonsterType>() { MonsterType.水虱精, MonsterType.蝙蝠精, MonsterType.铁背苍猿 } },
-        { LevelSmallType.傲来国, new HashSet<MonsterType>() { MonsterType.傲来民兵, MonsterType.猎户, MonsterType.傲来偏将 } },
-        { LevelSmallType.东海龙宫, new HashSet<MonsterType>() { MonsterType.虾兵, MonsterType.蟹将, MonsterType.龟丞相 } },
+        { LevelSmallType.花果山, new HashSet<MonsterTypeName>() { MonsterTypeName.猴精, MonsterTypeName.山魈, MonsterTypeName.马猴头领 } },
+        { LevelSmallType.水帘洞, new HashSet<MonsterTypeName>() { MonsterTypeName.水虱精, MonsterTypeName.蝙蝠精, MonsterTypeName.铁背苍猿 } },
+        { LevelSmallType.傲来国, new HashSet<MonsterTypeName>() { MonsterTypeName.傲来民兵, MonsterTypeName.猎户, MonsterTypeName.傲来偏将 } },
+        { LevelSmallType.东海龙宫, new HashSet<MonsterTypeName>() { MonsterTypeName.虾兵, MonsterTypeName.蟹将, MonsterTypeName.龟丞相 } },
     };
     public static Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
         new Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>>()

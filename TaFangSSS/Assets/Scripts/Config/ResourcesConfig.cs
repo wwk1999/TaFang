@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+   //道具背景框
+   public static Sprite 道具背景框白;
+   public static Sprite 道具背景框绿;
+   public static Sprite 道具背景框蓝;
+   public static Sprite 道具背景框紫;
+   public static Sprite 道具背景框橙;
+   public static Sprite 道具背景框粉;
+   public static Sprite 道具背景框红;
+   public static Sprite 道具背景框彩;
+
+   //怪物背景框
+   public static Sprite 小怪背景框;
+   public static Sprite 精英怪背景框;
+   public static Sprite Boss背景框;
+
    //道具图片
    // 道具icon
    public static Sprite 全职业经验值;
@@ -67,7 +82,7 @@ public class ResourcesConfig : MonoBehaviour
 // 东海龙宫
    public static Sprite 虾兵;
    public static Sprite 蟹将;
-   public static Sprite 巡海夜叉;
+   public static Sprite 龟丞相;
    public static Sprite 东海龙王;
 
 // 蓬莱仙岛
@@ -208,6 +223,22 @@ public class ResourcesConfig : MonoBehaviour
 
    public static void Init()
    {
+      //道具背景框
+      道具背景框白= Resources.Load<Sprite>("Sprite/道具背景框/白");
+      道具背景框绿= Resources.Load<Sprite>("Sprite/道具背景框/绿");
+      道具背景框蓝= Resources.Load<Sprite>("Sprite/道具背景框/蓝");
+      道具背景框紫= Resources.Load<Sprite>("Sprite/道具背景框/紫");
+      道具背景框橙= Resources.Load<Sprite>("Sprite/道具背景框/橙");
+      道具背景框粉= Resources.Load<Sprite>("Sprite/道具背景框/粉");
+      道具背景框红= Resources.Load<Sprite>("Sprite/道具背景框/红");
+      道具背景框彩= Resources.Load<Sprite>("Sprite/道具背景框/彩");
+
+      
+      //怪物背景框
+      小怪背景框= Resources.Load<Sprite>("Sprite/怪物背景框/小怪背景框");
+      精英怪背景框= Resources.Load<Sprite>("Sprite/怪物背景框/精英怪背景框");
+      Boss背景框= Resources.Load<Sprite>("Sprite/怪物背景框/boss背景框");
+
       //道具图片
       全职业经验值 = Resources.Load<Sprite>("Sprite/DaoJu/全职业经验值");
       功德 = Resources.Load<Sprite>("Sprite/DaoJu/功德");
@@ -270,7 +301,7 @@ public class ResourcesConfig : MonoBehaviour
 // 东海龙宫
       虾兵 = Resources.Load<Sprite>("Sprite/GuaiWu/虾兵");
       蟹将 = Resources.Load<Sprite>("Sprite/GuaiWu/蟹将");
-      巡海夜叉 = Resources.Load<Sprite>("Sprite/GuaiWu/巡海夜叉");
+      龟丞相 = Resources.Load<Sprite>("Sprite/GuaiWu/巡海夜叉");
       东海龙王 = Resources.Load<Sprite>("Sprite/GuaiWu/东海龙王");
 
 // 蓬莱仙岛
