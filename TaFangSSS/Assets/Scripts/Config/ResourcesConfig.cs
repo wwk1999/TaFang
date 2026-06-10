@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+   //人物背景框
+   public static Sprite 人物背景框白;
+   public static Sprite 人物背景框绿;
+   public static Sprite 人物背景框蓝;
+   public static Sprite 人物背景框紫;
+   public static Sprite 人物背景框橙;
+   public static Sprite 人物背景框粉;
+   public static Sprite 人物背景框红;
+   public static Sprite 人物背景框彩;
+   
    //道具背景框
    public static Sprite 道具背景框白;
    public static Sprite 道具背景框绿;
@@ -223,6 +233,16 @@ public class ResourcesConfig : MonoBehaviour
 
    public static void Init()
    {
+      //人物背景框
+      人物背景框白= Resources.Load<Sprite>("Sprite/人物背景框/白");
+      人物背景框绿= Resources.Load<Sprite>("Sprite/人物背景框/绿");
+      人物背景框蓝= Resources.Load<Sprite>("Sprite/人物背景框/蓝");
+      人物背景框紫= Resources.Load<Sprite>("Sprite/人物背景框/紫");
+      人物背景框橙= Resources.Load<Sprite>("Sprite/人物背景框/橙");
+      人物背景框粉= Resources.Load<Sprite>("Sprite/人物背景框/粉");
+      人物背景框红= Resources.Load<Sprite>("Sprite/人物背景框/红");
+      人物背景框彩= Resources.Load<Sprite>("Sprite/人物背景框/彩");
+      
       //道具背景框
       道具背景框白= Resources.Load<Sprite>("Sprite/道具背景框/白");
       道具背景框绿= Resources.Load<Sprite>("Sprite/道具背景框/绿");
