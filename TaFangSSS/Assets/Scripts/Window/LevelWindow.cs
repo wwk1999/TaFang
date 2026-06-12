@@ -17,12 +17,7 @@ public class LevelWindow : MonoBehaviour
         RightPanel.SetActive(false);
         ObserverModuleManager.S.RegisterEvent("LevelSamllButton",ShowLevel);
     }
-
-    private void OnDestroy()
-    {
-        ObserverModuleManager.S.UnRegisterEvent("LevelSamllButton",ShowLevel);
-
-    }
+    
 
     public void ShowLevel(object[] obj)
     {

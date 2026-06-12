@@ -8,6 +8,7 @@ public class WindowController : XSingleton<WindowController>
    [NonSerialized]public GameObject StartWindow;
    [NonSerialized]public GameObject MainWindow;
    [NonSerialized]public GameObject LevelWindow;
+   [NonSerialized]public GameObject 招募Window;
 
    private void OnEnable()
    {

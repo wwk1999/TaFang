@@ -177,7 +177,7 @@ public class ResourcesConfig : MonoBehaviour
    //人物图片
    //白
    public static Sprite DanTong;
-   public static Sprite QingTong;
+   public static Sprite QinTong;
    public static Sprite TuDi;
    public static Sprite HeBo;
    public static Sprite YaoChiXianNv;
@@ -185,7 +185,6 @@ public class ResourcesConfig : MonoBehaviour
 
    //绿
    public static Sprite ShiGanDang;
-   public static Sprite YueLao;
    public static Sprite XuanNv;
    public static Sprite GuiChengXiang;
    public static Sprite TaiBaiJinXing;
@@ -200,36 +199,39 @@ public class ResourcesConfig : MonoBehaviour
    public static Sprite GuangMuTianWang;
    public static Sprite ChiGuoTianWang;
    public static Sprite LeiZhengZi;
-   public static Sprite ChangE;
-   public static Sprite HeXianGu;
-
+   public static Sprite YueLao;
 
 
    //紫
-   public static Sprite NeZha;
-   public static Sprite SunWuKong;
+   public static Sprite ChangE;
+   public static Sprite HeXianGu;
    public static Sprite YangJian;
    public static Sprite DanJi;
    public static Sprite NiuMoWang;
-   public static Sprite JingLingShengMu;
 
    //橙
-   public static Sprite HouYi;
+   public static Sprite NeZha;
+   public static Sprite SunWuKong;
    public static Sprite XingTian;
-   public static Sprite YunXiao;
    public static Sprite BiXiao;
    public static Sprite QiongXiao;
+
+   //粉
+   public static Sprite JingLingShengMu;
    public static Sprite XiHe;
    public static Sprite ChangXi;
-
+   public static Sprite HouYi;
+   public static Sprite YunXiao;
+   
    //红
-   public static Sprite NvWa;
-   public static Sprite JieYing;
-   public static Sprite ZhunTi;
+    public static Sprite NvWa;
+    public static Sprite JieYing;
+    public static Sprite ZhunTi;
+   
+   //彩
+   public static Sprite LaoZi;
    public static Sprite TongTian;
    public static Sprite YuanShi;
-   public static Sprite LaoZi;
-
 
    public static void Init()
    {
@@ -405,8 +407,9 @@ public class ResourcesConfig : MonoBehaviour
 
 
       //人物图片
+      //白
       DanTong = Resources.LoadAll<Sprite>("Sprite/RenWu/白")[3];
-      QingTong = Resources.LoadAll<Sprite>("Sprite/RenWu/白")[2];
+      QinTong = Resources.LoadAll<Sprite>("Sprite/RenWu/白")[2];
       TuDi = Resources.LoadAll<Sprite>("Sprite/RenWu/白")[0];
       HeBo = Resources.LoadAll<Sprite>("Sprite/RenWu/白")[1];
       YaoChiXianNv = Resources.LoadAll<Sprite>("Sprite/RenWu/白")[5];
