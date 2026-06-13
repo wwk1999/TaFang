@@ -492,7 +492,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: 8b7a45b9f0bfa5f418e3b95932eac505, type: 2}
+  m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -566,6 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162386699584268014}
+  - component: {fileID: 9064378199651082311}
   m_Layer: 0
   m_Name: "\u62DB\u52DF\u5546\u5E97item"
   m_TagString: Untagged
@@ -596,6 +597,23 @@ RectTransform:
   m_AnchoredPosition: {x: 75, y: -75}
   m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9064378199651082311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8781394792759018611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f866b1a2e9941c4b96f19039817ed1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 2837199946230881873}
+  image: {fileID: 2052195046261891266}
+  count: {fileID: 6501332999441714192}
+  name: {fileID: 5163258918842436695}
+  "\u62DB\u52DF\u5546\u5E97\u5151\u6362\u7A97\u53E3": {fileID: 0}
 --- !u!1 &9138768404244246165
 GameObject:
   m_ObjectHideFlags: 0

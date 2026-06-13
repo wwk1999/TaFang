@@ -2,6 +2,12 @@ using System.Collections.Generic;
 
 namespace Config
 {
+    public class HeroData
+    {
+        public int Level;
+        public int Exp;
+    }
+
     public enum HeroType
     {
         None,
@@ -13,20 +19,20 @@ namespace Config
         精卫,
         石敢当,
         玄女,
-        龟丞相,      
+        龟丞相,
         太白金星,
         孟婆,
         白素贞,
         多闻天王,
         增长天王,
         广目天王,
-        持国天王,    
+        持国天王,
         雷震子,
         月老,
         嫦娥,
         何仙姑,
         杨戬,
-        妲己,       
+        妲己,
         牛魔王,
         哪吒,
         孙悟空,
@@ -35,7 +41,7 @@ namespace Config
         琼霄,
         金灵圣母,
         羲和,
-        常羲,       
+        常羲,
         后羿,
         云霄,
         女娲,
@@ -45,6 +51,7 @@ namespace Config
         通天,
         元始
     }
+
     public class HeroConfig
     {
         public static Dictionary<HeroType, string> HeroNameDic = new Dictionary<HeroType, string>()
@@ -89,7 +96,8 @@ namespace Config
             { HeroType.通天, "通天" },
             { HeroType.元始, "元始" },
         };
-        public static Dictionary<HeroType, PropType> HeroYuanShenDic = new Dictionary<HeroType, PropType>()
+
+        public static Dictionary<HeroType, PropType> HeroToPropDic = new Dictionary<HeroType, PropType>()
         {
             { HeroType.丹童, PropType.丹童元神 },
             { HeroType.青童, PropType.青童元神 },
@@ -135,73 +143,153 @@ namespace Config
         public static Dictionary<QualityType, HashSet<HeroType>> QualityHeroDic =
             new Dictionary<QualityType, HashSet<HeroType>>()
             {
-                { QualityType.黄, new HashSet<HeroType>() { HeroType.丹童, HeroType.青童, HeroType.土地, HeroType.河伯, HeroType.瑶池仙女, HeroType.精卫 } },
-                { QualityType.玄, new HashSet<HeroType>() { HeroType.石敢当, HeroType.玄女, HeroType.龟丞相, HeroType.太白金星, HeroType.孟婆, HeroType.白素贞 } },
-                { QualityType.地, new HashSet<HeroType>() { HeroType.多闻天王, HeroType.增长天王, HeroType.广目天王, HeroType.持国天王, HeroType.雷震子, HeroType.月老 } },
-                { QualityType.天, new HashSet<HeroType>() { HeroType.嫦娥, HeroType.何仙姑, HeroType.杨戬, HeroType.妲己, HeroType.牛魔王 } },
-                { QualityType.宇, new HashSet<HeroType>() { HeroType.哪吒, HeroType.孙悟空, HeroType.刑天, HeroType.碧霄, HeroType.琼霄 } },
-                { QualityType.宙, new HashSet<HeroType>() { HeroType.金灵圣母, HeroType.羲和, HeroType.常羲, HeroType.后羿, HeroType.云霄 } },
-                { QualityType.洪, new HashSet<HeroType>() { HeroType.女娲, HeroType.接引, HeroType.准提 } },
-                { QualityType.荒, new HashSet<HeroType>() { HeroType.老子, HeroType.通天, HeroType.元始 } },
+                {
+                    QualityType.黄品,
+                    new HashSet<HeroType>()
+                        { HeroType.丹童, HeroType.青童, HeroType.土地, HeroType.河伯, HeroType.瑶池仙女, HeroType.精卫 }
+                },
+                {
+                    QualityType.玄品,
+                    new HashSet<HeroType>()
+                        { HeroType.石敢当, HeroType.玄女, HeroType.龟丞相, HeroType.太白金星, HeroType.孟婆, HeroType.白素贞 }
+                },
+                {
+                    QualityType.地品,
+                    new HashSet<HeroType>()
+                        { HeroType.多闻天王, HeroType.增长天王, HeroType.广目天王, HeroType.持国天王, HeroType.雷震子, HeroType.月老 }
+                },
+                {
+                    QualityType.天品,
+                    new HashSet<HeroType>() { HeroType.嫦娥, HeroType.何仙姑, HeroType.杨戬, HeroType.妲己, HeroType.牛魔王 }
+                },
+                {
+                    QualityType.宇品,
+                    new HashSet<HeroType>() { HeroType.哪吒, HeroType.孙悟空, HeroType.刑天, HeroType.碧霄, HeroType.琼霄 }
+                },
+                {
+                    QualityType.宙品,
+                    new HashSet<HeroType>() { HeroType.金灵圣母, HeroType.羲和, HeroType.常羲, HeroType.后羿, HeroType.云霄 }
+                },
+                { QualityType.洪品, new HashSet<HeroType>() { HeroType.女娲, HeroType.接引, HeroType.准提 } },
+                { QualityType.荒品, new HashSet<HeroType>() { HeroType.老子, HeroType.通天, HeroType.元始 } },
             };
+
+        public static Dictionary<HeroType, string> HeroDescDic = new Dictionary<HeroType, string>()
+        {
+            // 白色（黄品）
+            { HeroType.丹童, "太上老君座下丹童，掌炉火，识百草之性。" },
+            { HeroType.青童, "西王母之青衣童，侍蟠桃，善采霞饮露。" },
+            { HeroType.土地, "一方社稷之灵，位卑而乐善，知地脉走向。" },
+            { HeroType.河伯, "黄河水伯，冯夷得道，性温而司水。" },
+            { HeroType.瑶池仙女, "昆仑瑶池之侍女，善歌舞，以仙乐娱宾。" },
+            { HeroType.精卫, "炎帝之女女娃所化，衔石填海，志坚不悔。" },
+
+            // 绿色（玄品）
+            { HeroType.石敢当, "泰山灵石所化，刚直不阿，专克邪祟。" },
+            { HeroType.玄女, "九天玄女之门徒，通符箓，善兵法战阵。" },
+            { HeroType.龟丞相, "东海龙宫之老臣，万年灵龟，稳重多智。" },
+            { HeroType.太白金星, "长庚星君，天庭重臣，性慈而善调解。" },
+            { HeroType.孟婆, "幽冥奈何桥之守者，掌忘川，饮之忘前尘。" },
+            { HeroType.白素贞, "峨眉千年白蛇，慕红尘，为报恩而下凡。" },
+
+            // 蓝色（地品）
+            { HeroType.多闻天王, "四大天王之一，持混元伞，镇守北洲。" },
+            { HeroType.增长天王, "四大天王之一，执青锋剑，掌南洲之卫。" },
+            { HeroType.广目天王, "四大天王之一，缠赤龙，慧眼观三界。" },
+            { HeroType.持国天王, "四大天王之一，抱琵琶，以音律护法。" },
+            { HeroType.雷震子, "云中子之徒，食杏实生翼，性烈忠义。" },
+            { HeroType.月老, "司姻缘之神，隐于月宫，喜牵红线。" },
+
+            // 紫色（天品）
+            { HeroType.嫦娥, "后羿之妻，服不死药，独居广寒。" },
+            { HeroType.何仙姑, "八仙之女，得吕祖度化，乐善好施。" },
+            { HeroType.杨戬, "玉帝外甥，玉鼎真人徒，开天眼，心傲。" },
+            { HeroType.妲己, "冀州苏护之女，狐妖附体，绝世妖妃。" },
+            { HeroType.牛魔王, "积雷山平天大圣，力大无穷，惧内。" },
+
+            // 橙色（宇品）
+            { HeroType.哪吒, "陈塘关李靖之子，太乙之徒，叛逆重义。" },
+            { HeroType.孙悟空, "花果山灵石所化，菩提之徒，齐天大圣。" },
+            { HeroType.刑天, "炎帝之臣，与黄帝争神，断首犹战。" },
+            { HeroType.碧霄, "截教门人，赵公明之妹，性烈，姊妹情深。" },
+            { HeroType.琼霄, "截教门人，与碧霄同修，善使金蛟剪。" },
+
+            // 粉色（宙品）
+            { HeroType.金灵圣母, "截教女仙之首，斗姆元君，忠义双全。" },
+            { HeroType.羲和, "帝俊之妻，太阳女神，驭日车巡天。" },
+            { HeroType.常羲, "帝俊之妻，月亮女神，主十二月之阴晴。" },
+            { HeroType.后羿, "尧时射日英雄，力能挽弓，思妻郁郁。" },
+            { HeroType.云霄, "三霄之首，摆黄河阵，心善而护短。" },
+
+            // 红色（洪品）
+            { HeroType.女娲, "抟土造人，炼石补天，万物之母，圣德无疆。" },
+            { HeroType.接引, "西方教主，阿弥陀佛，发大愿，普度众生。" },
+            { HeroType.准提, "西方二教主，菩提悟道，身披袈裟，法力无边。" },
+
+            // 彩色（荒品）
+            { HeroType.老子, "太上老君，三清之首，人教教主，无为而化。" },
+            { HeroType.通天, "通天教主，截教教主，有教无类，率性而为。" },
+            { HeroType.元始, "元始天尊，阐教教主，盘古元神，万法之源。" },
+        };
+
         public static Dictionary<HeroType, QualityType> HeroQualityDic = new Dictionary<HeroType, QualityType>()
         {
             { HeroType.None, QualityType.None },
 
             // 白色 -> 黄
-            { HeroType.丹童, QualityType.黄 },
-            { HeroType.青童, QualityType.黄 },
-            { HeroType.土地, QualityType.黄 },
-            { HeroType.河伯, QualityType.黄 },
-            { HeroType.瑶池仙女, QualityType.黄 },
-            { HeroType.精卫, QualityType.黄 },
+            { HeroType.丹童, QualityType.黄品 },
+            { HeroType.青童, QualityType.黄品 },
+            { HeroType.土地, QualityType.黄品 },
+            { HeroType.河伯, QualityType.黄品 },
+            { HeroType.瑶池仙女, QualityType.黄品 },
+            { HeroType.精卫, QualityType.黄品 },
 
             // 绿色 -> 玄
-            { HeroType.石敢当, QualityType.玄 },
-            { HeroType.玄女, QualityType.玄 },
-            { HeroType.龟丞相, QualityType.玄 },
-            { HeroType.太白金星, QualityType.玄 },
-            { HeroType.孟婆, QualityType.玄 },
-            { HeroType.白素贞, QualityType.玄 },
+            { HeroType.石敢当, QualityType.玄品 },
+            { HeroType.玄女, QualityType.玄品 },
+            { HeroType.龟丞相, QualityType.玄品 },
+            { HeroType.太白金星, QualityType.玄品 },
+            { HeroType.孟婆, QualityType.玄品 },
+            { HeroType.白素贞, QualityType.玄品 },
 
             // 蓝色 -> 地
-            { HeroType.多闻天王, QualityType.地 },
-            { HeroType.增长天王, QualityType.地 },
-            { HeroType.广目天王, QualityType.地 },
-            { HeroType.持国天王, QualityType.地 },
-            { HeroType.雷震子, QualityType.地 },
-            { HeroType.月老, QualityType.地 },
+            { HeroType.多闻天王, QualityType.地品 },
+            { HeroType.增长天王, QualityType.地品 },
+            { HeroType.广目天王, QualityType.地品 },
+            { HeroType.持国天王, QualityType.地品 },
+            { HeroType.雷震子, QualityType.地品 },
+            { HeroType.月老, QualityType.地品 },
 
             // 紫色 -> 天
-            { HeroType.嫦娥, QualityType.天 },
-            { HeroType.何仙姑, QualityType.天 },
-            { HeroType.杨戬, QualityType.天 },
-            { HeroType.妲己, QualityType.天 },
-            { HeroType.牛魔王, QualityType.天 },
+            { HeroType.嫦娥, QualityType.天品 },
+            { HeroType.何仙姑, QualityType.天品 },
+            { HeroType.杨戬, QualityType.天品 },
+            { HeroType.妲己, QualityType.天品 },
+            { HeroType.牛魔王, QualityType.天品 },
 
             // 橙色 -> 宇
-            { HeroType.哪吒, QualityType.宇 },
-            { HeroType.孙悟空, QualityType.宇 },
-            { HeroType.刑天, QualityType.宇 },
-            { HeroType.碧霄, QualityType.宇 },
-            { HeroType.琼霄, QualityType.宇 },
+            { HeroType.哪吒, QualityType.宇品 },
+            { HeroType.孙悟空, QualityType.宇品 },
+            { HeroType.刑天, QualityType.宇品 },
+            { HeroType.碧霄, QualityType.宇品 },
+            { HeroType.琼霄, QualityType.宇品 },
 
             // 粉色 -> 宙
-            { HeroType.金灵圣母, QualityType.宙 },
-            { HeroType.羲和, QualityType.宙 },
-            { HeroType.常羲, QualityType.宙 },
-            { HeroType.后羿, QualityType.宙 },
-            { HeroType.云霄, QualityType.宙 },
+            { HeroType.金灵圣母, QualityType.宙品 },
+            { HeroType.羲和, QualityType.宙品 },
+            { HeroType.常羲, QualityType.宙品 },
+            { HeroType.后羿, QualityType.宙品 },
+            { HeroType.云霄, QualityType.宙品 },
 
             // 红色 -> 洪
-            { HeroType.女娲, QualityType.洪 },
-            { HeroType.接引, QualityType.洪 },
-            { HeroType.准提, QualityType.洪 },
+            { HeroType.女娲, QualityType.洪品 },
+            { HeroType.接引, QualityType.洪品 },
+            { HeroType.准提, QualityType.洪品 },
 
             // 彩色 -> 荒
-            { HeroType.老子, QualityType.荒 },
-            { HeroType.通天, QualityType.荒 },
-            { HeroType.元始, QualityType.荒 }
+            { HeroType.老子, QualityType.荒品 },
+            { HeroType.通天, QualityType.荒品 },
+            { HeroType.元始, QualityType.荒品 }
         };
     }
 }

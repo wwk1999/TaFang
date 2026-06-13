@@ -70,18 +70,30 @@ namespace Config
     public enum QualityType
     {
         None,
-        黄,
-        玄,
-        地,
-        天,
-        宇,
-        宙,
-        洪,
-        荒,
+        黄品,
+        玄品,
+        地品,
+        天品,
+        宇品,
+        宙品,
+        洪品,
+        荒品,
     }
 
     public class PropConfig : MonoBehaviour
     {
+
+        public static Dictionary<QualityType, string> QualityNameDic = new Dictionary<QualityType, string>()
+        {
+            { QualityType.黄品, "黄品" },
+            { QualityType.玄品, "玄品" },
+            { QualityType.地品, "地品" },
+            { QualityType.天品, "天品" },
+            { QualityType.宇品, "宇品" },
+            { QualityType.宙品, "宙品" },
+            { QualityType.洪品, "洪品" },
+            { QualityType.荒品, "荒品" }
+        };
         public static Sprite GetPropSprite(PropType propType)
         {
             switch (propType)
@@ -224,6 +236,49 @@ namespace Config
             }
         }
 
+        public static Dictionary<PropType, HeroType> PropToHeroDic = new Dictionary<PropType, HeroType>()
+        {
+            { PropType.丹童元神, HeroType.丹童 },
+            { PropType.青童元神, HeroType.青童 },
+            { PropType.土地元神, HeroType.土地 },
+            { PropType.河伯元神, HeroType.河伯 },
+            { PropType.瑶池仙女元神, HeroType.瑶池仙女 },
+            { PropType.精卫元神, HeroType.精卫 },
+            { PropType.石敢当元神, HeroType.石敢当 },
+            { PropType.玄女元神, HeroType.玄女 },
+            { PropType.龟丞相元神, HeroType.龟丞相 },
+            { PropType.太白金星元神, HeroType.太白金星 },
+            { PropType.孟婆元神, HeroType.孟婆 },
+            { PropType.白素贞元神, HeroType.白素贞 },
+            { PropType.多闻天王元神, HeroType.多闻天王 },
+            { PropType.增长天王元神, HeroType.增长天王 },
+            { PropType.广目天王元神, HeroType.广目天王 },
+            { PropType.持国天王元神, HeroType.持国天王 },
+            { PropType.雷震子元神, HeroType.雷震子 },
+            { PropType.月老元神, HeroType.月老 },
+            { PropType.嫦娥元神, HeroType.嫦娥 },
+            { PropType.何仙姑元神, HeroType.何仙姑 },
+            { PropType.杨戬元神, HeroType.杨戬 },
+            { PropType.妲己元神, HeroType.妲己 },
+            { PropType.牛魔王元神, HeroType.牛魔王 },
+            { PropType.哪吒元神, HeroType.哪吒 },
+            { PropType.孙悟空元神, HeroType.孙悟空 },
+            { PropType.刑天元神, HeroType.刑天 },
+            { PropType.碧霄元神, HeroType.碧霄 },
+            { PropType.琼霄元神, HeroType.琼霄 },
+            { PropType.金灵圣母元神, HeroType.金灵圣母 },
+            { PropType.羲和元神, HeroType.羲和 },
+            { PropType.常羲元神, HeroType.常羲 },
+            { PropType.后羿元神, HeroType.后羿 },
+            { PropType.云霄元神, HeroType.云霄 },
+            { PropType.女娲元神, HeroType.女娲 },
+            { PropType.接引元神, HeroType.接引 },
+            { PropType.准提元神, HeroType.准提 },
+            { PropType.老子元神, HeroType.老子 },
+            { PropType.通天元神, HeroType.通天 },
+            { PropType.元始元神, HeroType.元始 },
+        };
+
         public static Dictionary<PropType, string> PropNameDic = new Dictionary<PropType, string>()
         {
             { PropType.None, "" },
@@ -289,78 +344,78 @@ namespace Config
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
         {
             { PropType.None, QualityType.None },
-            { PropType.洗练石, QualityType.地 },
-            { PropType.全职业经验值, QualityType.天 },
-            { PropType.领主经验值, QualityType.地 },
-            { PropType.射手经验值, QualityType.地 },
-            { PropType.战士经验值, QualityType.地 },
-            { PropType.辅助经验值, QualityType.地 },
-            { PropType.控制经验值, QualityType.地 },
-            { PropType.法师经验值, QualityType.地 },
-            { PropType.衣服锻造石, QualityType.地 },
-            { PropType.鞋子锻造石, QualityType.地 },
-            { PropType.头盔锻造石, QualityType.地 },
-            { PropType.护手锻造石, QualityType.地 },
-            { PropType.项链锻造石, QualityType.地 },
-            { PropType.戒指锻造石, QualityType.地 },
-            { PropType.招募卷, QualityType.地 },
-            { PropType.高级招募卷, QualityType.宇 },
-            { PropType.灵魂, QualityType.地 },
-            { PropType.功德, QualityType.宇 },
+            { PropType.洗练石, QualityType.地品 },
+            { PropType.全职业经验值, QualityType.天品 },
+            { PropType.领主经验值, QualityType.地品 },
+            { PropType.射手经验值, QualityType.地品 },
+            { PropType.战士经验值, QualityType.地品 },
+            { PropType.辅助经验值, QualityType.地品 },
+            { PropType.控制经验值, QualityType.地品 },
+            { PropType.法师经验值, QualityType.地品 },
+            { PropType.衣服锻造石, QualityType.地品 },
+            { PropType.鞋子锻造石, QualityType.地品 },
+            { PropType.头盔锻造石, QualityType.地品 },
+            { PropType.护手锻造石, QualityType.地品 },
+            { PropType.项链锻造石, QualityType.地品 },
+            { PropType.戒指锻造石, QualityType.地品 },
+            { PropType.招募卷, QualityType.地品 },
+            { PropType.高级招募卷, QualityType.宇品 },
+            { PropType.灵魂, QualityType.地品 },
+            { PropType.功德, QualityType.宇品 },
             // 白色 -> 黄
-            { PropType.丹童元神, QualityType.黄 },
-            { PropType.青童元神, QualityType.黄 },
-            { PropType.土地元神, QualityType.黄 },
-            { PropType.河伯元神, QualityType.黄 },
-            { PropType.瑶池仙女元神, QualityType.黄 },
-            { PropType.精卫元神, QualityType.黄 },
+            { PropType.丹童元神, QualityType.黄品 },
+            { PropType.青童元神, QualityType.黄品 },
+            { PropType.土地元神, QualityType.黄品 },
+            { PropType.河伯元神, QualityType.黄品 },
+            { PropType.瑶池仙女元神, QualityType.黄品 },
+            { PropType.精卫元神, QualityType.黄品 },
 
             // 绿色 -> 玄
-            { PropType.石敢当元神, QualityType.玄 },
-            { PropType.玄女元神, QualityType.玄 },
-            { PropType.龟丞相元神, QualityType.玄 },
-            { PropType.太白金星元神, QualityType.玄 },
-            { PropType.孟婆元神, QualityType.玄 },
-            { PropType.白素贞元神, QualityType.玄 },
+            { PropType.石敢当元神, QualityType.玄品 },
+            { PropType.玄女元神, QualityType.玄品 },
+            { PropType.龟丞相元神, QualityType.玄品 },
+            { PropType.太白金星元神, QualityType.玄品 },
+            { PropType.孟婆元神, QualityType.玄品 },
+            { PropType.白素贞元神, QualityType.玄品 },
 
             // 蓝色 -> 地
-            { PropType.多闻天王元神, QualityType.地 },
-            { PropType.增长天王元神, QualityType.地 },
-            { PropType.广目天王元神, QualityType.地 },
-            { PropType.持国天王元神, QualityType.地 },
-            { PropType.雷震子元神, QualityType.地 },
-            { PropType.月老元神, QualityType.地 },
+            { PropType.多闻天王元神, QualityType.地品 },
+            { PropType.增长天王元神, QualityType.地品 },
+            { PropType.广目天王元神, QualityType.地品 },
+            { PropType.持国天王元神, QualityType.地品 },
+            { PropType.雷震子元神, QualityType.地品 },
+            { PropType.月老元神, QualityType.地品 },
 
             // 紫色 -> 天
-            { PropType.嫦娥元神, QualityType.天 },
-            { PropType.何仙姑元神, QualityType.天 },
-            { PropType.杨戬元神, QualityType.天 },
-            { PropType.妲己元神, QualityType.天 },
-            { PropType.牛魔王元神, QualityType.天 },
+            { PropType.嫦娥元神, QualityType.天品 },
+            { PropType.何仙姑元神, QualityType.天品 },
+            { PropType.杨戬元神, QualityType.天品 },
+            { PropType.妲己元神, QualityType.天品 },
+            { PropType.牛魔王元神, QualityType.天品 },
 
             // 橙色 -> 宇
-            { PropType.哪吒元神, QualityType.宇 },
-            { PropType.孙悟空元神, QualityType.宇 },
-            { PropType.刑天元神, QualityType.宇 },
-            { PropType.碧霄元神, QualityType.宇 },
-            { PropType.琼霄元神, QualityType.宇 },
+            { PropType.哪吒元神, QualityType.宇品 },
+            { PropType.孙悟空元神, QualityType.宇品 },
+            { PropType.刑天元神, QualityType.宇品 },
+            { PropType.碧霄元神, QualityType.宇品 },
+            { PropType.琼霄元神, QualityType.宇品 },
 
             // 粉色 -> 宙
-            { PropType.金灵圣母元神, QualityType.宙 },
-            { PropType.羲和元神, QualityType.宙 },
-            { PropType.常羲元神, QualityType.宙 },
-            { PropType.后羿元神, QualityType.宙 },
-            { PropType.云霄元神, QualityType.宙 },
+            { PropType.金灵圣母元神, QualityType.宙品 },
+            { PropType.羲和元神, QualityType.宙品 },
+            { PropType.常羲元神, QualityType.宙品 },
+            { PropType.后羿元神, QualityType.宙品 },
+            { PropType.云霄元神, QualityType.宙品 },
 
             // 红色 -> 洪
-            { PropType.女娲元神, QualityType.洪 },
-            { PropType.接引元神, QualityType.洪 },
-            { PropType.准提元神, QualityType.洪 },
+            { PropType.女娲元神, QualityType.洪品 },
+            { PropType.接引元神, QualityType.洪品 },
+            { PropType.准提元神, QualityType.洪品 },
 
             // 彩色 -> 荒
-            { PropType.老子元神, QualityType.荒 },
-            { PropType.通天元神, QualityType.荒 },
-            { PropType.元始元神, QualityType.荒 }
+            { PropType.老子元神, QualityType.荒品 },
+            { PropType.通天元神, QualityType.荒品 },
+            { PropType.元始元神, QualityType.荒品 }
         };
     }
 }

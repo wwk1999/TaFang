@@ -13,198 +13,269 @@ namespace Config
 
     public class ZhaoMuConfig
     {
-        public static Dictionary<JingJieType, HashSet<ZhaoMuItem>> ZhaoMuGaiLvNormalDic =
-            new Dictionary<JingJieType, HashSet<ZhaoMuItem>>()
+        public static Dictionary<PropType, int> 招募商店价格Dic = new Dictionary<PropType, int>()
+        {
+            // 黄品价格 = 5
+            { PropType.丹童元神, 5 },
+            { PropType.青童元神, 5 },
+            { PropType.土地元神, 5 },
+            { PropType.河伯元神, 5 },
+            { PropType.瑶池仙女元神, 5 },
+            { PropType.精卫元神, 5 },
+
+            // 玄品价格 = 10
+            { PropType.石敢当元神, 10 },
+            { PropType.玄女元神, 10 },
+            { PropType.龟丞相元神, 10 },
+            { PropType.太白金星元神, 10 },
+            { PropType.孟婆元神, 10 },
+            { PropType.白素贞元神, 10 },
+
+            // 地品价格 = 20
+            { PropType.多闻天王元神, 20 },
+            { PropType.增长天王元神, 20 },
+            { PropType.广目天王元神, 20 },
+            { PropType.持国天王元神, 20 },
+            { PropType.雷震子元神, 20 },
+            { PropType.月老元神, 20 },
+
+            // 天品价格 = 40
+            { PropType.嫦娥元神, 40 },
+            { PropType.何仙姑元神, 40 },
+            { PropType.杨戬元神, 40 },
+            { PropType.妲己元神, 40 },
+            { PropType.牛魔王元神, 40 },
+
+            // 宇品价格 = 80
+            { PropType.哪吒元神, 80 },
+            { PropType.孙悟空元神, 80 },
+            { PropType.刑天元神, 80 },
+            { PropType.碧霄元神, 80 },
+            { PropType.琼霄元神, 80 },
+
+            // 宙品价格 = 160
+            { PropType.金灵圣母元神, 160 },
+            { PropType.羲和元神, 160 },
+            { PropType.常羲元神, 160 },
+            { PropType.后羿元神, 160 },
+            { PropType.云霄元神, 160 },
+
+            // 洪品价格 = 320
+            { PropType.女娲元神, 320 },
+            { PropType.接引元神, 320 },
+            { PropType.准提元神, 320 },
+
+            // 荒品价格 = 640
+            { PropType.老子元神, 640 },
+            { PropType.通天元神, 640 },
+            { PropType.元始元神, 640 }
+        };
+        
+        public static Dictionary<JingJieType, List<ZhaoMuItem>> ZhaoMuGaiLvNormalDic =
+            new Dictionary<JingJieType, List<ZhaoMuItem>>()
             {
                 {
                     JingJieType.练气,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 75 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 25 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 75 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 25 }
                     }
                 },
 
                 {
                     JingJieType.筑基,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 60 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 40 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 60 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 40 }
                     }
                 },
 
                 {
                     JingJieType.金丹,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 50 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 10 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 50 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 10 }
                     }
                 },
 
                 {
                     JingJieType.元婴,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 15 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 15 }
                     }
                 },
 
                 {
                     JingJieType.化神,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 50 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 20 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 50 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 20 }
                     }
                 },
 
                 {
                     JingJieType.合体,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 50 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 5 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 50 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 5 }
                     }
                 },
 
                 {
                     JingJieType.大乘,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 10 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 10 }
                     }
                 },
 
                 {
                     JingJieType.天仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 15 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 15 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 15 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 15 }
                     }
                 },
 
                 {
                     JingJieType.玄仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 20 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 20 }
                     }
                 },
 
                 {
                     JingJieType.金仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 32 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 3 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 32 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 3 }
                     }
                 },
 
                 {
                     JingJieType.太乙金仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 5 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 5 }
                     }
                 },
 
                 {
                     JingJieType.大罗金仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 5 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 15 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 42 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 8 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 5 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 15 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 42 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 8 }
                     }
                 },
 
                 {
                     JingJieType.准圣,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 3 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 12 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 3 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 12 }
                     }
                 },
 
                 {
                     JingJieType.圣人,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 3 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 16 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 3 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 16 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 1 },
                     }
                 },
 
                 {
                     JingJieType.天道圣人,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 2 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 3 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 3 },
                     }
                 },
 
                 {
                     JingJieType.大道圣人,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 2 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 8 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 16 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 24 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 5 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 8 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 16 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 24 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 5 },
                     }
                 },
 
                 {
-                    JingJieType.鸿蒙,
-                    new HashSet<ZhaoMuItem>()
+                    JingJieType.混元圣人,
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 4 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 12 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 8 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 12 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 8 },
+                    }
+                },
+                
+                {
+                    JingJieType.鸿蒙,
+                    new List<ZhaoMuItem>()
+                    {
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 5 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 12 },
                     }
                 },
             };
@@ -215,220 +286,236 @@ namespace Config
 
 
 
-        public static Dictionary<JingJieType, HashSet<ZhaoMuItem>> ZhaoMuGaiLvGaoJiDic =
-            new Dictionary<JingJieType, HashSet<ZhaoMuItem>>()
+        public static Dictionary<JingJieType, List<ZhaoMuItem>> ZhaoMuGaiLvGaoJiDic =
+            new Dictionary<JingJieType, List<ZhaoMuItem>>()
             {
                 {
                     JingJieType.练气,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 50 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 5 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 50 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 5 }
                     }
                 },
 
                 {
                     JingJieType.筑基,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 10 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 10 }
                     }
                 },
 
                 {
                     JingJieType.金丹,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 15 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 15 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 15 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 15 }
                     }
                 },
 
                 {
                     JingJieType.元婴,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 20 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 20 }
                     }
                 },
 
                 {
                     JingJieType.化神,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 32 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 3 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 32 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 3 }
                     }
                 },
 
                 {
                     JingJieType.合体,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 5 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 5 }
                     }
                 },
 
                 {
                     JingJieType.大乘,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 5 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 15 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 42 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 8 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 5 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 15 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 42 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 8 }
                     }
                 },
 
                 {
                     JingJieType.天仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 3 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 12 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 3 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 12 }
                     }
                 },
 
                 {
                     JingJieType.玄仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 3 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 16 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 3 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 16 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 1 },
                     }
                 },
 
                 {
                     JingJieType.金仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 2 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 3 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 20 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 3 },
                     }
                 },
 
                 {
                     JingJieType.太乙金仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 2 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 8 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 16 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 24 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 5 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 8 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 16 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 24 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 5 },
                     }
                 },
 
                 {
                     JingJieType.大罗金仙,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 4 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 12 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 8 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 12 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 45 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 8 },
                     }
                 },
 
                 {
                     JingJieType.准圣,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 4 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 13 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 12 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 13 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 12 },
                     }
                 },
 
                 {
                     JingJieType.圣人,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 4 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 13 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 15 },
-                        new ZhaoMuItem() { type = QualityType.洪, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 13 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 15 },
+                        new ZhaoMuItem() { type = QualityType.洪品, count = 2 },
                     }
                 },
 
                 {
                     JingJieType.天道圣人,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 4 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 13 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 35 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 18 },
-                        new ZhaoMuItem() { type = QualityType.洪, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 13 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 18 },
+                        new ZhaoMuItem() { type = QualityType.洪品, count = 4 },
                     }
                 },
 
                 {
                     JingJieType.大道圣人,
-                    new HashSet<ZhaoMuItem>()
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 2 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 10 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 21 },
-                        new ZhaoMuItem() { type = QualityType.洪, count = 6 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 21 },
+                        new ZhaoMuItem() { type = QualityType.洪品, count = 6 },
                     }
                 },
 
                 {
-                    JingJieType.鸿蒙,
-                    new HashSet<ZhaoMuItem>()
+                    JingJieType.混元圣人,
+                    new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄, count = 1 },
-                        new ZhaoMuItem() { type = QualityType.玄, count = 2 },
-                        new ZhaoMuItem() { type = QualityType.地, count = 9 },
-                        new ZhaoMuItem() { type = QualityType.天, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.宇, count = 30 },
-                        new ZhaoMuItem() { type = QualityType.宙, count = 24 },
-                        new ZhaoMuItem() { type = QualityType.洪, count = 8 },
-                        new ZhaoMuItem() { type = QualityType.荒, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 9 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 25 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 24 },
+                        new ZhaoMuItem() { type = QualityType.洪品, count = 8 },
+                        new ZhaoMuItem() { type = QualityType.荒品, count = 1 },
+                    }
+                },
+                
+                
+                {
+                    JingJieType.鸿蒙,
+                    new List<ZhaoMuItem>()
+                    {
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 1 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 2 },
+                        new ZhaoMuItem() { type = QualityType.地品, count = 4 },
+                        new ZhaoMuItem() { type = QualityType.天品, count = 15 },
+                        new ZhaoMuItem() { type = QualityType.宇品, count = 30 },
+                        new ZhaoMuItem() { type = QualityType.宙品, count = 35 },
+                        new ZhaoMuItem() { type = QualityType.洪品, count = 10 },
+                        new ZhaoMuItem() { type = QualityType.荒品, count = 3 },
                     }
                 },
             };
@@ -436,7 +523,7 @@ namespace Config
 
         public static PropType NormalZhaoMu()
         {
-            HashSet<ZhaoMuItem> list = ZhaoMuGaiLvNormalDic[PlayerData.S.JingJieType];
+            List<ZhaoMuItem> list = ZhaoMuGaiLvNormalDic[PlayerData.S.JingJieType];
             int random=Random.Range(1, 101);
             int count = 0;
             int quality = 1;
@@ -451,14 +538,14 @@ namespace Config
             }
             QualityType qualityType=(QualityType)quality;
             List<HeroType> herolist=HeroConfig.QualityHeroDic[qualityType].ToList();
-            HeroType randomHero = herolist[Random.Range(0, list.Count)];
-            return HeroConfig.HeroYuanShenDic[randomHero];
+            HeroType randomHero = herolist[Random.Range(0, herolist.Count)];
+            return HeroConfig.HeroToPropDic[randomHero];
         }
         
         
         public static PropType GaoJiZhaoMu()
         {
-            HashSet<ZhaoMuItem> list = ZhaoMuGaiLvGaoJiDic[PlayerData.S.JingJieType];
+            List<ZhaoMuItem> list = ZhaoMuGaiLvGaoJiDic[PlayerData.S.JingJieType];
             int random=Random.Range(1, 101);
             int count = 0;
             int quality = 1;
@@ -474,7 +561,7 @@ namespace Config
             QualityType qualityType=(QualityType)quality;
             List<HeroType> herolist=HeroConfig.QualityHeroDic[qualityType].ToList();
             HeroType randomHero = herolist[Random.Range(0, list.Count)];
-            return HeroConfig.HeroYuanShenDic[randomHero];
+            return HeroConfig.HeroToPropDic[randomHero];
         }
     }
 }

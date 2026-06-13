@@ -1,9 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //招募
+    public static Sprite 招募概率按钮亮;
+    public static Sprite 招募概率按钮暗;
+
+    //品质标签
+    public static Sprite 品质标签白;
+    public static Sprite 品质标签绿;
+    public static Sprite 品质标签蓝;
+    public static Sprite 品质标签紫;
+    public static Sprite 品质标签橙;
+    public static Sprite 品质标签粉;
+    public static Sprite 品质标签红;
+    public static Sprite 品质标签彩;
    //人物背景框
    public static Sprite 人物背景框白;
    public static Sprite 人物背景框绿;
@@ -191,8 +205,7 @@ public class ResourcesConfig : MonoBehaviour
    public static Sprite MengPo;
    public static Sprite BaiSuZhen;
 
-
-
+   
    //蓝
    public static Sprite DuoWenTianWang;
    public static Sprite ZengZhangTianWang;
@@ -233,8 +246,123 @@ public class ResourcesConfig : MonoBehaviour
    public static Sprite TongTian;
    public static Sprite YuanShi;
 
+   public static Sprite GetHeroSprite(HeroType type)
+{
+    switch (type)
+    {
+        // 白色（黄品）
+        case HeroType.丹童:
+            return DanTong;
+        case HeroType.青童:
+            return QinTong;
+        case HeroType.土地:
+            return TuDi;
+        case HeroType.河伯:
+            return HeBo;
+        case HeroType.瑶池仙女:
+            return YaoChiXianNv;
+        case HeroType.精卫:
+            return JingWei;
+
+        // 绿色（玄品）
+        case HeroType.石敢当:
+            return ShiGanDang;
+        case HeroType.玄女:
+            return XuanNv;
+        case HeroType.龟丞相:
+            return GuiChengXiang;
+        case HeroType.太白金星:
+            return TaiBaiJinXing;
+        case HeroType.孟婆:
+            return MengPo;
+        case HeroType.白素贞:
+            return BaiSuZhen;
+
+        // 蓝色（地品）
+        case HeroType.多闻天王:
+            return DuoWenTianWang;
+        case HeroType.增长天王:
+            return ZengZhangTianWang;
+        case HeroType.广目天王:
+            return GuangMuTianWang;
+        case HeroType.持国天王:
+            return ChiGuoTianWang;
+        case HeroType.雷震子:
+            return LeiZhengZi;
+        case HeroType.月老:
+            return YueLao;
+
+        // 紫色（天品）
+        case HeroType.嫦娥:
+            return ChangE;
+        case HeroType.何仙姑:
+            return HeXianGu;
+        case HeroType.杨戬:
+            return YangJian;
+        case HeroType.妲己:
+            return DanJi;
+        case HeroType.牛魔王:
+            return NiuMoWang;
+
+        // 橙色（宇品）
+        case HeroType.哪吒:
+            return NeZha;
+        case HeroType.孙悟空:
+            return SunWuKong;
+        case HeroType.刑天:
+            return XingTian;
+        case HeroType.碧霄:
+            return BiXiao;
+        case HeroType.琼霄:
+            return QiongXiao;
+
+        // 粉色（宙品）
+        case HeroType.金灵圣母:
+            return JingLingShengMu;
+        case HeroType.羲和:
+            return XiHe;
+        case HeroType.常羲:
+            return ChangXi;
+        case HeroType.后羿:
+            return HouYi;
+        case HeroType.云霄:
+            return YunXiao;
+
+        // 红色（洪品）
+        case HeroType.女娲:
+            return NvWa;
+        case HeroType.接引:
+            return JieYing;
+        case HeroType.准提:
+            return ZhunTi;
+
+        // 彩色（荒品）
+        case HeroType.老子:
+            return LaoZi;
+        case HeroType.通天:
+            return TongTian;
+        case HeroType.元始:
+            return YuanShi;
+
+        default:
+            return null;
+    }
+}
+   
    public static void Init()
    {
+       招募概率按钮亮= Resources.Load<Sprite>("Sprite/招募/招募概率按钮亮");
+       招募概率按钮暗= Resources.Load<Sprite>("Sprite/招募/招募概率按钮暗");
+
+       //品质标签
+       品质标签白= Resources.Load<Sprite>("Sprite/品质标签/白");
+       品质标签绿= Resources.Load<Sprite>("Sprite/品质标签/绿");
+       品质标签蓝= Resources.Load<Sprite>("Sprite/品质标签/蓝");
+       品质标签紫= Resources.Load<Sprite>("Sprite/品质标签/紫");
+       品质标签橙= Resources.Load<Sprite>("Sprite/品质标签/橙");
+       品质标签粉= Resources.Load<Sprite>("Sprite/品质标签/粉");
+       品质标签红= Resources.Load<Sprite>("Sprite/品质标签/红");
+       品质标签彩= Resources.Load<Sprite>("Sprite/品质标签/彩");
       //人物背景框
       人物背景框白= Resources.Load<Sprite>("Sprite/人物背景框/白");
       人物背景框绿= Resources.Load<Sprite>("Sprite/人物背景框/绿");
@@ -429,11 +557,11 @@ public class ResourcesConfig : MonoBehaviour
       //蓝
       DuoWenTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[0];
       ZengZhangTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[2];
-      GuangMuTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[6];
+      GuangMuTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[5];
       ChiGuoTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[1];
       LeiZhengZi = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[7];
-      ChangE = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[1];
-      HeXianGu = Resources.LoadAll<Sprite>("Sprite/RenWu/女2")[5];
+      ChangE = Resources.LoadAll<Sprite>("Sprite/RenWu/女2")[5];
+      HeXianGu = Resources.LoadAll<Sprite>("Sprite/RenWu/女1")[5];
 
 
 
