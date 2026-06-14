@@ -14,7 +14,10 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
         if (HeroWindowController.S.IsDrag)
         {
-            image.color=Color.gray;
+            if (heroItem.HeroType != HeroType.None)
+            {
+                image.color=Color.gray;
+            }
             HeroWindowController.S.IsJiaoHuan = true;
         }
     }
@@ -22,14 +25,20 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         HeroWindowController.S.IsJiaoHuan = false;
-        image.color=Color.white;
+        if (heroItem.HeroType != HeroType.None)
+        {
+            image.color=Color.white;
+        }
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
         {
-            image.color=Color.white;
+            if (heroItem.HeroType != HeroType.None)
+            {
+                image.color=Color.white;
+            }
             if (HeroWindowController.S.IsJiaoHuan)
             {
                 for (int i = 0; i < 5; i++)

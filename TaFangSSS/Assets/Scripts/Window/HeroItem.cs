@@ -39,6 +39,14 @@ public class HeroItem : MonoBehaviour
       交换.gameObject.SetActive(false);
       锁.SetActive(IsSuo);
       image.gameObject.SetActive(!IsSuo);
+      if (HeroType == HeroType.None)
+      {
+         image.color=new Color32(255, 255, 255, 0);
+      }
+      else
+      {
+         image.color=new Color32(255, 255, 255, 255);
+      }
       if (!IsSuo)
       {
          tip.gameObject.SetActive(false);

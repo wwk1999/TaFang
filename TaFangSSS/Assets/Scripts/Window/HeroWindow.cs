@@ -30,7 +30,10 @@ public class HeroWindow : MonoBehaviour
       list=(List<HeroType>)obj[0];
       foreach (var item in list)
       {
-         HeroList[item].SetItem();
+         if (item != HeroType.None)
+         {
+             HeroList[item].SetItem();
+         }
       }
       SetHeroListOrder();
    }
@@ -46,7 +49,7 @@ public class HeroWindow : MonoBehaviour
       {
          count++;
          var HeroItem=Instantiate(Resources.Load("Prefabs/Window/HeroItem"),HeroPanelContent.transform).GetComponent<HeroItem>();
-         if (item == HeroType.None)
+         if (PlayerData.S.JingJieType<(JingJieType)count)
          {
             HeroItem.IsSuo = true;
          }
