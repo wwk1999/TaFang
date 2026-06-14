@@ -67,9 +67,35 @@ public class ZhaoMuWindow : MonoBehaviour
          Is10 = Toggle.isOn;
          ResetCount();
       });
+      退出按钮.onClick.AddListener(() =>
+      {
+         gameObject.SetActive(false);
+      });
+      高级招募按钮.onClick.AddListener(() =>
+      {
+         招募成功弹窗.IsGaoJi = true;
+         if (!Is10)
+         {
+            招募成功弹窗.Is10 = false;
+            PropType propType = ZhaoMuConfig.GaoJiZhaoMu();
+            招募成功弹窗.Item1Type = propType;
+            招募成功弹窗.gameObject.SetActive(true);
+         }
+         else
+         {
+            招募成功弹窗.Is10 = true;
+            招募成功弹窗.list.Clear();
+            for (int i = 0; i < 10; i++)
+            {
+               招募成功弹窗.list[i]=ZhaoMuConfig.GaoJiZhaoMu();
+            }
+            招募成功弹窗.gameObject.SetActive(true);
+         }
+      });
 
       普通招募按钮.onClick.AddListener(() =>
       {
+         招募成功弹窗.IsGaoJi = false;
          if (!Is10)
          {
             招募成功弹窗.Is10 = false;

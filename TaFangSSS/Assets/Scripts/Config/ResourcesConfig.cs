@@ -18,15 +18,25 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 品质标签粉;
     public static Sprite 品质标签红;
     public static Sprite 品质标签彩;
+   //UI人物背景框
+   public static Sprite UI人物背景框白;
+   public static Sprite UI人物背景框绿;
+   public static Sprite UI人物背景框蓝;
+   public static Sprite UI人物背景框紫;
+   public static Sprite UI人物背景框橙;
+   public static Sprite UI人物背景框粉;
+   public static Sprite UI人物背景框红;
+   public static Sprite UI人物背景框彩;
+   
    //人物背景框
-   public static Sprite 人物背景框白;
-   public static Sprite 人物背景框绿;
-   public static Sprite 人物背景框蓝;
-   public static Sprite 人物背景框紫;
-   public static Sprite 人物背景框橙;
-   public static Sprite 人物背景框粉;
-   public static Sprite 人物背景框红;
-   public static Sprite 人物背景框彩;
+   public static Sprite 战斗人物背景框白;
+   public static Sprite 战斗人物背景框绿;
+   public static Sprite 战斗人物背景框蓝;
+   public static Sprite 战斗人物背景框紫;
+   public static Sprite 战斗人物背景框橙;
+   public static Sprite 战斗人物背景框粉;
+   public static Sprite 战斗人物背景框红;
+   public static Sprite 战斗人物背景框彩;
    
    //道具背景框
    public static Sprite 道具背景框白;
@@ -45,6 +55,12 @@ public class ResourcesConfig : MonoBehaviour
 
    //道具图片
    // 道具icon
+   public static Sprite 辅助;
+   public static Sprite 射手;
+   public static Sprite 控制;
+   public static Sprite 战士;
+   public static Sprite 法师;
+
    public static Sprite 全职业经验值;
    public static Sprite 功德;
    public static Sprite 头盔锻造石;
@@ -363,15 +379,25 @@ public class ResourcesConfig : MonoBehaviour
        品质标签粉= Resources.Load<Sprite>("Sprite/品质标签/粉");
        品质标签红= Resources.Load<Sprite>("Sprite/品质标签/红");
        品质标签彩= Resources.Load<Sprite>("Sprite/品质标签/彩");
-      //人物背景框
-      人物背景框白= Resources.Load<Sprite>("Sprite/人物背景框/白");
-      人物背景框绿= Resources.Load<Sprite>("Sprite/人物背景框/绿");
-      人物背景框蓝= Resources.Load<Sprite>("Sprite/人物背景框/蓝");
-      人物背景框紫= Resources.Load<Sprite>("Sprite/人物背景框/紫");
-      人物背景框橙= Resources.Load<Sprite>("Sprite/人物背景框/橙");
-      人物背景框粉= Resources.Load<Sprite>("Sprite/人物背景框/粉");
-      人物背景框红= Resources.Load<Sprite>("Sprite/人物背景框/红");
-      人物背景框彩= Resources.Load<Sprite>("Sprite/人物背景框/彩");
+      //战斗人物背景框
+      战斗人物背景框白= Resources.Load<Sprite>("Sprite/战斗人物背景框/白");
+      战斗人物背景框绿= Resources.Load<Sprite>("Sprite/战斗人物背景框/绿");
+      战斗人物背景框蓝= Resources.Load<Sprite>("Sprite/战斗人物背景框/蓝");
+      战斗人物背景框紫= Resources.Load<Sprite>("Sprite/战斗人物背景框/紫");
+      战斗人物背景框橙= Resources.Load<Sprite>("Sprite/战斗人物背景框/橙");
+      战斗人物背景框粉= Resources.Load<Sprite>("Sprite/战斗人物背景框/粉");
+      战斗人物背景框红= Resources.Load<Sprite>("Sprite/战斗人物背景框/红");
+      战斗人物背景框彩= Resources.Load<Sprite>("Sprite/战斗人物背景框/彩");
+      
+      //UI人物背景框
+      UI人物背景框白= Resources.Load<Sprite>("Sprite/UI人物背景框/白");
+      UI人物背景框绿= Resources.Load<Sprite>("Sprite/UI人物背景框/绿");
+      UI人物背景框蓝= Resources.Load<Sprite>("Sprite/UI人物背景框/蓝");
+      UI人物背景框紫= Resources.Load<Sprite>("Sprite/UI人物背景框/紫");
+      UI人物背景框橙= Resources.Load<Sprite>("Sprite/UI人物背景框/橙");
+      UI人物背景框粉= Resources.Load<Sprite>("Sprite/UI人物背景框/粉");
+      UI人物背景框红= Resources.Load<Sprite>("Sprite/UI人物背景框/红");
+      UI人物背景框彩= Resources.Load<Sprite>("Sprite/UI人物背景框/彩");
       
       //道具背景框
       道具背景框白= Resources.Load<Sprite>("Sprite/道具背景框/白");
@@ -394,16 +420,21 @@ public class ResourcesConfig : MonoBehaviour
       功德 = Resources.Load<Sprite>("Sprite/DaoJu/功德");
       头盔锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/头盔锻造石");
       射手经验值 = Resources.Load<Sprite>("Sprite/DaoJu/射手经验值");
+      射手 = Resources.Load<Sprite>("Sprite/DaoJu/射手");
       戒指锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/戒指锻造石");
       战士经验值 = Resources.Load<Sprite>("Sprite/DaoJu/战士经验值");
+      战士 = Resources.Load<Sprite>("Sprite/DaoJu/战士");
       护手锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/护手锻造石");
       招募卷 = Resources.Load<Sprite>("Sprite/DaoJu/招募卷");
       控制经验值 = Resources.Load<Sprite>("Sprite/DaoJu/控制经验值");
       法师经验值 = Resources.Load<Sprite>("Sprite/DaoJu/法师经验值");
+      控制 = Resources.Load<Sprite>("Sprite/DaoJu/控制");
+      法师= Resources.Load<Sprite>("Sprite/DaoJu/法师");
       洗练石 = Resources.Load<Sprite>("Sprite/DaoJu/洗练石");
       灵魂 = Resources.Load<Sprite>("Sprite/DaoJu/灵魂");
       衣服锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/衣服锻造石");
       辅助经验值 = Resources.Load<Sprite>("Sprite/DaoJu/辅助经验值");
+      辅助 = Resources.Load<Sprite>("Sprite/DaoJu/辅助");
       鞋子锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/鞋子锻造石");
       项链锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/项链锻造石");
       领主经验值 = Resources.Load<Sprite>("Sprite/DaoJu/领主经验值");

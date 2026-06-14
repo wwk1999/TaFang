@@ -23,7 +23,7 @@ public class 招募商店兑换弹窗 : MonoBehaviour
 
    public void DuiHuan()
    {
-      PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[Type]].Exp+=count;
+      PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[Type]].元神+=count;
       ObserverModuleManager.S.SendEvent("SendUIToast","兑换成功");
    }
    private void Start()

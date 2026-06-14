@@ -5,7 +5,17 @@ namespace Config
     public class HeroData
     {
         public int Level;
-        public int Exp;
+        public int 元神;
+    }
+
+    public enum ZhiYeType
+    {
+        None,
+        战士,
+        射手,
+        辅助,
+        控制,
+        法师,
     }
 
     public enum HeroType
@@ -52,8 +62,52 @@ namespace Config
         元始
     }
 
+    public class HeroExp
+    {
+        public int 元神;
+        public int Exp;
+    }
+
     public class HeroConfig
     {
+        public static Dictionary<int, HeroExp> HeroExpDic = new Dictionary<int, HeroExp>()
+        {
+            {0,new HeroExp(){元神 = 1,Exp = 10}},
+            {1,new HeroExp(){元神 = 1,Exp = 10}},
+            {2,new HeroExp(){元神 = 1,Exp = 15}},
+            {3,new HeroExp(){元神 = 1,Exp = 20}},
+            {4,new HeroExp(){元神 = 1,Exp = 25}},
+
+            {5,new HeroExp(){元神 = 2,Exp = 30}},
+            {6,new HeroExp(){元神 = 2,Exp = 35}},
+            {7,new HeroExp(){元神 = 2,Exp = 40}},
+            {8,new HeroExp(){元神 = 2,Exp = 45}},
+            {9,new HeroExp(){元神 = 2,Exp = 50}},
+            
+            {10,new HeroExp(){元神 = 3,Exp = 60}},
+            {11,new HeroExp(){元神 = 3,Exp = 70}},
+            {12,new HeroExp(){元神 = 3,Exp = 80}},
+            {13,new HeroExp(){元神 = 3,Exp = 90}},
+            {14,new HeroExp(){元神 = 3,Exp = 100}},
+
+            {15,new HeroExp(){元神 = 4,Exp = 120}},
+            {16,new HeroExp(){元神 = 4,Exp = 140}},
+            {17,new HeroExp(){元神 = 4,Exp = 160}},
+            {18,new HeroExp(){元神 = 4,Exp = 180}},
+            {19,new HeroExp(){元神 = 4,Exp = 200}},
+
+            {20,new HeroExp(){元神 = 5,Exp = 220}},
+            {21,new HeroExp(){元神 = 5,Exp = 240}},
+            {22,new HeroExp(){元神 = 5,Exp = 260}},
+            {23,new HeroExp(){元神 = 5,Exp = 280}},
+            {24,new HeroExp(){元神 = 5,Exp = 300}},
+            
+            {25,new HeroExp(){元神 = 6,Exp = 350}},
+            {26,new HeroExp(){元神 = 6,Exp = 400}},
+            {27,new HeroExp(){元神 = 6,Exp = 450}},
+            {28,new HeroExp(){元神 = 6,Exp = 500}},
+            {29,new HeroExp(){元神 = 6,Exp = 500}},
+        };
         public static Dictionary<HeroType, string> HeroNameDic = new Dictionary<HeroType, string>()
         {
             { HeroType.丹童, "丹童" },
@@ -140,6 +194,56 @@ namespace Config
             { HeroType.元始, PropType.元始元神 },
         };
 
+        public static Dictionary<HeroType, ZhiYeType> HeroZhiYeDic = new Dictionary<HeroType, ZhiYeType>()
+        {
+            { HeroType.丹童 ,ZhiYeType.射手},
+            { HeroType.青童 ,ZhiYeType.战士},
+            { HeroType.土地 ,ZhiYeType.控制},
+            { HeroType.河伯 ,ZhiYeType.法师},
+            { HeroType.瑶池仙女 ,ZhiYeType.辅助},
+            { HeroType.精卫 ,ZhiYeType.法师},
+            
+            { HeroType.石敢当 ,ZhiYeType.战士},
+            { HeroType.玄女 ,ZhiYeType.法师},
+            { HeroType.龟丞相 ,ZhiYeType.控制},
+            { HeroType.太白金星 ,ZhiYeType.射手},
+            { HeroType.孟婆 ,ZhiYeType.辅助},
+            { HeroType.白素贞 ,ZhiYeType.法师},
+            
+            { HeroType.增长天王 ,ZhiYeType.战士},
+            { HeroType.多闻天王 ,ZhiYeType.射手},
+            { HeroType.广目天王 ,ZhiYeType.战士},
+            { HeroType.持国天王 ,ZhiYeType.控制},
+            { HeroType.雷震子 ,ZhiYeType.法师},
+            { HeroType.月老 ,ZhiYeType.射手},
+            
+            { HeroType.嫦娥 ,ZhiYeType.法师},
+            { HeroType.何仙姑 ,ZhiYeType.辅助},
+            { HeroType.杨戬 ,ZhiYeType.射手},
+            { HeroType.妲己 ,ZhiYeType.法师},
+            { HeroType.牛魔王 ,ZhiYeType.战士},
+            
+            { HeroType.哪吒 ,ZhiYeType.战士},
+            { HeroType.孙悟空 ,ZhiYeType.战士},
+            { HeroType.刑天 ,ZhiYeType.战士},
+            { HeroType.碧霄 ,ZhiYeType.法师},
+            { HeroType.琼霄 ,ZhiYeType.控制},
+            
+            { HeroType.金灵圣母 ,ZhiYeType.法师},
+            { HeroType.后羿 ,ZhiYeType.射手},
+            { HeroType.常羲 ,ZhiYeType.控制},
+            { HeroType.羲和 ,ZhiYeType.辅助},
+            { HeroType.云霄 ,ZhiYeType.法师},
+            
+            { HeroType.女娲 ,ZhiYeType.辅助},
+            { HeroType.接引 ,ZhiYeType.战士},
+            { HeroType.准提 ,ZhiYeType.控制},
+            
+            { HeroType.老子 ,ZhiYeType.法师},
+            { HeroType.元始 ,ZhiYeType.射手},
+            { HeroType.通天 ,ZhiYeType.战士},
+        };
+        
         public static Dictionary<QualityType, HashSet<HeroType>> QualityHeroDic =
             new Dictionary<QualityType, HashSet<HeroType>>()
             {

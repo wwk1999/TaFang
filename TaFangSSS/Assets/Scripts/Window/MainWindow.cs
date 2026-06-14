@@ -18,6 +18,7 @@ public class MainWindow : MonoBehaviour
     public Button LevelBtn;
     public Button 招募Btn;
     public Button 招募卷Debug;
+    public Button 英雄按钮;
     public void Init()
     {
         Name.text = PlayerData.S.Name;
@@ -38,10 +39,16 @@ public class MainWindow : MonoBehaviour
         WindowController.S.LevelWindow.gameObject.SetActive(false);
         WindowController.S.招募Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/招募界面"));
         WindowController.S.招募Window.gameObject.SetActive(false);
+        WindowController.S.英雄Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/HeroWindow"));
+        WindowController.S.英雄Window.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+        英雄按钮.onClick.AddListener(() =>
+        {
+            WindowController.S.英雄Window.gameObject.SetActive(true);
+        });
         招募卷Debug.onClick.AddListener(() =>
         {
             PlayerData.S.PropCountDic[PropType.高级招募卷] += 100;

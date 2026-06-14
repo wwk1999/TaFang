@@ -17,49 +17,55 @@ public class StoreDefine : XSingleton<StoreController>
         public int Exp;
         public int LingQi;
         public int GongDe;
-
+        public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
+        {
+            { 0, new List<HeroType>()},
+            { 1, new List<HeroType>()},
+            { 2, new List<HeroType>()},
+            { 3, new List<HeroType>()},
+        };
 
         public Dictionary<HeroType, HeroData> HeroDataDic = new Dictionary<HeroType, HeroData>()
         {
-            { HeroType.丹童, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.青童, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.土地, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.河伯, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.瑶池仙女, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.精卫, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.石敢当, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.玄女, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.龟丞相, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.太白金星, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.孟婆, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.白素贞, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.多闻天王, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.增长天王, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.广目天王, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.持国天王, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.雷震子, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.月老, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.嫦娥, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.何仙姑, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.杨戬, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.妲己, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.牛魔王, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.哪吒, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.孙悟空, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.刑天, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.碧霄, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.琼霄, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.金灵圣母, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.羲和, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.常羲, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.后羿, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.云霄, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.女娲, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.接引, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.准提, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.老子, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.通天, new HeroData() { Level = 0, Exp = 0 } },
-            { HeroType.元始, new HeroData() { Level = 0, Exp = 0 } },
+            { HeroType.丹童, new HeroData() { Level = 1, 元神 = 0 } },
+            { HeroType.青童, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.土地, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.河伯, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.瑶池仙女, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.精卫, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.石敢当, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.玄女, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.龟丞相, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.太白金星, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.孟婆, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.白素贞, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.多闻天王, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.增长天王, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.广目天王, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.持国天王, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.雷震子, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.月老, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.嫦娥, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.何仙姑, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.杨戬, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.妲己, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.牛魔王, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.哪吒, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.孙悟空, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.刑天, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.碧霄, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.琼霄, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.金灵圣母, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.羲和, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.常羲, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.后羿, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.云霄, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.女娲, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.接引, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.准提, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.老子, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.通天, new HeroData() { Level = 0, 元神 = 0 } },
+            { HeroType.元始, new HeroData() { Level = 0, 元神 = 0 } },
         };
 
         public Dictionary<PropType, int> PropCountDic = new Dictionary<PropType, int>()
@@ -102,7 +108,7 @@ public class StoreDefine : XSingleton<StoreController>
             LevelZhanKaiDic = runtime.LevelZhanKaiDic;
             PropCountDic = runtime.PropCountDic;
             HeroDataDic = runtime.HeroDataDic;
-
+            出战英雄List = runtime.出战英雄List;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -115,6 +121,8 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.LevelZhanKaiDic = LevelZhanKaiDic;
             runtime.PropCountDic = PropCountDic;
             runtime.HeroDataDic = HeroDataDic;
+            runtime.出战英雄List = 出战英雄List;
+
         }
     }
 }

@@ -52,23 +52,27 @@ public class 招募成功弹窗 : MonoBehaviour
                     list[i]=ZhaoMuConfig.NormalZhaoMu();
                 }
             }
-
+            StopAllCoroutines();
             StartCoroutine(招募十次());
         });
     }
 
     public void 招募一次()
     {
+        ZhaoMu1Button.GetComponent<RectTransform>().localPosition = new Vector2(-158f, -283f);
+        ZhaoMu10Button.GetComponent<RectTransform>().localPosition = new Vector2(166f, -283f);            
         Content.SetActive(false);
         item.propType=Item1Type;
         item.SetItem();
         item.gameObject.SetActive(true);
-        PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[Item1Type]].Exp++;
+        PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[Item1Type]].元神++;
     }
 
     public IEnumerator 招募十次()
     {
-        list.Clear();
+        ZhaoMu1Button.GetComponent<RectTransform>().localPosition = new Vector2(-158f, -338f);
+        ZhaoMu10Button.GetComponent<RectTransform>().localPosition = new Vector2(166f, -338f);
+
         Content.SetActive(true);
         item.gameObject.SetActive(false);
         foreach (Transform item  in Content.transform)
@@ -76,12 +80,16 @@ public class 招募成功弹窗 : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+        for (int i = 0; i < 10; i++)
+        {
+            PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[list[i]]].元神++;
+        }
+
         for (int i=0;i<10;i++)
         {
             招募成功item ZhaoMuitem = Instantiate(Resources.Load("Prefabs/Window/招募成功item"), Content.transform).GetComponent<招募成功item>();
             ZhaoMuitem.propType = list[i];
             ZhaoMuitem.SetItem();
-            PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[list[i]]].Exp++;
             yield return new  WaitForSeconds(0.1f);
         }
     }
@@ -93,6 +101,7 @@ public class 招募成功弹窗 : MonoBehaviour
         }
         else
         {
+            StopAllCoroutines();
             StartCoroutine(招募十次());
         }
     }
