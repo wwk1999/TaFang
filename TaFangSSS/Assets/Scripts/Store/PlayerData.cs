@@ -12,10 +12,18 @@ public class PlayerData : XSingleton<PlayerData>
     public int GongDe;
     public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
     {
-        { 0, new List<HeroType>()},
-        { 1, new List<HeroType>()},
-        { 2, new List<HeroType>()},
-        { 3, new List<HeroType>()},
+        { 0, new List<HeroType>() { HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
+        { 1, new List<HeroType>(){ HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
+        { 2, new List<HeroType>(){ HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
+        { 3, new List<HeroType>(){ HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
+    };
+
+    public Dictionary<int, string> 编队名List = new Dictionary<int, string>()
+    {
+        { 0, "" },
+        { 1, "" },
+        { 2, "" },
+        { 3, "" },
     };
 
     public Dictionary<HeroType, HeroData> HeroDataDic = new Dictionary<HeroType, HeroData>()

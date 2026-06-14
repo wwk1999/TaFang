@@ -70,6 +70,14 @@ namespace Config
 
     public class HeroConfig
     {
+        public static Dictionary<int, string> SuoTipDic = new Dictionary<int, string>()
+        {
+            { 2, "筑基解锁" },
+            { 3, "金丹解锁" },
+            { 4, "元婴解锁" },
+            { 5, "化神解锁" },
+        };
+        
         public static Dictionary<int, HeroExp> HeroExpDic = new Dictionary<int, HeroExp>()
         {
             {0,new HeroExp(){元神 = 1,Exp = 10}},
