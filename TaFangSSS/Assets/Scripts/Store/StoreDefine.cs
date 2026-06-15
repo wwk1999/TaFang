@@ -17,6 +17,8 @@ public class StoreDefine : XSingleton<StoreController>
         public int Exp;
         public int LingQi;
         public int GongDe;
+        public int CurrentBianDui = 1;
+
         public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
         {
             { 0, new List<HeroType>() { HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
@@ -118,6 +120,7 @@ public class StoreDefine : XSingleton<StoreController>
             HeroDataDic = runtime.HeroDataDic;
             出战英雄List = runtime.出战英雄List;
             编队名List = runtime.编队名List;
+            CurrentBianDui=runtime.CurrentBianDui;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -132,6 +135,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.HeroDataDic = HeroDataDic;
             runtime.出战英雄List = 出战英雄List;
             runtime.编队名List = 编队名List;
+            runtime.CurrentBianDui = CurrentBianDui;
         }
     }
 }

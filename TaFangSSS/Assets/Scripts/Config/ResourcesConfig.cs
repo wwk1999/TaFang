@@ -364,6 +364,100 @@ public class ResourcesConfig : MonoBehaviour
             return null;
     }
 }
+
+public static Sprite GetMonsterSprite(MonsterTypeName type)
+{
+    switch (type)
+    {
+        // 花果山
+        case MonsterTypeName.猴精:      return 猴精;
+        case MonsterTypeName.山魈:      return 山魈;
+        case MonsterTypeName.马猴头领:   return 马猴头领;
+        case MonsterTypeName.通臂猿猴:   return 通臂猿猴;
+        // 水帘洞
+        case MonsterTypeName.水虱精:     return 水虱精;
+        case MonsterTypeName.蝙蝠精:     return 蝙蝠精;
+        case MonsterTypeName.铁背苍猿:   return 铁背苍猿;
+        case MonsterTypeName.水帘洞主:   return 水帘洞主;
+        // 傲来国
+        case MonsterTypeName.傲来民兵:   return 傲来民兵;
+        case MonsterTypeName.猎户:       return 猎户;
+        case MonsterTypeName.傲来偏将:   return 傲来偏将;
+        case MonsterTypeName.傲来国师:   return 傲来国师;
+        // 东海龙宫
+        case MonsterTypeName.虾兵:       return 虾兵;
+        case MonsterTypeName.蟹将:       return 蟹将;
+        case MonsterTypeName.东海龙王:   return 东海龙王;
+        case MonsterTypeName.龟丞相:     return 龟丞相;
+        // 蓬莱仙岛
+        case MonsterTypeName.仙鹤:       return 仙鹤;
+        case MonsterTypeName.灵芝童:     return 灵芝童;
+        case MonsterTypeName.蓬莱剑仙:   return 蓬莱剑仙;
+        case MonsterTypeName.蓬莱岛主:   return 蓬莱岛主;
+        // 五行山
+        case MonsterTypeName.山石精:     return 山石精;
+        case MonsterTypeName.土蝼:       return 土蝼;
+        case MonsterTypeName.五行山神:   return 五行山神;
+        case MonsterTypeName.压山符灵:   return 压山符灵;
+        // 高老庄
+        case MonsterTypeName.野猪精:     return 野猪精;
+        case MonsterTypeName.高才:       return 高才;
+        case MonsterTypeName.高太公:     return 高太公;
+        case MonsterTypeName.猪刚鬣:     return 猪刚鬣;
+        // 平顶山
+        case MonsterTypeName.莲花洞小妖: return 莲花洞小妖;
+        case MonsterTypeName.狐阿七:     return 狐阿七;
+        case MonsterTypeName.银角大王:   return 银角大王;
+        case MonsterTypeName.金角大王:   return 金角大王;
+        // 车迟国
+        case MonsterTypeName.虎力弟子:   return 虎力弟子;
+        case MonsterTypeName.鹿力弟子:   return 鹿力弟子;
+        case MonsterTypeName.羊力大仙:   return 羊力大仙;
+        case MonsterTypeName.虎力大仙:   return 虎力大仙;
+        // 女儿国
+        case MonsterTypeName.女儿国兵:       return 女儿国兵;
+        case MonsterTypeName.落胎泉守护:     return 落胎泉守护;
+        case MonsterTypeName.太师:           return 太师;
+        case MonsterTypeName.女儿国国王:     return 女儿国国王;
+        // 火焰山
+        case MonsterTypeName.火焰精:         return 火焰精;
+        case MonsterTypeName.赤蛇:           return 赤蛇;
+        case MonsterTypeName.火鸦:           return 火鸦;
+        case MonsterTypeName.火焰山土地:     return 火焰山土地;
+        // 盘丝洞
+        case MonsterTypeName.小蜘蛛:         return 小蜘蛛;
+        case MonsterTypeName.毒蛾:           return 毒蛾;
+        case MonsterTypeName.蜘蛛精:         return 蜘蛛精;
+        case MonsterTypeName.百眼魔君:       return 百眼魔君;
+        // 狮驼岭
+        case MonsterTypeName.青狮精手下:     return 青狮精手下;
+        case MonsterTypeName.白象精手下:     return 白象精手下;
+        case MonsterTypeName.大鹏金翅雕:     return 大鹏金翅雕;
+        case MonsterTypeName.青狮精:         return 青狮精;
+        // 天竺国
+        case MonsterTypeName.天竺舞女:       return 天竺舞女;
+        case MonsterTypeName.月宫侍卫:       return 月宫侍卫;
+        case MonsterTypeName.素娥:           return 素娥;
+        case MonsterTypeName.玉兔精:         return 玉兔精;
+        // 小雷音寺
+        case MonsterTypeName.假罗汉:         return 假罗汉;
+        case MonsterTypeName.假金刚:         return 假金刚;
+        case MonsterTypeName.黄眉童子:       return 黄眉童子;
+        case MonsterTypeName.黄眉老祖:       return 黄眉老祖;
+        // 流沙河
+        case MonsterTypeName.流沙精:         return 流沙精;
+        case MonsterTypeName.水鬼:           return 水鬼;
+        case MonsterTypeName.水蛇妖:         return 水蛇妖;
+        case MonsterTypeName.沙和尚:         return 沙和尚;
+        // 芭蕉洞
+        case MonsterTypeName.芭蕉精:         return 芭蕉精;
+        case MonsterTypeName.火焰童:         return 火焰童;
+        case MonsterTypeName.铁扇侍女:       return 铁扇侍女;
+        case MonsterTypeName.铁扇公主:       return 铁扇公主;
+        default:
+            return null;
+    }
+}
    
    public static void Init()
    {

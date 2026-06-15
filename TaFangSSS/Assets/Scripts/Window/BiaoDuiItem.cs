@@ -32,8 +32,8 @@ public class BiaoDuiItem : MonoBehaviour
          ObserverModuleManager.S.SendEvent("HideInput");
          InputObj.SetActive(true);
          input.text = PlayerData.S.编队名List[编号-1];
-         int index = HeroWindowController.S.CurrentBianDui;
-         HeroWindowController.S.CurrentBianDui = 编号;
+         int index = PlayerData.S.CurrentBianDui;
+         PlayerData.S.CurrentBianDui = 编号;
          List<HeroType>list = new List<HeroType>();
          foreach (var item in PlayerData.S.出战英雄List[index-1])
          {

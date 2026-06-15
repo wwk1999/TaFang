@@ -8,6 +8,16 @@ namespace Config
         public int 元神;
     }
 
+    public enum YuanSuType
+    {
+        None,
+        冰,
+        物理,
+        火,
+        黑暗,
+        电
+    }
+
     public enum ZhiYeType
     {
         None,
@@ -70,6 +80,15 @@ namespace Config
 
     public class HeroConfig
     {
+        public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
+        {
+            { ZhiYeType.战士,7},
+            { ZhiYeType.法师,10},
+            { ZhiYeType.辅助,10},
+            { ZhiYeType.控制,10},
+            { ZhiYeType.射手,13},
+
+        };
         public static Dictionary<int, string> SuoTipDic = new Dictionary<int, string>()
         {
             { 2, "筑基解锁" },

@@ -10,6 +10,7 @@ public class PlayerData : XSingleton<PlayerData>
     public int Exp;
     public int LingQi;
     public int GongDe;
+    public int CurrentBianDui = 1;
     public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
     {
         { 0, new List<HeroType>() { HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},

@@ -129,7 +129,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
          ActiveMask.SetActive(false);
       }
       出战icon.gameObject.SetActive(false);
-      foreach (var item in PlayerData.S.出战英雄List[HeroWindowController.S.CurrentBianDui-1])
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1])
       {
          if (item == heroType)
          {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelWindow : MonoBehaviour
@@ -14,6 +15,10 @@ public class LevelWindow : MonoBehaviour
 
     private void Start()
     {
+        TiaoZhanButton.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("FightScene");
+        });
         RightPanel.SetActive(false);
         ObserverModuleManager.S.RegisterEvent("LevelSamllButton",ShowLevel);
     }

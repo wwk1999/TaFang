@@ -45,7 +45,7 @@ public class HeroWindow : MonoBehaviour
       }
 
       int count = 0;
-      foreach (var item in PlayerData.S.出战英雄List[HeroWindowController.S.CurrentBianDui-1])
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1])
       {
          count++;
          var HeroItem=Instantiate(Resources.Load("Prefabs/Window/HeroItem"),HeroPanelContent.transform).GetComponent<HeroItem>();
@@ -101,7 +101,7 @@ public class HeroWindow : MonoBehaviour
          item.Value.gameObject.transform.SetAsLastSibling();
       }
 
-      foreach (var item in PlayerData.S.出战英雄List[HeroWindowController.S.CurrentBianDui-1])
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1])
       {
          if (item != HeroType.None)
          {
