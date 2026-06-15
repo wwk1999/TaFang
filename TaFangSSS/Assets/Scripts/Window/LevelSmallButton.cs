@@ -16,7 +16,11 @@ public class LevelSmallButton : MonoBehaviour
 
     private void Start()
     {
-        LevelButton.onClick.AddListener(() => { ObserverModuleManager.S.SendEvent("LevelSamllButton", levelSmallType); });
+        LevelButton.onClick.AddListener(() =>
+        {
+            LevelConfig.CurrentLevelSmallType=levelSmallType;
+            ObserverModuleManager.S.SendEvent("LevelSamllButton", levelSmallType);
+        });
     }
 
     private void OnEnable()

@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 7570045171544998078}
   - component: {fileID: 3025188311686454985}
   - component: {fileID: 5815675286974417732}
+  - component: {fileID: 6375872396208307534}
   m_Layer: 5
   m_Name: "\u4F24\u5BB3\u6570\u5B57"
   m_TagString: Untagged
@@ -491,7 +492,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3025188311686454985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +531,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6375872396208307534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781103355737283667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f48a6036506c164186c94598b8864b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 5815675286974417732}
+  "\u7269\u7406": {fileID: 2793333994655778069}
+  "\u51B0": {fileID: 6118209742652840376}
+  "\u706B\u7130": {fileID: 8221089028982897993}
+  "\u96F7\u7535": {fileID: 3223144080113282531}
+  "\u9ED1\u6697": {fileID: 6059800403583661982}
 --- !u!1 &5890806467174437103
 GameObject:
   m_ObjectHideFlags: 0

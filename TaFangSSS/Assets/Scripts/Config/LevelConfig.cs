@@ -44,59 +44,60 @@ public class LevelDiaoLuo
 
 public class LevelConfig : MonoBehaviour
 {
-   public static Dictionary<LevelSmallType, HashSet<MonsterTypeName>> LevelMonsterDic =
-    new Dictionary<LevelSmallType, HashSet<MonsterTypeName>>()
+    public static LevelSmallType  CurrentLevelSmallType=LevelSmallType.None;
+   public static Dictionary<LevelSmallType, List<MonsterTypeName>> LevelMonsterDic =
+    new Dictionary<LevelSmallType, List<MonsterTypeName>>()
     {
         // 花果山
-        { LevelSmallType.花果山, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.花果山, new List<MonsterTypeName>() { 
             MonsterTypeName.猴精, MonsterTypeName.山魈, MonsterTypeName.马猴头领 } },
         // 水帘洞
-        { LevelSmallType.水帘洞, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.水帘洞, new List<MonsterTypeName>() { 
             MonsterTypeName.水虱精, MonsterTypeName.蝙蝠精, MonsterTypeName.铁背苍猿 } },
         // 傲来国
-        { LevelSmallType.傲来国, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.傲来国, new List<MonsterTypeName>() { 
             MonsterTypeName.傲来民兵, MonsterTypeName.猎户, MonsterTypeName.傲来偏将 } },
         // 东海龙宫
-        { LevelSmallType.东海龙宫, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.东海龙宫, new List<MonsterTypeName>() { 
             MonsterTypeName.虾兵, MonsterTypeName.蟹将, MonsterTypeName.龟丞相 } },
         // 蓬莱仙岛
-        { LevelSmallType.蓬莱仙岛, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.蓬莱仙岛, new List<MonsterTypeName>() { 
             MonsterTypeName.仙鹤, MonsterTypeName.灵芝童, MonsterTypeName.蓬莱剑仙 } },
         // 五行山
-        { LevelSmallType.五行山, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.五行山, new List<MonsterTypeName>() { 
             MonsterTypeName.山石精, MonsterTypeName.土蝼, MonsterTypeName.五行山神 } },
         // 高老庄
-        { LevelSmallType.高老庄, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.高老庄, new List<MonsterTypeName>() { 
             MonsterTypeName.野猪精, MonsterTypeName.高才, MonsterTypeName.高太公 } },
         // 平顶山
-        { LevelSmallType.平顶山, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.平顶山, new List<MonsterTypeName>() { 
             MonsterTypeName.莲花洞小妖, MonsterTypeName.狐阿七, MonsterTypeName.银角大王 } },
         // 车迟国
-        { LevelSmallType.车迟国, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.车迟国, new List<MonsterTypeName>() { 
             MonsterTypeName.虎力弟子, MonsterTypeName.鹿力弟子, MonsterTypeName.羊力大仙 } },
         // 女儿国
-        { LevelSmallType.女儿国, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.女儿国, new List<MonsterTypeName>() { 
             MonsterTypeName.女儿国兵, MonsterTypeName.落胎泉守护, MonsterTypeName.太师 } },
         // 火焰山
-        { LevelSmallType.火焰山, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.火焰山, new List<MonsterTypeName>() { 
             MonsterTypeName.火焰精, MonsterTypeName.赤蛇, MonsterTypeName.火鸦 } },
         // 盘丝洞
-        { LevelSmallType.盘丝洞, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.盘丝洞, new List<MonsterTypeName>() { 
             MonsterTypeName.小蜘蛛, MonsterTypeName.毒蛾, MonsterTypeName.蜘蛛精 } },
         // 狮驼岭
-        { LevelSmallType.狮驼岭, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.狮驼岭, new List<MonsterTypeName>() { 
             MonsterTypeName.青狮精手下, MonsterTypeName.白象精手下, MonsterTypeName.大鹏金翅雕 } },
         // 天竺国
-        { LevelSmallType.天竺国, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.天竺国, new List<MonsterTypeName>() { 
             MonsterTypeName.天竺舞女, MonsterTypeName.月宫侍卫, MonsterTypeName.素娥 } },
         // 芭蕉洞
-        { LevelSmallType.芭蕉洞, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.芭蕉洞, new List<MonsterTypeName>() { 
             MonsterTypeName.芭蕉精, MonsterTypeName.火焰童, MonsterTypeName.铁扇侍女 } },
         // 流沙河
-        { LevelSmallType.流沙河, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.流沙河, new List<MonsterTypeName>() { 
             MonsterTypeName.流沙精, MonsterTypeName.水鬼, MonsterTypeName.水蛇妖 } },
         // 小雷音寺
-        { LevelSmallType.小雷音寺, new HashSet<MonsterTypeName>() { 
+        { LevelSmallType.小雷音寺, new List<MonsterTypeName>() { 
             MonsterTypeName.假罗汉, MonsterTypeName.假金刚, MonsterTypeName.黄眉童子 } }
     };
     public static Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =

@@ -11,4 +11,11 @@ public class FightConfig
         { 4, new Vector2(0.53f, 3.6f) },
         { 5, new Vector2(0.53f, -3.6f) },
     };
+
+    public static Dictionary<MonsterType, float> 怪物攻击距离Dic = new Dictionary<MonsterType, float>()
+    {
+        { MonsterType.Normal, -4 },
+        { MonsterType.Elite, -3.85f },
+        { MonsterType.Boss, -3.5f },
+    };
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Config;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
@@ -13,6 +14,9 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public Queue<普通怪> 普通怪Queue = new Queue<普通怪>();
     [NonSerialized] public Queue<精英怪> 精英怪Queue = new Queue<精英怪>();
     [NonSerialized] public Queue<首领怪> 首领怪Queue = new Queue<首领怪>();
+    [NonSerialized] public float CreateMonsterTime = 1f;
+    [NonSerialized] public float CurrentCreateMonsterTime = 0;
+
     public void Spine纯显示一次Hide(Spine纯显示一次 Spine纯显示一次,特效Type type,GameObject gameObject)
     {
         switch (type)
@@ -29,6 +33,29 @@ public class FightController : XSingleton<FightController>
         }
         gameObject.SetActive(false);
     }
+
+    public void CreateNormalMonster()
+    {
+        float x = 10f;
+        float y = Random.Range(-4, 4);
+        var monster=普通怪Queue.Dequeue();
+        monster.transform.position = new Vector3(x,y,0);
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.CurrentLevelSmallType];
+        int random=Random.Range(0,2);
+        monster.MonsterTypeName = list[random];
+        monster.gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        CurrentCreateMonsterTime+=Time.deltaTime;
+        if (CurrentCreateMonsterTime >= CreateMonsterTime)
+        {
+            CreateNormalMonster();
+            CurrentCreateMonsterTime = 0;
+        }
+    }
+
     public void InitQueue()
     {
         for (int i = 0; i < 100; i++)

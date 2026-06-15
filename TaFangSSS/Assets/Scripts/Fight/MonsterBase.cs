@@ -8,12 +8,15 @@ using UnityEngine.UI;
 public class MonsterBase : MonoBehaviour
 {
    public SpriteRenderer image;
-   public MonsterTypeName MonsterTypeName=MonsterTypeName.None;
+   [NonSerialized]public MonsterTypeName MonsterTypeName=MonsterTypeName.None;
    public Transform 伤害trans;
-   public Animation Animation;
+   public Animation 攻击Animation;
+   public Animation 受击Animation;
+
    public Slider MonsterSlider;
    [NonSerialized] public MonsterAttribute MonsterAttribute;
    [NonSerialized]public float CurrentHP;
+   [NonSerialized] public float speed;
    private void OnEnable()
    {
       if (MonsterTypeName == MonsterTypeName.None)
@@ -32,12 +35,14 @@ public class MonsterBase : MonoBehaviour
       MonsterType monsterType=MonsterConfig.MonsterTypeDic[MonsterTypeName];
       普通关卡怪物Item 普通关卡怪物Item=new 普通关卡怪物Item(){LevelSmallType =  levelSmallType, MonsterType = monsterType};
       MonsterAttribute = MonsterConfig.普通关卡怪物属性Dic[普通关卡怪物Item];
+      Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
+      speed = MonsterConfig.怪物速度Dic[monster特性Type];
    }
 
    public void Hurt(float 原始Damage,YuanSuType yuanSuType)
    {
       MonsterSlider.gameObject.SetActive(true);
-      Animation.Play();
+      受击Animation.Play();
       float 最终Damage = 原始Damage - MonsterAttribute.Defense;
       float 抗性 = 0;
       switch (yuanSuType)
@@ -69,6 +74,11 @@ public class MonsterBase : MonoBehaviour
       {
          Die();
       }
+   }
+
+   private void Update()
+   {
+      transform.position=new Vector3(transform.position.x-speed*Time.deltaTime,transform.position.y,transform.position.z);
    }
 
    public void Die()
