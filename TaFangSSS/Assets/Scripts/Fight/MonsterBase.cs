@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Config;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MonsterBase : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class MonsterBase : MonoBehaviour
       switch (yuanSuType)
       {
          case YuanSuType.物理:
+            
             抗性 = MonsterAttribute.物理抗性;
             break;
          case YuanSuType.电:
