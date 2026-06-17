@@ -43,9 +43,9 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    if (heroItem.HeroType == PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui][i])
+                    if (heroItem.HeroType == PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][i])
                     {
-                        HeroType hero1 = PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui][i];
+                        HeroType hero1 = PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][i];
                         HeroType hero2 = HeroWindowController.S.DragHero;
                         List<HeroType>list = new List<HeroType>();
                         list.Add(hero1);

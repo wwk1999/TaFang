@@ -13,6 +13,7 @@ public class MonsterBase : MonoBehaviour
    public Transform 伤害trans;
    public Animation 攻击Animation;
    public Animation 受击Animation;
+   public Collider2D Collider2D;
 
    public Slider MonsterSlider;
    [NonSerialized] public MonsterAttribute MonsterAttribute;

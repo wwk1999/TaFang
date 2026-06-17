@@ -27,7 +27,8 @@ public class Entrance : MonoBehaviour
 
    private void Awake()
    {
-      FightController.S.InitQueue();
+      FightController.S.Init怪物死亡Queue();
+      FightController.S.InitHeroSkill();
       InitRenWu();
    }
 }

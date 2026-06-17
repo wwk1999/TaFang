@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 6671786915317072923}
   m_Layer: 7
   m_Name: bg
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -809,9 +809,9 @@ GameObject:
   - component: {fileID: 821327837422922963}
   - component: {fileID: 7957315953466057396}
   - component: {fileID: 2167817425238157509}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "\u9996\u9886\u602A\u7269Item"
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -826,7 +826,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.53, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 0.99000007, z: 1.1}
+  m_LocalScale: {x: 1, y: 0.90000004, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5935638629554318829}
@@ -863,4 +863,5 @@ MonoBehaviour:
   "\u4F24\u5BB3trans": {fileID: 9201272082515628783}
   "\u653B\u51FBAnimation": {fileID: 6509807090528838918}
   "\u53D7\u51FBAnimation": {fileID: 7957315953466057396}
+  Collider2D: {fileID: 6671786915317072923}
   MonsterSlider: {fileID: 707051745100928845}

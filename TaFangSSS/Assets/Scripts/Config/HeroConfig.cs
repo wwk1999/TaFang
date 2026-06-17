@@ -78,17 +78,35 @@ namespace Config
         public int Exp;
     }
 
+    public class HeroSkill
+    {
+        public List<攻击特效Type> 攻击特效List;
+        public List<序列纯显示一次Type> PengList;
+    }
+
     public class HeroConfig
     {
+        public static Dictionary<HeroType, HeroSkill> HeroSkillDic = new Dictionary<HeroType, HeroSkill>()
+        {
+            {
+                HeroType.丹童, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火虎魔法弹 }, 
+                    PengList = new List<序列纯显示一次Type>() { 序列纯显示一次Type.火虎魔法弹Peng }
+                }
+            }
+        };
+
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
         {
-            { ZhiYeType.战士,7},
-            { ZhiYeType.法师,10},
-            { ZhiYeType.辅助,10},
-            { ZhiYeType.控制,10},
-            { ZhiYeType.射手,13},
+            { ZhiYeType.战士, 7 },
+            { ZhiYeType.法师, 10 },
+            { ZhiYeType.辅助, 10 },
+            { ZhiYeType.控制, 10 },
+            { ZhiYeType.射手, 13 },
 
         };
+
         public static Dictionary<int, string> SuoTipDic = new Dictionary<int, string>()
         {
             { 2, "筑基解锁" },
@@ -96,45 +114,46 @@ namespace Config
             { 4, "元婴解锁" },
             { 5, "化神解锁" },
         };
-        
+
         public static Dictionary<int, HeroExp> HeroExpDic = new Dictionary<int, HeroExp>()
         {
-            {0,new HeroExp(){元神 = 1,Exp = 10}},
-            {1,new HeroExp(){元神 = 1,Exp = 10}},
-            {2,new HeroExp(){元神 = 1,Exp = 15}},
-            {3,new HeroExp(){元神 = 1,Exp = 20}},
-            {4,new HeroExp(){元神 = 1,Exp = 25}},
+            { 0, new HeroExp() { 元神 = 1, Exp = 10 } },
+            { 1, new HeroExp() { 元神 = 1, Exp = 10 } },
+            { 2, new HeroExp() { 元神 = 1, Exp = 15 } },
+            { 3, new HeroExp() { 元神 = 1, Exp = 20 } },
+            { 4, new HeroExp() { 元神 = 1, Exp = 25 } },
 
-            {5,new HeroExp(){元神 = 2,Exp = 30}},
-            {6,new HeroExp(){元神 = 2,Exp = 35}},
-            {7,new HeroExp(){元神 = 2,Exp = 40}},
-            {8,new HeroExp(){元神 = 2,Exp = 45}},
-            {9,new HeroExp(){元神 = 2,Exp = 50}},
-            
-            {10,new HeroExp(){元神 = 3,Exp = 60}},
-            {11,new HeroExp(){元神 = 3,Exp = 70}},
-            {12,new HeroExp(){元神 = 3,Exp = 80}},
-            {13,new HeroExp(){元神 = 3,Exp = 90}},
-            {14,new HeroExp(){元神 = 3,Exp = 100}},
+            { 5, new HeroExp() { 元神 = 2, Exp = 30 } },
+            { 6, new HeroExp() { 元神 = 2, Exp = 35 } },
+            { 7, new HeroExp() { 元神 = 2, Exp = 40 } },
+            { 8, new HeroExp() { 元神 = 2, Exp = 45 } },
+            { 9, new HeroExp() { 元神 = 2, Exp = 50 } },
 
-            {15,new HeroExp(){元神 = 4,Exp = 120}},
-            {16,new HeroExp(){元神 = 4,Exp = 140}},
-            {17,new HeroExp(){元神 = 4,Exp = 160}},
-            {18,new HeroExp(){元神 = 4,Exp = 180}},
-            {19,new HeroExp(){元神 = 4,Exp = 200}},
+            { 10, new HeroExp() { 元神 = 3, Exp = 60 } },
+            { 11, new HeroExp() { 元神 = 3, Exp = 70 } },
+            { 12, new HeroExp() { 元神 = 3, Exp = 80 } },
+            { 13, new HeroExp() { 元神 = 3, Exp = 90 } },
+            { 14, new HeroExp() { 元神 = 3, Exp = 100 } },
 
-            {20,new HeroExp(){元神 = 5,Exp = 220}},
-            {21,new HeroExp(){元神 = 5,Exp = 240}},
-            {22,new HeroExp(){元神 = 5,Exp = 260}},
-            {23,new HeroExp(){元神 = 5,Exp = 280}},
-            {24,new HeroExp(){元神 = 5,Exp = 300}},
-            
-            {25,new HeroExp(){元神 = 6,Exp = 350}},
-            {26,new HeroExp(){元神 = 6,Exp = 400}},
-            {27,new HeroExp(){元神 = 6,Exp = 450}},
-            {28,new HeroExp(){元神 = 6,Exp = 500}},
-            {29,new HeroExp(){元神 = 6,Exp = 500}},
+            { 15, new HeroExp() { 元神 = 4, Exp = 120 } },
+            { 16, new HeroExp() { 元神 = 4, Exp = 140 } },
+            { 17, new HeroExp() { 元神 = 4, Exp = 160 } },
+            { 18, new HeroExp() { 元神 = 4, Exp = 180 } },
+            { 19, new HeroExp() { 元神 = 4, Exp = 200 } },
+
+            { 20, new HeroExp() { 元神 = 5, Exp = 220 } },
+            { 21, new HeroExp() { 元神 = 5, Exp = 240 } },
+            { 22, new HeroExp() { 元神 = 5, Exp = 260 } },
+            { 23, new HeroExp() { 元神 = 5, Exp = 280 } },
+            { 24, new HeroExp() { 元神 = 5, Exp = 300 } },
+
+            { 25, new HeroExp() { 元神 = 6, Exp = 350 } },
+            { 26, new HeroExp() { 元神 = 6, Exp = 400 } },
+            { 27, new HeroExp() { 元神 = 6, Exp = 450 } },
+            { 28, new HeroExp() { 元神 = 6, Exp = 500 } },
+            { 29, new HeroExp() { 元神 = 6, Exp = 500 } },
         };
+
         public static Dictionary<HeroType, string> HeroNameDic = new Dictionary<HeroType, string>()
         {
             { HeroType.丹童, "丹童" },
@@ -176,6 +195,49 @@ namespace Config
             { HeroType.老子, "老子" },
             { HeroType.通天, "通天" },
             { HeroType.元始, "元始" },
+        };
+        
+        public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
+        {
+            { HeroType.丹童, 1 },
+            { HeroType.青童, 1 },
+            { HeroType.土地, 1 },
+            { HeroType.河伯, 1 },
+            { HeroType.瑶池仙女, 1 },
+            { HeroType.精卫, 1 },
+            { HeroType.石敢当, 1 },
+            { HeroType.玄女, 1 },
+            { HeroType.龟丞相, 1 },
+            { HeroType.太白金星, 1 },
+            { HeroType.孟婆, 1 },
+            { HeroType.白素贞, 1 },
+            { HeroType.多闻天王, 1 },
+            { HeroType.增长天王, 1 },
+            { HeroType.广目天王, 1 },
+            { HeroType.持国天王, 1 },
+            { HeroType.雷震子, 1 },
+            { HeroType.月老, 1 },
+            { HeroType.嫦娥, 1 },
+            { HeroType.何仙姑, 1 },
+            { HeroType.杨戬, 1 },
+            { HeroType.妲己, 1 },
+            { HeroType.牛魔王, 1 },
+            { HeroType.哪吒, 1 },
+            { HeroType.孙悟空, 1 },
+            { HeroType.刑天, 1 },
+            { HeroType.碧霄, 1 },
+            { HeroType.琼霄, 1 },
+            { HeroType.金灵圣母, 1 },
+            { HeroType.羲和, 1 },
+            { HeroType.常羲, 1 },
+            { HeroType.后羿, 1 },
+            { HeroType.云霄, 1 },
+            { HeroType.女娲, 1 },
+            { HeroType.接引, 1 },
+            { HeroType.准提, 1 },
+            { HeroType.老子, 1 },
+            { HeroType.通天, 1 },
+            { HeroType.元始, 1 },
         };
 
         public static Dictionary<HeroType, PropType> HeroToPropDic = new Dictionary<HeroType, PropType>()
@@ -223,54 +285,54 @@ namespace Config
 
         public static Dictionary<HeroType, ZhiYeType> HeroZhiYeDic = new Dictionary<HeroType, ZhiYeType>()
         {
-            { HeroType.丹童 ,ZhiYeType.射手},
-            { HeroType.青童 ,ZhiYeType.战士},
-            { HeroType.土地 ,ZhiYeType.控制},
-            { HeroType.河伯 ,ZhiYeType.法师},
-            { HeroType.瑶池仙女 ,ZhiYeType.辅助},
-            { HeroType.精卫 ,ZhiYeType.法师},
-            
-            { HeroType.石敢当 ,ZhiYeType.战士},
-            { HeroType.玄女 ,ZhiYeType.法师},
-            { HeroType.龟丞相 ,ZhiYeType.控制},
-            { HeroType.太白金星 ,ZhiYeType.射手},
-            { HeroType.孟婆 ,ZhiYeType.辅助},
-            { HeroType.白素贞 ,ZhiYeType.法师},
-            
-            { HeroType.增长天王 ,ZhiYeType.战士},
-            { HeroType.多闻天王 ,ZhiYeType.射手},
-            { HeroType.广目天王 ,ZhiYeType.战士},
-            { HeroType.持国天王 ,ZhiYeType.控制},
-            { HeroType.雷震子 ,ZhiYeType.法师},
-            { HeroType.月老 ,ZhiYeType.射手},
-            
-            { HeroType.嫦娥 ,ZhiYeType.法师},
-            { HeroType.何仙姑 ,ZhiYeType.辅助},
-            { HeroType.杨戬 ,ZhiYeType.射手},
-            { HeroType.妲己 ,ZhiYeType.法师},
-            { HeroType.牛魔王 ,ZhiYeType.战士},
-            
-            { HeroType.哪吒 ,ZhiYeType.战士},
-            { HeroType.孙悟空 ,ZhiYeType.战士},
-            { HeroType.刑天 ,ZhiYeType.战士},
-            { HeroType.碧霄 ,ZhiYeType.法师},
-            { HeroType.琼霄 ,ZhiYeType.控制},
-            
-            { HeroType.金灵圣母 ,ZhiYeType.法师},
-            { HeroType.后羿 ,ZhiYeType.射手},
-            { HeroType.常羲 ,ZhiYeType.控制},
-            { HeroType.羲和 ,ZhiYeType.辅助},
-            { HeroType.云霄 ,ZhiYeType.法师},
-            
-            { HeroType.女娲 ,ZhiYeType.辅助},
-            { HeroType.接引 ,ZhiYeType.战士},
-            { HeroType.准提 ,ZhiYeType.控制},
-            
-            { HeroType.老子 ,ZhiYeType.法师},
-            { HeroType.元始 ,ZhiYeType.射手},
-            { HeroType.通天 ,ZhiYeType.战士},
+            { HeroType.丹童, ZhiYeType.射手 },
+            { HeroType.青童, ZhiYeType.战士 },
+            { HeroType.土地, ZhiYeType.控制 },
+            { HeroType.河伯, ZhiYeType.法师 },
+            { HeroType.瑶池仙女, ZhiYeType.辅助 },
+            { HeroType.精卫, ZhiYeType.法师 },
+
+            { HeroType.石敢当, ZhiYeType.战士 },
+            { HeroType.玄女, ZhiYeType.法师 },
+            { HeroType.龟丞相, ZhiYeType.控制 },
+            { HeroType.太白金星, ZhiYeType.射手 },
+            { HeroType.孟婆, ZhiYeType.辅助 },
+            { HeroType.白素贞, ZhiYeType.法师 },
+
+            { HeroType.增长天王, ZhiYeType.战士 },
+            { HeroType.多闻天王, ZhiYeType.射手 },
+            { HeroType.广目天王, ZhiYeType.战士 },
+            { HeroType.持国天王, ZhiYeType.控制 },
+            { HeroType.雷震子, ZhiYeType.法师 },
+            { HeroType.月老, ZhiYeType.射手 },
+
+            { HeroType.嫦娥, ZhiYeType.法师 },
+            { HeroType.何仙姑, ZhiYeType.辅助 },
+            { HeroType.杨戬, ZhiYeType.射手 },
+            { HeroType.妲己, ZhiYeType.法师 },
+            { HeroType.牛魔王, ZhiYeType.战士 },
+
+            { HeroType.哪吒, ZhiYeType.战士 },
+            { HeroType.孙悟空, ZhiYeType.战士 },
+            { HeroType.刑天, ZhiYeType.战士 },
+            { HeroType.碧霄, ZhiYeType.法师 },
+            { HeroType.琼霄, ZhiYeType.控制 },
+
+            { HeroType.金灵圣母, ZhiYeType.法师 },
+            { HeroType.后羿, ZhiYeType.射手 },
+            { HeroType.常羲, ZhiYeType.控制 },
+            { HeroType.羲和, ZhiYeType.辅助 },
+            { HeroType.云霄, ZhiYeType.法师 },
+
+            { HeroType.女娲, ZhiYeType.辅助 },
+            { HeroType.接引, ZhiYeType.战士 },
+            { HeroType.准提, ZhiYeType.控制 },
+
+            { HeroType.老子, ZhiYeType.法师 },
+            { HeroType.元始, ZhiYeType.射手 },
+            { HeroType.通天, ZhiYeType.战士 },
         };
-        
+
         public static Dictionary<QualityType, HashSet<HeroType>> QualityHeroDic =
             new Dictionary<QualityType, HashSet<HeroType>>()
             {
