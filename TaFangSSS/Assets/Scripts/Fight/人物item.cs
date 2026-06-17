@@ -22,7 +22,7 @@ public class 人物item : MonoBehaviour
             Animator.Play("人物攻击",0,0f);
             Vector2 targetPos = FightController.S.GetAttackPostion();
             var dir=(targetPos-(Vector2)transform.position).normalized;
-            FightController.S.Shot普通魔法弹(攻击特效Type.火虎魔法弹,transform.position,dir,10,YuanSuType.火,5);
+            FightController.S.Shot普通魔法弹(攻击特效Type.火虎魔法弹,transform.position,dir,50,YuanSuType.火,8);
         }
     }
 

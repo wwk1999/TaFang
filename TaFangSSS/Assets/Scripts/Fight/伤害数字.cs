@@ -47,7 +47,7 @@ public class 伤害数字 : MonoBehaviour
                 物理.text = damage.ToString();
                 break;
         }
-        Invoke(nameof(Hide),0.3f);
+        Invoke(nameof(Hide),0.5f);
 
     }
 }

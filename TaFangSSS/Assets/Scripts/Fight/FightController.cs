@@ -318,50 +318,62 @@ public class FightController : XSingleton<FightController>
             {
                 case 序列纯显示一次Type.电魔法弹Peng:
                     var 电魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/电魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    电魔法弹Peng.gameObject.SetActive(false);
                     电魔法弹PengQueue.Enqueue(电魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.黑暗飞箭Peng:
                     var 黑暗飞箭Peng = Instantiate(Resources.Load("Prefabs/特效/黑暗飞箭Peng")).GetComponent<序列纯显示一次>();
+                    黑暗飞箭Peng.gameObject.SetActive(false);
                     黑暗飞箭PengQueue.Enqueue(黑暗飞箭Peng);
                     break;
                 case 序列纯显示一次Type.黑暗剑气Peng:
                     var 黑暗剑气Peng = Instantiate(Resources.Load("Prefabs/特效/黑暗剑气Peng")).GetComponent<序列纯显示一次>();
+                    黑暗剑气Peng.gameObject.SetActive(false);
                     黑暗剑气PengQueue.Enqueue(黑暗剑气Peng);
                     break;
                 case 序列纯显示一次Type.物理箭Peng:
                     var 物理箭Peng = Instantiate(Resources.Load("Prefabs/特效/物理箭Peng")).GetComponent<序列纯显示一次>();
+                    物理箭Peng.gameObject.SetActive(false);
                     物理箭PengQueue.Enqueue(物理箭Peng);
                     break;
                 case 序列纯显示一次Type.紫鬼弹Peng:
                     var 紫鬼弹Peng = Instantiate(Resources.Load("Prefabs/特效/紫鬼弹Peng")).GetComponent<序列纯显示一次>();
+                    紫鬼弹Peng.gameObject.SetActive(false);
                     紫鬼弹PengQueue.Enqueue(紫鬼弹Peng);
                     break;
                 case 序列纯显示一次Type.黑暗花魔法弹Peng:
                     var 黑暗花魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/黑暗花魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    黑暗花魔法弹Peng.gameObject.SetActive(false);
                     黑暗花魔法弹PengQueue.Enqueue(黑暗花魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.冰爆气魔法弹Peng:
                     var 冰爆气魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/冰爆气魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    冰爆气魔法弹Peng.gameObject.SetActive(false);
                     冰爆气魔法弹PengQueue.Enqueue(冰爆气魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.电龙魔法弹Peng:
                     var 电龙魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/电龙魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    电龙魔法弹Peng.gameObject.SetActive(false);
                     电龙魔法弹PengQueue.Enqueue(电龙魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.电爆气魔法弹Peng:
                     var 电爆气魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/电爆气魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    电爆气魔法弹Peng.gameObject.SetActive(false);
                     电爆气魔法弹PengQueue.Enqueue(电爆气魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.冰大魔法弹Peng:
                     var 冰大魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/冰大魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    冰大魔法弹Peng.gameObject.SetActive(false);
                     冰大魔法弹PengQueue.Enqueue(冰大魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.火虎魔法弹Peng:
                     var 火虎魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/火虎魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    火虎魔法弹Peng.gameObject.SetActive(false);
                     火虎魔法弹PengQueue.Enqueue(火虎魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.黑暗魔法弹Peng:
                     var 黑暗魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/黑暗魔法弹Peng")).GetComponent<序列纯显示一次>();
+                    黑暗魔法弹Peng.gameObject.SetActive(false);
                     黑暗魔法弹PengQueue.Enqueue(黑暗魔法弹Peng);
                     break;
                 case 序列纯显示一次Type.None:
@@ -380,50 +392,62 @@ public class FightController : XSingleton<FightController>
             {
                 case 攻击特效Type.电魔法弹:
                     var 电魔法弹 = Instantiate(Resources.Load("Prefabs/特效/电魔法弹")).GetComponent<普通魔法弹带peng>();
+                    电魔法弹.gameObject.SetActive(false);
                     电魔法弹Queue.Enqueue(电魔法弹);
                     break;
                 case 攻击特效Type.黑暗飞箭:
                     var 黑暗飞箭 = Instantiate(Resources.Load("Prefabs/特效/黑暗飞箭")).GetComponent<普通魔法弹带peng>();
+                    黑暗飞箭.gameObject.SetActive(false);
                     黑暗飞箭Queue.Enqueue(黑暗飞箭);
                     break;
                 case 攻击特效Type.黑暗剑气:
                     var 黑暗剑气 = Instantiate(Resources.Load("Prefabs/特效/黑暗剑气")).GetComponent<普通魔法弹带peng>();
+                    黑暗剑气.gameObject.SetActive(false);
                     黑暗剑气Queue.Enqueue(黑暗剑气);
                     break;
                 case 攻击特效Type.物理箭:
                     var 物理箭 = Instantiate(Resources.Load("Prefabs/特效/物理箭")).GetComponent<普通魔法弹带peng>();
+                    物理箭.gameObject.SetActive(false);
                     物理箭Queue.Enqueue(物理箭);
                     break;
                 case 攻击特效Type.紫鬼弹:
                     var 紫鬼弹 = Instantiate(Resources.Load("Prefabs/特效/紫鬼弹")).GetComponent<普通魔法弹带peng>();
+                    紫鬼弹.gameObject.SetActive(false);
                     紫鬼弹Queue.Enqueue(紫鬼弹);
                     break;
                 case 攻击特效Type.黑暗花魔法弹:
                     var 黑暗花魔法弹 = Instantiate(Resources.Load("Prefabs/特效/黑暗花魔法弹")).GetComponent<普通魔法弹带peng>();
+                    黑暗花魔法弹.gameObject.SetActive(false);
                     黑暗花魔法弹Queue.Enqueue(黑暗花魔法弹);
                     break;
                 case 攻击特效Type.冰爆气魔法弹:
                     var 冰爆气魔法弹 = Instantiate(Resources.Load("Prefabs/特效/冰爆气魔法弹")).GetComponent<普通魔法弹带peng>();
+                    冰爆气魔法弹.gameObject.SetActive(false);
                     冰爆气魔法弹Queue.Enqueue(冰爆气魔法弹);
                     break;
                 case 攻击特效Type.电龙魔法弹:
                     var 电龙魔法弹 = Instantiate(Resources.Load("Prefabs/特效/电龙魔法弹")).GetComponent<普通魔法弹带peng>();
+                    电龙魔法弹.gameObject.SetActive(false);
                     电龙魔法弹Queue.Enqueue(电龙魔法弹);
                     break;
                 case 攻击特效Type.电爆气魔法弹:
                     var 电爆气魔法弹 = Instantiate(Resources.Load("Prefabs/特效/电爆气魔法弹")).GetComponent<普通魔法弹带peng>();
+                    电爆气魔法弹.gameObject.SetActive(false);
                     电爆气魔法弹Queue.Enqueue(电爆气魔法弹);
                     break;
                 case 攻击特效Type.冰大魔法弹:
                     var 冰大魔法弹 = Instantiate(Resources.Load("Prefabs/特效/冰大魔法弹")).GetComponent<普通魔法弹带peng>();
+                    冰大魔法弹.gameObject.SetActive(false);
                     冰大魔法弹Queue.Enqueue(冰大魔法弹);
                     break;
                 case 攻击特效Type.火虎魔法弹:
                     var 火虎魔法弹 = Instantiate(Resources.Load("Prefabs/特效/火虎魔法弹")).GetComponent<普通魔法弹带peng>();
+                    火虎魔法弹.gameObject.SetActive(false);
                     火虎魔法弹Queue.Enqueue(火虎魔法弹);
                     break;
                 case 攻击特效Type.黑暗魔法弹:
                     var 黑暗魔法弹 = Instantiate(Resources.Load("Prefabs/特效/黑暗魔法弹")).GetComponent<普通魔法弹带peng>();
+                    黑暗魔法弹.gameObject.SetActive(false);
                     黑暗魔法弹Queue.Enqueue(黑暗魔法弹);
                     break;
                 case 攻击特效Type.None:
@@ -463,18 +487,18 @@ public class FightController : XSingleton<FightController>
             var 伤害数字 = Instantiate(Resources.Load("Prefabs/Fight/伤害数字")).GetComponent<伤害数字>();
             伤害数字.gameObject.SetActive(false);
             伤害数字Queue.Enqueue(伤害数字);
-            var 普通怪死亡 = Instantiate(Resources.Load("Prefabs/特效/普通怪死亡")).GetComponent<Spine纯显示一次>();
+            var 普通怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/普通怪死亡")).GetComponent<Spine纯显示一次>();
             普通怪死亡.gameObject.SetActive(false);
             普通怪死亡Queue.Enqueue(普通怪死亡);
         }
 
         for (int i = 0; i < 5; i++)
         {
-            var 精英怪死亡 = Instantiate(Resources.Load("Prefabs/特效/精英怪死亡")).GetComponent<Spine纯显示一次>();
+            var 精英怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/精英怪死亡")).GetComponent<Spine纯显示一次>();
             精英怪死亡.gameObject.SetActive(false);
             精英怪死亡Queue.Enqueue(精英怪死亡);
             
-            var 首领怪死亡 = Instantiate(Resources.Load("Prefabs/特效/首领怪死亡")).GetComponent<Spine纯显示一次>();
+            var 首领怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/首领怪死亡")).GetComponent<Spine纯显示一次>();
             首领怪死亡.gameObject.SetActive(false);
             首领怪死亡Queue.Enqueue(首领怪死亡);
             

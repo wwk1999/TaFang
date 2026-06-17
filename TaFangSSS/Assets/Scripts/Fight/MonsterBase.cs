@@ -8,6 +8,8 @@ using DG.Tweening;
 
 public class MonsterBase : MonoBehaviour
 {
+   public SpriteRenderer bg;
+   public Canvas HpCanvas;
    public SpriteRenderer image;
    [NonSerialized]public MonsterTypeName MonsterTypeName=MonsterTypeName.None;
    public Transform 伤害trans;
@@ -26,6 +28,9 @@ public class MonsterBase : MonoBehaviour
          return;
       }
       InitAttribute();
+      image.sortingOrder = (int)(transform.position.y * -100)+1;
+      bg.sortingOrder = (int)(transform.position.y * -100);
+      HpCanvas.sortingOrder = (int)(transform.position.y * -100)+2;
       MonsterSlider.gameObject.SetActive(false);
       CurrentHP = MonsterAttribute.Hp;
       image.sprite = ResourcesConfig.GetMonsterSprite(MonsterTypeName);
@@ -92,18 +97,21 @@ public class MonsterBase : MonoBehaviour
          case MonsterType.Normal:
             var 普通怪死亡 = FightController.S.普通怪死亡Queue.Dequeue();
             普通怪死亡.gameObject.transform.position = transform.position;
+            普通怪死亡.order=(int)(transform.position.y * -100);
             普通怪死亡.gameObject.SetActive(true);
             FightController.S.普通怪Queue.Enqueue(this as 普通怪);
             break;
          case MonsterType.Elite:
             var 精英怪死亡 = FightController.S.精英怪死亡Queue.Dequeue();
             精英怪死亡.gameObject.transform.position = transform.position;
+            精英怪死亡.order=(int)(transform.position.y * -100);
             精英怪死亡.gameObject.SetActive(true);
             FightController.S.精英怪Queue.Enqueue(this as 精英怪);
             break;
          case MonsterType.Boss:
             var 首领怪死亡 = FightController.S.首领怪死亡Queue.Dequeue();
             首领怪死亡.gameObject.transform.position = transform.position;
+            首领怪死亡.order=(int)(transform.position.y * -100);
             首领怪死亡.gameObject.SetActive(true);
             FightController.S.首领怪Queue.Enqueue(this as 首领怪);
             break;

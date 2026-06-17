@@ -8,6 +8,8 @@ using UnityEngine;
 public class Spine纯显示一次 : MonoBehaviour
 {
    public SkeletonAnimation Skeleton;
+   public MeshRenderer MeshRenderer;
+   [NonSerialized] public int order;
    public string name;
    public 特效Type 特效Type;
 
@@ -23,6 +25,7 @@ public class Spine纯显示一次 : MonoBehaviour
 
    private void OnEnable()
    {
+      MeshRenderer.sortingOrder = order;
       Skeleton.AnimationState.SetAnimation(0,name,false);
    }
 }
