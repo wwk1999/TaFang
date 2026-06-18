@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum LevelSmallType
 {
@@ -42,9 +43,58 @@ public class LevelDiaoLuo
     public PropType PropType;
 }
 
+public class SmallLevelInfo
+{
+    public int NormalMonsterCount;
+    public float CreateNormalMonsterTime;
+    public int EliteMonsterCount;
+    public float CreateEliteMonsterTime;
+
+}
+
+public class 普通关卡胜利奖励
+{
+    public int 灵魂;
+    public int 领主经验值;
+    public int 射手经验值;
+    public int 法师经验值;
+    public int 战士经验值;
+    public int 辅助经验值;
+    public int 控制经验值;
+    public int 衣服锻造石;
+    public int 鞋子锻造石;
+    public int 头盔锻造石;
+    public int 项链锻造石;
+    public int 戒指锻造石;
+    public int 护手锻造石;
+    public int 招募卷;
+
+}
+
 public class LevelConfig : MonoBehaviour
 {
     public static LevelSmallType  CurrentLevelSmallType=LevelSmallType.None;
+
+    public static Dictionary<LevelSmallType, SmallLevelInfo> LevelInfos = new Dictionary<LevelSmallType, SmallLevelInfo>()
+{
+    { LevelSmallType.花果山, new SmallLevelInfo() { NormalMonsterCount = 100, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 50f } },
+    { LevelSmallType.水帘洞, new SmallLevelInfo() { NormalMonsterCount = 110, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 55f } },
+    { LevelSmallType.傲来国, new SmallLevelInfo() { NormalMonsterCount = 120, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 60f } },
+    { LevelSmallType.东海龙宫, new SmallLevelInfo() { NormalMonsterCount = 130, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 65f } },
+    { LevelSmallType.蓬莱仙岛, new SmallLevelInfo() { NormalMonsterCount = 140, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 70f } },
+    { LevelSmallType.五行山, new SmallLevelInfo() { NormalMonsterCount = 150, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 75f } },
+    { LevelSmallType.高老庄, new SmallLevelInfo() { NormalMonsterCount = 160, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 80f } },
+    { LevelSmallType.平顶山, new SmallLevelInfo() { NormalMonsterCount = 170, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 85f } },
+    { LevelSmallType.车迟国, new SmallLevelInfo() { NormalMonsterCount = 180, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 90f } },
+    { LevelSmallType.女儿国, new SmallLevelInfo() { NormalMonsterCount = 190, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 95f } },
+    { LevelSmallType.火焰山, new SmallLevelInfo() { NormalMonsterCount = 200, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 100f } },
+    { LevelSmallType.盘丝洞, new SmallLevelInfo() { NormalMonsterCount = 210, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 105f } },
+    { LevelSmallType.狮驼岭, new SmallLevelInfo() { NormalMonsterCount = 220, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 110f } },
+    { LevelSmallType.天竺国, new SmallLevelInfo() { NormalMonsterCount = 230, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 115f } },
+    { LevelSmallType.芭蕉洞, new SmallLevelInfo() { NormalMonsterCount = 240, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 120f } },
+    { LevelSmallType.流沙河, new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 125f } },
+    { LevelSmallType.小雷音寺, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 130f } }
+};
    public static Dictionary<LevelSmallType, List<MonsterTypeName>> LevelMonsterDic =
     new Dictionary<LevelSmallType, List<MonsterTypeName>>()
     {
@@ -100,6 +150,63 @@ public class LevelConfig : MonoBehaviour
         { LevelSmallType.小雷音寺, new List<MonsterTypeName>() { 
             MonsterTypeName.假罗汉, MonsterTypeName.假金刚, MonsterTypeName.黄眉童子 } }
     };
+
+   public static 普通关卡胜利奖励 Get胜利奖励()
+   {
+       HashSet<LevelDiaoLuo> list = LevelDiaoLuoDic[CurrentLevelSmallType];
+       普通关卡胜利奖励 value = new 普通关卡胜利奖励();
+       foreach (var item in list)
+       {
+           int random=Random.Range(item.minCount,item.maxCount+1);
+           switch (item.PropType)
+           {
+               case PropType.灵魂:
+                   value.灵魂 = random;
+                   break;
+               case PropType.领主经验值:
+                   value.领主经验值 = random;
+                   break;
+               case PropType.射手经验值:
+                   value.射手经验值 = random;
+                   break;
+               case PropType.法师经验值:
+                   value.法师经验值 = random;
+                   break;
+               case PropType.控制经验值:
+                   value.控制经验值 = random;
+                   break;
+               case PropType.战士经验值:
+                   value.战士经验值 = random;
+                   break;
+               case PropType.辅助经验值:
+                   value.辅助经验值 = random;
+                   break;
+               case PropType.衣服锻造石:
+                   value.衣服锻造石 = random;
+                   break;
+               case PropType.头盔锻造石:
+                   value.头盔锻造石 = random;
+                   break;
+               case PropType.鞋子锻造石:
+                   value.鞋子锻造石 = random;
+                   break;
+               case PropType.护手锻造石:
+                   value.护手锻造石 = random;
+                   break;
+               case PropType.戒指锻造石:
+                   value.戒指锻造石 = random;
+                   break;
+               case PropType.项链锻造石:
+                   value.项链锻造石 = random;
+                   break;
+               case PropType.招募卷:
+                   value.招募卷 = random;
+                   break;
+           }
+       }
+
+       return value;
+   }
     public static Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
         new Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>>()
         {

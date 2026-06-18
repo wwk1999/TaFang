@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StartWindow : MonoBehaviour
@@ -12,8 +13,7 @@ public class StartWindow : MonoBehaviour
    {
       StartBtn.onClick.AddListener(() =>
          {
-            gameObject.SetActive(false);
-            WindowController.S.MainWindow.gameObject.SetActive(true);
+            SceneManager.LoadScene("UIScene");
          }
       );
    }

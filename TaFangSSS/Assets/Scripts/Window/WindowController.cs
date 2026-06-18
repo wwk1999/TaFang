@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WindowController : XSingleton<WindowController>
 {
-   [NonSerialized]public GameObject StartWindow;
    [NonSerialized]public GameObject MainWindow;
    [NonSerialized]public GameObject LevelWindow;
    [NonSerialized]public GameObject 招募Window;
@@ -19,10 +18,8 @@ public class WindowController : XSingleton<WindowController>
 
    public void Init()
    {
-      StartWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/StartWindow"));
       MainWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/MainWindow"));
-      StartWindow.SetActive(true);
-      MainWindow.SetActive(false);
+      MainWindow.SetActive(true);
       StoreController.S.LoadStoreData();
    }
 }

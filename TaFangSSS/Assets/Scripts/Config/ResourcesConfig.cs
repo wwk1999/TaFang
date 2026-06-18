@@ -458,6 +458,76 @@ public static Sprite GetMonsterSprite(MonsterTypeName type)
             return null;
     }
 }
+
+public static Sprite  GetPropSprite(PropType propType)
+{
+     switch (propType)
+        {
+            case PropType.功德:
+                return 功德;
+            case PropType.洗练石:
+                return 洗练石;
+            case PropType.灵魂:
+                return  灵魂;
+            case PropType.领主经验值:
+                return 领主经验值;
+            case PropType.法师经验值:
+                return 法师经验值;
+            case PropType.战士经验值:
+                return 战士经验值;
+            case PropType.控制经验值:
+                return 控制经验值;
+            case PropType.辅助经验值:
+                return 辅助经验值;
+            case PropType.射手经验值:
+                return 射手经验值;
+            case PropType.全职业经验值:
+                return 全职业经验值;
+            case PropType.衣服锻造石:
+                return 衣服锻造石;
+            case PropType.头盔锻造石:
+                return 头盔锻造石;
+            case PropType.护手锻造石:
+                return 护手锻造石;
+            case PropType.项链锻造石:
+                return 项链锻造石;
+            case PropType.戒指锻造石:
+                return 戒指锻造石;
+            case PropType.鞋子锻造石:
+                return 鞋子锻造石;
+            case PropType.招募卷:
+                return 招募卷;
+            case PropType.高级招募卷:
+                return 高级招募卷;
+        }
+
+        return null;
+}
+
+public static Sprite Get道具背景框Sprite(PropType propType)
+{
+    switch (PropConfig.PropQualityDic[propType])
+    {
+        case QualityType.黄品:
+            return 道具背景框白;
+        case QualityType.玄品:
+            return 道具背景框白;
+        case QualityType.地品:
+            return 道具背景框白;
+        case QualityType.天品:
+            return 道具背景框白;
+        case QualityType.宇品:
+            return 道具背景框白;
+        case QualityType.宙品:
+            return 道具背景框白;
+        case QualityType.洪品:
+            return 道具背景框白;
+        case QualityType.荒品:
+            return 道具背景框白;
+    }
+
+    return null;
+}
    
    public static void Init()
    {

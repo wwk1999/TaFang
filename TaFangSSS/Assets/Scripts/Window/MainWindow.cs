@@ -51,8 +51,8 @@ public class MainWindow : MonoBehaviour
         });
         招募卷Debug.onClick.AddListener(() =>
         {
-            PlayerData.S.PropCountDic[PropType.高级招募卷] += 100;
-            PlayerData.S.PropCountDic[PropType.招募卷] += 100;
+            PlayerData.S.PropListDic[PropType.高级招募卷] += 100;
+            PlayerData.S.PropListDic[PropType.招募卷] += 100;
         });
         LevelBtn.onClick.AddListener(() =>
         {

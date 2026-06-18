@@ -70,7 +70,7 @@ public class PlayerData : XSingleton<PlayerData>
         { HeroType.元始, new HeroData() { Level = 0, 元神 = 0 } },
     };
 
-    public Dictionary<PropType, int> PropCountDic = new Dictionary<PropType, int>()
+    public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
     {
         { PropType.领主经验值, 0 },
         { PropType.全职业经验值, 0 },

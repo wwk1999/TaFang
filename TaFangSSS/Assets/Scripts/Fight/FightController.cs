@@ -9,7 +9,13 @@ using Random = UnityEngine.Random;
 public class FightController : XSingleton<FightController>
 {
     [NonSerialized] public float CreateMonsterTime = 1f;
-    [NonSerialized] public float CurrentCreateMonsterTime = 0;
+    [NonSerialized] public float 当前创建普通怪物时间 = 0;
+    [NonSerialized] public float 当前创建精英怪物时间 = 0;
+    private int NormalMonsterCount = 0;
+    private int EliteMonsterCount = 0;
+    [NonSerialized]public int KillMonsterCount = 0;
+
+
 
     [NonSerialized] public Dictionary<int, HashSet<MonsterBase>> Monster分区Dic = new Dictionary<int, HashSet<MonsterBase>>()
     {
@@ -299,14 +305,38 @@ public class FightController : XSingleton<FightController>
         monster.gameObject.SetActive(true);
         MonsterColliderDic[monster.Collider2D] = monster;
     }
+    
+    public void CreateEliteMonster()
+    {
+        float x = 10f;
+        float y = Random.Range(-4f, 4f);
+        var monster=精英怪Queue.Dequeue();
+        monster.transform.position = new Vector3(x,y,0);
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.CurrentLevelSmallType];
+        monster.MonsterTypeName = list[2];
+        monster.gameObject.SetActive(true);
+        MonsterColliderDic[monster.Collider2D] = monster;
+    }
 
     private void Update()
     {
-        CurrentCreateMonsterTime+=Time.deltaTime;
-        if (CurrentCreateMonsterTime >= CreateMonsterTime)
+        当前创建普通怪物时间+=Time.deltaTime;
+        当前创建精英怪物时间+=Time.deltaTime;
+        var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].CreateNormalMonsterTime;
+        var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount;
+        var 精英怪物Time = LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].CreateEliteMonsterTime;
+        var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount;
+        if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
         {
+            NormalMonsterCount++;
             CreateNormalMonster();
-            CurrentCreateMonsterTime = 0;
+            当前创建普通怪物时间 = 0;
+        }
+        if (当前创建精英怪物时间 >= 精英怪物Time&&EliteMonsterCount<精英怪物最大数量)
+        {
+            EliteMonsterCount++;
+            CreateEliteMonster();
+            当前创建精英怪物时间 = 0;
         }
     }
 
@@ -477,19 +507,31 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void Init怪物死亡Queue()
+    public void Init怪物Queue()
     {
-        for (int i = 0; i < 100; i++)
+        var 普通怪数量 = LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount;
+        var 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount;
+
+        for (int i = 0; i < 普通怪数量; i++)
         {
-            var 普通怪 = Instantiate(Resources.Load("Prefabs/Fight/普通怪物Item")).GetComponent<普通怪>();
-            普通怪.gameObject.SetActive(false);
-            普通怪Queue.Enqueue(普通怪);
+             var 普通怪 = Instantiate(Resources.Load("Prefabs/Fight/普通怪物Item")).GetComponent<普通怪>();
+             普通怪.gameObject.SetActive(false);
+             普通怪Queue.Enqueue(普通怪);
+        }
+        for (int i = 0; i < 50; i++)
+        {
             var 伤害数字 = Instantiate(Resources.Load("Prefabs/Fight/伤害数字")).GetComponent<伤害数字>();
             伤害数字.gameObject.SetActive(false);
             伤害数字Queue.Enqueue(伤害数字);
             var 普通怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/普通怪死亡")).GetComponent<Spine纯显示一次>();
             普通怪死亡.gameObject.SetActive(false);
             普通怪死亡Queue.Enqueue(普通怪死亡);
+        }
+        for (int i = 0; i < 精英怪数量; i++)
+        {
+            var 精英怪 = Instantiate(Resources.Load("Prefabs/Fight/精英怪物Item")).GetComponent<精英怪>();
+            精英怪.gameObject.SetActive(false);
+            精英怪Queue.Enqueue(精英怪);
         }
 
         for (int i = 0; i < 5; i++)
@@ -501,10 +543,6 @@ public class FightController : XSingleton<FightController>
             var 首领怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/首领怪死亡")).GetComponent<Spine纯显示一次>();
             首领怪死亡.gameObject.SetActive(false);
             首领怪死亡Queue.Enqueue(首领怪死亡);
-            
-            var 精英怪 = Instantiate(Resources.Load("Prefabs/Fight/精英怪物Item")).GetComponent<精英怪>();
-            精英怪.gameObject.SetActive(false);
-            精英怪Queue.Enqueue(精英怪);
             
             var 首领怪 = Instantiate(Resources.Load("Prefabs/Fight/首领怪物Item")).GetComponent<首领怪>();
             首领怪.gameObject.SetActive(false);

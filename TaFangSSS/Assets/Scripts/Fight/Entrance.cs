@@ -8,6 +8,21 @@ using UnityEngine;
 public class Entrance : MonoBehaviour
 {
    public GameObject 人物Parent;
+   public Animator 围栏Animator;
+
+   public void 围栏受击(object[] obj)
+   {
+      float damage = (float)obj[0];
+      float y=(float)obj[1];
+      围栏Animator.Play("围栏受击",0,0);
+      FightController.S.Show伤害数字(damage,YuanSuType.物理,new Vector2(-5,y));
+   }
+
+   private void Start()
+   {
+      ObserverModuleManager.S.RegisterEvent("围栏受击",围栏受击);
+   }
+
    public void InitRenWu()
    {
       int index = 1;
@@ -27,7 +42,7 @@ public class Entrance : MonoBehaviour
 
    private void Awake()
    {
-      FightController.S.Init怪物死亡Queue();
+      FightController.S.Init怪物Queue();
       FightController.S.InitHeroSkill();
       InitRenWu();
    }

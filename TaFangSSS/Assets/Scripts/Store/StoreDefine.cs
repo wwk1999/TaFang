@@ -116,7 +116,7 @@ public class StoreDefine : XSingleton<StoreController>
             LingQi = runtime.LingQi;
             GongDe = runtime.GongDe;
             LevelZhanKaiDic = runtime.LevelZhanKaiDic;
-            PropCountDic = runtime.PropCountDic;
+            PropCountDic = runtime.PropListDic;
             HeroDataDic = runtime.HeroDataDic;
             出战英雄List = runtime.出战英雄List;
             编队名List = runtime.编队名List;
@@ -131,7 +131,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.LingQi = LingQi;
             runtime.GongDe = GongDe;
             runtime.LevelZhanKaiDic = LevelZhanKaiDic;
-            runtime.PropCountDic = PropCountDic;
+            runtime.PropListDic = PropCountDic;
             runtime.HeroDataDic = HeroDataDic;
             runtime.出战英雄List = 出战英雄List;
             runtime.编队名List = 编队名List;

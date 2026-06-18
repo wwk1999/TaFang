@@ -14,8 +14,8 @@ public class FightConfig
 
     public static Dictionary<MonsterType, float> 怪物攻击距离Dic = new Dictionary<MonsterType, float>()
     {
-        { MonsterType.Normal, -4 },
-        { MonsterType.Elite, -3.85f },
-        { MonsterType.Boss, -3.5f },
+        { MonsterType.Normal, -4.3f },
+        { MonsterType.Elite, -4.1f },
+        { MonsterType.Boss, -3.8f },
     };
 }

@@ -5,6 +5,7 @@ using Config;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Random = UnityEngine.Random;
 
 public class MonsterBase : MonoBehaviour
 {
@@ -13,14 +14,15 @@ public class MonsterBase : MonoBehaviour
    public SpriteRenderer image;
    [NonSerialized]public MonsterTypeName MonsterTypeName=MonsterTypeName.None;
    public Transform 伤害trans;
-   public Animation 攻击Animation;
-   public Animation 受击Animation;
+   public Animator 攻击Animation;
+   public Animator 受击Animation;
    public Collider2D Collider2D;
 
    public Slider MonsterSlider;
    [NonSerialized] public MonsterAttribute MonsterAttribute;
    [NonSerialized]public float CurrentHP;
    [NonSerialized] public float speed;
+   private float CurrentAttackTime = 0;
    private void OnEnable()
    {
       if (MonsterTypeName == MonsterTypeName.None)
@@ -49,7 +51,7 @@ public class MonsterBase : MonoBehaviour
    public void Hurt(float 原始Damage,YuanSuType yuanSuType)
    {
       MonsterSlider.gameObject.SetActive(true);
-      受击Animation.Play();
+      受击Animation.Play("怪物受击",0,0f);
       float 最终Damage = 原始Damage - MonsterAttribute.Defense;
       float 抗性 = 0;
       switch (yuanSuType)
@@ -86,11 +88,44 @@ public class MonsterBase : MonoBehaviour
 
    private void Update()
    {
-      transform.position=new Vector3(transform.position.x-speed*Time.deltaTime,transform.position.y,transform.position.z);
+      float 城墙最近距离 = 0;
+      CurrentAttackTime+=Time.deltaTime;
+      switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+      {
+         case MonsterType.Normal:
+            城墙最近距离 = FightConfig.怪物攻击距离Dic[MonsterType.Normal];
+            break;
+         case MonsterType.Elite:
+            城墙最近距离 = FightConfig.怪物攻击距离Dic[MonsterType.Elite];
+            break;
+         case MonsterType.Boss:
+            城墙最近距离 = FightConfig.怪物攻击距离Dic[MonsterType.Boss];
+            break;
+      }
+
+      if (transform.position.x > 城墙最近距离)
+      {
+         transform.position=new Vector3(transform.position.x-speed*Time.deltaTime,transform.position.y,transform.position.z);
+      }
+      else
+      {
+         if (CurrentAttackTime > 1f)
+         {
+            怪物攻击();
+            CurrentAttackTime = Random.Range(0f,0.3f);
+         }
+      }
+   }
+
+   public void 怪物攻击()
+   {
+      攻击Animation.Play("怪物攻击",0,0f);
+      ObserverModuleManager.S.SendEvent("围栏受击",MonsterAttribute.Attack,transform.position.y);
    }
 
    public void Die()
    {
+      FightController.S.KillMonsterCount++;
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       switch (monsterType)
       {
@@ -115,6 +150,34 @@ public class MonsterBase : MonoBehaviour
             首领怪死亡.gameObject.SetActive(true);
             FightController.S.首领怪Queue.Enqueue(this as 首领怪);
             break;
+      }
+      if (FightController.S.Monster分区Dic[1].Contains(this))
+      {
+         FightController.S.Monster分区Dic[1].Remove(this);
+      }
+      if (FightController.S.Monster分区Dic[2].Contains(this))
+      {
+         FightController.S.Monster分区Dic[2].Remove(this);
+      }
+      if (FightController.S.Monster分区Dic[3].Contains(this))
+      {
+         FightController.S.Monster分区Dic[3].Remove(this);
+      }
+      if (FightController.S.Monster分区Dic[4].Contains(this))
+      {
+         FightController.S.Monster分区Dic[4].Remove(this);
+      }
+      if (FightController.S.Monster分区Dic[5].Contains(this))
+      {
+         FightController.S.Monster分区Dic[5].Remove(this);
+      }
+      if (FightController.S.Monster分区Dic[6].Contains(this))
+      {
+         FightController.S.Monster分区Dic[6].Remove(this);
+      }
+      if (FightController.S.Monster分区Dic[7].Contains(this))
+      {
+         FightController.S.Monster分区Dic[7].Remove(this);
       }
       gameObject.SetActive(false);
    }
