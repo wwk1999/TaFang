@@ -11,8 +11,8 @@ public class LoadWindow : MonoBehaviour
 
     public IEnumerator PreloadAllPools()
     {
-        yield return FightController.S.Init怪物Queue();
-        yield return FightController.S.InitHeroSkill();
+        yield return QueueController.S.Init怪物Queue();
+        yield return QueueController.S.InitHeroSkill();
     }
 
     private void Start()
