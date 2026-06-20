@@ -5,6 +5,68 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //突破背景
+    public static Sprite 突破背景凡;
+    public static Sprite 突破背景灵;
+    public static Sprite 突破背景仙;
+    public static Sprite 突破背景圣;
+    public static Sprite 突破背景荒;
+
+    //装备
+    public static Sprite 护手白;
+    public static Sprite 护手绿;
+    public static Sprite 护手蓝;
+    public static Sprite 护手紫;
+    public static Sprite 护手橙;
+    public static Sprite 护手粉;
+    public static Sprite 护手红;
+    public static Sprite 护手彩;
+    
+    public static Sprite 头盔白;
+    public static Sprite 头盔绿;
+    public static Sprite 头盔蓝;
+    public static Sprite 头盔紫;
+    public static Sprite 头盔橙;
+    public static Sprite 头盔粉;
+    public static Sprite 头盔红;
+    public static Sprite 头盔彩;
+    
+    public static Sprite 项链白;
+    public static Sprite 项链绿;
+    public static Sprite 项链蓝;
+    public static Sprite 项链紫;
+    public static Sprite 项链橙;
+    public static Sprite 项链粉;
+    public static Sprite 项链红;
+    public static Sprite 项链彩;
+    
+    public static Sprite 戒指白;
+    public static Sprite 戒指绿;
+    public static Sprite 戒指蓝;
+    public static Sprite 戒指紫;
+    public static Sprite 戒指橙;
+    public static Sprite 戒指粉;
+    public static Sprite 戒指红;
+    public static Sprite 戒指彩;
+    
+    public static Sprite 衣服白;
+    public static Sprite 衣服绿;
+    public static Sprite 衣服蓝;
+    public static Sprite 衣服紫;
+    public static Sprite 衣服橙;
+    public static Sprite 衣服粉;
+    public static Sprite 衣服红;
+    public static Sprite 衣服彩;
+    
+    public static Sprite 鞋子白;
+    public static Sprite 鞋子绿;
+    public static Sprite 鞋子蓝;
+    public static Sprite 鞋子紫;
+    public static Sprite 鞋子橙;
+    public static Sprite 鞋子粉;
+    public static Sprite 鞋子红;
+    public static Sprite 鞋子彩;
+
     //招募
     public static Sprite 招募概率按钮亮;
     public static Sprite 招募概率按钮暗;
@@ -511,26 +573,254 @@ public static Sprite Get道具背景框Sprite(PropType propType)
         case QualityType.黄品:
             return 道具背景框白;
         case QualityType.玄品:
-            return 道具背景框白;
+            return 道具背景框绿;
         case QualityType.地品:
-            return 道具背景框白;
+            return 道具背景框蓝;
         case QualityType.天品:
-            return 道具背景框白;
+            return 道具背景框紫;
         case QualityType.宇品:
-            return 道具背景框白;
+            return 道具背景框橙;
         case QualityType.宙品:
-            return 道具背景框白;
+            return 道具背景框粉;
         case QualityType.洪品:
-            return 道具背景框白;
+            return 道具背景框红;
         case QualityType.荒品:
-            return 道具背景框白;
+            return 道具背景框彩;
     }
 
     return null;
 }
+
+public static Sprite Get道具背景框SpriteByQuality(QualityType QualityType)
+{
+    switch (QualityType)
+    {
+        case QualityType.黄品:
+            return 道具背景框白;
+        case QualityType.玄品:
+            return 道具背景框绿;
+        case QualityType.地品:
+            return 道具背景框蓝;
+        case QualityType.天品:
+            return 道具背景框紫;
+        case QualityType.宇品:
+            return 道具背景框橙;
+        case QualityType.宙品:
+            return 道具背景框粉;
+        case QualityType.洪品:
+            return 道具背景框红;
+        case QualityType.荒品:
+            return 道具背景框彩;
+    }
+
+    return null;
+}
+
+public static Sprite GetEquipSprite(EquipType equipType, QualityType qualityType)
+{
+    switch (equipType)
+    {
+        case EquipType.头盔:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 头盔白;
+                case QualityType.玄品:
+                    return 头盔绿;
+                case QualityType.地品:
+                    return 头盔蓝;
+                case QualityType.天品:
+                    return 头盔紫;
+                case QualityType.宇品:
+                    return 头盔橙;
+                case QualityType.宙品:
+                    return 头盔粉;
+                case QualityType.洪品:
+                    return 头盔红;
+                case QualityType.荒品:
+                    return 头盔彩;
+            }
+            break;
+        
+        case EquipType.鞋子:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 鞋子白;
+                case QualityType.玄品:
+                    return 鞋子绿;
+                case QualityType.地品:
+                    return 鞋子蓝;
+                case QualityType.天品:
+                    return 鞋子紫;
+                case QualityType.宇品:
+                    return 鞋子橙;
+                case QualityType.宙品:
+                    return 鞋子粉;
+                case QualityType.洪品:
+                    return 鞋子红;
+                case QualityType.荒品:
+                    return 鞋子彩;
+            }
+            break;
+        
+        case EquipType.衣服:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 衣服白;
+                case QualityType.玄品:
+                    return 衣服绿;
+                case QualityType.地品:
+                    return 衣服蓝;
+                case QualityType.天品:
+                    return 衣服紫;
+                case QualityType.宇品:
+                    return 衣服橙;
+                case QualityType.宙品:
+                    return 衣服粉;
+                case QualityType.洪品:
+                    return 衣服红;
+                case QualityType.荒品:
+                    return 衣服彩;
+            }
+            break;
+        
+        case EquipType.项链:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 项链白;
+                case QualityType.玄品:
+                    return 项链绿;
+                case QualityType.地品:
+                    return 项链蓝;
+                case QualityType.天品:
+                    return 项链紫;
+                case QualityType.宇品:
+                    return 项链橙;
+                case QualityType.宙品:
+                    return 项链粉;
+                case QualityType.洪品:
+                    return 项链红;
+                case QualityType.荒品:
+                    return 项链彩;
+            }
+            break;
+        
+        case EquipType.戒指:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 戒指白;
+                case QualityType.玄品:
+                    return 戒指绿;
+                case QualityType.地品:
+                    return 戒指蓝;
+                case QualityType.天品:
+                    return 戒指紫;
+                case QualityType.宇品:
+                    return 戒指橙;
+                case QualityType.宙品:
+                    return 戒指粉;
+                case QualityType.洪品:
+                    return 戒指红;
+                case QualityType.荒品:
+                    return 戒指彩;
+            }
+            break;
+        
+        case EquipType.护手:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 护手白;
+                case QualityType.玄品:
+                    return 护手绿;
+                case QualityType.地品:
+                    return 护手蓝;
+                case QualityType.天品:
+                    return 护手紫;
+                case QualityType.宇品:
+                    return 护手橙;
+                case QualityType.宙品:
+                    return 护手粉;
+                case QualityType.洪品:
+                    return 护手红;
+                case QualityType.荒品:
+                    return 护手彩;
+            }
+            break;
+    }
+
+    return null;  
+}
    
    public static void Init()
    {
+       //突破背景
+       突破背景凡=Resources.Load<Sprite>("Sprite/突破背景/凡");
+       突破背景灵=Resources.Load<Sprite>("Sprite/突破背景/灵");
+       突破背景仙=Resources.Load<Sprite>("Sprite/突破背景/仙");
+       突破背景圣=Resources.Load<Sprite>("Sprite/突破背景/圣");
+       突破背景荒=Resources.Load<Sprite>("Sprite/突破背景/荒");
+
+       //装备
+       护手白=Resources.Load<Sprite>("Sprite/装备/护手白");
+       护手绿=Resources.Load<Sprite>("Sprite/装备/护手绿");
+       护手蓝=Resources.Load<Sprite>("Sprite/装备/护手蓝");
+       护手紫=Resources.Load<Sprite>("Sprite/装备/护手紫");
+       护手橙=Resources.Load<Sprite>("Sprite/装备/护手橙");
+       护手粉=Resources.Load<Sprite>("Sprite/装备/护手粉");
+       护手红=Resources.Load<Sprite>("Sprite/装备/护手红");
+       护手彩=Resources.Load<Sprite>("Sprite/装备/护手彩");
+
+       鞋子白 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[0];
+       鞋子绿 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[1];
+       鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[2];
+       鞋子紫 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[3];
+       鞋子橙 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[4];
+       鞋子粉 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[5];
+       鞋子红 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[6];
+       鞋子彩 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[7];
+       
+       头盔白 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[0];
+       头盔绿 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[1];
+       头盔蓝 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[2];
+       头盔紫 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[3];
+       头盔橙 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[4];
+       头盔粉 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[5];
+       头盔红 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[6];
+       头盔彩 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[7];
+       
+       项链白 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[0];
+       项链绿 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[1];
+       项链蓝 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[2];
+       项链紫 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[3];
+       项链橙 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[4];
+       项链粉 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[5];
+       项链红 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[6];
+       项链彩 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[7];
+       
+       戒指白 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[0];
+       戒指绿 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[1];
+       戒指蓝 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[2];
+       戒指紫 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[3];
+       戒指橙 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[4];
+       戒指粉 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[5];
+       戒指红 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[6];
+       戒指彩 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[7];
+       
+       衣服白 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[0];
+       衣服绿 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[1];
+       衣服蓝 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[2];
+       衣服紫 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[3];
+       衣服橙 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[4];
+       衣服粉 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[5];
+       衣服红 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[6];
+       衣服彩 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[7];
+
+       
        招募概率按钮亮= Resources.Load<Sprite>("Sprite/招募/招募概率按钮亮");
        招募概率按钮暗= Resources.Load<Sprite>("Sprite/招募/招募概率按钮暗");
 

@@ -123,32 +123,43 @@ public class MonsterBase : MonoBehaviour
       ObserverModuleManager.S.SendEvent("围栏受击",MonsterAttribute.Attack,transform.position.y);
    }
 
+   public IEnumerator Show胜利弹窗()
+   {
+      yield return new WaitForSeconds(1f);
+      Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
+   }
    public void Die()
    {
       FightController.S.KillMonsterCount++;
+      if (FightController.S.KillMonsterCount ==
+          (LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount +
+           LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount))
+      {
+         FightController.S.StartCoroutine(Show胜利弹窗());
+      }
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       switch (monsterType)
       {
          case MonsterType.Normal:
-            var 普通怪死亡 = FightController.S.普通怪死亡Queue.Dequeue();
+            var 普通怪死亡 = QueueController.S.普通怪死亡Queue.Dequeue();
             普通怪死亡.gameObject.transform.position = transform.position;
             普通怪死亡.order=(int)(transform.position.y * -100);
             普通怪死亡.gameObject.SetActive(true);
-            FightController.S.普通怪Queue.Enqueue(this as 普通怪);
+            QueueController.S.普通怪Queue.Enqueue(this as 普通怪);
             break;
          case MonsterType.Elite:
-            var 精英怪死亡 = FightController.S.精英怪死亡Queue.Dequeue();
+            var 精英怪死亡 = QueueController.S.精英怪死亡Queue.Dequeue();
             精英怪死亡.gameObject.transform.position = transform.position;
             精英怪死亡.order=(int)(transform.position.y * -100);
             精英怪死亡.gameObject.SetActive(true);
-            FightController.S.精英怪Queue.Enqueue(this as 精英怪);
+            QueueController.S.精英怪Queue.Enqueue(this as 精英怪);
             break;
          case MonsterType.Boss:
-            var 首领怪死亡 = FightController.S.首领怪死亡Queue.Dequeue();
+            var 首领怪死亡 = QueueController.S.首领怪死亡Queue.Dequeue();
             首领怪死亡.gameObject.transform.position = transform.position;
             首领怪死亡.order=(int)(transform.position.y * -100);
             首领怪死亡.gameObject.SetActive(true);
-            FightController.S.首领怪Queue.Enqueue(this as 首领怪);
+            QueueController.S.首领怪Queue.Enqueue(this as 首领怪);
             break;
       }
       if (FightController.S.Monster分区Dic[1].Contains(this))

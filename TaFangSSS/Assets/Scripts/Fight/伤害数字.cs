@@ -18,7 +18,7 @@ public class 伤害数字 : MonoBehaviour
 
     public void Hide()
     {
-        FightController.S.伤害数字Queue.Enqueue(this);
+        QueueController.S.伤害数字Queue.Enqueue(this);
         gameObject.SetActive(false);
     }
     private void OnEnable()

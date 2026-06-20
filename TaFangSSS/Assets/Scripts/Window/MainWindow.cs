@@ -19,6 +19,10 @@ public class MainWindow : MonoBehaviour
     public Button 招募Btn;
     public Button 招募卷Debug;
     public Button 英雄按钮;
+    public Button 储物袋按钮;
+    public Button 经验值Debug;
+
+
     public void Init()
     {
         Name.text = PlayerData.S.Name;
@@ -41,10 +45,20 @@ public class MainWindow : MonoBehaviour
         WindowController.S.招募Window.gameObject.SetActive(false);
         WindowController.S.英雄Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/HeroWindow"));
         WindowController.S.英雄Window.gameObject.SetActive(false);
+        WindowController.S.储物袋Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/储物袋界面"));
+        WindowController.S.储物袋Window.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+        经验值Debug.onClick.AddListener(() =>
+        {
+            PlayerData.S.PropListDic[PropType.领主经验值] += 999999;
+        });
+        储物袋按钮.onClick.AddListener(() =>
+        {
+            WindowController.S.储物袋Window.gameObject.SetActive(true);
+        });
         英雄按钮.onClick.AddListener(() =>
         {
             WindowController.S.英雄Window.gameObject.SetActive(true);

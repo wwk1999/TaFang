@@ -9,6 +9,8 @@ public class WindowController : XSingleton<WindowController>
    [NonSerialized]public GameObject LevelWindow;
    [NonSerialized]public GameObject 招募Window;
    [NonSerialized]public GameObject 英雄Window;
+   [NonSerialized]public GameObject 储物袋Window;
+
 
 
    private void OnEnable()

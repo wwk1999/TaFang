@@ -26,6 +26,16 @@ public enum JingJieType
     鸿蒙,
 }
 
+public enum 突破Type
+{
+    None,
+    凡,
+    灵,
+    仙,
+    圣,
+    荒,
+}
+
 public class JingJieAttribute
 {
     public float Attack;

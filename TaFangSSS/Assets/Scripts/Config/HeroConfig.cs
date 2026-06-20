@@ -199,7 +199,7 @@ namespace Config
         
         public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
         {
-            { HeroType.丹童, 1 },
+            { HeroType.丹童, 0.3f },
             { HeroType.青童, 1 },
             { HeroType.土地, 1 },
             { HeroType.河伯, 1 },

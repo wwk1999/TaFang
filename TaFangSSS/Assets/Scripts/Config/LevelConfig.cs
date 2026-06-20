@@ -77,7 +77,7 @@ public class LevelConfig : MonoBehaviour
 
     public static Dictionary<LevelSmallType, SmallLevelInfo> LevelInfos = new Dictionary<LevelSmallType, SmallLevelInfo>()
 {
-    { LevelSmallType.花果山, new SmallLevelInfo() { NormalMonsterCount = 100, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 50f } },
+    { LevelSmallType.花果山, new SmallLevelInfo() { NormalMonsterCount = 10, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 5f } },
     { LevelSmallType.水帘洞, new SmallLevelInfo() { NormalMonsterCount = 110, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 55f } },
     { LevelSmallType.傲来国, new SmallLevelInfo() { NormalMonsterCount = 120, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 60f } },
     { LevelSmallType.东海龙宫, new SmallLevelInfo() { NormalMonsterCount = 130, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 65f } },

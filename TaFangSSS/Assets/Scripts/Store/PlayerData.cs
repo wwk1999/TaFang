@@ -5,12 +5,48 @@ using UnityEngine;
 
 public class PlayerData : XSingleton<PlayerData>
 {
+    protected override void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public string Name = "白辰";
     public JingJieType JingJieType = JingJieType.练气;
     public int Exp;
     public int LingQi;
     public int GongDe;
     public int CurrentBianDui = 1;
+
+    public Dictionary<JingJieType, 突破Type> 突破Dic = new Dictionary<JingJieType, 突破Type>()
+    {
+        { JingJieType.练气 ,突破Type.None},
+        { JingJieType.筑基 ,突破Type.None},
+        { JingJieType.金丹 ,突破Type.None},
+        { JingJieType.元婴 ,突破Type.None},
+        { JingJieType.化神 ,突破Type.None},
+        { JingJieType.合体 ,突破Type.None},
+        { JingJieType.大乘 ,突破Type.None},
+        { JingJieType.天仙 ,突破Type.None},
+        { JingJieType.玄仙 ,突破Type.None},
+        { JingJieType.金仙 ,突破Type.None},
+        { JingJieType.太乙金仙 ,突破Type.None},
+        { JingJieType.大罗金仙 ,突破Type.None},
+        { JingJieType.准圣 ,突破Type.None},
+        { JingJieType.圣人 ,突破Type.None},
+        { JingJieType.天道圣人 ,突破Type.None},
+        { JingJieType.大道圣人 ,突破Type.None},
+        { JingJieType.混元圣人 ,突破Type.None},
+    };
+
+    public Dictionary<EquipType, int> EquipLevelDic = new Dictionary<EquipType, int>()
+    {
+        { EquipType.头盔 ,1},
+        { EquipType.护手 ,1},
+        { EquipType.鞋子 ,1},
+        { EquipType.戒指 ,1},
+        { EquipType.项链 ,1},
+        { EquipType.衣服 ,1},
+    };
     public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
     {
         { 0, new List<HeroType>() { HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class 胜利弹窗 : MonoBehaviour
@@ -10,6 +11,18 @@ public class 胜利弹窗 : MonoBehaviour
     public GameObject Content;
     public Button AgainButtn;
     public Button ExitButtn;
+
+    private void Start()
+    {
+        ExitButtn.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("UIScene");
+        });
+        AgainButtn.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene("LoadScene");
+        });
+    }
 
     private void OnEnable()
     {
@@ -46,6 +59,13 @@ public class 胜利弹窗 : MonoBehaviour
             var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
             item.Type = PropType.领主经验值;
             item.count = value.领主经验值;
+            item.SetItem();
+        }
+        if (value.战士经验值 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.战士经验值;
+            item.count = value.战士经验值;
             item.SetItem();
         }
         if (value.射手经验值 > 0)
@@ -123,13 +143,6 @@ public class 胜利弹窗 : MonoBehaviour
             var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
             item.Type = PropType.招募卷;
             item.count = value.招募卷;
-            item.SetItem();
-        }
-        if (value.战士经验值 > 0)
-        {
-            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
-            item.Type = PropType.战士经验值;
-            item.count = value.战士经验值;
             item.SetItem();
         }
     }

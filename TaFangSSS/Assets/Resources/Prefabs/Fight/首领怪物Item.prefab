@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5935638629554318829}
-  - component: {fileID: 6509807090528838918}
+  - component: {fileID: 2588692185701527523}
   m_Layer: 0
   m_Name: parent
   m_TagString: Untagged
@@ -36,22 +36,27 @@ Transform:
   - {fileID: 9201272082515628783}
   m_Father: {fileID: 821327837422922963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &6509807090528838918
-Animation:
+--- !u!95 &2588692185701527523
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915910142170575285}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: f0ec5feb48c9dd541bdaa4681043f044, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: f0ec5feb48c9dd541bdaa4681043f044, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f8d72de89242964dbc35d1a2acb5d5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1026031013641376523
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +812,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821327837422922963}
-  - component: {fileID: 7957315953466057396}
   - component: {fileID: 2167817425238157509}
+  - component: {fileID: 2439348777629887861}
   m_Layer: 7
   m_Name: "\u9996\u9886\u602A\u7269Item"
   m_TagString: Monster
@@ -832,21 +837,6 @@ Transform:
   - {fileID: 5935638629554318829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &7957315953466057396
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8675372222415503445}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: cef45e2e35af424438a5655b07e17252, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &2167817425238157509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,7 +853,28 @@ MonoBehaviour:
   HpCanvas: {fileID: 6162592095432009394}
   image: {fileID: 4001453454398161226}
   "\u4F24\u5BB3trans": {fileID: 9201272082515628783}
-  "\u653B\u51FBAnimation": {fileID: 6509807090528838918}
-  "\u53D7\u51FBAnimation": {fileID: 7957315953466057396}
+  "\u653B\u51FBAnimation": {fileID: 2588692185701527523}
+  "\u53D7\u51FBAnimation": {fileID: 2439348777629887861}
   Collider2D: {fileID: 6671786915317072923}
   MonsterSlider: {fileID: 707051745100928845}
+--- !u!95 &2439348777629887861
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8675372222415503445}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44a98c6e283d1744685eca994ce0705f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
