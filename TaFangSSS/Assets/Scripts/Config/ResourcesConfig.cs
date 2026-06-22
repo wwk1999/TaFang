@@ -1,10 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using Config;
+using TMPro;
 using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 锁;
+    public static Sprite 解锁;
+    
+    public static Sprite 强化窗口装备背景框亮;
+    public static Sprite 强化窗口装备背景框暗;
+    
+    public static Sprite 强化窗口按钮亮;
+    public static Sprite 强化窗口按钮暗;
+
+    public static TMP_ColorGradient 灰色TMP;
+    public static TMP_ColorGradient 高级招募TMP;
+
     //突破背景
     public static Sprite 突破背景凡;
     public static Sprite 突破背景灵;
@@ -755,9 +768,46 @@ public static Sprite GetEquipSprite(EquipType equipType, QualityType qualityType
 
     return null;  
 }
+
+public static Sprite Get标签背景(QualityType qualityType)
+{
+    switch (qualityType)
+    {
+        case QualityType.黄品:
+            return 品质标签白;
+        case QualityType.玄品:
+            return 品质标签绿;
+        case QualityType.地品:
+            return 品质标签蓝;
+        case QualityType.天品:
+            return 品质标签紫;
+        case QualityType.宇品:
+            return 品质标签橙;
+        case QualityType.宙品:
+            return 品质标签粉;
+        case QualityType.洪品:
+            return 品质标签红;
+        case QualityType.荒品:
+            return 品质标签彩;
+    }
+
+    return null;
+}
    
    public static void Init()
    {
+       锁=Resources.LoadAll<Sprite>("Sprite/强化窗口/锁")[0];
+       解锁=Resources.LoadAll<Sprite>("Sprite/强化窗口/锁")[1];
+       
+       强化窗口装备背景框亮=Resources.LoadAll<Sprite>("Sprite/强化窗口/装备背景框")[0];
+       强化窗口装备背景框暗=Resources.LoadAll<Sprite>("Sprite/强化窗口/装备背景框")[1];
+       
+       强化窗口按钮亮=Resources.LoadAll<Sprite>("Sprite/强化窗口/按钮")[0];
+       强化窗口按钮暗=Resources.LoadAll<Sprite>("Sprite/强化窗口/按钮")[1];
+
+       灰色TMP=Resources.Load<TMP_ColorGradient>("Sprite/突破背景/凡");
+       高级招募TMP=Resources.Load<TMP_ColorGradient>("Sprite/突破背景/凡");
+
        //突破背景
        突破背景凡=Resources.Load<Sprite>("Sprite/突破背景/凡");
        突破背景灵=Resources.Load<Sprite>("Sprite/突破背景/灵");

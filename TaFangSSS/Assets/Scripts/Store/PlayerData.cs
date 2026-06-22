@@ -38,6 +38,87 @@ public class PlayerData : XSingleton<PlayerData>
         { JingJieType.混元圣人 ,突破Type.None},
     };
 
+    public Dictionary<EquipType, List<附加属性>> 装备附加属性Dic = new Dictionary<EquipType, List<附加属性>>()
+    {
+        {
+            EquipType.头盔,
+            new List<附加属性>()
+            {
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+            }
+        },
+        {
+            EquipType.衣服,
+            new List<附加属性>()
+            {
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+            }
+        },
+        {
+            EquipType.护手,
+            new List<附加属性>()
+            {
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+            }
+        },
+        {
+            EquipType.鞋子,
+            new List<附加属性>()
+            {
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+            }
+        },
+        {
+            EquipType.项链,
+            new List<附加属性>()
+            {
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+            }
+        },
+        {
+            EquipType.戒指,
+            new List<附加属性>()
+            {
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None },
+            }
+        },
+    };
     public Dictionary<EquipType, int> EquipLevelDic = new Dictionary<EquipType, int>()
     {
         { EquipType.头盔 ,1},

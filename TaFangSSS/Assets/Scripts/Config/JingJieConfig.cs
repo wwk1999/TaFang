@@ -36,37 +36,30 @@ public enum 突破Type
     荒,
 }
 
-public class JingJieAttribute
-{
-    public float Attack;
-    public float CritDamage;
-    public float FinalDamage;
-}
-
 public class JingJieConfig : MonoBehaviour
 {
-    public static Dictionary<JingJieType, JingJieAttribute> JingJieAttributeDic =
-        new Dictionary<JingJieType, JingJieAttribute>()
+    public static Dictionary<JingJieType, int> JingJieAttributeDic =
+        new Dictionary<JingJieType, int>()
 
     {
-        { JingJieType.练气,new JingJieAttribute(){Attack = 10}},
-        { JingJieType.筑基,new JingJieAttribute(){Attack = 20}},
-        { JingJieType.金丹,new JingJieAttribute(){Attack = 40}},
-        { JingJieType.元婴,new JingJieAttribute(){Attack = 70}},
-        { JingJieType.化神,new JingJieAttribute(){Attack = 120}},
-        { JingJieType.合体,new JingJieAttribute(){Attack = 180}},
-        { JingJieType.大乘,new JingJieAttribute(){Attack = 250}},
-        { JingJieType.天仙,new JingJieAttribute(){Attack = 350,CritDamage = 10}},
-        { JingJieType.玄仙,new JingJieAttribute(){Attack = 500,CritDamage = 15}},
-        { JingJieType.金仙,new JingJieAttribute(){Attack = 700,CritDamage = 20}},
-        { JingJieType.太乙金仙,new JingJieAttribute(){Attack = 1000,CritDamage = 25}},
-        { JingJieType.大罗金仙,new JingJieAttribute(){Attack = 1500,CritDamage = 30}},
-        { JingJieType.准圣,new JingJieAttribute(){Attack = 2000,CritDamage = 35}},
-        { JingJieType.圣人,new JingJieAttribute(){Attack = 3000,CritDamage = 50,FinalDamage = 10}},
-        { JingJieType.天道圣人,new JingJieAttribute(){Attack = 5000,CritDamage = 60,FinalDamage = 20}},
-        { JingJieType.大道圣人,new JingJieAttribute(){Attack = 10000,CritDamage = 70,FinalDamage = 30}},
-        { JingJieType.混元圣人,new JingJieAttribute(){Attack = 20000,CritDamage = 80,FinalDamage = 40}},
-        { JingJieType.鸿蒙,new JingJieAttribute(){Attack = 50000,CritDamage = 100,FinalDamage = 60}},
+        { JingJieType.练气,10},
+        { JingJieType.筑基,20},
+        { JingJieType.金丹,40},
+        { JingJieType.元婴,70},
+        { JingJieType.化神,120},
+        { JingJieType.合体,200},
+        { JingJieType.大乘,300},
+        { JingJieType.天仙,500},
+        { JingJieType.玄仙,800},
+        { JingJieType.金仙,1200},
+        { JingJieType.太乙金仙,1800},
+        { JingJieType.大罗金仙,3000},
+        { JingJieType.准圣,5000},
+        { JingJieType.圣人,8000},
+        { JingJieType.天道圣人,12000},
+        { JingJieType.大道圣人,20000},
+        { JingJieType.混元圣人,30000},
+        { JingJieType.鸿蒙,50000},
     };
     
     

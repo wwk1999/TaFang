@@ -83,6 +83,7 @@ namespace Config
     public class PropConfig : MonoBehaviour
     {
 
+        
         public static Dictionary<QualityType, string> QualityNameDic = new Dictionary<QualityType, string>()
         {
             { QualityType.黄品, "黄品" },
