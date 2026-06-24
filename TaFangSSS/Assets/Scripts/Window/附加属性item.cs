@@ -14,11 +14,19 @@ public class 附加属性item : MonoBehaviour
    public Button Suo;
    public GameObject mask;
    public TextMeshProUGUI masktext;
-   [NonSerialized] public 附加属性Type 附加属性Type;
-   [NonSerialized]public QualityType QualityType;
-   [NonSerialized]public bool IsSuo=false;
    [NonSerialized]public QualityType JieSuoQualityType;
    [NonSerialized]public EquipType EquipType;
+   [NonSerialized] public bool IsQiangHua;
+
+   private void Start()
+   {
+      Suo.onClick.AddListener(() =>
+      {
+         bool issuo = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].IsSuo;
+         PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].IsSuo=!issuo;
+         SetItem();
+      });
+   }
 
    public void SetItem()
    {
@@ -30,16 +38,27 @@ public class 附加属性item : MonoBehaviour
       else
       {
          mask.SetActive(false);
+         附加属性Type 附加属性Type = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].附加属性Type;
+         QualityType QualityType= PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].QualityType;
          bg.sprite = ResourcesConfig.Get标签背景(QualityType);
          labeltext.text=PropConfig.QualityNameDic[QualityType];
-         info.text = EquipConfig.附加属性NameDic[附加属性Type] + "+" + EquipConfig.附加属性数值Dic[附加属性Type][(int)(QualityType-2)]+"%";
-         if (IsSuo)
+         info.text = EquipConfig.附加属性NameDic[附加属性Type] + "+" + EquipConfig.附加属性数值Dic[附加属性Type][(int)(QualityType-2)].Count+"%";
+         if (IsQiangHua)
          {
-            Suo.image.sprite = ResourcesConfig.锁;
+            Suo.gameObject.SetActive(false);
          }
          else
          {
-            Suo.image.sprite = ResourcesConfig.解锁;
+            Suo.gameObject.SetActive(true);
+            bool issuo = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].IsSuo;
+            if (!issuo)
+            {
+               Suo.image.sprite = ResourcesConfig.解锁;
+            }
+            else
+            {
+               Suo.image.sprite = ResourcesConfig.锁;
+            }
          }
       }
    }

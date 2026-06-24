@@ -1,5 +1,7 @@
+ using System;
  using System.Collections.Generic;
  using Config;
+ using Random = UnityEngine.Random;
 
  public enum EquipType
  {
@@ -22,6 +24,7 @@
  {
      public 附加属性Type 附加属性Type;
      public QualityType  QualityType;
+     public bool IsSuo;
  }
  public enum 附加属性Type
  {
@@ -46,8 +49,165 @@
      召唤物生命值,
  }
 
+ public class 材料Item
+ {
+     public int 材料数量;
+     public int 灵气数量;
+ }
+
+ public class 词条Item
+ {
+     public QualityType QualityType;
+     public 附加属性Type 附加属性Type;
+ }
+
  public class EquipConfig
  {
+     public static 词条Item Get词条(QualityType qualityType)
+     {
+         List<float> list = 强化词条概率Dic[qualityType];
+         float random=Random.Range(0f, 100f);
+         float count = 0;
+         int value = 0;
+         foreach (var item in list)
+         {
+             count += item;
+             if (random > count)
+             {
+                 value++;
+             }
+             else
+             {
+                 break;
+             }
+         }
+         QualityType quality=(QualityType)(value+2);
+         int random1=Random.Range(1, 19);
+         附加属性Type 附加属性Type = (附加属性Type)random1;
+         return new 词条Item() { 附加属性Type = 附加属性Type, QualityType = quality };
+     }
+     public static Dictionary<QualityType, List<float>> 强化词条概率Dic = new Dictionary<QualityType, List<float>>()
+     {
+         { QualityType.玄品, new List<float>() { 100 } },
+         { QualityType.地品, new List<float>() { 70,30 } },
+         { QualityType.天品, new List<float>() { 50,30,20 } },
+         { QualityType.宇品, new List<float>() { 30,30,25,15 } },
+         { QualityType.宙品, new List<float>() { 10,30,30,20,10} },
+         { QualityType.洪品, new List<float>() { 0,25,30,25,15,5} },
+         { QualityType.荒品, new List<float>() { 0,20,25,25,20,7,3} },
+     };
+     public static Dictionary<QualityType, 材料Item> 强化材料Dic = new Dictionary<QualityType, 材料Item>()
+     {
+         { QualityType.黄品 ,new 材料Item(){材料数量 = 1,灵气数量=30}},
+         { QualityType.玄品 ,new 材料Item(){材料数量 = 2,灵气数量=50}},
+         { QualityType.地品 ,new 材料Item(){材料数量 = 3,灵气数量=100}},
+         { QualityType.天品 ,new 材料Item(){材料数量 = 5,灵气数量=200}},
+         { QualityType.宇品 ,new 材料Item(){材料数量 = 8,灵气数量=300}},
+         { QualityType.宙品 ,new 材料Item(){材料数量 = 12,灵气数量=500}},
+         { QualityType.洪品 ,new 材料Item(){材料数量 = 18,灵气数量=800}},
+         { QualityType.荒品 ,new 材料Item(){材料数量 = 30,灵气数量=1200}},
+
+     };
+     
+     public static Dictionary<QualityType, 材料Item> 洗练材料Dic = new Dictionary<QualityType, 材料Item>()
+     {
+         { QualityType.黄品 ,new 材料Item(){材料数量 = 0,灵气数量=0}},
+         { QualityType.玄品 ,new 材料Item(){材料数量 = 1,灵气数量=50}},
+         { QualityType.地品 ,new 材料Item(){材料数量 = 1,灵气数量=100}},
+         { QualityType.天品 ,new 材料Item(){材料数量 = 2,灵气数量=200}},
+         { QualityType.宇品 ,new 材料Item(){材料数量 = 2,灵气数量=300}},
+         { QualityType.宙品 ,new 材料Item(){材料数量 = 3,灵气数量=500}},
+         { QualityType.洪品 ,new 材料Item(){材料数量 = 4,灵气数量=800}},
+         { QualityType.荒品 ,new 材料Item(){材料数量 = 5,灵气数量=1200}},
+
+     };
+     public static Dictionary<EquipType, List<string>> EquipNameDic = new Dictionary<EquipType, List<string>>()
+     {
+         {
+             EquipType.衣服,
+             new List<string>
+             {
+                 "凡尘衣",      // 白
+                 "竹影甲",      // 绿
+                 "沧浪袍",      // 蓝
+                 "星陨袍",      // 紫
+                 "烈阳战袍",    // 橙
+                 "幻梦霓裳",    // 粉
+                 "涅槃圣甲",    // 红
+                 "混沌无极袍"   // 彩
+             }
+         },
+         {
+             EquipType.头盔,
+             new List<string>
+             {
+                 "束发巾",      // 白
+                 "木灵冠",      // 绿
+                 "天澜冠",      // 蓝
+                 "幽夜盔",      // 紫
+                 "烈阳冠",      // 橙
+                 "幻月盔",      // 粉
+                 "焚天冠",      // 红
+                 "太初玄天冠"   // 彩
+             }
+         },
+         {
+             EquipType.鞋子,
+             new List<string>
+             {
+                 "踏云履",      // 白
+                 "林风靴",      // 绿
+                 "沧浪靴",      // 蓝
+                 "星霄靴",      // 紫
+                 "烈炎靴",      // 橙
+                 "幻蝶靴",      // 粉
+                 "业火靴",      // 红
+                 "星辰逐风履"   // 彩
+             }
+         },
+         {
+             EquipType.护手,
+             new List<string>
+             {
+                 "云袖",        // 白
+                 "灵藤护臂",    // 绿
+                 "霜钢护手",    // 蓝
+                 "星晶护臂",    // 紫
+                 "炎金护手",    // 橙
+                 "幻玉护手",    // 粉
+                 "血魔护手",    // 红
+                 "混沌护天臂"   // 彩
+             }
+         },
+         {
+             EquipType.戒指,
+             new List<string>
+             {
+                 "凡木戒",      // 白
+                 "玄铜戒",      // 绿
+                 "寒玉戒",      // 蓝
+                 "星金戒",      // 紫
+                 "烈阳戒",      // 橙
+                 "幻晶戒",      // 粉
+                 "业火戒",      // 红
+                 "洪荒至尊戒"   // 彩
+             }
+         },
+         {
+             EquipType.项链,
+             new List<string>
+             {
+                 "陨石链",      // 白
+                 "灵石链",      // 绿
+                 "冰晶链",      // 蓝
+                 "星玉链",      // 紫
+                 "火金链",      // 橙
+                 "幻贝链",      // 粉
+                 "炎龙链",      // 红
+                 "混沌星云链"   // 彩
+             }
+         }
+     };
      public static QualityType GetEquipQuality(EquipType type)
      {
          int level = PlayerData.S.EquipLevelDic[type];

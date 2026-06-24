@@ -67,6 +67,15 @@ public class MainWindow : MonoBehaviour
         {
             PlayerData.S.PropListDic[PropType.高级招募卷] += 100;
             PlayerData.S.PropListDic[PropType.招募卷] += 100;
+            PlayerData.S.PropListDic[PropType.灵魂] += 10000;
+            PlayerData.S.PropListDic[PropType.头盔锻造石] += 100;
+            PlayerData.S.PropListDic[PropType.护手锻造石] += 100;
+            PlayerData.S.PropListDic[PropType.项链锻造石] += 100;
+            PlayerData.S.PropListDic[PropType.戒指锻造石] += 100;
+            PlayerData.S.PropListDic[PropType.衣服锻造石] += 100;
+            PlayerData.S.PropListDic[PropType.鞋子锻造石] += 100;
+            PlayerData.S.PropListDic[PropType.洗练石] += 100;
+
         });
         LevelBtn.onClick.AddListener(() =>
         {

@@ -11,6 +11,7 @@ public class Toast : MonoBehaviour
       string content = obj[0] as string;
       var toastItem=Instantiate(Resources.Load("Prefabs/Window/ToastItem"),transform).GetComponent<ToastItem>();
       toastItem.Content = content;
+      toastItem.SetItem();
    }
    private void Start()
    {

@@ -79,8 +79,16 @@ public class 招募概率弹窗 : MonoBehaviour
       {
          var gailvItem = Instantiate(Resources.Load("Prefabs/Window/概率Item"),Content.transform).GetComponent<招募概率item>();
          gailvItem.QualityType=item.type;
-         gailvItem.IsGaoJi = IsGaoJi;
-         gailvItem.jingJieType = JingJieType;
+         if (IsGaoJi)
+         {
+            gailvItem.Count=ZhaoMuConfig.ZhaoMuGaiLvGaoJiDic[JingJieType][(int)item.type-1].count;
+         }
+         else
+         {
+            gailvItem.Count=ZhaoMuConfig.ZhaoMuGaiLvNormalDic[JingJieType][(int)item.type-1].count;
+         }
+
+         gailvItem.StringType = "元神";
          gailvItem.SetItem();
       }
    }

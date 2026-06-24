@@ -345,7 +345,7 @@ namespace Config
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
         {
             { PropType.None, QualityType.None },
-            { PropType.洗练石, QualityType.地品 },
+            { PropType.洗练石, QualityType.宇品 },
             { PropType.全职业经验值, QualityType.天品 },
             { PropType.领主经验值, QualityType.地品 },
             { PropType.射手经验值, QualityType.地品 },

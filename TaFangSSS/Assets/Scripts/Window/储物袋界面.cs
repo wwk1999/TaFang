@@ -29,6 +29,7 @@ public class 储物袋界面 : MonoBehaviour
    public TextMeshProUGUI 提升修为Text;
    public GameObject 突破弹窗;
    private bool IsProp = true;
+   public GameObject 强化弹窗;
 
    public void Set境界()
    {
@@ -43,6 +44,10 @@ public class 储物袋界面 : MonoBehaviour
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("突破成功",突破成功);
+      强化Btn.onClick.AddListener(() =>
+      {
+         强化弹窗.gameObject.SetActive(true);
+      });
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);

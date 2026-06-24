@@ -8,26 +8,20 @@ using UnityEngine.UI;
 
 public class 招募概率item : MonoBehaviour
 {
-   [NonSerialized]public JingJieType jingJieType;
+   [NonSerialized]public string StringType;
+
+   [NonSerialized]public float Count;
    [NonSerialized]public QualityType QualityType;
-   [NonSerialized]public bool IsGaoJi=false;
    public Image LabelBg;
    public TextMeshProUGUI LabelText;
    public TextMeshProUGUI Title;
-   public TextMeshProUGUI Count;
+   public TextMeshProUGUI CountText;
 
    public void SetItem()
    {   
       LabelText.text=PropConfig.QualityNameDic[QualityType];
-      if (!IsGaoJi)
-      {
-         Count.text = ZhaoMuConfig.ZhaoMuGaiLvNormalDic[jingJieType][(int)QualityType-1].count.ToString();
-      }
-      else
-      {
-         Count.text = ZhaoMuConfig.ZhaoMuGaiLvGaoJiDic[jingJieType][(int)QualityType-1].count.ToString();
-      }
-      Title.text = PropConfig.QualityNameDic[QualityType]+"元神";
+      CountText.text = Count+"%";
+      Title.text = PropConfig.QualityNameDic[QualityType]+StringType;
       switch (QualityType)
       {
          case QualityType.黄品:

@@ -805,8 +805,8 @@ public static Sprite Get标签背景(QualityType qualityType)
        强化窗口按钮亮=Resources.LoadAll<Sprite>("Sprite/强化窗口/按钮")[0];
        强化窗口按钮暗=Resources.LoadAll<Sprite>("Sprite/强化窗口/按钮")[1];
 
-       灰色TMP=Resources.Load<TMP_ColorGradient>("Sprite/突破背景/凡");
-       高级招募TMP=Resources.Load<TMP_ColorGradient>("Sprite/突破背景/凡");
+       灰色TMP=Resources.Load<TMP_ColorGradient>("TMP/灰色");
+       高级招募TMP=Resources.Load<TMP_ColorGradient>("TMP/高级招募");
 
        //突破背景
        突破背景凡=Resources.Load<Sprite>("Sprite/突破背景/凡");
