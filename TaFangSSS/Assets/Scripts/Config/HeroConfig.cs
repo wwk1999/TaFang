@@ -85,7 +85,7 @@ namespace Config
     public class HeroSkill
     {
         public List<攻击特效Type> 攻击特效List;
-        public List<序列纯显示一次Type> PengList;
+        public List<PengType> PengList;
     }
 
     public class HeroConfig
@@ -129,14 +129,22 @@ namespace Config
                 HeroType.丹童, new HeroSkill()
                 {
                     攻击特效List = new List<攻击特效Type>() { 攻击特效Type.普通火魔法弹 },
-                    PengList = new List<序列纯显示一次Type>() { 序列纯显示一次Type.火虎魔法弹Peng }
+                    PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
                 }
             },
             {
                 HeroType.土地, new HeroSkill()
                 {
                     攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗魔法弹 },
-                    PengList = new List<序列纯显示一次Type>() { 序列纯显示一次Type.黑暗魔法弹Peng }
+                    PengList = new List<PengType>() { PengType.黑暗魔法弹Peng }
+                }
+            },
+            
+            {
+                HeroType.河伯, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰刺 },
+                    PengList = new List<PengType>() 
                 }
             },
         };

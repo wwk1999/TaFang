@@ -67,7 +67,7 @@ public class FightController : XSingleton<FightController>
         return null;
     }
 
-    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir)
+    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos)
     {
         switch (hero)
         {
@@ -76,6 +76,21 @@ public class FightController : XSingleton<FightController>
                 break;
             case HeroType.土地:
                 Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8);
+                break;
+            case HeroType.河伯:
+                一次伤害技能(攻击特效Type.冰刺, targetPos);           
+                break;
+        }
+    }
+
+    public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos)
+    {
+        switch (攻击特效Type)
+        {
+            case 攻击特效Type.冰刺:
+                var item = QueueController.S.冰刺Queue.Dequeue();
+                item.transform.position = pos;
+                item.gameObject.SetActive(true);
                 break;
         }
     }
@@ -219,44 +234,44 @@ public class FightController : XSingleton<FightController>
         gameObject.SetActive(false);
     }
     
-    public void 序列纯显示一次Hide(序列纯显示一次 序列纯显示一次, 序列纯显示一次Type type, GameObject gameObject)
+    public void 序列纯显示一次Hide(序列纯显示一次 序列纯显示一次, PengType type, GameObject gameObject)
     {
         switch (type)
         {
-            case 序列纯显示一次Type.电魔法弹Peng:
+            case PengType.电魔法弹Peng:
                 QueueController.S.电魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.黑暗飞箭Peng:
+            case PengType.黑暗飞箭Peng:
                 QueueController.S.黑暗飞箭PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.黑暗剑气Peng:
+            case PengType.黑暗剑气Peng:
                 QueueController.S.黑暗剑气PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.物理箭Peng:
+            case PengType.物理箭Peng:
                 QueueController.S.物理箭PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.紫鬼弹Peng:
+            case PengType.紫鬼弹Peng:
                 QueueController.S.紫鬼弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.黑暗花魔法弹Peng:
+            case PengType.黑暗花魔法弹Peng:
                 QueueController.S.黑暗花魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.冰爆气魔法弹Peng:
+            case PengType.冰爆气魔法弹Peng:
                 QueueController.S.冰爆气魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.电龙魔法弹Peng:
+            case PengType.电龙魔法弹Peng:
                 QueueController.S.电龙魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.电爆气魔法弹Peng:
+            case PengType.电爆气魔法弹Peng:
                 QueueController.S.电爆气魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.冰大魔法弹Peng:
+            case PengType.冰大魔法弹Peng:
                 QueueController.S.冰大魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.火虎魔法弹Peng:
+            case PengType.火虎魔法弹Peng:
                 QueueController.S.火虎魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
-            case 序列纯显示一次Type.黑暗魔法弹Peng:
+            case PengType.黑暗魔法弹Peng:
                 QueueController.S.黑暗魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
             

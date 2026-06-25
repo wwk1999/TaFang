@@ -6,7 +6,7 @@ using UnityEngine;
 public class 序列纯显示一次 : MonoBehaviour
 {
    public Animator Animator;
-   public 序列纯显示一次Type 序列纯显示一次Type;
+   public PengType pengType;
    [NonSerialized]public Vector2 MoveDirection;
 
 
@@ -21,6 +21,6 @@ public class 序列纯显示一次 : MonoBehaviour
 
    public void Hide()
    {
-      FightController.S.序列纯显示一次Hide(this,序列纯显示一次Type,gameObject);
+      FightController.S.序列纯显示一次Hide(this,pengType,gameObject);
    }
 }

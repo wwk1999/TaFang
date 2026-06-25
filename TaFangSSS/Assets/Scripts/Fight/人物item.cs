@@ -43,7 +43,7 @@ public class 人物item : MonoBehaviour
             CurrentAttackTime = 0;
             Animator.Play("人物攻击",0,0f);
             var dir=(targetPos-(Vector2)transform.position).normalized;
-            FightController.S.人物攻击(heroType,transform.position,dir);
+            FightController.S.人物攻击(heroType,transform.position,dir,targetPos);
         }
     }
 

@@ -43,6 +43,9 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized] public Queue<普通魔法弹带peng> 黑暗魔法弹Queue = new Queue<普通魔法弹带peng>();
     [NonSerialized] public Queue<普通魔法弹带peng> 普通火魔法弹Queue = new Queue<普通魔法弹带peng>();
 
+    
+    
+    [NonSerialized]public Queue<GameObject>冰刺Queue = new Queue<GameObject>();
 
     protected override void Awake()
     {
@@ -73,14 +76,14 @@ public class QueueController:XSingleton<QueueController>
     }
     
     
-    public IEnumerator InitPeng(序列纯显示一次Type type,int fream=10)
+    public IEnumerator InitPeng(PengType type,int fream=10)
     {
         int count = 0;
         for (int i = 0; i < 100; i++)
         {
             switch (type)
             {
-                case 序列纯显示一次Type.电魔法弹Peng:
+                case PengType.电魔法弹Peng:
                     if (电魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -89,7 +92,7 @@ public class QueueController:XSingleton<QueueController>
                     电魔法弹Peng.gameObject.SetActive(false);
                     电魔法弹PengQueue.Enqueue(电魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.黑暗飞箭Peng:
+                case PengType.黑暗飞箭Peng:
                     if (黑暗飞箭PengQueue.Count > 100)
                     {
                         break;
@@ -98,7 +101,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗飞箭Peng.gameObject.SetActive(false);
                     黑暗飞箭PengQueue.Enqueue(黑暗飞箭Peng);
                     break;
-                case 序列纯显示一次Type.黑暗剑气Peng:
+                case PengType.黑暗剑气Peng:
                     if (黑暗剑气PengQueue.Count > 100)
                     {
                         break;
@@ -107,7 +110,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗剑气Peng.gameObject.SetActive(false);
                     黑暗剑气PengQueue.Enqueue(黑暗剑气Peng);
                     break;
-                case 序列纯显示一次Type.物理箭Peng:
+                case PengType.物理箭Peng:
                     if (物理箭PengQueue.Count > 100)
                     {
                         break;
@@ -116,7 +119,7 @@ public class QueueController:XSingleton<QueueController>
                     物理箭Peng.gameObject.SetActive(false);
                     物理箭PengQueue.Enqueue(物理箭Peng);
                     break;
-                case 序列纯显示一次Type.紫鬼弹Peng:
+                case PengType.紫鬼弹Peng:
                     if (紫鬼弹PengQueue.Count > 100)
                     {
                         break;
@@ -125,7 +128,7 @@ public class QueueController:XSingleton<QueueController>
                     紫鬼弹Peng.gameObject.SetActive(false);
                     紫鬼弹PengQueue.Enqueue(紫鬼弹Peng);
                     break;
-                case 序列纯显示一次Type.黑暗花魔法弹Peng:
+                case PengType.黑暗花魔法弹Peng:
                     if (黑暗花魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -134,7 +137,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗花魔法弹Peng.gameObject.SetActive(false);
                     黑暗花魔法弹PengQueue.Enqueue(黑暗花魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.冰爆气魔法弹Peng:
+                case PengType.冰爆气魔法弹Peng:
                     if (冰爆气魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -143,7 +146,7 @@ public class QueueController:XSingleton<QueueController>
                     冰爆气魔法弹Peng.gameObject.SetActive(false);
                     冰爆气魔法弹PengQueue.Enqueue(冰爆气魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.电龙魔法弹Peng:
+                case PengType.电龙魔法弹Peng:
                     if (电龙魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -152,7 +155,7 @@ public class QueueController:XSingleton<QueueController>
                     电龙魔法弹Peng.gameObject.SetActive(false);
                     电龙魔法弹PengQueue.Enqueue(电龙魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.电爆气魔法弹Peng:
+                case PengType.电爆气魔法弹Peng:
                     if (电爆气魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -161,7 +164,7 @@ public class QueueController:XSingleton<QueueController>
                     电爆气魔法弹Peng.gameObject.SetActive(false);
                     电爆气魔法弹PengQueue.Enqueue(电爆气魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.冰大魔法弹Peng:
+                case PengType.冰大魔法弹Peng:
                     if (冰大魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -170,7 +173,7 @@ public class QueueController:XSingleton<QueueController>
                     冰大魔法弹Peng.gameObject.SetActive(false);
                     冰大魔法弹PengQueue.Enqueue(冰大魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.火虎魔法弹Peng:
+                case PengType.火虎魔法弹Peng:
                     if (火虎魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -179,7 +182,7 @@ public class QueueController:XSingleton<QueueController>
                     火虎魔法弹Peng.gameObject.SetActive(false);
                     火虎魔法弹PengQueue.Enqueue(火虎魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.黑暗魔法弹Peng:
+                case PengType.黑暗魔法弹Peng:
                     if (黑暗魔法弹PengQueue.Count > 100)
                     {
                         break;
@@ -188,7 +191,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗魔法弹Peng.gameObject.SetActive(false);
                     黑暗魔法弹PengQueue.Enqueue(黑暗魔法弹Peng);
                     break;
-                case 序列纯显示一次Type.None:
+                case PengType.None:
                 default:
                     // None 或未知类型不处理，可根据需要添加日志或异常
                     break;
@@ -413,6 +416,16 @@ public class QueueController:XSingleton<QueueController>
                     var 黑暗魔法弹 = Instantiate(Resources.Load("Prefabs/特效/黑暗魔法弹"),transform).GetComponent<普通魔法弹带peng>();
                     黑暗魔法弹.gameObject.SetActive(false);
                     黑暗魔法弹Queue.Enqueue(黑暗魔法弹);
+                    break;
+                
+                case 攻击特效Type.冰刺:
+                    if (冰刺Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 冰刺 = Instantiate(Resources.Load<GameObject>("Prefabs/特效/冰刺"),transform);
+                    冰刺.gameObject.SetActive(false);
+                    冰刺Queue.Enqueue(冰刺);
                     break;
                 case 攻击特效Type.None:
                 default:

@@ -22,9 +22,10 @@ public enum 攻击特效Type
     火虎魔法弹,
     黑暗魔法弹,
     普通火魔法弹,
+    冰刺,
 }
 
-public enum 序列纯显示一次Type
+public enum PengType
 {
     None,
     电魔法弹Peng,
@@ -40,6 +41,7 @@ public enum 序列纯显示一次Type
     火虎魔法弹Peng,
     黑暗魔法弹Peng,
 }
+
 public class 特效Config
 {
     
