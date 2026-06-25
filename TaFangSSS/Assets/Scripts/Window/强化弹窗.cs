@@ -171,42 +171,55 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.玄品);
          PlayerData.S.装备附加属性Dic[equipType][0].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][0].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 21)
       {
          词条Item item1 = EquipConfig.Get词条(QualityType.地品);
          PlayerData.S.装备附加属性Dic[equipType][1].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][1].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
+
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 31)
       {
          词条Item item1 = EquipConfig.Get词条(QualityType.天品);
          PlayerData.S.装备附加属性Dic[equipType][2].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][2].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
+
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 41)
       {
          词条Item item1 = EquipConfig.Get词条(QualityType.宇品);
          PlayerData.S.装备附加属性Dic[equipType][3].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][3].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
+
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 51)
       {
          词条Item item1 = EquipConfig.Get词条(QualityType.宙品);
          PlayerData.S.装备附加属性Dic[equipType][4].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][4].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
+
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 61)
       {
          词条Item item1 = EquipConfig.Get词条(QualityType.洪品);
          PlayerData.S.装备附加属性Dic[equipType][5].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][5].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
+
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 71)
       {
          词条Item item1 = EquipConfig.Get词条(QualityType.荒品);
          PlayerData.S.装备附加属性Dic[equipType][6].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][6].附加属性Type = item1.附加属性Type;
+         ObserverModuleManager.S.SendEvent("刷新装备");
+
       }
       
       Set装备();

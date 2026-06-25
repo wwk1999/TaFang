@@ -17,7 +17,7 @@ public class HeroItem : MonoBehaviour
 
    private void Update()
    {
-      if (HeroWindowController.S.IsJiaoHuan&&!IsSuo)
+      if (HeroWindowController.S.IsJiaoHuan&&!IsSuo&&HeroWindowController.S.交换HeroItem==this)
       {
          交换.gameObject.SetActive(true);
          箭头.gameObject.SetActive(false);

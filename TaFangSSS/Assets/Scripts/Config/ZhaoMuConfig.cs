@@ -17,31 +17,24 @@ namespace Config
         {
             // 黄品价格 = 5
             { PropType.丹童元神, 5 },
-            { PropType.青童元神, 5 },
             { PropType.土地元神, 5 },
             { PropType.河伯元神, 5 },
             { PropType.瑶池仙女元神, 5 },
-            { PropType.精卫元神, 5 },
 
             // 玄品价格 = 10
             { PropType.石敢当元神, 10 },
             { PropType.玄女元神, 10 },
             { PropType.龟丞相元神, 10 },
             { PropType.太白金星元神, 10 },
-            { PropType.孟婆元神, 10 },
-            { PropType.白素贞元神, 10 },
 
             // 地品价格 = 20
             { PropType.多闻天王元神, 20 },
-            { PropType.增长天王元神, 20 },
             { PropType.广目天王元神, 20 },
-            { PropType.持国天王元神, 20 },
             { PropType.雷震子元神, 20 },
             { PropType.月老元神, 20 },
 
             // 天品价格 = 40
             { PropType.嫦娥元神, 40 },
-            { PropType.何仙姑元神, 40 },
             { PropType.杨戬元神, 40 },
             { PropType.妲己元神, 40 },
             { PropType.牛魔王元神, 40 },
@@ -49,12 +42,10 @@ namespace Config
             // 宇品价格 = 80
             { PropType.哪吒元神, 80 },
             { PropType.孙悟空元神, 80 },
-            { PropType.刑天元神, 80 },
             { PropType.碧霄元神, 80 },
             { PropType.琼霄元神, 80 },
 
             // 宙品价格 = 160
-            { PropType.金灵圣母元神, 160 },
             { PropType.羲和元神, 160 },
             { PropType.常羲元神, 160 },
             { PropType.后羿元神, 160 },
@@ -62,13 +53,13 @@ namespace Config
 
             // 洪品价格 = 320
             { PropType.女娲元神, 320 },
-            { PropType.接引元神, 320 },
-            { PropType.准提元神, 320 },
 
             // 荒品价格 = 640
-            { PropType.老子元神, 640 },
-            { PropType.通天元神, 640 },
-            { PropType.元始元神, 640 }
+            { PropType.老子元神, 320 },
+            { PropType.通天元神, 320 },
+            { PropType.元始元神, 320 },
+            { PropType.盘古元神, 640 },
+            { PropType.鸿钧元神, 640 },
         };
         
         public static Dictionary<JingJieType, List<ZhaoMuItem>> ZhaoMuGaiLvNormalDic =

@@ -19,6 +19,7 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 image.color=Color.gray;
             }
             HeroWindowController.S.IsJiaoHuan = true;
+            HeroWindowController.S.交换HeroItem=heroItem;
         }
     }
 
@@ -28,7 +29,14 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
         if (heroItem.HeroType != HeroType.None)
         {
             image.color=Color.white;
+            StartCoroutine(Delay交换HeroItem());
         }
+    }
+
+    IEnumerator Delay交换HeroItem()
+    {
+        yield return null;
+        HeroWindowController.S.交换HeroItem=null;
     }
 
     private void Update()
@@ -41,20 +49,19 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             }
             if (HeroWindowController.S.IsJiaoHuan)
             {
+                List<HeroType>list = new List<HeroType>();
+                list.Add(PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][HeroWindowController.S.交换HeroItem.Index-1]);
+                list.Add(HeroWindowController.S.DragHero);
                 for (int i = 0; i < 5; i++)
                 {
-                    if (heroItem.HeroType == PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][i])
+                    if (PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui - 1][i] == HeroWindowController.S.DragHero)
                     {
-                        HeroType hero1 = PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][i];
-                        HeroType hero2 = HeroWindowController.S.DragHero;
-                        List<HeroType>list = new List<HeroType>();
-                        list.Add(hero1);
-                        list.Add(hero2);
-                        PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui - 1][i] =
-                            HeroWindowController.S.DragHero;
-                        ObserverModuleManager.S.SendEvent("交换英雄",list);
+                        PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui - 1][i] = HeroType.None;
                     }
                 }
+                PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][HeroWindowController.S.交换HeroItem.Index-1]=
+                    HeroWindowController.S.DragHero;
+                ObserverModuleManager.S.SendEvent("交换英雄",list);
             }
         }
     }

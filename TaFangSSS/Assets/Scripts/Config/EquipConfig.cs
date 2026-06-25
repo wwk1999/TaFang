@@ -608,35 +608,35 @@
 
      public static QualityType GetEquipQuality(int level)
      {
-         if (level <= 20)
+         if (level <= 10)
          {
              return QualityType.黄品;
          }
-         else if (level <= 40)
+         else if (level <= 20)
          {
              return QualityType.玄品;
          }
-         else if (level <= 60)
+         else if (level <= 30)
          {
              return QualityType.地品;
          }
-         else if (level <= 80)
+         else if (level <= 40)
          {
              return QualityType.天品;
          }
-         else if (level <= 100)
+         else if (level <= 50)
          {
              return QualityType.宇品;
          }
-         else if (level <= 120)
+         else if (level <= 60)
          {
              return QualityType.宙品;
          }
-         else if (level <= 140)
+         else if (level <= 70)
          {
              return QualityType.洪品;
          }
-         else if (level <= 40)
+         else 
          {
              return QualityType.荒品;
          }

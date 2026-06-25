@@ -41,6 +41,8 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized] public Queue<普通魔法弹带peng> 冰大魔法弹Queue = new Queue<普通魔法弹带peng>();
     [NonSerialized] public Queue<普通魔法弹带peng> 火虎魔法弹Queue = new Queue<普通魔法弹带peng>();
     [NonSerialized] public Queue<普通魔法弹带peng> 黑暗魔法弹Queue = new Queue<普通魔法弹带peng>();
+    [NonSerialized] public Queue<普通魔法弹带peng> 普通火魔法弹Queue = new Queue<普通魔法弹带peng>();
+
 
     protected override void Awake()
     {
@@ -393,6 +395,15 @@ public class QueueController:XSingleton<QueueController>
                     var 火虎魔法弹 = Instantiate(Resources.Load("Prefabs/特效/火虎魔法弹"),transform).GetComponent<普通魔法弹带peng>();
                     火虎魔法弹.gameObject.SetActive(false);
                     火虎魔法弹Queue.Enqueue(火虎魔法弹);
+                    break;
+                case 攻击特效Type.普通火魔法弹:
+                    if (普通火魔法弹Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 普通火魔法弹 = Instantiate(Resources.Load("Prefabs/特效/普通火魔法弹"),transform).GetComponent<普通魔法弹带peng>();
+                    普通火魔法弹.gameObject.SetActive(false);
+                    普通火魔法弹Queue.Enqueue(普通火魔法弹);
                     break;
                 case 攻击特效Type.黑暗魔法弹:
                     if (黑暗魔法弹Queue.Count > 100)

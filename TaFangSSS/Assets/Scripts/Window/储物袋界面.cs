@@ -41,8 +41,14 @@ public class 储物袋界面 : MonoBehaviour
       Set提升修为();
       Set境界();
    }
+
+   public void 刷新装备(object[] obj)
+   {
+      ShowEquip();
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新装备",刷新装备);
       ObserverModuleManager.S.RegisterEvent("突破成功",突破成功);
       强化Btn.onClick.AddListener(() =>
       {

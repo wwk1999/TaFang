@@ -21,6 +21,7 @@ public enum 攻击特效Type
     冰大魔法弹,
     火虎魔法弹,
     黑暗魔法弹,
+    普通火魔法弹,
 }
 
 public enum 序列纯显示一次Type

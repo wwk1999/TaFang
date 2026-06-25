@@ -27,44 +27,42 @@ namespace Config
 
         //元神
         丹童元神,
-        青童元神,
         土地元神,
         河伯元神,
         瑶池仙女元神,
-        精卫元神,
+        
         石敢当元神,
         玄女元神,
         龟丞相元神,
         太白金星元神,
-        孟婆元神,
-        白素贞元神,
+        
         多闻天王元神,
-        增长天王元神,
         广目天王元神,
-        持国天王元神,
         雷震子元神,
         月老元神,
+        
         嫦娥元神,
-        何仙姑元神,
         杨戬元神,
         妲己元神,
         牛魔王元神,
+        
         哪吒元神,
         孙悟空元神,
-        刑天元神,
         碧霄元神,
         琼霄元神,
-        金灵圣母元神,
+        
         羲和元神,
         常羲元神,
         后羿元神,
         云霄元神,
+        
         女娲元神,
-        接引元神,
-        准提元神,
         老子元神,
         通天元神,
         元始元神,
+        
+        盘古元神,
+        鸿钧元神,
     }
 
     public enum QualityType
@@ -140,16 +138,14 @@ namespace Config
                 // 白色品质元神 -> 对应人物 Sprite（白）
                 case PropType.丹童元神:
                     return ResourcesConfig.DanTong;
-                case PropType.青童元神:
-                    return ResourcesConfig.QinTong;
+               
                 case PropType.土地元神:
                     return ResourcesConfig.TuDi;
                 case PropType.河伯元神:
                     return ResourcesConfig.HeBo;
                 case PropType.瑶池仙女元神:
                     return ResourcesConfig.YaoChiXianNv;
-                case PropType.精卫元神:
-                    return ResourcesConfig.JingWei;
+              
 
                 // 绿色品质元神 -> 对应人物 Sprite（绿）
                 case PropType.石敢当元神:
@@ -160,20 +156,15 @@ namespace Config
                     return ResourcesConfig.GuiChengXiang;
                 case PropType.太白金星元神:
                     return ResourcesConfig.TaiBaiJinXing;
-                case PropType.孟婆元神:
-                    return ResourcesConfig.MengPo;
-                case PropType.白素贞元神:
-                    return ResourcesConfig.BaiSuZhen;
+              
 
                 // 蓝色品质元神 -> 对应人物 Sprite（蓝）
                 case PropType.多闻天王元神:
                     return ResourcesConfig.DuoWenTianWang;
-                case PropType.增长天王元神:
-                    return ResourcesConfig.ZengZhangTianWang;
+               
                 case PropType.广目天王元神:
                     return ResourcesConfig.GuangMuTianWang;
-                case PropType.持国天王元神:
-                    return ResourcesConfig.ChiGuoTianWang;
+               
                 case PropType.雷震子元神:
                     return ResourcesConfig.LeiZhengZi;
                 case PropType.月老元神:
@@ -182,8 +173,7 @@ namespace Config
                 // 紫色品质元神 -> 对应人物 Sprite（紫）
                 case PropType.嫦娥元神:
                     return ResourcesConfig.ChangE;
-                case PropType.何仙姑元神:
-                    return ResourcesConfig.HeXianGu;
+               
                 case PropType.杨戬元神:
                     return ResourcesConfig.YangJian;
                 case PropType.妲己元神:
@@ -196,16 +186,14 @@ namespace Config
                     return ResourcesConfig.NeZha;
                 case PropType.孙悟空元神:
                     return ResourcesConfig.SunWuKong;
-                case PropType.刑天元神:
-                    return ResourcesConfig.XingTian;
+                
                 case PropType.碧霄元神:
                     return ResourcesConfig.BiXiao;
                 case PropType.琼霄元神:
                     return ResourcesConfig.QiongXiao;
 
                 // 粉色品质元神 -> 对应人物 Sprite（粉）
-                case PropType.金灵圣母元神:
-                    return ResourcesConfig.JingLingShengMu;
+               
                 case PropType.羲和元神:
                     return ResourcesConfig.XiHe;
                 case PropType.常羲元神:
@@ -218,11 +206,6 @@ namespace Config
                 // 红色品质元神 -> 对应人物 Sprite（红）
                 case PropType.女娲元神:
                     return ResourcesConfig.NvWa;
-                case PropType.接引元神:
-                    return ResourcesConfig.JieYing;
-                case PropType.准提元神:
-                    return ResourcesConfig.ZhunTi;
-
                 // 彩色品质元神 -> 对应人物 Sprite（彩）
                 case PropType.老子元神:
                     return ResourcesConfig.LaoZi;
@@ -230,6 +213,10 @@ namespace Config
                     return ResourcesConfig.TongTian;
                 case PropType.元始元神:
                     return ResourcesConfig.YuanShi;
+                case PropType.鸿钧元神:
+                    return ResourcesConfig.鸿钧;
+                case PropType.盘古元神:
+                    return ResourcesConfig.盘古;
 
                 case PropType.None:
                 default:
@@ -240,44 +227,36 @@ namespace Config
         public static Dictionary<PropType, HeroType> PropToHeroDic = new Dictionary<PropType, HeroType>()
         {
             { PropType.丹童元神, HeroType.丹童 },
-            { PropType.青童元神, HeroType.青童 },
             { PropType.土地元神, HeroType.土地 },
             { PropType.河伯元神, HeroType.河伯 },
             { PropType.瑶池仙女元神, HeroType.瑶池仙女 },
-            { PropType.精卫元神, HeroType.精卫 },
             { PropType.石敢当元神, HeroType.石敢当 },
             { PropType.玄女元神, HeroType.玄女 },
             { PropType.龟丞相元神, HeroType.龟丞相 },
             { PropType.太白金星元神, HeroType.太白金星 },
-            { PropType.孟婆元神, HeroType.孟婆 },
-            { PropType.白素贞元神, HeroType.白素贞 },
             { PropType.多闻天王元神, HeroType.多闻天王 },
-            { PropType.增长天王元神, HeroType.增长天王 },
             { PropType.广目天王元神, HeroType.广目天王 },
-            { PropType.持国天王元神, HeroType.持国天王 },
             { PropType.雷震子元神, HeroType.雷震子 },
             { PropType.月老元神, HeroType.月老 },
             { PropType.嫦娥元神, HeroType.嫦娥 },
-            { PropType.何仙姑元神, HeroType.何仙姑 },
             { PropType.杨戬元神, HeroType.杨戬 },
             { PropType.妲己元神, HeroType.妲己 },
             { PropType.牛魔王元神, HeroType.牛魔王 },
             { PropType.哪吒元神, HeroType.哪吒 },
             { PropType.孙悟空元神, HeroType.孙悟空 },
-            { PropType.刑天元神, HeroType.刑天 },
             { PropType.碧霄元神, HeroType.碧霄 },
             { PropType.琼霄元神, HeroType.琼霄 },
-            { PropType.金灵圣母元神, HeroType.金灵圣母 },
             { PropType.羲和元神, HeroType.羲和 },
             { PropType.常羲元神, HeroType.常羲 },
             { PropType.后羿元神, HeroType.后羿 },
             { PropType.云霄元神, HeroType.云霄 },
             { PropType.女娲元神, HeroType.女娲 },
-            { PropType.接引元神, HeroType.接引 },
-            { PropType.准提元神, HeroType.准提 },
             { PropType.老子元神, HeroType.老子 },
             { PropType.通天元神, HeroType.通天 },
             { PropType.元始元神, HeroType.元始 },
+            { PropType.盘古元神, HeroType.盘古 },
+            { PropType.鸿钧元神, HeroType.鸿钧 },
+
         };
 
         public static Dictionary<PropType, string> PropNameDic = new Dictionary<PropType, string>()
@@ -302,44 +281,36 @@ namespace Config
             { PropType.项链锻造石, "项链锻造石" },
             { PropType.高级招募卷, "高级招募卷" },
             { PropType.丹童元神, "丹童元神" },
-            { PropType.青童元神, "青童元神" },
             { PropType.土地元神, "土地元神" },
             { PropType.河伯元神, "河伯元神" },
             { PropType.瑶池仙女元神, "瑶池仙女元神" },
-            { PropType.精卫元神, "精卫元神" },
             { PropType.石敢当元神, "石敢当元神" },
             { PropType.玄女元神, "玄女元神" },
             { PropType.龟丞相元神, "龟丞相元神" }, // 注意枚举中为桂承相元神
             { PropType.太白金星元神, "太白金星元神" },
-            { PropType.孟婆元神, "孟婆元神" },
-            { PropType.白素贞元神, "白素贞元神" },
             { PropType.多闻天王元神, "多闻天王元神" },
-            { PropType.增长天王元神, "增长天王元神" },
             { PropType.广目天王元神, "广目天王元神" },
-            { PropType.持国天王元神, "持国天王元神" },
             { PropType.雷震子元神, "雷震子元神" },
             { PropType.月老元神, "月老元神" },
             { PropType.嫦娥元神, "嫦娥元神" },
-            { PropType.何仙姑元神, "何仙姑元神" },
             { PropType.杨戬元神, "杨戬元神" },
             { PropType.妲己元神, "妲己元神" },
             { PropType.牛魔王元神, "牛魔王元神" },
             { PropType.哪吒元神, "哪吒元神" },
             { PropType.孙悟空元神, "孙悟空元神" },
-            { PropType.刑天元神, "刑天元神" },
             { PropType.碧霄元神, "碧霄元神" },
             { PropType.琼霄元神, "琼霄元神" },
-            { PropType.金灵圣母元神, "金灵圣母元神" },
             { PropType.羲和元神, "羲和元神" },
             { PropType.常羲元神, "常羲元神" },
             { PropType.后羿元神, "后羿元神" },
             { PropType.云霄元神, "云霄元神" },
             { PropType.女娲元神, "女娲元神" },
-            { PropType.接引元神, "接引元神" },
-            { PropType.准提元神, "准提元神" },
             { PropType.老子元神, "老子元神" },
             { PropType.通天元神, "通天元神" },
-            { PropType.元始元神, "元始元神" }
+            { PropType.元始元神, "元始元神" },
+            { PropType.盘古元神, "盘古元神" },
+            { PropType.鸿钧元神, "鸿钧元神" },
+
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
@@ -365,31 +336,24 @@ namespace Config
             { PropType.功德, QualityType.宇品 },
             // 白色 -> 黄
             { PropType.丹童元神, QualityType.黄品 },
-            { PropType.青童元神, QualityType.黄品 },
             { PropType.土地元神, QualityType.黄品 },
             { PropType.河伯元神, QualityType.黄品 },
             { PropType.瑶池仙女元神, QualityType.黄品 },
-            { PropType.精卫元神, QualityType.黄品 },
 
             // 绿色 -> 玄
             { PropType.石敢当元神, QualityType.玄品 },
             { PropType.玄女元神, QualityType.玄品 },
             { PropType.龟丞相元神, QualityType.玄品 },
             { PropType.太白金星元神, QualityType.玄品 },
-            { PropType.孟婆元神, QualityType.玄品 },
-            { PropType.白素贞元神, QualityType.玄品 },
 
             // 蓝色 -> 地
             { PropType.多闻天王元神, QualityType.地品 },
-            { PropType.增长天王元神, QualityType.地品 },
             { PropType.广目天王元神, QualityType.地品 },
-            { PropType.持国天王元神, QualityType.地品 },
             { PropType.雷震子元神, QualityType.地品 },
             { PropType.月老元神, QualityType.地品 },
 
             // 紫色 -> 天
             { PropType.嫦娥元神, QualityType.天品 },
-            { PropType.何仙姑元神, QualityType.天品 },
             { PropType.杨戬元神, QualityType.天品 },
             { PropType.妲己元神, QualityType.天品 },
             { PropType.牛魔王元神, QualityType.天品 },
@@ -397,12 +361,10 @@ namespace Config
             // 橙色 -> 宇
             { PropType.哪吒元神, QualityType.宇品 },
             { PropType.孙悟空元神, QualityType.宇品 },
-            { PropType.刑天元神, QualityType.宇品 },
             { PropType.碧霄元神, QualityType.宇品 },
             { PropType.琼霄元神, QualityType.宇品 },
 
             // 粉色 -> 宙
-            { PropType.金灵圣母元神, QualityType.宙品 },
             { PropType.羲和元神, QualityType.宙品 },
             { PropType.常羲元神, QualityType.宙品 },
             { PropType.后羿元神, QualityType.宙品 },
@@ -410,13 +372,14 @@ namespace Config
 
             // 红色 -> 洪
             { PropType.女娲元神, QualityType.洪品 },
-            { PropType.接引元神, QualityType.洪品 },
-            { PropType.准提元神, QualityType.洪品 },
-
+            { PropType.老子元神, QualityType.洪品 },
+            { PropType.通天元神, QualityType.洪品 },
+            { PropType.元始元神, QualityType.洪品 },
             // 彩色 -> 荒
-            { PropType.老子元神, QualityType.荒品 },
-            { PropType.通天元神, QualityType.荒品 },
-            { PropType.元始元神, QualityType.荒品 }
+            { PropType.鸿钧元神, QualityType.荒品 },
+            { PropType.盘古元神, QualityType.荒品 },
+
+            
         };
     }
 }

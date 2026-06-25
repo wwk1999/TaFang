@@ -108,6 +108,9 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.黑暗魔法弹:
                 魔法弹 = QueueController.S.黑暗魔法弹Queue.Dequeue();
                 break;
+            case 攻击特效Type.普通火魔法弹:
+                魔法弹 = QueueController.S.普通火魔法弹Queue.Dequeue();
+                break;
         }
         魔法弹.transform.position = shotPos;
         魔法弹.damage = damage;
@@ -145,6 +148,8 @@ public class FightController : XSingleton<FightController>
                 return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.黑暗魔法弹:
                 return QueueController.S.黑暗魔法弹PengQueue.Count > 0 ? QueueController.S.黑暗魔法弹PengQueue.Dequeue() : null;
+            case 攻击特效Type.普通火魔法弹:
+                return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
             default:
                 return null;
         }
@@ -189,6 +194,9 @@ public class FightController : XSingleton<FightController>
                 break;
             case 攻击特效Type.黑暗魔法弹:
                 QueueController.S.黑暗魔法弹Queue.Enqueue(普通魔法弹带peng);
+                break;
+            case 攻击特效Type.普通火魔法弹:
+                QueueController.S.火虎魔法弹Queue.Enqueue(普通魔法弹带peng);
                 break;
             case 攻击特效Type.None:
             default:
@@ -238,6 +246,7 @@ public class FightController : XSingleton<FightController>
             case 序列纯显示一次Type.黑暗魔法弹Peng:
                 QueueController.S.黑暗魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;
+            
             default:
                 // 可选的默认处理，比如抛出异常或忽略
                 break;

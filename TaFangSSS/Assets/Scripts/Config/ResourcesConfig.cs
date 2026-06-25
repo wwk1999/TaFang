@@ -331,11 +331,14 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite NvWa;
     public static Sprite JieYing;
     public static Sprite ZhunTi;
-   
-   //彩
    public static Sprite LaoZi;
    public static Sprite TongTian;
    public static Sprite YuanShi;
+   
+   //彩
+   public static Sprite 鸿钧;
+   public static Sprite 盘古;
+
 
    public static Sprite GetHeroSprite(HeroType type)
 {
@@ -344,16 +347,14 @@ public class ResourcesConfig : MonoBehaviour
         // 白色（黄品）
         case HeroType.丹童:
             return DanTong;
-        case HeroType.青童:
-            return QinTong;
+        
         case HeroType.土地:
             return TuDi;
         case HeroType.河伯:
             return HeBo;
         case HeroType.瑶池仙女:
             return YaoChiXianNv;
-        case HeroType.精卫:
-            return JingWei;
+        
 
         // 绿色（玄品）
         case HeroType.石敢当:
@@ -364,20 +365,15 @@ public class ResourcesConfig : MonoBehaviour
             return GuiChengXiang;
         case HeroType.太白金星:
             return TaiBaiJinXing;
-        case HeroType.孟婆:
-            return MengPo;
-        case HeroType.白素贞:
-            return BaiSuZhen;
+       
 
         // 蓝色（地品）
         case HeroType.多闻天王:
             return DuoWenTianWang;
-        case HeroType.增长天王:
-            return ZengZhangTianWang;
+      
         case HeroType.广目天王:
             return GuangMuTianWang;
-        case HeroType.持国天王:
-            return ChiGuoTianWang;
+        
         case HeroType.雷震子:
             return LeiZhengZi;
         case HeroType.月老:
@@ -386,8 +382,7 @@ public class ResourcesConfig : MonoBehaviour
         // 紫色（天品）
         case HeroType.嫦娥:
             return ChangE;
-        case HeroType.何仙姑:
-            return HeXianGu;
+       
         case HeroType.杨戬:
             return YangJian;
         case HeroType.妲己:
@@ -400,16 +395,14 @@ public class ResourcesConfig : MonoBehaviour
             return NeZha;
         case HeroType.孙悟空:
             return SunWuKong;
-        case HeroType.刑天:
-            return XingTian;
+       
         case HeroType.碧霄:
             return BiXiao;
         case HeroType.琼霄:
             return QiongXiao;
 
         // 粉色（宙品）
-        case HeroType.金灵圣母:
-            return JingLingShengMu;
+       
         case HeroType.羲和:
             return XiHe;
         case HeroType.常羲:
@@ -422,10 +415,7 @@ public class ResourcesConfig : MonoBehaviour
         // 红色（洪品）
         case HeroType.女娲:
             return NvWa;
-        case HeroType.接引:
-            return JieYing;
-        case HeroType.准提:
-            return ZhunTi;
+      
 
         // 彩色（荒品）
         case HeroType.老子:
@@ -434,6 +424,10 @@ public class ResourcesConfig : MonoBehaviour
             return TongTian;
         case HeroType.元始:
             return YuanShi;
+        case HeroType.鸿钧:
+            return 鸿钧;
+        case HeroType.盘古:
+            return 盘古;
 
         default:
             return null;
@@ -1124,5 +1118,8 @@ public static Sprite Get标签背景(QualityType qualityType)
       TongTian = Resources.LoadAll<Sprite>("Sprite/RenWu/红")[3];
       YuanShi = Resources.LoadAll<Sprite>("Sprite/RenWu/红")[4];
       LaoZi = Resources.LoadAll<Sprite>("Sprite/RenWu/橙")[5];
+      
+      鸿钧 = Resources.Load<Sprite>("Sprite/RenWu/鸿钧");
+      盘古 = Resources.Load<Sprite>("Sprite/RenWu/盘古");
    }
 }

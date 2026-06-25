@@ -24,7 +24,7 @@ public class 人物item : MonoBehaviour
                 CurrentAttackTime = 0;
                 Animator.Play("人物攻击",0,0f);
                 var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.Shot普通魔法弹(攻击特效Type.火虎魔法弹,transform.position,dir,50,YuanSuType.火,8);
+                FightController.S.Shot普通魔法弹(攻击特效Type.普通火魔法弹,transform.position,dir,50,YuanSuType.火,8);
             }
         }
     }
