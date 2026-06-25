@@ -165,7 +165,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
             break;
       }
 
-      switch (HeroConfig.HeroZhiYeDic[heroType])
+      switch (HeroConfig.HeroZhiYeDic[heroType].zhiYeType)
       {
          case ZhiYeType.射手:
             职业icon.sprite = ResourcesConfig.射手;

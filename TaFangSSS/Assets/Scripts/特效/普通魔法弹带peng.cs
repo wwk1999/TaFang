@@ -45,6 +45,10 @@ public class 普通魔法弹带peng : MonoBehaviour
          FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType);
          hit.gameObject.SetActive(true);
          gameObject.SetActive(false);
+         if (Type == 攻击特效Type.黑暗魔法弹)
+         {
+            FightController.S.MonsterColliderDic[other].transform.position = new Vector3(FightController.S.MonsterColliderDic[other].transform.position.x+0.2f,FightController.S.MonsterColliderDic[other].transform.position.y,FightController.S.MonsterColliderDic[other].transform.position.z);
+         }
       }
    }
 

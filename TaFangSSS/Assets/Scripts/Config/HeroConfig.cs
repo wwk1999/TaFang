@@ -8,6 +8,12 @@ namespace Config
         public int 元神;
     }
 
+    public class HeroZhiYeYuanSu
+    {
+        public ZhiYeType zhiYeType;
+        public YuanSuType yuanSuType;
+    }
+
     public enum YuanSuType
     {
         None,
@@ -28,6 +34,7 @@ namespace Config
         法师,
     }
 
+
     public enum HeroType
     {
         None,
@@ -35,27 +42,27 @@ namespace Config
         土地,
         河伯,
         瑶池仙女,
-        
+
         石敢当,
         玄女,
         龟丞相,
         太白金星,
-       
+
         多闻天王,
         广目天王,
         雷震子,
         月老,
-        
+
         嫦娥,
         杨戬,
         妲己,
         牛魔王,
-        
+
         哪吒,
         孙悟空,
         碧霄,
         琼霄,
-       
+
         羲和,
         常羲,
         后羿,
@@ -64,7 +71,7 @@ namespace Config
         老子,
         通天,
         元始,
-        
+
         鸿钧,
         盘古
     }
@@ -83,15 +90,55 @@ namespace Config
 
     public class HeroConfig
     {
+        public static Dictionary<HeroType, float> HeroDamageDic = new Dictionary<HeroType, float>()
+        {
+            { HeroType.丹童, 50 },
+            { HeroType.土地, 50 },
+            { HeroType.河伯, 50 },
+            { HeroType.瑶池仙女, 50 },
+            { HeroType.石敢当, 50 },
+            { HeroType.玄女, 50 },
+            { HeroType.龟丞相, 50 },
+            { HeroType.太白金星, 50 },
+            { HeroType.多闻天王, 50 },
+            { HeroType.广目天王, 50 },
+            { HeroType.雷震子, 50 },
+            { HeroType.月老, 50 },
+            { HeroType.嫦娥, 50 },
+            { HeroType.杨戬, 50 },
+            { HeroType.妲己, 50 },
+            { HeroType.牛魔王, 50 },
+            { HeroType.哪吒, 50 },
+            { HeroType.孙悟空, 50 },
+            { HeroType.碧霄, 50 },
+            { HeroType.琼霄, 50 },
+            { HeroType.后羿, 50 },
+            { HeroType.常羲, 50 },
+            { HeroType.羲和, 50 },
+            { HeroType.云霄, 50 },
+            { HeroType.女娲, 50 },
+            { HeroType.老子, 50 },
+            { HeroType.元始, 50 },
+            { HeroType.通天, 50 },
+            { HeroType.鸿钧, 50 },
+            { HeroType.盘古, 50 }
+        };
         public static Dictionary<HeroType, HeroSkill> HeroSkillDic = new Dictionary<HeroType, HeroSkill>()
         {
             {
                 HeroType.丹童, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.普通火魔法弹 }, 
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.普通火魔法弹 },
                     PengList = new List<序列纯显示一次Type>() { 序列纯显示一次Type.火虎魔法弹Peng }
                 }
-            }
+            },
+            {
+                HeroType.土地, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗魔法弹 },
+                    PengList = new List<序列纯显示一次Type>() { 序列纯显示一次Type.黑暗魔法弹Peng }
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
@@ -184,7 +231,7 @@ namespace Config
             { HeroType.盘古, "盘古" },
             { HeroType.鸿钧, "鸿钧" },
         };
-        
+
         public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
         {
             { HeroType.丹童, 0.3f },
@@ -255,47 +302,47 @@ namespace Config
 
         };
 
-        public static Dictionary<HeroType, ZhiYeType> HeroZhiYeDic = new Dictionary<HeroType, ZhiYeType>()
+        public static Dictionary<HeroType, HeroZhiYeYuanSu> HeroZhiYeDic = new Dictionary<HeroType, HeroZhiYeYuanSu>()
         {
-            { HeroType.丹童, ZhiYeType.射手 },
-            { HeroType.土地, ZhiYeType.控制 },
-            { HeroType.河伯, ZhiYeType.法师 },
-            { HeroType.瑶池仙女, ZhiYeType.辅助 },
+            { HeroType.丹童, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.火 } },
+            { HeroType.土地, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.控制, yuanSuType = YuanSuType.黑暗 } }, // 大地之力
+            { HeroType.河伯, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.冰 } }, // 水神
+            { HeroType.瑶池仙女, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.冰 } }, // 瑶池之水
 
-            { HeroType.石敢当, ZhiYeType.战士 },
-            { HeroType.玄女, ZhiYeType.法师 },
-            { HeroType.龟丞相, ZhiYeType.控制 },
-            { HeroType.太白金星, ZhiYeType.射手 },
-           
+            { HeroType.石敢当, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.物理 } },
+            { HeroType.玄女, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.电 } }, // 九天玄女，火
+            { HeroType.龟丞相, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.控制, yuanSuType = YuanSuType.冰 } }, // 水族
+            { HeroType.太白金星, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.电 } }, // 金星属金
 
-            { HeroType.多闻天王, ZhiYeType.射手 },
-            { HeroType.广目天王, ZhiYeType.战士 },
-            { HeroType.雷震子, ZhiYeType.法师 },
-            { HeroType.月老, ZhiYeType.射手 },
+            { HeroType.多闻天王, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.黑暗 } }, // 北方属水
+            { HeroType.广目天王, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.黑暗 } }, // 西方属风，归为电
+            { HeroType.雷震子, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.电 } }, // 雷
+            { HeroType.月老, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.火 } }, // 姻缘火
 
-            { HeroType.嫦娥, ZhiYeType.法师 },
-            { HeroType.杨戬, ZhiYeType.射手 },
-            { HeroType.妲己, ZhiYeType.辅助 },
-            { HeroType.牛魔王, ZhiYeType.战士 },
+            { HeroType.嫦娥, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.电 } }, // 月宫寒
+            { HeroType.杨戬, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.火 } }, // 武力
+            { HeroType.妲己, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.黑暗 } }, // 狐妖
+            { HeroType.牛魔王, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.物理 } }, // 力量
 
-            { HeroType.哪吒, ZhiYeType.战士 },
-            { HeroType.孙悟空, ZhiYeType.战士 },
-            { HeroType.碧霄, ZhiYeType.法师 },
-            { HeroType.琼霄, ZhiYeType.控制 },
-            
-            { HeroType.后羿, ZhiYeType.射手 },
-            { HeroType.常羲, ZhiYeType.控制 },
-            { HeroType.羲和, ZhiYeType.辅助 },
-            { HeroType.云霄, ZhiYeType.法师 },
+            { HeroType.哪吒, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.火 } }, // 风火轮
+            { HeroType.孙悟空, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.物理 } }, // 金箍棒
+            { HeroType.碧霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.冰 } }, // 三霄属水
+            { HeroType.琼霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.控制, yuanSuType = YuanSuType.黑暗 } },
 
-            { HeroType.女娲, ZhiYeType.辅助 },
-            { HeroType.老子, ZhiYeType.法师 },
-            { HeroType.元始, ZhiYeType.射手 },
-            { HeroType.通天, ZhiYeType.战士 },
+            { HeroType.后羿, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.物理 } }, // 射日
+            { HeroType.常羲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.控制, yuanSuType = YuanSuType.冰 } }, // 月母
+            { HeroType.羲和, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.火 } }, // 日母
+            { HeroType.云霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.冰 } }, // 三霄
 
-            { HeroType.鸿钧,ZhiYeType.法师},
-            { HeroType.盘古,ZhiYeType.战士},
+            { HeroType.女娲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.火 } }, // 炼石补天
+            { HeroType.老子, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.火 } }, // 炼丹
+            { HeroType.元始, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.电 } }, // 盘古元神，力量
+            {
+                HeroType.通天, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.黑暗 }
+            }, // 截教包罗万象，归为黑暗
 
+            { HeroType.鸿钧, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.黑暗 } }, // 天道雷霆
+            { HeroType.盘古, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.物理 } } // 开天辟地，纯粹力量
         };
 
         public static Dictionary<QualityType, HashSet<HeroType>> QualityHeroDic =
@@ -304,7 +351,7 @@ namespace Config
                 {
                     QualityType.黄品,
                     new HashSet<HeroType>()
-                        { HeroType.丹童,  HeroType.土地, HeroType.河伯, HeroType.瑶池仙女 }
+                        { HeroType.丹童, HeroType.土地, HeroType.河伯, HeroType.瑶池仙女 }
                 },
                 {
                     QualityType.玄品,
@@ -314,22 +361,22 @@ namespace Config
                 {
                     QualityType.地品,
                     new HashSet<HeroType>()
-                        { HeroType.多闻天王, HeroType.广目天王,  HeroType.雷震子, HeroType.月老 }
+                        { HeroType.多闻天王, HeroType.广目天王, HeroType.雷震子, HeroType.月老 }
                 },
                 {
                     QualityType.天品,
-                    new HashSet<HeroType>() { HeroType.嫦娥,  HeroType.杨戬, HeroType.妲己, HeroType.牛魔王 }
+                    new HashSet<HeroType>() { HeroType.嫦娥, HeroType.杨戬, HeroType.妲己, HeroType.牛魔王 }
                 },
                 {
                     QualityType.宇品,
-                    new HashSet<HeroType>() { HeroType.哪吒, HeroType.孙悟空,  HeroType.碧霄, HeroType.琼霄 }
+                    new HashSet<HeroType>() { HeroType.哪吒, HeroType.孙悟空, HeroType.碧霄, HeroType.琼霄 }
                 },
                 {
                     QualityType.宙品,
                     new HashSet<HeroType>() { HeroType.羲和, HeroType.常羲, HeroType.后羿, HeroType.云霄 }
                 },
                 { QualityType.洪品, new HashSet<HeroType>() { HeroType.女娲, HeroType.老子, HeroType.通天, HeroType.元始 } },
-                { QualityType.荒品, new HashSet<HeroType>() { HeroType.盘古, HeroType.鸿钧} },
+                { QualityType.荒品, new HashSet<HeroType>() { HeroType.盘古, HeroType.鸿钧 } },
             };
 
         public static Dictionary<HeroType, string> HeroDescDic = new Dictionary<HeroType, string>()

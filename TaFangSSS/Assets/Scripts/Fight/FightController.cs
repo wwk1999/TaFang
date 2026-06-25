@@ -33,38 +33,51 @@ public class FightController : XSingleton<FightController>
     [NonSerialized]public Dictionary<Collider2D,MonsterBase>MonsterColliderDic = new Dictionary<Collider2D,MonsterBase>();
     
     
-    public Vector2 GetAttackPostion()
+    public MonsterBase GetAttackMonster()
     {
         if (Monster分区Dic[1].Count > 0)
         {
-            return Monster分区Dic[1].First().gameObject.transform.position;
+            return Monster分区Dic[1].First();
         }
         if (Monster分区Dic[2].Count > 0)
         {
-            return Monster分区Dic[2].First().gameObject.transform.position;
+            return Monster分区Dic[2].First();
         }
         if (Monster分区Dic[3].Count > 0)
         {
-            return Monster分区Dic[3].First().gameObject.transform.position;
+            return Monster分区Dic[3].First();
         }
         if (Monster分区Dic[4].Count > 0)
         {
-            return Monster分区Dic[4].First().gameObject.transform.position;
+            return Monster分区Dic[4].First();
         }
         if (Monster分区Dic[5].Count > 0)
         {
-            return Monster分区Dic[5].First().gameObject.transform.position;
+            return Monster分区Dic[5].First();
         }
         if (Monster分区Dic[6].Count > 0)
         {
-            return Monster分区Dic[6].First().gameObject.transform.position;
+            return Monster分区Dic[6].First();
         }
         if (Monster分区Dic[7].Count > 0)
         {
-            return Monster分区Dic[7].First().gameObject.transform.position;
+            return Monster分区Dic[7].First();
         }
 
-        return new Vector2(10000,10000);
+        return null;
+    }
+
+    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir)
+    {
+        switch (hero)
+        {
+            case HeroType.丹童:
+                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8);
+                break;
+            case HeroType.土地:
+                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8);
+                break;
+        }
     }
 
     public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed)

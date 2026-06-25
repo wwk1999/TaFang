@@ -130,6 +130,7 @@ public class MonsterBase : MonoBehaviour
    }
    public void Die()
    {
+      ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;
       if (FightController.S.KillMonsterCount ==
           (LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount +

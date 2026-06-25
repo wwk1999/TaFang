@@ -12,30 +12,45 @@ public class 人物item : MonoBehaviour
     public GameObject 攻击范围Tri;
     [NonSerialized]public HeroType heroType;
     private float CurrentAttackTime = 0;
+    [NonSerialized] private HashSet<MonsterBase> 攻击范围内怪物=new HashSet<MonsterBase>();
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Monster"))
+        {
+            攻击范围内怪物.Add(FightController.S.MonsterColliderDic[other]);
+        }
+    }
+
+    public void 怪物死亡(object[] obj)
+    {
+        MonsterBase monsterBase = obj[0] as MonsterBase;
+        攻击范围内怪物.Remove(monsterBase);
+    }
+
+    private void Start()
+    {
+        ObserverModuleManager.S.RegisterEvent("怪物死亡",怪物死亡);
+    }
 
     private void Update()
     {
         CurrentAttackTime+= Time.deltaTime;
-        if (CurrentAttackTime > HeroConfig.HeroAttackTimeDic[heroType])
+        MonsterBase monsterBase = FightController.S.GetAttackMonster();
+        if (monsterBase!=null&&CurrentAttackTime > HeroConfig.HeroAttackTimeDic[heroType]&&攻击范围内怪物.Contains(monsterBase))
         { 
-            Vector2 targetPos = FightController.S.GetAttackPostion();
-            if (targetPos.x < 10000)
-            {
-                CurrentAttackTime = 0;
-                Animator.Play("人物攻击",0,0f);
-                var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.Shot普通魔法弹(攻击特效Type.普通火魔法弹,transform.position,dir,50,YuanSuType.火,8);
-            }
+            Vector2 targetPos = monsterBase.transform.position;
+            CurrentAttackTime = 0;
+            Animator.Play("人物攻击",0,0f);
+            var dir=(targetPos-(Vector2)transform.position).normalized;
+            FightController.S.人物攻击(heroType,transform.position,dir);
         }
     }
 
     public void SetItem()
     {
-        HashSet<人物item> a = new HashSet<人物item>();
-        人物item b = new 人物item();
-        a.Remove(b);
         image.sprite = ResourcesConfig.GetHeroSprite(heroType);
-        float scale = HeroConfig.攻击范围Dic[HeroConfig.HeroZhiYeDic[heroType]];
+        float scale = HeroConfig.攻击范围Dic[HeroConfig.HeroZhiYeDic[heroType].zhiYeType];
         攻击范围Tri.transform.localScale = new Vector3(scale, scale, scale);
         switch (HeroConfig.HeroQualityDic[heroType])
         {
