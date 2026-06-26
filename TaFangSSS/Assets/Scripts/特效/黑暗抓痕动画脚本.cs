@@ -1,0 +1,69 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Config;
+using UnityEngine;
+
+public class 黑暗抓痕动画脚本 : MonoBehaviour
+{
+    public GameObject obj;
+    public Collider2D _collider2D1;
+    public Collider2D _collider2D2;
+    [NonSerialized] public bool 瑶池冰辅助;
+
+    public void Hide()
+    {
+        obj.gameObject.SetActive(false);
+    }
+    public void CheckCollisionWithMonsters2()
+    {
+        // 检测所有重叠的碰撞体
+        List<Collider2D> results = new List<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.NoFilter();
+        filter.useTriggers = true;
+    
+        _collider2D2.OverlapCollider(filter, results);
+    
+        // 找出所有怪物并处理
+        foreach (Collider2D col in results)
+        {
+            if (col.gameObject == gameObject) continue;
+        
+            if (col.CompareTag("Monster"))
+            {
+                if (瑶池冰辅助)
+                {
+                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+                
+                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+            }
+        }
+    }
+    public void CheckCollisionWithMonsters1()
+    {
+        // 检测所有重叠的碰撞体
+        List<Collider2D> results = new List<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.NoFilter();
+        filter.useTriggers = true;
+    
+        _collider2D1.OverlapCollider(filter, results);
+    
+        // 找出所有怪物并处理
+        foreach (Collider2D col in results)
+        {
+            if (col.gameObject == gameObject) continue;
+        
+            if (col.CompareTag("Monster"))
+            {
+                if (瑶池冰辅助)
+                {
+                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+            }
+        }
+    }
+}

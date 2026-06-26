@@ -36,6 +36,7 @@ public class Entrance : MonoBehaviour
          renwu.heroType = item;
          renwu.SetItem();
          renwu.transform.localPosition = FightConfig.人物位置Dic[index];
+         renwu.原始Pos = renwu.transform.position;
          FightController.S.人物items[item] = renwu;
          index++;
       }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
+using DG.Tweening;
 using UnityEngine;
 
 public class 人物item : MonoBehaviour
@@ -15,6 +16,9 @@ public class 人物item : MonoBehaviour
     [NonSerialized] private HashSet<MonsterBase> 攻击范围内怪物=new HashSet<MonsterBase>();
     [NonSerialized] public float 瑶池冰辅助;
     public GameObject 瑶池冰辅助obj;
+    [NonSerialized] public Vector2 原始Pos;
+    public 黑暗抓痕 黑暗抓痕;
+    public Animator 黑暗抓痕Animator;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Monster"))
@@ -44,7 +48,7 @@ public class 人物item : MonoBehaviour
         { 
             Vector2 targetPos = monsterBase.transform.position;
             CurrentAttackTime = 0;
-            if (heroType == HeroType.瑶池仙女)
+            if (heroType == HeroType.瑶池仙女)//辅助类
             {
                 Animator.Play("人物放大缩小",0,0f);
                 var dir=(targetPos-(Vector2)transform.position).normalized;
@@ -52,9 +56,26 @@ public class 人物item : MonoBehaviour
             }
             else if (攻击范围内怪物.Contains(monsterBase))
             {
-                Animator.Play("人物攻击",0,0f);
-                var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助);
+                if (heroType == HeroType.广目天王)//上场
+                {
+                    Sequence mySequence = DOTween.Sequence();
+                    mySequence.Append(transform.DOMove(new Vector2(targetPos.x-1f,targetPos.y), 0.2f));
+                    mySequence.AppendCallback(() =>
+                    {
+                        Animator.Play("人物攻击",0,0f);
+                        黑暗抓痕.脚本.瑶池冰辅助 = 瑶池冰辅助>0;
+                        黑暗抓痕.gameObject.SetActive(true);
+                        黑暗抓痕Animator.Play("187黑暗抓痕_Anim",0,0f);
+                    });
+                    mySequence.AppendInterval(0.5f);
+                    mySequence.Append(transform.DOMove(原始Pos, 0.2f));
+                }
+                else
+                {
+                    Animator.Play("人物攻击",0,0f);
+                    var dir=(targetPos-(Vector2)transform.position).normalized;
+                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助);
+                }
             }
         }
     }
