@@ -45,7 +45,7 @@ public class QueueController:XSingleton<QueueController>
 
     
     
-    [NonSerialized]public Queue<GameObject>冰刺Queue = new Queue<GameObject>();
+    [NonSerialized]public Queue<序列一次伤害技能>冰刺Queue = new Queue<序列一次伤害技能>();
 
     protected override void Awake()
     {
@@ -423,7 +423,7 @@ public class QueueController:XSingleton<QueueController>
                     {
                         break;
                     }
-                    var 冰刺 = Instantiate(Resources.Load<GameObject>("Prefabs/特效/冰刺"),transform);
+                    var 冰刺 = Instantiate(Resources.Load("Prefabs/特效/冰刺"),transform).GetComponent<序列一次伤害技能>();
                     冰刺.gameObject.SetActive(false);
                     冰刺Queue.Enqueue(冰刺);
                     break;

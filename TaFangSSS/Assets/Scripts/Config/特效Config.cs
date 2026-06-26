@@ -23,6 +23,7 @@ public enum 攻击特效Type
     黑暗魔法弹,
     普通火魔法弹,
     冰刺,
+    瑶池冰辅助,
 }
 
 public enum PengType

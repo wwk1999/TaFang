@@ -17,8 +17,9 @@ public class FightController : XSingleton<FightController>
     private int NormalMonsterCount = 0;
     private int EliteMonsterCount = 0;
     [NonSerialized]public int KillMonsterCount = 0;
+    [NonSerialized] public Dictionary<HeroType, 人物item> 人物items = new Dictionary<HeroType, 人物item>();
 
-
+    [NonSerialized] public bool 战斗结束 = false;
 
     [NonSerialized] public Dictionary<int, HashSet<MonsterBase>> Monster分区Dic = new Dictionary<int, HashSet<MonsterBase>>()
     {
@@ -67,35 +68,55 @@ public class FightController : XSingleton<FightController>
         return null;
     }
 
-    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos)
+    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助)
     {
         switch (hero)
         {
             case HeroType.丹童:
-                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8);
+                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
                 break;
             case HeroType.土地:
-                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8);
+                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
                 break;
             case HeroType.河伯:
-                一次伤害技能(攻击特效Type.冰刺, targetPos);           
+                一次伤害技能(攻击特效Type.冰刺, targetPos,瑶池冰辅助>0);           
+                break;
+            case HeroType.瑶池仙女:
+                瑶池冰辅助技能();
                 break;
         }
     }
 
-    public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos)
+    public void 瑶池冰辅助技能()
+    {
+        var random=Random.Range(0,人物items.Count);
+        HeroType[] keysArray = 人物items.Keys.ToArray();
+        HeroType randomKey = keysArray[random];
+        人物item randomValue = 人物items[randomKey];
+        while (randomValue.heroType==HeroType.瑶池仙女)
+        {
+            random=Random.Range(0,人物items.Count);
+            randomKey = keysArray[random];
+            randomValue = 人物items[randomKey];
+        }
+
+        randomValue.瑶池冰辅助 = 5f;
+    }
+
+    public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助)
     {
         switch (攻击特效Type)
         {
             case 攻击特效Type.冰刺:
                 var item = QueueController.S.冰刺Queue.Dequeue();
                 item.transform.position = pos;
+                item.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 item.gameObject.SetActive(true);
                 break;
         }
     }
 
-    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed)
+    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助)
     {
         普通魔法弹带peng 魔法弹 = null;
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
@@ -145,6 +166,7 @@ public class FightController : XSingleton<FightController>
         魔法弹.MoveDirection = dir;
         魔法弹.MoveSpeed = speed;
         魔法弹.YuanSuType = yuanSuType;
+        魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
         魔法弹.gameObject.SetActive(true);
 
     }

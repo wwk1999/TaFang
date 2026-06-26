@@ -21,8 +21,22 @@ public class MonsterBase : MonoBehaviour
    public Slider MonsterSlider;
    [NonSerialized] public MonsterAttribute MonsterAttribute;
    [NonSerialized]public float CurrentHP;
-   [NonSerialized] public float speed;
+   [NonSerialized] public float basespeed;
    private float CurrentAttackTime = 0;
+   private float RealSpeed => GetRealSpeed();
+   [NonSerialized] public float 瑶池冰辅助=0;
+
+   public float GetRealSpeed()
+   {
+      if (瑶池冰辅助 > 0)
+      {
+         return basespeed*0.3f;
+      }
+      else
+      {
+         return basespeed;
+      }
+   }
    private void OnEnable()
    {
       if (MonsterTypeName == MonsterTypeName.None)
@@ -45,7 +59,7 @@ public class MonsterBase : MonoBehaviour
       普通关卡怪物Item 普通关卡怪物Item=new 普通关卡怪物Item(){LevelSmallType =  levelSmallType, MonsterType = monsterType};
       MonsterAttribute = MonsterConfig.普通关卡怪物属性Dic[普通关卡怪物Item];
       Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
-      speed = MonsterConfig.怪物速度Dic[monster特性Type];
+      basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
    }
 
    public void Hurt(float 原始Damage,YuanSuType yuanSuType)
@@ -88,6 +102,7 @@ public class MonsterBase : MonoBehaviour
 
    private void Update()
    {
+      瑶池冰辅助-=Time.deltaTime;
       float 城墙最近距离 = 0;
       CurrentAttackTime+=Time.deltaTime;
       switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
@@ -105,7 +120,7 @@ public class MonsterBase : MonoBehaviour
 
       if (transform.position.x > 城墙最近距离)
       {
-         transform.position=new Vector3(transform.position.x-speed*Time.deltaTime,transform.position.y,transform.position.z);
+         transform.position=new Vector3(transform.position.x-RealSpeed*Time.deltaTime,transform.position.y,transform.position.z);
       }
       else
       {
@@ -136,6 +151,7 @@ public class MonsterBase : MonoBehaviour
           (LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount +
            LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount))
       {
+         FightController.S.战斗结束 = true;
          FightController.S.StartCoroutine(Show胜利弹窗());
       }
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];

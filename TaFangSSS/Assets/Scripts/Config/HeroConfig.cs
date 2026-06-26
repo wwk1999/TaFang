@@ -147,6 +147,14 @@ namespace Config
                     PengList = new List<PengType>() 
                 }
             },
+            
+            {
+                HeroType.瑶池仙女, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.瑶池冰辅助 },
+                    PengList = new List<PengType>() 
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
@@ -242,10 +250,10 @@ namespace Config
 
         public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
         {
-            { HeroType.丹童, 0.3f },
+            { HeroType.丹童, 1f },
             { HeroType.土地, 1 },
-            { HeroType.河伯, 1 },
-            { HeroType.瑶池仙女, 1 },
+            { HeroType.河伯, 2 },
+            { HeroType.瑶池仙女, 5 },
             { HeroType.石敢当, 1 },
             { HeroType.玄女, 1 },
             { HeroType.龟丞相, 1 },

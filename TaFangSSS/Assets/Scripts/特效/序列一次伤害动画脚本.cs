@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
@@ -5,9 +6,10 @@ using UnityEngine;
 
 public class 序列一次伤害动画脚本 : MonoBehaviour
 {
-    public GameObject Obj;
+    public 序列一次伤害技能 Obj;
     public 攻击特效Type type;
     public Collider2D _collider2D;
+    [NonSerialized] public bool 瑶池冰辅助;
 
     public void Hide()
     {
@@ -36,6 +38,10 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         
             if (col.CompareTag("Monster"))
             {
+                if (瑶池冰辅助)
+                {
+                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
             }
         }

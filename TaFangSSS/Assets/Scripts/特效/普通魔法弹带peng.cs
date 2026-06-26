@@ -14,6 +14,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized]public float DelayTime=5;
    [NonSerialized] public float damage;
    [NonSerialized] public YuanSuType YuanSuType;
+   [NonSerialized] public bool 瑶池冰辅助;
 
    
    private void OnEnable()
@@ -45,6 +46,10 @@ public class 普通魔法弹带peng : MonoBehaviour
          FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType);
          hit.gameObject.SetActive(true);
          gameObject.SetActive(false);
+         if (瑶池冰辅助)
+         {
+            FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;//持续2s
+         }
          if (Type == 攻击特效Type.黑暗魔法弹)
          {
             FightController.S.MonsterColliderDic[other].transform.position = new Vector3(FightController.S.MonsterColliderDic[other].transform.position.x+0.2f,FightController.S.MonsterColliderDic[other].transform.position.y,FightController.S.MonsterColliderDic[other].transform.position.z);
