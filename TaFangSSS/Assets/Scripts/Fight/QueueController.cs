@@ -48,6 +48,7 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<序列一次伤害技能>冰刺Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<石敢当锤子>石敢当锤子Queue = new Queue<石敢当锤子>();
     [NonSerialized]public Queue<序列一次伤害技能>玄女技能Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>龟丞相技能Queue = new Queue<序列一次伤害技能>();
 
     protected override void Awake()
     {
@@ -302,6 +303,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.龟丞相技能:
+                    if (龟丞相技能Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 龟丞相技能 = Instantiate(Resources.Load("Prefabs/特效/龟丞相技能"),transform).GetComponent<序列一次伤害技能>();
+                    龟丞相技能.gameObject.SetActive(false);
+                    龟丞相技能Queue.Enqueue(龟丞相技能);
+                    break;
                 case 攻击特效Type.玄女技能:
                     if (玄女技能Queue.Count > 100)
                     {

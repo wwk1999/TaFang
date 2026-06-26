@@ -25,17 +25,22 @@ public class MonsterBase : MonoBehaviour
    private float CurrentAttackTime = 0;
    private float RealSpeed => GetRealSpeed();
    [NonSerialized] public float 瑶池冰辅助=0;
+   [NonSerialized] public float 龟丞相减速=0;
+
 
    public float GetRealSpeed()
    {
+      float value = basespeed;
       if (瑶池冰辅助 > 0)
       {
-         return basespeed*0.3f;
+         value *= 0.85f;
       }
-      else
+
+      if (龟丞相减速 > 0)
       {
-         return basespeed;
+         value *= 0.5f;
       }
+      return value;
    }
    private void OnEnable()
    {
@@ -103,6 +108,7 @@ public class MonsterBase : MonoBehaviour
    private void Update()
    {
       瑶池冰辅助-=Time.deltaTime;
+      龟丞相减速-=Time.deltaTime;
       float 城墙最近距离 = 0;
       CurrentAttackTime+=Time.deltaTime;
       switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])

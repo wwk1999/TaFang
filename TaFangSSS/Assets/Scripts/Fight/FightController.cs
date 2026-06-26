@@ -90,6 +90,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.玄女:
                 一次伤害技能(攻击特效Type.玄女技能, targetPos,瑶池冰辅助>0);           
                 break;
+            case HeroType.龟丞相:
+                一次伤害技能(攻击特效Type.龟丞相技能, targetPos,瑶池冰辅助>0);           
+                break;
         }
     }
 
@@ -132,6 +135,12 @@ public class FightController : XSingleton<FightController>
                 玄女技能.transform.position = pos;
                 玄女技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 玄女技能.gameObject.SetActive(true);
+                break;
+            case 攻击特效Type.龟丞相技能:
+                var 龟丞相技能 = QueueController.S.龟丞相技能Queue.Dequeue();
+                龟丞相技能.transform.position = pos;
+                龟丞相技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                龟丞相技能.gameObject.SetActive(true);
                 break;
         }
     }

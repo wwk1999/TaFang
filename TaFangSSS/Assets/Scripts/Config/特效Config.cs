@@ -26,6 +26,7 @@ public enum 攻击特效Type
     瑶池冰辅助,
     石敢当锤子,
     玄女技能,
+    龟丞相技能,
 }
 
 public enum PengType

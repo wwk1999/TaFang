@@ -23,6 +23,10 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 QueueController.S.冰刺Queue.Enqueue(Obj);
                 gameObject.SetActive(false);
                 break;
+            case 攻击特效Type.龟丞相技能:
+                QueueController.S.龟丞相技能Queue.Enqueue(Obj);
+                gameObject.SetActive(false);
+                break;
         }
     }
     public void CheckCollisionWithMonsters()
@@ -45,6 +49,11 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+
+                if (type == 攻击特效Type.龟丞相技能)
+                {
+                    FightController.S.MonsterColliderDic[col].龟丞相减速 = 2;
                 }
                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
             }
