@@ -102,6 +102,12 @@ public class FightController : XSingleton<FightController>
             case HeroType.雷震子:
                 一次伤害技能(攻击特效Type.落雷, targetPos,瑶池冰辅助>0);           
                 break;
+            case HeroType.月老:
+                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                break;
+            case HeroType.嫦娥:
+                一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0);           
+                break;
         }
     }
 
@@ -133,6 +139,12 @@ public class FightController : XSingleton<FightController>
     {
         switch (攻击特效Type)
         {
+            case 攻击特效Type.嫦娥技能:
+                var 嫦娥技能 = QueueController.S.嫦娥技能Queue.Dequeue();
+                嫦娥技能.transform.position = pos;
+                嫦娥技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                嫦娥技能.gameObject.SetActive(true);
+                break;
             case 攻击特效Type.冰刺:
                 var item = QueueController.S.冰刺Queue.Dequeue();
                 item.transform.position = pos;

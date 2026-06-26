@@ -50,6 +50,7 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<序列一次伤害技能>玄女技能Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>龟丞相技能Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>落雷Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>嫦娥技能Queue = new Queue<序列一次伤害技能>();
 
     protected override void Awake()
     {
@@ -304,6 +305,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.嫦娥技能:
+                    if (嫦娥技能Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 嫦娥技能 = Instantiate(Resources.Load("Prefabs/特效/嫦娥技能"),transform).GetComponent<序列一次伤害技能>();
+                    嫦娥技能.gameObject.SetActive(false);
+                    嫦娥技能Queue.Enqueue(嫦娥技能);
+                    break;
                 case 攻击特效Type.落雷:
                     if (落雷Queue.Count > 100)
                     {

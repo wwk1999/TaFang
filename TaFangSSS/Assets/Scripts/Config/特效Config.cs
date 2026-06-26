@@ -28,6 +28,7 @@ public enum 攻击特效Type
     玄女技能,
     龟丞相技能,
     落雷,
+    嫦娥技能,
 }
 
 public enum PengType

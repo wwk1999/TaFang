@@ -15,6 +15,10 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     {
         switch (type)
         {
+            case 攻击特效Type.嫦娥技能:
+                QueueController.S.嫦娥技能Queue.Enqueue(Obj);
+                gameObject.SetActive(false);
+                break;
             case 攻击特效Type.冰刺:
                 QueueController.S.冰刺Queue.Enqueue(Obj);
                 gameObject.SetActive(false);
