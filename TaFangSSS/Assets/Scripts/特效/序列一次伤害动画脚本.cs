@@ -27,6 +27,10 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 QueueController.S.龟丞相技能Queue.Enqueue(Obj);
                 gameObject.SetActive(false);
                 break;
+            case 攻击特效Type.落雷:
+                QueueController.S.落雷Queue.Enqueue(Obj);
+                gameObject.SetActive(false);
+                break;
         }
     }
     public void CheckCollisionWithMonsters()

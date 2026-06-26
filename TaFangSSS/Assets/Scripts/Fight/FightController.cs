@@ -99,6 +99,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.多闻天王:
                 Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
                 break;
+            case HeroType.雷震子:
+                一次伤害技能(攻击特效Type.落雷, targetPos,瑶池冰辅助>0);           
+                break;
         }
     }
 
@@ -147,6 +150,12 @@ public class FightController : XSingleton<FightController>
                 龟丞相技能.transform.position = pos;
                 龟丞相技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 龟丞相技能.gameObject.SetActive(true);
+                break;
+            case 攻击特效Type.落雷:
+                var 落雷 = QueueController.S.落雷Queue.Dequeue();
+                落雷.transform.position = pos;
+                落雷.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                落雷.gameObject.SetActive(true);
                 break;
         }
     }
