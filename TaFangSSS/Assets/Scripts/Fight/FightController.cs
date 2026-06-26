@@ -93,6 +93,12 @@ public class FightController : XSingleton<FightController>
             case HeroType.龟丞相:
                 一次伤害技能(攻击特效Type.龟丞相技能, targetPos,瑶池冰辅助>0);           
                 break;
+            case HeroType.太白金星:
+                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                break;
+            case HeroType.多闻天王:
+                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                break;
         }
     }
 

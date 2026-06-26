@@ -1084,7 +1084,7 @@ public static Sprite Get标签背景(QualityType qualityType)
 
 
       //蓝
-      DuoWenTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[0];
+      DuoWenTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[1];
       ZengZhangTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[2];
       GuangMuTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[5];
       ChiGuoTianWang = Resources.LoadAll<Sprite>("Sprite/RenWu/蓝")[1];
