@@ -32,6 +32,7 @@ public enum 攻击特效Type
     黑暗辅助,
     牛魔王技能,
     黑暗抓痕,
+    喷火,
 }
 
 public enum PengType

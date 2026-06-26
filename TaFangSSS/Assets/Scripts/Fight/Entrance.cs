@@ -20,6 +20,7 @@ public class Entrance : MonoBehaviour
 
    private void Start()
    {
+      Application.targetFrameRate = 30;
       ObserverModuleManager.S.RegisterEvent("围栏受击",围栏受击);
    }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Config
@@ -551,7 +552,7 @@ namespace Config
             }
             QualityType qualityType=(QualityType)quality;
             List<HeroType> herolist=HeroConfig.QualityHeroDic[qualityType].ToList();
-            HeroType randomHero = herolist[Random.Range(0, list.Count)];
+            HeroType randomHero = herolist[Random.Range(0, herolist.Count)];
             return HeroConfig.HeroToPropDic[randomHero];
         }
     }

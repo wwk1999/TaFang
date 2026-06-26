@@ -24,6 +24,9 @@ public class 人物item : MonoBehaviour
     public GameObject 牛魔王技能Obj;
     public Animator 牛魔王技能Animator;
     public 黑暗抓痕动画脚本 牛魔王脚本;
+    public 黑暗抓痕动画脚本 喷火;
+    public Animator 喷火Animator;
+    public GameObject 喷火Obj;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Monster"))
@@ -70,6 +73,9 @@ public class 人物item : MonoBehaviour
                 else if(heroType == HeroType.牛魔王)//上场
                 {
                     上场技能(攻击特效Type.牛魔王技能, new Vector2(targetPos.x + 0.5f, targetPos.y), 0.6f, true);
+                }else if(heroType == HeroType.哪吒)//上场
+                {
+                    上场技能(攻击特效Type.喷火, new Vector2(targetPos.x - 1f, targetPos.y), 1f, false);
                 }
                 else
                 {
@@ -109,6 +115,12 @@ public class 人物item : MonoBehaviour
                     牛魔王脚本.黑暗辅助 = 黑暗辅助>0;
                     牛魔王技能Obj.gameObject.SetActive(true);
                     牛魔王技能Animator.Play("219牛魔王技能_Anim",0,0f);
+                    break;
+                case 攻击特效Type.喷火:
+                    喷火.瑶池冰辅助 = 瑶池冰辅助>0;
+                    喷火.黑暗辅助 = 黑暗辅助>0;
+                    喷火Obj.gameObject.SetActive(true);
+                    喷火Animator.Play("114喷火_Anim",0,0f);
                     break;
             }
         });
