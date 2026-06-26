@@ -13,27 +13,23 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public bool 黑暗辅助;
     public void Hide()
     {
+        gameObject.SetActive(false);
         switch (type)
         {
             case 攻击特效Type.嫦娥技能:
                 QueueController.S.嫦娥技能Queue.Enqueue(Obj);
-                gameObject.SetActive(false);
                 break;
             case 攻击特效Type.冰刺:
                 QueueController.S.冰刺Queue.Enqueue(Obj);
-                gameObject.SetActive(false);
                 break;
             case 攻击特效Type.玄女技能:
                 QueueController.S.冰刺Queue.Enqueue(Obj);
-                gameObject.SetActive(false);
                 break;
             case 攻击特效Type.龟丞相技能:
                 QueueController.S.龟丞相技能Queue.Enqueue(Obj);
-                gameObject.SetActive(false);
                 break;
             case 攻击特效Type.落雷:
                 QueueController.S.落雷Queue.Enqueue(Obj);
-                gameObject.SetActive(false);
                 break;
         }
     }

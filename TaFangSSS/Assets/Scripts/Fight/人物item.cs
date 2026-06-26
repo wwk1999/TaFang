@@ -21,6 +21,9 @@ public class 人物item : MonoBehaviour
     public Animator 黑暗抓痕Animator;
     public GameObject 黑暗辅助obj;
     [NonSerialized] public float 黑暗辅助;
+    public GameObject 牛魔王技能Obj;
+    public Animator 牛魔王技能Animator;
+    public 黑暗抓痕动画脚本 牛魔王脚本;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Monster"))
@@ -62,17 +65,11 @@ public class 人物item : MonoBehaviour
             {
                 if (heroType == HeroType.广目天王)//上场
                 {
-                    Sequence mySequence = DOTween.Sequence();
-                    mySequence.Append(transform.DOMove(new Vector2(targetPos.x-1f,targetPos.y), 0.2f));
-                    mySequence.AppendCallback(() =>
-                    {
-                        Animator.Play("人物攻击",0,0f);
-                        黑暗抓痕.脚本.瑶池冰辅助 = 瑶池冰辅助>0;
-                        黑暗抓痕.gameObject.SetActive(true);
-                        黑暗抓痕Animator.Play("187黑暗抓痕_Anim",0,0f);
-                    });
-                    mySequence.AppendInterval(0.5f);
-                    mySequence.Append(transform.DOMove(原始Pos, 0.2f));
+                    上场技能(攻击特效Type.黑暗抓痕, new Vector2(targetPos.x - 1f, targetPos.y), 0.5f, false);
+                }
+                else if(heroType == HeroType.牛魔王)//上场
+                {
+                    上场技能(攻击特效Type.牛魔王技能, new Vector2(targetPos.x + 0.5f, targetPos.y), 0.6f, true);
                 }
                 else
                 {
@@ -82,6 +79,41 @@ public class 人物item : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小)
+    {
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.Append(transform.DOMove(finalPos, 0.2f));
+        mySequence.AppendCallback(() =>
+        {
+            if (放大缩小)
+            {
+                Animator.Play("人物放大缩小",0,0f);
+            }
+            else
+            {
+                Animator.Play("人物攻击",0,0f);
+            }
+
+            switch (Type)
+            {
+                case 攻击特效Type.黑暗抓痕:
+                    黑暗抓痕.脚本.瑶池冰辅助 = 瑶池冰辅助>0;
+                    黑暗抓痕.脚本.黑暗辅助 = 黑暗辅助>0;
+                    黑暗抓痕.gameObject.SetActive(true);
+                    黑暗抓痕Animator.Play("187黑暗抓痕_Anim",0,0f);
+                    break;
+                case 攻击特效Type.牛魔王技能:
+                    牛魔王脚本.瑶池冰辅助 = 瑶池冰辅助>0;
+                    牛魔王脚本.黑暗辅助 = 黑暗辅助>0;
+                    牛魔王技能Obj.gameObject.SetActive(true);
+                    牛魔王技能Animator.Play("219牛魔王技能_Anim",0,0f);
+                    break;
+            }
+        });
+        mySequence.AppendInterval(Time);
+        mySequence.Append(transform.DOMove(原始Pos, 0.2f));
     }
 
     public void SetItem()

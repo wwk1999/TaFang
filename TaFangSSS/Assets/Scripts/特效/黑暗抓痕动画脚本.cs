@@ -10,6 +10,8 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
     public Collider2D _collider2D1;
     public Collider2D _collider2D2;
     [NonSerialized] public bool 瑶池冰辅助;
+    [NonSerialized] public bool 黑暗辅助;
+
 
     public void Hide()
     {
@@ -35,6 +37,12 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+
+                float damage = 50;
+                if (黑暗辅助)
+                {
+                    damage *= 1.2f;
                 }
                 
                 FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);

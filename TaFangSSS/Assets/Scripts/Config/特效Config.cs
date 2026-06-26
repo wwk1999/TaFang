@@ -29,6 +29,9 @@ public enum 攻击特效Type
     龟丞相技能,
     落雷,
     嫦娥技能,
+    黑暗辅助,
+    牛魔王技能,
+    黑暗抓痕,
 }
 
 public enum PengType
