@@ -68,58 +68,63 @@ public class FightController : XSingleton<FightController>
         return null;
     }
 
-    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助)
+    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助)
     {
         switch (hero)
         {
             case HeroType.丹童:
-                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
                 break;
             case HeroType.土地:
-                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
                 break;
             case HeroType.河伯:
-                一次伤害技能(攻击特效Type.冰刺, targetPos,瑶池冰辅助>0);           
+                一次伤害技能(攻击特效Type.冰刺, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
             case HeroType.瑶池仙女:
                 瑶池冰辅助技能();
                 break;
             case HeroType.石敢当:
-                石敢当技能(dir,shotpos);
+                石敢当技能(dir,shotpos,瑶池冰辅助>0,黑暗辅助>0);
                 break;
             case HeroType.玄女:
-                一次伤害技能(攻击特效Type.玄女技能, targetPos,瑶池冰辅助>0);           
+                一次伤害技能(攻击特效Type.玄女技能, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
             case HeroType.龟丞相:
-                一次伤害技能(攻击特效Type.龟丞相技能, targetPos,瑶池冰辅助>0);           
+                一次伤害技能(攻击特效Type.龟丞相技能, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
             case HeroType.太白金星:
-                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
                 break;
             case HeroType.多闻天王:
-                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
                 break;
             case HeroType.雷震子:
-                一次伤害技能(攻击特效Type.落雷, targetPos,瑶池冰辅助>0);           
+                一次伤害技能(攻击特效Type.落雷, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
             case HeroType.月老:
-                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
                 break;
             case HeroType.嫦娥:
-                一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0);           
+                一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
             case HeroType.杨戬:
-                Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
+                break;
+            case HeroType.妲己:
+                黑暗辅助技能();
                 break;
         }
     }
 
-    public void 石敢当技能(Vector2 dir,Vector2 shotpos)
+    public void 石敢当技能(Vector2 dir,Vector2 shotpos,bool 瑶池冰辅助,bool 黑暗辅助)
     {
         var item = QueueController.S.石敢当锤子Queue.Dequeue();
         item.dir = dir;
         item.speed = 10;
         item.transform.position = shotpos;
+        item.瑶池冰辅助 = 瑶池冰辅助;
+        item.黑暗辅助 = 黑暗辅助;
         item.gameObject.SetActive(true);
     }
     public void 瑶池冰辅助技能()
@@ -137,8 +142,23 @@ public class FightController : XSingleton<FightController>
 
         randomValue.瑶池冰辅助 = 5f;
     }
+    public void 黑暗辅助技能()
+    {
+        var random=Random.Range(0,人物items.Count);
+        HeroType[] keysArray = 人物items.Keys.ToArray();
+        HeroType randomKey = keysArray[random];
+        人物item randomValue = 人物items[randomKey];
+        while (randomValue.heroType==HeroType.妲己)
+        {
+            random=Random.Range(0,人物items.Count);
+            randomKey = keysArray[random];
+            randomValue = 人物items[randomKey];
+        }
 
-    public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助)
+        randomValue.黑暗辅助 = 5f;
+    }
+
+    public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助,bool 黑暗辅助)
     {
         switch (攻击特效Type)
         {
@@ -146,36 +166,41 @@ public class FightController : XSingleton<FightController>
                 var 嫦娥技能 = QueueController.S.嫦娥技能Queue.Dequeue();
                 嫦娥技能.transform.position = pos;
                 嫦娥技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                嫦娥技能.脚本.黑暗辅助 = 黑暗辅助;
                 嫦娥技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰刺:
                 var item = QueueController.S.冰刺Queue.Dequeue();
                 item.transform.position = pos;
                 item.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                item.脚本.黑暗辅助 = 黑暗辅助;
                 item.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.玄女技能:
                 var 玄女技能 = QueueController.S.玄女技能Queue.Dequeue();
                 玄女技能.transform.position = pos;
                 玄女技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                玄女技能.脚本.黑暗辅助 = 黑暗辅助;
                 玄女技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.龟丞相技能:
                 var 龟丞相技能 = QueueController.S.龟丞相技能Queue.Dequeue();
                 龟丞相技能.transform.position = pos;
                 龟丞相技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                龟丞相技能.脚本.黑暗辅助 = 黑暗辅助;
                 龟丞相技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.落雷:
                 var 落雷 = QueueController.S.落雷Queue.Dequeue();
                 落雷.transform.position = pos;
                 落雷.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                落雷.脚本.黑暗辅助 = 黑暗辅助;
                 落雷.gameObject.SetActive(true);
                 break;
         }
     }
 
-    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助)
+    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助,float 黑暗辅助)
     {
         普通魔法弹带peng 魔法弹 = null;
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
@@ -226,6 +251,7 @@ public class FightController : XSingleton<FightController>
         魔法弹.MoveSpeed = speed;
         魔法弹.YuanSuType = yuanSuType;
         魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
+        魔法弹.黑暗辅助 = 黑暗辅助>0;
         if (攻击特效Type == 攻击特效Type.电龙魔法弹)
         {
             魔法弹.穿透 = true;

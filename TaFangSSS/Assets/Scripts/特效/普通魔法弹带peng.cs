@@ -15,6 +15,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public float damage;
    [NonSerialized] public YuanSuType YuanSuType;
    [NonSerialized] public bool 瑶池冰辅助;
+   [NonSerialized] public bool 黑暗辅助;
    [NonSerialized]public bool 穿透=false;
 
    
@@ -44,7 +45,12 @@ public class 普通魔法弹带peng : MonoBehaviour
       {
          var hit = FightController.S.GetPeng(Type);
          hit.transform.position = closestPoint;
-         FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType);
+         float realDamage = damage;
+         if (黑暗辅助)
+         {
+            realDamage *= 1.2f;
+         }
+         FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
          hit.gameObject.SetActive(true);
          if (!穿透)
          {

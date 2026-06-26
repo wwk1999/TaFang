@@ -8,6 +8,9 @@ public class 石敢当锤子 : MonoBehaviour
 {
    [NonSerialized] public Vector2 dir;
    [NonSerialized] public float speed;
+   [NonSerialized] public bool 瑶池冰辅助;
+   [NonSerialized] public bool 黑暗辅助;
+
 
    private void Update()
    {
@@ -31,7 +34,17 @@ public class 石敢当锤子 : MonoBehaviour
    {
       if (other.CompareTag("Monster")&&speed>0)
       {
-         FightController.S.MonsterColliderDic[other].Hurt(50,YuanSuType.物理);
+         if (瑶池冰辅助)
+         {
+            FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
+         }
+
+         float damage = 50;
+         if (黑暗辅助)
+         {
+            damage *= 1.2f;
+         }
+         FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理);
       }
    }
 }

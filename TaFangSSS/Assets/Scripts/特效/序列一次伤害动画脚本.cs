@@ -10,7 +10,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     public 攻击特效Type type;
     public Collider2D _collider2D;
     [NonSerialized] public bool 瑶池冰辅助;
-
+    [NonSerialized] public bool 黑暗辅助;
     public void Hide()
     {
         switch (type)
@@ -63,7 +63,13 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].龟丞相减速 = 2;
                 }
-               FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+
+                float damage = 50;
+                if (黑暗辅助)
+                {
+                    damage *= 1.2f;
+                }
+               FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType.冰);
             }
         }
     }

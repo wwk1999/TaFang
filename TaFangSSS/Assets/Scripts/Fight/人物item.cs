@@ -19,6 +19,8 @@ public class 人物item : MonoBehaviour
     [NonSerialized] public Vector2 原始Pos;
     public 黑暗抓痕 黑暗抓痕;
     public Animator 黑暗抓痕Animator;
+    public GameObject 黑暗辅助obj;
+    [NonSerialized] public float 黑暗辅助;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Monster"))
@@ -41,18 +43,20 @@ public class 人物item : MonoBehaviour
     private void Update()
     {
         瑶池冰辅助-= Time.deltaTime;
+        黑暗辅助-= Time.deltaTime;
         瑶池冰辅助obj.SetActive(瑶池冰辅助 > 0);
+        黑暗辅助obj.SetActive(黑暗辅助 > 0);
         CurrentAttackTime+= Time.deltaTime;
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         if (monsterBase!=null&&CurrentAttackTime > HeroConfig.HeroAttackTimeDic[heroType]&&!FightController.S.战斗结束)
         { 
             Vector2 targetPos = monsterBase.transform.position;
             CurrentAttackTime = 0;
-            if (heroType == HeroType.瑶池仙女)//辅助类
+            if (heroType == HeroType.瑶池仙女||heroType == HeroType.妲己)//辅助类
             {
                 Animator.Play("人物放大缩小",0,0f);
                 var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助);
+                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,黑暗辅助);
             }
             else if (攻击范围内怪物.Contains(monsterBase))
             {
@@ -74,7 +78,7 @@ public class 人物item : MonoBehaviour
                 {
                     Animator.Play("人物攻击",0,0f);
                     var dir=(targetPos-(Vector2)transform.position).normalized;
-                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助);
+                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,黑暗辅助);
                 }
             }
         }
