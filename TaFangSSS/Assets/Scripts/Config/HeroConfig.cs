@@ -211,6 +211,13 @@ namespace Config
                     PengList = new List<PengType>() {}
                 }
             },
+            {
+                HeroType.杨戬, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.电龙魔法弹 },
+                    PengList = new List<PengType>() { PengType.电龙魔法弹Peng }
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()

@@ -108,6 +108,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.嫦娥:
                 一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0);           
                 break;
+            case HeroType.杨戬:
+                Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助);
+                break;
         }
     }
 
@@ -223,6 +226,10 @@ public class FightController : XSingleton<FightController>
         魔法弹.MoveSpeed = speed;
         魔法弹.YuanSuType = yuanSuType;
         魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
+        if (攻击特效Type == 攻击特效Type.电龙魔法弹)
+        {
+            魔法弹.穿透 = true;
+        }
         魔法弹.gameObject.SetActive(true);
 
     }
