@@ -46,6 +46,7 @@ public class QueueController:XSingleton<QueueController>
     
     
     [NonSerialized]public Queue<序列一次伤害技能>冰刺Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<石敢当锤子>石敢当锤子Queue = new Queue<石敢当锤子>();
 
     protected override void Awake()
     {
@@ -300,6 +301,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.石敢当锤子:
+                    if (石敢当锤子Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 石敢当锤子 = Instantiate(Resources.Load("Prefabs/特效/石敢当锤子"),transform).GetComponent<石敢当锤子>();
+                    石敢当锤子.gameObject.SetActive(false);
+                    石敢当锤子Queue.Enqueue(石敢当锤子);
+                    break;
                 case 攻击特效Type.电魔法弹:
                     if (电魔法弹Queue.Count > 100)
                     {

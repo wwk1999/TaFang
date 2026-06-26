@@ -84,9 +84,20 @@ public class FightController : XSingleton<FightController>
             case HeroType.瑶池仙女:
                 瑶池冰辅助技能();
                 break;
+            case HeroType.石敢当:
+                石敢当技能(dir,shotpos);
+                break;
         }
     }
 
+    public void 石敢当技能(Vector2 dir,Vector2 shotpos)
+    {
+        var item = QueueController.S.石敢当锤子Queue.Dequeue();
+        item.dir = dir;
+        item.speed = 10;
+        item.transform.position = shotpos;
+        item.gameObject.SetActive(true);
+    }
     public void 瑶池冰辅助技能()
     {
         var random=Random.Range(0,人物items.Count);

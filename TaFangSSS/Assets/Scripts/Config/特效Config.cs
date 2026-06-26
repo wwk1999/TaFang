@@ -24,6 +24,7 @@ public enum 攻击特效Type
     普通火魔法弹,
     冰刺,
     瑶池冰辅助,
+    石敢当锤子,
 }
 
 public enum PengType
