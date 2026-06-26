@@ -162,6 +162,13 @@ namespace Config
                     PengList = new List<PengType>() 
                 }
             },
+            {
+                HeroType.玄女, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.玄女技能 },
+                    PengList = new List<PengType>() 
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()

@@ -87,6 +87,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.石敢当:
                 石敢当技能(dir,shotpos);
                 break;
+            case HeroType.玄女:
+                一次伤害技能(攻击特效Type.玄女技能, targetPos,瑶池冰辅助>0);           
+                break;
         }
     }
 
@@ -123,6 +126,12 @@ public class FightController : XSingleton<FightController>
                 item.transform.position = pos;
                 item.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 item.gameObject.SetActive(true);
+                break;
+            case 攻击特效Type.玄女技能:
+                var 玄女技能 = QueueController.S.玄女技能Queue.Dequeue();
+                玄女技能.transform.position = pos;
+                玄女技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                玄女技能.gameObject.SetActive(true);
                 break;
         }
     }

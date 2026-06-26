@@ -19,6 +19,10 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 QueueController.S.冰刺Queue.Enqueue(Obj);
                 gameObject.SetActive(false);
                 break;
+            case 攻击特效Type.玄女技能:
+                QueueController.S.冰刺Queue.Enqueue(Obj);
+                gameObject.SetActive(false);
+                break;
         }
     }
     public void CheckCollisionWithMonsters()
