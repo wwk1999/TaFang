@@ -26,7 +26,7 @@ public class MonsterBase : MonoBehaviour
    private float RealSpeed => GetRealSpeed();
    [NonSerialized] public float 瑶池冰辅助=0;
    [NonSerialized] public float 龟丞相减速=0;
-
+   [NonSerialized] public float 黑暗符=0;
 
    public float GetRealSpeed()
    {
@@ -109,6 +109,7 @@ public class MonsterBase : MonoBehaviour
    {
       瑶池冰辅助-=Time.deltaTime;
       龟丞相减速-=Time.deltaTime;
+      黑暗符-=Time.deltaTime;
       float 城墙最近距离 = 0;
       CurrentAttackTime+=Time.deltaTime;
       switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
@@ -126,7 +127,10 @@ public class MonsterBase : MonoBehaviour
 
       if (transform.position.x > 城墙最近距离)
       {
-         transform.position=new Vector3(transform.position.x-RealSpeed*Time.deltaTime,transform.position.y,transform.position.z);
+         if (黑暗符 <= 0)
+         {
+            transform.position=new Vector3(transform.position.x-RealSpeed*Time.deltaTime,transform.position.y,transform.position.z);
+         }
       }
       else
       {

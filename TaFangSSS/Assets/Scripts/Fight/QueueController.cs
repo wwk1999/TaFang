@@ -52,6 +52,7 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<序列一次伤害技能>落雷Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>嫦娥技能Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>冰龙Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>黑暗符Queue = new Queue<序列一次伤害技能>();
 
     protected override void Awake()
     {
@@ -306,6 +307,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.黑暗符:
+                    if (黑暗符Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 黑暗符 = Instantiate(Resources.Load("Prefabs/特效/黑暗符"),transform).GetComponent<序列一次伤害技能>();
+                    黑暗符.gameObject.SetActive(false);
+                    黑暗符Queue.Enqueue(黑暗符);
+                    break;
                 case 攻击特效Type.冰龙:
                     if (冰龙Queue.Count > 100)
                     {

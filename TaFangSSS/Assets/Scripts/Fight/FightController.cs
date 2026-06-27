@@ -117,6 +117,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.碧霄:
                 一次伤害技能(攻击特效Type.冰龙, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
+            case HeroType.琼霄:
+                一次伤害技能(攻击特效Type.黑暗符, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
+                break;
         }
     }
 
@@ -206,6 +209,13 @@ public class FightController : XSingleton<FightController>
                 冰龙.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 冰龙.脚本.黑暗辅助 = 黑暗辅助;
                 冰龙.gameObject.SetActive(true);
+                break;
+            case 攻击特效Type.黑暗符:
+                var 黑暗符 = QueueController.S.黑暗符Queue.Dequeue();
+                黑暗符.transform.position = pos;
+                黑暗符.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                黑暗符.脚本.黑暗辅助 = 黑暗辅助;
+                黑暗符.gameObject.SetActive(true);
                 break;
         }
     }

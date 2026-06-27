@@ -34,6 +34,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
             case 攻击特效Type.冰龙:
                 QueueController.S.冰龙Queue.Enqueue(Obj);
                 break;
+            case 攻击特效Type.黑暗符:
+                QueueController.S.黑暗符Queue.Enqueue(Obj);
+                break;
         }
     }
     public void CheckCollisionWithMonsters()
@@ -61,6 +64,10 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 if (type == 攻击特效Type.龟丞相技能)
                 {
                     FightController.S.MonsterColliderDic[col].龟丞相减速 = 2;
+                }
+                if (type == 攻击特效Type.黑暗符)
+                {
+                    FightController.S.MonsterColliderDic[col].黑暗符 = 1;
                 }
 
                 float damage = 50;
