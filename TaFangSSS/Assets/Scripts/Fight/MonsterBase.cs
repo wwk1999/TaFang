@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 public class MonsterBase : MonoBehaviour
 {
    public GameObject 灼烧obj;
+   public SpriteRenderer 灼烧image;
    [NonSerialized]public float 灼烧time = 0;
    [NonSerialized]public float 灼烧伤害=0;
    [NonSerialized]public float 灼烧间隔 = 1;
@@ -65,7 +66,8 @@ public class MonsterBase : MonoBehaviour
       InitAttribute();
       image.sortingOrder = (int)(transform.position.y * -100)+1;
       bg.sortingOrder = (int)(transform.position.y * -100);
-      HpCanvas.sortingOrder = (int)(transform.position.y * -100)+2;
+      HpCanvas.sortingOrder = (int)(transform.position.y * -100)+3;
+      灼烧image.sortingOrder = (int)(transform.position.y * -100)+2;
       MonsterSlider.gameObject.SetActive(false);
       CurrentHP = MonsterAttribute.Hp;
       image.sprite = ResourcesConfig.GetMonsterSprite(MonsterTypeName);

@@ -38,6 +38,7 @@ public enum 攻击特效Type
     黑暗符,
     冰符,
     火符,
+    冰剑气,
 }
 
 public enum PengType

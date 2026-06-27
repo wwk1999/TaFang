@@ -42,6 +42,7 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized] public Queue<普通魔法弹带peng> 火虎魔法弹Queue = new Queue<普通魔法弹带peng>();
     [NonSerialized] public Queue<普通魔法弹带peng> 黑暗魔法弹Queue = new Queue<普通魔法弹带peng>();
     [NonSerialized] public Queue<普通魔法弹带peng> 普通火魔法弹Queue = new Queue<普通魔法弹带peng>();
+    [NonSerialized] public Queue<普通魔法弹带peng> 冰剑气Queue = new Queue<普通魔法弹带peng>();
 
     
     
@@ -309,6 +310,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.冰剑气:
+                    if (火符Queue.Count > 50)
+                    {
+                        break;
+                    }
+                    var 冰剑气 = Instantiate(Resources.Load("Prefabs/特效/冰剑气"),transform).GetComponent<普通魔法弹带peng>();
+                    冰剑气.gameObject.SetActive(false);
+                    冰剑气Queue.Enqueue(冰剑气);
+                    break;
                 case 攻击特效Type.火符:
                     if (火符Queue.Count > 2)
                     {

@@ -131,6 +131,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.羲和:
                 一次伤害技能(攻击特效Type.火符, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
+            case HeroType.云霄:
+                Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true);
+                break;
         }
     }
     public Vector3 GetDirectionOffset(Vector3 dir, float angleDegrees, bool isUp)
@@ -308,6 +311,9 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.普通火魔法弹:
                 魔法弹 = QueueController.S.普通火魔法弹Queue.Dequeue();
                 break;
+            case 攻击特效Type.冰剑气:
+                魔法弹 = QueueController.S.冰剑气Queue.Dequeue();
+                break;
         }
         魔法弹.transform.position = shotPos;
         魔法弹.damage = damage;
@@ -324,6 +330,8 @@ public class FightController : XSingleton<FightController>
     {
         switch (type)
         {
+            case 攻击特效Type.冰剑气:
+                return QueueController.S.冰大魔法弹PengQueue.Count > 0 ? QueueController.S.冰大魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.孙悟空棒子:
                 return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.电魔法弹:
