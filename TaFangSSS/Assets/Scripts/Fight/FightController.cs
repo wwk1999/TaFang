@@ -109,7 +109,7 @@ public class FightController : XSingleton<FightController>
                 一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
             case HeroType.杨戬:
-                Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助);
+                Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true);
                 break;
             case HeroType.妲己:
                 黑暗辅助技能();
@@ -120,7 +120,31 @@ public class FightController : XSingleton<FightController>
             case HeroType.琼霄:
                 一次伤害技能(攻击特效Type.黑暗符, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
+            case HeroType.后羿:
+                Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,5,true),HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
+                Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,5,false),HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
+                Shot普通魔法弹(攻击特效Type.物理箭,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
+                break;
         }
+    }
+    public Vector3 GetDirectionOffset(Vector3 dir, float angleDegrees, bool isUp)
+    {
+        // 计算旋转轴：垂直于 dir 和 world up 的方向 => 局部右向量
+        Vector3 axis = Vector3.Cross(dir, Vector3.up);
+    
+        // 如果 dir 与世界 up 对齐，叉积为零，则回退到 world right
+        if (axis.magnitude < 0.001f)
+        {
+            axis = Vector3.right; 
+        }
+        else
+        {
+            axis.Normalize();
+        }
+
+        float sign = isUp ? 1f : -1f;
+        Quaternion rotation = Quaternion.AngleAxis(sign * angleDegrees, axis);
+        return rotation * dir;
     }
 
     public void 石敢当技能(Vector2 dir,Vector2 shotpos,bool 瑶池冰辅助,bool 黑暗辅助)
@@ -220,7 +244,7 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助,float 黑暗辅助)
+    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助,float 黑暗辅助,bool 穿透=false)
     {
         普通魔法弹带peng 魔法弹 = null;
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
@@ -272,10 +296,7 @@ public class FightController : XSingleton<FightController>
         魔法弹.YuanSuType = yuanSuType;
         魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
         魔法弹.黑暗辅助 = 黑暗辅助>0;
-        if (攻击特效Type == 攻击特效Type.电龙魔法弹)
-        {
-            魔法弹.穿透 = true;
-        }
+        魔法弹.穿透 = 穿透;
         魔法弹.gameObject.SetActive(true);
 
     }

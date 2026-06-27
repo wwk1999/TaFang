@@ -27,6 +27,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 瑶池冰辅助=0;
    [NonSerialized] public float 龟丞相减速=0;
    [NonSerialized] public float 黑暗符=0;
+   [NonSerialized]public bool isDead=false;
 
    public float GetRealSpeed()
    {
@@ -48,6 +49,8 @@ public class MonsterBase : MonoBehaviour
       {
          return;
       }
+
+      isDead = false;
       InitAttribute();
       image.sortingOrder = (int)(transform.position.y * -100)+1;
       bg.sortingOrder = (int)(transform.position.y * -100);
@@ -155,8 +158,14 @@ public class MonsterBase : MonoBehaviour
    }
    public void Die()
    {
+      if (isDead)
+      {
+         return;
+      }
+      isDead = true;
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;
+      Debug.LogError(FightController.S.KillMonsterCount);
       if (FightController.S.KillMonsterCount ==
           (LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount +
            LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount))
