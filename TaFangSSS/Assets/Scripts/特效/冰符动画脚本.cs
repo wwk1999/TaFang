@@ -49,6 +49,10 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (Type==攻击特效Type.冰符)
+                {
+                    FightController.S.MonsterColliderDic[col].冰符 = 2;
+                }
 
                 float damage = 50;
                 if (黑暗辅助)
@@ -56,7 +60,7 @@ public class 冰符动画脚本: MonoBehaviour
                     damage *= 1.2f;
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+                FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType.冰);
             }
         }
     }
@@ -81,6 +85,10 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (Type==攻击特效Type.冰符)
+                {
+                    FightController.S.MonsterColliderDic[col].冰符 = 2;
+                }
 
                 float damage = 50;
                 if (黑暗辅助)
@@ -88,7 +96,7 @@ public class 冰符动画脚本: MonoBehaviour
                     damage *= 1.2f;
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+                FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType.冰);
             }
         }
     }
@@ -113,7 +121,16 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
-                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+                if (Type==攻击特效Type.冰符)
+                {
+                    FightController.S.MonsterColliderDic[col].冰符 = 2;
+                }
+                float damage = 50;
+                if (黑暗辅助)
+                {
+                    damage *= 1.2f;
+                }
+                FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType.冰);
             }
         }
     }

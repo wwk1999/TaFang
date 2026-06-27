@@ -128,6 +128,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.常羲:
                 一次伤害技能(攻击特效Type.冰符, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
                 break;
+            case HeroType.羲和:
+                一次伤害技能(攻击特效Type.火符, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
+                break;
         }
     }
     public Vector3 GetDirectionOffset(Vector3 dir, float angleDegrees, bool isUp)
@@ -250,6 +253,13 @@ public class FightController : XSingleton<FightController>
                 冰符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 冰符.脚本.黑暗辅助 = 黑暗辅助;
                 冰符.gameObject.SetActive(true);
+                break;
+            case 攻击特效Type.火符:
+                var 火符 = QueueController.S.火符Queue.Dequeue();
+                火符.transform.position = pos;
+                火符.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                火符.脚本.黑暗辅助 = 黑暗辅助;
+                火符.gameObject.SetActive(true);
                 break;
         }
     }

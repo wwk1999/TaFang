@@ -28,6 +28,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 龟丞相减速=0;
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
+   [NonSerialized] public float 冰符=0;
 
    public float GetRealSpeed()
    {
@@ -35,6 +36,10 @@ public class MonsterBase : MonoBehaviour
       if (瑶池冰辅助 > 0)
       {
          value *= 0.85f;
+      }
+      if (冰符 > 0)
+      {
+         value *= 0.8f;
       }
 
       if (龟丞相减速 > 0)
@@ -110,6 +115,7 @@ public class MonsterBase : MonoBehaviour
 
    private void Update()
    {
+      冰符-=Time.deltaTime;
       瑶池冰辅助-=Time.deltaTime;
       龟丞相减速-=Time.deltaTime;
       黑暗符-=Time.deltaTime;
