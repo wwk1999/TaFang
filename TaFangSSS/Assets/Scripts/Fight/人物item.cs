@@ -27,6 +27,7 @@ public class 人物item : MonoBehaviour
     public 黑暗抓痕动画脚本 喷火;
     public Animator 喷火Animator;
     public GameObject 喷火Obj;
+    public 孙悟空棒子 棒子;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Monster"))
@@ -76,6 +77,10 @@ public class 人物item : MonoBehaviour
                 }else if(heroType == HeroType.哪吒)//上场
                 {
                     上场技能(攻击特效Type.喷火, new Vector2(targetPos.x - 1f, targetPos.y), 1f, false);
+                }else if(heroType == HeroType.孙悟空)//上场
+                {
+                    int count = 3;
+                    上场技能(攻击特效Type.孙悟空棒子, new Vector2(targetPos.x - 1f, targetPos.y), count*0.25f, false,count);
                 }
                 else
                 {
@@ -87,7 +92,7 @@ public class 人物item : MonoBehaviour
         }
     }
 
-    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小)
+    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小,int 孙悟空攻击次数=0)
     {
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(transform.DOMove(finalPos, 0.2f));
@@ -121,6 +126,11 @@ public class 人物item : MonoBehaviour
                     喷火.黑暗辅助 = 黑暗辅助>0;
                     喷火Obj.gameObject.SetActive(true);
                     喷火Animator.Play("114喷火_Anim",0,0f);
+                    break;
+                case 攻击特效Type.孙悟空棒子:
+                    棒子.瑶池冰辅助 = 瑶池冰辅助>0;
+                    棒子.黑暗辅助 = 黑暗辅助>0;
+                    StartCoroutine(棒子.孙悟空攻击(孙悟空攻击次数));
                     break;
             }
         });

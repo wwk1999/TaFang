@@ -33,6 +33,7 @@ public enum 攻击特效Type
     牛魔王技能,
     黑暗抓痕,
     喷火,
+    孙悟空棒子,
 }
 
 public enum PengType

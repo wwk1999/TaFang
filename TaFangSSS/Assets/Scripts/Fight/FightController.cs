@@ -263,6 +263,8 @@ public class FightController : XSingleton<FightController>
     {
         switch (type)
         {
+            case 攻击特效Type.孙悟空棒子:
+                return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.电魔法弹:
                 return QueueController.S.电魔法弹PengQueue.Count > 0 ? QueueController.S.电魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.黑暗飞箭:
