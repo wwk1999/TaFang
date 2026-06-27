@@ -31,6 +31,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
             case 攻击特效Type.落雷:
                 QueueController.S.落雷Queue.Enqueue(Obj);
                 break;
+            case 攻击特效Type.冰龙:
+                QueueController.S.冰龙Queue.Enqueue(Obj);
+                break;
         }
     }
     public void CheckCollisionWithMonsters()

@@ -34,6 +34,7 @@ public enum 攻击特效Type
     黑暗抓痕,
     喷火,
     孙悟空棒子,
+    冰龙,
 }
 
 public enum PengType

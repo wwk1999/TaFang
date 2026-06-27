@@ -51,6 +51,7 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<序列一次伤害技能>龟丞相技能Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>落雷Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>嫦娥技能Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>冰龙Queue = new Queue<序列一次伤害技能>();
 
     protected override void Awake()
     {
@@ -305,6 +306,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.冰龙:
+                    if (冰龙Queue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 冰龙 = Instantiate(Resources.Load("Prefabs/特效/冰龙"),transform).GetComponent<序列一次伤害技能>();
+                    冰龙.gameObject.SetActive(false);
+                    冰龙Queue.Enqueue(冰龙);
+                    break;
                 case 攻击特效Type.嫦娥技能:
                     if (嫦娥技能Queue.Count > 100)
                     {
