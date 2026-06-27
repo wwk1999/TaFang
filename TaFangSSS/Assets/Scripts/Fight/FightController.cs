@@ -112,7 +112,7 @@ public class FightController : XSingleton<FightController>
                 Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true);
                 break;
             case HeroType.妲己:
-                黑暗辅助技能();
+                妲己黑暗辅助技能();
                 break;
             case HeroType.碧霄:
                 一次伤害技能(攻击特效Type.冰龙, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
@@ -133,6 +133,9 @@ public class FightController : XSingleton<FightController>
                 break;
             case HeroType.云霄:
                 Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true);
+                break;
+            case HeroType.女娲:
+                女娲电辅助技能();
                 break;
         }
     }
@@ -181,7 +184,17 @@ public class FightController : XSingleton<FightController>
 
         randomValue.瑶池冰辅助 = 5f;
     }
-    public void 黑暗辅助技能()
+    public void 女娲电辅助技能()
+    {
+        foreach (var item in 人物items)
+        {
+            if (item.Key != HeroType.女娲)
+            {
+                item.Value.女娲电辅助 = 3;
+            }
+        }
+    }
+    public void 妲己黑暗辅助技能()
     {
         var random=Random.Range(0,人物items.Count);
         HeroType[] keysArray = 人物items.Keys.ToArray();
@@ -194,7 +207,7 @@ public class FightController : XSingleton<FightController>
             randomValue = 人物items[randomKey];
         }
 
-        randomValue.黑暗辅助 = 5f;
+        randomValue.妲己黑暗辅助 = 5f;
     }
 
     public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助,bool 黑暗辅助)

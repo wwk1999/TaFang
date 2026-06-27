@@ -19,8 +19,10 @@ public class 人物item : MonoBehaviour
     [NonSerialized] public Vector2 原始Pos;
     public 黑暗抓痕 黑暗抓痕;
     public Animator 黑暗抓痕Animator;
-    public GameObject 黑暗辅助obj;
-    [NonSerialized] public float 黑暗辅助;
+    public GameObject 妲己黑暗辅助obj;
+    [NonSerialized] public float 妲己黑暗辅助;
+    public GameObject 女娲电辅助obj;
+    [NonSerialized] public float 女娲电辅助;
     public GameObject 牛魔王技能Obj;
     public Animator 牛魔王技能Animator;
     public 黑暗抓痕动画脚本 牛魔王脚本;
@@ -28,6 +30,17 @@ public class 人物item : MonoBehaviour
     public Animator 喷火Animator;
     public GameObject 喷火Obj;
     public 孙悟空棒子 棒子;
+    private float 攻击间隔 => Get攻击间隔();
+
+    public float Get攻击间隔()
+    {
+        float value=HeroConfig.HeroAttackTimeDic[heroType];
+        if (女娲电辅助 > 0)
+        {
+            value *= 0.5f;
+        }
+        return value;
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Monster"))
@@ -50,20 +63,23 @@ public class 人物item : MonoBehaviour
     private void Update()
     {
         瑶池冰辅助-= Time.deltaTime;
-        黑暗辅助-= Time.deltaTime;
+        妲己黑暗辅助-= Time.deltaTime;
+        女娲电辅助-= Time.deltaTime;
         瑶池冰辅助obj.SetActive(瑶池冰辅助 > 0);
-        黑暗辅助obj.SetActive(黑暗辅助 > 0);
+        妲己黑暗辅助obj.SetActive(妲己黑暗辅助 > 0);
+        女娲电辅助obj.SetActive(女娲电辅助 > 0);
         CurrentAttackTime+= Time.deltaTime;
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
-        if (monsterBase!=null&&CurrentAttackTime > HeroConfig.HeroAttackTimeDic[heroType]&&!FightController.S.战斗结束)
+        
+        if (monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!FightController.S.战斗结束)
         { 
             Vector2 targetPos = monsterBase.transform.position;
             CurrentAttackTime = 0;
-            if (heroType == HeroType.瑶池仙女||heroType == HeroType.妲己)//辅助类
+            if (heroType == HeroType.瑶池仙女||heroType == HeroType.妲己||heroType == HeroType.女娲)//辅助类
             {
                 Animator.Play("人物放大缩小",0,0f);
                 var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,黑暗辅助);
+                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助);
             }
             else if (攻击范围内怪物.Contains(monsterBase))
             {
@@ -86,7 +102,7 @@ public class 人物item : MonoBehaviour
                 {
                     Animator.Play("人物攻击",0,0f);
                     var dir=(targetPos-(Vector2)transform.position).normalized;
-                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,黑暗辅助);
+                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助);
                 }
             }
         }
@@ -111,25 +127,25 @@ public class 人物item : MonoBehaviour
             {
                 case 攻击特效Type.黑暗抓痕:
                     黑暗抓痕.脚本.瑶池冰辅助 = 瑶池冰辅助>0;
-                    黑暗抓痕.脚本.黑暗辅助 = 黑暗辅助>0;
+                    黑暗抓痕.脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     黑暗抓痕.gameObject.SetActive(true);
                     黑暗抓痕Animator.Play("187黑暗抓痕_Anim",0,0f);
                     break;
                 case 攻击特效Type.牛魔王技能:
                     牛魔王脚本.瑶池冰辅助 = 瑶池冰辅助>0;
-                    牛魔王脚本.黑暗辅助 = 黑暗辅助>0;
+                    牛魔王脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     牛魔王技能Obj.gameObject.SetActive(true);
                     牛魔王技能Animator.Play("219牛魔王技能_Anim",0,0f);
                     break;
                 case 攻击特效Type.喷火:
                     喷火.瑶池冰辅助 = 瑶池冰辅助>0;
-                    喷火.黑暗辅助 = 黑暗辅助>0;
+                    喷火.黑暗辅助 = 妲己黑暗辅助>0;
                     喷火Obj.gameObject.SetActive(true);
                     喷火Animator.Play("114喷火_Anim",0,0f);
                     break;
                 case 攻击特效Type.孙悟空棒子:
                     棒子.瑶池冰辅助 = 瑶池冰辅助>0;
-                    棒子.黑暗辅助 = 黑暗辅助>0;
+                    棒子.黑暗辅助 = 妲己黑暗辅助>0;
                     StartCoroutine(棒子.孙悟空攻击(孙悟空攻击次数));
                     break;
             }
