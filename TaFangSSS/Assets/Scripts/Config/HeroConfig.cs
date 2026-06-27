@@ -474,7 +474,7 @@ namespace Config
             { HeroType.后羿, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.物理 } }, // 射日
             { HeroType.常羲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.控制, yuanSuType = YuanSuType.冰 } }, // 月母
             { HeroType.羲和, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.火 } }, // 日母
-            { HeroType.云霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.冰 } }, // 三霄
+            { HeroType.云霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.冰 } }, // 三霄
 
             { HeroType.女娲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.火 } }, // 炼石补天
             { HeroType.老子, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.火 } }, // 炼丹

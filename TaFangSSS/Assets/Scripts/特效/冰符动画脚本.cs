@@ -53,6 +53,11 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].冰符 = 2;
                 }
+                if (Type==攻击特效Type.火符)
+                {
+                    FightController.S.MonsterColliderDic[col].灼烧伤害 = 9;
+                    FightController.S.MonsterColliderDic[col].灼烧time = 2f;
+                }
 
                 float damage = 50;
                 if (黑暗辅助)
@@ -89,6 +94,11 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].冰符 = 2;
                 }
+                if (Type==攻击特效Type.火符)
+                {
+                    FightController.S.MonsterColliderDic[col].灼烧伤害 = 9;
+                    FightController.S.MonsterColliderDic[col].灼烧time = 2f;
+                }
 
                 float damage = 50;
                 if (黑暗辅助)
@@ -124,6 +134,11 @@ public class 冰符动画脚本: MonoBehaviour
                 if (Type==攻击特效Type.冰符)
                 {
                     FightController.S.MonsterColliderDic[col].冰符 = 2;
+                }
+                if (Type==攻击特效Type.火符)
+                {
+                    FightController.S.MonsterColliderDic[col].灼烧伤害 = 9;
+                    FightController.S.MonsterColliderDic[col].灼烧time = 2f;
                 }
                 float damage = 50;
                 if (黑暗辅助)

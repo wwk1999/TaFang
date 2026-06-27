@@ -9,6 +9,12 @@ using Random = UnityEngine.Random;
 
 public class MonsterBase : MonoBehaviour
 {
+   public GameObject 灼烧obj;
+   [NonSerialized]public float 灼烧time = 0;
+   [NonSerialized]public float 灼烧伤害=0;
+   [NonSerialized]public float 灼烧间隔 = 1;
+   [NonSerialized]public float 灼烧当前时间 = 0;
+
    public SpriteRenderer bg;
    public Canvas HpCanvas;
    public SpriteRenderer image;
@@ -115,10 +121,18 @@ public class MonsterBase : MonoBehaviour
 
    private void Update()
    {
+      灼烧time-=Time.deltaTime;
+      灼烧当前时间+=Time.deltaTime;
       冰符-=Time.deltaTime;
       瑶池冰辅助-=Time.deltaTime;
       龟丞相减速-=Time.deltaTime;
       黑暗符-=Time.deltaTime;
+      灼烧obj.gameObject.SetActive(灼烧time>0);
+      if (灼烧time > 0 && 灼烧当前时间 > 灼烧间隔)
+      {
+         灼烧当前时间 = 0;
+         Hurt(灼烧伤害,YuanSuType.火);
+      }
       float 城墙最近距离 = 0;
       CurrentAttackTime+=Time.deltaTime;
       switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
