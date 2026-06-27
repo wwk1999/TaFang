@@ -267,6 +267,13 @@ namespace Config
                     PengList = new List<PengType>() { PengType.物理箭Peng }
                 }
             },
+            {
+                HeroType.常羲, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰符 },
+                    PengList = new List<PengType>() { }
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
@@ -459,7 +466,7 @@ namespace Config
 
             { HeroType.后羿, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.物理 } }, // 射日
             { HeroType.常羲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.控制, yuanSuType = YuanSuType.冰 } }, // 月母
-            { HeroType.羲和, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.火 } }, // 日母
+            { HeroType.羲和, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.火 } }, // 日母
             { HeroType.云霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.冰 } }, // 三霄
 
             { HeroType.女娲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.火 } }, // 炼石补天

@@ -125,6 +125,9 @@ public class FightController : XSingleton<FightController>
                 Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,5,false),HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
                 Shot普通魔法弹(攻击特效Type.物理箭,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
                 break;
+            case HeroType.常羲:
+                一次伤害技能(攻击特效Type.冰符, targetPos,瑶池冰辅助>0,黑暗辅助>0);           
+                break;
         }
     }
     public Vector3 GetDirectionOffset(Vector3 dir, float angleDegrees, bool isUp)
@@ -240,6 +243,13 @@ public class FightController : XSingleton<FightController>
                 黑暗符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 黑暗符.脚本.黑暗辅助 = 黑暗辅助;
                 黑暗符.gameObject.SetActive(true);
+                break;
+            case 攻击特效Type.冰符:
+                var 冰符 = QueueController.S.冰符Queue.Dequeue();
+                冰符.transform.position = pos;
+                冰符.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                冰符.脚本.黑暗辅助 = 黑暗辅助;
+                冰符.gameObject.SetActive(true);
                 break;
         }
     }
