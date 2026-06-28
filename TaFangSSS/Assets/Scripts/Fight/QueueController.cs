@@ -56,6 +56,8 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<序列一次伤害技能>黑暗符Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<冰符>冰符Queue = new Queue<冰符>();
     [NonSerialized]public Queue<冰符>火符Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<冰符>盘古拳Queue = new Queue<冰符>();
+
     
     [NonSerialized] public Queue<循环伤害技能> 冰旋风Queue = new Queue<循环伤害技能>();
 
@@ -330,6 +332,15 @@ public class QueueController:XSingleton<QueueController>
                     var 冰剑气 = Instantiate(Resources.Load("Prefabs/特效/冰剑气"),transform).GetComponent<普通魔法弹带peng>();
                     冰剑气.gameObject.SetActive(false);
                     冰剑气Queue.Enqueue(冰剑气);
+                    break;
+                case 攻击特效Type.盘古拳:
+                    if (盘古拳Queue.Count > 3)
+                    {
+                        break;
+                    }
+                    var 盘古拳 = Instantiate(Resources.Load("Prefabs/特效/盘古拳"),transform).GetComponent<冰符>();
+                    盘古拳.gameObject.SetActive(false);
+                    盘古拳Queue.Enqueue(盘古拳);
                     break;
                 case 攻击特效Type.火符:
                     if (火符Queue.Count > 2)

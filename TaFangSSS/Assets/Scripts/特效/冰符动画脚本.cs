@@ -25,6 +25,9 @@ public class 冰符动画脚本: MonoBehaviour
             case 攻击特效Type.火符:
                 QueueController.S.火符Queue.Enqueue(obj);
                 break;
+            case 攻击特效Type.盘古拳:
+                QueueController.S.盘古拳Queue.Enqueue(obj);
+                break;
         }
         obj.gameObject.SetActive(false);
     }

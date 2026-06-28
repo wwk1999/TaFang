@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class 人物item : MonoBehaviour
 {
+    public Transform 盘古拳trans;
     public 火球旋转parent 火球3;
     public 火球旋转parent 火球4;
     public 火球旋转parent 火球5;
@@ -111,6 +112,11 @@ public class 人物item : MonoBehaviour
                     int count = 6;
                     上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 3f, true,count);
                 }
+                else if(heroType == HeroType.盘古)//上场
+                {
+                    int count = 5;
+                    StartCoroutine(盘古拳(  0.4f, count));
+                }
                 else
                 {
                     Animator.Play("人物攻击",0,0f);
@@ -119,6 +125,38 @@ public class 人物item : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator 盘古拳(float waitTime, int count)
+    {
+        上场 = true;
+        while (count > 0)
+        {
+            count--;
+            // 实时获取当前目标怪物位置
+            Vector2 monstertrans = FightController.S.GetAttackMonster().transform.position;
+            Vector2 targetPos = new Vector2(monstertrans.x - 1.5f, monstertrans.y);
+
+            // 移动过去，并等待移动完成（0.2秒）
+            yield return transform.DOMove(targetPos, 0.2f).WaitForCompletion();
+
+            // 播放攻击动画
+            Animator.Play("人物攻击", 0, 0f);
+        
+            // 出拳逻辑
+            var 盘古拳 = QueueController.S.盘古拳Queue.Dequeue();
+            盘古拳.transform.position = 盘古拳trans.position; // 确保 盘古拳trans 正确
+            盘古拳.脚本.瑶池冰辅助 = 瑶池冰辅助 > 0;
+            盘古拳.脚本.黑暗辅助 = 妲己黑暗辅助 > 0;
+            盘古拳.gameObject.SetActive(true);
+
+            // 等待攻击间隔
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        // 所有攻击结束后归位
+        yield return transform.DOMove(原始Pos, 0.2f).WaitForCompletion();
+        上场 = false;
     }
 
     public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小,int count=0)
