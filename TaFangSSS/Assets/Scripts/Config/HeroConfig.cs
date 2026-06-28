@@ -303,6 +303,14 @@ namespace Config
                     PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
                 }
             },
+            
+            {
+                HeroType.通天, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗剑气 },
+                    PengList = new List<PengType>() { PengType.黑暗剑气Peng }
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
