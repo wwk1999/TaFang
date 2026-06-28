@@ -56,6 +56,9 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<序列一次伤害技能>黑暗符Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<冰符>冰符Queue = new Queue<冰符>();
     [NonSerialized]public Queue<冰符>火符Queue = new Queue<冰符>();
+    
+    [NonSerialized] public Queue<循环伤害技能> 冰旋风Queue = new Queue<循环伤害技能>();
+
 
     protected override void Awake()
     {
@@ -175,7 +178,7 @@ public class QueueController:XSingleton<QueueController>
                     电爆气魔法弹PengQueue.Enqueue(电爆气魔法弹Peng);
                     break;
                 case PengType.冰大魔法弹Peng:
-                    if (冰大魔法弹PengQueue.Count > 100)
+                    if (冰大魔法弹PengQueue.Count > 200)
                     {
                         break;
                     }
@@ -184,7 +187,7 @@ public class QueueController:XSingleton<QueueController>
                     冰大魔法弹PengQueue.Enqueue(冰大魔法弹Peng);
                     break;
                 case PengType.火虎魔法弹Peng:
-                    if (火虎魔法弹PengQueue.Count > 100)
+                    if (火虎魔法弹PengQueue.Count > 200)
                     {
                         break;
                     }
@@ -310,6 +313,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.冰旋风:
+                    if (冰旋风Queue.Count > 50)
+                    {
+                        break;
+                    }
+                    var 冰旋风 = Instantiate(Resources.Load("Prefabs/特效/冰旋风"),transform).GetComponent<循环伤害技能>();
+                    冰旋风.gameObject.SetActive(false);
+                    冰旋风Queue.Enqueue(冰旋风);
+                    break;
                 case 攻击特效Type.冰剑气:
                     if (火符Queue.Count > 50)
                     {

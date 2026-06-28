@@ -137,6 +137,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.女娲:
                 女娲电辅助技能();
                 break;
+            case HeroType.老子:
+                循环伤害技能(攻击特效Type.冰旋风,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,2,瑶池冰辅助,黑暗辅助);
+                break;
         }
     }
     public Vector3 GetDirectionOffset(Vector3 dir, float angleDegrees, bool isUp)
@@ -280,6 +283,27 @@ public class FightController : XSingleton<FightController>
         }
     }
 
+    public void 循环伤害技能(攻击特效Type 攻击特效Type, Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,
+        float speed, float 瑶池冰辅助, float 黑暗辅助)
+    {
+        循环伤害技能 魔法弹 = null;
+        switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
+        {
+            case 攻击特效Type.冰旋风:
+                魔法弹 = QueueController.S.冰旋风Queue.Dequeue();
+                break;
+        }
+        魔法弹.transform.position = shotPos;
+        魔法弹.damage = damage;
+        魔法弹.MoveDirection = dir;
+        魔法弹.MoveSpeed = speed;
+        魔法弹.YuanSuType = yuanSuType;
+        魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
+        魔法弹.黑暗辅助 = 黑暗辅助>0;
+        魔法弹.gameObject.SetActive(true);
+    }
+
+
     public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助,float 黑暗辅助,bool 穿透=false)
     {
         普通魔法弹带peng 魔法弹 = null;
@@ -343,6 +367,8 @@ public class FightController : XSingleton<FightController>
     {
         switch (type)
         {
+            case 攻击特效Type.冰旋风:
+                return QueueController.S.冰大魔法弹PengQueue.Count > 0 ? QueueController.S.冰大魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.冰剑气:
                 return QueueController.S.冰大魔法弹PengQueue.Count > 0 ? QueueController.S.冰大魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.孙悟空棒子:

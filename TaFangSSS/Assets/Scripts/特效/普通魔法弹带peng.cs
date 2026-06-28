@@ -66,5 +66,4 @@ public class 普通魔法弹带peng : MonoBehaviour
          }
       }
    }
-
 }

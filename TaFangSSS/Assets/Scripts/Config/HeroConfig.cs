@@ -288,6 +288,13 @@ namespace Config
                     PengList = new List<PengType>() { PengType.冰大魔法弹Peng }
                 }
             },
+            {
+                HeroType.老子, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰旋风 },
+                    PengList = new List<PengType>() { PengType.冰大魔法弹Peng }
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
@@ -484,9 +491,9 @@ namespace Config
             { HeroType.云霄, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.冰 } }, // 三霄
 
             { HeroType.女娲, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.辅助, yuanSuType = YuanSuType.电 } }, // 炼石补天
-            { HeroType.老子, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.火 } }, // 炼丹
-            { HeroType.元始, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.冰 }}, // 盘古元神，力量
-            { HeroType.通天, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.黑暗 } }, 
+            { HeroType.老子, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.冰 } }, // 炼丹
+            { HeroType.元始, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.火 }}, // 盘古元神，力量
+            { HeroType.通天, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.射手, yuanSuType = YuanSuType.黑暗 } }, 
 
             { HeroType.鸿钧, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.法师, yuanSuType = YuanSuType.火 } }, // 天道雷霆
             { HeroType.盘古, new HeroZhiYeYuanSu { zhiYeType = ZhiYeType.战士, yuanSuType = YuanSuType.物理 } } // 开天辟地，纯粹力量
