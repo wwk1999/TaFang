@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class 人物item : MonoBehaviour
 {
+    public 火球旋转parent 火球3;
+    public 火球旋转parent 火球4;
+    public 火球旋转parent 火球5;
+    public 火球旋转parent 火球6;
     public SpriteRenderer bg;
     public SpriteRenderer image;
     public Animator Animator;
@@ -31,6 +35,7 @@ public class 人物item : MonoBehaviour
     public GameObject 喷火Obj;
     public 孙悟空棒子 棒子;
     private float 攻击间隔 => Get攻击间隔();
+    private bool 上场=false;
 
     public float Get攻击间隔()
     {
@@ -68,7 +73,10 @@ public class 人物item : MonoBehaviour
         瑶池冰辅助obj.SetActive(瑶池冰辅助 > 0);
         妲己黑暗辅助obj.SetActive(妲己黑暗辅助 > 0);
         女娲电辅助obj.SetActive(女娲电辅助 > 0);
-        CurrentAttackTime+= Time.deltaTime;
+        if (!上场)
+        {
+          CurrentAttackTime+= Time.deltaTime;  
+        }
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         
         if (monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!FightController.S.战斗结束)
@@ -98,6 +106,11 @@ public class 人物item : MonoBehaviour
                     int count = 3;
                     上场技能(攻击特效Type.孙悟空棒子, new Vector2(targetPos.x - 1f, targetPos.y), count*0.25f, false,count);
                 }
+                else if(heroType == HeroType.元始)//上场
+                {
+                    int count = 6;
+                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 3f, true,count);
+                }
                 else
                 {
                     Animator.Play("人物攻击",0,0f);
@@ -108,8 +121,9 @@ public class 人物item : MonoBehaviour
         }
     }
 
-    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小,int 孙悟空攻击次数=0)
+    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小,int count=0)
     {
+        上场 = true;
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(transform.DOMove(finalPos, 0.2f));
         mySequence.AppendCallback(() =>
@@ -146,12 +160,53 @@ public class 人物item : MonoBehaviour
                 case 攻击特效Type.孙悟空棒子:
                     棒子.瑶池冰辅助 = 瑶池冰辅助>0;
                     棒子.黑暗辅助 = 妲己黑暗辅助>0;
-                    StartCoroutine(棒子.孙悟空攻击(孙悟空攻击次数));
+                    StartCoroutine(棒子.孙悟空攻击(count));
+                    break;
+                case 攻击特效Type.火球:
+                    switch (count)
+                    {
+                        case 3:
+                            火球3.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球3.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球3.HideTime = 3;
+                            火球3.RotateSpeed = 100;
+                            火球3.damage = 20;
+                            火球3.gameObject.SetActive(true);
+                            break;
+                        case 4:
+                            火球4.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球4.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球4.HideTime = 3;
+                            火球4.RotateSpeed = 100;
+                            火球4.damage = 20;
+                            火球4.gameObject.SetActive(true);
+                            break;
+                        case 5:
+                            火球5.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球5.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球5.HideTime = 3;
+                            火球5.RotateSpeed = 100;
+                            火球5.damage = 20;
+                            火球5.gameObject.SetActive(true);
+                            break;
+                        case 6:
+                            火球6.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球6.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球6.HideTime = 3;
+                            火球6.RotateSpeed = 100;
+                            火球6.damage = 20;
+                            火球6.gameObject.SetActive(true);
+                            break;
+                    }
                     break;
             }
         });
         mySequence.AppendInterval(Time);
         mySequence.Append(transform.DOMove(原始Pos, 0.2f));
+        mySequence.AppendCallback(() =>
+        {
+            上场 = false;
+        });
     }
 
     public void SetItem()

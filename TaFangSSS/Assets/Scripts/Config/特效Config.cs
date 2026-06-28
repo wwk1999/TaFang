@@ -40,6 +40,7 @@ public enum 攻击特效Type
     火符,
     冰剑气,
     冰旋风,
+    火球,
 }
 
 public enum PengType
