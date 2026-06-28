@@ -60,6 +60,7 @@ public class QueueController:XSingleton<QueueController>
 
     
     [NonSerialized] public Queue<循环伤害技能> 冰旋风Queue = new Queue<循环伤害技能>();
+    [NonSerialized] public Queue<Spine一次伤害> 陨石Queue = new Queue<Spine一次伤害>();
 
 
     protected override void Awake()
@@ -315,6 +316,15 @@ public class QueueController:XSingleton<QueueController>
         {
             switch (type)
             {
+                case 攻击特效Type.陨石:
+                    if (陨石Queue.Count > 50)
+                    {
+                        break;
+                    }
+                    var 陨石 = Instantiate(Resources.Load("Prefabs/特效/陨石"),transform).GetComponent<Spine一次伤害>();
+                    陨石.gameObject.SetActive(false);
+                    陨石Queue.Enqueue(陨石);
+                    break;
                 case 攻击特效Type.冰旋风:
                     if (冰旋风Queue.Count > 50)
                     {

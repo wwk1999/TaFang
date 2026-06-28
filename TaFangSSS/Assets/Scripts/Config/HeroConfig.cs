@@ -319,6 +319,14 @@ namespace Config
                     PengList = new List<PengType>() {  }
                 }
             },
+            
+            {
+                HeroType.鸿钧, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.陨石 },
+                    PengList = new List<PengType>() {  }
+                }
+            },
         };
 
         public static Dictionary<ZhiYeType, float> 攻击范围Dic = new Dictionary<ZhiYeType, float>()
@@ -443,7 +451,7 @@ namespace Config
             { HeroType.通天, 1 },
             { HeroType.元始, 2 },
             { HeroType.盘古, 1 },
-            { HeroType.鸿钧, 1 },
+            { HeroType.鸿钧, 5 },
 
         };
 

@@ -42,6 +42,7 @@ public enum 攻击特效Type
     冰旋风,
     火球,
     盘古拳,
+    陨石,
 }
 
 public enum PengType

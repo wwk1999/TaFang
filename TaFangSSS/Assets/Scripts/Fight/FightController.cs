@@ -68,7 +68,7 @@ public class FightController : XSingleton<FightController>
         return null;
     }
 
-    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助)
+    public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助,int count=0)
     {
         switch (hero)
         {
@@ -145,6 +145,9 @@ public class FightController : XSingleton<FightController>
                 Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,5,false),HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
                 Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);
                 break;
+            case HeroType.鸿钧:
+                StartCoroutine(Spine一次伤害技能(攻击特效Type.陨石, targetPos,瑶池冰辅助>0,黑暗辅助>0,4));           
+                break;
         }
     }
     public Vector3 GetDirectionOffset(Vector3 dir, float angleDegrees, bool isUp)
@@ -217,6 +220,30 @@ public class FightController : XSingleton<FightController>
 
         randomValue.妲己黑暗辅助 = 5f;
     }
+
+    public IEnumerator Spine一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos, bool 瑶池冰辅助, bool 黑暗辅助,int count=0)
+    {
+        switch (攻击特效Type)
+        {
+            case 攻击特效Type.陨石:
+                while (count>0)
+                {
+                     count--;
+                     float randomx=Random.Range(-1.0f, 1.0f);
+                     float randomy=Random.Range(-1.0f, 1.0f);
+                     Vector2 randomdir=new Vector2(randomx,randomy).normalized;
+                     Vector2 randompos=pos+randomdir*1.5f;
+                     var 陨石 = QueueController.S.陨石Queue.Dequeue();
+                     陨石.transform.position = randompos;
+                     陨石.瑶池冰辅助 = 瑶池冰辅助;
+                     陨石.黑暗辅助 = 黑暗辅助;
+                     陨石.gameObject.SetActive(true);
+                     yield return  new WaitForSeconds(0.1f);
+                }
+                break;
+        }
+    }
+
 
     public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助,bool 黑暗辅助)
     {
