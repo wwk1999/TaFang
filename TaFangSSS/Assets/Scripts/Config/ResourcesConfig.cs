@@ -6,6 +6,54 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //技能icon
+    public static Sprite 丹童技能icon;
+    public static Sprite 土地技能icon;
+    public static Sprite 河伯技能icon;
+    public static Sprite 瑶池仙女技能icon;
+    public static Sprite 石敢当技能icon;
+    public static Sprite 玄女技能icon;
+    public static Sprite 龟丞相技能icon;
+    public static Sprite 太白金星技能icon;
+    public static Sprite 多闻天王技能icon;
+    public static Sprite 广目天王技能icon;
+    public static Sprite 雷震子技能icon;
+    public static Sprite 月老技能icon;
+    public static Sprite 嫦娥技能icon;
+    public static Sprite 杨戬技能icon;
+    public static Sprite 妲己技能icon;
+    public static Sprite 牛魔王技能icon;
+    public static Sprite 哪吒技能icon;
+    public static Sprite 孙悟空技能icon;
+    public static Sprite 碧霄技能icon;
+    public static Sprite 琼霄技能icon;
+    public static Sprite 羲和技能icon;
+    public static Sprite 常羲技能icon;
+    public static Sprite 后羿技能icon;
+    public static Sprite 云霄技能icon;
+    public static Sprite 女娲技能icon;
+    public static Sprite 老子技能icon;  
+    public static Sprite 通天技能icon;
+    public static Sprite 元始技能icon;
+    public static Sprite 鸿钧技能icon;
+    public static Sprite 盘古技能icon;
+    //元素
+    public static Sprite 物理icon;
+    public static Sprite 火焰icon;
+    public static Sprite 黑暗icon;
+    public static Sprite 雷电icon;
+    public static Sprite 冰霜icon;
+
+    //品质艺术字
+    public static Sprite 黄;
+    public static Sprite 玄;
+    public static Sprite 地;
+    public static Sprite 天;
+    public static Sprite 宇;
+    public static Sprite 宙;
+    public static Sprite 洪;
+    public static Sprite 荒;
+
     public static Sprite 锁;
     public static Sprite 解锁;
     
@@ -790,6 +838,56 @@ public static Sprite Get标签背景(QualityType qualityType)
    
    public static void Init()
    {
+       丹童技能icon = Resources.Load<Sprite>("Sprite/技能icon/丹童技能");
+       土地技能icon = Resources.LoadAll<Sprite>("Sprite/技能icon/土地龟丞相技能")[0];
+       河伯技能icon = Resources.Load<Sprite>("Sprite/技能icon/河伯技能");
+       瑶池仙女技能icon = Resources.Load<Sprite>("Sprite/技能icon/瑶池技能");
+       石敢当技能icon = Resources.Load<Sprite>("Sprite/技能icon/石敢当技能");
+       玄女技能icon = Resources.Load<Sprite>("Sprite/技能icon/玄女技能");
+       龟丞相技能icon = Resources.LoadAll<Sprite>("Sprite/技能icon/土地龟丞相技能")[1];
+       太白金星技能icon = Resources.Load<Sprite>("Sprite/技能icon/太白金星技能");
+       多闻天王技能icon = Resources.Load<Sprite>("Sprite/技能icon/多闻天王技能");
+       广目天王技能icon = Resources.Load<Sprite>("Sprite/技能icon/广目天王技能");
+       雷震子技能icon = Resources.Load<Sprite>("Sprite/技能icon/雷震子技能");
+       月老技能icon = Resources.Load<Sprite>("Sprite/技能icon/月老技能");
+       嫦娥技能icon = Resources.Load<Sprite>("Sprite/技能icon/嫦娥技能");
+       杨戬技能icon = Resources.Load<Sprite>("Sprite/技能icon/杨戬技能");
+       妲己技能icon = Resources.Load<Sprite>("Sprite/技能icon/妲己技能");
+       牛魔王技能icon = Resources.Load<Sprite>("Sprite/技能icon/牛魔王技能");
+       哪吒技能icon = Resources.Load<Sprite>("Sprite/技能icon/哪吒技能");
+       孙悟空技能icon = Resources.Load<Sprite>("Sprite/技能icon/孙悟空技能");
+       碧霄技能icon = Resources.Load<Sprite>("Sprite/技能icon/碧霄技能");
+       琼霄技能icon = Resources.Load<Sprite>("Sprite/技能icon/琼霄技能");
+       羲和技能icon = Resources.Load<Sprite>("Sprite/技能icon/羲和技能");
+       常羲技能icon = Resources.Load<Sprite>("Sprite/技能icon/常羲技能");
+       后羿技能icon = Resources.Load<Sprite>("Sprite/技能icon/后羿技能");
+       云霄技能icon = Resources.Load<Sprite>("Sprite/技能icon/云霄技能");
+       女娲技能icon = Resources.Load<Sprite>("Sprite/技能icon/女娲技能");
+       老子技能icon = Resources.Load<Sprite>("Sprite/技能icon/老子技能");
+       通天技能icon = Resources.Load<Sprite>("Sprite/技能icon/通天技能");
+       元始技能icon = Resources.Load<Sprite>("Sprite/技能icon/元始技能");
+       鸿钧技能icon = Resources.Load<Sprite>("Sprite/技能icon/鸿钧技能");
+       盘古技能icon = Resources.Load<Sprite>("Sprite/技能icon/盘古技能");
+       
+       
+       
+       物理icon=Resources.Load<Sprite>("Sprite/元素icon/物理icon");
+       火焰icon=Resources.Load<Sprite>("Sprite/元素icon/火焰icon");
+       黑暗icon=Resources.Load<Sprite>("Sprite/元素icon/黑暗icon");
+       雷电icon=Resources.Load<Sprite>("Sprite/元素icon/雷电icon");
+       冰霜icon=Resources.Load<Sprite>("Sprite/元素icon/冰霜icon");
+
+       
+       黄=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[0];
+       玄=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[1];
+       地=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[2];
+       天=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[3];
+       宇=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[4];
+       宙=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[5];
+       洪=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[6];
+       荒=Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[7];
+
+
        锁=Resources.LoadAll<Sprite>("Sprite/强化窗口/锁")[0];
        解锁=Resources.LoadAll<Sprite>("Sprite/强化窗口/锁")[1];
        
