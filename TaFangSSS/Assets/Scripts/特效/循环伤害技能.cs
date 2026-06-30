@@ -9,7 +9,7 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized]public float MoveSpeed=0;
     [NonSerialized]public Vector2 MoveDirection;
     public 攻击特效Type Type;
-    [NonSerialized]public float DelayTime=5;
+    [NonSerialized]public float DelayTime=15;
     [NonSerialized] public float damage;
     [NonSerialized] public YuanSuType YuanSuType;
     [NonSerialized] public bool 瑶池冰辅助;
@@ -17,9 +17,11 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized] public float 伤害间隔=0.2f;
     [NonSerialized] public float 当前伤害时间=0;
 
+    private float alltime=0;
     
     private void OnEnable()
     {
+        alltime = 0;
         CancelInvoke();
         Invoke(nameof(Hide), DelayTime);
     }
@@ -36,7 +38,12 @@ public class 循环伤害技能 : MonoBehaviour
     
     private void Update()
     {
+        alltime+=Time.deltaTime;
         transform.position += (Vector3)MoveDirection * MoveSpeed * Time.deltaTime;
+        if (Type == 攻击特效Type.冰旋风)
+        {
+            transform.localScale = new Vector3(1+alltime*0.05f, 1+alltime*0.05f, transform.localScale.y);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

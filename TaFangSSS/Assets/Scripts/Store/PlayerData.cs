@@ -144,6 +144,7 @@ public class PlayerData : XSingleton<PlayerData>
         { 3, "" },
     };
 
+    //level=0表示未解锁，level=1是星级为0，level=2是星级=1
     public Dictionary<HeroType, HeroData> HeroDataDic = new Dictionary<HeroType, HeroData>()
     {
         { HeroType.丹童, new HeroData() { Level = 1, 元神 = 0 } },

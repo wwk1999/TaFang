@@ -138,7 +138,7 @@ public class FightController : XSingleton<FightController>
                 女娲电辅助技能();
                 break;
             case HeroType.老子:
-                循环伤害技能(攻击特效Type.冰旋风,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,2,瑶池冰辅助,黑暗辅助);
+                循环伤害技能(攻击特效Type.冰旋风,shotpos,dir,HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,1.5f,瑶池冰辅助,黑暗辅助);
                 break;
             case HeroType.通天:
                 Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,5,true),HeroConfig.HeroDamageDic[hero],HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true);

@@ -6,6 +6,21 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 品质元神白;
+    public static Sprite 品质元神绿;
+    public static Sprite 品质元神蓝;
+    public static Sprite 品质元神紫;
+    public static Sprite 品质元神橙;
+    public static Sprite 品质元神粉;
+    public static Sprite 品质元神红;
+    public static Sprite 品质元神彩;
+    
+    public static TMP_ColorGradient 火焰TMP;
+    public static TMP_ColorGradient 冰霜TMP;
+    public static TMP_ColorGradient 物理TMP;
+    public static TMP_ColorGradient 雷电TMP;
+    public static TMP_ColorGradient 黑暗TMP;
+
     //技能icon
     public static Sprite 丹童技能icon;
     public static Sprite 土地技能icon;
@@ -387,7 +402,43 @@ public class ResourcesConfig : MonoBehaviour
    public static Sprite 鸿钧;
    public static Sprite 盘古;
 
+   public static Sprite Get职业icon(ZhiYeType zhiYeType)
+   {
+       switch (zhiYeType)
+       {
+           case ZhiYeType.射手:
+               return 射手;
+           case ZhiYeType.战士:
+               return 战士;
+           case ZhiYeType.辅助:
+               return 辅助;
+           case ZhiYeType.法师:
+               return 法师;
+           case ZhiYeType.控制:
+               return 控制;
+       }
 
+       return null;
+   }
+
+   public static Sprite Get元素Sprite(YuanSuType yuanSuType)
+   {
+       switch (yuanSuType)
+       {
+           case YuanSuType.火:
+               return 火焰icon;
+           case YuanSuType.冰:
+               return 冰霜icon;
+           case YuanSuType.电:
+               return 雷电icon;
+           case YuanSuType.黑暗:
+               return 黑暗icon;
+           case YuanSuType.物理:
+               return 物理icon;
+       }
+
+       return null;
+   }
    public static Sprite GetHeroSprite(HeroType type)
 {
     switch (type)
@@ -835,9 +886,163 @@ public static Sprite Get标签背景(QualityType qualityType)
 
     return null;
 }
-   
+
+public static Sprite Get艺术字(QualityType qualityType)
+{
+    switch (qualityType)
+    {
+        case QualityType.黄品:
+            return 黄;
+        case QualityType.玄品:
+            return 玄;
+        case QualityType.地品:
+            return 地;
+        case QualityType.天品:
+            return 天;
+        case QualityType.宇品:
+            return 宇;
+        case QualityType.宙品:
+            return 宙;
+        case QualityType.洪品:
+            return 洪;
+        case QualityType.荒品:
+            return 荒;
+    }
+
+    return null;
+}
+
+public static Sprite Get技能icon(HeroType heroType)
+{
+    switch (heroType)
+    {
+        case HeroType.None:
+            return null;
+        case HeroType.丹童:
+            return 丹童技能icon;
+        case HeroType.土地:
+            return 土地技能icon;
+        case HeroType.河伯:
+            return 河伯技能icon;
+        case HeroType.瑶池仙女:
+            return 瑶池仙女技能icon;
+        case HeroType.石敢当:
+            return 石敢当技能icon;
+        case HeroType.玄女:
+            return 玄女技能icon;
+        case HeroType.龟丞相:
+            return 龟丞相技能icon;
+        case HeroType.太白金星:
+            return 太白金星技能icon;
+        case HeroType.多闻天王:
+            return 多闻天王技能icon;
+        case HeroType.广目天王:
+            return 广目天王技能icon;
+        case HeroType.雷震子:
+            return 雷震子技能icon;
+        case HeroType.月老:
+            return 月老技能icon;
+        case HeroType.嫦娥:
+            return 嫦娥技能icon;
+        case HeroType.杨戬:
+            return 杨戬技能icon;
+        case HeroType.妲己:
+            return 妲己技能icon;
+        case HeroType.牛魔王:
+            return 牛魔王技能icon;
+        case HeroType.哪吒:
+            return 哪吒技能icon;
+        case HeroType.孙悟空:
+            return 孙悟空技能icon;
+        case HeroType.碧霄:
+            return 碧霄技能icon;
+        case HeroType.琼霄:
+            return 琼霄技能icon;
+        case HeroType.羲和:
+            return 羲和技能icon;
+        case HeroType.常羲:
+            return 常羲技能icon;
+        case HeroType.后羿:
+            return 后羿技能icon;
+        case HeroType.云霄:
+            return 云霄技能icon;
+        case HeroType.女娲:
+            return 女娲技能icon;
+        case HeroType.老子:
+            return 老子技能icon;
+        case HeroType.通天:
+            return 通天技能icon;
+        case HeroType.元始:
+            return 元始技能icon;
+        case HeroType.鸿钧:
+            return 鸿钧技能icon;
+        case HeroType.盘古:
+            return 盘古技能icon;
+        default:
+            return null;
+    }
+}
+
+public static Sprite Get职业经验值Sprite(ZhiYeType zhiYeType)
+{
+    switch (zhiYeType)
+    {
+        case ZhiYeType.射手:
+            return 射手经验值;
+        case ZhiYeType.战士:
+            return 战士经验值;
+        case ZhiYeType.辅助:
+            return 辅助经验值;
+        case ZhiYeType.法师:
+            return 法师经验值;
+        case ZhiYeType.控制:
+            return 控制经验值;
+    }
+
+    return null;
+}
+
+public static Sprite Get品质元神Sprite(QualityType qualityType)
+{
+    switch (qualityType)
+    {
+        case QualityType.黄品:
+            return 品质元神白;
+        case QualityType.玄品:
+            return 品质元神绿;
+        case QualityType.地品:
+            return 品质元神蓝;
+        case QualityType.天品:
+            return 品质元神紫;
+        case QualityType.宇品:
+            return 品质元神橙;
+        case QualityType.宙品:
+            return 品质元神粉;
+        case QualityType.洪品:
+            return 品质元神红;
+        case QualityType.荒品:
+            return 品质元神彩;
+    }
+    return null;
+}
    public static void Init()
    {
+       品质元神白=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[0];
+       品质元神绿=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[1];
+       品质元神蓝=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[2];
+       品质元神紫=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[3];
+       品质元神橙=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[4];
+       品质元神粉=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[5];
+       品质元神红=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[6];
+       品质元神彩=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[7];
+       
+       火焰TMP=Resources.Load<TMP_ColorGradient>("TMP/火焰TMP");
+       冰霜TMP=Resources.Load<TMP_ColorGradient>("TMP/冰霜TMP");
+       雷电TMP=Resources.Load<TMP_ColorGradient>("TMP/雷电TMP");
+       黑暗TMP=Resources.Load<TMP_ColorGradient>("TMP/黑暗TMP");
+       物理TMP=Resources.Load<TMP_ColorGradient>("TMP/物理TMP");
+
+       
        丹童技能icon = Resources.Load<Sprite>("Sprite/技能icon/丹童技能");
        土地技能icon = Resources.LoadAll<Sprite>("Sprite/技能icon/土地龟丞相技能")[0];
        河伯技能icon = Resources.Load<Sprite>("Sprite/技能icon/河伯技能");

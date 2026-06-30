@@ -83,9 +83,13 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
    }
    private void Start()
    {
+      bg.onClick.AddListener(() =>
+      {
+         ObserverModuleManager.S.SendEvent("英雄详情弹窗",heroType);
+      });
       合成mask.onClick.AddListener(() =>
       {
-         PlayerData.S.HeroDataDic[heroType].元神 -= HeroConfig.HeroExpDic[0].元神;
+         PlayerData.S.HeroDataDic[heroType].元神 -= 1;
          PlayerData.S.HeroDataDic[heroType].Level = 1;
          SetItem();
       });
@@ -96,14 +100,14 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
    {
       int level = PlayerData.S.HeroDataDic[heroType].Level;
       int exp = PlayerData.S.HeroDataDic[heroType].元神;
-      Exp.maxValue = HeroConfig.HeroExpDic[level].元神;
+      Exp.maxValue = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神;
       Exp.value = exp;
       CurrentExp.text=exp.ToString();
-      MaxExp.text=HeroConfig.HeroExpDic[level].元神.ToString();
+      MaxExp.text=HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神.ToString();
       image.sprite=ResourcesConfig.GetHeroSprite(heroType);
       Name.text=HeroConfig.HeroNameDic[heroType];
       Level.text=level.ToString();
-      if (level > 0 && exp >= HeroConfig.HeroExpDic[level].元神)
+      if (level > 0 && exp >= HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神)
       {
          升级Obj.SetActive(true);
       }
@@ -111,7 +115,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
       {
          升级Obj.SetActive(false);
       }
-      if (level == 0 && exp >= HeroConfig.HeroExpDic[level].元神)
+      if (level == 0 && exp >= HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神)
       {
          合成Obj.gameObject.SetActive(true);
       }
@@ -165,23 +169,6 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
             break;
       }
 
-      switch (HeroConfig.HeroZhiYeDic[heroType].zhiYeType)
-      {
-         case ZhiYeType.射手:
-            职业icon.sprite = ResourcesConfig.射手;
-            break;
-         case ZhiYeType.战士:
-            职业icon.sprite = ResourcesConfig.战士;
-            break;
-         case ZhiYeType.辅助:
-            职业icon.sprite = ResourcesConfig.辅助;
-            break;
-         case ZhiYeType.法师:
-            职业icon.sprite = ResourcesConfig.法师;
-            break;
-         case ZhiYeType.控制:
-            职业icon.sprite = ResourcesConfig.控制;
-            break;
-      }
+      职业icon.sprite = ResourcesConfig.Get职业icon(HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
    }
 }

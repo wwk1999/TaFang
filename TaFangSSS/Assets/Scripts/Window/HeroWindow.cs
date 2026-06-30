@@ -22,6 +22,7 @@ public class HeroWindow : MonoBehaviour
    public Image 鼠标Image;
    public RectTransform canvasRectTransform;
    public ScrollRect  ScrollView;
+   public 英雄详情弹窗 英雄详情弹窗;
 
    public void 交换英雄(object[] obj)
    {
@@ -61,8 +62,16 @@ public class HeroWindow : MonoBehaviour
          HeroItem.SetItem();
       }
    }
+
+   public void 英雄详情弹窗Show(object[] obj)
+   {
+      HeroType heroType = (HeroType)obj[0];
+      英雄详情弹窗.HeroType=heroType;
+      英雄详情弹窗.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
       var s = HeroWindowController.S;
       ExitButton.onClick.AddListener(() =>
       {
