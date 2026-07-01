@@ -17,11 +17,21 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized]public bool 穿透=false;
+   private Vector2 原始scale;
 
-   
+   private void Start()
+   {
+      原始scale = transform.localScale;
+   }
+
+
    private void OnEnable()
    {
       CancelInvoke();
+      if (Type == 攻击特效Type.冰剑气)
+      {
+         transform.localScale = new Vector3(原始scale.x * 英雄星级属性.云霄效果范围, 原始scale.y * 英雄星级属性.云霄效果范围, 1);
+      }
       float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg;
       parent.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
       Invoke(nameof(Hide), DelayTime);
@@ -48,7 +58,7 @@ public class 普通魔法弹带peng : MonoBehaviour
          float realDamage = damage;
          if (黑暗辅助)
          {
-            realDamage *= 1.2f;
+            realDamage *= (1+英雄星级属性.妲己效果/100f);
          }
          FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
          hit.gameObject.SetActive(true);
@@ -62,7 +72,7 @@ public class 普通魔法弹带peng : MonoBehaviour
          }
          if (Type == 攻击特效Type.黑暗魔法弹)
          {
-            FightController.S.MonsterColliderDic[other].transform.position = new Vector3(FightController.S.MonsterColliderDic[other].transform.position.x+0.2f,FightController.S.MonsterColliderDic[other].transform.position.y,FightController.S.MonsterColliderDic[other].transform.position.z);
+            FightController.S.MonsterColliderDic[other].transform.position = new Vector3(FightController.S.MonsterColliderDic[other].transform.position.x+英雄星级属性.土地击退距离,FightController.S.MonsterColliderDic[other].transform.position.y,FightController.S.MonsterColliderDic[other].transform.position.z);
          }
       }
    }

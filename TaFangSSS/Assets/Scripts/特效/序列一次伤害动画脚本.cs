@@ -11,6 +11,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     public Collider2D _collider2D;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public float damage;
+    [NonSerialized] public YuanSuType YuanSuType;
+
     public void Hide()
     {
         gameObject.SetActive(false);
@@ -67,15 +70,14 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 }
                 if (type == 攻击特效Type.黑暗符)
                 {
-                    FightController.S.MonsterColliderDic[col].黑暗符 = 1;
+                    FightController.S.MonsterColliderDic[col].黑暗符 = 英雄星级属性.琼霄定身时长;
                 }
 
-                float damage = 50;
                 if (黑暗辅助)
                 {
-                    damage *= 1.2f;
+                    damage *= (1+英雄星级属性.妲己效果/100);
                 }
-               FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType.冰);
+               FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
             }
         }
     }

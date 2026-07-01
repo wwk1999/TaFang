@@ -23,7 +23,7 @@ public class 火球 : MonoBehaviour
             float realDamage = damage;
             if (黑暗辅助)
             {
-                realDamage *= 1.2f;
+                realDamage *= (1+英雄星级属性.妲己效果/100f);
             }
             FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
             hit.gameObject.SetActive(true);
@@ -32,10 +32,7 @@ public class 火球 : MonoBehaviour
             {
                 FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;//持续2s
             }
-            if (Type == 攻击特效Type.黑暗魔法弹)
-            {
-                FightController.S.MonsterColliderDic[other].transform.position = new Vector3(FightController.S.MonsterColliderDic[other].transform.position.x+0.2f,FightController.S.MonsterColliderDic[other].transform.position.y,FightController.S.MonsterColliderDic[other].transform.position.z);
-            }
+           
         }
     }
 }

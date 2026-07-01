@@ -39,10 +39,10 @@ public class 循环伤害技能 : MonoBehaviour
     private void Update()
     {
         alltime+=Time.deltaTime;
-        transform.position += (Vector3)MoveDirection * MoveSpeed * Time.deltaTime;
+        transform.position += (Vector3)MoveDirection * MoveSpeed*英雄星级属性.老子弹道速度 * Time.deltaTime;
         if (Type == 攻击特效Type.冰旋风)
         {
-            transform.localScale = new Vector3(1+alltime*0.05f, 1+alltime*0.05f, transform.localScale.y);
+            transform.localScale = new Vector3(1+alltime*英雄星级属性.老子增长速度/100f, 1+alltime*英雄星级属性.老子增长速度/100f, transform.localScale.y);
         }
     }
 
@@ -57,7 +57,7 @@ public class 循环伤害技能 : MonoBehaviour
             float realDamage = damage;
             if (黑暗辅助)
             {
-                realDamage *= 1.2f;
+                realDamage *= (1+英雄星级属性.妲己效果/100);
             }
 
             FightController.S.MonsterColliderDic[other].Hurt(realDamage, YuanSuType);

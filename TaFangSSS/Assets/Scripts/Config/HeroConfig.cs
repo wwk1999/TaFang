@@ -598,7 +598,7 @@ namespace Config
                     $"惑心魅惑冷却缩减增加{Get伤害str("15%")}", 
                     $"惑心魅惑持续时间增加{Get伤害str("1S")}", 
                     $"惑心魅惑冷却缩减增加{Get伤害str("20%")}", 
-                    $"惑心魅惑数量增加{Get伤害str("1")},但冷却时间增加{Get伤害str("20%")}", 
+                    $"惑心魅惑效果增加{Get伤害str("10%")}", 
                 }
             },
             
@@ -610,7 +610,7 @@ namespace Config
                     $"蛮牛破冷却缩减增加{Get伤害str("15%")}", 
                     $"蛮牛破伤害增加{Get伤害str("15%")}", 
                     $"蛮牛破冷却缩减增加{Get伤害str("20%")}", 
-                    $"蛮牛破释放次数加{Get伤害str("1")},但伤害减少{Get伤害str("25%")}", 
+                    $"蛮牛破效果范围增加{Get伤害str("20%")}", 
                 }
             },
             
@@ -1040,40 +1040,7 @@ namespace Config
                 Get元素string(YuanSuType.物理) + "伤害"
             },
         };
-
-        public static Dictionary<HeroType, float> HeroDamageDic = new Dictionary<HeroType, float>()
-        {
-            { HeroType.丹童, 50 },
-            { HeroType.土地, 50 },
-            { HeroType.河伯, 50 },
-            { HeroType.瑶池仙女, 50 },
-            { HeroType.石敢当, 50 },
-            { HeroType.玄女, 50 },
-            { HeroType.龟丞相, 50 },
-            { HeroType.太白金星, 50 },
-            { HeroType.多闻天王, 50 },
-            { HeroType.广目天王, 50 },
-            { HeroType.雷震子, 50 },
-            { HeroType.月老, 50 },
-            { HeroType.嫦娥, 50 },
-            { HeroType.杨戬, 50 },
-            { HeroType.妲己, 50 },
-            { HeroType.牛魔王, 50 },
-            { HeroType.哪吒, 50 },
-            { HeroType.孙悟空, 50 },
-            { HeroType.碧霄, 50 },
-            { HeroType.琼霄, 50 },
-            { HeroType.后羿, 50 },
-            { HeroType.常羲, 50 },
-            { HeroType.羲和, 50 },
-            { HeroType.云霄, 50 },
-            { HeroType.女娲, 50 },
-            { HeroType.老子, 50 },
-            { HeroType.元始, 50 },
-            { HeroType.通天, 50 },
-            { HeroType.鸿钧, 50 },
-            { HeroType.盘古, 50 }
-        };
+        
 
         public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
         {

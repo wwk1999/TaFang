@@ -9,8 +9,7 @@ public class 火球旋转parent : MonoBehaviour
     public List<火球> 火球list;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
-    [NonSerialized] public float HideTime = 3;
-    [NonSerialized] public float damage = 50;
+    [NonSerialized] public float damage = 属性config.领主攻击力*英雄星级属性.元始攻击数值/100f;
 
     public void Hide()
     {
@@ -25,11 +24,11 @@ public class 火球旋转parent : MonoBehaviour
             item.瑶池冰辅助 = 瑶池冰辅助;
             item.damage=damage;
         }
-        Invoke(nameof(Hide), HideTime);
+        Invoke(nameof(Hide), 英雄星级属性.元始持续时间);
     }
 
     private void Update()
     {
-        transform.Rotate(0, 0, RotateSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, RotateSpeed * Time.deltaTime*英雄星级属性.元始转速);
     }
 }

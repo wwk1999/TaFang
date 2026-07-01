@@ -10,6 +10,18 @@ public class 孙悟空棒子 : MonoBehaviour
    public Animator Animator;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
+   private Vector2 原始scale;
+
+   private void Start()
+   {
+      原始scale=transform.localScale;
+   }
+
+   private void OnEnable()
+   {
+      transform.localScale=new Vector3(原始scale.x*英雄星级属性.孙悟空效果范围,原始scale.y*英雄星级属性.孙悟空效果范围,1);
+   }
+
    private void OnTriggerEnter2D(Collider2D other)
    {
       if (other.CompareTag("Monster"))
@@ -23,10 +35,10 @@ public class 孙悟空棒子 : MonoBehaviour
             FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
          }
 
-         float damage = 30;
+         float damage = 属性config.领主攻击力*英雄星级属性.孙悟空攻击数值/100f;
          if (黑暗辅助)
          {
-            damage *= 1.2f;
+            damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
          }
          FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理);
       }

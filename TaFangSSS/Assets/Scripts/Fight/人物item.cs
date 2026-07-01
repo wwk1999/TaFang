@@ -40,10 +40,10 @@ public class 人物item : MonoBehaviour
 
     public float Get攻击间隔()
     {
-        float value=HeroConfig.HeroAttackTimeDic[heroType];
+        float value = 英雄星级属性.Get英雄Cd(heroType);
         if (女娲电辅助 > 0)
         {
-            value *= 0.5f;
+            value *= (1f-英雄星级属性.女娲效果);
         }
         return value;
     }
@@ -104,17 +104,17 @@ public class 人物item : MonoBehaviour
                     上场技能(攻击特效Type.喷火, new Vector2(targetPos.x - 1f, targetPos.y), 1f, false);
                 }else if(heroType == HeroType.孙悟空)//上场
                 {
-                    int count = 3;
+                    int count = 英雄星级属性.孙悟空次数;
                     上场技能(攻击特效Type.孙悟空棒子, new Vector2(targetPos.x - 1f, targetPos.y), count*0.25f, false,count);
                 }
                 else if(heroType == HeroType.元始)//上场
                 {
-                    int count = 6;
-                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 3f, true,count);
+                    int count = 英雄星级属性.元始攻击数量;
+                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间, true,count);
                 }
                 else if(heroType == HeroType.盘古)//上场
                 {
-                    int count = 5;
+                    int count = 英雄星级属性.盘古攻击数量;
                     StartCoroutine(盘古拳(  0.4f, count));
                 }
                 else
@@ -206,7 +206,6 @@ public class 人物item : MonoBehaviour
                         case 3:
                             火球3.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球3.黑暗辅助 = 妲己黑暗辅助>0;
-                            火球3.HideTime = 3;
                             火球3.RotateSpeed = 100;
                             火球3.damage = 20;
                             火球3.gameObject.SetActive(true);
@@ -214,7 +213,6 @@ public class 人物item : MonoBehaviour
                         case 4:
                             火球4.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球4.黑暗辅助 = 妲己黑暗辅助>0;
-                            火球4.HideTime = 3;
                             火球4.RotateSpeed = 100;
                             火球4.damage = 20;
                             火球4.gameObject.SetActive(true);
@@ -222,7 +220,6 @@ public class 人物item : MonoBehaviour
                         case 5:
                             火球5.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球5.黑暗辅助 = 妲己黑暗辅助>0;
-                            火球5.HideTime = 3;
                             火球5.RotateSpeed = 100;
                             火球5.damage = 20;
                             火球5.gameObject.SetActive(true);
@@ -230,7 +227,6 @@ public class 人物item : MonoBehaviour
                         case 6:
                             火球6.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球6.黑暗辅助 = 妲己黑暗辅助>0;
-                            火球6.HideTime = 3;
                             火球6.RotateSpeed = 100;
                             火球6.damage = 20;
                             火球6.gameObject.SetActive(true);

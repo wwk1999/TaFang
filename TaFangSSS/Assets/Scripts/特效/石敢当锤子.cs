@@ -10,6 +10,18 @@ public class 石敢当锤子 : MonoBehaviour
    [NonSerialized] public float speed;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
+   private Vector2 原始scale;
+
+   private void Start()
+   {
+      原始scale=transform.localScale;
+   }
+
+   private void OnEnable()
+   {
+      float 目标scale = 英雄星级属性.石敢当效果范围;
+      transform.localScale=new Vector3(原始scale.x*目标scale,原始scale.y*目标scale,1);
+   }
 
 
    private void Update()
@@ -39,10 +51,10 @@ public class 石敢当锤子 : MonoBehaviour
             FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
          }
 
-         float damage = 50;
+         float damage = 属性config.领主攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
          if (黑暗辅助)
          {
-            damage *= 1.2f;
+            damage *= (1+英雄星级属性.妲己效果/100f);
          }
          FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理);
       }

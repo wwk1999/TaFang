@@ -14,15 +14,23 @@ public class Spine一次伤害 : MonoBehaviour
    public Collider2D _collider2D;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
+   [NonSerialized] public float damage;
+   [NonSerialized] public YuanSuType YuanSuType;
+   private Vector2 原始scale;
+   
+   
+
 
    private void OnEnable()
    {
+      transform.localScale=new Vector3(原始scale.x*英雄星级属性.鸿钧效果范围,原始scale.y*英雄星级属性.鸿钧效果范围,1);
       Skeleton.AnimationState.TimeScale = 1.3f;
       Skeleton.AnimationState.SetAnimation(0, name,false);
    }
 
    private void Start()
    {
+      原始scale=transform.localScale;
       Skeleton.AnimationState.Complete += Complete;
       Skeleton.AnimationState.Event += OnSpineEvent;
    }
@@ -67,12 +75,11 @@ public class Spine一次伤害 : MonoBehaviour
             {
                FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
             }
-            float damage = 50;
             if (黑暗辅助)
             {
-               damage *= 1.2f;
+               damage *= (1+英雄星级属性.妲己效果/100f);
             }
-            FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType.火);
+            FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
          }
       }
    }

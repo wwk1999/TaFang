@@ -42,16 +42,16 @@ public class MonsterBase : MonoBehaviour
       float value = basespeed;
       if (瑶池冰辅助 > 0)
       {
-         value *= 0.85f;
+         value *= (1-英雄星级属性.瑶池仙女减速效果/100f);
       }
       if (冰符 > 0)
       {
-         value *= 0.8f;
+         value *= (1-英雄星级属性.常曦减速效果/100f);
       }
 
       if (龟丞相减速 > 0)
       {
-         value *= 0.5f;
+         value *= (1-英雄星级属性.龟丞相减速效果/100f);
       }
       return value;
    }
