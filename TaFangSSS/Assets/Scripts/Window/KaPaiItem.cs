@@ -109,7 +109,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
       Level.text=level.ToString();
       if (level > 0 && exp >= HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神)
       {
-         升级Obj.SetActive(true);
+         升级Obj.SetActive(true);    
       }
       else
       {

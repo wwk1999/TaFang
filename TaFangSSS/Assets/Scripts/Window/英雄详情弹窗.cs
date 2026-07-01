@@ -44,11 +44,11 @@ public class 英雄详情弹窗 : MonoBehaviour
         经验值name.text=HeroConfig.Get职业Name(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType)+"经验值";
         经验值bg.sprite = ResourcesConfig.道具背景框蓝;
         经验值icon.sprite = ResourcesConfig.Get职业经验值Sprite(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType);
-        经验值需要值.text = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level)
+        经验值需要值.text = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level-1)
             .Exp.ToString();
         元神bg.sprite = ResourcesConfig.Get道具背景框Sprite(HeroConfig.HeroToPropDic[HeroType]);
         元神name.text = HeroConfig.HeroNameDic[HeroType] + "元神";
-        元神需要值.text = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level)
+        元神需要值.text = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level-1)
             .元神.ToString();
         元神当前值.text = PlayerData.S.HeroDataDic[HeroType].元神.ToString();
         元神icon.sprite = ResourcesConfig.Get品质元神Sprite(HeroConfig.HeroQualityDic[HeroType]);
@@ -84,7 +84,7 @@ public class 英雄详情弹窗 : MonoBehaviour
         {
             var item = Instantiate(Resources.Load("Prefabs/Window/升星信息item"), 升星信息Content.transform)
                 .GetComponent<升星信息item>();
-            item.锁 = xj >= i;
+            item.锁 = xj < i;
             item.星级 = i;
             item.text = HeroConfig.英雄升星信息Dic[HeroType][i - 1];
             item.SetItem();
@@ -170,14 +170,15 @@ public class 英雄详情弹窗 : MonoBehaviour
                     break;
             }
 
-            int 经验值需要值 = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level).Exp;
-            int 元神需要值 = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level).元神;
+            int 经验值需要值 = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level-1).Exp;
+            int 元神需要值 = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[HeroType], PlayerData.S.HeroDataDic[HeroType].Level-1).元神;
             if (PlayerData.S.PropListDic[经验值] >= 经验值需要值 && PlayerData.S.HeroDataDic[HeroType].元神 >= 元神需要值)
             {
                 PlayerData.S.PropListDic[经验值] -= 经验值需要值;
                 PlayerData.S.HeroDataDic[HeroType].元神 -= 元神需要值;
                 PlayerData.S.HeroDataDic[HeroType].Level++;
                 ObserverModuleManager.S.SendEvent("SendUIToast","升星成功");
+                Set升星信息();
             }
             else
             {

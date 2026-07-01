@@ -90,31 +90,35 @@ namespace Config
 
     public class HeroConfig
     {
-        public static HeroExp Get升星材料(QualityType qualityType, int count)
+        public static HeroExp Get升星材料(QualityType qualityType, int xj)
         {
             HeroExp heroExp = new HeroExp();
             switch (qualityType)
             {
                 case QualityType.黄品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 100;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 200;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 300;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 400;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 500;
                             heroExp.元神 = 5;
                             break;
@@ -122,25 +126,29 @@ namespace Config
                     break;
                 
                 case QualityType.玄品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 200;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 400;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 600;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 800;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 1000;
                             heroExp.元神 = 5;
                             break;
@@ -148,25 +156,29 @@ namespace Config
                     break;
                 
                 case QualityType.地品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 300;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 600;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 900;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 1200;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 1500;
                             heroExp.元神 = 5;
                             break;
@@ -174,25 +186,29 @@ namespace Config
                     break;
                 
                 case QualityType.天品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 500;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 1000;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 1500;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 2000;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 2500;
                             heroExp.元神 = 5;
                             break;
@@ -200,25 +216,29 @@ namespace Config
                     break;
                 
                 case QualityType.宇品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 800;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 1600;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 2400;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 3200;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 4000;
                             heroExp.元神 = 5;
                             break;
@@ -226,25 +246,29 @@ namespace Config
                     break;
                 
                 case QualityType.宙品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 1200;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 2400;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 3600;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 4800;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 6000;
                             heroExp.元神 = 5;
                             break;
@@ -252,25 +276,29 @@ namespace Config
                     break;
                 
                 case QualityType.洪品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 1800;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 3600;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 5400;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 7200;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 9000;
                             heroExp.元神 = 5;
                             break;
@@ -278,25 +306,29 @@ namespace Config
                     break;
                 
                 case QualityType.荒品:
-                    switch (count)
+                    switch (xj)
                     {
-                        case 1:
+                        case -1:
+                            heroExp.Exp = 0;
+                            heroExp.元神 = 1;
+                            break;
+                        case 0:
                             heroExp.Exp = 3000;
                             heroExp.元神 = 1;
                             break;
-                        case 2:
+                        case 1:
                             heroExp.Exp = 6000;
                             heroExp.元神 = 2;
                             break;
-                        case 3:
+                        case 2:
                             heroExp.Exp = 9000;
                             heroExp.元神 = 3;
                             break;
-                        case 4:
+                        case 3:
                             heroExp.Exp = 12000;
                             heroExp.元神 = 4;
                             break;
-                        case 5:
+                        case 4:
                             heroExp.Exp = 15000;
                             heroExp.元神 = 5;
                             break;
@@ -566,7 +598,7 @@ namespace Config
                     $"惑心魅惑冷却缩减增加{Get伤害str("15%")}", 
                     $"惑心魅惑持续时间增加{Get伤害str("1S")}", 
                     $"惑心魅惑冷却缩减增加{Get伤害str("20%")}", 
-                    $"惑心魅惑数量增加{Get伤害str("1")},但冷却缩减增加{Get伤害str("20%")}", 
+                    $"惑心魅惑数量增加{Get伤害str("1")},但冷却时间增加{Get伤害str("20%")}", 
                 }
             },
             
@@ -806,11 +838,11 @@ namespace Config
             { HeroType.丹童, new List<float>() { 70 } },
             { HeroType.土地, new List<float>() { 50, 0.3f } },
             { HeroType.河伯, new List<float>() { 90 } },
-            { HeroType.瑶池仙女, new List<float>() { 15, 2, 2 } },
+            { HeroType.瑶池仙女, new List<float>() { 15, 2 } },
 
             { HeroType.石敢当, new List<float>() { 100 } },
             { HeroType.玄女, new List<float>() { 150 } },
-            { HeroType.龟丞相, new List<float>() { 100, 15, 2 } },
+            { HeroType.龟丞相, new List<float>() { 100, 15 } },
             { HeroType.太白金星, new List<float>() { 100 } },
 
             { HeroType.多闻天王, new List<float>() { 130 } },
@@ -835,7 +867,7 @@ namespace Config
 
             { HeroType.女娲, new List<float>() { 20, 3 } },
             { HeroType.老子, new List<float>() { 300 ,5} },
-            { HeroType.元始, new List<float>() { 300 } },
+            { HeroType.元始, new List<float>() { 300 ,3} },
             { HeroType.通天, new List<float>() { 400 } },
 
             { HeroType.鸿钧, new List<float>() { 600 } },
@@ -864,7 +896,7 @@ namespace Config
                 HeroType.瑶池仙女,
                 "给随机一位英雄添加持续" + Get技能伤害string(HeroSkillDamageDic[HeroType.瑶池仙女][1], 2) + "的冰霜印记,携带冰霜印记的英雄攻击造成" +
                 Get技能伤害string(HeroSkillDamageDic[HeroType.瑶池仙女][0], 1) + "的减速效果,持续" +
-                Get技能伤害string(HeroSkillDamageDic[HeroType.瑶池仙女][2], 2)
+                Get技能伤害string(2, 2)
             },
 
             {
@@ -881,7 +913,7 @@ namespace Config
                 HeroType.龟丞相,
                 "对怪物释放碎冰术,对命中的敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.龟丞相][0], 1) + "的" +
                 Get元素string(YuanSuType.冰) + "伤害,并附加" + Get技能伤害string(HeroSkillDamageDic[HeroType.龟丞相][1], 1) +
-                "的减速效果,持续" + Get技能伤害string(HeroSkillDamageDic[HeroType.龟丞相][2], 2)
+                "的减速效果,持续" + Get技能伤害string(2, 2)
             },
             {
                 HeroType.太白金星,
