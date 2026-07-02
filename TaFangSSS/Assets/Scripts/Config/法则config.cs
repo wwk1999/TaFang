@@ -23,6 +23,28 @@ public class 法则config
         { HeroType.鸿钧, "鸿蒙法则" },
         { HeroType.盘古, "力之法则" },
     };
+    
+    
+    public static Dictionary<HeroType, PropType> 法则TypeDic = new Dictionary<HeroType, PropType>()
+    {
+        { HeroType.哪吒, PropType.火之法则 },
+        { HeroType.孙悟空, PropType.斗之法则 },
+        { HeroType.碧霄, PropType.冰之法则 },
+        { HeroType.琼霄, PropType.禁之法则 },
+
+        { HeroType.云霄, PropType.剑之法则 },
+        { HeroType.羲和, PropType.日之法则 },
+        { HeroType.常羲, PropType.月之法则 },
+        { HeroType.后羿, PropType.箭之法则 },
+
+        { HeroType.女娲, PropType.造化法则 },
+        { HeroType.元始, PropType.原始法则 },
+        { HeroType.通天, PropType.诛仙法则 },
+        { HeroType.老子, PropType.道之法则 },
+
+        { HeroType.鸿钧, PropType.鸿蒙法则 },
+        { HeroType.盘古, PropType.力之法则 },
+    };
 
     public static Dictionary<HeroType, string> 法则info = new Dictionary<HeroType, string>()
     {
@@ -195,5 +217,46 @@ public class 法则config
                 "混沌开天拳每次出拳增加<color=green>2%</color>伤害,出拳次数增加<color=green>1</color>",
             }
         },
+    };
+
+    public static Dictionary<QualityType, float> 法则升级奖励Dic = new Dictionary<QualityType, float>()
+    {
+        { QualityType.宇品 ,1f},
+        { QualityType.宙品 ,1.5f},
+        { QualityType.洪品 ,2f},
+        { QualityType.荒品 ,3f},
+    };
+
+    public static Dictionary<int, int> 法则升级材料Dic = new Dictionary<int, int>()
+    {
+        {0,10},
+        {1,10},
+        {2,10},
+        {3,10},
+        {4,10},
+        
+        {5,15},
+        {6,15},
+        {7,15},
+        {8,15},
+        {9,15},
+        
+        {10,20},
+        {11,20},
+        {12,20},
+        {13,20},
+        {14,20},
+        
+        {15,25},
+        {16,25},
+        {17,25},
+        {18,25},
+        {19,25},
+        
+        {20,30},
+        {21,30},
+        {22,30},
+        {23,30},
+        {24,30},
     };
 }

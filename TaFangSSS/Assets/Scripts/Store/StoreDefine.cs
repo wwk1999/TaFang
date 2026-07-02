@@ -19,6 +19,27 @@ public class StoreDefine : XSingleton<StoreController>
         public int GongDe;
         public int CurrentBianDui = 1;
         
+        public Dictionary<HeroType, int> 英雄法则等级Dic = new Dictionary<HeroType, int>()
+        {
+            { HeroType.哪吒 ,0},
+            { HeroType.孙悟空 ,0},
+            { HeroType.碧霄 ,0},
+            { HeroType.琼霄 ,0},
+        
+            { HeroType.云霄 ,0},
+            { HeroType.后羿 ,0},
+            { HeroType.常羲 ,0},
+            { HeroType.羲和 ,0},
+        
+            { HeroType.女娲 ,0},
+            { HeroType.通天 ,0},
+            { HeroType.元始 ,0},
+            { HeroType.老子 ,0},
+        
+            { HeroType.盘古 ,0},
+            { HeroType.鸿钧 ,0},
+        };
+        
         public Dictionary<JingJieType, 突破Type> 突破Dic = new Dictionary<JingJieType, 突破Type>()
         {
             { JingJieType.练气 ,突破Type.None},
@@ -182,7 +203,7 @@ public class StoreDefine : XSingleton<StoreController>
 
         };
 
-        public Dictionary<PropType, int> PropCountDic = new Dictionary<PropType, int>()
+        public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
         {
             { PropType.领主经验值, 0 },
             { PropType.全职业经验值, 0 },
@@ -201,7 +222,22 @@ public class StoreDefine : XSingleton<StoreController>
             { PropType.辅助经验值, 0 },
             { PropType.鞋子锻造石, 0 },
             { PropType.项链锻造石, 0 },
-            { PropType.高级招募卷, 0 }
+            { PropType.高级招募卷, 0 },
+        
+            { PropType.火之法则 ,0},
+            { PropType.剑之法则 ,0},
+            { PropType.冰之法则 ,0},
+            { PropType.力之法则 ,0},
+            { PropType.原始法则 ,0},
+            { PropType.斗之法则 ,0},
+            { PropType.日之法则 ,0},
+            { PropType.月之法则 ,0},
+            { PropType.禁之法则 ,0},
+            { PropType.箭之法则 ,0},
+            { PropType.诛仙法则 ,0},
+            { PropType.造化法则 ,0},
+            { PropType.道之法则 ,0},
+            { PropType.鸿蒙法则 ,0},
         };
 
         public Dictionary<LevelBigType, bool> LevelZhanKaiDic = new Dictionary<LevelBigType, bool>()
@@ -220,7 +256,7 @@ public class StoreDefine : XSingleton<StoreController>
             LingQi = runtime.LingQi;
             GongDe = runtime.GongDe;
             LevelZhanKaiDic = runtime.LevelZhanKaiDic;
-            PropCountDic = runtime.PropListDic;
+            PropListDic = runtime.PropListDic;
             HeroDataDic = runtime.HeroDataDic;
             出战英雄List = runtime.出战英雄List;
             编队名List = runtime.编队名List;
@@ -228,6 +264,7 @@ public class StoreDefine : XSingleton<StoreController>
             EquipLevelDic = runtime.EquipLevelDic;
             突破Dic = runtime.突破Dic;
             装备附加属性Dic = runtime.装备附加属性Dic;
+            英雄法则等级Dic = runtime.英雄法则等级Dic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -238,7 +275,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.LingQi = LingQi;
             runtime.GongDe = GongDe;
             runtime.LevelZhanKaiDic = LevelZhanKaiDic;
-            runtime.PropListDic = PropCountDic;
+            runtime.PropListDic = PropListDic;
             runtime.HeroDataDic = HeroDataDic;
             runtime.出战英雄List = 出战英雄List;
             runtime.编队名List = 编队名List;
@@ -246,6 +283,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.EquipLevelDic = EquipLevelDic;
             runtime.突破Dic = 突破Dic;
             runtime.装备附加属性Dic = 装备附加属性Dic;
+            runtime.英雄法则等级Dic = 英雄法则等级Dic;
         }
     }
 }

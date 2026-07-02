@@ -17,6 +17,26 @@ public class PlayerData : XSingleton<PlayerData>
     public int GongDe;
     public int CurrentBianDui = 1;
 
+    public Dictionary<HeroType, int> 英雄法则等级Dic = new Dictionary<HeroType, int>()
+    {
+        { HeroType.哪吒 ,0},
+        { HeroType.孙悟空 ,0},
+        { HeroType.碧霄 ,0},
+        { HeroType.琼霄 ,0},
+        
+        { HeroType.云霄 ,0},
+        { HeroType.后羿 ,0},
+        { HeroType.常羲 ,0},
+        { HeroType.羲和 ,0},
+        
+        { HeroType.女娲 ,0},
+        { HeroType.通天 ,0},
+        { HeroType.元始 ,0},
+        { HeroType.老子 ,0},
+        
+        { HeroType.盘古 ,0},
+        { HeroType.鸿钧 ,0},
+    };
     public Dictionary<JingJieType, 突破Type> 突破Dic = new Dictionary<JingJieType, 突破Type>()
     {
         { JingJieType.练气 ,突破Type.None},
@@ -199,7 +219,22 @@ public class PlayerData : XSingleton<PlayerData>
         { PropType.辅助经验值, 0 },
         { PropType.鞋子锻造石, 0 },
         { PropType.项链锻造石, 0 },
-        { PropType.高级招募卷, 0 }
+        { PropType.高级招募卷, 0 },
+        
+        { PropType.火之法则 ,0},
+        { PropType.剑之法则 ,0},
+        { PropType.冰之法则 ,0},
+        { PropType.力之法则 ,0},
+        { PropType.原始法则 ,0},
+        { PropType.斗之法则 ,0},
+        { PropType.日之法则 ,0},
+        { PropType.月之法则 ,0},
+        { PropType.禁之法则 ,0},
+        { PropType.箭之法则 ,0},
+        { PropType.诛仙法则 ,0},
+        { PropType.造化法则 ,0},
+        { PropType.道之法则 ,0},
+        { PropType.鸿蒙法则 ,0},
     };
 
     public Dictionary<LevelBigType, bool> LevelZhanKaiDic = new Dictionary<LevelBigType, bool>()
