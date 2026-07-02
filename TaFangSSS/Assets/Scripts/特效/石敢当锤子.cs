@@ -10,12 +10,9 @@ public class 石敢当锤子 : MonoBehaviour
    [NonSerialized] public float speed;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
-   private Vector2 原始scale;
+   private Vector2 原始scale=Vector2.one;
 
-   private void Start()
-   {
-      原始scale=transform.localScale;
-   }
+   
 
    private void OnEnable()
    {

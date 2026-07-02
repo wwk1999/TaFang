@@ -8,12 +8,8 @@ public class 黑暗抓痕 : MonoBehaviour
 {
     public 黑暗抓痕动画脚本 脚本;
     public HeroType  HeroType;
-    private Vector2 原始scale;
-
-    private void Start()
-    {
-        原始scale=transform.localScale;
-    }
+    private Vector2 原始scale=new Vector2(1f,1f);
+    
 
     private void OnEnable()
     {

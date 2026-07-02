@@ -8,12 +8,8 @@ public class 冰符 : MonoBehaviour
 {
     public 冰符动画脚本 脚本;
     public HeroType HeroType;
-    private Vector2 原始scale;
-
-    private void Start()
-    {
-        原始scale=transform.localScale;
-    }
+    private Vector2 原始scale=Vector2.one;
+    
 
     private void OnEnable()
     {

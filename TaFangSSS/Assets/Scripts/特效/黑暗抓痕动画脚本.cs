@@ -71,7 +71,14 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                 {
                     FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
-                FightController.S.MonsterColliderDic[col].Hurt(50,YuanSuType.冰);
+
+                float damage = 属性config.领主攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
+                if (黑暗辅助)
+                {
+                    damage *= (1+英雄星级属性.妲己效果/100f);
+                }
+                
+                FightController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
             }
         }
     }

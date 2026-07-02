@@ -16,7 +16,7 @@ public class Spine一次伤害 : MonoBehaviour
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized] public float damage;
    [NonSerialized] public YuanSuType YuanSuType;
-   private Vector2 原始scale;
+   private Vector2 原始scale=Vector2.one;
    
    
 
@@ -30,7 +30,6 @@ public class Spine一次伤害 : MonoBehaviour
 
    private void Start()
    {
-      原始scale=transform.localScale;
       Skeleton.AnimationState.Complete += Complete;
       Skeleton.AnimationState.Event += OnSpineEvent;
    }

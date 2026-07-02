@@ -17,12 +17,9 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized]public bool 穿透=false;
-   private Vector2 原始scale;
+   private Vector2 原始scale=Vector2.one;
 
-   private void Start()
-   {
-      原始scale = transform.localScale;
-   }
+  
 
 
    private void OnEnable()

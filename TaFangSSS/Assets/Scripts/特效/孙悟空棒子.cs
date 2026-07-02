@@ -12,10 +12,7 @@ public class 孙悟空棒子 : MonoBehaviour
    [NonSerialized] public bool 黑暗辅助;
    private Vector2 原始scale;
 
-   private void Start()
-   {
-      原始scale=transform.localScale;
-   }
+   
 
    private void OnEnable()
    {

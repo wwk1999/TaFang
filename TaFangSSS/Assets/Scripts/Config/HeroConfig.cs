@@ -981,7 +981,7 @@ namespace Config
             {
                 HeroType.琼霄,
                 "向怪物释放暗影定身符,对命中的敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.琼霄][0], 1) + "的" +
-                Get元素string(YuanSuType.黑暗) + "伤害,并定身敌人" + Get技能伤害string(HeroSkillDamageDic[HeroType.琼霄][1], 2)
+                Get元素string(YuanSuType.黑暗) + "伤害,并定身敌人" + Get技能伤害string(HeroSkillDamageDic[HeroType.琼霄][1], 2)+",对相同敌人的定身时间每次衰减10%"
             },
 
             {

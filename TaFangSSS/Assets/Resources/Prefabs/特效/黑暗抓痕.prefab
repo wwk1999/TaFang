@@ -25,9 +25,9 @@ Transform:
   m_GameObject: {fileID: 548824800205918523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0.83, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.07, y: 0.58, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7713763431251709549}
   - {fileID: 3040529519244356402}
@@ -239,6 +239,7 @@ MonoBehaviour:
   obj: {fileID: 7258232708120163082}
   _collider2D1: {fileID: 6886158352950144504}
   _collider2D2: {fileID: 6952242722852863479}
+  heroType: 0
 --- !u!1 &7258232708120163082
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +268,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.08715578, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6551945649925926851}
@@ -313,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u811A\u672C": {fileID: 4005510858207752612}
+  HeroType: 0
 --- !u!1 &7928127010362193350
 GameObject:
   m_ObjectHideFlags: 0

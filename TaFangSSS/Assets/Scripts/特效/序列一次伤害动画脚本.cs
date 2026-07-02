@@ -70,7 +70,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 }
                 if (type == 攻击特效Type.黑暗符)
                 {
-                    FightController.S.MonsterColliderDic[col].黑暗符 = 英雄星级属性.琼霄定身时长;
+                    FightController.S.MonsterColliderDic[col].Set黑暗符(英雄星级属性.琼霄定身时长);
                 }
 
                 if (黑暗辅助)

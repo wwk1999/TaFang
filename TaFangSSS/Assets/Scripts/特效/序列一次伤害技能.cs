@@ -7,13 +7,10 @@ using UnityEngine;
 public class 序列一次伤害技能 : MonoBehaviour
 {
     public 序列一次伤害动画脚本 脚本;
-    private Vector2 原始scale;
+    private Vector2 原始scale=Vector2.one;
     public HeroType heroType;
 
-    private void Start()
-    {
-        原始scale = gameObject.transform.localScale;
-    }
+    
 
     private void OnEnable()
     {

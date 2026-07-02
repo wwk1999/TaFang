@@ -36,6 +36,14 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
    [NonSerialized] public float 冰符=0;
+   private int 黑暗符次数 = 0;
+
+   public void Set黑暗符(float time)
+   {
+      float scale = 0.1f * 黑暗符次数;
+      黑暗符 = time * (1-scale);
+      黑暗符次数++;
+   }
 
    public float GetRealSpeed()
    {
@@ -62,6 +70,7 @@ public class MonsterBase : MonoBehaviour
          return;
       }
 
+      黑暗符次数 = 0;
       isDead = false;
       InitAttribute();
       image.sortingOrder = (int)(transform.position.y * -100)+1;
@@ -159,7 +168,7 @@ public class MonsterBase : MonoBehaviour
       }
       else
       {
-         if (CurrentAttackTime > 1f)
+         if (CurrentAttackTime > 1f&&黑暗符 <= 0)
          {
             怪物攻击();
             CurrentAttackTime = Random.Range(0f,0.3f);

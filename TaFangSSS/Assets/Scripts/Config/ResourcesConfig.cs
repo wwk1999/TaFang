@@ -6,6 +6,23 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //法则
+    public static Sprite 冰;
+    public static Sprite 剑;
+    public static Sprite 力;
+    public static Sprite 原始;
+    public static Sprite 斗;
+    public static Sprite 日;
+    public static Sprite 月;
+    public static Sprite 火;
+    public static Sprite 禁;
+    public static Sprite 箭;
+    public static Sprite 诛仙;
+    public static Sprite 造化;
+    public static Sprite 道;
+    public static Sprite 鸿蒙;
+    
+    
     public static Sprite 品质元神白;
     public static Sprite 品质元神绿;
     public static Sprite 品质元神蓝;
@@ -1025,8 +1042,61 @@ public static Sprite Get品质元神Sprite(QualityType qualityType)
     }
     return null;
 }
+
+public static Sprite Get法则Sprite(HeroType heroType)
+{
+    switch (heroType)
+    {
+        case HeroType.哪吒:
+            return 火;
+        case HeroType.孙悟空:
+            return 斗;
+        case HeroType.碧霄:
+            return 冰;
+        case HeroType.琼霄:
+            return 禁;
+        case HeroType.云霄:
+            return 剑;
+        case HeroType.后羿:
+            return 箭;
+        case HeroType.羲和:
+            return 日;
+        case HeroType.常羲:
+            return 月;
+        case HeroType.女娲:
+            return 造化;
+        case HeroType.元始:
+            return 原始;
+        case HeroType.通天:
+            return 诛仙;
+        case HeroType.老子:
+            return 道;
+        case HeroType.鸿钧:
+            return 鸿蒙;
+        case HeroType.盘古:
+            return 力;
+    }
+
+    return null;
+}
    public static void Init()
    {
+       冰 = Resources.Load<Sprite>("Sprite/法则icon/冰");
+       剑 = Resources.Load<Sprite>("Sprite/法则icon/剑");
+       力 = Resources.Load<Sprite>("Sprite/法则icon/力");
+       原始 = Resources.Load<Sprite>("Sprite/法则icon/原始");
+       斗 = Resources.Load<Sprite>("Sprite/法则icon/斗");
+       日 = Resources.Load<Sprite>("Sprite/法则icon/日");
+       月 = Resources.Load<Sprite>("Sprite/法则icon/月");
+       火 = Resources.Load<Sprite>("Sprite/法则icon/火");
+       禁 = Resources.Load<Sprite>("Sprite/法则icon/禁");
+       箭 = Resources.Load<Sprite>("Sprite/法则icon/箭");
+       诛仙 = Resources.Load<Sprite>("Sprite/法则icon/诛仙");
+       造化 = Resources.Load<Sprite>("Sprite/法则icon/造化");
+       道 = Resources.Load<Sprite>("Sprite/法则icon/道");
+       鸿蒙 = Resources.Load<Sprite>("Sprite/法则icon/鸿蒙");
+       
+       
        品质元神白=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[0];
        品质元神绿=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[1];
        品质元神蓝=Resources.LoadAll<Sprite>("Sprite/品质元神/品质元神")[2];
