@@ -11,7 +11,8 @@ public class 火球 : MonoBehaviour
     [NonSerialized] public YuanSuType YuanSuType=YuanSuType.火;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
-    
+    [NonSerialized] public bool 女娲电辅助;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // 获取两个碰撞器之间的最近点（世界坐标）
@@ -24,6 +25,10 @@ public class 火球 : MonoBehaviour
             if (黑暗辅助)
             {
                 realDamage *= (1+英雄星级属性.妲己效果/100f);
+            }
+            if (女娲电辅助)
+            {
+                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
             FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
             hit.gameObject.SetActive(true);

@@ -37,6 +37,8 @@ public class 人物item : MonoBehaviour
     public 孙悟空棒子 棒子;
     private float 攻击间隔 => Get攻击间隔();
     private bool 上场=false;
+    private int 孙悟空下场次数 = 0;
+    private int 盘古出拳次数 = 0;
 
     public float Get攻击间隔()
     {
@@ -88,7 +90,7 @@ public class 人物item : MonoBehaviour
             {
                 Animator.Play("人物放大缩小",0,0f);
                 var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助);
+                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助);
             }
             else if (攻击范围内怪物.Contains(monsterBase))
             {
@@ -121,7 +123,7 @@ public class 人物item : MonoBehaviour
                 {
                     Animator.Play("人物攻击",0,0f);
                     var dir=(targetPos-(Vector2)transform.position).normalized;
-                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助);
+                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助);
                 }
             }
         }
@@ -132,6 +134,7 @@ public class 人物item : MonoBehaviour
         上场 = true;
         while (count > 0)
         {
+            盘古出拳次数++;
             count--;
             // 实时获取当前目标怪物位置
             Vector2 monstertrans = FightController.S.GetAttackMonster().transform.position;
@@ -148,6 +151,9 @@ public class 人物item : MonoBehaviour
             盘古拳.transform.position = 盘古拳trans.position; // 确保 盘古拳trans 正确
             盘古拳.脚本.瑶池冰辅助 = 瑶池冰辅助 > 0;
             盘古拳.脚本.黑暗辅助 = 妲己黑暗辅助 > 0;
+            盘古拳.脚本.女娲电辅助 = 女娲电辅助 > 0;
+            盘古拳.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.盘古].yuanSuType;
+            盘古拳.脚本.damage = 属性config.领主攻击力 * 英雄星级属性.Get英雄攻击数值(HeroType.盘古)/100f*(1+盘古出拳次数*英雄星级属性.盘古出拳增加伤害/100f);
             盘古拳.gameObject.SetActive(true);
 
             // 等待攻击间隔
@@ -180,24 +186,34 @@ public class 人物item : MonoBehaviour
                 case 攻击特效Type.黑暗抓痕:
                     黑暗抓痕.脚本.瑶池冰辅助 = 瑶池冰辅助>0;
                     黑暗抓痕.脚本.黑暗辅助 = 妲己黑暗辅助>0;
+                    黑暗抓痕.脚本.女娲电辅助 = 女娲电辅助>0;
+
                     黑暗抓痕.gameObject.SetActive(true);
                     黑暗抓痕Animator.Play("187黑暗抓痕_Anim",0,0f);
                     break;
                 case 攻击特效Type.牛魔王技能:
                     牛魔王脚本.瑶池冰辅助 = 瑶池冰辅助>0;
                     牛魔王脚本.黑暗辅助 = 妲己黑暗辅助>0;
+                    牛魔王脚本.女娲电辅助 = 女娲电辅助>0;
+
                     牛魔王技能Obj.gameObject.SetActive(true);
                     牛魔王技能Animator.Play("219牛魔王技能_Anim",0,0f);
                     break;
                 case 攻击特效Type.喷火:
                     喷火.瑶池冰辅助 = 瑶池冰辅助>0;
                     喷火.黑暗辅助 = 妲己黑暗辅助>0;
+                    喷火.女娲电辅助 = 女娲电辅助>0;
+
                     喷火Obj.gameObject.SetActive(true);
                     喷火Animator.Play("114喷火_Anim",0,0f);
                     break;
                 case 攻击特效Type.孙悟空棒子:
+                    孙悟空下场次数++;
+                    棒子.下场次数 = 孙悟空下场次数;
                     棒子.瑶池冰辅助 = 瑶池冰辅助>0;
                     棒子.黑暗辅助 = 妲己黑暗辅助>0;
+                    棒子.女娲电辅助 = 女娲电辅助>0;
+
                     StartCoroutine(棒子.孙悟空攻击(count));
                     break;
                 case 攻击特效Type.火球:
@@ -206,6 +222,8 @@ public class 人物item : MonoBehaviour
                         case 3:
                             火球3.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球3.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球3.女娲电辅助 = 女娲电辅助>0;
+
                             火球3.RotateSpeed = 100;
                             火球3.damage = 20;
                             火球3.gameObject.SetActive(true);
@@ -213,6 +231,8 @@ public class 人物item : MonoBehaviour
                         case 4:
                             火球4.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球4.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球4.女娲电辅助 = 女娲电辅助>0;
+
                             火球4.RotateSpeed = 100;
                             火球4.damage = 20;
                             火球4.gameObject.SetActive(true);
@@ -220,6 +240,8 @@ public class 人物item : MonoBehaviour
                         case 5:
                             火球5.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球5.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球5.女娲电辅助 = 女娲电辅助>0;
+
                             火球5.RotateSpeed = 100;
                             火球5.damage = 20;
                             火球5.gameObject.SetActive(true);
@@ -227,6 +249,8 @@ public class 人物item : MonoBehaviour
                         case 6:
                             火球6.瑶池冰辅助 = 瑶池冰辅助>0;
                             火球6.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球6.女娲电辅助 = 女娲电辅助>0;
+
                             火球6.RotateSpeed = 100;
                             火球6.damage = 20;
                             火球6.gameObject.SetActive(true);

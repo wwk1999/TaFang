@@ -69,41 +69,41 @@ public class 法则config
         {
             HeroType.哪吒, new List<string>()
             {
-                "效果范围增大<color=green>5%</color>",
-                "效果范围增大<color=green>10%</color>",
-                "效果范围增大<color=green>15%</color>",
-                "效果范围增大<color=green>20%</color>",
-                "效果范围增大<color=green>25%</color>"
+                "三昧真火效果范围增大<color=green>5%</color>",
+                "三昧真火效果范围增大<color=green>10%</color>",
+                "三昧真火效果范围增大<color=green>15%</color>",
+                "三昧真火效果范围增大<color=green>20%</color>",
+                "三昧真火效果范围增大<color=green>25%</color>"
             }
         },
         {
             HeroType.碧霄, new List<string>()
             {
-                "冷却缩减增加<color=green>5%</color>",
-                "效果范围增大<color=green>10%</color>",
-                "冷却缩减增加<color=green>15%</color>",
-                "效果范围增大<color=green>20%</color>",
-                "冷却缩减增加<color=green>25%</color>"
+                "冰龙啸天冷却缩减增加<color=green>5%</color>",
+                "冰龙啸天效果范围增大<color=green>10%</color>",
+                "冰龙啸天冷却缩减增加<color=green>15%</color>",
+                "冰龙啸天效果范围增大<color=green>20%</color>",
+                "冰龙啸天冷却缩减增加<color=green>25%</color>"
             }
         },
         {
             HeroType.琼霄, new List<string>()
             {
-                "定身时间增加<color=green>0.1S</color>",
-                "定身时间增加<color=green>0.2S</color>",
-                "定身时间增加<color=green>0.3S</color>",
-                "定身时间增加<color=green>0.4S</color>",
-                "定身时间增加<color=green>0.5S</color>",
+                "暗影定身符定身时间增加<color=green>0.1S</color>",
+                "暗影定身符定身时间增加<color=green>0.2S</color>",
+                "暗影定身符定身时间增加<color=green>0.3S</color>",
+                "暗影定身符定身时间增加<color=green>0.4S</color>",
+                "暗影定身符定身时间增加<color=green>0.5S</color>",
             }
         },
         {
             HeroType.孙悟空, new List<string>()
             {
-                "每次下场增加<color=green>1%</color>伤害",
-                "每次下场增加<color=green>1.25%</color>伤害",
-                "每次下场增加<color=green>1.5%</color>伤害",
-                "每次下场增加<color=green>1.75%</color>伤害",
-                "每次下场增加<color=green>2%</color>伤害",
+                "每次下场增加如意金箍棒<color=green>1%</color>伤害",
+                "每次下场增加如意金箍棒<color=green>1.25%</color>伤害",
+                "每次下场增加如意金箍棒<color=green>1.5%</color>伤害",
+                "每次下场增加如意金箍棒<color=green>1.75%</color>伤害",
+                "每次下场增加如意金箍棒<color=green>2%</color>伤害",
             }
         },
         
@@ -111,55 +111,55 @@ public class 法则config
         {
             HeroType.云霄, new List<string>()
             {
-                "冷却缩减增加<color=green>5%</color>",
-                "冷却缩减增加<color=green>10%</color>",
-                "冷却缩减增加<color=green>15%</color>",
-                "冷却缩减增加<color=green>20%</color>",
-                "冷却缩减增加<color=green>25%</color>",
+                "冰矢破空冷却缩减增加<color=green>5%</color>",
+                "冰矢破空冷却缩减增加<color=green>10%</color>",
+                "冰矢破空冷却缩减增加<color=green>15%</color>",
+                "冰矢破空冷却缩减增加<color=green>20%</color>",
+                "冰矢破空冷却缩减增加<color=green>25%</color>",
             }
         },
         
         {
             HeroType.后羿, new List<string>()
             {
-                "连射概率增加<color=green>3%</color>",
-                "连射概率增加<color=green>6%</color>",
-                "连射概率增加<color=green>9%</color>",
-                "连射概率增加<color=green>12%</color>",
-                "连射概率增加<color=green>15%</color>",
+                "射日神箭连射概率增加<color=green>3%</color>",
+                "射日神箭连射概率增加<color=green>6%</color>",
+                "射日神箭连射概率增加<color=green>9%</color>",
+                "射日神箭连射概率增加<color=green>12%</color>",
+                "射日神箭连射概率增加<color=green>15%</color>",
             }
         },
         
         {
             HeroType.羲和, new List<string>()
             {
-                "灼烧每次可叠加<color=green>10%</color>伤害",
-                "灼烧每次可叠加<color=green>15%</color>伤害",
-                "灼烧每次可叠加<color=green>20%</color>伤害",
-                "灼烧每次可叠加<color=green>25%</color>伤害",
-                "灼烧每次可叠加<color=green>30%</color>伤害",
+                "烈日灼心阵灼烧每次可叠加<color=green>10%</color>伤害",
+                "烈日灼心阵灼烧每次可叠加<color=green>15%</color>伤害",
+                "烈日灼心阵灼烧每次可叠加<color=green>20%</color>伤害",
+                "烈日灼心阵灼烧每次可叠加<color=green>25%</color>伤害",
+                "烈日灼心阵灼烧每次可叠加<color=green>30%</color>伤害",
             }
         },
         
         {
             HeroType.常羲, new List<string>()
             {
-                "减速效果增加<color=green>3%</color>",
-                "减速效果增加<color=green>6%</color>",
-                "减速效果增加<color=green>9%</color>",
-                "减速效果增加<color=green>12%</color>",
-                "减速效果增加<color=green>15%</color>",
+                "月华冰封阵减速效果增加<color=green>3%</color>",
+                "月华冰封阵减速效果增加<color=green>6%</color>",
+                "月华冰封阵减速效果增加<color=green>9%</color>",
+                "月华冰封阵减速效果增加<color=green>12%</color>",
+                "月华冰封阵减速效果增加<color=green>15%</color>",
             }
         },
         
         {
             HeroType.女娲, new List<string>()
             {
-                "被施法英雄伤害增加<color=green>3%</color>",
-                "被施法英雄伤害增加<color=green>6%</color>",
-                "被施法英雄伤害增加<color=green>9%</color>",
-                "被施法英雄伤害增加<color=green>12%</color>",
-                "被施法英雄伤害增加<color=green>15%</color>",
+                "补天净化咒被施法英雄伤害增加<color=green>3%</color>",
+                "补天净化咒被施法英雄伤害增加<color=green>6%</color>",
+                "补天净化咒被施法英雄伤害增加<color=green>9%</color>",
+                "补天净化咒被施法英雄伤害增加<color=green>12%</color>",
+                "补天净化咒被施法英雄伤害增加<color=green>15%</color>",
             }
         },
         
@@ -188,11 +188,11 @@ public class 法则config
         {
             HeroType.通天, new List<string>()
             {
-                "冷却缩减增加<color=green>5%</color>,暴击率增加<color=green>3%</color>",
-                "冷却缩减增加<color=green>10%</color>,暴击率增加<color=green>6%</color>",
-                "冷却缩减增加<color=green>15%</color>,暴击率增加<color=green>9%</color>",
-                "冷却缩减增加<color=green>20%</color>,暴击率增加<color=green>12%</color>",
-                "冷却缩减增加<color=green>25%</color>,暴击率增加<color=green>15%</color>",
+                "戮仙暗矢冷却缩减增加<color=green>5%</color>,暴击率增加<color=green>3%</color>",
+                "戮仙暗矢冷却缩减增加<color=green>10%</color>,暴击率增加<color=green>6%</color>",
+                "戮仙暗矢冷却缩减增加<color=green>15%</color>,暴击率增加<color=green>9%</color>",
+                "戮仙暗矢冷却缩减增加<color=green>20%</color>,暴击率增加<color=green>12%</color>",
+                "戮仙暗矢冷却缩减增加<color=green>25%</color>,暴击率增加<color=green>15%</color>",
             }
         },
         

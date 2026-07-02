@@ -11,6 +11,8 @@ public class 孙悟空棒子 : MonoBehaviour
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
    private Vector2 原始scale;
+   [NonSerialized] public int 下场次数 = 0;
+   [NonSerialized] public bool 女娲电辅助;
 
    
 
@@ -33,6 +35,12 @@ public class 孙悟空棒子 : MonoBehaviour
          }
 
          float damage = 属性config.领主攻击力*英雄星级属性.孙悟空攻击数值/100f;
+         damage *= (1+下场次数 *英雄星级属性.孙悟空每次下场伤害 / 100f);
+         if (女娲电辅助)
+         {
+            damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+         }
+         
          if (黑暗辅助)
          {
             damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);

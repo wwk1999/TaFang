@@ -9,6 +9,8 @@ public class 火球旋转parent : MonoBehaviour
     public List<火球> 火球list;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public bool 女娲电辅助;
+
     [NonSerialized] public float damage = 属性config.领主攻击力*英雄星级属性.元始攻击数值/100f;
 
     public void Hide()
@@ -18,10 +20,13 @@ public class 火球旋转parent : MonoBehaviour
     private void OnEnable()
     {
         CancelInvoke();
+        transform.localScale = new Vector3(英雄星级属性.元始体积, 英雄星级属性.元始体积, 1);
         foreach (var item in 火球list)
         {
             item.黑暗辅助 = 黑暗辅助;
             item.瑶池冰辅助 = 瑶池冰辅助;
+            item.女娲电辅助 = 女娲电辅助;
+
             item.damage=damage;
         }
         Invoke(nameof(Hide), 英雄星级属性.元始持续时间);

@@ -18,6 +18,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized]public bool 穿透=false;
    private Vector2 原始scale=Vector2.one;
+   [NonSerialized] public bool 女娲电辅助;
 
   
 
@@ -56,6 +57,10 @@ public class 普通魔法弹带peng : MonoBehaviour
          if (黑暗辅助)
          {
             realDamage *= (1+英雄星级属性.妲己效果/100f);
+         }
+         if (女娲电辅助)
+         {
+            damage*=(1+英雄星级属性.女娲辅助伤害/100f);
          }
          FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
          hit.gameObject.SetActive(true);

@@ -12,6 +12,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
     public HeroType heroType;
+    [NonSerialized] public bool 女娲电辅助;
 
 
     public void Hide()
@@ -76,6 +77,10 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                 if (黑暗辅助)
                 {
                     damage *= (1+英雄星级属性.妲己效果/100f);
+                }
+                if (女娲电辅助)
+                {
+                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
                 FightController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType);

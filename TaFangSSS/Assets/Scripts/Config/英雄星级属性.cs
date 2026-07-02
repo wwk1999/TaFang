@@ -152,6 +152,8 @@ public class 英雄星级属性
     public static float 孙悟空Cd=> Get孙悟空Cd();
     public static float 孙悟空效果范围=> Get孙悟空效果范围();
     public static int 孙悟空次数=> Get孙悟空次数();
+
+    public static float 孙悟空每次下场伤害 => Get孙悟空每次下场伤害();
     
     
     public static float 碧霄攻击数值 => Get碧霄攻击数值();
@@ -170,6 +172,8 @@ public class 英雄星级属性
     public static float 羲和Cd=> Get羲和Cd();
     public static float 羲和效果范围=> Get羲和效果范围();
     public static float 羲和灼烧伤害=> Get羲和灼烧伤害();
+    public static float 羲和灼烧叠加伤害=> Get羲和灼烧叠加伤害();
+
     
     public static float 常曦攻击数值 => Get常曦攻击数值();
     public static float 常曦Cd=> Get常曦Cd();
@@ -180,7 +184,8 @@ public class 英雄星级属性
     public static float 后羿攻击数值 => Get后羿攻击数值();
     public static float 后羿Cd=> Get后羿Cd();
     public static float 后羿攻击数量 => Get后羿攻击数量();
-    
+    public static float 后羿连射概率 => Get后羿连射概率();
+
     
     public static float 云霄攻击数值 => Get云霄攻击数值();
     public static float 云霄Cd=> Get云霄Cd();
@@ -190,6 +195,8 @@ public class 英雄星级属性
     public static float 女娲Cd=> Get女娲Cd();
     public static float 女娲持续时间=> Get女娲持续时间();
     public static float 女娲效果=> Get女娲效果();
+    public static float 女娲辅助伤害=> Get女娲辅助伤害();
+
     
     
     public static float 老子攻击数值 => Get老子攻击数值();
@@ -208,12 +215,14 @@ public class 英雄星级属性
     public static float 元始持续时间 => Get元始持续时间();
     public static float 元始转速=> Get元始转速();
     public static float 元始Cd => Get元始Cd();
-    
+    public static float 元始体积 => Get元始体积();
+
     
     public static float 盘古攻击数值 => Get盘古攻击数值();
     public static float 盘古Cd=> Get盘古Cd();
     public static int 盘古攻击数量 => Get盘古攻击数量();
-    
+    public static float 盘古出拳增加伤害 => Get盘古出拳增加伤害();
+
     
     public static float 鸿钧攻击数值 => Get鸿钧攻击数值();
     public static float 鸿钧Cd=> Get鸿钧Cd();
@@ -233,6 +242,27 @@ public class 英雄星级属性
         if (xj >= 5)
         {
             value += 2;
+        }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.鸿钧]/5;
+        if (法则星级 >= 1)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 1;
         }
 
         return value;
@@ -256,6 +286,28 @@ public class 英雄星级属性
         {
             value /= 1.25f;
         }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.鸿钧]/5;
+        if (法则星级 >= 1)
+        {
+            value /= 1.05f;
+        }
+        if (法则星级 >= 2)
+        {
+            value /= 1.1f;
+        }
+        if (法则星级 >= 3)
+        {
+            value /= 1.15f;
+        }
+        if (法则星级 >= 4)
+        {
+            value /= 1.2f;
+        }
+        if (法则星级 >= 5)
+        {
+            value /= 1.25f;
+        }
+
         return value;
     }
     
@@ -269,9 +321,34 @@ public class 英雄星级属性
         }
         return value;
     }
-    
-    
-    
+
+
+    public static float Get盘古出拳增加伤害()
+    {
+        float value = 0;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.盘古]/5;
+        if (法则星级 >= 1)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 1.25f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 1.5f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 1.75f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 2f;
+        }
+        return value;
+    }
     
     public static int Get盘古攻击数量()
     {
@@ -284,6 +361,27 @@ public class 英雄星级属性
         if (xj >= 5)
         {
             value += 2;
+        }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.盘古]/5;
+        if (法则星级 >= 1)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 1;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 1;
         }
 
         return value;
@@ -325,14 +423,56 @@ public class 英雄星级属性
         }
         return value;
     }
+
+    public static float Get元始体积()
+    {
+        float value = 1f;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.元始]/5;
+        if (法则星级 >= 1)
+        {
+            value += 0.05f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 0.1f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 0.15f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 0.2f;
+        }
+
+        return value;
+    }
     public static float Get元始转速()
     {
         float value = 1;
         int xj = PlayerData.S.HeroDataDic[HeroType.元始].Level - 1;
         if (xj >= 5)
         {
-            value *= 1.25f;
+            value += 0.25f;
         }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.元始]/5;
+        if (法则星级 >= 1)
+        {
+            value += 0.05f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 0.1f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 0.15f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 0.2f;
+        }
+        
         return value;
     }
     
@@ -348,6 +488,11 @@ public class 英雄星级属性
         int value = 3;
         int xj = PlayerData.S.HeroDataDic[HeroType.元始].Level - 1;
         if (xj >= 3)
+        {
+            value += 1;
+        }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.元始]/5;
+        if (法则星级 >= 5)
         {
             value += 1;
         }
@@ -402,6 +547,33 @@ public class 英雄星级属性
         return value;
     }
 
+    public static float Get通天暴击率()
+    {
+        float value = 0;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
+        if (法则星级 >= 1)
+        {
+            value += 3f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 6f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 9f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 12f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 15f;
+        }
+
+        return value;
+    }
     public static float Get通天Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.通天];
@@ -409,6 +581,27 @@ public class 英雄星级属性
         if (xj >= 2)
         {
             value /= 1.2f;
+        }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
+        if (法则星级 >= 1)
+        {
+            value /= 1.05f;
+        }
+        if (法则星级 >= 2)
+        {
+            value /= 1.1f;
+        }
+        if (法则星级 >= 3)
+        {
+            value /= 1.15f;
+        }
+        if (法则星级 >= 4)
+        {
+            value /= 1.2f;
+        }
+        if (法则星级 >= 5)
+        {
+            value /= 1.25f;
         }
         return value;
     }
@@ -433,6 +626,27 @@ public class 英雄星级属性
         float value = HeroConfig.HeroSkillDamageDic[HeroType.老子][1];
         int xj = PlayerData.S.HeroDataDic[HeroType.老子].Level - 1;
         if (xj >= 5)
+        {
+            value += 5f;
+        }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.老子]/5;
+        if (法则星级 >= 1)
+        {
+            value += 1f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 2f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 3f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 4f;
+        }
+        if (法则星级 >= 5)
         {
             value += 5f;
         }
@@ -462,8 +676,34 @@ public class 英雄星级属性
         }
         return value;
     }
-    
-    
+
+    public static float Get女娲辅助伤害()
+    {
+        float value = 0;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.女娲]/5;
+        if (法则星级 >= 1)
+        {
+            value += 3f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 6f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 9f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 12f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 15f;
+        }
+
+        return value;
+    }
     public static float Get女娲效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.女娲][0];
@@ -525,6 +765,28 @@ public class 英雄星级属性
         {
             value /= 1.2f;
         }
+        
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.云霄]/5;
+        if (法则星级 >= 1)
+        {
+            value /= 1.05f;
+        }
+        if (法则星级 >= 2)
+        {
+            value /= 1.1f;
+        }
+        if (法则星级 >= 3)
+        {
+            value /= 1.15f;
+        }
+        if (法则星级 >= 4)
+        {
+            value /= 1.2f;
+        }
+        if (法则星级 >= 5)
+        {
+            value /= 1.25f;
+        }
         return value;
     }
     public static float Get云霄攻击数值()
@@ -541,7 +803,35 @@ public class 英雄星级属性
         }
         return value;
     }
-    
+
+    public static float Get后羿连射概率()
+    {
+        float value = 0;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.后羿]/5;
+        if (法则星级 >= 1)
+        {
+            value += 3f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 6f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 9f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 12f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 15f;
+        }
+
+        return value;
+    }
+
     
     public static float Get后羿攻击数量()
     {
@@ -593,6 +883,28 @@ public class 英雄星级属性
         {
             value += 15f;
         }
+        
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.常羲]/5;
+        if (法则星级 >= 1)
+        {
+            value += 3;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 6f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 9f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 12f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 15f;
+        }
         return value;
     }
     
@@ -631,6 +943,32 @@ public class 英雄星级属性
         return value;
     }
 
+    public static float Get羲和灼烧叠加伤害()
+    {
+        float value = 0;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.羲和]/5;
+        if (法则星级 >= 1)
+        {
+            value += 10;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 15f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 20f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 25f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 30f;
+        }
+        return value;
+    }
     
     public static float Get羲和灼烧伤害()
     {
@@ -689,6 +1027,27 @@ public class 英雄星级属性
         {
             value += 0.5f;
         }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.琼霄]/5;
+        if (法则星级 >= 1)
+        {
+            value += 0.1f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 0.2f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 0.3f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 0.4f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 0.5f;
+        }
         return value;
     }
     
@@ -737,7 +1096,21 @@ public class 英雄星级属性
         int xj = PlayerData.S.HeroDataDic[HeroType.碧霄].Level - 1;
         if (xj >= 5)
         {
-            value *= 1.2f;
+            value += 0.2f;
+        }
+
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.碧霄]/5;
+        if (法则星级 >= 1)
+        {
+            value += 0.05f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 0.15f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 0.25f;
         }
         return value;
     }
@@ -753,6 +1126,16 @@ public class 英雄星级属性
         {
             value /= 1.2f;
         }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.碧霄]/5;
+        if (法则星级 >= 2)
+        {
+            value /= 1.1f;
+        }
+        if (法则星级 >= 4)
+        {
+            value /= 1.2f;
+        }
+       
         return value;
     }
     public static float Get碧霄攻击数值()
@@ -770,7 +1153,33 @@ public class 英雄星级属性
         return value;
     }
 
+    public static float Get孙悟空每次下场伤害()
+    {
+        float value = 0;
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.孙悟空]/5;
+        if (法则星级 >= 1)
+        {
+            value += 1f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 1.25f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 1.5f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 1.75f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 2f;
+        }
 
+        return value;
+    }
 
     public static int Get孙悟空次数()
     {
@@ -825,7 +1234,28 @@ public class 英雄星级属性
         int xj = PlayerData.S.HeroDataDic[HeroType.哪吒].Level - 1;
         if (xj >= 5)
         {
-            value *= 1.2f;
+            value += 0.2f;
+        }
+        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.哪吒] / 5;
+        if (法则星级 >= 1)
+        {
+            value += 0.05f;
+        }
+        if (法则星级 >= 2)
+        {
+            value += 0.10f;
+        }
+        if (法则星级 >= 3)
+        {
+            value += 0.15f;
+        }
+        if (法则星级 >= 4)
+        {
+            value += 0.2f;
+        }
+        if (法则星级 >= 5)
+        {
+            value += 0.25f;
         }
         return value;
     }

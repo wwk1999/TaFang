@@ -11,6 +11,7 @@ public class 石敢当锤子 : MonoBehaviour
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
    private Vector2 原始scale=Vector2.one;
+   [NonSerialized] public bool 女娲电辅助;
 
    
 
@@ -52,6 +53,10 @@ public class 石敢当锤子 : MonoBehaviour
          if (黑暗辅助)
          {
             damage *= (1+英雄星级属性.妲己效果/100f);
+         }
+         if (女娲电辅助)
+         {
+            damage*=(1+英雄星级属性.女娲辅助伤害/100f);
          }
          FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理);
       }

@@ -38,6 +38,17 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 冰符=0;
    private int 黑暗符次数 = 0;
 
+   public void Set灼烧伤害(float damage)
+   {
+      if (灼烧time <= 0)
+      {
+         灼烧伤害 = damage;
+      }
+      else
+      {
+         灼烧伤害 += 英雄星级属性.羲和灼烧叠加伤害 / 100f * damage;
+      }
+   }
    public void Set黑暗符(float time)
    {
       float scale = 0.1f * 黑暗符次数;

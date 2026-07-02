@@ -16,6 +16,7 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized] public bool 黑暗辅助;
     [NonSerialized] public float 伤害间隔=0.2f;
     [NonSerialized] public float 当前伤害时间=0;
+    [NonSerialized] public bool 女娲电辅助;
 
     private float alltime=0;
     
@@ -58,6 +59,10 @@ public class 循环伤害技能 : MonoBehaviour
             if (黑暗辅助)
             {
                 realDamage *= (1+英雄星级属性.妲己效果/100);
+            }
+            if (女娲电辅助)
+            {
+                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
 
             FightController.S.MonsterColliderDic[other].Hurt(realDamage, YuanSuType);

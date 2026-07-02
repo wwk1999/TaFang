@@ -15,6 +15,7 @@ public class 冰符动画脚本: MonoBehaviour
     [NonSerialized] public bool 黑暗辅助;
     [NonSerialized]public float damage;
     [NonSerialized]public YuanSuType YuanSuType;
+    [NonSerialized] public bool 女娲电辅助;
 
 
     public void Hide()
@@ -60,13 +61,17 @@ public class 冰符动画脚本: MonoBehaviour
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    FightController.S.MonsterColliderDic[col].灼烧伤害 = 英雄星级属性.羲和灼烧伤害*属性config.领主攻击力;
+                    FightController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
                     FightController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
                 if (黑暗辅助)
                 {
                     damage *= (1f+英雄星级属性.妲己效果/100f);
+                }
+                if (女娲电辅助)
+                {
+                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
                 FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
@@ -100,13 +105,17 @@ public class 冰符动画脚本: MonoBehaviour
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    FightController.S.MonsterColliderDic[col].灼烧伤害 = 英雄星级属性.羲和灼烧伤害*属性config.领主攻击力;
+                    FightController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
                     FightController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
                 if (黑暗辅助)
                 {
                     damage *= (1f+英雄星级属性.妲己效果/100f);
+                }
+                if (女娲电辅助)
+                {
+                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
                 FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
@@ -140,13 +149,17 @@ public class 冰符动画脚本: MonoBehaviour
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    FightController.S.MonsterColliderDic[col].灼烧伤害 = 英雄星级属性.羲和灼烧伤害*属性config.领主攻击力;
+                    FightController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
                     FightController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
                 if (黑暗辅助)
                 {
                     damage *= (1f+英雄星级属性.妲己效果/100f);
+                }
+                if (女娲电辅助)
+                {
+                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
                 FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
