@@ -111,8 +111,8 @@ public enum Monster特性Type
   肉盾怪,
   高速怪,
   自爆怪,
-  隐身怪,
   回复怪,
+  远程怪,
 }
 
 public class 普通关卡怪物Item
@@ -157,8 +157,7 @@ public class MonsterConfig : MonoBehaviour
     { Monster特性Type.高速怪,1},
     { Monster特性Type.回复怪,1},
     { Monster特性Type.自爆怪,1},
-    { Monster特性Type.隐身怪,1},
-
+    { Monster特性Type.远程怪,1},
   };
 
   public static Dictionary<MonsterTypeName, Monster特性Type> 怪物特性Dic = new Dictionary<MonsterTypeName, Monster特性Type>()

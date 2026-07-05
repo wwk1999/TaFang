@@ -75,7 +75,18 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.衣服锻造石] += 100;
             PlayerData.S.PropListDic[PropType.鞋子锻造石] += 100;
             PlayerData.S.PropListDic[PropType.洗练石] += 100;
+            
+            PlayerData.S.道纹List[(道纹Type.增加百分比攻击力, QualityType.天品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加百分比攻击力, QualityType.宇品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加百分比攻击力, QualityType.宙品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加百分比攻击力, QualityType.洪品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加百分比攻击力, QualityType.荒品)] = 999;
 
+            PlayerData.S.道纹List[(道纹Type.增加黑暗伤害, QualityType.天品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加黑暗伤害, QualityType.宇品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加黑暗伤害, QualityType.宙品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加黑暗伤害, QualityType.洪品)] = 999;
+            PlayerData.S.道纹List[(道纹Type.增加黑暗伤害, QualityType.荒品)] = 999;
         });
         LevelBtn.onClick.AddListener(() =>
         {

@@ -17,6 +17,281 @@ public class PlayerData : XSingleton<PlayerData>
     public int GongDe;
     public int CurrentBianDui = 1;
 
+    public Dictionary<(道纹Type 道纹Type, QualityType QualityType), int> 道纹List = new Dictionary<(道纹Type, QualityType), int>()
+{
+    // 增加百分比攻击力
+    {(道纹Type.增加百分比攻击力, QualityType.天品), 0},
+    {(道纹Type.增加百分比攻击力, QualityType.宇品), 0},
+    {(道纹Type.增加百分比攻击力, QualityType.宙品), 0},
+    {(道纹Type.增加百分比攻击力, QualityType.洪品), 0},
+    {(道纹Type.增加百分比攻击力, QualityType.荒品), 0},
+
+    // 增加战士伤害
+    {(道纹Type.增加战士伤害, QualityType.天品), 0},
+    {(道纹Type.增加战士伤害, QualityType.宇品), 0},
+    {(道纹Type.增加战士伤害, QualityType.宙品), 0},
+    {(道纹Type.增加战士伤害, QualityType.洪品), 0},
+    {(道纹Type.增加战士伤害, QualityType.荒品), 0},
+
+    // 增加法师伤害
+    {(道纹Type.增加法师伤害, QualityType.天品), 0},
+    {(道纹Type.增加法师伤害, QualityType.宇品), 0},
+    {(道纹Type.增加法师伤害, QualityType.宙品), 0},
+    {(道纹Type.增加法师伤害, QualityType.洪品), 0},
+    {(道纹Type.增加法师伤害, QualityType.荒品), 0},
+
+    // 增加控制伤害
+    {(道纹Type.增加控制伤害, QualityType.天品), 0},
+    {(道纹Type.增加控制伤害, QualityType.宇品), 0},
+    {(道纹Type.增加控制伤害, QualityType.宙品), 0},
+    {(道纹Type.增加控制伤害, QualityType.洪品), 0},
+    {(道纹Type.增加控制伤害, QualityType.荒品), 0},
+
+    // 增加射手伤害
+    {(道纹Type.增加射手伤害, QualityType.天品), 0},
+    {(道纹Type.增加射手伤害, QualityType.宇品), 0},
+    {(道纹Type.增加射手伤害, QualityType.宙品), 0},
+    {(道纹Type.增加射手伤害, QualityType.洪品), 0},
+    {(道纹Type.增加射手伤害, QualityType.荒品), 0},
+
+    // 增加小怪伤害
+    {(道纹Type.增加小怪伤害, QualityType.天品), 0},
+    {(道纹Type.增加小怪伤害, QualityType.宇品), 0},
+    {(道纹Type.增加小怪伤害, QualityType.宙品), 0},
+    {(道纹Type.增加小怪伤害, QualityType.洪品), 0},
+    {(道纹Type.增加小怪伤害, QualityType.荒品), 0},
+
+    // 增加物理伤害
+    {(道纹Type.增加物理伤害, QualityType.天品), 0},
+    {(道纹Type.增加物理伤害, QualityType.宇品), 0},
+    {(道纹Type.增加物理伤害, QualityType.宙品), 0},
+    {(道纹Type.增加物理伤害, QualityType.洪品), 0},
+    {(道纹Type.增加物理伤害, QualityType.荒品), 0},
+
+    // 增加雷电伤害
+    {(道纹Type.增加雷电伤害, QualityType.天品), 0},
+    {(道纹Type.增加雷电伤害, QualityType.宇品), 0},
+    {(道纹Type.增加雷电伤害, QualityType.宙品), 0},
+    {(道纹Type.增加雷电伤害, QualityType.洪品), 0},
+    {(道纹Type.增加雷电伤害, QualityType.荒品), 0},
+
+    // 增加冰霜伤害
+    {(道纹Type.增加冰霜伤害, QualityType.天品), 0},
+    {(道纹Type.增加冰霜伤害, QualityType.宇品), 0},
+    {(道纹Type.增加冰霜伤害, QualityType.宙品), 0},
+    {(道纹Type.增加冰霜伤害, QualityType.洪品), 0},
+    {(道纹Type.增加冰霜伤害, QualityType.荒品), 0},
+
+    // 增加黑暗伤害
+    {(道纹Type.增加黑暗伤害, QualityType.天品), 0},
+    {(道纹Type.增加黑暗伤害, QualityType.宇品), 0},
+    {(道纹Type.增加黑暗伤害, QualityType.宙品), 0},
+    {(道纹Type.增加黑暗伤害, QualityType.洪品), 0},
+    {(道纹Type.增加黑暗伤害, QualityType.荒品), 0},
+
+    // 增加火焰伤害
+    {(道纹Type.增加火焰伤害, QualityType.天品), 0},
+    {(道纹Type.增加火焰伤害, QualityType.宇品), 0},
+    {(道纹Type.增加火焰伤害, QualityType.宙品), 0},
+    {(道纹Type.增加火焰伤害, QualityType.洪品), 0},
+    {(道纹Type.增加火焰伤害, QualityType.荒品), 0},
+
+    // 增加精英怪和首领伤害
+    {(道纹Type.增加精英怪和首领伤害, QualityType.天品), 0},
+    {(道纹Type.增加精英怪和首领伤害, QualityType.宇品), 0},
+    {(道纹Type.增加精英怪和首领伤害, QualityType.宙品), 0},
+    {(道纹Type.增加精英怪和首领伤害, QualityType.洪品), 0},
+    {(道纹Type.增加精英怪和首领伤害, QualityType.荒品), 0},
+
+    // 城墙低血增加伤害
+    {(道纹Type.城墙低血增加伤害, QualityType.天品), 0},
+    {(道纹Type.城墙低血增加伤害, QualityType.宇品), 0},
+    {(道纹Type.城墙低血增加伤害, QualityType.宙品), 0},
+    {(道纹Type.城墙低血增加伤害, QualityType.洪品), 0},
+    {(道纹Type.城墙低血增加伤害, QualityType.荒品), 0},
+
+    // 击杀精英怪城墙回血
+    {(道纹Type.击杀精英怪城墙回血, QualityType.天品), 0},
+    {(道纹Type.击杀精英怪城墙回血, QualityType.宇品), 0},
+    {(道纹Type.击杀精英怪城墙回血, QualityType.宙品), 0},
+    {(道纹Type.击杀精英怪城墙回血, QualityType.洪品), 0},
+    {(道纹Type.击杀精英怪城墙回血, QualityType.荒品), 0},
+
+    // 城墙血量百分比
+    {(道纹Type.城墙血量百分比, QualityType.天品), 0},
+    {(道纹Type.城墙血量百分比, QualityType.宇品), 0},
+    {(道纹Type.城墙血量百分比, QualityType.宙品), 0},
+    {(道纹Type.城墙血量百分比, QualityType.洪品), 0},
+    {(道纹Type.城墙血量百分比, QualityType.荒品), 0},
+
+    // 城墙免疫伤害
+    {(道纹Type.城墙免疫伤害, QualityType.天品), 0},
+    {(道纹Type.城墙免疫伤害, QualityType.宇品), 0},
+    {(道纹Type.城墙免疫伤害, QualityType.宙品), 0},
+    {(道纹Type.城墙免疫伤害, QualityType.洪品), 0},
+    {(道纹Type.城墙免疫伤害, QualityType.荒品), 0},
+
+    // 城墙满血时加伤害
+    {(道纹Type.城墙满血时加伤害, QualityType.天品), 0},
+    {(道纹Type.城墙满血时加伤害, QualityType.宇品), 0},
+    {(道纹Type.城墙满血时加伤害, QualityType.宙品), 0},
+    {(道纹Type.城墙满血时加伤害, QualityType.洪品), 0},
+    {(道纹Type.城墙满血时加伤害, QualityType.荒品), 0},
+
+    // 英雄暴击率
+    {(道纹Type.英雄暴击率, QualityType.天品), 0},
+    {(道纹Type.英雄暴击率, QualityType.宇品), 0},
+    {(道纹Type.英雄暴击率, QualityType.宙品), 0},
+    {(道纹Type.英雄暴击率, QualityType.洪品), 0},
+    {(道纹Type.英雄暴击率, QualityType.荒品), 0},
+
+    // 伤害在范围内浮动
+    {(道纹Type.伤害在范围内浮动, QualityType.天品), 0},
+    {(道纹Type.伤害在范围内浮动, QualityType.宇品), 0},
+    {(道纹Type.伤害在范围内浮动, QualityType.宙品), 0},
+    {(道纹Type.伤害在范围内浮动, QualityType.洪品), 0},
+    {(道纹Type.伤害在范围内浮动, QualityType.荒品), 0},
+
+    // 无视抗性
+    {(道纹Type.无视抗性, QualityType.天品), 0},
+    {(道纹Type.无视抗性, QualityType.宇品), 0},
+    {(道纹Type.无视抗性, QualityType.宙品), 0},
+    {(道纹Type.无视抗性, QualityType.洪品), 0},
+    {(道纹Type.无视抗性, QualityType.荒品), 0},
+
+    // 战士对靠近城墙敌人伤害增高
+    {(道纹Type.战士对靠近城墙敌人伤害增高, QualityType.天品), 0},
+    {(道纹Type.战士对靠近城墙敌人伤害增高, QualityType.宇品), 0},
+    {(道纹Type.战士对靠近城墙敌人伤害增高, QualityType.宙品), 0},
+    {(道纹Type.战士对靠近城墙敌人伤害增高, QualityType.洪品), 0},
+    {(道纹Type.战士对靠近城墙敌人伤害增高, QualityType.荒品), 0},
+
+    // 射手连射概率
+    {(道纹Type.射手连射概率, QualityType.天品), 0},
+    {(道纹Type.射手连射概率, QualityType.宇品), 0},
+    {(道纹Type.射手连射概率, QualityType.宙品), 0},
+    {(道纹Type.射手连射概率, QualityType.洪品), 0},
+    {(道纹Type.射手连射概率, QualityType.荒品), 0},
+
+    // 控制冷却缩减
+    {(道纹Type.控制冷却缩减, QualityType.天品), 0},
+    {(道纹Type.控制冷却缩减, QualityType.宇品), 0},
+    {(道纹Type.控制冷却缩减, QualityType.宙品), 0},
+    {(道纹Type.控制冷却缩减, QualityType.洪品), 0},
+    {(道纹Type.控制冷却缩减, QualityType.荒品), 0},
+
+    // 法师暴击率
+    {(道纹Type.法师暴击率, QualityType.天品), 0},
+    {(道纹Type.法师暴击率, QualityType.宇品), 0},
+    {(道纹Type.法师暴击率, QualityType.宙品), 0},
+    {(道纹Type.法师暴击率, QualityType.洪品), 0},
+    {(道纹Type.法师暴击率, QualityType.荒品), 0},
+
+    // 辅助被辅助英雄伤害增幅
+    {(道纹Type.辅助被辅助英雄伤害增幅, QualityType.天品), 0},
+    {(道纹Type.辅助被辅助英雄伤害增幅, QualityType.宇品), 0},
+    {(道纹Type.辅助被辅助英雄伤害增幅, QualityType.宙品), 0},
+    {(道纹Type.辅助被辅助英雄伤害增幅, QualityType.洪品), 0},
+    {(道纹Type.辅助被辅助英雄伤害增幅, QualityType.荒品), 0},
+
+    // 三味真火无视抗性百分比
+    {(道纹Type.三味真火无视抗性百分比, QualityType.天品), 0},
+    {(道纹Type.三味真火无视抗性百分比, QualityType.宇品), 0},
+    {(道纹Type.三味真火无视抗性百分比, QualityType.宙品), 0},
+    {(道纹Type.三味真火无视抗性百分比, QualityType.洪品), 0},
+    {(道纹Type.三味真火无视抗性百分比, QualityType.荒品), 0},
+
+    // 孙悟空每秒增加伤害
+    {(道纹Type.孙悟空每秒增加伤害, QualityType.天品), 0},
+    {(道纹Type.孙悟空每秒增加伤害, QualityType.宇品), 0},
+    {(道纹Type.孙悟空每秒增加伤害, QualityType.宙品), 0},
+    {(道纹Type.孙悟空每秒增加伤害, QualityType.洪品), 0},
+    {(道纹Type.孙悟空每秒增加伤害, QualityType.荒品), 0},
+
+    // 碧霄冰龙有概率再次释放
+    {(道纹Type.碧霄冰龙有概率再次释放, QualityType.天品), 0},
+    {(道纹Type.碧霄冰龙有概率再次释放, QualityType.宇品), 0},
+    {(道纹Type.碧霄冰龙有概率再次释放, QualityType.宙品), 0},
+    {(道纹Type.碧霄冰龙有概率再次释放, QualityType.洪品), 0},
+    {(道纹Type.碧霄冰龙有概率再次释放, QualityType.荒品), 0},
+
+    // 琼霄定身衰减效果减少
+    {(道纹Type.琼霄定身衰减效果减少, QualityType.天品), 0},
+    {(道纹Type.琼霄定身衰减效果减少, QualityType.宇品), 0},
+    {(道纹Type.琼霄定身衰减效果减少, QualityType.宙品), 0},
+    {(道纹Type.琼霄定身衰减效果减少, QualityType.洪品), 0},
+    {(道纹Type.琼霄定身衰减效果减少, QualityType.荒品), 0},
+
+    // 云霄暴击率
+    {(道纹Type.云霄暴击率, QualityType.天品), 0},
+    {(道纹Type.云霄暴击率, QualityType.宇品), 0},
+    {(道纹Type.云霄暴击率, QualityType.宙品), 0},
+    {(道纹Type.云霄暴击率, QualityType.洪品), 0},
+    {(道纹Type.云霄暴击率, QualityType.荒品), 0},
+
+    // 后羿距离越远伤害越高
+    {(道纹Type.后羿距离越远伤害越高, QualityType.天品), 0},
+    {(道纹Type.后羿距离越远伤害越高, QualityType.宇品), 0},
+    {(道纹Type.后羿距离越远伤害越高, QualityType.宙品), 0},
+    {(道纹Type.后羿距离越远伤害越高, QualityType.洪品), 0},
+    {(道纹Type.后羿距离越远伤害越高, QualityType.荒品), 0},
+
+    // 羲和灼烧伤害
+    {(道纹Type.羲和灼烧伤害, QualityType.天品), 0},
+    {(道纹Type.羲和灼烧伤害, QualityType.宇品), 0},
+    {(道纹Type.羲和灼烧伤害, QualityType.宙品), 0},
+    {(道纹Type.羲和灼烧伤害, QualityType.洪品), 0},
+    {(道纹Type.羲和灼烧伤害, QualityType.荒品), 0},
+
+    // 常曦有概率冻结敌人
+    {(道纹Type.常曦有概率冻结敌人, QualityType.天品), 0},
+    {(道纹Type.常曦有概率冻结敌人, QualityType.宇品), 0},
+    {(道纹Type.常曦有概率冻结敌人, QualityType.宙品), 0},
+    {(道纹Type.常曦有概率冻结敌人, QualityType.洪品), 0},
+    {(道纹Type.常曦有概率冻结敌人, QualityType.荒品), 0},
+
+    // 女娲增加被辅助英雄暴击率
+    {(道纹Type.女娲增加被辅助英雄暴击率, QualityType.天品), 0},
+    {(道纹Type.女娲增加被辅助英雄暴击率, QualityType.宇品), 0},
+    {(道纹Type.女娲增加被辅助英雄暴击率, QualityType.宙品), 0},
+    {(道纹Type.女娲增加被辅助英雄暴击率, QualityType.洪品), 0},
+    {(道纹Type.女娲增加被辅助英雄暴击率, QualityType.荒品), 0},
+
+    // 通天每次暴击增加伤害
+    {(道纹Type.通天每次暴击增加伤害, QualityType.天品), 0},
+    {(道纹Type.通天每次暴击增加伤害, QualityType.宇品), 0},
+    {(道纹Type.通天每次暴击增加伤害, QualityType.宙品), 0},
+    {(道纹Type.通天每次暴击增加伤害, QualityType.洪品), 0},
+    {(道纹Type.通天每次暴击增加伤害, QualityType.荒品), 0},
+
+    // 老子旋风体积越大伤害越高
+    {(道纹Type.老子旋风体积越大伤害越高, QualityType.天品), 0},
+    {(道纹Type.老子旋风体积越大伤害越高, QualityType.宇品), 0},
+    {(道纹Type.老子旋风体积越大伤害越高, QualityType.宙品), 0},
+    {(道纹Type.老子旋风体积越大伤害越高, QualityType.洪品), 0},
+    {(道纹Type.老子旋风体积越大伤害越高, QualityType.荒品), 0},
+
+    // 元始每次释放有概率增加火种数量
+    {(道纹Type.元始每次释放有概率增加火种数量, QualityType.天品), 0},
+    {(道纹Type.元始每次释放有概率增加火种数量, QualityType.宇品), 0},
+    {(道纹Type.元始每次释放有概率增加火种数量, QualityType.宙品), 0},
+    {(道纹Type.元始每次释放有概率增加火种数量, QualityType.洪品), 0},
+    {(道纹Type.元始每次释放有概率增加火种数量, QualityType.荒品), 0},
+
+    // 鸿钧每释放陨石增加伤害
+    {(道纹Type.鸿钧每释放陨石增加伤害, QualityType.天品), 0},
+    {(道纹Type.鸿钧每释放陨石增加伤害, QualityType.宇品), 0},
+    {(道纹Type.鸿钧每释放陨石增加伤害, QualityType.宙品), 0},
+    {(道纹Type.鸿钧每释放陨石增加伤害, QualityType.洪品), 0},
+    {(道纹Type.鸿钧每释放陨石增加伤害, QualityType.荒品), 0},
+
+    // 盘古每击杀敌人增加伤害
+    {(道纹Type.盘古每击杀敌人增加伤害, QualityType.天品), 0},
+    {(道纹Type.盘古每击杀敌人增加伤害, QualityType.宇品), 0},
+    {(道纹Type.盘古每击杀敌人增加伤害, QualityType.宙品), 0},
+    {(道纹Type.盘古每击杀敌人增加伤害, QualityType.洪品), 0},
+    {(道纹Type.盘古每击杀敌人增加伤害, QualityType.荒品), 0},
+};
     public Dictionary<HeroType, int> 英雄法则等级Dic = new Dictionary<HeroType, int>()
     {
         { HeroType.哪吒 ,0},

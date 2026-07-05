@@ -50,6 +50,14 @@ public class 储物袋界面 : MonoBehaviour
    {
       ObserverModuleManager.S.RegisterEvent("刷新装备",刷新装备);
       ObserverModuleManager.S.RegisterEvent("突破成功",突破成功);
+      材料Btn.onClick.AddListener(() =>
+      {
+         ShowProp();
+      });
+      道纹Btn.onClick.AddListener(() =>
+      {
+         Show道纹();
+      });
       强化Btn.onClick.AddListener(() =>
       {
          强化弹窗.gameObject.SetActive(true);
@@ -119,9 +127,32 @@ public class 储物袋界面 : MonoBehaviour
       Set经验SLider();
       Set境界();
    }
+   
+   public void Show道纹()
+   {
+      材料Btn.image.sprite = ResourcesConfig.按钮暗;
+      道纹Btn.image.sprite = ResourcesConfig.按钮亮;
+      foreach (Transform item in BagContent.transform)
+      {
+         Destroy(item.gameObject);
+      }
+
+      foreach (var item in PlayerData.S.道纹List)
+      {
+         if (item.Value > 0)
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+            baggrid.道纹Type = item.Key.道纹Type;
+            baggrid.QualityType = item.Key.QualityType;
+            baggrid.SetItem();
+         }
+      }
+   }
 
    public void ShowProp()
    {
+      材料Btn.image.sprite = ResourcesConfig.按钮亮;
+      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
