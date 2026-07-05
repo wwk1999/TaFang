@@ -604,8 +604,10 @@
          {79, 760},
          {80, 790}
      };
+
      
 
+     
      public static QualityType GetEquipQuality(int level)
      {
          if (level <= 10)

@@ -8,11 +8,20 @@ using UnityEngine.UI;
 
 public class 装备item : MonoBehaviour
 {
+  public Button bgButton;
   public Image bg;
   public Image image;
   public TextMeshProUGUI Name;
   public TextMeshProUGUI Level;
   [NonSerialized]public EquipType EquipType;
+
+  private void Start()
+  {
+    bgButton.onClick.AddListener(() =>
+    {
+      ObserverModuleManager.S.SendEvent("Show道纹弹窗",EquipType);
+    });
+  }
 
   public void SetItem()
   {

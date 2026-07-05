@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public Image 道纹image;
+   public 道纹弹窗 道纹弹窗;
    public Button ExitButton;
    public GameObject EquipContent;
    public GameObject BagContent;
@@ -46,8 +48,28 @@ public class 储物袋界面 : MonoBehaviour
    {
       ShowEquip();
    }
+
+   public void Show道纹弹窗(object[] obj)
+   {
+      EquipType equipType = (EquipType)obj[0];
+      道纹弹窗.equipType = equipType;
+      道纹弹窗.gameObject.SetActive(true);
+      道纹弹窗.GetComponent<RectTransform>().anchoredPosition=道纹config.道纹弹窗Pos[equipType];
+   }
+
+   public void Show道纹image(object[] obj)
+   {
+      道纹Type 道纹Type = (道纹Type)obj[0];
+      QualityType qualityType = (QualityType)obj[1];
+      HeroWindowController.S.道纹Type = 道纹Type;
+      HeroWindowController.S.道纹QualityType = qualityType;
+      道纹image.sprite = ResourcesConfig.Get道文Sprite(道纹Type,qualityType);
+      道纹image.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("Show道纹image",Show道纹image);
+      ObserverModuleManager.S.RegisterEvent("Show道纹弹窗",Show道纹弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新装备",刷新装备);
       ObserverModuleManager.S.RegisterEvent("突破成功",突破成功);
       材料Btn.onClick.AddListener(() =>
@@ -137,13 +159,57 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-      foreach (var item in PlayerData.S.道纹List)
+      foreach (var item in 道纹config.道纹名Dic)
       {
-         if (item.Value > 0)
+         if (PlayerData.S.Get道纹数量(item.Key,QualityType.荒品)>0)
          {
             var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-            baggrid.道纹Type = item.Key.道纹Type;
-            baggrid.QualityType = item.Key.QualityType;
+            baggrid.道纹Type = item.Key;
+            baggrid.QualityType = QualityType.荒品;
+            baggrid.SetItem();
+         }
+      }
+      
+      foreach (var item in 道纹config.道纹名Dic)
+      {
+         if (PlayerData.S.Get道纹数量(item.Key,QualityType.洪品)>0)
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+            baggrid.道纹Type = item.Key;
+            baggrid.QualityType = QualityType.洪品;
+            baggrid.SetItem();
+         }
+      }
+      
+      foreach (var item in 道纹config.道纹名Dic)
+      {
+         if (PlayerData.S.Get道纹数量(item.Key,QualityType.宙品)>0)
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+            baggrid.道纹Type = item.Key;
+            baggrid.QualityType = QualityType.宙品;
+            baggrid.SetItem();
+         }
+      }
+      
+      foreach (var item in 道纹config.道纹名Dic)
+      {
+         if (PlayerData.S.Get道纹数量(item.Key,QualityType.宇品)>0)
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+            baggrid.道纹Type = item.Key;
+            baggrid.QualityType = QualityType.宇品;
+            baggrid.SetItem();
+         }
+      }
+      
+      foreach (var item in 道纹config.道纹名Dic)
+      {
+         if (PlayerData.S.Get道纹数量(item.Key,QualityType.天品)>0)
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+            baggrid.道纹Type = item.Key;
+            baggrid.QualityType = QualityType.天品;
             baggrid.SetItem();
          }
       }

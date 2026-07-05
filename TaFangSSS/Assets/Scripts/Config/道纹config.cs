@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 
 public enum 道纹Type
 {
@@ -29,6 +30,8 @@ public enum 道纹Type
     控制冷却缩减,
     法师暴击率,
     辅助被辅助英雄伤害增幅,
+    
+    
     三味真火无视抗性百分比,
     孙悟空每秒增加伤害,
     碧霄冰龙有概率再次释放,
@@ -48,42 +51,99 @@ public enum 道纹Type
 public class 道纹
 {
     public 道纹Type 道纹Type;
-    public QualityType QualityType;
-
-    public override bool Equals(object obj)
-    {
-        if (obj == null || GetType() != obj.GetType())
-            return false;
-
-        道纹 other = (道纹)obj;
-        return this.道纹Type == other.道纹Type && 
-               this.QualityType == other.QualityType;
-    }
-
-    public override int GetHashCode()
-    {
-        // 组合两个字段的哈希值
-        return (道纹Type.GetHashCode() * 397) ^ QualityType.GetHashCode();
-    }
-
-    // 重载 == 和 != 运算符（可选）
-    public static bool operator ==(道纹 a, 道纹 b)
-    {
-        if (ReferenceEquals(a, b)) return true;
-        if (ReferenceEquals(a, null) || ReferenceEquals(b, null)) return false;
-        return a.Equals(b);
-    }
-
-    public static bool operator !=(道纹 a, 道纹 b)
-    {
-        return !(a == b);
-    }
+    public QualityType quality;
 }
 public class 道纹config
 {
+    public static bool 检查装备专属道纹(道纹Type type)
+    {
+        if (!是否专属道纹(type))
+        {
+            return false;
+        }
+        else
+        {
+            foreach (var item in PlayerData.S.装备道纹List[EquipType.头盔])
+            {
+                if (item != null && item.道纹Type == type)
+                {
+                    return true;
+                }
+            }
+            foreach (var item in PlayerData.S.装备道纹List[EquipType.护手])
+            {
+                if (item != null && item.道纹Type == type)
+                {
+                    return true;
+                }
+            }
+            foreach (var item in PlayerData.S.装备道纹List[EquipType.戒指])
+            {
+                if (item != null && item.道纹Type == type)
+                {
+                    return true;
+                }
+            }
+            foreach (var item in PlayerData.S.装备道纹List[EquipType.鞋子])
+            {
+                if (item != null && item.道纹Type == type)
+                {
+                    return true;
+                }
+            }
+            foreach (var item in PlayerData.S.装备道纹List[EquipType.项链])
+            {
+                if (item != null && item.道纹Type == type)
+                {
+                    return true;
+                }
+            }
+            foreach (var item in PlayerData.S.装备道纹List[EquipType.衣服])
+            {
+                if (item != null && item.道纹Type == type)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public static bool 是否专属道纹(道纹Type type)
+    {
+        return (int)type >= 26;
+    }
+    
+    public static Dictionary<道纹Type, HeroType> 道纹ToHeroDic = new Dictionary<道纹Type, HeroType>()
+    {
+        { 道纹Type.三味真火无视抗性百分比, HeroType.哪吒 },
+        { 道纹Type.孙悟空每秒增加伤害, HeroType.孙悟空 },
+        { 道纹Type.碧霄冰龙有概率再次释放, HeroType.碧霄 },
+        { 道纹Type.琼霄定身衰减效果减少, HeroType.琼霄 },
+        { 道纹Type.云霄暴击率, HeroType.云霄 },
+        { 道纹Type.后羿距离越远伤害越高, HeroType.后羿 },
+        { 道纹Type.羲和灼烧伤害, HeroType.羲和 },
+        { 道纹Type.常曦有概率冻结敌人, HeroType.常羲 },
+        { 道纹Type.女娲增加被辅助英雄暴击率, HeroType.女娲 },
+        { 道纹Type.通天每次暴击增加伤害, HeroType.通天 },
+        { 道纹Type.老子旋风体积越大伤害越高, HeroType.老子 },
+        { 道纹Type.元始每次释放有概率增加火种数量, HeroType.元始 },
+        { 道纹Type.鸿钧每释放陨石增加伤害, HeroType.鸿钧 },
+        { 道纹Type.盘古每击杀敌人增加伤害, HeroType.盘古 },
+    };
+    
+    public static Dictionary<EquipType, Vector2> 道纹弹窗Pos = new Dictionary<EquipType, Vector2>()
+    {
+        { EquipType.衣服, new Vector2(-248, -80) },
+        { EquipType.戒指, new Vector2(-250, -80) },
+        { EquipType.项链, new Vector2(-700, -80) },
+        { EquipType.鞋子, new Vector2(-700, -80) },
+        { EquipType.头盔, new Vector2(-492, -80) },
+        { EquipType.护手, new Vector2(-492, -80) },
+    };
     public static string Get道文info(道纹Type type, QualityType quality)
     {
-        int qIndex = (int)quality;
+        int qIndex = (int)quality-4;
         float val = 0;
         bool hasVal = 道纹数值Dic.ContainsKey(type);
         if (hasVal) val = 道纹数值Dic[type][qIndex];
