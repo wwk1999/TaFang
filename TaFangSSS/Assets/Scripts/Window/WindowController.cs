@@ -10,6 +10,7 @@ public class WindowController : XSingleton<WindowController>
    [NonSerialized]public GameObject 招募Window;
    [NonSerialized]public GameObject 英雄Window;
    [NonSerialized]public GameObject 储物袋Window;
+   [NonSerialized]public GameObject 道宝Window;
 
 
 

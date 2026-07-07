@@ -17,6 +17,54 @@ public class PlayerData : XSingleton<PlayerData>
     public int GongDe;
     public int CurrentBianDui = 1;
 
+    public Dictionary<道宝Type, int> 道宝LevelDic = new Dictionary<道宝Type, int>()
+    {
+        // ==================== 混沌至宝 ====================
+        { 道宝Type.混沌青莲,   0 },
+        { 道宝Type.造化玉碟,   0 },
+        { 道宝Type.混沌珠,     0 },
+        { 道宝Type.开天斧,     0 },
+
+        // ==================== 先天至宝 ====================
+        { 道宝Type.盘古幡,     0 },
+        { 道宝Type.混沌钟,     0 },
+        { 道宝Type.诛仙剑,     0 },
+        { 道宝Type.戮仙剑,     0 },
+        { 道宝Type.陷仙剑,     0 },
+        { 道宝Type.绝仙剑,     0 },
+
+        // ==================== 功德至宝 ====================
+        { 道宝Type.玲珑塔,     0 },
+        { 道宝Type.轩辕剑,     0 },
+        { 道宝Type.女娲石,     0 },
+        { 道宝Type.炼妖壶,     0 },
+        { 道宝Type.玉净瓶,     0 },
+        { 道宝Type.乾坤鼎,     0 },
+        { 道宝Type.菩提妙树,   0 },
+        { 道宝Type.风火轮,     0 },
+
+        // ==================== 先天灵宝 ====================
+        { 道宝Type.山河社稷图, 0 },
+        { 道宝Type.七宝妙树,   0 },
+        { 道宝Type.天书,       0 },
+        { 道宝Type.地书,       0 },
+        { 道宝Type.冥书,       0 },
+        { 道宝Type.弑神枪,     0 },
+        { 道宝Type.定海神珠,   0 },
+        { 道宝Type.河图洛书,   0 },
+
+        // ==================== 后天法宝 ====================
+        { 道宝Type.翻天印,     0 },
+        { 道宝Type.紫金葫芦,   0 },
+        { 道宝Type.金蛟剪,     0 },
+        { 道宝Type.斩仙飞刀,   0 },
+        { 道宝Type.五色神光,   0 },
+        { 道宝Type.宝莲灯,     0 },
+        { 道宝Type.落宝金钱,   0 },
+        { 道宝Type.先天五方旗, 0 },
+        { 道宝Type.照妖镜,     0 },
+        { 道宝Type.如意金箍棒, 0 },
+    };
     public Dictionary<EquipType, List<道纹>> 装备道纹List = new Dictionary<EquipType, List<道纹>>()
     {
         { EquipType.头盔 ,new List<道纹>(){new 道纹(),new 道纹(),new 道纹(),new 道纹(),new 道纹()}},

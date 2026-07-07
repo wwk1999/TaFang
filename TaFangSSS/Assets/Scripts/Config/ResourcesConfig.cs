@@ -6,6 +6,57 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //道宝
+    public static Sprite 道宝标签紫;
+    public static Sprite 道宝标签橙;
+    public static Sprite 道宝标签粉;
+    public static Sprite 道宝标签红;
+    public static Sprite 道宝标签彩;
+
+    
+    public static Sprite 山河社稷图;
+    public static Sprite 七宝妙树;
+    public static Sprite 天书;
+    public static Sprite 地书;
+    public static Sprite 弑神枪;
+    public static Sprite 冥书;
+    public static Sprite 定海神珠;
+    public static Sprite 河图洛书;
+    
+    public static Sprite 翻天印;
+    public static Sprite 紫金葫芦;
+    public static Sprite 金蛟剪;
+    public static Sprite 斩仙飞刀;
+    public static Sprite 五色神光;
+    public static Sprite 宝莲灯;
+    public static Sprite 落宝金钱;
+    public static Sprite 先天五方旗;
+    
+    public static Sprite 混沌青莲;
+    public static Sprite 造化玉碟;
+    public static Sprite 混沌珠;
+    public static Sprite 开天斧;
+    
+    public static Sprite 盘古幡;
+    public static Sprite 混沌钟;
+    public static Sprite 诛仙剑;
+    public static Sprite 戮仙剑;
+    public static Sprite 陷仙剑;
+    public static Sprite 绝仙剑;
+    public static Sprite 乾坤鼎;
+    public static Sprite 菩提妙树;
+    
+    public static Sprite 玲珑塔;
+    public static Sprite 炼妖壶;
+    public static Sprite 女娲石;
+    public static Sprite 轩辕剑;
+    public static Sprite 玉净瓶;
+    public static Sprite 照妖镜;
+    public static Sprite 风火轮;
+    public static Sprite 如意金箍棒;
+    
+    
+
     public static Sprite 按钮亮;
     public static Sprite 按钮暗;
 
@@ -275,6 +326,16 @@ public class ResourcesConfig : MonoBehaviour
     public static TMP_ColorGradient 物理TMP;
     public static TMP_ColorGradient 雷电TMP;
     public static TMP_ColorGradient 黑暗TMP;
+    
+    public static TMP_ColorGradient 黄TMP;
+    public static TMP_ColorGradient 玄TMP;
+    public static TMP_ColorGradient 地TMP;
+    public static TMP_ColorGradient 天TMP;
+    public static TMP_ColorGradient 宇TMP;
+    public static TMP_ColorGradient 宙TMP;
+    public static TMP_ColorGradient 洪TMP;
+    public static TMP_ColorGradient 荒TMP;
+
 
     //技能icon
     public static Sprite 丹童技能icon;
@@ -1682,7 +1743,7 @@ public class ResourcesConfig : MonoBehaviour
 
                 break;
 
-            case 道纹Type.云霄暴击率:
+            case 道纹Type.云霄最终伤害:
                 switch ((int)qualityType)
                 {
                     case 4: return 云破4;
@@ -1805,9 +1866,147 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+    public static Sprite Get道宝Sprite(道宝Type 道宝Type)
+{
+    switch (道宝Type)
+    {
+        // ==================== 混沌至宝（4个）====================
+        case 道宝Type.混沌青莲:
+            return 混沌青莲;
+        case 道宝Type.造化玉碟:
+            return 造化玉碟;
+        case 道宝Type.混沌珠:
+            return 混沌珠;
+        case 道宝Type.开天斧:
+            return 开天斧;
+
+        // ==================== 先天至宝（6个）====================
+        case 道宝Type.盘古幡:
+            return 盘古幡;
+        case 道宝Type.混沌钟:
+            return 混沌钟;
+        case 道宝Type.诛仙剑:
+            return 诛仙剑;
+        case 道宝Type.戮仙剑:
+            return 戮仙剑;
+        case 道宝Type.陷仙剑:
+            return 陷仙剑;
+        case 道宝Type.绝仙剑:
+            return 绝仙剑;
+
+        // ==================== 功德至宝（8个）====================
+        case 道宝Type.玲珑塔:
+            return 玲珑塔;
+        case 道宝Type.轩辕剑:
+            return 轩辕剑;
+        case 道宝Type.女娲石:
+            return 女娲石;
+        case 道宝Type.炼妖壶:
+            return 炼妖壶;
+        case 道宝Type.玉净瓶:
+            return 玉净瓶;
+        case 道宝Type.乾坤鼎:
+            return 乾坤鼎;
+        case 道宝Type.菩提妙树:
+            return 菩提妙树;
+        case 道宝Type.风火轮:
+            return 风火轮;
+
+        // ==================== 先天灵宝（8个）====================
+        case 道宝Type.山河社稷图:
+            return 山河社稷图;
+        case 道宝Type.七宝妙树:
+            return 七宝妙树;
+        case 道宝Type.天书:
+            return 天书;
+        case 道宝Type.地书:
+            return 地书;
+        case 道宝Type.冥书:
+            return 冥书;
+        case 道宝Type.弑神枪:
+            return 弑神枪;
+        case 道宝Type.定海神珠:
+            return 定海神珠;
+        case 道宝Type.河图洛书:
+            return 河图洛书;
+
+        // ==================== 后天法宝（10个）====================
+        case 道宝Type.翻天印:
+            return 翻天印;
+        case 道宝Type.紫金葫芦:
+            return 紫金葫芦;
+        case 道宝Type.金蛟剪:
+            return 金蛟剪;
+        case 道宝Type.斩仙飞刀:
+            return 斩仙飞刀;
+        case 道宝Type.五色神光:
+            return 五色神光;
+        case 道宝Type.宝莲灯:
+            return 宝莲灯;
+        case 道宝Type.落宝金钱:
+            return 落宝金钱;
+        case 道宝Type.先天五方旗:
+            return 先天五方旗;
+        case 道宝Type.照妖镜:
+            return 照妖镜;
+        case 道宝Type.如意金箍棒:
+            return 如意金箍棒;
+
+        // ==================== 默认 ====================
+        default:
+            return null;
+    }
+}
 
     public static void Init()
     {
+    道宝标签紫= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
+    道宝标签橙= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签橙"); 
+    道宝标签粉= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签粉");
+    道宝标签红= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签红");
+    道宝标签彩= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签彩");
+
+    山河社稷图= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[0];
+    七宝妙树= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[1];
+    天书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[2];
+    地书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[3];
+    弑神枪= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[4];
+    冥书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[5];
+    定海神珠= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[6];
+    河图洛书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[7];
+    
+    翻天印=  Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[0];
+    紫金葫芦= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[1];
+    金蛟剪= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[2];
+    斩仙飞刀= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[3];
+    五色神光= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[4];
+    宝莲灯= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[5];
+    落宝金钱= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[6];
+    先天五方旗= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[7];
+    
+    混沌青莲=  Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[0];
+    造化玉碟= Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[1];
+    混沌珠= Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[2];
+    开天斧= Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[3];
+    
+    盘古幡= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[0];
+    混沌钟= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[1];
+    诛仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[2];
+    戮仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[3];
+    陷仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[4];
+    绝仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[5];
+    乾坤鼎= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[6];
+    菩提妙树= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[7];
+    
+    玲珑塔= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[0];
+    炼妖壶= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[1];
+    女娲石=Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[2];
+    轩辕剑= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[3];
+    玉净瓶= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[4];
+    照妖镜= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[5];
+    风火轮=Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[6];
+    如意金箍棒= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[7];
+        
         按钮亮= Resources.Load<Sprite>("Sprite/按钮亮");
         按钮暗= Resources.Load<Sprite>("Sprite/按钮暗");
         
@@ -2076,6 +2275,16 @@ public class ResourcesConfig : MonoBehaviour
         雷电TMP = Resources.Load<TMP_ColorGradient>("TMP/雷电TMP");
         黑暗TMP = Resources.Load<TMP_ColorGradient>("TMP/黑暗TMP");
         物理TMP = Resources.Load<TMP_ColorGradient>("TMP/物理TMP");
+        黄TMP = Resources.Load<TMP_ColorGradient>("TMP/黄");
+        玄TMP = Resources.Load<TMP_ColorGradient>("TMP/玄");
+        地TMP = Resources.Load<TMP_ColorGradient>("TMP/地");
+        天TMP = Resources.Load<TMP_ColorGradient>("TMP/天");
+        宇TMP = Resources.Load<TMP_ColorGradient>("TMP/宇");
+        宙TMP = Resources.Load<TMP_ColorGradient>("TMP/宙");
+        洪TMP = Resources.Load<TMP_ColorGradient>("TMP/洪");
+        荒TMP = Resources.Load<TMP_ColorGradient>("TMP/荒");
+
+
 
 
         丹童技能icon = Resources.Load<Sprite>("Sprite/技能icon/丹童技能");

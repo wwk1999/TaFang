@@ -38,6 +38,15 @@ public enum 突破Type
 
 public class JingJieConfig : MonoBehaviour
 {
+    public static Dictionary<突破Type, float> 突破跟脚Dic = new Dictionary<突破Type, float>()
+    {
+        { 突破Type.凡, 1f },
+        { 突破Type.灵, 1.1f },
+        { 突破Type.仙, 1.2f },
+        { 突破Type.圣, 1.3f },
+        { 突破Type.荒, 1.5f },
+
+    };
     public static Dictionary<JingJieType, int> JingJieAttributeDic =
         new Dictionary<JingJieType, int>()
 

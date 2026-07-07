@@ -21,7 +21,7 @@ public class MainWindow : MonoBehaviour
     public Button 英雄按钮;
     public Button 储物袋按钮;
     public Button 经验值Debug;
-
+    public Button 道宝Button;
 
     public void Init()
     {
@@ -47,10 +47,16 @@ public class MainWindow : MonoBehaviour
         WindowController.S.英雄Window.gameObject.SetActive(false);
         WindowController.S.储物袋Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/储物袋界面"));
         WindowController.S.储物袋Window.gameObject.SetActive(false);
+        WindowController.S.道宝Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/道宝界面"));
+        WindowController.S.道宝Window.gameObject.SetActive(false);
     }
 
     private void Start()
     {
+        道宝Button.onClick.AddListener(() =>
+        {
+            WindowController.S.道宝Window.gameObject.SetActive(true);
+        });
         经验值Debug.onClick.AddListener(() =>
         {
             PlayerData.S.PropListDic[PropType.领主经验值] += 999999;
