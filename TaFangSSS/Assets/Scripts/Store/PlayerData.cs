@@ -583,40 +583,27 @@ public class PlayerData : XSingleton<PlayerData>
         { PropType.鸿蒙法则 ,0},
     };
 
-    public Dictionary<LevelBigType, bool> LevelZhanKaiDic = new Dictionary<LevelBigType, bool>()
-    {
-        { LevelBigType.东胜神州, false },
-        { LevelBigType.西牛贺洲, false },
-        { LevelBigType.南瞻部洲, false },
-        { LevelBigType.北俱芦洲, false },
-    };
+   
 
-    public Dictionary<LevelBigType, bool> LevelBigJieSuoDic = new Dictionary<LevelBigType, bool>()
-    {
-        { LevelBigType.东胜神州, true },
-        { LevelBigType.西牛贺洲, false },
-        { LevelBigType.南瞻部洲, false },
-        { LevelBigType.北俱芦洲, false },
-    };
+    
 
-    public Dictionary<LevelSmallType, bool> LevelSmallJieSuoDic = new Dictionary<LevelSmallType, bool>()
+    public Dictionary<主线关卡Type, bool> LevelSmallJieSuoDic = new Dictionary<主线关卡Type, bool>()
     {
-        { LevelSmallType.花果山, true },
-        { LevelSmallType.水帘洞, false },
-        { LevelSmallType.傲来国, false },
-        { LevelSmallType.东海龙宫, false },
-        { LevelSmallType.蓬莱仙岛, false },
-        { LevelSmallType.五行山, false },
-        { LevelSmallType.高老庄, false },
-        { LevelSmallType.平顶山, false },
-        { LevelSmallType.车迟国, false },
-        { LevelSmallType.女儿国, false },
-        { LevelSmallType.火焰山, false },
-        { LevelSmallType.盘丝洞, false },
-        { LevelSmallType.狮驼岭, false },
-        { LevelSmallType.天竺国, false },
-        { LevelSmallType.小雷音寺, false },
-        { LevelSmallType.流沙河, false },
-        { LevelSmallType.芭蕉洞, false },
+        { 主线关卡Type.花果山, true },
+        { 主线关卡Type.水帘洞, false },
+        { 主线关卡Type.傲来国, false },
+        { 主线关卡Type.东海龙宫, false },
+        { 主线关卡Type.蓬莱仙岛, false },
+        { 主线关卡Type.五行山, false },
+        { 主线关卡Type.高老庄, false },
+        { 主线关卡Type.平顶山, false },
+        { 主线关卡Type.女儿国, false },
+        { 主线关卡Type.火焰山, false },
+        { 主线关卡Type.狮驼岭, false },
+        { 主线关卡Type.小雷音寺, false },
+        { 主线关卡Type.流沙河, false },
+        { 主线关卡Type.芭蕉洞, false },
+        { 主线关卡Type.冥府, false },
+
     };
 }

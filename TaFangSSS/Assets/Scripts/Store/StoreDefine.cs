@@ -574,13 +574,7 @@ public class StoreDefine : XSingleton<StoreController>
             { PropType.鸿蒙法则, 0 },
         };
 
-        public Dictionary<LevelBigType, bool> LevelZhanKaiDic = new Dictionary<LevelBigType, bool>()
-        {
-            { LevelBigType.东胜神州, false },
-            { LevelBigType.西牛贺洲, false },
-            { LevelBigType.南瞻部洲, false },
-            { LevelBigType.北俱芦洲, false },
-        };
+       
 
         public void CopyFromRuntime(PlayerData runtime)
         {
@@ -589,7 +583,6 @@ public class StoreDefine : XSingleton<StoreController>
             Exp = runtime.Exp;
             LingQi = runtime.LingQi;
             GongDe = runtime.GongDe;
-            LevelZhanKaiDic = runtime.LevelZhanKaiDic;
             PropListDic = runtime.PropListDic;
             HeroDataDic = runtime.HeroDataDic;
             出战英雄List = runtime.出战英雄List;
@@ -611,7 +604,6 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.Exp = Exp;
             runtime.LingQi = LingQi;
             runtime.GongDe = GongDe;
-            runtime.LevelZhanKaiDic = LevelZhanKaiDic;
             runtime.PropListDic = PropListDic;
             runtime.HeroDataDic = HeroDataDic;
             runtime.出战英雄List = 出战英雄List;

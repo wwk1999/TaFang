@@ -27,7 +27,7 @@ public class LevelWindow : MonoBehaviour
     public void ShowLevel(object[] obj)
     {
         RightPanel.SetActive(true);
-        LevelSmallType type = (LevelSmallType)obj[0];
+        主线关卡Type type = (主线关卡Type)obj[0];
         foreach (Transform item in MonsterContent.transform)
         {
             Destroy(item.gameObject);

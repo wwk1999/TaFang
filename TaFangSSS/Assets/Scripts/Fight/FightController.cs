@@ -670,7 +670,7 @@ public class FightController : XSingleton<FightController>
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.普通怪Queue.Dequeue();
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.CurrentLevelSmallType];
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.Current主线关卡Type];
         int random=Random.Range(0,2);
         monster.MonsterTypeName = list[random];
         monster.gameObject.SetActive(true);
@@ -683,7 +683,7 @@ public class FightController : XSingleton<FightController>
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.精英怪Queue.Dequeue();
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.CurrentLevelSmallType];
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.Current主线关卡Type];
         monster.MonsterTypeName = list[2];
         monster.gameObject.SetActive(true);
         MonsterColliderDic[monster.Collider2D] = monster;
@@ -693,10 +693,10 @@ public class FightController : XSingleton<FightController>
     {
         当前创建普通怪物时间+=Time.deltaTime;
         当前创建精英怪物时间+=Time.deltaTime;
-        var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].CreateNormalMonsterTime;
-        var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount;
-        var 精英怪物Time = LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].CreateEliteMonsterTime;
-        var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount;
+        var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].CreateNormalMonsterTime;
+        var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].NormalMonsterCount;
+        var 精英怪物Time = LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].CreateEliteMonsterTime;
+        var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].EliteMonsterCount;
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
         {
             NormalMonsterCount++;

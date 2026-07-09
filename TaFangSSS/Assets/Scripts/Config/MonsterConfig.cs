@@ -117,7 +117,7 @@ public enum Monster特性Type
 
 public class 普通关卡怪物Item
 {
-  public LevelSmallType LevelSmallType { get; set; }
+  public 主线关卡Type 主线关卡Type { get; set; }
   public MonsterType MonsterType { get; set; }
 
   public override bool Equals(object obj)
@@ -125,12 +125,12 @@ public class 普通关卡怪物Item
     if (obj == null || GetType() != obj.GetType())
       return false;
     普通关卡怪物Item other = (普通关卡怪物Item)obj;
-    return LevelSmallType == other.LevelSmallType && MonsterType == other.MonsterType;
+    return 主线关卡Type == other.主线关卡Type && MonsterType == other.MonsterType;
   }
 
   public override int GetHashCode()
   {
-    return (LevelSmallType, MonsterType).GetHashCode();
+    return (LevelSmallType: 主线关卡Type, MonsterType).GetHashCode();
   }
 }
 
@@ -248,180 +248,156 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.黄眉童子, Monster特性Type.普通怪 }
 };
   
-  public static Dictionary<MonsterTypeName, LevelSmallType> MonsterLevelDic =
-    new Dictionary<MonsterTypeName, LevelSmallType>()
+  public static Dictionary<MonsterTypeName, 主线关卡Type> MonsterLevelDic =
+    new Dictionary<MonsterTypeName, 主线关卡Type>()
     {
         // 花果山
-        { MonsterTypeName.猴精, LevelSmallType.花果山 },
-        { MonsterTypeName.山魈, LevelSmallType.花果山 },
-        { MonsterTypeName.马猴头领, LevelSmallType.花果山 },
+        { MonsterTypeName.猴精, 主线关卡Type.花果山 },
+        { MonsterTypeName.山魈, 主线关卡Type.花果山 },
+        { MonsterTypeName.马猴头领, 主线关卡Type.花果山 },
         // 水帘洞
-        { MonsterTypeName.水虱精, LevelSmallType.水帘洞 },
-        { MonsterTypeName.蝙蝠精, LevelSmallType.水帘洞 },
-        { MonsterTypeName.铁背苍猿, LevelSmallType.水帘洞 },
+        { MonsterTypeName.水虱精, 主线关卡Type.水帘洞 },
+        { MonsterTypeName.蝙蝠精, 主线关卡Type.水帘洞 },
+        { MonsterTypeName.铁背苍猿, 主线关卡Type.水帘洞 },
         // 傲来国
-        { MonsterTypeName.傲来民兵, LevelSmallType.傲来国 },
-        { MonsterTypeName.猎户, LevelSmallType.傲来国 },
-        { MonsterTypeName.傲来偏将, LevelSmallType.傲来国 },
+        { MonsterTypeName.傲来民兵, 主线关卡Type.傲来国 },
+        { MonsterTypeName.猎户, 主线关卡Type.傲来国 },
+        { MonsterTypeName.傲来偏将, 主线关卡Type.傲来国 },
         // 东海龙宫
-        { MonsterTypeName.虾兵, LevelSmallType.东海龙宫 },
-        { MonsterTypeName.蟹将, LevelSmallType.东海龙宫 },
-        { MonsterTypeName.龟丞相, LevelSmallType.东海龙宫 },
+        { MonsterTypeName.虾兵, 主线关卡Type.东海龙宫 },
+        { MonsterTypeName.蟹将, 主线关卡Type.东海龙宫 },
+        { MonsterTypeName.龟丞相, 主线关卡Type.东海龙宫 },
         // 蓬莱仙岛
-        { MonsterTypeName.仙鹤, LevelSmallType.蓬莱仙岛 },
-        { MonsterTypeName.灵芝童, LevelSmallType.蓬莱仙岛 },
-        { MonsterTypeName.蓬莱剑仙, LevelSmallType.蓬莱仙岛 },
+        { MonsterTypeName.仙鹤, 主线关卡Type.蓬莱仙岛 },
+        { MonsterTypeName.灵芝童, 主线关卡Type.蓬莱仙岛 },
+        { MonsterTypeName.蓬莱剑仙, 主线关卡Type.蓬莱仙岛 },
         // 五行山
-        { MonsterTypeName.山石精, LevelSmallType.五行山 },
-        { MonsterTypeName.土蝼, LevelSmallType.五行山 },
-        { MonsterTypeName.五行山神, LevelSmallType.五行山 },
+        { MonsterTypeName.山石精, 主线关卡Type.五行山 },
+        { MonsterTypeName.土蝼, 主线关卡Type.五行山 },
+        { MonsterTypeName.五行山神, 主线关卡Type.五行山 },
         // 高老庄
-        { MonsterTypeName.野猪精, LevelSmallType.高老庄 },
-        { MonsterTypeName.高才, LevelSmallType.高老庄 },
-        { MonsterTypeName.高太公, LevelSmallType.高老庄 },
+        { MonsterTypeName.野猪精, 主线关卡Type.高老庄 },
+        { MonsterTypeName.高才, 主线关卡Type.高老庄 },
+        { MonsterTypeName.高太公, 主线关卡Type.高老庄 },
         // 平顶山
-        { MonsterTypeName.莲花洞小妖, LevelSmallType.平顶山 },
-        { MonsterTypeName.狐阿七, LevelSmallType.平顶山 },
-        { MonsterTypeName.银角大王, LevelSmallType.平顶山 },
-        // 车迟国
-        { MonsterTypeName.虎力弟子, LevelSmallType.车迟国 },
-        { MonsterTypeName.鹿力弟子, LevelSmallType.车迟国 },
-        { MonsterTypeName.羊力大仙, LevelSmallType.车迟国 },
+        { MonsterTypeName.莲花洞小妖, 主线关卡Type.平顶山 },
+        { MonsterTypeName.狐阿七, 主线关卡Type.平顶山 },
+        { MonsterTypeName.银角大王, 主线关卡Type.平顶山 },
+      
         // 女儿国
-        { MonsterTypeName.女儿国兵, LevelSmallType.女儿国 },
-        { MonsterTypeName.落胎泉守护, LevelSmallType.女儿国 },
-        { MonsterTypeName.太师, LevelSmallType.女儿国 },
+        { MonsterTypeName.女儿国兵, 主线关卡Type.女儿国 },
+        { MonsterTypeName.落胎泉守护, 主线关卡Type.女儿国 },
+        { MonsterTypeName.太师, 主线关卡Type.女儿国 },
         // 火焰山
-        { MonsterTypeName.火焰精, LevelSmallType.火焰山 },
-        { MonsterTypeName.赤蛇, LevelSmallType.火焰山 },
-        { MonsterTypeName.火鸦, LevelSmallType.火焰山 },
-        // 盘丝洞
-        { MonsterTypeName.小蜘蛛, LevelSmallType.盘丝洞 },
-        { MonsterTypeName.毒蛾, LevelSmallType.盘丝洞 },
-        { MonsterTypeName.蜘蛛精, LevelSmallType.盘丝洞 },
+        { MonsterTypeName.火焰精, 主线关卡Type.火焰山 },
+        { MonsterTypeName.赤蛇, 主线关卡Type.火焰山 },
+        { MonsterTypeName.火鸦, 主线关卡Type.火焰山 },
+       
         // 狮驼岭
-        { MonsterTypeName.青狮精手下, LevelSmallType.狮驼岭 },
-        { MonsterTypeName.白象精手下, LevelSmallType.狮驼岭 },
-        { MonsterTypeName.大鹏金翅雕, LevelSmallType.狮驼岭 },
-        // 天竺国
-        { MonsterTypeName.天竺舞女, LevelSmallType.天竺国 },
-        { MonsterTypeName.月宫侍卫, LevelSmallType.天竺国 },
-        { MonsterTypeName.素娥, LevelSmallType.天竺国 },
+        { MonsterTypeName.青狮精手下, 主线关卡Type.狮驼岭 },
+        { MonsterTypeName.白象精手下, 主线关卡Type.狮驼岭 },
+        { MonsterTypeName.大鹏金翅雕, 主线关卡Type.狮驼岭 },
+        
         // 芭蕉洞
-        { MonsterTypeName.芭蕉精, LevelSmallType.芭蕉洞 },
-        { MonsterTypeName.火焰童, LevelSmallType.芭蕉洞 },
-        { MonsterTypeName.铁扇侍女, LevelSmallType.芭蕉洞 },
+        { MonsterTypeName.芭蕉精, 主线关卡Type.芭蕉洞 },
+        { MonsterTypeName.火焰童, 主线关卡Type.芭蕉洞 },
+        { MonsterTypeName.铁扇侍女, 主线关卡Type.芭蕉洞 },
         // 流沙河
-        { MonsterTypeName.流沙精, LevelSmallType.流沙河 },
-        { MonsterTypeName.水鬼, LevelSmallType.流沙河 },
-        { MonsterTypeName.水蛇妖, LevelSmallType.流沙河 },
+        { MonsterTypeName.流沙精, 主线关卡Type.流沙河 },
+        { MonsterTypeName.水鬼, 主线关卡Type.流沙河 },
+        { MonsterTypeName.水蛇妖, 主线关卡Type.流沙河 },
         // 小雷音寺
-        { MonsterTypeName.假罗汉, LevelSmallType.小雷音寺 },
-        { MonsterTypeName.假金刚, LevelSmallType.小雷音寺 },
-        { MonsterTypeName.黄眉童子, LevelSmallType.小雷音寺 }
+        { MonsterTypeName.假罗汉, 主线关卡Type.小雷音寺 },
+        { MonsterTypeName.假金刚, 主线关卡Type.小雷音寺 },
+        { MonsterTypeName.黄眉童子, 主线关卡Type.小雷音寺 }
     };
  public static Dictionary<普通关卡怪物Item, MonsterAttribute> 普通关卡怪物属性Dic = new Dictionary<普通关卡怪物Item, MonsterAttribute>()
 {
     // 花果山
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.花果山, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.花果山, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 100, Attack = 10, Defense = 0, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.花果山, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.花果山, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 1000, Attack = 125, Defense = 0, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 水帘洞
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.水帘洞, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.水帘洞, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 120, Attack = 12, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.水帘洞, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.水帘洞, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 1200, Attack = 150, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 傲来国
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.傲来国, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.傲来国, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 140, Attack = 14, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.傲来国, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.傲来国, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 1400, Attack = 175, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 东海龙宫
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.东海龙宫, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.东海龙宫, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 160, Attack = 16, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.东海龙宫, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.东海龙宫, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 1600, Attack = 200, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 蓬莱仙岛
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.蓬莱仙岛, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.蓬莱仙岛, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 200, Attack = 20, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.蓬莱仙岛, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.蓬莱仙岛, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 2000, Attack = 250, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 五行山
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.五行山, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.五行山, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 240, Attack = 24, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.五行山, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.五行山, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 2400, Attack = 300, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 高老庄
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.高老庄, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.高老庄, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 280, Attack = 28, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.高老庄, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.高老庄, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 2800, Attack = 350, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 平顶山
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.平顶山, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.平顶山, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 320, Attack = 32, Defense = 10, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.平顶山, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.平顶山, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 3200, Attack = 400, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
-    // 车迟国
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.车迟国, MonsterType = MonsterType.Normal },
-      new MonsterAttribute() { Hp = 400, Attack = 40, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.车迟国, MonsterType = MonsterType.Elite },
-      new MonsterAttribute() { Hp = 4000, Attack = 500, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-
+   
     // 女儿国
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.女儿国, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.女儿国, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 480, Attack = 48, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.女儿国, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.女儿国, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 4800, Attack = 600, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 火焰山
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.火焰山, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.火焰山, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 560, Attack = 56, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.火焰山, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.火焰山, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 5600, Attack = 700, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
-    // 盘丝洞
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.盘丝洞, MonsterType = MonsterType.Normal },
-      new MonsterAttribute() { Hp = 640, Attack = 64, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.盘丝洞, MonsterType = MonsterType.Elite },
-      new MonsterAttribute() { Hp = 6400, Attack = 800, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-
+   
     // 狮驼岭
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.狮驼岭, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.狮驼岭, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 800, Attack = 80, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.狮驼岭, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.狮驼岭, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 8000, Attack = 1000, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
-    // 天竺国
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.天竺国, MonsterType = MonsterType.Normal },
-      new MonsterAttribute() { Hp = 1000, Attack = 100, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.天竺国, MonsterType = MonsterType.Elite },
-      new MonsterAttribute() { Hp = 10000, Attack = 1250, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 芭蕉洞
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.芭蕉洞, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.芭蕉洞, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 1200, Attack = 120, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.芭蕉洞, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.芭蕉洞, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 12000, Attack = 1500, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 流沙河
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.流沙河, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.流沙河, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 1400, Attack = 140, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.流沙河, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.流沙河, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 14000, Attack = 1750, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
 
     // 小雷音寺
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.小雷音寺, MonsterType = MonsterType.Normal },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.小雷音寺, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 1600, Attack = 160, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } },
-    { new 普通关卡怪物Item() { LevelSmallType = LevelSmallType.小雷音寺, MonsterType = MonsterType.Elite },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.小雷音寺, MonsterType = MonsterType.Elite },
       new MonsterAttribute() { Hp = 16000, Attack = 2000, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 } }
 };
     public static Dictionary<MonsterTypeName, MonsterType> MonsterTypeDic =

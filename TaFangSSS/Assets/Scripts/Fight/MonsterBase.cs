@@ -95,9 +95,9 @@ public class MonsterBase : MonoBehaviour
 
    public void InitAttribute()
    {
-      LevelSmallType levelSmallType = MonsterConfig.MonsterLevelDic[MonsterTypeName];
+      主线关卡Type 主线关卡Type = MonsterConfig.MonsterLevelDic[MonsterTypeName];
       MonsterType monsterType=MonsterConfig.MonsterTypeDic[MonsterTypeName];
-      普通关卡怪物Item 普通关卡怪物Item=new 普通关卡怪物Item(){LevelSmallType =  levelSmallType, MonsterType = monsterType};
+      普通关卡怪物Item 普通关卡怪物Item=new 普通关卡怪物Item(){主线关卡Type =  主线关卡Type, MonsterType = monsterType};
       MonsterAttribute = MonsterConfig.普通关卡怪物属性Dic[普通关卡怪物Item];
       Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
       basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
@@ -208,8 +208,8 @@ public class MonsterBase : MonoBehaviour
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;
       if (FightController.S.KillMonsterCount ==
-          (LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].NormalMonsterCount +
-           LevelConfig.LevelInfos[LevelConfig.CurrentLevelSmallType].EliteMonsterCount))
+          (LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].NormalMonsterCount +
+           LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].EliteMonsterCount))
       {
          FightController.S.战斗结束 = true;
          FightController.S.StartCoroutine(Show胜利弹窗());

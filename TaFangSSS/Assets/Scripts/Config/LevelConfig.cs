@@ -5,35 +5,24 @@ using Config;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public enum LevelSmallType
+public enum 主线关卡Type
 {
     None,
     花果山,
     水帘洞,
-    傲来国,
-    东海龙宫,
     蓬莱仙岛,
     五行山,
-    高老庄,
-    平顶山,
-    车迟国,
+    傲来国,
+    高老庄, 
     女儿国,
-    火焰山,
-    盘丝洞,
-    狮驼岭,
-    天竺国,
+    小雷音寺,
+    平顶山,
+    火焰山, 
     芭蕉洞,
     流沙河,
-    小雷音寺,
-}
-
-public enum LevelBigType
-{
-    None,
-    东胜神州,
-    南瞻部洲,
-    西牛贺洲,
-    北俱芦洲,
+    狮驼岭,
+    东海龙宫,
+    冥府,
 }
 
 public class LevelDiaoLuo
@@ -73,87 +62,78 @@ public class 普通关卡胜利奖励
 
 public class LevelConfig : MonoBehaviour
 {
-    public static LevelSmallType  CurrentLevelSmallType=LevelSmallType.None;
+    public static 主线关卡Type  Current主线关卡Type=主线关卡Type.None;
 
-    public static Dictionary<LevelSmallType, SmallLevelInfo> LevelInfos = new Dictionary<LevelSmallType, SmallLevelInfo>()
+    public static Dictionary<主线关卡Type, SmallLevelInfo> LevelInfos = new Dictionary<主线关卡Type, SmallLevelInfo>()
 {
-    { LevelSmallType.花果山, new SmallLevelInfo() { NormalMonsterCount = 10, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 5f } },
-    { LevelSmallType.水帘洞, new SmallLevelInfo() { NormalMonsterCount = 110, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 55f } },
-    { LevelSmallType.傲来国, new SmallLevelInfo() { NormalMonsterCount = 120, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 60f } },
-    { LevelSmallType.东海龙宫, new SmallLevelInfo() { NormalMonsterCount = 130, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 65f } },
-    { LevelSmallType.蓬莱仙岛, new SmallLevelInfo() { NormalMonsterCount = 140, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 70f } },
-    { LevelSmallType.五行山, new SmallLevelInfo() { NormalMonsterCount = 150, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 75f } },
-    { LevelSmallType.高老庄, new SmallLevelInfo() { NormalMonsterCount = 160, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 80f } },
-    { LevelSmallType.平顶山, new SmallLevelInfo() { NormalMonsterCount = 170, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 85f } },
-    { LevelSmallType.车迟国, new SmallLevelInfo() { NormalMonsterCount = 180, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 90f } },
-    { LevelSmallType.女儿国, new SmallLevelInfo() { NormalMonsterCount = 190, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 95f } },
-    { LevelSmallType.火焰山, new SmallLevelInfo() { NormalMonsterCount = 200, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 100f } },
-    { LevelSmallType.盘丝洞, new SmallLevelInfo() { NormalMonsterCount = 210, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 105f } },
-    { LevelSmallType.狮驼岭, new SmallLevelInfo() { NormalMonsterCount = 220, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 110f } },
-    { LevelSmallType.天竺国, new SmallLevelInfo() { NormalMonsterCount = 230, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 115f } },
-    { LevelSmallType.芭蕉洞, new SmallLevelInfo() { NormalMonsterCount = 240, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 120f } },
-    { LevelSmallType.流沙河, new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 125f } },
-    { LevelSmallType.小雷音寺, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 130f } }
+    { 主线关卡Type.花果山, new SmallLevelInfo() { NormalMonsterCount = 10, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 5f } },
+    { 主线关卡Type.水帘洞, new SmallLevelInfo() { NormalMonsterCount = 110, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 55f } },
+    { 主线关卡Type.傲来国, new SmallLevelInfo() { NormalMonsterCount = 120, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 60f } },
+    { 主线关卡Type.东海龙宫, new SmallLevelInfo() { NormalMonsterCount = 130, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1, CreateEliteMonsterTime = 65f } },
+    { 主线关卡Type.蓬莱仙岛, new SmallLevelInfo() { NormalMonsterCount = 140, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 70f } },
+    { 主线关卡Type.五行山, new SmallLevelInfo() { NormalMonsterCount = 150, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 75f } },
+    { 主线关卡Type.高老庄, new SmallLevelInfo() { NormalMonsterCount = 160, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 80f } },
+    { 主线关卡Type.平顶山, new SmallLevelInfo() { NormalMonsterCount = 170, CreateNormalMonsterTime = 0.9f, EliteMonsterCount = 2, CreateEliteMonsterTime = 85f } },
+    { 主线关卡Type.女儿国, new SmallLevelInfo() { NormalMonsterCount = 190, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 95f } },
+    { 主线关卡Type.火焰山, new SmallLevelInfo() { NormalMonsterCount = 200, CreateNormalMonsterTime = 0.8f, EliteMonsterCount = 3, CreateEliteMonsterTime = 100f } },
+    { 主线关卡Type.狮驼岭, new SmallLevelInfo() { NormalMonsterCount = 220, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 110f } },
+    { 主线关卡Type.芭蕉洞, new SmallLevelInfo() { NormalMonsterCount = 240, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 120f } },
+    { 主线关卡Type.流沙河, new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 125f } },
+    { 主线关卡Type.小雷音寺, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4, CreateEliteMonsterTime = 130f } }
 };
-   public static Dictionary<LevelSmallType, List<MonsterTypeName>> LevelMonsterDic =
-    new Dictionary<LevelSmallType, List<MonsterTypeName>>()
+   public static Dictionary<主线关卡Type, List<MonsterTypeName>> LevelMonsterDic =
+    new Dictionary<主线关卡Type, List<MonsterTypeName>>()
     {
         // 花果山
-        { LevelSmallType.花果山, new List<MonsterTypeName>() { 
+        { 主线关卡Type.花果山, new List<MonsterTypeName>() { 
             MonsterTypeName.猴精, MonsterTypeName.山魈, MonsterTypeName.马猴头领 } },
         // 水帘洞
-        { LevelSmallType.水帘洞, new List<MonsterTypeName>() { 
+        { 主线关卡Type.水帘洞, new List<MonsterTypeName>() { 
             MonsterTypeName.水虱精, MonsterTypeName.蝙蝠精, MonsterTypeName.铁背苍猿 } },
         // 傲来国
-        { LevelSmallType.傲来国, new List<MonsterTypeName>() { 
+        { 主线关卡Type.傲来国, new List<MonsterTypeName>() { 
             MonsterTypeName.傲来民兵, MonsterTypeName.猎户, MonsterTypeName.傲来偏将 } },
         // 东海龙宫
-        { LevelSmallType.东海龙宫, new List<MonsterTypeName>() { 
+        { 主线关卡Type.东海龙宫, new List<MonsterTypeName>() { 
             MonsterTypeName.虾兵, MonsterTypeName.蟹将, MonsterTypeName.龟丞相 } },
         // 蓬莱仙岛
-        { LevelSmallType.蓬莱仙岛, new List<MonsterTypeName>() { 
+        { 主线关卡Type.蓬莱仙岛, new List<MonsterTypeName>() { 
             MonsterTypeName.仙鹤, MonsterTypeName.灵芝童, MonsterTypeName.蓬莱剑仙 } },
         // 五行山
-        { LevelSmallType.五行山, new List<MonsterTypeName>() { 
+        { 主线关卡Type.五行山, new List<MonsterTypeName>() { 
             MonsterTypeName.山石精, MonsterTypeName.土蝼, MonsterTypeName.五行山神 } },
         // 高老庄
-        { LevelSmallType.高老庄, new List<MonsterTypeName>() { 
+        { 主线关卡Type.高老庄, new List<MonsterTypeName>() { 
             MonsterTypeName.野猪精, MonsterTypeName.高才, MonsterTypeName.高太公 } },
         // 平顶山
-        { LevelSmallType.平顶山, new List<MonsterTypeName>() { 
+        { 主线关卡Type.平顶山, new List<MonsterTypeName>() { 
             MonsterTypeName.莲花洞小妖, MonsterTypeName.狐阿七, MonsterTypeName.银角大王 } },
-        // 车迟国
-        { LevelSmallType.车迟国, new List<MonsterTypeName>() { 
-            MonsterTypeName.虎力弟子, MonsterTypeName.鹿力弟子, MonsterTypeName.羊力大仙 } },
         // 女儿国
-        { LevelSmallType.女儿国, new List<MonsterTypeName>() { 
+        { 主线关卡Type.女儿国, new List<MonsterTypeName>() { 
             MonsterTypeName.女儿国兵, MonsterTypeName.落胎泉守护, MonsterTypeName.太师 } },
         // 火焰山
-        { LevelSmallType.火焰山, new List<MonsterTypeName>() { 
+        { 主线关卡Type.火焰山, new List<MonsterTypeName>() { 
             MonsterTypeName.火焰精, MonsterTypeName.赤蛇, MonsterTypeName.火鸦 } },
-        // 盘丝洞
-        { LevelSmallType.盘丝洞, new List<MonsterTypeName>() { 
-            MonsterTypeName.小蜘蛛, MonsterTypeName.毒蛾, MonsterTypeName.蜘蛛精 } },
         // 狮驼岭
-        { LevelSmallType.狮驼岭, new List<MonsterTypeName>() { 
+        { 主线关卡Type.狮驼岭, new List<MonsterTypeName>() { 
             MonsterTypeName.青狮精手下, MonsterTypeName.白象精手下, MonsterTypeName.大鹏金翅雕 } },
-        // 天竺国
-        { LevelSmallType.天竺国, new List<MonsterTypeName>() { 
-            MonsterTypeName.天竺舞女, MonsterTypeName.月宫侍卫, MonsterTypeName.素娥 } },
-        // 芭蕉洞
-        { LevelSmallType.芭蕉洞, new List<MonsterTypeName>() { 
+       // 芭蕉洞
+        { 主线关卡Type.芭蕉洞, new List<MonsterTypeName>() { 
             MonsterTypeName.芭蕉精, MonsterTypeName.火焰童, MonsterTypeName.铁扇侍女 } },
         // 流沙河
-        { LevelSmallType.流沙河, new List<MonsterTypeName>() { 
+        { 主线关卡Type.流沙河, new List<MonsterTypeName>() { 
             MonsterTypeName.流沙精, MonsterTypeName.水鬼, MonsterTypeName.水蛇妖 } },
         // 小雷音寺
-        { LevelSmallType.小雷音寺, new List<MonsterTypeName>() { 
+        { 主线关卡Type.小雷音寺, new List<MonsterTypeName>() { 
+            MonsterTypeName.假罗汉, MonsterTypeName.假金刚, MonsterTypeName.黄眉童子 } },
+        // 小雷音寺
+        { 主线关卡Type.冥府, new List<MonsterTypeName>() { 
             MonsterTypeName.假罗汉, MonsterTypeName.假金刚, MonsterTypeName.黄眉童子 } }
     };
 
    public static 普通关卡胜利奖励 Get胜利奖励()
    {
-       HashSet<LevelDiaoLuo> list = LevelDiaoLuoDic[CurrentLevelSmallType];
+       HashSet<LevelDiaoLuo> list = LevelDiaoLuoDic[Current主线关卡Type];
        普通关卡胜利奖励 value = new 普通关卡胜利奖励();
        foreach (var item in list)
        {
@@ -207,11 +187,11 @@ public class LevelConfig : MonoBehaviour
 
        return value;
    }
-    public static Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
-        new Dictionary<LevelSmallType, HashSet<LevelDiaoLuo>>()
+    public static Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
+        new Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>>()
         {
             {
-                LevelSmallType.花果山,
+                主线关卡Type.花果山,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 60, minCount = 50, PropType = PropType.灵魂 },
@@ -232,7 +212,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.水帘洞,
+                主线关卡Type.水帘洞,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 70, minCount = 60, PropType = PropType.灵魂 },
@@ -253,7 +233,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.傲来国,
+                主线关卡Type.傲来国,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 80, minCount = 70, PropType = PropType.灵魂 },
@@ -274,7 +254,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.东海龙宫,
+                主线关卡Type.东海龙宫,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
@@ -295,7 +275,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.蓬莱仙岛,
+                主线关卡Type.蓬莱仙岛,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
@@ -316,7 +296,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.五行山,
+                主线关卡Type.五行山,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.灵魂 },
@@ -337,7 +317,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.高老庄,
+                主线关卡Type.高老庄,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 180, minCount = 150, PropType = PropType.灵魂 },
@@ -358,7 +338,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.平顶山,
+                主线关卡Type.平顶山,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 210, minCount = 180, PropType = PropType.灵魂 },
@@ -378,29 +358,9 @@ public class LevelConfig : MonoBehaviour
                 }
             },
             
-            {
-                LevelSmallType.车迟国,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 210, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.领主经验值 },
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.招募卷 },
-                }
-            },
             
             {
-                LevelSmallType.女儿国,
+                主线关卡Type.女儿国,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.灵魂 },
@@ -421,7 +381,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.火焰山,
+                主线关卡Type.火焰山,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.灵魂 },
@@ -441,29 +401,10 @@ public class LevelConfig : MonoBehaviour
                 }
             },
             
-            {
-                LevelSmallType.盘丝洞,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 450, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.领主经验值 },
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.招募卷 },
-                }
-            },
+            
             
             {
-                LevelSmallType.狮驼岭,
+                主线关卡Type.狮驼岭,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.灵魂 },
@@ -483,29 +424,10 @@ public class LevelConfig : MonoBehaviour
                 }
             },
             
-            {
-                LevelSmallType.天竺国,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.领主经验值 },
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.招募卷 },
-                }
-            },
+            
             
             {
-                LevelSmallType.芭蕉洞,
+                主线关卡Type.芭蕉洞,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.灵魂 },
@@ -526,7 +448,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.流沙河,
+                主线关卡Type.流沙河,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.灵魂 },
@@ -547,7 +469,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                LevelSmallType.小雷音寺,
+                主线关卡Type.小雷音寺,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.灵魂 },
@@ -568,32 +490,24 @@ public class LevelConfig : MonoBehaviour
             },
         };
 
-    public static Dictionary<LevelBigType, string> LevelBigNameDic = new Dictionary<LevelBigType, string>()
-    {
-        { LevelBigType.东胜神州, "东胜神州" },
-        { LevelBigType.南瞻部洲, "南瞻部洲" },
-        { LevelBigType.西牛贺洲, "西牛贺洲" },
-        { LevelBigType.北俱芦洲, "北俱芦洲" },
-    };
+   
 
-    public static Dictionary<LevelSmallType, string> LevelSmallNameDic = new Dictionary<LevelSmallType, string>()
+    public static Dictionary<主线关卡Type, string> LevelSmallNameDic = new Dictionary<主线关卡Type, string>()
     {
-        { LevelSmallType.花果山, "花果山" },
-        { LevelSmallType.水帘洞, "水帘洞" },
-        { LevelSmallType.傲来国, "傲来国" },
-        { LevelSmallType.东海龙宫, "东海龙宫" },
-        { LevelSmallType.蓬莱仙岛, "蓬莱仙岛" },
-        { LevelSmallType.五行山, "五行山" },
-        { LevelSmallType.高老庄, "高老庄" },
-        { LevelSmallType.平顶山, "平顶山" },
-        { LevelSmallType.车迟国, "车迟国" },
-        { LevelSmallType.女儿国, "女儿国" },
-        { LevelSmallType.火焰山, "火焰山" },
-        { LevelSmallType.盘丝洞, "盘丝洞" },
-        { LevelSmallType.狮驼岭, "狮驼岭" },
-        { LevelSmallType.天竺国, "天竺国" },
-        { LevelSmallType.流沙河, "流沙河" },
-        { LevelSmallType.芭蕉洞, "芭蕉洞" },
-        { LevelSmallType.小雷音寺, "小雷音寺" },
+        { 主线关卡Type.花果山, "花果山" },
+        { 主线关卡Type.水帘洞, "水帘洞" },
+        { 主线关卡Type.傲来国, "傲来国" },
+        { 主线关卡Type.东海龙宫, "东海龙宫" },
+        { 主线关卡Type.蓬莱仙岛, "蓬莱仙岛" },
+        { 主线关卡Type.五行山, "五行山" },
+        { 主线关卡Type.高老庄, "高老庄" },
+        { 主线关卡Type.平顶山, "平顶山" },
+        { 主线关卡Type.女儿国, "女儿国" },
+        { 主线关卡Type.火焰山, "火焰山" },
+        { 主线关卡Type.狮驼岭, "狮驼岭" },
+        { 主线关卡Type.流沙河, "流沙河" },
+        { 主线关卡Type.芭蕉洞, "芭蕉洞" },
+        { 主线关卡Type.小雷音寺, "小雷音寺" },
+        { 主线关卡Type.冥府, "冥府" },
     };
 }
