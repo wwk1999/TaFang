@@ -58,6 +58,12 @@ public class StoreController : XSingleton<StoreController>
     private void Update()
     {
         CurrentTime+= Time.deltaTime;
+        PlayerData.S.道龄S += Time.deltaTime;
+        if (PlayerData.S.道龄S >= 属性config.每年秒数)
+        {
+            PlayerData.S.道龄S = 0;
+            PlayerData.S.道龄年++;
+        }
         //自动保存
         if (CurrentTime >= StoreTime)
         {

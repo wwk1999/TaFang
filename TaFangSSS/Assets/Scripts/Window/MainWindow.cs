@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public TextMeshProUGUI 道龄;
     public TextMeshProUGUI Name;
     public TextMeshProUGUI JingJie;
     public Slider JingJieSlider;
@@ -15,16 +16,17 @@ public class MainWindow : MonoBehaviour
     public TextMeshProUGUI MaxExp;
     public TextMeshProUGUI LingQi;
     public TextMeshProUGUI GongDe;
-    public Button LevelBtn;
     public Button 招募Btn;
     public Button 招募卷Debug;
     public Button 英雄按钮;
     public Button 储物袋按钮;
     public Button 经验值Debug;
     public Button 道宝Button;
+    public Button 城墙Button;
 
-    public void Init()
+    public void Show主页()
     {
+        道龄.text = PlayerData.S.道龄年 + "年";
         Name.text = PlayerData.S.Name;
         JingJie.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
         JingJieSlider.maxValue=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType];
@@ -33,14 +35,16 @@ public class MainWindow : MonoBehaviour
         MaxExp.text=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType].ToString();
         LingQi.text=PlayerData.S.LingQi.ToString();
         GongDe.text=PlayerData.S.GongDe.ToString();
+    }
+    public void Init()
+    {
+        Show主页();
         InitWindow();
         ResourcesConfig.Init();
     }
 
     public void InitWindow()
     {
-        WindowController.S.LevelWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/LevelWindow"));
-        WindowController.S.LevelWindow.gameObject.SetActive(false);
         WindowController.S.招募Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/招募界面"));
         WindowController.S.招募Window.gameObject.SetActive(false);
         WindowController.S.英雄Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/HeroWindow"));
@@ -93,10 +97,6 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.宙品,999);
             PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.洪品,999);
             PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.荒品,999);
-        });
-        LevelBtn.onClick.AddListener(() =>
-        {
-            WindowController.S.LevelWindow.gameObject.SetActive(true);
         });
         招募Btn.onClick.AddListener(() =>
         {

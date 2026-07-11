@@ -225,8 +225,8 @@ public class QueueController:XSingleton<QueueController>
     
      public IEnumerator Init怪物Queue(int fream=10)
     {
-        var 普通怪数量 = LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].NormalMonsterCount;
-        var 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].EliteMonsterCount;
+        var 普通怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+        var 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
 
         int count = 0;
         for (int i = 0; i < 普通怪数量; i++)

@@ -95,7 +95,7 @@ public class MonsterBase : MonoBehaviour
 
    public void InitAttribute()
    {
-      主线关卡Type 主线关卡Type = MonsterConfig.MonsterLevelDic[MonsterTypeName];
+      主线关卡Type 主线关卡Type = LevelConfig.当前主线关卡Type;
       MonsterType monsterType=MonsterConfig.MonsterTypeDic[MonsterTypeName];
       普通关卡怪物Item 普通关卡怪物Item=new 普通关卡怪物Item(){主线关卡Type =  主线关卡Type, MonsterType = monsterType};
       MonsterAttribute = MonsterConfig.普通关卡怪物属性Dic[普通关卡怪物Item];
@@ -207,9 +207,24 @@ public class MonsterBase : MonoBehaviour
       isDead = true;
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;
+      int 小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+      int 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+      if (FightController.S.KillMonsterCount == 小怪数量/2)
+      {
+         FightController.S.CreateBossMonster();
+      }
+      for (int i = 1; i <= 精英怪数量; i++)
+      {
+         if (FightController.S.KillMonsterCount == 小怪数量 * (i / 精英怪数量 + 1))
+         {
+            FightController.S.CreateEliteMonster();
+            FightController.S.EliteMonsterCount++;
+         }
+      }
+      
       if (FightController.S.KillMonsterCount ==
-          (LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].NormalMonsterCount +
-           LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].EliteMonsterCount))
+          (LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount +
+           LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount))
       {
          FightController.S.战斗结束 = true;
          FightController.S.StartCoroutine(Show胜利弹窗());

@@ -6,7 +6,6 @@ using UnityEngine;
 public class WindowController : XSingleton<WindowController>
 {
    [NonSerialized]public GameObject MainWindow;
-   [NonSerialized]public GameObject LevelWindow;
    [NonSerialized]public GameObject 招募Window;
    [NonSerialized]public GameObject 英雄Window;
    [NonSerialized]public GameObject 储物袋Window;

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class 属性config
 {
      public class 道纹属性
@@ -114,6 +116,31 @@ public class 属性config
           return 基础攻击 * 跟脚;
      }
      public static float 基础境界攻击力=>Get境界攻击力();
-     public static 领主总属性 总属性;
+     public static 领主总属性 总属性=new 领主总属性();
      public static float 领主攻击力 = 总属性.总攻击力;
+
+     public static Dictionary<JingJieType, int> 每年秒数Dic = new Dictionary<JingJieType, int>()
+     {
+          { JingJieType.练气,600},
+          { JingJieType.筑基,550},
+          { JingJieType.金丹,500},
+          { JingJieType.元婴,450},
+          { JingJieType.化神,400},
+          { JingJieType.合体,350},
+          { JingJieType.大乘,300},
+          { JingJieType.天仙,250},
+          { JingJieType.玄仙,220},
+          { JingJieType.金仙,180},
+          { JingJieType.太乙金仙,150},
+          { JingJieType.大罗金仙,120},
+          { JingJieType.准圣,100},
+          { JingJieType.圣人,80},
+          { JingJieType.天道圣人,60},
+          { JingJieType.大道圣人,45},
+          { JingJieType.混元圣人,30},
+          { JingJieType.鸿蒙,15},
+     };
+
+     public static int 每年秒数 => 每年秒数Dic[PlayerData.S.JingJieType];
+     
 }

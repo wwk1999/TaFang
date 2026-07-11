@@ -13,9 +13,8 @@ public class FightController : XSingleton<FightController>
 {
     [NonSerialized] public float CreateMonsterTime = 1f;
     [NonSerialized] public float 当前创建普通怪物时间 = 0;
-    [NonSerialized] public float 当前创建精英怪物时间 = 0;
     private int NormalMonsterCount = 0;
-    private int EliteMonsterCount = 0;
+    public int EliteMonsterCount = 0;
     [NonSerialized]public int KillMonsterCount = 0;
     [NonSerialized] public Dictionary<HeroType, 人物item> 人物items = new Dictionary<HeroType, 人物item>();
 
@@ -670,7 +669,7 @@ public class FightController : XSingleton<FightController>
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.普通怪Queue.Dequeue();
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.Current主线关卡Type];
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         int random=Random.Range(0,2);
         monster.MonsterTypeName = list[random];
         monster.gameObject.SetActive(true);
@@ -683,8 +682,20 @@ public class FightController : XSingleton<FightController>
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.精英怪Queue.Dequeue();
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.Current主线关卡Type];
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         monster.MonsterTypeName = list[2];
+        monster.gameObject.SetActive(true);
+        MonsterColliderDic[monster.Collider2D] = monster;
+    }
+    
+    public void CreateBossMonster()
+    {
+        float x = 10f;
+        float y = Random.Range(-4f, 4f);
+        var monster=QueueController.S.首领怪Queue.Dequeue();
+        monster.transform.position = new Vector3(x,y,0);
+        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        monster.MonsterTypeName = list[3];
         monster.gameObject.SetActive(true);
         MonsterColliderDic[monster.Collider2D] = monster;
     }
@@ -692,22 +703,14 @@ public class FightController : XSingleton<FightController>
     private void Update()
     {
         当前创建普通怪物时间+=Time.deltaTime;
-        当前创建精英怪物时间+=Time.deltaTime;
-        var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].CreateNormalMonsterTime;
-        var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].NormalMonsterCount;
-        var 精英怪物Time = LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].CreateEliteMonsterTime;
-        var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.Current主线关卡Type].EliteMonsterCount;
+        var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].CreateNormalMonsterTime;
+        var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+        var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
         {
             NormalMonsterCount++;
             CreateNormalMonster();
             当前创建普通怪物时间 = 0;
-        }
-        if (当前创建精英怪物时间 >= 精英怪物Time&&EliteMonsterCount<精英怪物最大数量)
-        {
-            EliteMonsterCount++;
-            CreateEliteMonster();
-            当前创建精英怪物时间 = 0;
         }
     }
 

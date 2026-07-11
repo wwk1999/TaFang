@@ -8,24 +8,10 @@ using UnityEngine.UI;
 public class MonsterItem : MonoBehaviour
 {
     [NonSerialized] public MonsterTypeName MonsterTypeName;
-    public Image bg;
     public Image image;
 
     public void SetItem()
     {
-        switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
-        {
-            case MonsterType.Normal:
-                bg.sprite = ResourcesConfig.小怪背景框;
-                break;
-            case MonsterType.Elite:
-                bg.sprite = ResourcesConfig.精英怪背景框;
-                break;
-            case MonsterType.Boss:
-                bg.sprite = ResourcesConfig.Boss背景框;
-                break;
-        }
-
         switch (MonsterTypeName)
         {
             // 花果山
@@ -140,29 +126,15 @@ public class MonsterItem : MonoBehaviour
                 image.sprite = ResourcesConfig.金角大王;
                 break;
 
-            // 车迟国
-            case MonsterTypeName.虎力弟子:
-                image.sprite = ResourcesConfig.虎力弟子;
-                break;
-            case MonsterTypeName.鹿力弟子:
-                image.sprite = ResourcesConfig.鹿力弟子;
-                break;
-            case MonsterTypeName.羊力大仙:
-                image.sprite = ResourcesConfig.羊力大仙;
-                break;
-            case MonsterTypeName.虎力大仙:
-                image.sprite = ResourcesConfig.虎力大仙;
-                break;
-
             // 女儿国
             case MonsterTypeName.女儿国兵:
                 image.sprite = ResourcesConfig.女儿国兵;
                 break;
-            case MonsterTypeName.落胎泉守护:
-                image.sprite = ResourcesConfig.落胎泉守护;
+            case MonsterTypeName.女儿国将:
+                image.sprite = ResourcesConfig.女儿国将;
                 break;
-            case MonsterTypeName.太师:
-                image.sprite = ResourcesConfig.太师;
+            case MonsterTypeName.女儿国太师:
+                image.sprite = ResourcesConfig.女儿国太师;
                 break;
             case MonsterTypeName.女儿国国王:
                 image.sprite = ResourcesConfig.女儿国国王;
@@ -175,25 +147,11 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.赤蛇:
                 image.sprite = ResourcesConfig.赤蛇;
                 break;
-            case MonsterTypeName.火鸦:
-                image.sprite = ResourcesConfig.火鸦;
+            case MonsterTypeName.红孩儿:
+                image.sprite = ResourcesConfig.红孩儿;
                 break;
-            case MonsterTypeName.火焰山土地:
-                image.sprite = ResourcesConfig.火焰山土地;
-                break;
-
-            // 盘丝洞
-            case MonsterTypeName.小蜘蛛:
-                image.sprite = ResourcesConfig.小蜘蛛;
-                break;
-            case MonsterTypeName.毒蛾:
-                image.sprite = ResourcesConfig.毒蛾;
-                break;
-            case MonsterTypeName.蜘蛛精:
-                image.sprite = ResourcesConfig.蜘蛛精;
-                break;
-            case MonsterTypeName.百眼魔君:
-                image.sprite = ResourcesConfig.百眼魔君;
+            case MonsterTypeName.牛魔王:
+                image.sprite = ResourcesConfig.牛魔王;
                 break;
 
             // 狮驼岭
@@ -208,20 +166,6 @@ public class MonsterItem : MonoBehaviour
                 break;
             case MonsterTypeName.青狮精:
                 image.sprite = ResourcesConfig.青狮精;
-                break;
-
-            // 天竺国
-            case MonsterTypeName.天竺舞女:
-                image.sprite = ResourcesConfig.天竺舞女;
-                break;
-            case MonsterTypeName.月宫侍卫:
-                image.sprite = ResourcesConfig.月宫侍卫;
-                break;
-            case MonsterTypeName.素娥:
-                image.sprite = ResourcesConfig.素娥;
-                break;
-            case MonsterTypeName.玉兔精:
-                image.sprite = ResourcesConfig.玉兔精;
                 break;
 
             // 小雷音寺
@@ -265,6 +209,20 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.铁扇公主:
                 image.sprite = ResourcesConfig.铁扇公主;
                 break;
+            
+            case MonsterTypeName.牛头:
+                image.sprite = ResourcesConfig.牛头;
+                break;
+            case MonsterTypeName.马面:
+                image.sprite = ResourcesConfig.马面;
+                break;
+            case MonsterTypeName.判官:
+                image.sprite = ResourcesConfig.判官;
+                break;
+            case MonsterTypeName.阎罗王:
+                image.sprite = ResourcesConfig.阎罗王;
+                break;
+            
 
             
 

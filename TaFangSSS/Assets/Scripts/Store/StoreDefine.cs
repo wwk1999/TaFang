@@ -18,6 +18,11 @@ public class StoreDefine : XSingleton<StoreController>
         public int LingQi;
         public int GongDe;
         public int CurrentBianDui = 1;
+        public float 道龄S = 0;
+        public int 道龄年;
+        public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
+
+
 
         public Dictionary<道宝Type, int> 道宝LevelDic = new Dictionary<道宝Type, int>()
         {
@@ -595,6 +600,10 @@ public class StoreDefine : XSingleton<StoreController>
             道纹List = runtime.道纹List;
             装备道纹List = runtime.装备道纹List;
             道宝LevelDic = runtime.道宝LevelDic;
+            道龄S = runtime.道龄S;
+            道龄年 = runtime.道龄年;
+            最大主线关卡 = runtime.最大主线关卡;
+
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -616,6 +625,9 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.道纹List = 道纹List;
             runtime.装备道纹List = 装备道纹List;
             runtime.道宝LevelDic = 道宝LevelDic;
+            runtime.道龄S = 道龄S;
+            runtime.道龄年 = 道龄年;
+            runtime.最大主线关卡 = 最大主线关卡;
         }
     }
 }

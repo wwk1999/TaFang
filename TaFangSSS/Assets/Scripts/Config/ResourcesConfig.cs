@@ -607,41 +607,23 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 银角大王;
     public static Sprite 金角大王;
 
-// 车迟国
-    public static Sprite 虎力弟子;
-    public static Sprite 鹿力弟子;
-    public static Sprite 羊力大仙;
-    public static Sprite 虎力大仙;
-
 // 女儿国
     public static Sprite 女儿国兵;
-    public static Sprite 落胎泉守护;
-    public static Sprite 太师;
+    public static Sprite 女儿国将;
+    public static Sprite 女儿国太师;
     public static Sprite 女儿国国王;
 
 // 火焰山
     public static Sprite 火焰精;
     public static Sprite 赤蛇;
-    public static Sprite 火鸦;
-    public static Sprite 火焰山土地;
-
-// 盘丝洞
-    public static Sprite 小蜘蛛;
-    public static Sprite 毒蛾;
-    public static Sprite 蜘蛛精;
-    public static Sprite 百眼魔君;
+    public static Sprite 红孩儿;
+    public static Sprite 牛魔王;
 
 // 狮驼岭
     public static Sprite 青狮精手下;
     public static Sprite 白象精手下;
     public static Sprite 大鹏金翅雕;
     public static Sprite 青狮精;
-
-// 天竺国
-    public static Sprite 天竺舞女;
-    public static Sprite 月宫侍卫;
-    public static Sprite 素娥;
-    public static Sprite 玉兔精;
 
 // 小雷音寺
     public static Sprite 假罗汉;
@@ -660,6 +642,12 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 火焰童;
     public static Sprite 铁扇侍女;
     public static Sprite 铁扇公主;
+    
+    // 芭蕉洞
+    public static Sprite 牛头;
+    public static Sprite 马面;
+    public static Sprite 判官;
+    public static Sprite 阎罗王;
 
 
     //人物图片
@@ -898,36 +886,23 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.狐阿七: return 狐阿七;
             case MonsterTypeName.银角大王: return 银角大王;
             case MonsterTypeName.金角大王: return 金角大王;
-            // 车迟国
-            case MonsterTypeName.虎力弟子: return 虎力弟子;
-            case MonsterTypeName.鹿力弟子: return 鹿力弟子;
-            case MonsterTypeName.羊力大仙: return 羊力大仙;
-            case MonsterTypeName.虎力大仙: return 虎力大仙;
+           
             // 女儿国
             case MonsterTypeName.女儿国兵: return 女儿国兵;
-            case MonsterTypeName.落胎泉守护: return 落胎泉守护;
-            case MonsterTypeName.太师: return 太师;
+            case MonsterTypeName.女儿国将: return 女儿国将;
+            case MonsterTypeName.女儿国太师: return 女儿国太师;
             case MonsterTypeName.女儿国国王: return 女儿国国王;
             // 火焰山
             case MonsterTypeName.火焰精: return 火焰精;
             case MonsterTypeName.赤蛇: return 赤蛇;
-            case MonsterTypeName.火鸦: return 火鸦;
-            case MonsterTypeName.火焰山土地: return 火焰山土地;
-            // 盘丝洞
-            case MonsterTypeName.小蜘蛛: return 小蜘蛛;
-            case MonsterTypeName.毒蛾: return 毒蛾;
-            case MonsterTypeName.蜘蛛精: return 蜘蛛精;
-            case MonsterTypeName.百眼魔君: return 百眼魔君;
+            case MonsterTypeName.红孩儿: return 红孩儿;
+            case MonsterTypeName.牛魔王: return 牛魔王;
             // 狮驼岭
             case MonsterTypeName.青狮精手下: return 青狮精手下;
             case MonsterTypeName.白象精手下: return 白象精手下;
             case MonsterTypeName.大鹏金翅雕: return 大鹏金翅雕;
             case MonsterTypeName.青狮精: return 青狮精;
-            // 天竺国
-            case MonsterTypeName.天竺舞女: return 天竺舞女;
-            case MonsterTypeName.月宫侍卫: return 月宫侍卫;
-            case MonsterTypeName.素娥: return 素娥;
-            case MonsterTypeName.玉兔精: return 玉兔精;
+           
             // 小雷音寺
             case MonsterTypeName.假罗汉: return 假罗汉;
             case MonsterTypeName.假金刚: return 假金刚;
@@ -2507,107 +2482,93 @@ public class ResourcesConfig : MonoBehaviour
 
         //怪物图片
         // 花果山
-        猴精 = Resources.Load<Sprite>("Sprite/GuaiWu/猴精");
-        山魈 = Resources.Load<Sprite>("Sprite/GuaiWu/山魈");
-        马猴头领 = Resources.Load<Sprite>("Sprite/GuaiWu/马猴头领");
-        通臂猿猴 = Resources.Load<Sprite>("Sprite/GuaiWu/通臂猿猴");
+        猴精 = Resources.Load<Sprite>("Sprite/怪物icon/猴精");
+        山魈 = Resources.Load<Sprite>("Sprite/怪物icon/山魈");
+        马猴头领 = Resources.Load<Sprite>("Sprite/怪物icon/马猴头领");
+        通臂猿猴 = Resources.Load<Sprite>("Sprite/怪物icon/通臂猿猴");
 
 // 水帘洞
-        水虱精 = Resources.Load<Sprite>("Sprite/GuaiWu/水虱精");
-        蝙蝠精 = Resources.Load<Sprite>("Sprite/GuaiWu/蝙蝠精");
-        铁背苍猿 = Resources.Load<Sprite>("Sprite/GuaiWu/铁背苍猿");
-        水帘洞主 = Resources.Load<Sprite>("Sprite/GuaiWu/水帘洞主");
+        水虱精 = Resources.Load<Sprite>("Sprite/怪物icon/水虱精");
+        蝙蝠精 = Resources.Load<Sprite>("Sprite/怪物icon/蝙蝠精");
+        铁背苍猿 = Resources.Load<Sprite>("Sprite/怪物icon/铁背苍猿");
+        水帘洞主 = Resources.Load<Sprite>("Sprite/怪物icon/水帘洞主");
 
 // 傲来国
-        傲来民兵 = Resources.Load<Sprite>("Sprite/GuaiWu/傲来民兵");
-        猎户 = Resources.Load<Sprite>("Sprite/GuaiWu/猎户");
-        傲来偏将 = Resources.Load<Sprite>("Sprite/GuaiWu/傲来偏将");
-        傲来国师 = Resources.Load<Sprite>("Sprite/GuaiWu/傲来国师");
+        傲来民兵 = Resources.Load<Sprite>("Sprite/怪物icon/傲来民兵");
+        猎户 = Resources.Load<Sprite>("Sprite/怪物icon/猎户");
+        傲来偏将 = Resources.Load<Sprite>("Sprite/怪物icon/傲来偏将");
+        傲来国师 = Resources.Load<Sprite>("Sprite/怪物icon/傲来国师");
 
 // 东海龙宫
-        虾兵 = Resources.Load<Sprite>("Sprite/GuaiWu/虾兵");
-        蟹将 = Resources.Load<Sprite>("Sprite/GuaiWu/蟹将");
-        龟丞相 = Resources.Load<Sprite>("Sprite/GuaiWu/巡海夜叉");
-        东海龙王 = Resources.Load<Sprite>("Sprite/GuaiWu/东海龙王");
+        虾兵 = Resources.Load<Sprite>("Sprite/怪物icon/虾兵");
+        蟹将 = Resources.Load<Sprite>("Sprite/怪物icon/蟹将");
+        龟丞相 = Resources.Load<Sprite>("Sprite/怪物icon/巡海夜叉");
+        东海龙王 = Resources.Load<Sprite>("Sprite/怪物icon/东海龙王");
 
 // 蓬莱仙岛
-        仙鹤 = Resources.Load<Sprite>("Sprite/GuaiWu/仙鹤");
-        灵芝童 = Resources.Load<Sprite>("Sprite/GuaiWu/灵芝童");
-        蓬莱剑仙 = Resources.Load<Sprite>("Sprite/GuaiWu/蓬莱剑仙");
-        蓬莱岛主 = Resources.Load<Sprite>("Sprite/GuaiWu/蓬莱岛主");
+        仙鹤 = Resources.Load<Sprite>("Sprite/怪物icon/仙鹤");
+        灵芝童 = Resources.Load<Sprite>("Sprite/怪物icon/灵芝童");
+        蓬莱剑仙 = Resources.Load<Sprite>("Sprite/怪物icon/蓬莱剑仙");
+        蓬莱岛主 = Resources.Load<Sprite>("Sprite/怪物icon/蓬莱岛主");
 
 // 五行山
-        山石精 = Resources.Load<Sprite>("Sprite/GuaiWu/山石精");
-        土蝼 = Resources.Load<Sprite>("Sprite/GuaiWu/土蝼");
-        五行山神 = Resources.Load<Sprite>("Sprite/GuaiWu/五行山神");
-        压山符灵 = Resources.Load<Sprite>("Sprite/GuaiWu/压山符灵");
+        山石精 = Resources.Load<Sprite>("Sprite/怪物icon/山石精");
+        土蝼 = Resources.Load<Sprite>("Sprite/怪物icon/土蝼");
+        五行山神 = Resources.Load<Sprite>("Sprite/怪物icon/五行山神");
+        压山符灵 = Resources.Load<Sprite>("Sprite/怪物icon/压山符灵");
 
 // 高老庄
-        野猪精 = Resources.Load<Sprite>("Sprite/GuaiWu/野猪精");
-        高才 = Resources.Load<Sprite>("Sprite/GuaiWu/高才");
-        高太公 = Resources.Load<Sprite>("Sprite/GuaiWu/高太公");
-        猪刚鬣 = Resources.Load<Sprite>("Sprite/GuaiWu/猪刚鬣");
+        野猪精 = Resources.Load<Sprite>("Sprite/怪物icon/野猪精");
+        高才 = Resources.Load<Sprite>("Sprite/怪物icon/高才");
+        高太公 = Resources.Load<Sprite>("Sprite/怪物icon/高太公");
+        猪刚鬣 = Resources.Load<Sprite>("Sprite/怪物icon/猪刚鬣");
 
 // 平顶山
-        莲花洞小妖 = Resources.Load<Sprite>("Sprite/GuaiWu/莲花洞小妖");
-        狐阿七 = Resources.Load<Sprite>("Sprite/GuaiWu/狐阿七");
-        银角大王 = Resources.Load<Sprite>("Sprite/GuaiWu/银角大王");
-        金角大王 = Resources.Load<Sprite>("Sprite/GuaiWu/金角大王");
-
-// 车迟国
-        虎力弟子 = Resources.Load<Sprite>("Sprite/GuaiWu/虎力弟子");
-        鹿力弟子 = Resources.Load<Sprite>("Sprite/GuaiWu/鹿力弟子");
-        羊力大仙 = Resources.Load<Sprite>("Sprite/GuaiWu/羊力大仙");
-        虎力大仙 = Resources.Load<Sprite>("Sprite/GuaiWu/虎力大仙");
+        莲花洞小妖 = Resources.Load<Sprite>("Sprite/怪物icon/莲花洞小妖");
+        狐阿七 = Resources.Load<Sprite>("Sprite/怪物icon/狐阿七");
+        银角大王 = Resources.Load<Sprite>("Sprite/怪物icon/银角大王");
+        金角大王 = Resources.Load<Sprite>("Sprite/怪物icon/金角大王");
 
 // 女儿国
-        女儿国兵 = Resources.Load<Sprite>("Sprite/GuaiWu/女儿国兵");
-        落胎泉守护 = Resources.Load<Sprite>("Sprite/GuaiWu/落胎泉守护");
-        太师 = Resources.Load<Sprite>("Sprite/GuaiWu/太师");
-        女儿国国王 = Resources.Load<Sprite>("Sprite/GuaiWu/女儿国国王");
+        女儿国兵 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国兵");
+        女儿国将 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国将");
+        女儿国太师 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国太师");
+        女儿国国王 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国国王");
 
 // 火焰山
-        火焰精 = Resources.Load<Sprite>("Sprite/GuaiWu/火焰精");
-        赤蛇 = Resources.Load<Sprite>("Sprite/GuaiWu/赤蛇");
-        火鸦 = Resources.Load<Sprite>("Sprite/GuaiWu/火鸦");
-        火焰山土地 = Resources.Load<Sprite>("Sprite/GuaiWu/火焰山土地");
-
-// 盘丝洞
-        小蜘蛛 = Resources.Load<Sprite>("Sprite/GuaiWu/小蜘蛛");
-        毒蛾 = Resources.Load<Sprite>("Sprite/GuaiWu/毒蛾");
-        蜘蛛精 = Resources.Load<Sprite>("Sprite/GuaiWu/蜘蛛精");
-        百眼魔君 = Resources.Load<Sprite>("Sprite/GuaiWu/百眼魔君");
+        火焰精 = Resources.Load<Sprite>("Sprite/怪物icon/火焰精");
+        赤蛇 = Resources.Load<Sprite>("Sprite/怪物icon/赤蛇");
+        红孩儿 = Resources.Load<Sprite>("Sprite/怪物icon/红孩儿");
+        牛魔王 = Resources.Load<Sprite>("Sprite/怪物icon/牛魔王");
 
 // 狮驼岭
-        青狮精手下 = Resources.Load<Sprite>("Sprite/GuaiWu/青狮精手下");
-        白象精手下 = Resources.Load<Sprite>("Sprite/GuaiWu/白象精手下");
-        大鹏金翅雕 = Resources.Load<Sprite>("Sprite/GuaiWu/大鹏金翅雕");
-        青狮精 = Resources.Load<Sprite>("Sprite/GuaiWu/青狮精");
-
-// 天竺国
-        天竺舞女 = Resources.Load<Sprite>("Sprite/GuaiWu/天竺舞女");
-        月宫侍卫 = Resources.Load<Sprite>("Sprite/GuaiWu/月宫侍卫");
-        素娥 = Resources.Load<Sprite>("Sprite/GuaiWu/素娥");
-        玉兔精 = Resources.Load<Sprite>("Sprite/GuaiWu/玉兔精");
+        青狮精手下 = Resources.Load<Sprite>("Sprite/怪物icon/青狮精手下");
+        白象精手下 = Resources.Load<Sprite>("Sprite/怪物icon/白象精手下");
+        大鹏金翅雕 = Resources.Load<Sprite>("Sprite/怪物icon/大鹏金翅雕");
+        青狮精 = Resources.Load<Sprite>("Sprite/怪物icon/青狮精");
 
 // 小雷音寺
-        假罗汉 = Resources.Load<Sprite>("Sprite/GuaiWu/假罗汉");
-        假金刚 = Resources.Load<Sprite>("Sprite/GuaiWu/假金刚");
-        黄眉童子 = Resources.Load<Sprite>("Sprite/GuaiWu/黄眉童子");
-        黄眉老祖 = Resources.Load<Sprite>("Sprite/GuaiWu/黄眉老祖");
+        假罗汉 = Resources.Load<Sprite>("Sprite/怪物icon/假罗汉");
+        假金刚 = Resources.Load<Sprite>("Sprite/怪物icon/假金刚");
+        黄眉童子 = Resources.Load<Sprite>("Sprite/怪物icon/黄眉童子");
+        黄眉老祖 = Resources.Load<Sprite>("Sprite/怪物icon/黄眉老祖");
 
 // 流沙河
-        流沙精 = Resources.Load<Sprite>("Sprite/GuaiWu/流沙精");
-        水鬼 = Resources.Load<Sprite>("Sprite/GuaiWu/水鬼");
-        水蛇妖 = Resources.Load<Sprite>("Sprite/GuaiWu/水蛇妖");
-        沙和尚 = Resources.Load<Sprite>("Sprite/GuaiWu/沙和尚");
+        流沙精 = Resources.Load<Sprite>("Sprite/怪物icon/流沙精");
+        水鬼 = Resources.Load<Sprite>("Sprite/怪物icon/水鬼");
+        水蛇妖 = Resources.Load<Sprite>("Sprite/怪物icon/水蛇妖");
+        沙和尚 = Resources.Load<Sprite>("Sprite/怪物icon/沙和尚");
 
 // 芭蕉洞
-        芭蕉精 = Resources.Load<Sprite>("Sprite/GuaiWu/芭蕉精");
-        火焰童 = Resources.Load<Sprite>("Sprite/GuaiWu/火焰童");
-        铁扇侍女 = Resources.Load<Sprite>("Sprite/GuaiWu/铁扇侍女");
-        铁扇公主 = Resources.Load<Sprite>("Sprite/GuaiWu/铁扇公主");
+        芭蕉精 = Resources.Load<Sprite>("Sprite/怪物icon/芭蕉精");
+        火焰童 = Resources.Load<Sprite>("Sprite/怪物icon/火焰童");
+        铁扇侍女 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇侍女");
+        铁扇公主 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇公主");
 
+        牛头 = Resources.Load<Sprite>("Sprite/怪物icon/牛头");
+        马面 = Resources.Load<Sprite>("Sprite/怪物icon/马面");
+        判官 = Resources.Load<Sprite>("Sprite/怪物icon/判官");
+        阎罗王 = Resources.Load<Sprite>("Sprite/怪物icon/阎罗王");
 
 
         //人物图片
