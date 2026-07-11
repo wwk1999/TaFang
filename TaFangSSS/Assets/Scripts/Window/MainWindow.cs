@@ -23,6 +23,7 @@ public class MainWindow : MonoBehaviour
     public Button 经验值Debug;
     public Button 道宝Button;
     public Button 城墙Button;
+    public 主线关卡窗口 主线关卡窗口;
 
     public void Show主页()
     {
@@ -55,8 +56,21 @@ public class MainWindow : MonoBehaviour
         WindowController.S.道宝Window.gameObject.SetActive(false);
     }
 
+    public void 显示主线关卡弹窗(object[] obj)
+    {
+        主线关卡Type 主线关卡Type = (主线关卡Type)obj[0];
+        主线关卡窗口.主线关卡Type = 主线关卡Type;
+        主线关卡窗口.gameObject.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
         道宝Button.onClick.AddListener(() =>
         {
             WindowController.S.道宝Window.gameObject.SetActive(true);

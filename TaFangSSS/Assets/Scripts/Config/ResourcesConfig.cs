@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    
     //道宝
     public static Sprite 道宝标签紫;
     public static Sprite 道宝标签橙;
@@ -547,15 +548,13 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 五行山;
     public static Sprite 高老庄;
     public static Sprite 平顶山;
-    public static Sprite 车迟国;
     public static Sprite 女儿国;
     public static Sprite 火焰山;
-    public static Sprite 盘丝洞;
     public static Sprite 狮驼岭;
-    public static Sprite 天竺国;
     public static Sprite 小雷音寺;
     public static Sprite 流沙河;
     public static Sprite 芭蕉洞;
+    public static Sprite 冥府;
 
 
     //怪物图片
@@ -1933,6 +1932,44 @@ public class ResourcesConfig : MonoBehaviour
     }
 }
 
+    public static Sprite Get主线关卡Sprite(主线关卡Type Type)
+    {
+        switch (Type)
+        {
+            case 主线关卡Type.花果山:
+                return 花果山;
+            case 主线关卡Type.水帘洞:
+                return 水帘洞;
+            case 主线关卡Type.蓬莱仙岛:
+                return 蓬莱仙岛;
+            case 主线关卡Type.五行山:
+                return 五行山;
+            case 主线关卡Type.傲来国:
+                return 傲来国;
+            case 主线关卡Type.高老庄:
+                return 高老庄;
+            case 主线关卡Type.女儿国:
+                return 女儿国;
+            case 主线关卡Type.小雷音寺:
+                return 小雷音寺;
+            case 主线关卡Type.平顶山:
+                return 平顶山;
+            case 主线关卡Type.火焰山:
+                return 火焰山;
+            case 主线关卡Type.芭蕉洞:
+                return 芭蕉洞;
+            case 主线关卡Type.流沙河:
+                return 流沙河;
+            case 主线关卡Type.狮驼岭:
+                return 狮驼岭;
+            case 主线关卡Type.东海龙宫:
+                return 东海龙宫;
+            case 主线关卡Type.冥府:
+                return 冥府;
+            default:
+                return null; // 或者返回一个默认的占位图
+        }
+    }
     public static void Init()
     {
     道宝标签紫= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
@@ -2462,23 +2499,21 @@ public class ResourcesConfig : MonoBehaviour
 
 
         // 关卡图片
-        花果山 = Resources.Load<Sprite>("Sprite/GuanKa/花果山");
-        水帘洞 = Resources.Load<Sprite>("Sprite/GuanKa/水帘洞");
-        傲来国 = Resources.Load<Sprite>("Sprite/GuanKa/傲来国");
-        东海龙宫 = Resources.Load<Sprite>("Sprite/GuanKa/东海龙宫");
-        蓬莱仙岛 = Resources.Load<Sprite>("Sprite/GuanKa/蓬莱仙岛");
-        五行山 = Resources.Load<Sprite>("Sprite/GuanKa/五行山");
-        高老庄 = Resources.Load<Sprite>("Sprite/GuanKa/高老庄");
-        平顶山 = Resources.Load<Sprite>("Sprite/GuanKa/平顶山");
-        车迟国 = Resources.Load<Sprite>("Sprite/GuanKa/车迟国");
-        女儿国 = Resources.Load<Sprite>("Sprite/GuanKa/女儿国");
-        火焰山 = Resources.Load<Sprite>("Sprite/GuanKa/火焰山");
-        盘丝洞 = Resources.Load<Sprite>("Sprite/GuanKa/盘丝洞");
-        狮驼岭 = Resources.Load<Sprite>("Sprite/GuanKa/狮驼岭");
-        天竺国 = Resources.Load<Sprite>("Sprite/GuanKa/天竺国");
-        小雷音寺 = Resources.Load<Sprite>("Sprite/GuanKa/小雷音寺");
-        流沙河 = Resources.Load<Sprite>("Sprite/GuanKa/流沙河");
-        芭蕉洞 = Resources.Load<Sprite>("Sprite/GuanKa/芭蕉洞");
+        花果山 = Resources.Load<Sprite>("Sprite/地图icon/花果山");
+        水帘洞 = Resources.Load<Sprite>("Sprite/地图icon/水帘洞");
+        傲来国 = Resources.Load<Sprite>("Sprite/地图icon/傲来国");
+        东海龙宫 = Resources.Load<Sprite>("Sprite/地图icon/东海龙宫");
+        蓬莱仙岛 = Resources.Load<Sprite>("Sprite/地图icon/蓬莱仙岛");
+        五行山 = Resources.Load<Sprite>("Sprite/地图icon/五行山");
+        高老庄 = Resources.Load<Sprite>("Sprite/地图icon/高老庄");
+        平顶山 = Resources.Load<Sprite>("Sprite/地图icon/平顶山");
+        女儿国 = Resources.Load<Sprite>("Sprite/地图icon/女儿国");
+        火焰山 = Resources.Load<Sprite>("Sprite/地图icon/火焰山");
+        狮驼岭 = Resources.Load<Sprite>("Sprite/地图icon/狮驼岭");
+        小雷音寺 = Resources.Load<Sprite>("Sprite/地图icon/小雷音寺");
+        流沙河 = Resources.Load<Sprite>("Sprite/地图icon/流沙河");
+        芭蕉洞 = Resources.Load<Sprite>("Sprite/地图icon/芭蕉洞");
+        冥府 = Resources.Load<Sprite>("Sprite/地图icon/冥府");
 
         //怪物图片
         // 花果山

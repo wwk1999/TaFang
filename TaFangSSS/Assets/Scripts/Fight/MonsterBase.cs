@@ -196,6 +196,11 @@ public class MonsterBase : MonoBehaviour
    public IEnumerator Show胜利弹窗()
    {
       yield return new WaitForSeconds(1f);
+      if (LevelConfig.当前主线关卡Type == PlayerData.S.最大主线关卡)
+      {
+         PlayerData.S.最大主线关卡++;
+         ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+      }
       Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
    }
    public void Die()
@@ -215,16 +220,14 @@ public class MonsterBase : MonoBehaviour
       }
       for (int i = 1; i <= 精英怪数量; i++)
       {
-         if (FightController.S.KillMonsterCount == 小怪数量 * (i / 精英怪数量 + 1))
+         if (FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
          {
             FightController.S.CreateEliteMonster();
             FightController.S.EliteMonsterCount++;
          }
       }
       
-      if (FightController.S.KillMonsterCount ==
-          (LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount +
-           LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount))
+      if (FightController.S.KillMonsterCount == 小怪数量 + 精英怪数量+1)
       {
          FightController.S.战斗结束 = true;
          FightController.S.StartCoroutine(Show胜利弹窗());

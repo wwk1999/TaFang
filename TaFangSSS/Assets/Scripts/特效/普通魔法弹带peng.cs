@@ -32,6 +32,7 @@ public class 普通魔法弹带peng : MonoBehaviour
       }
       float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg;
       parent.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+      ObserverModuleManager.S.SendEvent("隐藏魔法弹",this,Type,gameObject,DelayTime);
       Invoke(nameof(Hide), DelayTime);
    }
 

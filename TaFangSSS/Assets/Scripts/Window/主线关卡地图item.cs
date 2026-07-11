@@ -12,6 +12,14 @@ public class 主线关卡地图item : MonoBehaviour
     public TextMeshProUGUI name;
     public 主线关卡Type 主线关卡Type;
 
+    private void Start()
+    {
+        image.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("显示主线关卡弹窗",主线关卡Type);
+        });
+    }
+
     private void OnEnable()
     {
         SetItem();

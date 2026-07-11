@@ -31,8 +31,13 @@ public class FightController : XSingleton<FightController>
         { 7, new HashSet<MonsterBase>() },
     };
     [NonSerialized]public Dictionary<Collider2D,MonsterBase>MonsterColliderDic = new Dictionary<Collider2D,MonsterBase>();
+
+   
     
-    
+    private void Start()
+    {
+    }
+
     public MonsterBase GetAttackMonster()
     {
         if (Monster分区Dic[1].Count > 0)
@@ -549,8 +554,7 @@ public class FightController : XSingleton<FightController>
     
     public void 普通魔法弹Hide(普通魔法弹带peng 普通魔法弹带peng, 攻击特效Type type, GameObject gameObject)
     {
-        switch (type)
-        {
+        switch (type) {
             case 攻击特效Type.电魔法弹:
                 QueueController.S.电魔法弹Queue.Enqueue(普通魔法弹带peng);
                 break;
@@ -717,7 +721,7 @@ public class FightController : XSingleton<FightController>
     public void Show伤害数字(float 最终伤害, YuanSuType yuanSuType,Vector2 pos)
     {
         var item=QueueController.S.伤害数字Queue.Dequeue();
-        item.damage = 最终伤害;
+        item.damage = (int)最终伤害;
         item.YuanSuType = yuanSuType;
         item.transform.position = pos;
         item.gameObject.SetActive(true);

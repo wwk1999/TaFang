@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 主线关卡窗口 : MonoBehaviour
 {
+   public Image image;
    public TextMeshProUGUI title;
    public TextMeshProUGUI description;
    public TextMeshProUGUI 境界;
@@ -35,6 +36,7 @@ public class 主线关卡窗口 : MonoBehaviour
 
    private void OnEnable()
    {
+      image.sprite = ResourcesConfig.Get主线关卡Sprite(主线关卡Type);
       title.text = LevelConfig.主线关卡NameDic[主线关卡Type];
       description.text = LevelConfig.主线关卡介绍Dic[主线关卡Type];
       境界.text = JingJieConfig.JingJieNameDic[LevelConfig.主线关卡境界Dic[主线关卡Type]];
