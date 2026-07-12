@@ -12,10 +12,19 @@ public class Entrance : MonoBehaviour
 
    public void 围栏受击(object[] obj)
    {
+      if (围栏Animator == null)
+      {
+         围栏Animator =GameObject.Find("围栏").GetComponent<Animator>();
+      }
       float damage = (float)obj[0];
       float y=(float)obj[1];
       围栏Animator.Play("围栏受击",0,0);
       FightController.S.Show伤害数字(damage,YuanSuType.物理,new Vector2(-5,y));
+   }
+
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("围栏受击",围栏受击);
    }
 
    private void Start()

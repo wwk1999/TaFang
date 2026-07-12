@@ -15,20 +15,14 @@ public class 储物袋界面 : MonoBehaviour
    public GameObject EquipContent;
    public GameObject BagContent;
    public Button 强化Btn;
-   public Button 幻化Btn;
-   public Button 神通Btn;
-   public Button 灵宝Btn;
    public Button 材料Btn;
    public Button 道纹Btn;
-   public Button 分类Btn;
-   public Button 合成Btn;
    public TextMeshProUGUI  Name;
+   public TextMeshProUGUI  跟脚;
    public TextMeshProUGUI 境界Name;
    public TextMeshProUGUI CurrentExp;
    public TextMeshProUGUI MaxExp;
    public Slider ExpSlider;
-   public Button 提升修为Button;
-   public TextMeshProUGUI 提升修为Text;
    public GameObject 突破弹窗;
    private bool IsProp = true;
    public GameObject 强化弹窗;
@@ -40,7 +34,6 @@ public class 储物袋界面 : MonoBehaviour
    public void 突破成功(object[] obj)
    {
       Set经验SLider();
-      Set提升修为();
       Set境界();
    }
 
@@ -66,57 +59,17 @@ public class 储物袋界面 : MonoBehaviour
       道纹image.sprite = ResourcesConfig.Get道文Sprite(道纹Type,qualityType);
       道纹image.gameObject.SetActive(true);
    }
+
    private void Start()
    {
-      ObserverModuleManager.S.RegisterEvent("Show道纹image",Show道纹image);
-      ObserverModuleManager.S.RegisterEvent("Show道纹弹窗",Show道纹弹窗);
-      ObserverModuleManager.S.RegisterEvent("刷新装备",刷新装备);
-      ObserverModuleManager.S.RegisterEvent("突破成功",突破成功);
-      材料Btn.onClick.AddListener(() =>
-      {
-         ShowProp();
-      });
-      道纹Btn.onClick.AddListener(() =>
-      {
-         Show道纹();
-      });
-      强化Btn.onClick.AddListener(() =>
-      {
-         强化弹窗.gameObject.SetActive(true);
-      });
-      ExitButton.onClick.AddListener(() =>
-      {
-         gameObject.SetActive(false);
-      });
-      提升修为Button.onClick.AddListener(() =>
-      {
-         if (PlayerData.S.Exp >= JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType])
-         {
-            突破弹窗.gameObject.SetActive(true);
-         }
-         else
-         {
-            int cha = JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] - PlayerData.S.Exp;
-            if (PlayerData.S.PropListDic[PropType.领主经验值] >= cha)
-            {
-               PlayerData.S.PropListDic[PropType.领主经验值] -= cha;
-               PlayerData.S.Exp += cha;
-            }
-            else
-            {
-               PlayerData.S.Exp += PlayerData.S.PropListDic[PropType.领主经验值];
-               PlayerData.S.PropListDic[PropType.领主经验值] = 0;
-            }
-
-            if (IsProp)
-            {
-               ShowProp();
-            }
-         }
-
-         Set经验SLider();
-         Set提升修为();
-      });
+      ObserverModuleManager.S.RegisterEvent("Show道纹image", Show道纹image);
+      ObserverModuleManager.S.RegisterEvent("Show道纹弹窗", Show道纹弹窗);
+      ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
+      ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
+      材料Btn.onClick.AddListener(() => { ShowProp(); });
+      道纹Btn.onClick.AddListener(() => { Show道纹(); });
+      强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
+      ExitButton.onClick.AddListener(() => { gameObject.SetActive(false); });
    }
 
    public void Set经验SLider()
@@ -126,26 +79,13 @@ public class 储物袋界面 : MonoBehaviour
       ExpSlider.value = PlayerData.S.Exp;
       ExpSlider.maxValue=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType];
    }
-
-   public void Set提升修为()
-   {
-      提升修为Button.interactable = PlayerData.S.PropListDic[PropType.领主经验值] > 0;
-      if (PlayerData.S.Exp >= JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType])
-      {
-         提升修为Text.text = "突破";
-      }
-      else
-      {
-         提升修为Text.text = "提升修为";
-      }
-   }
+   
 
    private void OnEnable()
    {
       IsProp = true;
       ShowProp();
       ShowEquip();
-      Set提升修为();
       Set经验SLider();
       Set境界();
    }

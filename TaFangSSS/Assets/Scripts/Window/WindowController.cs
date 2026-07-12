@@ -13,7 +13,7 @@ public class WindowController : XSingleton<WindowController>
 
 
 
-   private void OnEnable()
+   private void Awake()
    {
       Init();
    }

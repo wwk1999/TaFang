@@ -2369,59 +2369,59 @@ public class ResourcesConfig : MonoBehaviour
         突破背景荒 = Resources.Load<Sprite>("Sprite/突破背景/荒");
 
         //装备
-        护手白 = Resources.Load<Sprite>("Sprite/装备/护手白");
-        护手绿 = Resources.Load<Sprite>("Sprite/装备/护手绿");
-        护手蓝 = Resources.Load<Sprite>("Sprite/装备/护手蓝");
-        护手紫 = Resources.Load<Sprite>("Sprite/装备/护手紫");
-        护手橙 = Resources.Load<Sprite>("Sprite/装备/护手橙");
-        护手粉 = Resources.Load<Sprite>("Sprite/装备/护手粉");
-        护手红 = Resources.Load<Sprite>("Sprite/装备/护手红");
-        护手彩 = Resources.Load<Sprite>("Sprite/装备/护手彩");
+        护手白 = Resources.Load<Sprite>("Sprite/装备/护手/白");
+        护手绿 = Resources.Load<Sprite>("Sprite/装备/护手/绿");
+        护手蓝 = Resources.Load<Sprite>("Sprite/装备/护手/蓝");
+        护手紫 = Resources.Load<Sprite>("Sprite/装备/护手/紫");
+        护手橙 = Resources.Load<Sprite>("Sprite/装备/护手/橙");
+        护手粉 = Resources.Load<Sprite>("Sprite/装备/护手/粉");
+        护手红 = Resources.Load<Sprite>("Sprite/装备/护手/红");
+        护手彩 = Resources.Load<Sprite>("Sprite/装备/护手/彩");
 
-        鞋子白 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[0];
-        鞋子绿 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[1];
-        鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[2];
-        鞋子紫 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[3];
-        鞋子橙 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[4];
-        鞋子粉 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[5];
-        鞋子红 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[6];
-        鞋子彩 = Resources.LoadAll<Sprite>("Sprite/装备/鞋子")[7];
-
-        头盔白 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[0];
-        头盔绿 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[1];
-        头盔蓝 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[2];
-        头盔紫 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[3];
-        头盔橙 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[4];
-        头盔粉 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[5];
-        头盔红 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[6];
-        头盔彩 = Resources.LoadAll<Sprite>("Sprite/装备/头盔")[7];
-
-        项链白 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[0];
-        项链绿 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[1];
-        项链蓝 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[2];
-        项链紫 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[3];
-        项链橙 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[4];
-        项链粉 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[5];
-        项链红 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[6];
-        项链彩 = Resources.LoadAll<Sprite>("Sprite/装备/项链")[7];
-
-        戒指白 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[0];
-        戒指绿 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[1];
-        戒指蓝 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[2];
-        戒指紫 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[3];
-        戒指橙 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[4];
-        戒指粉 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[5];
-        戒指红 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[6];
-        戒指彩 = Resources.LoadAll<Sprite>("Sprite/装备/戒指")[7];
-
-        衣服白 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[0];
-        衣服绿 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[1];
-        衣服蓝 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[2];
-        衣服紫 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[3];
-        衣服橙 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[4];
-        衣服粉 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[5];
-        衣服红 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[6];
-        衣服彩 = Resources.LoadAll<Sprite>("Sprite/装备/衣服")[7];
+        鞋子白 = Resources.Load<Sprite>("Sprite/装备/鞋子/白");
+        鞋子绿 = Resources.Load<Sprite>("Sprite/装备/鞋子/绿");
+        鞋子蓝 = Resources.Load<Sprite>("Sprite/装备/鞋子/蓝");
+        鞋子紫 = Resources.Load<Sprite>("Sprite/装备/鞋子/紫");
+        鞋子橙 = Resources.Load<Sprite>("Sprite/装备/鞋子/橙");
+        鞋子粉 = Resources.Load<Sprite>("Sprite/装备/鞋子/粉");
+        鞋子红 = Resources.Load<Sprite>("Sprite/装备/鞋子/红");
+        鞋子彩 = Resources.Load<Sprite>("Sprite/装备/鞋子/彩");
+        
+        头盔白 = Resources.Load<Sprite>("Sprite/装备/头盔/白");
+        头盔绿 = Resources.Load<Sprite>("Sprite/装备/头盔/绿");
+        头盔蓝 = Resources.Load<Sprite>("Sprite/装备/头盔/蓝");
+        头盔紫 = Resources.Load<Sprite>("Sprite/装备/头盔/紫");
+        头盔橙 = Resources.Load<Sprite>("Sprite/装备/头盔/橙");
+        头盔粉 = Resources.Load<Sprite>("Sprite/装备/头盔/粉");
+        头盔红 = Resources.Load<Sprite>("Sprite/装备/头盔/红");
+        头盔彩 = Resources.Load<Sprite>("Sprite/装备/头盔/彩");
+        
+        项链白 = Resources.Load<Sprite>("Sprite/装备/项链/白");
+        项链绿 = Resources.Load<Sprite>("Sprite/装备/项链/绿");
+        项链蓝 = Resources.Load<Sprite>("Sprite/装备/项链/蓝");
+        项链紫 = Resources.Load<Sprite>("Sprite/装备/项链/紫");
+        项链橙 = Resources.Load<Sprite>("Sprite/装备/项链/橙");
+        项链粉 = Resources.Load<Sprite>("Sprite/装备/项链/粉");
+        项链红 = Resources.Load<Sprite>("Sprite/装备/项链/红");
+        项链彩 = Resources.Load<Sprite>("Sprite/装备/项链/彩");
+        
+        戒指白 = Resources.Load<Sprite>("Sprite/装备/戒指/白");
+        戒指绿 = Resources.Load<Sprite>("Sprite/装备/戒指/绿");
+        戒指蓝 = Resources.Load<Sprite>("Sprite/装备/戒指/蓝");
+        戒指紫 = Resources.Load<Sprite>("Sprite/装备/戒指/紫");
+        戒指橙 = Resources.Load<Sprite>("Sprite/装备/戒指/橙");
+        戒指粉 = Resources.Load<Sprite>("Sprite/装备/戒指/粉");
+        戒指红 = Resources.Load<Sprite>("Sprite/装备/戒指/红");
+        戒指彩 = Resources.Load<Sprite>("Sprite/装备/戒指/彩");
+        
+        衣服白 = Resources.Load<Sprite>("Sprite/装备/衣服/白");
+        衣服绿 = Resources.Load<Sprite>("Sprite/装备/衣服/绿");
+        衣服蓝 = Resources.Load<Sprite>("Sprite/装备/衣服/蓝");
+        衣服紫 = Resources.Load<Sprite>("Sprite/装备/衣服/紫");
+        衣服橙 = Resources.Load<Sprite>("Sprite/装备/衣服/橙");
+        衣服粉 = Resources.Load<Sprite>("Sprite/装备/衣服/粉");
+        衣服红 = Resources.Load<Sprite>("Sprite/装备/衣服/红");
+        衣服彩 = Resources.Load<Sprite>("Sprite/装备/衣服/彩");
 
 
         招募概率按钮亮 = Resources.Load<Sprite>("Sprite/招募/招募概率按钮亮");

@@ -26,14 +26,14 @@ public class 普通魔法弹带peng : MonoBehaviour
    private void OnEnable()
    {
       CancelInvoke();
+      transform.localScale = Vector2.one;
       if (Type == 攻击特效Type.冰剑气)
       {
          transform.localScale = new Vector3(原始scale.x * 英雄星级属性.云霄效果范围, 原始scale.y * 英雄星级属性.云霄效果范围, 1);
       }
       float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg;
       parent.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-      ObserverModuleManager.S.SendEvent("隐藏魔法弹",this,Type,gameObject,DelayTime);
-      Invoke(nameof(Hide), DelayTime);
+      Invoke(nameof(Hide), DelayTime); 
    }
 
    public void Hide()
@@ -67,7 +67,7 @@ public class 普通魔法弹带peng : MonoBehaviour
          hit.gameObject.SetActive(true);
          if (!穿透)
          {
-            gameObject.SetActive(false);
+            transform.localScale=Vector2.zero;
          }
          if (瑶池冰辅助)
          {

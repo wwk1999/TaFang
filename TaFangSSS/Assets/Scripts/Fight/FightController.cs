@@ -592,7 +592,7 @@ public class FightController : XSingleton<FightController>
                 QueueController.S.黑暗魔法弹Queue.Enqueue(普通魔法弹带peng);
                 break;
             case 攻击特效Type.普通火魔法弹:
-                QueueController.S.火虎魔法弹Queue.Enqueue(普通魔法弹带peng);
+                QueueController.S.普通火魔法弹Queue.Enqueue(普通魔法弹带peng);
                 break;
             case 攻击特效Type.None:
             default:
