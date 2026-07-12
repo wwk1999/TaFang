@@ -520,6 +520,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 战士;
     public static Sprite 法师;
 
+    public static Sprite 破镜珠;
     public static Sprite 全职业经验值;
     public static Sprite 功德;
     public static Sprite 头盔锻造石;
@@ -536,7 +537,6 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 辅助经验值;
     public static Sprite 鞋子锻造石;
     public static Sprite 项链锻造石;
-    public static Sprite 领主经验值;
     public static Sprite 高级招募卷;
 
     // 关卡图片
@@ -932,8 +932,6 @@ public class ResourcesConfig : MonoBehaviour
                 return 洗练石;
             case PropType.灵魂:
                 return 灵魂;
-            case PropType.领主经验值:
-                return 领主经验值;
             case PropType.法师经验值:
                 return 法师经验值;
             case PropType.战士经验值:
@@ -2473,6 +2471,7 @@ public class ResourcesConfig : MonoBehaviour
         Boss背景框 = Resources.Load<Sprite>("Sprite/怪物背景框/boss背景框");
 
         //道具图片
+        破镜珠 = Resources.Load<Sprite>("Sprite/DaoJu/破镜珠");
         全职业经验值 = Resources.Load<Sprite>("Sprite/DaoJu/全职业经验值");
         功德 = Resources.Load<Sprite>("Sprite/DaoJu/功德");
         头盔锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/头盔锻造石");
@@ -2494,7 +2493,6 @@ public class ResourcesConfig : MonoBehaviour
         辅助 = Resources.Load<Sprite>("Sprite/DaoJu/辅助");
         鞋子锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/鞋子锻造石");
         项链锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/项链锻造石");
-        领主经验值 = Resources.Load<Sprite>("Sprite/DaoJu/领主经验值");
         高级招募卷 = Resources.Load<Sprite>("Sprite/DaoJu/高级招募卷");
 
 

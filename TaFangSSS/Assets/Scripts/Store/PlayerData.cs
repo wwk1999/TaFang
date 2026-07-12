@@ -12,7 +12,7 @@ public class PlayerData : XSingleton<PlayerData>
 
     public string Name = "白辰";
     public JingJieType JingJieType = JingJieType.练气;
-    public int Exp;
+    public float Exp;
     public int LingQi;
     public int GongDe;
     public int CurrentBianDui = 1;
@@ -551,7 +551,7 @@ public class PlayerData : XSingleton<PlayerData>
 
     public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
     {
-        { PropType.领主经验值, 0 },
+        { PropType.破镜珠, 0 },
         { PropType.全职业经验值, 0 },
         { PropType.功德, 0 },
         { PropType.头盔锻造石, 0 },

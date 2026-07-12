@@ -8,8 +8,10 @@ using UnityEngine.UI;
 
 public class 突破item : MonoBehaviour
 {
+    public TextMeshProUGUI 当前;
+    public TextMeshProUGUI 需要值;
+    public TextMeshProUGUI 跟脚;
    public Button bgButton;
-   public TextMeshProUGUI count;
    [NonSerialized] public 突破Type 突破Type;
 
    public void SetItem()
@@ -19,13 +21,15 @@ public class 突破item : MonoBehaviour
       {
          case 突破Type.凡:
             bgButton.image.sprite = ResourcesConfig.突破背景凡;
-            count.text = (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2).ToString();
-            bgButton.interactable = PlayerData.S.PropListDic[PropType.领主经验值] >=
-                                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2);
+            跟脚.text = "跟脚X" + JingJieConfig.突破跟脚Dic[突破Type];
+            int 当前值 = PlayerData.S.PropListDic[PropType.破镜珠];
+            int need = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][0];
+            当前.text = 当前值.ToString();
+            需要值.text = need.ToString();
+            bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][0];
             bgButton.onClick.AddListener(() =>
             {
-                PlayerData.S.PropListDic[PropType.领主经验值] -=
-                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2);
+                PlayerData.S.PropListDic[PropType.破镜珠] -= need;
                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.凡;
                 PlayerData.S.JingJieType++;
                 PlayerData.S.Exp = 0;
@@ -36,78 +40,84 @@ public class 突破item : MonoBehaviour
             });
             break;
          case 突破Type.灵:
-            bgButton.image.sprite = ResourcesConfig.突破背景灵;
-            bgButton.interactable = PlayerData.S.PropListDic[PropType.领主经验值] >=
-                                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2*1.2f);
-            count.text = (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2*1.2f).ToString();
-            bgButton.onClick.AddListener(() =>
-            {
-                PlayerData.S.PropListDic[PropType.领主经验值] -=
-                    (int)(JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2*1.2f);
-                PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.灵;
-                PlayerData.S.JingJieType++;
-                PlayerData.S.Exp = 0;
-                ObserverModuleManager.S.SendEvent("突破成功");
-                ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                ObserverModuleManager.S.SendEvent("Hide突破弹窗");
+             bgButton.image.sprite = ResourcesConfig.突破背景灵;
+             跟脚.text = "跟脚X" + JingJieConfig.突破跟脚Dic[突破Type];
+             int 当前值1 = PlayerData.S.PropListDic[PropType.破镜珠];
+             int need1 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][1];
+             当前.text = 当前值1.ToString();
+             需要值.text = need1.ToString();
+             bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need1;
+             bgButton.onClick.AddListener(() =>
+             {
+                 PlayerData.S.PropListDic[PropType.破镜珠] -= need1;
+                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.灵;
+                 PlayerData.S.JingJieType++;
+                 PlayerData.S.Exp = 0;
+                 ObserverModuleManager.S.SendEvent("突破成功");
+                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
+                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
 
-            });
-            break;
+             });
+             break;
          case 突破Type.仙:
-            bgButton.interactable = PlayerData.S.PropListDic[PropType.领主经验值] >=
-                                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2*1.5f);
-            bgButton.image.sprite = ResourcesConfig.突破背景仙;
-            count.text = (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2*1.5f).ToString();
-            bgButton.onClick.AddListener(() =>
-            {
-                PlayerData.S.PropListDic[PropType.领主经验值] -=
-                    (int)(JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] / 2*1.5f);
-                PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.仙;
-                PlayerData.S.JingJieType++;
-                PlayerData.S.Exp = 0;
-                ObserverModuleManager.S.SendEvent("突破成功");
-                ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                ObserverModuleManager.S.SendEvent("Hide突破弹窗");
+             bgButton.image.sprite = ResourcesConfig.突破背景仙;
+             跟脚.text = "跟脚X" + JingJieConfig.突破跟脚Dic[突破Type];
+             int 当前值2= PlayerData.S.PropListDic[PropType.破镜珠];
+             int need2 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][2];
+             当前.text = 当前值2.ToString();
+             需要值.text = need2.ToString();
+             bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need2;
+             bgButton.onClick.AddListener(() =>
+             {
+                 PlayerData.S.PropListDic[PropType.破镜珠] -= need2;
+                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.仙;
+                 PlayerData.S.JingJieType++;
+                 PlayerData.S.Exp = 0;
+                 ObserverModuleManager.S.SendEvent("突破成功");
+                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
+                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
 
-            });
-            break;
+             });
+             break;
          case 突破Type.圣:
-            bgButton.interactable = PlayerData.S.PropListDic[PropType.领主经验值] >=
-                                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] );
-            bgButton.image.sprite = ResourcesConfig.突破背景圣;
-            count.text = (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] ).ToString();
-            bgButton.onClick.AddListener(() =>
-            {
-                PlayerData.S.PropListDic[PropType.领主经验值] -=
-                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType]);
-                PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.圣;
-                PlayerData.S.JingJieType++;
-                PlayerData.S.Exp = 0;
-                ObserverModuleManager.S.SendEvent("突破成功");
-                ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                ObserverModuleManager.S.SendEvent("Hide突破弹窗");
+             bgButton.image.sprite = ResourcesConfig.突破背景圣;
+             跟脚.text = "跟脚X" + JingJieConfig.突破跟脚Dic[突破Type];
+             int 当前值3 = PlayerData.S.PropListDic[PropType.破镜珠];
+             int need3 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][3];
+             当前.text = 当前值3.ToString();
+             需要值.text = need3.ToString();
+             bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need3;
+             bgButton.onClick.AddListener(() =>
+             {
+                 PlayerData.S.PropListDic[PropType.破镜珠] -= need3;
+                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.圣;
+                 PlayerData.S.JingJieType++;
+                 PlayerData.S.Exp = 0;
+                 ObserverModuleManager.S.SendEvent("突破成功");
+                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
+                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
 
-            });
-            break;
+             });
+             break;
          case 突破Type.荒:
-            bgButton.interactable = PlayerData.S.PropListDic[PropType.领主经验值] >=
-                                    (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] *1.5f);
-            bgButton.image.sprite = ResourcesConfig.突破背景荒;
-            count.text = (JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] *1.5f).ToString();
-            bgButton.onClick.AddListener(() =>
-            {
-                PlayerData.S.PropListDic[PropType.领主经验值] -=
-                    (int)(JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType] *1.5f);
-                PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.荒;
-                PlayerData.S.JingJieType++;
-                PlayerData.S.Exp = 0;
-                ObserverModuleManager.S.SendEvent("突破成功");
-                ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                ObserverModuleManager.S.SendEvent("Hide突破弹窗");
-
-            });
-
-            break;
+             bgButton.image.sprite = ResourcesConfig.突破背景荒;
+             跟脚.text = "跟脚X" + JingJieConfig.突破跟脚Dic[突破Type];
+             int 当前值4 = PlayerData.S.PropListDic[PropType.破镜珠];
+             int need4 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][4];
+             当前.text = 当前值4.ToString();
+             需要值.text = need4.ToString();
+             bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need4;
+             bgButton.onClick.AddListener(() =>
+             {
+                 PlayerData.S.PropListDic[PropType.破镜珠] -= need4;
+                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.荒;
+                 PlayerData.S.JingJieType++;
+                 PlayerData.S.Exp = 0;
+                 ObserverModuleManager.S.SendEvent("突破成功");
+                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
+                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
+             });
+             break;
       }
    }
 }

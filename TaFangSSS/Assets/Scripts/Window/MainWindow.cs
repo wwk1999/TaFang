@@ -30,10 +30,10 @@ public class MainWindow : MonoBehaviour
         道龄.text = PlayerData.S.道龄年 + "年";
         Name.text = PlayerData.S.Name;
         JingJie.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
-        JingJieSlider.maxValue=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType];
+        JingJieSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为;
         JingJieSlider.value = PlayerData.S.Exp;
         CurrentExp.text=PlayerData.S.Exp.ToString();
-        MaxExp.text=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType].ToString();
+        MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
         LingQi.text=PlayerData.S.LingQi.ToString();
         GongDe.text=PlayerData.S.GongDe.ToString();
     }
@@ -77,7 +77,7 @@ public class MainWindow : MonoBehaviour
         });
         经验值Debug.onClick.AddListener(() =>
         {
-            PlayerData.S.PropListDic[PropType.领主经验值] += 999999;
+            PlayerData.S.PropListDic[PropType.破镜珠] += 999999;
         });
         储物袋按钮.onClick.AddListener(() =>
         {

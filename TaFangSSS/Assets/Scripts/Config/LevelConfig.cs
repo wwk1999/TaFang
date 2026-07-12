@@ -46,7 +46,7 @@ public class SmallLevelInfo
 public class 普通关卡胜利奖励
 {
     public int 灵魂;
-    public int 领主经验值;
+    public int 破镜珠;
     public int 射手经验值;
     public int 法师经验值;
     public int 战士经验值;
@@ -199,8 +199,8 @@ public class LevelConfig : MonoBehaviour
                case PropType.灵魂:
                    value.灵魂 = random;
                    break;
-               case PropType.领主经验值:
-                   value.领主经验值 = random;
+               case PropType.破镜珠:
+                   value.破镜珠 = random;
                    break;
                case PropType.射手经验值:
                    value.射手经验值 = random;
@@ -251,7 +251,6 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 60, minCount = 50, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.领主经验值 },
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.辅助经验值 },
@@ -272,7 +271,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 70, minCount = 60, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.辅助经验值 },
@@ -293,7 +292,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 80, minCount = 70, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.辅助经验值 },
@@ -314,7 +313,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.辅助经验值 },
@@ -335,7 +334,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.辅助经验值 },
@@ -356,7 +355,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.辅助经验值 },
@@ -377,7 +376,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 180, minCount = 150, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.辅助经验值 },
@@ -398,7 +397,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 210, minCount = 180, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.辅助经验值 },
@@ -420,7 +419,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.辅助经验值 },
@@ -441,7 +440,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.辅助经验值 },
@@ -464,7 +463,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.辅助经验值 },
@@ -487,7 +486,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.辅助经验值 },
@@ -508,7 +507,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.辅助经验值 },
@@ -529,7 +528,7 @@ public class LevelConfig : MonoBehaviour
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.领主经验值 },
+                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.破镜珠 },
                     new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.辅助经验值 },

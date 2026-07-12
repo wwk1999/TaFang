@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public GameObject 头像框;
+   public Button 突破Button;
    public Image 道纹image;
    public 道纹弹窗 道纹弹窗;
    public Button ExitButton;
@@ -29,6 +31,15 @@ public class 储物袋界面 : MonoBehaviour
 
    public void Set境界()
    {
+      if (PlayerData.S.Exp >= JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
+      {
+         突破Button.gameObject.SetActive(true);
+      }
+      else
+      {
+         突破Button.gameObject.SetActive(false);
+      }
+      跟脚.text = JingJieConfig.跟脚.ToString();
       境界Name.text="境界："+JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
    }
    public void 突破成功(object[] obj)
@@ -60,12 +71,27 @@ public class 储物袋界面 : MonoBehaviour
       道纹image.gameObject.SetActive(true);
    }
 
+   public void 增加修为(object[] obj)
+   {
+      float 修为 = (float)obj[0];
+      var 修为item = Instantiate(Resources.Load("Prefabs/Window/修为item"),头像框.transform).GetComponent<修为item>();
+      修为item.修为 = 修为;
+      修为item.SetItem();
+      Set经验SLider();
+      Set境界();
+   }
+
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.RegisterEvent("Show道纹image", Show道纹image);
       ObserverModuleManager.S.RegisterEvent("Show道纹弹窗", Show道纹弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
+      突破Button.onClick.AddListener(() =>
+      {
+         突破弹窗.SetActive(true);
+      });
       材料Btn.onClick.AddListener(() => { ShowProp(); });
       道纹Btn.onClick.AddListener(() => { Show道纹(); });
       强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
@@ -75,9 +101,9 @@ public class 储物袋界面 : MonoBehaviour
    public void Set经验SLider()
    {
       CurrentExp.text = PlayerData.S.Exp.ToString();
-      MaxExp.text = JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType].ToString();
+      MaxExp.text = (JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
       ExpSlider.value = PlayerData.S.Exp;
-      ExpSlider.maxValue=JingJieConfig.JingJieExpDic[PlayerData.S.JingJieType];
+      ExpSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为;
    }
    
 

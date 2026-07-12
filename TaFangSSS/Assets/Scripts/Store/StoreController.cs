@@ -11,7 +11,9 @@ public class StoreController : XSingleton<StoreController>
     private string SavePath =>Path.Combine(Application.persistentDataPath, "TaFangStore.json");
     private float StoreTime = 3;
     private float CurrentTime = 0;
-    
+    private float 增加修为时间 = 1;
+    private float 当前增加修为时间 = 0;
+
     
      public void SaveStoreData(StoreDefine.StoreData data = null)
     {
@@ -58,6 +60,7 @@ public class StoreController : XSingleton<StoreController>
     private void Update()
     {
         CurrentTime+= Time.deltaTime;
+        当前增加修为时间+= Time.deltaTime;
         PlayerData.S.道龄S += Time.deltaTime;
         if (PlayerData.S.道龄S >= 属性config.每年秒数)
         {
@@ -65,6 +68,16 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.道龄年++;
         }
         //自动保存
+        if (当前增加修为时间 >= 增加修为时间)
+        {
+            当前增加修为时间 = 0;
+            if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
+            {
+                PlayerData.S.Exp += JingJieConfig.每秒增加修为;
+                ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);
+            }
+            
+        }
         if (CurrentTime >= StoreTime)
         {
             CurrentTime = 0;
