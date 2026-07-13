@@ -39,8 +39,8 @@ public class 储物袋界面 : MonoBehaviour
       {
          突破Button.gameObject.SetActive(false);
       }
-      跟脚.text = JingJieConfig.跟脚.ToString();
-      境界Name.text="境界："+JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
+      跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
+      境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
    }
    public void 突破成功(object[] obj)
    {

@@ -926,6 +926,8 @@ public class ResourcesConfig : MonoBehaviour
     {
         switch (propType)
         {
+            case PropType.破镜珠:
+                return 破镜珠;
             case PropType.功德:
                 return 功德;
             case PropType.洗练石:
@@ -2347,14 +2349,14 @@ public class ResourcesConfig : MonoBehaviour
         荒 = Resources.LoadAll<Sprite>("Sprite/品质艺术字/品质艺术字")[7];
 
 
-        锁 = Resources.LoadAll<Sprite>("Sprite/强化窗口/锁")[0];
-        解锁 = Resources.LoadAll<Sprite>("Sprite/强化窗口/锁")[1];
+        锁 = Resources.Load<Sprite>("Sprite/强化窗口/锁");
+        解锁 = Resources.Load<Sprite>("Sprite/强化窗口/解锁");
 
-        强化窗口装备背景框亮 = Resources.LoadAll<Sprite>("Sprite/强化窗口/装备背景框")[0];
-        强化窗口装备背景框暗 = Resources.LoadAll<Sprite>("Sprite/强化窗口/装备背景框")[1];
+        强化窗口装备背景框亮 = Resources.LoadAll<Sprite>("Sprite/强化窗口/装备背景框")[1];
+        强化窗口装备背景框暗 = Resources.LoadAll<Sprite>("Sprite/强化窗口/装备背景框")[0];
 
-        强化窗口按钮亮 = Resources.LoadAll<Sprite>("Sprite/强化窗口/按钮")[0];
-        强化窗口按钮暗 = Resources.LoadAll<Sprite>("Sprite/强化窗口/按钮")[1];
+        强化窗口按钮亮 = Resources.Load<Sprite>("Sprite/强化窗口/按钮亮");
+        强化窗口按钮暗 = Resources.Load<Sprite>("Sprite/强化窗口/按钮暗");
 
         灰色TMP = Resources.Load<TMP_ColorGradient>("TMP/灰色");
         高级招募TMP = Resources.Load<TMP_ColorGradient>("TMP/高级招募");

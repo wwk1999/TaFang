@@ -133,6 +133,17 @@ public class JingJieConfig : MonoBehaviour
         return MathF.Round(每年基础修为 / 每年秒数Dic[PlayerData.S.JingJieType], 1);
         
     }
+
+    public static string Get大数值(float i)
+    {
+        float value = i;
+        if (value > 10000)
+        {
+            value /= 1000;
+            return value+"K";
+        }
+        return value.ToString();
+    }
    
     public static float 每秒增加修为 = Get每秒增加修为();
     

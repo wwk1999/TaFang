@@ -25,7 +25,7 @@ public class 突破item : MonoBehaviour
             int 当前值 = PlayerData.S.PropListDic[PropType.破镜珠];
             int need = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][0];
             当前.text = 当前值.ToString();
-            需要值.text = need.ToString();
+            需要值.text = JingJieConfig.Get大数值(need);
             bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][0];
             bgButton.onClick.AddListener(() =>
             {
@@ -45,7 +45,7 @@ public class 突破item : MonoBehaviour
              int 当前值1 = PlayerData.S.PropListDic[PropType.破镜珠];
              int need1 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][1];
              当前.text = 当前值1.ToString();
-             需要值.text = need1.ToString();
+             需要值.text = JingJieConfig.Get大数值(need1);
              bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need1;
              bgButton.onClick.AddListener(() =>
              {
@@ -65,7 +65,7 @@ public class 突破item : MonoBehaviour
              int 当前值2= PlayerData.S.PropListDic[PropType.破镜珠];
              int need2 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][2];
              当前.text = 当前值2.ToString();
-             需要值.text = need2.ToString();
+             需要值.text = JingJieConfig.Get大数值(need2);
              bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need2;
              bgButton.onClick.AddListener(() =>
              {
@@ -85,7 +85,7 @@ public class 突破item : MonoBehaviour
              int 当前值3 = PlayerData.S.PropListDic[PropType.破镜珠];
              int need3 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][3];
              当前.text = 当前值3.ToString();
-             需要值.text = need3.ToString();
+             需要值.text = JingJieConfig.Get大数值(need3);
              bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need3;
              bgButton.onClick.AddListener(() =>
              {
@@ -105,7 +105,7 @@ public class 突破item : MonoBehaviour
              int 当前值4 = PlayerData.S.PropListDic[PropType.破镜珠];
              int need4 = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][4];
              当前.text = 当前值4.ToString();
-             需要值.text = need4.ToString();
+             需要值.text = JingJieConfig.Get大数值(need4);
              bgButton.interactable = PlayerData.S.PropListDic[PropType.破镜珠] >= need4;
              bgButton.onClick.AddListener(() =>
              {

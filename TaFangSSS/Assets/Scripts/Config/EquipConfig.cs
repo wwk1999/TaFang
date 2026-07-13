@@ -81,7 +81,7 @@
              }
          }
          QualityType quality=(QualityType)(value+2);
-         int random1=Random.Range(1, 19);
+         int random1=Random.Range(1, 18);
          附加属性Type 附加属性Type = (附加属性Type)random1;
          return new 词条Item() { 附加属性Type = 附加属性Type, QualityType = quality };
      }
