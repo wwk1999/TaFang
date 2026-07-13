@@ -3,86 +3,125 @@ using UnityEngine;
 
 public enum MonsterTypeName
 {
-    None,
-    // 花果山
-    猴精,
-    山魈,
-    马猴头领,
-    通臂猿猴,
-    // 水帘洞
-    水虱精,
-    蝙蝠精,
-    铁背苍猿,
-    水帘洞主,
-    // 傲来国
-    傲来民兵,
-    猎户,
-    傲来偏将,
-    傲来国师,
-    // 东海龙宫
-    虾兵,
-    蟹将,
-    东海龙王,
-    龟丞相,
-    // 蓬莱仙岛
-    仙鹤,
-    灵芝童,
-    蓬莱剑仙,
-    蓬莱岛主,
-    // 五行山
-    山石精,
-    土蝼,
-    五行山神,
-    压山符灵,
-    // 高老庄
-    野猪精,
-    高才,
-    高太公,
-    猪刚鬣,
-    // 平顶山
-    莲花洞小妖,
-    狐阿七,
-    银角大王,
-    金角大王,
-    // 女儿国
-    女儿国兵,
-    女儿国将,
-    女儿国太师,
-    女儿国国王,
-    // 火焰山
-    火焰精,
-    赤蛇,
-    红孩儿,
-    牛魔王,
-  
-    // 狮驼岭
-    青狮精手下,
-    白象精手下,
-    大鹏金翅雕,
-    青狮精,
-  
-    // 小雷音寺
-    假罗汉,
-    假金刚,
-    黄眉童子,
-    黄眉老祖,
-    // 流沙河
-    流沙精,
-    水鬼,
-    水蛇妖,
-    沙和尚,
-    // 芭蕉洞
-    芭蕉精,
-    火焰童,
-    铁扇侍女,
-    铁扇公主,
-    //冥府
-    牛头,
-    马面,
-    判官,
-    阎罗王
-}
+  None,
+  // 花果山
+  猴精,
+  山魈,
+  马猴头领,
+  通臂猿猴,
+  // 水帘洞
+  水虱精,
+  蝙蝠精,
+  铁背苍猿,
+  水帘洞主,
+  // 傲来国
+  傲来民兵,
+  猎户,
+  傲来偏将,
+  傲来国师,
+  // 东海龙宫
+  虾兵,
+  蟹将,
+  东海龙王,
+  龟丞相,
+  // 蓬莱仙岛
+  仙鹤,
+  灵芝童,
+  蓬莱剑仙,
+  蓬莱岛主,
+  // 五行山
+  山石精,
+  土蝼,
+  五行山神,
+  压山符灵,
+  // 高老庄
+  野猪精,
+  高才,
+  高太公,
+  猪刚鬣,
+  // 平顶山
+  莲花洞小妖,
+  狐阿七,
+  银角大王,
+  金角大王,
+  // 女儿国
+  女儿国兵,
+  女儿国将,
+  女儿国太师,
+  女儿国国王,
+  // 火焰山
+  火焰精,
+  赤蛇,
+  红孩儿,
+  牛魔王,
+  // 狮驼岭
+  青狮精手下,
+  白象精手下,
+  大鹏金翅雕,
+  青狮精,
+  // 小雷音寺
+  假罗汉,
+  假金刚,
+  黄眉童子,
+  黄眉老祖,
+  // 流沙河
+  流沙精,
+  水鬼,
+  水蛇妖,
+  沙和尚,
+  // 芭蕉洞
+  芭蕉精,
+  火焰童,
+  铁扇侍女,
+  铁扇公主,
+  // 冥府
+  牛头,
+  马面,
+  判官,
+  阎罗王,
 
+  // ==================== 天庭篇（凌霄宝殿十大关） ====================
+  // 南天门
+  天兵,
+  天将,
+  守卫统领,
+  巨灵王,
+  // 瑶池仙境
+  瑶池仙女,
+  瑶池守卫,
+  仙女首领,
+  西王母,
+  // 斩妖台
+  执法天兵,
+  执法天将,
+  斩妖剑侍,
+  天刑星君,
+  // 御马监
+  天马精,
+  监丞侍卫,
+  弼马温,
+  天马星君,
+  // 蟠桃园
+  桃园力士,
+  桃园仙女,
+  蟠桃守卫,
+  蟠桃树精,
+  // 兜率宫
+  炼丹道童,
+  烧火道童,
+  兜率宫侍卫,
+  太上老君,
+  // 紫微宫
+  紫微星侍,
+  天罡星卒,
+  北极星君,
+  紫微大帝,
+  // 昊天殿
+  镇殿守卫,
+  镇殿天将,
+  九龙神卫,
+  玉皇大帝,
+}
 public enum MonsterType
 {
     None,
@@ -238,10 +277,60 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.马面, Monster特性Type.普通怪 },
     { MonsterTypeName.判官, Monster特性Type.普通怪 },
     { MonsterTypeName.阎罗王, Monster特性Type.普通怪 },
+
+    // ==================== 天庭篇（凌霄宝殿十大关） ====================
+    // 南天门
+    { MonsterTypeName.天兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.天将, Monster特性Type.普通怪 },
+    { MonsterTypeName.守卫统领, Monster特性Type.普通怪 },
+    { MonsterTypeName.巨灵王, Monster特性Type.普通怪 },
+
+    // 瑶池仙境
+    { MonsterTypeName.瑶池仙女, Monster特性Type.普通怪 },
+    { MonsterTypeName.瑶池守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.仙女首领, Monster特性Type.普通怪 },
+    { MonsterTypeName.西王母, Monster特性Type.普通怪 },
+
+    // 斩妖台
+    { MonsterTypeName.执法天兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.执法天将, Monster特性Type.普通怪 },
+    { MonsterTypeName.斩妖剑侍, Monster特性Type.普通怪 },
+    { MonsterTypeName.天刑星君, Monster特性Type.普通怪 },
+
+    // 御马监
+    { MonsterTypeName.天马精, Monster特性Type.普通怪 },
+    { MonsterTypeName.监丞侍卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.弼马温, Monster特性Type.普通怪 },
+    { MonsterTypeName.天马星君, Monster特性Type.普通怪 },
+
+    // 蟠桃园
+    { MonsterTypeName.桃园力士, Monster特性Type.普通怪 },
+    { MonsterTypeName.桃园仙女, Monster特性Type.普通怪 },
+    { MonsterTypeName.蟠桃守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.蟠桃树精, Monster特性Type.普通怪 },
+
+    // 兜率宫
+    { MonsterTypeName.炼丹道童, Monster特性Type.普通怪 },
+    { MonsterTypeName.烧火道童, Monster特性Type.普通怪 },
+    { MonsterTypeName.兜率宫侍卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.太上老君, Monster特性Type.普通怪 },
+
+    // 紫微宫
+    { MonsterTypeName.紫微星侍, Monster特性Type.普通怪 },
+    { MonsterTypeName.天罡星卒, Monster特性Type.普通怪 },
+    { MonsterTypeName.北极星君, Monster特性Type.普通怪 },
+    { MonsterTypeName.紫微大帝, Monster特性Type.普通怪 },
+
+    // 昊天殿
+    { MonsterTypeName.镇殿守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.镇殿天将, Monster特性Type.普通怪 },
+    { MonsterTypeName.九龙神卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.玉皇大帝, Monster特性Type.普通怪 },
 };
   
  public static Dictionary<普通关卡怪物Item, MonsterAttribute> 普通关卡怪物属性Dic = new Dictionary<普通关卡怪物Item, MonsterAttribute>()
 {
+    // ========== 原有部分（第1~15关）==========
     // 花果山 (第1关)
     { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.花果山, MonsterType = MonsterType.Normal },
       new MonsterAttribute() { Hp = 100, Attack = 10, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 ,雷电抗性 = 0} },
@@ -361,8 +450,75 @@ public class MonsterConfig : MonoBehaviour
       new MonsterAttribute() { Hp = 19740, Attack = 1975, Defense = 396, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 ,雷电抗性 = 0} },
     { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.冥府, MonsterType = MonsterType.Boss },
       new MonsterAttribute() { Hp = 39480, Attack = 3950, Defense = 792, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0 ,雷电抗性 = 0} },
+
+
+    // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
+
+    // 南天门 (第16关) - 花果山基础 × 1.3^15 ≈ 154.3倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.南天门, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 15430, Attack = 1543, Defense = 772, 物理抗性 = 10, 冰霜抗性 = 10, 火焰抗性 = 10, 黑暗抗性 = 10, 雷电抗性 = 10 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.南天门, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 77150, Attack = 7715, Defense = 1544, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.南天门, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 154300, Attack = 15430, Defense = 3088, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+
+    // 瑶池仙境 (第17关) - 花果山基础 × 1.3^16 ≈ 200.6倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 20060, Attack = 2006, Defense = 1003, 物理抗性 = 10, 冰霜抗性 = 10, 火焰抗性 = 10, 黑暗抗性 = 10, 雷电抗性 = 10 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 100300, Attack = 10030, Defense = 2006, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 200600, Attack = 20060, Defense = 4012, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+
+    // 斩妖台 (第18关) - 花果山基础 × 1.3^17 ≈ 260.8倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 26080, Attack = 2608, Defense = 1304, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 130400, Attack = 13040, Defense = 2608, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 260800, Attack = 26080, Defense = 5216, 物理抗性 = 25, 冰霜抗性 = 25, 火焰抗性 = 25, 黑暗抗性 = 25, 雷电抗性 = 25 } },
+
+    // 御马监 (第19关) - 花果山基础 × 1.3^18 ≈ 339.0倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.御马监, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 33900, Attack = 3390, Defense = 1695, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.御马监, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 169500, Attack = 16950, Defense = 3390, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.御马监, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 339000, Attack = 33900, Defense = 6780, 物理抗性 = 25, 冰霜抗性 = 25, 火焰抗性 = 25, 黑暗抗性 = 25, 雷电抗性 = 25 } },
+
+    // 蟠桃园 (第20关) - 花果山基础 × 1.3^19 ≈ 440.7倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.蟠桃园, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 44070, Attack = 4407, Defense = 2204, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.蟠桃园, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 220350, Attack = 22035, Defense = 4408, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.蟠桃园, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 440700, Attack = 44070, Defense = 8816, 物理抗性 = 25, 冰霜抗性 = 25, 火焰抗性 = 25, 黑暗抗性 = 25, 雷电抗性 = 25 } },
+
+    // 兜率宫 (第21关) - 花果山基础 × 1.3^20 ≈ 572.9倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.兜率宫, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 57290, Attack = 5729, Defense = 2865, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.兜率宫, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 286450, Attack = 28645, Defense = 5730, 物理抗性 = 25, 冰霜抗性 = 25, 火焰抗性 = 25, 黑暗抗性 = 25, 雷电抗性 = 25 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.兜率宫, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 572900, Attack = 57290, Defense = 11460, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 } },
+
+    // 紫微宫 (第22关) - 花果山基础 × 1.3^21 ≈ 744.8倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 74480, Attack = 7448, Defense = 3724, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 372400, Attack = 37240, Defense = 7448, 物理抗性 = 25, 冰霜抗性 = 25, 火焰抗性 = 25, 黑暗抗性 = 25, 雷电抗性 = 25 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 744800, Attack = 74480, Defense = 14896, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 } },
+
+    // 昊天殿 (第23关 / 最终关) - 花果山基础 × 1.3^22 ≈ 968.2倍
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Normal },
+      new MonsterAttribute() { Hp = 96820, Attack = 9682, Defense = 4841, 物理抗性 = 25, 冰霜抗性 = 25, 火焰抗性 = 25, 黑暗抗性 = 25, 雷电抗性 = 25 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Elite },
+      new MonsterAttribute() { Hp = 484100, Attack = 48410, Defense = 9682, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 } },
+    { new 普通关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Boss },
+      new MonsterAttribute() { Hp = 968200, Attack = 96820, Defense = 19364, 物理抗性 = 35, 冰霜抗性 = 35, 火焰抗性 = 35, 黑暗抗性 = 35, 雷电抗性 = 35 } },
 };
-    public static Dictionary<MonsterTypeName, MonsterType> MonsterTypeDic =
+   public static Dictionary<MonsterTypeName, MonsterType> MonsterTypeDic =
         new Dictionary<MonsterTypeName, MonsterType>()
         {
             // 花果山
@@ -386,8 +542,8 @@ public class MonsterConfig : MonoBehaviour
             // 东海龙宫
             { MonsterTypeName.虾兵, MonsterType.Normal },
             { MonsterTypeName.蟹将, MonsterType.Normal },
+            { MonsterTypeName.龟丞相, MonsterType.Elite },
             { MonsterTypeName.东海龙王, MonsterType.Boss },
-            { MonsterTypeName.龟丞相, MonsterType.Elite }, // 图片中出现的额外小怪
 
             // 蓬莱仙岛
             { MonsterTypeName.仙鹤, MonsterType.Normal },
@@ -412,7 +568,6 @@ public class MonsterConfig : MonoBehaviour
             { MonsterTypeName.狐阿七, MonsterType.Normal },
             { MonsterTypeName.银角大王, MonsterType.Elite },
             { MonsterTypeName.金角大王, MonsterType.Boss },
-          
 
             // 女儿国
             { MonsterTypeName.女儿国兵, MonsterType.Normal },
@@ -425,14 +580,12 @@ public class MonsterConfig : MonoBehaviour
             { MonsterTypeName.赤蛇, MonsterType.Normal },
             { MonsterTypeName.红孩儿, MonsterType.Elite },
             { MonsterTypeName.牛魔王, MonsterType.Boss },
-          
 
             // 狮驼岭
             { MonsterTypeName.青狮精手下, MonsterType.Normal },
             { MonsterTypeName.白象精手下, MonsterType.Normal },
             { MonsterTypeName.大鹏金翅雕, MonsterType.Elite },
             { MonsterTypeName.青狮精, MonsterType.Boss },
-          
 
             // 小雷音寺
             { MonsterTypeName.假罗汉, MonsterType.Normal },
@@ -451,6 +604,60 @@ public class MonsterConfig : MonoBehaviour
             { MonsterTypeName.火焰童, MonsterType.Normal },
             { MonsterTypeName.铁扇侍女, MonsterType.Elite },
             { MonsterTypeName.铁扇公主, MonsterType.Boss },
-          
+
+            // 冥府
+            { MonsterTypeName.牛头, MonsterType.Normal },
+            { MonsterTypeName.马面, MonsterType.Normal },
+            { MonsterTypeName.判官, MonsterType.Elite },
+            { MonsterTypeName.阎罗王, MonsterType.Boss },
+
+            // ==================== 天庭篇（凌霄宝殿十大关） ====================
+            // 南天门
+            { MonsterTypeName.天兵, MonsterType.Normal },
+            { MonsterTypeName.天将, MonsterType.Normal },
+            { MonsterTypeName.守卫统领, MonsterType.Elite },
+            { MonsterTypeName.巨灵王, MonsterType.Boss },
+
+            // 瑶池仙境
+            { MonsterTypeName.瑶池守卫, MonsterType.Normal },
+            { MonsterTypeName.瑶池仙女, MonsterType.Normal },
+            { MonsterTypeName.仙女首领, MonsterType.Elite },  // 已在狮驼岭出现，这里复用但作为精英
+            { MonsterTypeName.西王母, MonsterType.Boss },
+
+            // 斩妖台
+            { MonsterTypeName.执法天兵, MonsterType.Normal },
+            { MonsterTypeName.执法天将, MonsterType.Normal },
+            { MonsterTypeName.斩妖剑侍, MonsterType.Elite },
+            { MonsterTypeName.天刑星君, MonsterType.Boss },
+
+            // 御马监
+            { MonsterTypeName.天马精, MonsterType.Normal },
+            { MonsterTypeName.监丞侍卫, MonsterType.Normal },
+            { MonsterTypeName.弼马温, MonsterType.Elite },
+            { MonsterTypeName.天马星君, MonsterType.Boss },
+
+            // 蟠桃园
+            { MonsterTypeName.桃园力士, MonsterType.Normal },
+            { MonsterTypeName.桃园仙女, MonsterType.Normal },
+            { MonsterTypeName.蟠桃守卫, MonsterType.Elite },
+            { MonsterTypeName.蟠桃树精, MonsterType.Boss },  // 复用，但蟠桃园是西王母的地盘，合理
+
+            // 兜率宫
+            { MonsterTypeName.炼丹道童, MonsterType.Normal },
+            { MonsterTypeName.烧火道童, MonsterType.Normal },
+            { MonsterTypeName.兜率宫侍卫, MonsterType.Elite },
+            { MonsterTypeName.太上老君, MonsterType.Boss },
+
+            // 紫微宫
+            { MonsterTypeName.紫微星侍, MonsterType.Normal },
+            { MonsterTypeName.天罡星卒, MonsterType.Normal },
+            { MonsterTypeName.北极星君, MonsterType.Elite },
+            { MonsterTypeName.紫微大帝, MonsterType.Boss },
+
+            // 昊天殿
+            { MonsterTypeName.镇殿守卫, MonsterType.Normal },
+            { MonsterTypeName.镇殿天将, MonsterType.Normal },
+            { MonsterTypeName.九龙神卫, MonsterType.Elite },
+            { MonsterTypeName.玉皇大帝, MonsterType.Boss },
         };
 }

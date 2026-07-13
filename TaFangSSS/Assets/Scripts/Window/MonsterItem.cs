@@ -209,7 +209,8 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.铁扇公主:
                 image.sprite = ResourcesConfig.铁扇公主;
                 break;
-            
+
+            // 冥府
             case MonsterTypeName.牛头:
                 image.sprite = ResourcesConfig.牛头;
                 break;
@@ -222,9 +223,119 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.阎罗王:
                 image.sprite = ResourcesConfig.阎罗王;
                 break;
-            
 
-            
+            // ==================== 天庭篇（凌霄宝殿十大关） ====================
+            // 南天门
+            case MonsterTypeName.天兵:
+                image.sprite = ResourcesConfig.天兵;
+                break;
+            case MonsterTypeName.天将:
+                image.sprite = ResourcesConfig.天将;
+                break;
+            case MonsterTypeName.守卫统领:
+                image.sprite = ResourcesConfig.守卫统领;
+                break;
+            case MonsterTypeName.巨灵王:
+                image.sprite = ResourcesConfig.巨灵王;
+                break;
+
+            // 瑶池仙境
+            case MonsterTypeName.瑶池仙女:
+                image.sprite = ResourcesConfig.瑶池仙女;
+                break;
+            case MonsterTypeName.瑶池守卫:
+                image.sprite = ResourcesConfig.瑶池守卫;
+                break;
+            case MonsterTypeName.仙女首领:
+                image.sprite = ResourcesConfig.仙女首领;
+                break;
+            case MonsterTypeName.西王母:
+                image.sprite = ResourcesConfig.西王母;
+                break;
+
+            // 斩妖台
+            case MonsterTypeName.执法天兵:
+                image.sprite = ResourcesConfig.执法天兵;
+                break;
+            case MonsterTypeName.执法天将:
+                image.sprite = ResourcesConfig.执法天将;
+                break;
+            case MonsterTypeName.斩妖剑侍:
+                image.sprite = ResourcesConfig.斩妖剑侍;
+                break;
+            case MonsterTypeName.天刑星君:
+                image.sprite = ResourcesConfig.天刑星君;
+                break;
+
+            // 御马监
+            case MonsterTypeName.天马精:
+                image.sprite = ResourcesConfig.天马精;
+                break;
+            case MonsterTypeName.监丞侍卫:
+                image.sprite = ResourcesConfig.监丞侍卫;
+                break;
+            case MonsterTypeName.弼马温:
+                image.sprite = ResourcesConfig.弼马温;
+                break;
+            case MonsterTypeName.天马星君:
+                image.sprite = ResourcesConfig.天马星君;
+                break;
+
+            // 蟠桃园
+            case MonsterTypeName.桃园力士:
+                image.sprite = ResourcesConfig.桃园力士;
+                break;
+            case MonsterTypeName.桃园仙女:
+                image.sprite = ResourcesConfig.桃园仙女;
+                break;
+            case MonsterTypeName.蟠桃守卫:
+                image.sprite = ResourcesConfig.蟠桃守卫;
+                break;
+            case MonsterTypeName.蟠桃树精:
+                image.sprite = ResourcesConfig.蟠桃树精;
+                break;
+
+            // 兜率宫
+            case MonsterTypeName.炼丹道童:
+                image.sprite = ResourcesConfig.炼丹道童;
+                break;
+            case MonsterTypeName.烧火道童:
+                image.sprite = ResourcesConfig.烧火道童;
+                break;
+            case MonsterTypeName.兜率宫侍卫:
+                image.sprite = ResourcesConfig.金银童子;
+                break;
+            case MonsterTypeName.太上老君:
+                image.sprite = ResourcesConfig.太上老君;
+                break;
+
+            // 紫微宫
+            case MonsterTypeName.紫微星侍:
+                image.sprite = ResourcesConfig.紫微星侍;
+                break;
+            case MonsterTypeName.天罡星卒:
+                image.sprite = ResourcesConfig.天罡星卒;
+                break;
+            case MonsterTypeName.北极星君:
+                image.sprite = ResourcesConfig.北极星君;
+                break;
+            case MonsterTypeName.紫微大帝:
+                image.sprite = ResourcesConfig.紫微大帝;
+                break;
+
+            // 昊天殿
+            case MonsterTypeName.镇殿守卫:
+                image.sprite = ResourcesConfig.镇殿守卫;
+                break;
+            case MonsterTypeName.镇殿天将:
+                image.sprite = ResourcesConfig.镇殿天将;
+                break;
+            case MonsterTypeName.九龙神卫:
+                image.sprite = ResourcesConfig.九龙神卫;
+                break;
+            case MonsterTypeName.玉皇大帝:
+                image.sprite = ResourcesConfig.玉皇大帝;
+                break;
 
             default:
                 image.sprite = null;

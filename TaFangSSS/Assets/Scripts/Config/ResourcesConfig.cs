@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
-    
+
     //道宝
     public static Sprite 道宝标签紫;
     public static Sprite 道宝标签橙;
@@ -14,7 +14,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 道宝标签红;
     public static Sprite 道宝标签彩;
 
-    
+
     public static Sprite 山河社稷图;
     public static Sprite 七宝妙树;
     public static Sprite 天书;
@@ -23,7 +23,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 冥书;
     public static Sprite 定海神珠;
     public static Sprite 河图洛书;
-    
+
     public static Sprite 翻天印;
     public static Sprite 紫金葫芦;
     public static Sprite 金蛟剪;
@@ -32,12 +32,12 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 宝莲灯;
     public static Sprite 落宝金钱;
     public static Sprite 先天五方旗;
-    
+
     public static Sprite 混沌青莲;
     public static Sprite 造化玉碟;
     public static Sprite 混沌珠;
     public static Sprite 开天斧;
-    
+
     public static Sprite 盘古幡;
     public static Sprite 混沌钟;
     public static Sprite 诛仙剑;
@@ -46,7 +46,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 绝仙剑;
     public static Sprite 乾坤鼎;
     public static Sprite 菩提妙树;
-    
+
     public static Sprite 玲珑塔;
     public static Sprite 炼妖壶;
     public static Sprite 女娲石;
@@ -55,8 +55,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 照妖镜;
     public static Sprite 风火轮;
     public static Sprite 如意金箍棒;
-    
-    
+
+
 
     public static Sprite 按钮亮;
     public static Sprite 按钮暗;
@@ -327,7 +327,7 @@ public class ResourcesConfig : MonoBehaviour
     public static TMP_ColorGradient 物理TMP;
     public static TMP_ColorGradient 雷电TMP;
     public static TMP_ColorGradient 黑暗TMP;
-    
+
     public static TMP_ColorGradient 黄TMP;
     public static TMP_ColorGradient 玄TMP;
     public static TMP_ColorGradient 地TMP;
@@ -641,12 +641,61 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 火焰童;
     public static Sprite 铁扇侍女;
     public static Sprite 铁扇公主;
-    
-    // 芭蕉洞
+
+// 冥府
     public static Sprite 牛头;
     public static Sprite 马面;
     public static Sprite 判官;
     public static Sprite 阎罗王;
+
+// ==================== 天庭篇（凌霄宝殿十大关） ====================
+// 南天门
+    public static Sprite 天兵;
+    public static Sprite 天将;
+    public static Sprite 守卫统领;
+    public static Sprite 巨灵王;
+
+// 瑶池仙境
+    public static Sprite 瑶池仙女;
+    public static Sprite 瑶池守卫;
+    public static Sprite 仙女首领;
+    public static Sprite 西王母;
+
+// 斩妖台
+    public static Sprite 执法天兵;
+    public static Sprite 执法天将;
+    public static Sprite 斩妖剑侍;
+    public static Sprite 天刑星君;
+
+// 御马监
+    public static Sprite 天马精;
+    public static Sprite 监丞侍卫;
+    public static Sprite 弼马温;
+    public static Sprite 天马星君;
+
+// 蟠桃园
+    public static Sprite 桃园力士;
+    public static Sprite 桃园仙女;
+    public static Sprite 蟠桃守卫;
+    public static Sprite 蟠桃树精;
+
+// 兜率宫
+    public static Sprite 炼丹道童;
+    public static Sprite 烧火道童;
+    public static Sprite 金银童子;
+    public static Sprite 太上老君;
+
+// 紫微宫
+    public static Sprite 紫微星侍;
+    public static Sprite 天罡星卒;
+    public static Sprite 北极星君;
+    public static Sprite 紫微大帝;
+
+// 昊天殿
+    public static Sprite 镇殿守卫;
+    public static Sprite 镇殿天将;
+    public static Sprite 九龙神卫;
+    public static Sprite 玉皇大帝;
 
 
     //人物图片
@@ -885,7 +934,6 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.狐阿七: return 狐阿七;
             case MonsterTypeName.银角大王: return 银角大王;
             case MonsterTypeName.金角大王: return 金角大王;
-           
             // 女儿国
             case MonsterTypeName.女儿国兵: return 女儿国兵;
             case MonsterTypeName.女儿国将: return 女儿国将;
@@ -901,7 +949,6 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.白象精手下: return 白象精手下;
             case MonsterTypeName.大鹏金翅雕: return 大鹏金翅雕;
             case MonsterTypeName.青狮精: return 青狮精;
-           
             // 小雷音寺
             case MonsterTypeName.假罗汉: return 假罗汉;
             case MonsterTypeName.假金刚: return 假金刚;
@@ -917,6 +964,52 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.火焰童: return 火焰童;
             case MonsterTypeName.铁扇侍女: return 铁扇侍女;
             case MonsterTypeName.铁扇公主: return 铁扇公主;
+            // 冥府
+            case MonsterTypeName.牛头: return 牛头;
+            case MonsterTypeName.马面: return 马面;
+            case MonsterTypeName.判官: return 判官;
+            case MonsterTypeName.阎罗王: return 阎罗王;
+            // ==================== 天庭篇（凌霄宝殿十大关） ====================
+            // 南天门
+            case MonsterTypeName.天兵: return 天兵;
+            case MonsterTypeName.天将: return 天将;
+            case MonsterTypeName.守卫统领: return 守卫统领;
+            case MonsterTypeName.巨灵王: return 巨灵王;
+            // 瑶池仙境
+            case MonsterTypeName.瑶池仙女: return 瑶池仙女;
+            case MonsterTypeName.瑶池守卫: return 瑶池守卫;
+            case MonsterTypeName.仙女首领: return 仙女首领;
+            case MonsterTypeName.西王母: return 西王母;
+            // 斩妖台
+            case MonsterTypeName.执法天兵: return 执法天兵;
+            case MonsterTypeName.执法天将: return 执法天将;
+            case MonsterTypeName.斩妖剑侍: return 斩妖剑侍;
+            case MonsterTypeName.天刑星君: return 天刑星君;
+            // 御马监
+            case MonsterTypeName.天马精: return 天马精;
+            case MonsterTypeName.监丞侍卫: return 监丞侍卫;
+            case MonsterTypeName.弼马温: return 弼马温;
+            case MonsterTypeName.天马星君: return 天马星君;
+            // 蟠桃园
+            case MonsterTypeName.桃园力士: return 桃园力士;
+            case MonsterTypeName.桃园仙女: return 桃园仙女;
+            case MonsterTypeName.蟠桃守卫: return 蟠桃守卫;
+            case MonsterTypeName.蟠桃树精: return 蟠桃树精;
+            // 兜率宫
+            case MonsterTypeName.炼丹道童: return 炼丹道童;
+            case MonsterTypeName.烧火道童: return 烧火道童;
+            case MonsterTypeName.兜率宫侍卫: return 金银童子;
+            case MonsterTypeName.太上老君: return 太上老君;
+            // 紫微宫
+            case MonsterTypeName.紫微星侍: return 紫微星侍;
+            case MonsterTypeName.天罡星卒: return 天罡星卒;
+            case MonsterTypeName.北极星君: return 北极星君;
+            case MonsterTypeName.紫微大帝: return 紫微大帝;
+            // 昊天殿
+            case MonsterTypeName.镇殿守卫: return 镇殿守卫;
+            case MonsterTypeName.镇殿天将: return 镇殿天将;
+            case MonsterTypeName.九龙神卫: return 九龙神卫;
+            case MonsterTypeName.玉皇大帝: return 玉皇大帝;
             default:
                 return null;
         }
@@ -1840,97 +1933,98 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
     public static Sprite Get道宝Sprite(道宝Type 道宝Type)
-{
-    switch (道宝Type)
     {
-        // ==================== 混沌至宝（4个）====================
-        case 道宝Type.混沌青莲:
-            return 混沌青莲;
-        case 道宝Type.造化玉碟:
-            return 造化玉碟;
-        case 道宝Type.混沌珠:
-            return 混沌珠;
-        case 道宝Type.开天斧:
-            return 开天斧;
+        switch (道宝Type)
+        {
+            // ==================== 混沌至宝（4个）====================
+            case 道宝Type.混沌青莲:
+                return 混沌青莲;
+            case 道宝Type.造化玉碟:
+                return 造化玉碟;
+            case 道宝Type.混沌珠:
+                return 混沌珠;
+            case 道宝Type.开天斧:
+                return 开天斧;
 
-        // ==================== 先天至宝（6个）====================
-        case 道宝Type.盘古幡:
-            return 盘古幡;
-        case 道宝Type.混沌钟:
-            return 混沌钟;
-        case 道宝Type.诛仙剑:
-            return 诛仙剑;
-        case 道宝Type.戮仙剑:
-            return 戮仙剑;
-        case 道宝Type.陷仙剑:
-            return 陷仙剑;
-        case 道宝Type.绝仙剑:
-            return 绝仙剑;
+            // ==================== 先天至宝（6个）====================
+            case 道宝Type.盘古幡:
+                return 盘古幡;
+            case 道宝Type.混沌钟:
+                return 混沌钟;
+            case 道宝Type.诛仙剑:
+                return 诛仙剑;
+            case 道宝Type.戮仙剑:
+                return 戮仙剑;
+            case 道宝Type.陷仙剑:
+                return 陷仙剑;
+            case 道宝Type.绝仙剑:
+                return 绝仙剑;
 
-        // ==================== 功德至宝（8个）====================
-        case 道宝Type.玲珑塔:
-            return 玲珑塔;
-        case 道宝Type.轩辕剑:
-            return 轩辕剑;
-        case 道宝Type.女娲石:
-            return 女娲石;
-        case 道宝Type.炼妖壶:
-            return 炼妖壶;
-        case 道宝Type.玉净瓶:
-            return 玉净瓶;
-        case 道宝Type.乾坤鼎:
-            return 乾坤鼎;
-        case 道宝Type.菩提妙树:
-            return 菩提妙树;
-        case 道宝Type.风火轮:
-            return 风火轮;
+            // ==================== 功德至宝（8个）====================
+            case 道宝Type.玲珑塔:
+                return 玲珑塔;
+            case 道宝Type.轩辕剑:
+                return 轩辕剑;
+            case 道宝Type.女娲石:
+                return 女娲石;
+            case 道宝Type.炼妖壶:
+                return 炼妖壶;
+            case 道宝Type.玉净瓶:
+                return 玉净瓶;
+            case 道宝Type.乾坤鼎:
+                return 乾坤鼎;
+            case 道宝Type.菩提妙树:
+                return 菩提妙树;
+            case 道宝Type.风火轮:
+                return 风火轮;
 
-        // ==================== 先天灵宝（8个）====================
-        case 道宝Type.山河社稷图:
-            return 山河社稷图;
-        case 道宝Type.七宝妙树:
-            return 七宝妙树;
-        case 道宝Type.天书:
-            return 天书;
-        case 道宝Type.地书:
-            return 地书;
-        case 道宝Type.冥书:
-            return 冥书;
-        case 道宝Type.弑神枪:
-            return 弑神枪;
-        case 道宝Type.定海神珠:
-            return 定海神珠;
-        case 道宝Type.河图洛书:
-            return 河图洛书;
+            // ==================== 先天灵宝（8个）====================
+            case 道宝Type.山河社稷图:
+                return 山河社稷图;
+            case 道宝Type.七宝妙树:
+                return 七宝妙树;
+            case 道宝Type.天书:
+                return 天书;
+            case 道宝Type.地书:
+                return 地书;
+            case 道宝Type.冥书:
+                return 冥书;
+            case 道宝Type.弑神枪:
+                return 弑神枪;
+            case 道宝Type.定海神珠:
+                return 定海神珠;
+            case 道宝Type.河图洛书:
+                return 河图洛书;
 
-        // ==================== 后天法宝（10个）====================
-        case 道宝Type.翻天印:
-            return 翻天印;
-        case 道宝Type.紫金葫芦:
-            return 紫金葫芦;
-        case 道宝Type.金蛟剪:
-            return 金蛟剪;
-        case 道宝Type.斩仙飞刀:
-            return 斩仙飞刀;
-        case 道宝Type.五色神光:
-            return 五色神光;
-        case 道宝Type.宝莲灯:
-            return 宝莲灯;
-        case 道宝Type.落宝金钱:
-            return 落宝金钱;
-        case 道宝Type.先天五方旗:
-            return 先天五方旗;
-        case 道宝Type.照妖镜:
-            return 照妖镜;
-        case 道宝Type.如意金箍棒:
-            return 如意金箍棒;
+            // ==================== 后天法宝（10个）====================
+            case 道宝Type.翻天印:
+                return 翻天印;
+            case 道宝Type.紫金葫芦:
+                return 紫金葫芦;
+            case 道宝Type.金蛟剪:
+                return 金蛟剪;
+            case 道宝Type.斩仙飞刀:
+                return 斩仙飞刀;
+            case 道宝Type.五色神光:
+                return 五色神光;
+            case 道宝Type.宝莲灯:
+                return 宝莲灯;
+            case 道宝Type.落宝金钱:
+                return 落宝金钱;
+            case 道宝Type.先天五方旗:
+                return 先天五方旗;
+            case 道宝Type.照妖镜:
+                return 照妖镜;
+            case 道宝Type.如意金箍棒:
+                return 如意金箍棒;
 
-        // ==================== 默认 ====================
-        default:
-            return null;
+            // ==================== 默认 ====================
+            default:
+                return null;
+        }
     }
-}
 
     public static Sprite Get主线关卡Sprite(主线关卡Type Type)
     {
@@ -1970,58 +2064,59 @@ public class ResourcesConfig : MonoBehaviour
                 return null; // 或者返回一个默认的占位图
         }
     }
+
     public static void Init()
     {
-    道宝标签紫= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
-    道宝标签橙= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签橙"); 
-    道宝标签粉= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签粉");
-    道宝标签红= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签红");
-    道宝标签彩= Resources.Load<Sprite>("Sprite/道宝标签/道宝标签彩");
+        道宝标签紫 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
+        道宝标签橙 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签橙");
+        道宝标签粉 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签粉");
+        道宝标签红 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签红");
+        道宝标签彩 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签彩");
 
-    山河社稷图= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[0];
-    七宝妙树= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[1];
-    天书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[2];
-    地书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[3];
-    弑神枪= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[4];
-    冥书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[5];
-    定海神珠= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[6];
-    河图洛书= Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[7];
-    
-    翻天印=  Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[0];
-    紫金葫芦= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[1];
-    金蛟剪= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[2];
-    斩仙飞刀= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[3];
-    五色神光= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[4];
-    宝莲灯= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[5];
-    落宝金钱= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[6];
-    先天五方旗= Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[7];
-    
-    混沌青莲=  Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[0];
-    造化玉碟= Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[1];
-    混沌珠= Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[2];
-    开天斧= Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[3];
-    
-    盘古幡= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[0];
-    混沌钟= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[1];
-    诛仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[2];
-    戮仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[3];
-    陷仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[4];
-    绝仙剑= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[5];
-    乾坤鼎= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[6];
-    菩提妙树= Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[7];
-    
-    玲珑塔= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[0];
-    炼妖壶= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[1];
-    女娲石=Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[2];
-    轩辕剑= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[3];
-    玉净瓶= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[4];
-    照妖镜= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[5];
-    风火轮=Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[6];
-    如意金箍棒= Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[7];
-        
-        按钮亮= Resources.Load<Sprite>("Sprite/按钮亮");
-        按钮暗= Resources.Load<Sprite>("Sprite/按钮暗");
-        
+        山河社稷图 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[0];
+        七宝妙树 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[1];
+        天书 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[2];
+        地书 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[3];
+        弑神枪 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[4];
+        冥书 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[5];
+        定海神珠 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[6];
+        河图洛书 = Resources.LoadAll<Sprite>("Sprite/道宝/天地人")[7];
+
+        翻天印 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[0];
+        紫金葫芦 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[1];
+        金蛟剪 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[2];
+        斩仙飞刀 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[3];
+        五色神光 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[4];
+        宝莲灯 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[5];
+        落宝金钱 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[6];
+        先天五方旗 = Resources.LoadAll<Sprite>("Sprite/道宝/翻天印")[7];
+
+        混沌青莲 = Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[0];
+        造化玉碟 = Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[1];
+        混沌珠 = Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[2];
+        开天斧 = Resources.LoadAll<Sprite>("Sprite/道宝/彩色")[3];
+
+        盘古幡 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[0];
+        混沌钟 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[1];
+        诛仙剑 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[2];
+        戮仙剑 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[3];
+        陷仙剑 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[4];
+        绝仙剑 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[5];
+        乾坤鼎 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[6];
+        菩提妙树 = Resources.LoadAll<Sprite>("Sprite/道宝/诛仙剑")[7];
+
+        玲珑塔 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[0];
+        炼妖壶 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[1];
+        女娲石 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[2];
+        轩辕剑 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[3];
+        玉净瓶 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[4];
+        照妖镜 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[5];
+        风火轮 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[6];
+        如意金箍棒 = Resources.LoadAll<Sprite>("Sprite/道宝/玉净瓶")[7];
+
+        按钮亮 = Resources.Load<Sprite>("Sprite/按钮亮");
+        按钮暗 = Resources.Load<Sprite>("Sprite/按钮暗");
+
         锋锐4 = Resources.Load<Sprite>("Sprite/道纹/锋锐4");
         锋锐5 = Resources.Load<Sprite>("Sprite/道纹/锋锐5");
         锋锐6 = Resources.Load<Sprite>("Sprite/道纹/锋锐6");
@@ -2386,7 +2481,7 @@ public class ResourcesConfig : MonoBehaviour
         鞋子粉 = Resources.Load<Sprite>("Sprite/装备/鞋子/粉");
         鞋子红 = Resources.Load<Sprite>("Sprite/装备/鞋子/红");
         鞋子彩 = Resources.Load<Sprite>("Sprite/装备/鞋子/彩");
-        
+
         头盔白 = Resources.Load<Sprite>("Sprite/装备/头盔/白");
         头盔绿 = Resources.Load<Sprite>("Sprite/装备/头盔/绿");
         头盔蓝 = Resources.Load<Sprite>("Sprite/装备/头盔/蓝");
@@ -2395,7 +2490,7 @@ public class ResourcesConfig : MonoBehaviour
         头盔粉 = Resources.Load<Sprite>("Sprite/装备/头盔/粉");
         头盔红 = Resources.Load<Sprite>("Sprite/装备/头盔/红");
         头盔彩 = Resources.Load<Sprite>("Sprite/装备/头盔/彩");
-        
+
         项链白 = Resources.Load<Sprite>("Sprite/装备/项链/白");
         项链绿 = Resources.Load<Sprite>("Sprite/装备/项链/绿");
         项链蓝 = Resources.Load<Sprite>("Sprite/装备/项链/蓝");
@@ -2404,7 +2499,7 @@ public class ResourcesConfig : MonoBehaviour
         项链粉 = Resources.Load<Sprite>("Sprite/装备/项链/粉");
         项链红 = Resources.Load<Sprite>("Sprite/装备/项链/红");
         项链彩 = Resources.Load<Sprite>("Sprite/装备/项链/彩");
-        
+
         戒指白 = Resources.Load<Sprite>("Sprite/装备/戒指/白");
         戒指绿 = Resources.Load<Sprite>("Sprite/装备/戒指/绿");
         戒指蓝 = Resources.Load<Sprite>("Sprite/装备/戒指/蓝");
@@ -2413,7 +2508,7 @@ public class ResourcesConfig : MonoBehaviour
         戒指粉 = Resources.Load<Sprite>("Sprite/装备/戒指/粉");
         戒指红 = Resources.Load<Sprite>("Sprite/装备/戒指/红");
         戒指彩 = Resources.Load<Sprite>("Sprite/装备/戒指/彩");
-        
+
         衣服白 = Resources.Load<Sprite>("Sprite/装备/衣服/白");
         衣服绿 = Resources.Load<Sprite>("Sprite/装备/衣服/绿");
         衣服蓝 = Resources.Load<Sprite>("Sprite/装备/衣服/蓝");
@@ -2600,10 +2695,60 @@ public class ResourcesConfig : MonoBehaviour
         铁扇侍女 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇侍女");
         铁扇公主 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇公主");
 
+// 冥府
         牛头 = Resources.Load<Sprite>("Sprite/怪物icon/牛头");
         马面 = Resources.Load<Sprite>("Sprite/怪物icon/马面");
         判官 = Resources.Load<Sprite>("Sprite/怪物icon/判官");
         阎罗王 = Resources.Load<Sprite>("Sprite/怪物icon/阎罗王");
+
+// ==================== 天庭篇（凌霄宝殿十大关） ====================
+// 南天门
+        天兵 = Resources.Load<Sprite>("Sprite/怪物icon/天兵");
+        天将 = Resources.Load<Sprite>("Sprite/怪物icon/天将");
+        守卫统领 = Resources.Load<Sprite>("Sprite/怪物icon/守卫统领");
+        巨灵王 = Resources.Load<Sprite>("Sprite/怪物icon/巨灵王");
+
+// 瑶池仙境
+        瑶池仙女 = Resources.Load<Sprite>("Sprite/怪物icon/瑶池仙女");
+        瑶池守卫 = Resources.Load<Sprite>("Sprite/怪物icon/瑶池守卫");
+        仙女首领 = Resources.Load<Sprite>("Sprite/怪物icon/仙女首领");
+        西王母 = Resources.Load<Sprite>("Sprite/怪物icon/西王母");
+
+// 斩妖台
+        执法天兵 = Resources.Load<Sprite>("Sprite/怪物icon/执法天兵");
+        执法天将 = Resources.Load<Sprite>("Sprite/怪物icon/执法天将");
+        斩妖剑侍 = Resources.Load<Sprite>("Sprite/怪物icon/斩妖剑侍");
+        天刑星君 = Resources.Load<Sprite>("Sprite/怪物icon/天刑星君");
+
+// 御马监
+        天马精 = Resources.Load<Sprite>("Sprite/怪物icon/天马精");
+        监丞侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/监丞侍卫");
+        弼马温 = Resources.Load<Sprite>("Sprite/怪物icon/弼马温");
+        天马星君 = Resources.Load<Sprite>("Sprite/怪物icon/天马星君");
+
+// 蟠桃园
+        桃园力士 = Resources.Load<Sprite>("Sprite/怪物icon/桃园力士");
+        桃园仙女 = Resources.Load<Sprite>("Sprite/怪物icon/桃园仙女");
+        蟠桃守卫 = Resources.Load<Sprite>("Sprite/怪物icon/蟠桃守卫");
+        蟠桃树精 = Resources.Load<Sprite>("Sprite/怪物icon/蟠桃树精");
+
+// 兜率宫
+        炼丹道童 = Resources.Load<Sprite>("Sprite/怪物icon/炼丹道童");
+        烧火道童 = Resources.Load<Sprite>("Sprite/怪物icon/烧火道童");
+        金银童子 = Resources.Load<Sprite>("Sprite/怪物icon/金银童子");
+        太上老君 = Resources.Load<Sprite>("Sprite/怪物icon/太上老君");
+
+// 紫微宫
+        紫微星侍 = Resources.Load<Sprite>("Sprite/怪物icon/紫微星侍");
+        天罡星卒 = Resources.Load<Sprite>("Sprite/怪物icon/天罡星卒");
+        北极星君 = Resources.Load<Sprite>("Sprite/怪物icon/北极星君");
+        紫微大帝 = Resources.Load<Sprite>("Sprite/怪物icon/紫微大帝");
+
+// 昊天殿
+        镇殿守卫 = Resources.Load<Sprite>("Sprite/怪物icon/镇殿守卫");
+        镇殿天将 = Resources.Load<Sprite>("Sprite/怪物icon/镇殿天将");
+        九龙神卫 = Resources.Load<Sprite>("Sprite/怪物icon/九龙神卫");
+        玉皇大帝 = Resources.Load<Sprite>("Sprite/怪物icon/玉皇大帝");
 
 
         //人物图片
