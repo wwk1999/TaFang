@@ -107,7 +107,7 @@ public class MonsterBase : MonoBehaviour
    {
       MonsterSlider.gameObject.SetActive(true);
       受击Animation.Play("怪物受击",0,0f);
-      float 最终Damage = 原始Damage - MonsterAttribute.Defense;
+      float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
       float 抗性 = 0;
       switch (yuanSuType)
       {

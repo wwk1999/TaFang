@@ -7,6 +7,12 @@ using UnityEngine;
 public class ResourcesConfig : MonoBehaviour
 {
 
+    
+    //凌霄宝殿
+    public static Sprite 凌霄宝殿按钮;
+    public static Sprite 凌霄宝殿按钮亮;
+    public static Sprite 凌霄宝殿按钮暗;
+
     //道宝
     public static Sprite 道宝标签紫;
     public static Sprite 道宝标签橙;
@@ -555,7 +561,14 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 流沙河;
     public static Sprite 芭蕉洞;
     public static Sprite 冥府;
-
+    public static Sprite 南天门;//16
+    public static Sprite 瑶池仙境;
+    public static Sprite 斩妖台;
+    public static Sprite 御马监;
+    public static Sprite 蟠桃园;
+    public static Sprite 兜率宫;
+    public static Sprite 紫微宫;
+    public static Sprite 昊天殿;
 
     //怪物图片
     // 花果山
@@ -2060,6 +2073,23 @@ public class ResourcesConfig : MonoBehaviour
                 return 东海龙宫;
             case 主线关卡Type.冥府:
                 return 冥府;
+            // ==================== 天庭篇（凌霄宝殿十大关） ====================
+            case 主线关卡Type.南天门:
+                return 南天门;
+            case 主线关卡Type.瑶池仙境:
+                return 瑶池仙境;
+            case 主线关卡Type.斩妖台:
+                return 斩妖台;
+            case 主线关卡Type.御马监:
+                return 御马监;
+            case 主线关卡Type.蟠桃园:
+                return 蟠桃园;
+            case 主线关卡Type.兜率宫:
+                return 兜率宫;
+            case 主线关卡Type.紫微宫:
+                return 紫微宫;
+            case 主线关卡Type.昊天殿:
+                return 昊天殿;
             default:
                 return null; // 或者返回一个默认的占位图
         }
@@ -2067,6 +2097,11 @@ public class ResourcesConfig : MonoBehaviour
 
     public static void Init()
     {
+        凌霄宝殿按钮 = Resources.Load<Sprite>("Sprite/凌霄宝殿/按钮");
+        凌霄宝殿按钮暗 = Resources.Load<Sprite>("Sprite/凌霄宝殿/按钮暗");
+        凌霄宝殿按钮亮 = Resources.Load<Sprite>("Sprite/凌霄宝殿/按钮亮");
+
+        
         道宝标签紫 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
         道宝标签橙 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签橙");
         道宝标签粉 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签粉");
@@ -2609,6 +2644,14 @@ public class ResourcesConfig : MonoBehaviour
         流沙河 = Resources.Load<Sprite>("Sprite/地图icon/流沙河");
         芭蕉洞 = Resources.Load<Sprite>("Sprite/地图icon/芭蕉洞");
         冥府 = Resources.Load<Sprite>("Sprite/地图icon/冥府");
+        南天门 = Resources.Load<Sprite>("Sprite/地图icon/南天门");
+        瑶池仙境 = Resources.Load<Sprite>("Sprite/地图icon/瑶池仙境");
+        斩妖台 = Resources.Load<Sprite>("Sprite/地图icon/斩妖台");
+        御马监 = Resources.Load<Sprite>("Sprite/地图icon/御马监");
+        蟠桃园 = Resources.Load<Sprite>("Sprite/地图icon/蟠桃园");
+        兜率宫 = Resources.Load<Sprite>("Sprite/地图icon/兜率宫");
+        紫微宫 = Resources.Load<Sprite>("Sprite/地图icon/紫微宫");
+        昊天殿 = Resources.Load<Sprite>("Sprite/地图icon/昊天殿");
 
         //怪物图片
         // 花果山

@@ -14,4 +14,5 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 道纹Type 道纹Type;
     [NonSerialized] public QualityType 道纹QualityType;
 
+    [NonSerialized] public 主线关卡Type 当前凌霄宝殿Type;
 }

@@ -24,6 +24,8 @@ public class MainWindow : MonoBehaviour
     public Button 道宝Button;
     public Button 城墙Button;
     public 主线关卡窗口 主线关卡窗口;
+    public 凌霄宝殿窗口 凌霄宝殿窗口;
+    public Button 主线关卡Debug;
 
     public void Show主页()
     {
@@ -62,6 +64,11 @@ public class MainWindow : MonoBehaviour
         主线关卡窗口.主线关卡Type = 主线关卡Type;
         主线关卡窗口.gameObject.SetActive(true);
     }
+    
+    public void 显示凌霄宝殿弹窗(object[] obj)
+    {
+        凌霄宝殿窗口.gameObject.SetActive(true);
+    }
 
     private void OnDestroy()
     {
@@ -70,10 +77,15 @@ public class MainWindow : MonoBehaviour
 
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
         道宝Button.onClick.AddListener(() =>
         {
             WindowController.S.道宝Window.gameObject.SetActive(true);
+        });
+        主线关卡Debug.onClick.AddListener(() =>
+        {
+            PlayerData.S.最大主线关卡++;
         });
         经验值Debug.onClick.AddListener(() =>
         {
