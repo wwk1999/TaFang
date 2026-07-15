@@ -45,8 +45,8 @@ public class 凌霄宝殿窗口 : MonoBehaviour
     private void OnEnable()
     {
         Show关卡列表();
-        HeroWindowController.S.当前凌霄宝殿Type = PlayerData.S.最大主线关卡;
-        ObserverModuleManager.S.SendEvent("凌霄宝殿按钮点击",PlayerData.S.最大主线关卡);
+        HeroWindowController.S.当前凌霄宝殿Type = PlayerData.S.最大主线关卡>主线关卡Type.昊天殿?主线关卡Type.昊天殿:PlayerData.S.最大主线关卡;
+        ObserverModuleManager.S.SendEvent("凌霄宝殿按钮点击",HeroWindowController.S.当前凌霄宝殿Type);
     }
 
     private void Awake()

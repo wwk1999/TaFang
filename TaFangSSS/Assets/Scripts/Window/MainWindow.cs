@@ -25,6 +25,8 @@ public class MainWindow : MonoBehaviour
     public Button 城墙Button;
     public 主线关卡窗口 主线关卡窗口;
     public 凌霄宝殿窗口 凌霄宝殿窗口;
+    public 三十三重天窗口 三十三重天窗口;
+
     public Button 主线关卡Debug;
 
     public void Show主页()
@@ -71,12 +73,20 @@ public class MainWindow : MonoBehaviour
     }
 
     private void OnDestroy()
-    {
+    {        
+        ObserverModuleManager.S.UnRegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.UnRegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
     }
+    
+    public void 显示三十三重天弹窗(object[] obj)
+    {
+        三十三重天窗口.gameObject.SetActive(true);
+    }
+    
 
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
         道宝Button.onClick.AddListener(() =>
