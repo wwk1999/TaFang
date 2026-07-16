@@ -463,6 +463,20 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.魔鸿钧:
                 image.sprite = ResourcesConfig.魔鸿钧;
                 break;
+            
+            // 大罗天
+            case MonsterTypeName.混沌蠕虫:
+                image.sprite = ResourcesConfig.混沌蠕虫;
+                break;
+            case MonsterTypeName.虚空螯虫:
+                image.sprite = ResourcesConfig.虚空螯虫;
+                break;
+            case MonsterTypeName.虚空巨兽:
+                image.sprite = ResourcesConfig.虚空巨兽;
+                break;
+            case MonsterTypeName.混沌主宰:
+                image.sprite = ResourcesConfig.混沌主宰;
+                break;
 
             default:
                 Debug.LogWarning($"未找到怪物 [{MonsterTypeName}] 对应的精灵资源");

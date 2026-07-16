@@ -8,10 +8,12 @@ public class ResourcesConfig : MonoBehaviour
 {
 
     
-    //凌霄宝殿
+    //地图界面UI
     public static Sprite 凌霄宝殿按钮;
     public static Sprite 凌霄宝殿按钮亮;
     public static Sprite 凌霄宝殿按钮暗;
+    public static Sprite 混沌虚空格子亮;
+    public static Sprite 混沌虚空格子暗;
 
     //道宝
     public static Sprite 道宝标签紫;
@@ -777,6 +779,12 @@ public static Sprite 弥罗宫卫;
 public static Sprite 混元道兵;
 public static Sprite 魔鸿钧;
 
+// 大罗天
+public static Sprite 混沌蠕虫;
+public static Sprite 虚空螯虫;
+public static Sprite 虚空巨兽;
+public static Sprite 混沌主宰;
+
 
     //人物图片
     //白
@@ -1167,6 +1175,11 @@ public static Sprite 魔鸿钧;
         case MonsterTypeName.弥罗宫卫: return 弥罗宫卫;
         case MonsterTypeName.混元道兵: return 混元道兵;
         case MonsterTypeName.魔鸿钧: return 魔鸿钧;
+        
+        case MonsterTypeName.混沌蠕虫: return 混沌蠕虫;
+        case MonsterTypeName.虚空螯虫: return 虚空螯虫;
+        case MonsterTypeName.虚空巨兽: return 虚空巨兽;
+        case MonsterTypeName.混沌主宰: return 混沌主宰;
 
         default:
             return null;
@@ -2265,10 +2278,11 @@ public static Sprite 魔鸿钧;
 
     public static void Init()
     {
-        凌霄宝殿按钮 = Resources.Load<Sprite>("Sprite/凌霄宝殿/按钮");
-        凌霄宝殿按钮暗 = Resources.Load<Sprite>("Sprite/凌霄宝殿/按钮暗");
-        凌霄宝殿按钮亮 = Resources.Load<Sprite>("Sprite/凌霄宝殿/按钮亮");
-
+        凌霄宝殿按钮 = Resources.Load<Sprite>("Sprite/地图界面UI/按钮");
+        凌霄宝殿按钮暗 = Resources.Load<Sprite>("Sprite/地图界面UI/按钮暗");
+        凌霄宝殿按钮亮 = Resources.Load<Sprite>("Sprite/地图界面UI/按钮亮");
+        混沌虚空格子亮 = Resources.Load<Sprite>("Sprite/地图界面UI/格子亮");
+        混沌虚空格子暗 = Resources.Load<Sprite>("Sprite/地图界面UI/格子暗");
         
         道宝标签紫 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
         道宝标签橙 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签橙");
@@ -3029,6 +3043,11 @@ public static Sprite 魔鸿钧;
 混元道兵 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
 魔鸿钧 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
 
+
+混沌蠕虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗侍卫");
+虚空螯虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗宫卫");
+虚空巨兽 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
+混沌主宰 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
 
         //人物图片
         //白

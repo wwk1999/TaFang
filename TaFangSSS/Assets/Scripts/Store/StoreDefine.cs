@@ -21,6 +21,7 @@ public class StoreDefine : XSingleton<StoreController>
         public float 道龄S = 0;
         public int 道龄年;
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
+        public int 混沌虚空最大层数 = 1;
 
 
 
@@ -603,6 +604,7 @@ public class StoreDefine : XSingleton<StoreController>
             道龄S = runtime.道龄S;
             道龄年 = runtime.道龄年;
             最大主线关卡 = runtime.最大主线关卡;
+            混沌虚空最大层数 = runtime.混沌虚空最大层数;
 
         }
 
@@ -628,6 +630,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.道龄S = 道龄S;
             runtime.道龄年 = 道龄年;
             runtime.最大主线关卡 = 最大主线关卡;
+            runtime.混沌虚空最大层数 = 混沌虚空最大层数;
         }
     }
 }

@@ -97,10 +97,24 @@ public class MonsterBase : MonoBehaviour
    {
       主线关卡Type 主线关卡Type = LevelConfig.当前主线关卡Type;
       MonsterType monsterType=MonsterConfig.MonsterTypeDic[MonsterTypeName];
-      普通关卡怪物Item 普通关卡怪物Item=new 普通关卡怪物Item(){主线关卡Type =  主线关卡Type, MonsterType = monsterType};
-      MonsterAttribute = MonsterConfig.普通关卡怪物属性Dic[普通关卡怪物Item];
+      主线关卡怪物Item 主线关卡怪物Item=new 主线关卡怪物Item(){主线关卡Type =  主线关卡Type, MonsterType = monsterType};
+      MonsterAttribute = Get怪物属性(主线关卡怪物Item);
       Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
       basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
+   }
+
+   public MonsterAttribute Get怪物属性(主线关卡怪物Item item)
+   {
+      MonsterAttribute 怪物属性 = MonsterConfig.主线关卡怪物属性Dic[item];
+      if (LevelConfig.Is混沌虚空)
+      {
+         int count = LevelConfig.混沌虚空层数 - 1;
+         怪物属性.Attack*=Mathf.Pow(1.2f, count);
+         怪物属性.Hp*=Mathf.Pow(1.2f, count);
+         怪物属性.Defense*=Mathf.Pow(1.2f, count);
+      }
+
+      return 怪物属性;
    }
 
    public void Hurt(float 原始Damage,YuanSuType yuanSuType)
@@ -200,6 +214,11 @@ public class MonsterBase : MonoBehaviour
       {
          PlayerData.S.最大主线关卡++;
          ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+      }
+
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.Is混沌虚空 && LevelConfig.混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
+      {
+         PlayerData.S.混沌虚空最大层数++;
       }
       Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
    }

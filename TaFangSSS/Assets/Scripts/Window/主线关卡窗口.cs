@@ -30,6 +30,8 @@ public class 主线关卡窗口 : MonoBehaviour
       {
          LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
          LevelConfig.当前主线关卡Type = 主线关卡Type;
+         LevelConfig.Is混沌虚空 = false;
+
          SceneManager.LoadScene("LoadScene");
       });
    }

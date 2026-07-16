@@ -19,6 +19,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 道龄S = 0;
     public int 道龄年;
     public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
+    public int 混沌虚空最大层数 = 1;
 
     public Dictionary<道宝Type, int> 道宝LevelDic = new Dictionary<道宝Type, int>()
     {

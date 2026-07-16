@@ -47,6 +47,8 @@ public enum 主线关卡Type
     玉清境清微天,
     太清境大赤天,
     大罗天,
+    
+    混沌虚空,
 }
 public class LevelDiaoLuo
 {
@@ -85,6 +87,8 @@ public class LevelConfig : MonoBehaviour
 {
     public static 关卡类型 当前关卡类型 = 关卡类型.主线关卡;
     public static 主线关卡Type 当前主线关卡Type = 主线关卡Type.花果山;
+    public static bool Is混沌虚空=false;
+    public static int 混沌虚空层数 = 1;
     public static Dictionary<主线关卡Type, int> 主线关卡通关奖励Dic = new Dictionary<主线关卡Type, int>()
     {
         { 主线关卡Type.花果山, 5 },
@@ -119,6 +123,7 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.上清境禹余天, 70 },
         { 主线关卡Type.太清境大赤天, 70 },
         { 主线关卡Type.大罗天, 80 },
+        { 主线关卡Type.混沌虚空, 80 },
     };
     public static Dictionary<主线关卡Type, JingJieType> 主线关卡境界Dic = new Dictionary<主线关卡Type, JingJieType>()
     {
@@ -155,6 +160,7 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.上清境禹余天, JingJieType.圣人 },
         { 主线关卡Type.太清境大赤天, JingJieType.圣人 },
         { 主线关卡Type.大罗天, JingJieType.天道圣人 },
+        { 主线关卡Type.混沌虚空, JingJieType.天道圣人 },
     };
    public static Dictionary<主线关卡Type, string> 主线关卡介绍Dic = new Dictionary<主线关卡Type, string>()
 {
@@ -197,6 +203,8 @@ public class LevelConfig : MonoBehaviour
     { 主线关卡Type.太清境大赤天, "三清境之末，圣人老子治所。赤光笼罩，丹气缭绕，天地炉鼎隐现其中，万物皆在此炼化归真。" },
 
     { 主线关卡Type.大罗天, "三界最高之玄境，包罗万象，超越一切时空。弥罗宫屹立于虚无之中，金光万道，乃圣贤最终归宿，得道者方至之地。" },
+    
+    { 主线关卡Type.混沌虚空, "大罗天外至深至玄之境，非天非地，非有非无。此处无光无暗，无始无终，只有一片原初的混沌之气翻涌不息。" },
 };
 
     public static Dictionary<主线关卡Type, SmallLevelInfo> LevelInfos = new Dictionary<主线关卡Type, SmallLevelInfo>()
@@ -234,6 +242,7 @@ public class LevelConfig : MonoBehaviour
     { 主线关卡Type.玉清境清微天, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4 } },
     { 主线关卡Type.太清境大赤天, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4 } },
     { 主线关卡Type.大罗天, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4 } },
+    { 主线关卡Type.混沌虚空, new SmallLevelInfo() { NormalMonsterCount = 260, CreateNormalMonsterTime = 0.7f, EliteMonsterCount = 4 } },
 
 };
    public static Dictionary<主线关卡Type, List<MonsterTypeName>> LevelMonsterDic =
@@ -339,6 +348,9 @@ public class LevelConfig : MonoBehaviour
         // 大罗天
         { 主线关卡Type.大罗天, new List<MonsterTypeName>() { 
             MonsterTypeName.弥罗侍卫, MonsterTypeName.弥罗宫卫, MonsterTypeName.混元道兵, MonsterTypeName.魔鸿钧 } },
+        // 大罗天
+        { 主线关卡Type.混沌虚空, new List<MonsterTypeName>() { 
+            MonsterTypeName.混沌蠕虫, MonsterTypeName.虚空螯虫, MonsterTypeName.虚空巨兽, MonsterTypeName.混沌主宰 } },
     };
    public static 普通关卡胜利奖励 Get胜利奖励()
    {
@@ -1066,6 +1078,27 @@ public class LevelConfig : MonoBehaviour
                     new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
                 }
             },
+            
+            {
+                主线关卡Type.混沌虚空,
+                new HashSet<LevelDiaoLuo>()
+                {
+                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.破镜珠 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                }
+            },
         };
 
    
@@ -1107,5 +1140,6 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.玉清境清微天, "玉清境清微天" },
         { 主线关卡Type.太清境大赤天, "太清境大赤天" },
         { 主线关卡Type.大罗天, "大罗天" },
+        { 主线关卡Type.混沌虚空, "混沌虚空" },
     };
 }
