@@ -9,7 +9,7 @@ public class 城墙装备bg : MonoBehaviour, IDropHandler
     public 城墙装备item 城墙装备item;
     public void OnDrop(PointerEventData eventData)
     {
-        if (HeroWindowController.S.城墙IsDrag)
+        if (HeroWindowController.S.城墙IsDrag&&!城墙装备item.suo.gameObject.activeSelf)
         {
             for (int i=1;i<=8;i++)
             {

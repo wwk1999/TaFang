@@ -2353,19 +2353,19 @@ public class ResourcesConfig : MonoBehaviour
             case QualityType.黄品:
                 return 黄TMP;
             case QualityType.玄品:
-                return 黄TMP;
+                return 玄TMP;
             case QualityType.地品:
-                return 黄TMP;
+                return 地TMP;
             case QualityType.天品:
-                return 黄TMP;
+                return 天TMP;
             case QualityType.宇品:
-                return 黄TMP;
+                return 宇TMP;
             case QualityType.宙品:
-                return 黄TMP;
+                return 宙TMP;
             case QualityType.洪品:
-                return 黄TMP;
+                return 洪TMP;
             case QualityType.荒品:
-                return 黄TMP;
+                return 荒TMP;
         }
 
         return null;
@@ -2391,7 +2391,7 @@ public class ResourcesConfig : MonoBehaviour
                 return 初源露;
             case 城墙道具Type.厚土珠:
                 return 厚土珠;
-            case 城墙道具Type.反伤岩:
+            case 城墙道具Type.不灭岩:
                 return 反伤岩;
             case 城墙道具Type.周天星斗大阵:
                 return 周天星斗大阵;

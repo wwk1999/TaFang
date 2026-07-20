@@ -46,7 +46,7 @@ public class StoreDefine : XSingleton<StoreController>
             { 城墙道具Type.九曲黄河阵, 0 },
             { 城墙道具Type.初源露, 0 },
             { 城墙道具Type.厚土珠, 0 },
-            { 城墙道具Type.反伤岩, 0 },
+            { 城墙道具Type.不灭岩, 0 },
             { 城墙道具Type.周天星斗大阵, 0 },
             { 城墙道具Type.土灵珠, 0 },
             { 城墙道具Type.地髓晶, 0 },
