@@ -16,5 +16,10 @@ public class HeroWindowController:XSingleton<HeroWindowController>
 
     [NonSerialized] public 主线关卡Type 当前凌霄宝殿Type;
     [NonSerialized] public 主线关卡Type 当前三十三重天Type;
+    
+    //城墙
+    [NonSerialized]public bool 城墙IsDrag = false;
+    [NonSerialized] public 城墙道具Type 城墙道具Type;
+
 
 }

@@ -20,7 +20,54 @@ public class PlayerData : XSingleton<PlayerData>
     public int 道龄年;
     public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
     public int 混沌虚空最大层数 = 1;
-
+    public int 城墙等级 = 1;
+    public Dictionary<QualityType, 城墙道具Type> 当前装备城墙道具Dic = new Dictionary<QualityType, 城墙道具Type>()
+    {
+        { QualityType.黄品 ,城墙道具Type.None},
+        { QualityType.玄品 ,城墙道具Type.None},
+        { QualityType.地品 ,城墙道具Type.None},
+        { QualityType.天品 ,城墙道具Type.None},
+        { QualityType.宇品 ,城墙道具Type.None},
+        { QualityType.宙品 ,城墙道具Type.None},
+        { QualityType.洪品 ,城墙道具Type.None},
+        { QualityType.荒品 ,城墙道具Type.None},
+    };
+    public Dictionary<城墙道具Type, int> 城墙道具等级Dic = new Dictionary<城墙道具Type, int>()
+    {
+        { 城墙道具Type.不动明王阵, 0 },
+        { 城墙道具Type.不周山柱, 0 },
+        { 城墙道具Type.不朽魂晶, 0 },
+        { 城墙道具Type.不死木, 0 },
+        { 城墙道具Type.不灭玄石, 0 },
+        { 城墙道具Type.九曲黄河阵, 0 },
+        { 城墙道具Type.初源露, 0 },
+        { 城墙道具Type.厚土珠, 0 },
+        { 城墙道具Type.反伤岩, 0 },
+        { 城墙道具Type.周天星斗大阵, 0 },
+        { 城墙道具Type.土灵珠, 0 },
+        { 城墙道具Type.地髓晶, 0 },
+        { 城墙道具Type.大道本源, 0 },
+        { 城墙道具Type.天命罗盘, 0 },
+        { 城墙道具Type.天机石, 0 },
+        { 城墙道具Type.天罡石, 0 },
+        { 城墙道具Type.山河阵盘, 0 },
+        { 城墙道具Type.星辰沙, 0 },
+        { 城墙道具Type.星辰铁, 0 },
+        { 城墙道具Type.永恒之火, 0 },
+        { 城墙道具Type.混沌磐石, 0 },
+        { 城墙道具Type.灵兽骨粉, 0 },
+        { 城墙道具Type.灵石尘, 0 },
+        { 城墙道具Type.灵藤蔓, 0 },
+        { 城墙道具Type.玄武石, 0 },
+        { 城墙道具Type.玄黄之气, 0 },
+        { 城墙道具Type.百年桃木, 0 },
+        { 城墙道具Type.蛟龙骨, 0 },
+        { 城墙道具Type.血琥珀, 0 },
+        { 城墙道具Type.轮回印记, 0 },
+        { 城墙道具Type.雷击木, 0 },
+        { 城墙道具Type.鸿蒙灵根, 0 },
+    };
+    
     public Dictionary<道宝Type, int> 道宝LevelDic = new Dictionary<道宝Type, int>()
     {
         // ==================== 混沌至宝 ====================

@@ -6,8 +6,60 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
-
     
+    // 城墙icon
+    public static Sprite 城墙icon白;
+    public static Sprite 城墙icon绿;
+    public static Sprite 城墙icon蓝;
+    public static Sprite 城墙icon紫;
+    public static Sprite 城墙icon橙;
+    public static Sprite 城墙icon粉;
+    public static Sprite 城墙icon红;
+    public static Sprite 城墙icon彩;
+    
+    public static Sprite 城墙装备背景框白;
+    public static Sprite 城墙装备背景框绿;
+    public static Sprite 城墙装备背景框蓝;
+    public static Sprite 城墙装备背景框紫;
+    public static Sprite 城墙装备背景框橙;
+    public static Sprite 城墙装备背景框粉;
+    public static Sprite 城墙装备背景框红;
+    public static Sprite 城墙装备背景框彩;
+
+    public static Sprite 不动明王阵;
+    public static Sprite 不周山柱;
+    public static Sprite 不朽魂晶;
+    public static Sprite 不死木;
+    public static Sprite 不灭玄石;
+    public static Sprite 九曲黄河阵;
+    public static Sprite 初源露;
+    public static Sprite 厚土珠;
+    public static Sprite 反伤岩;
+    public static Sprite 周天星斗大阵;
+    public static Sprite 土灵珠;
+    public static Sprite 地髓晶;
+    public static Sprite 大道本源;
+    public static Sprite 天命罗盘;
+    public static Sprite 天机石;
+    public static Sprite 天罡石;
+    public static Sprite 山河阵盘;
+    public static Sprite 星辰沙;
+    public static Sprite 星辰铁;
+    public static Sprite 永恒之火;
+    public static Sprite 混沌磐石;
+    public static Sprite 灵兽骨粉;
+    public static Sprite 灵石尘;
+    public static Sprite 灵藤蔓;
+    public static Sprite 玄武石;
+    public static Sprite 玄黄之气;
+    public static Sprite 百年桃木;
+    public static Sprite 蛟龙骨;
+    public static Sprite 血琥珀;
+    public static Sprite 轮回印记;
+    public static Sprite 雷击木;
+    public static Sprite 鸿蒙灵根;
+
+
     //地图界面UI
     public static Sprite 凌霄宝殿按钮;
     public static Sprite 凌霄宝殿按钮亮;
@@ -565,225 +617,225 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 冥府;
 
 // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
-    public static Sprite 南天门;      // 16
-    public static Sprite 瑶池仙境;    // 17
-    public static Sprite 斩妖台;      // 18
-    public static Sprite 御马监;      // 19
-    public static Sprite 蟠桃园;      // 20
-    public static Sprite 兜率宫;      // 21
-    public static Sprite 紫微宫;      // 22
-    public static Sprite 昊天殿;      // 23
+    public static Sprite 南天门; // 16
+    public static Sprite 瑶池仙境; // 17
+    public static Sprite 斩妖台; // 18
+    public static Sprite 御马监; // 19
+    public static Sprite 蟠桃园; // 20
+    public static Sprite 兜率宫; // 21
+    public static Sprite 紫微宫; // 22
+    public static Sprite 昊天殿; // 23
 
-    public static Sprite 登天路;              // 24
-    public static Sprite 欲界天;              // 25
-    public static Sprite 色界天;              // 26
-    public static Sprite 无色天;              // 27
-    public static Sprite 四梵天;              // 28
-    public static Sprite 玉清境清微天;        // 29
-    public static Sprite 上清境禹余天;        // 30
-    public static Sprite 太清境大赤天;        // 31
-    public static Sprite 大罗天;              // 32
+    public static Sprite 登天路; // 24
+    public static Sprite 欲界天; // 25
+    public static Sprite 色界天; // 26
+    public static Sprite 无色天; // 27
+    public static Sprite 四梵天; // 28
+    public static Sprite 玉清境清微天; // 29
+    public static Sprite 上清境禹余天; // 30
+    public static Sprite 太清境大赤天; // 31
+    public static Sprite 大罗天; // 32
 
     //怪物图片
-   // ==================== 花果山 ====================
-public static Sprite 猴精;
-public static Sprite 山魈;
-public static Sprite 马猴头领;
-public static Sprite 通臂猿猴;
+    // ==================== 花果山 ====================
+    public static Sprite 猴精;
+    public static Sprite 山魈;
+    public static Sprite 马猴头领;
+    public static Sprite 通臂猿猴;
 
 // ==================== 水帘洞 ====================
-public static Sprite 水虱精;
-public static Sprite 蝙蝠精;
-public static Sprite 铁背苍猿;
-public static Sprite 水帘洞主;
+    public static Sprite 水虱精;
+    public static Sprite 蝙蝠精;
+    public static Sprite 铁背苍猿;
+    public static Sprite 水帘洞主;
 
 // ==================== 傲来国 ====================
-public static Sprite 傲来民兵;
-public static Sprite 猎户;
-public static Sprite 傲来偏将;
-public static Sprite 傲来国师;
+    public static Sprite 傲来民兵;
+    public static Sprite 猎户;
+    public static Sprite 傲来偏将;
+    public static Sprite 傲来国师;
 
 // ==================== 东海龙宫 ====================
-public static Sprite 虾兵;
-public static Sprite 蟹将;
-public static Sprite 龟丞相;
-public static Sprite 东海龙王;
+    public static Sprite 虾兵;
+    public static Sprite 蟹将;
+    public static Sprite 龟丞相;
+    public static Sprite 东海龙王;
 
 // ==================== 蓬莱仙岛 ====================
-public static Sprite 仙鹤;
-public static Sprite 灵芝童;
-public static Sprite 蓬莱剑仙;
-public static Sprite 蓬莱岛主;
+    public static Sprite 仙鹤;
+    public static Sprite 灵芝童;
+    public static Sprite 蓬莱剑仙;
+    public static Sprite 蓬莱岛主;
 
 // ==================== 五行山 ====================
-public static Sprite 山石精;
-public static Sprite 土蝼;
-public static Sprite 五行山神;
-public static Sprite 压山符灵;
+    public static Sprite 山石精;
+    public static Sprite 土蝼;
+    public static Sprite 五行山神;
+    public static Sprite 压山符灵;
 
 // ==================== 高老庄 ====================
-public static Sprite 野猪精;
-public static Sprite 高才;
-public static Sprite 高太公;
-public static Sprite 猪刚鬣;
+    public static Sprite 野猪精;
+    public static Sprite 高才;
+    public static Sprite 高太公;
+    public static Sprite 猪刚鬣;
 
 // ==================== 平顶山 ====================
-public static Sprite 莲花洞小妖;
-public static Sprite 狐阿七;
-public static Sprite 银角大王;
-public static Sprite 金角大王;
+    public static Sprite 莲花洞小妖;
+    public static Sprite 狐阿七;
+    public static Sprite 银角大王;
+    public static Sprite 金角大王;
 
 // ==================== 女儿国 ====================
-public static Sprite 女儿国兵;
-public static Sprite 女儿国将;
-public static Sprite 女儿国太师;
-public static Sprite 女儿国国王;
+    public static Sprite 女儿国兵;
+    public static Sprite 女儿国将;
+    public static Sprite 女儿国太师;
+    public static Sprite 女儿国国王;
 
 // ==================== 火焰山 ====================
-public static Sprite 火焰精;
-public static Sprite 赤蛇;
-public static Sprite 红孩儿;
-public static Sprite 牛魔王;
+    public static Sprite 火焰精;
+    public static Sprite 赤蛇;
+    public static Sprite 红孩儿;
+    public static Sprite 牛魔王;
 
 // ==================== 芭蕉洞 ====================
-public static Sprite 芭蕉精;
-public static Sprite 火焰童;
-public static Sprite 铁扇侍女;
-public static Sprite 铁扇公主;
+    public static Sprite 芭蕉精;
+    public static Sprite 火焰童;
+    public static Sprite 铁扇侍女;
+    public static Sprite 铁扇公主;
 
 // ==================== 流沙河 ====================
-public static Sprite 流沙精;
-public static Sprite 水鬼;
-public static Sprite 水蛇妖;
-public static Sprite 沙和尚;
+    public static Sprite 流沙精;
+    public static Sprite 水鬼;
+    public static Sprite 水蛇妖;
+    public static Sprite 沙和尚;
 
 // ==================== 小雷音寺 ====================
-public static Sprite 假罗汉;
-public static Sprite 假金刚;
-public static Sprite 黄眉童子;
-public static Sprite 黄眉老祖;
+    public static Sprite 假罗汉;
+    public static Sprite 假金刚;
+    public static Sprite 黄眉童子;
+    public static Sprite 黄眉老祖;
 
 // ==================== 狮驼岭 ====================
-public static Sprite 青狮精手下;
-public static Sprite 白象精手下;
-public static Sprite 大鹏金翅雕;
-public static Sprite 青狮精;
+    public static Sprite 青狮精手下;
+    public static Sprite 白象精手下;
+    public static Sprite 大鹏金翅雕;
+    public static Sprite 青狮精;
 
 // ==================== 冥府 ====================
-public static Sprite 牛头;
-public static Sprite 马面;
-public static Sprite 判官;
-public static Sprite 阎罗王;
+    public static Sprite 牛头;
+    public static Sprite 马面;
+    public static Sprite 判官;
+    public static Sprite 阎罗王;
 
 // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
 // 南天门
-public static Sprite 天兵;
-public static Sprite 天将;
-public static Sprite 守卫统领;
-public static Sprite 巨灵王;
+    public static Sprite 天兵;
+    public static Sprite 天将;
+    public static Sprite 守卫统领;
+    public static Sprite 巨灵王;
 
 // 瑶池仙境
-public static Sprite 瑶池仙女;
-public static Sprite 瑶池守卫;
-public static Sprite 仙女首领;
-public static Sprite 西王母;
+    public static Sprite 瑶池仙女;
+    public static Sprite 瑶池守卫;
+    public static Sprite 仙女首领;
+    public static Sprite 西王母;
 
 // 斩妖台
-public static Sprite 执法天兵;
-public static Sprite 执法天将;
-public static Sprite 斩妖剑侍;
-public static Sprite 天刑星君;
+    public static Sprite 执法天兵;
+    public static Sprite 执法天将;
+    public static Sprite 斩妖剑侍;
+    public static Sprite 天刑星君;
 
 // 御马监
-public static Sprite 天马精;
-public static Sprite 监丞侍卫;
-public static Sprite 弼马温;
-public static Sprite 天马星君;
+    public static Sprite 天马精;
+    public static Sprite 监丞侍卫;
+    public static Sprite 弼马温;
+    public static Sprite 天马星君;
 
 // 蟠桃园
-public static Sprite 桃园力士;
-public static Sprite 桃园仙女;
-public static Sprite 蟠桃守卫;
-public static Sprite 蟠桃树精;
+    public static Sprite 桃园力士;
+    public static Sprite 桃园仙女;
+    public static Sprite 蟠桃守卫;
+    public static Sprite 蟠桃树精;
 
 // 兜率宫
-public static Sprite 炼丹道童;
-public static Sprite 烧火道童;
-public static Sprite 兜率宫侍卫;   // 注意：原为 金银童子，根据枚举改为 兜率宫侍卫
-public static Sprite 太上老君;
+    public static Sprite 炼丹道童;
+    public static Sprite 烧火道童;
+    public static Sprite 兜率宫侍卫; // 注意：原为 金银童子，根据枚举改为 兜率宫侍卫
+    public static Sprite 太上老君;
 
 // 紫微宫
-public static Sprite 紫微星侍;
-public static Sprite 天罡星卒;
-public static Sprite 北极星君;
-public static Sprite 紫微大帝;
+    public static Sprite 紫微星侍;
+    public static Sprite 天罡星卒;
+    public static Sprite 北极星君;
+    public static Sprite 紫微大帝;
 
 // 昊天殿
-public static Sprite 镇殿守卫;
-public static Sprite 镇殿天将;
-public static Sprite 九龙神卫;
-public static Sprite 玉皇大帝;
+    public static Sprite 镇殿守卫;
+    public static Sprite 镇殿天将;
+    public static Sprite 九龙神卫;
+    public static Sprite 玉皇大帝;
 
 // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
 // 登天路
-public static Sprite 登天石傀;
-public static Sprite 罡风精;
-public static Sprite 雷劫之灵;
-public static Sprite 守天路神将;
+    public static Sprite 登天石傀;
+    public static Sprite 罡风精;
+    public static Sprite 雷劫之灵;
+    public static Sprite 守天路神将;
 
 // 欲界天
-public static Sprite 欲念魅妖;
-public static Sprite 幻音雀;
-public static Sprite 贪欲魔;
-public static Sprite 欲界天魔王;
+    public static Sprite 欲念魅妖;
+    public static Sprite 幻音雀;
+    public static Sprite 贪欲魔;
+    public static Sprite 欲界天魔王;
 
 // 色界天
-public static Sprite 色相天女;
-public static Sprite 光音天众;
-public static Sprite 形色尊者;
-public static Sprite 色界天主;
+    public static Sprite 色相天女;
+    public static Sprite 光音天众;
+    public static Sprite 形色尊者;
+    public static Sprite 色界天主;
 
 // 无色天
-public static Sprite 虚灵;
-public static Sprite 空无影;
-public static Sprite 太虚之魂;
-public static Sprite 无色天祖;
+    public static Sprite 虚灵;
+    public static Sprite 空无影;
+    public static Sprite 太虚之魂;
+    public static Sprite 无色天祖;
 
 // 四梵天
-public static Sprite 梵天守卫;
-public static Sprite 净居天人;
-public static Sprite 善现尊者;
-public static Sprite 四梵天王;
+    public static Sprite 梵天守卫;
+    public static Sprite 净居天人;
+    public static Sprite 善现尊者;
+    public static Sprite 四梵天王;
 
 // 玉清境清微天
-public static Sprite 清微仙童;
-public static Sprite 玄光玉女;
-public static Sprite 玉清道卫;
-public static Sprite 魔元始天尊;
+    public static Sprite 清微仙童;
+    public static Sprite 玄光玉女;
+    public static Sprite 玉清道卫;
+    public static Sprite 魔元始天尊;
 
 // 上清境禹余天
-public static Sprite 禹余灵官;
-public static Sprite 紫霞仙鹤;
-public static Sprite 上清剑侍;
-public static Sprite 魔灵宝天尊;
+    public static Sprite 禹余灵官;
+    public static Sprite 紫霞仙鹤;
+    public static Sprite 上清剑侍;
+    public static Sprite 魔灵宝天尊;
 
 // 太清境大赤天
-public static Sprite 大赤丹童;
-public static Sprite 炉火精;
-public static Sprite 太清护卫;
-public static Sprite 魔老子;
+    public static Sprite 大赤丹童;
+    public static Sprite 炉火精;
+    public static Sprite 太清护卫;
+    public static Sprite 魔老子;
 
 // 大罗天
-public static Sprite 弥罗侍卫;
-public static Sprite 弥罗宫卫;
-public static Sprite 混元道兵;
-public static Sprite 魔鸿钧;
+    public static Sprite 弥罗侍卫;
+    public static Sprite 弥罗宫卫;
+    public static Sprite 混元道兵;
+    public static Sprite 魔鸿钧;
 
 // 大罗天
-public static Sprite 混沌蠕虫;
-public static Sprite 虚空螯虫;
-public static Sprite 虚空巨兽;
-public static Sprite 混沌主宰;
+    public static Sprite 混沌蠕虫;
+    public static Sprite 虚空螯虫;
+    public static Sprite 虚空巨兽;
+    public static Sprite 混沌主宰;
 
 
     //人物图片
@@ -978,213 +1030,231 @@ public static Sprite 混沌主宰;
         }
     }
 
-   public static Sprite GetMonsterSprite(MonsterTypeName type)
-{
-    switch (type)
+    public static Sprite Get道宝标签Sprite(道宝Quality quality)
     {
-        // ==================== 花果山 ====================
-        case MonsterTypeName.猴精: return 猴精;
-        case MonsterTypeName.山魈: return 山魈;
-        case MonsterTypeName.马猴头领: return 马猴头领;
-        case MonsterTypeName.通臂猿猴: return 通臂猿猴;
-
-        // ==================== 水帘洞 ====================
-        case MonsterTypeName.水虱精: return 水虱精;
-        case MonsterTypeName.蝙蝠精: return 蝙蝠精;
-        case MonsterTypeName.铁背苍猿: return 铁背苍猿;
-        case MonsterTypeName.水帘洞主: return 水帘洞主;
-
-        // ==================== 傲来国 ====================
-        case MonsterTypeName.傲来民兵: return 傲来民兵;
-        case MonsterTypeName.猎户: return 猎户;
-        case MonsterTypeName.傲来偏将: return 傲来偏将;
-        case MonsterTypeName.傲来国师: return 傲来国师;
-
-        // ==================== 东海龙宫 ====================
-        case MonsterTypeName.虾兵: return 虾兵;
-        case MonsterTypeName.蟹将: return 蟹将;
-        case MonsterTypeName.龟丞相: return 龟丞相;
-        case MonsterTypeName.东海龙王: return 东海龙王;
-
-        // ==================== 蓬莱仙岛 ====================
-        case MonsterTypeName.仙鹤: return 仙鹤;
-        case MonsterTypeName.灵芝童: return 灵芝童;
-        case MonsterTypeName.蓬莱剑仙: return 蓬莱剑仙;
-        case MonsterTypeName.蓬莱岛主: return 蓬莱岛主;
-
-        // ==================== 五行山 ====================
-        case MonsterTypeName.山石精: return 山石精;
-        case MonsterTypeName.土蝼: return 土蝼;
-        case MonsterTypeName.五行山神: return 五行山神;
-        case MonsterTypeName.压山符灵: return 压山符灵;
-
-        // ==================== 高老庄 ====================
-        case MonsterTypeName.野猪精: return 野猪精;
-        case MonsterTypeName.高才: return 高才;
-        case MonsterTypeName.高太公: return 高太公;
-        case MonsterTypeName.猪刚鬣: return 猪刚鬣;
-
-        // ==================== 平顶山 ====================
-        case MonsterTypeName.莲花洞小妖: return 莲花洞小妖;
-        case MonsterTypeName.狐阿七: return 狐阿七;
-        case MonsterTypeName.银角大王: return 银角大王;
-        case MonsterTypeName.金角大王: return 金角大王;
-
-        // ==================== 女儿国 ====================
-        case MonsterTypeName.女儿国兵: return 女儿国兵;
-        case MonsterTypeName.女儿国将: return 女儿国将;
-        case MonsterTypeName.女儿国太师: return 女儿国太师;
-        case MonsterTypeName.女儿国国王: return 女儿国国王;
-
-        // ==================== 火焰山 ====================
-        case MonsterTypeName.火焰精: return 火焰精;
-        case MonsterTypeName.赤蛇: return 赤蛇;
-        case MonsterTypeName.红孩儿: return 红孩儿;
-        case MonsterTypeName.牛魔王: return 牛魔王;
-
-        // ==================== 芭蕉洞 ====================
-        case MonsterTypeName.芭蕉精: return 芭蕉精;
-        case MonsterTypeName.火焰童: return 火焰童;
-        case MonsterTypeName.铁扇侍女: return 铁扇侍女;
-        case MonsterTypeName.铁扇公主: return 铁扇公主;
-
-        // ==================== 流沙河 ====================
-        case MonsterTypeName.流沙精: return 流沙精;
-        case MonsterTypeName.水鬼: return 水鬼;
-        case MonsterTypeName.水蛇妖: return 水蛇妖;
-        case MonsterTypeName.沙和尚: return 沙和尚;
-
-        // ==================== 小雷音寺 ====================
-        case MonsterTypeName.假罗汉: return 假罗汉;
-        case MonsterTypeName.假金刚: return 假金刚;
-        case MonsterTypeName.黄眉童子: return 黄眉童子;
-        case MonsterTypeName.黄眉老祖: return 黄眉老祖;
-
-        // ==================== 狮驼岭 ====================
-        case MonsterTypeName.青狮精手下: return 青狮精手下;
-        case MonsterTypeName.白象精手下: return 白象精手下;
-        case MonsterTypeName.大鹏金翅雕: return 大鹏金翅雕;
-        case MonsterTypeName.青狮精: return 青狮精;
-
-        // ==================== 冥府 ====================
-        case MonsterTypeName.牛头: return 牛头;
-        case MonsterTypeName.马面: return 马面;
-        case MonsterTypeName.判官: return 判官;
-        case MonsterTypeName.阎罗王: return 阎罗王;
-
-        // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
-        // 南天门
-        case MonsterTypeName.天兵: return 天兵;
-        case MonsterTypeName.天将: return 天将;
-        case MonsterTypeName.守卫统领: return 守卫统领;
-        case MonsterTypeName.巨灵王: return 巨灵王;
-
-        // 瑶池仙境
-        case MonsterTypeName.瑶池仙女: return 瑶池仙女;
-        case MonsterTypeName.瑶池守卫: return 瑶池守卫;
-        case MonsterTypeName.仙女首领: return 仙女首领;
-        case MonsterTypeName.西王母: return 西王母;
-
-        // 斩妖台
-        case MonsterTypeName.执法天兵: return 执法天兵;
-        case MonsterTypeName.执法天将: return 执法天将;
-        case MonsterTypeName.斩妖剑侍: return 斩妖剑侍;
-        case MonsterTypeName.天刑星君: return 天刑星君;
-
-        // 御马监
-        case MonsterTypeName.天马精: return 天马精;
-        case MonsterTypeName.监丞侍卫: return 监丞侍卫;
-        case MonsterTypeName.弼马温: return 弼马温;
-        case MonsterTypeName.天马星君: return 天马星君;
-
-        // 蟠桃园
-        case MonsterTypeName.桃园力士: return 桃园力士;
-        case MonsterTypeName.桃园仙女: return 桃园仙女;
-        case MonsterTypeName.蟠桃守卫: return 蟠桃守卫;
-        case MonsterTypeName.蟠桃树精: return 蟠桃树精;
-
-        // 兜率宫
-        case MonsterTypeName.炼丹道童: return 炼丹道童;
-        case MonsterTypeName.烧火道童: return 烧火道童;
-        case MonsterTypeName.兜率宫侍卫: return 兜率宫侍卫;
-        case MonsterTypeName.太上老君: return 太上老君;
-
-        // 紫微宫
-        case MonsterTypeName.紫微星侍: return 紫微星侍;
-        case MonsterTypeName.天罡星卒: return 天罡星卒;
-        case MonsterTypeName.北极星君: return 北极星君;
-        case MonsterTypeName.紫微大帝: return 紫微大帝;
-
-        // 昊天殿
-        case MonsterTypeName.镇殿守卫: return 镇殿守卫;
-        case MonsterTypeName.镇殿天将: return 镇殿天将;
-        case MonsterTypeName.九龙神卫: return 九龙神卫;
-        case MonsterTypeName.玉皇大帝: return 玉皇大帝;
-
-        // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
-        // 登天路
-        case MonsterTypeName.登天石傀: return 登天石傀;
-        case MonsterTypeName.罡风精: return 罡风精;
-        case MonsterTypeName.雷劫之灵: return 雷劫之灵;
-        case MonsterTypeName.守天路神将: return 守天路神将;
-
-        // 欲界天
-        case MonsterTypeName.欲念魅妖: return 欲念魅妖;
-        case MonsterTypeName.幻音雀: return 幻音雀;
-        case MonsterTypeName.贪欲魔: return 贪欲魔;
-        case MonsterTypeName.欲界天魔王: return 欲界天魔王;
-
-        // 色界天
-        case MonsterTypeName.色相天女: return 色相天女;
-        case MonsterTypeName.光音天众: return 光音天众;
-        case MonsterTypeName.形色尊者: return 形色尊者;
-        case MonsterTypeName.色界天主: return 色界天主;
-
-        // 无色天
-        case MonsterTypeName.虚灵: return 虚灵;
-        case MonsterTypeName.空无影: return 空无影;
-        case MonsterTypeName.太虚之魂: return 太虚之魂;
-        case MonsterTypeName.无色天祖: return 无色天祖;
-
-        // 四梵天
-        case MonsterTypeName.梵天守卫: return 梵天守卫;
-        case MonsterTypeName.净居天人: return 净居天人;
-        case MonsterTypeName.善现尊者: return 善现尊者;
-        case MonsterTypeName.四梵天王: return 四梵天王;
-
-        // 玉清境清微天
-        case MonsterTypeName.清微仙童: return 清微仙童;
-        case MonsterTypeName.玄光玉女: return 玄光玉女;
-        case MonsterTypeName.玉清道卫: return 玉清道卫;
-        case MonsterTypeName.魔元始天尊: return 魔元始天尊;
-
-        // 上清境禹余天
-        case MonsterTypeName.禹余灵官: return 禹余灵官;
-        case MonsterTypeName.紫霞仙鹤: return 紫霞仙鹤;
-        case MonsterTypeName.上清剑侍: return 上清剑侍;
-        case MonsterTypeName.魔灵宝天尊: return 魔灵宝天尊;
-
-        // 太清境大赤天
-        case MonsterTypeName.大赤丹童: return 大赤丹童;
-        case MonsterTypeName.炉火精: return 炉火精;
-        case MonsterTypeName.太清护卫: return 太清护卫;
-        case MonsterTypeName.魔老子: return 魔老子;
-
-        // 大罗天
-        case MonsterTypeName.弥罗侍卫: return 弥罗侍卫;
-        case MonsterTypeName.弥罗宫卫: return 弥罗宫卫;
-        case MonsterTypeName.混元道兵: return 混元道兵;
-        case MonsterTypeName.魔鸿钧: return 魔鸿钧;
-        
-        case MonsterTypeName.混沌蠕虫: return 混沌蠕虫;
-        case MonsterTypeName.虚空螯虫: return 虚空螯虫;
-        case MonsterTypeName.虚空巨兽: return 虚空巨兽;
-        case MonsterTypeName.混沌主宰: return 混沌主宰;
-
-        default:
-            return null;
+        switch (quality)
+        {
+            case 道宝Quality.混沌至宝:
+                return 道宝标签彩;
+            case 道宝Quality.先天至宝:
+                return 道宝标签红;
+            case 道宝Quality.功德至宝:
+                return 道宝标签粉;
+            case 道宝Quality.先天灵宝:
+                return 道宝标签橙;
+            case 道宝Quality.后天法宝:
+                return 道宝标签紫;
+        }
+        return null;
     }
-}
+
+    public static Sprite GetMonsterSprite(MonsterTypeName type)
+    {
+        switch (type)
+        {
+            // ==================== 花果山 ====================
+            case MonsterTypeName.猴精: return 猴精;
+            case MonsterTypeName.山魈: return 山魈;
+            case MonsterTypeName.马猴头领: return 马猴头领;
+            case MonsterTypeName.通臂猿猴: return 通臂猿猴;
+
+            // ==================== 水帘洞 ====================
+            case MonsterTypeName.水虱精: return 水虱精;
+            case MonsterTypeName.蝙蝠精: return 蝙蝠精;
+            case MonsterTypeName.铁背苍猿: return 铁背苍猿;
+            case MonsterTypeName.水帘洞主: return 水帘洞主;
+
+            // ==================== 傲来国 ====================
+            case MonsterTypeName.傲来民兵: return 傲来民兵;
+            case MonsterTypeName.猎户: return 猎户;
+            case MonsterTypeName.傲来偏将: return 傲来偏将;
+            case MonsterTypeName.傲来国师: return 傲来国师;
+
+            // ==================== 东海龙宫 ====================
+            case MonsterTypeName.虾兵: return 虾兵;
+            case MonsterTypeName.蟹将: return 蟹将;
+            case MonsterTypeName.龟丞相: return 龟丞相;
+            case MonsterTypeName.东海龙王: return 东海龙王;
+
+            // ==================== 蓬莱仙岛 ====================
+            case MonsterTypeName.仙鹤: return 仙鹤;
+            case MonsterTypeName.灵芝童: return 灵芝童;
+            case MonsterTypeName.蓬莱剑仙: return 蓬莱剑仙;
+            case MonsterTypeName.蓬莱岛主: return 蓬莱岛主;
+
+            // ==================== 五行山 ====================
+            case MonsterTypeName.山石精: return 山石精;
+            case MonsterTypeName.土蝼: return 土蝼;
+            case MonsterTypeName.五行山神: return 五行山神;
+            case MonsterTypeName.压山符灵: return 压山符灵;
+
+            // ==================== 高老庄 ====================
+            case MonsterTypeName.野猪精: return 野猪精;
+            case MonsterTypeName.高才: return 高才;
+            case MonsterTypeName.高太公: return 高太公;
+            case MonsterTypeName.猪刚鬣: return 猪刚鬣;
+
+            // ==================== 平顶山 ====================
+            case MonsterTypeName.莲花洞小妖: return 莲花洞小妖;
+            case MonsterTypeName.狐阿七: return 狐阿七;
+            case MonsterTypeName.银角大王: return 银角大王;
+            case MonsterTypeName.金角大王: return 金角大王;
+
+            // ==================== 女儿国 ====================
+            case MonsterTypeName.女儿国兵: return 女儿国兵;
+            case MonsterTypeName.女儿国将: return 女儿国将;
+            case MonsterTypeName.女儿国太师: return 女儿国太师;
+            case MonsterTypeName.女儿国国王: return 女儿国国王;
+
+            // ==================== 火焰山 ====================
+            case MonsterTypeName.火焰精: return 火焰精;
+            case MonsterTypeName.赤蛇: return 赤蛇;
+            case MonsterTypeName.红孩儿: return 红孩儿;
+            case MonsterTypeName.牛魔王: return 牛魔王;
+
+            // ==================== 芭蕉洞 ====================
+            case MonsterTypeName.芭蕉精: return 芭蕉精;
+            case MonsterTypeName.火焰童: return 火焰童;
+            case MonsterTypeName.铁扇侍女: return 铁扇侍女;
+            case MonsterTypeName.铁扇公主: return 铁扇公主;
+
+            // ==================== 流沙河 ====================
+            case MonsterTypeName.流沙精: return 流沙精;
+            case MonsterTypeName.水鬼: return 水鬼;
+            case MonsterTypeName.水蛇妖: return 水蛇妖;
+            case MonsterTypeName.沙和尚: return 沙和尚;
+
+            // ==================== 小雷音寺 ====================
+            case MonsterTypeName.假罗汉: return 假罗汉;
+            case MonsterTypeName.假金刚: return 假金刚;
+            case MonsterTypeName.黄眉童子: return 黄眉童子;
+            case MonsterTypeName.黄眉老祖: return 黄眉老祖;
+
+            // ==================== 狮驼岭 ====================
+            case MonsterTypeName.青狮精手下: return 青狮精手下;
+            case MonsterTypeName.白象精手下: return 白象精手下;
+            case MonsterTypeName.大鹏金翅雕: return 大鹏金翅雕;
+            case MonsterTypeName.青狮精: return 青狮精;
+
+            // ==================== 冥府 ====================
+            case MonsterTypeName.牛头: return 牛头;
+            case MonsterTypeName.马面: return 马面;
+            case MonsterTypeName.判官: return 判官;
+            case MonsterTypeName.阎罗王: return 阎罗王;
+
+            // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
+            // 南天门
+            case MonsterTypeName.天兵: return 天兵;
+            case MonsterTypeName.天将: return 天将;
+            case MonsterTypeName.守卫统领: return 守卫统领;
+            case MonsterTypeName.巨灵王: return 巨灵王;
+
+            // 瑶池仙境
+            case MonsterTypeName.瑶池仙女: return 瑶池仙女;
+            case MonsterTypeName.瑶池守卫: return 瑶池守卫;
+            case MonsterTypeName.仙女首领: return 仙女首领;
+            case MonsterTypeName.西王母: return 西王母;
+
+            // 斩妖台
+            case MonsterTypeName.执法天兵: return 执法天兵;
+            case MonsterTypeName.执法天将: return 执法天将;
+            case MonsterTypeName.斩妖剑侍: return 斩妖剑侍;
+            case MonsterTypeName.天刑星君: return 天刑星君;
+
+            // 御马监
+            case MonsterTypeName.天马精: return 天马精;
+            case MonsterTypeName.监丞侍卫: return 监丞侍卫;
+            case MonsterTypeName.弼马温: return 弼马温;
+            case MonsterTypeName.天马星君: return 天马星君;
+
+            // 蟠桃园
+            case MonsterTypeName.桃园力士: return 桃园力士;
+            case MonsterTypeName.桃园仙女: return 桃园仙女;
+            case MonsterTypeName.蟠桃守卫: return 蟠桃守卫;
+            case MonsterTypeName.蟠桃树精: return 蟠桃树精;
+
+            // 兜率宫
+            case MonsterTypeName.炼丹道童: return 炼丹道童;
+            case MonsterTypeName.烧火道童: return 烧火道童;
+            case MonsterTypeName.兜率宫侍卫: return 兜率宫侍卫;
+            case MonsterTypeName.太上老君: return 太上老君;
+
+            // 紫微宫
+            case MonsterTypeName.紫微星侍: return 紫微星侍;
+            case MonsterTypeName.天罡星卒: return 天罡星卒;
+            case MonsterTypeName.北极星君: return 北极星君;
+            case MonsterTypeName.紫微大帝: return 紫微大帝;
+
+            // 昊天殿
+            case MonsterTypeName.镇殿守卫: return 镇殿守卫;
+            case MonsterTypeName.镇殿天将: return 镇殿天将;
+            case MonsterTypeName.九龙神卫: return 九龙神卫;
+            case MonsterTypeName.玉皇大帝: return 玉皇大帝;
+
+            // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
+            // 登天路
+            case MonsterTypeName.登天石傀: return 登天石傀;
+            case MonsterTypeName.罡风精: return 罡风精;
+            case MonsterTypeName.雷劫之灵: return 雷劫之灵;
+            case MonsterTypeName.守天路神将: return 守天路神将;
+
+            // 欲界天
+            case MonsterTypeName.欲念魅妖: return 欲念魅妖;
+            case MonsterTypeName.幻音雀: return 幻音雀;
+            case MonsterTypeName.贪欲魔: return 贪欲魔;
+            case MonsterTypeName.欲界天魔王: return 欲界天魔王;
+
+            // 色界天
+            case MonsterTypeName.色相天女: return 色相天女;
+            case MonsterTypeName.光音天众: return 光音天众;
+            case MonsterTypeName.形色尊者: return 形色尊者;
+            case MonsterTypeName.色界天主: return 色界天主;
+
+            // 无色天
+            case MonsterTypeName.虚灵: return 虚灵;
+            case MonsterTypeName.空无影: return 空无影;
+            case MonsterTypeName.太虚之魂: return 太虚之魂;
+            case MonsterTypeName.无色天祖: return 无色天祖;
+
+            // 四梵天
+            case MonsterTypeName.梵天守卫: return 梵天守卫;
+            case MonsterTypeName.净居天人: return 净居天人;
+            case MonsterTypeName.善现尊者: return 善现尊者;
+            case MonsterTypeName.四梵天王: return 四梵天王;
+
+            // 玉清境清微天
+            case MonsterTypeName.清微仙童: return 清微仙童;
+            case MonsterTypeName.玄光玉女: return 玄光玉女;
+            case MonsterTypeName.玉清道卫: return 玉清道卫;
+            case MonsterTypeName.魔元始天尊: return 魔元始天尊;
+
+            // 上清境禹余天
+            case MonsterTypeName.禹余灵官: return 禹余灵官;
+            case MonsterTypeName.紫霞仙鹤: return 紫霞仙鹤;
+            case MonsterTypeName.上清剑侍: return 上清剑侍;
+            case MonsterTypeName.魔灵宝天尊: return 魔灵宝天尊;
+
+            // 太清境大赤天
+            case MonsterTypeName.大赤丹童: return 大赤丹童;
+            case MonsterTypeName.炉火精: return 炉火精;
+            case MonsterTypeName.太清护卫: return 太清护卫;
+            case MonsterTypeName.魔老子: return 魔老子;
+
+            // 大罗天
+            case MonsterTypeName.弥罗侍卫: return 弥罗侍卫;
+            case MonsterTypeName.弥罗宫卫: return 弥罗宫卫;
+            case MonsterTypeName.混元道兵: return 混元道兵;
+            case MonsterTypeName.魔鸿钧: return 魔鸿钧;
+
+            case MonsterTypeName.混沌蠕虫: return 混沌蠕虫;
+            case MonsterTypeName.虚空螯虫: return 虚空螯虫;
+            case MonsterTypeName.虚空巨兽: return 虚空巨兽;
+            case MonsterTypeName.混沌主宰: return 混沌主宰;
+
+            default:
+                return null;
+        }
+    }
 
     public static Sprite GetPropSprite(PropType propType)
     {
@@ -2197,93 +2267,296 @@ public static Sprite 混沌主宰;
         }
     }
 
-   public static Sprite Get主线关卡Sprite(主线关卡Type Type)
-{
-    switch (Type)
+    public static Sprite Get主线关卡Sprite(主线关卡Type Type)
     {
-        // ==================== 凡间篇（第1~15关）====================
-        case 主线关卡Type.花果山:
-            return 花果山;
-        case 主线关卡Type.水帘洞:
-            return 水帘洞;
-        case 主线关卡Type.蓬莱仙岛:
-            return 蓬莱仙岛;
-        case 主线关卡Type.五行山:
-            return 五行山;
-        case 主线关卡Type.傲来国:
-            return 傲来国;
-        case 主线关卡Type.高老庄:
-            return 高老庄;
-        case 主线关卡Type.女儿国:
-            return 女儿国;
-        case 主线关卡Type.小雷音寺:
-            return 小雷音寺;
-        case 主线关卡Type.平顶山:
-            return 平顶山;
-        case 主线关卡Type.火焰山:
-            return 火焰山;
-        case 主线关卡Type.芭蕉洞:
-            return 芭蕉洞;
-        case 主线关卡Type.流沙河:
-            return 流沙河;
-        case 主线关卡Type.狮驼岭:
-            return 狮驼岭;
-        case 主线关卡Type.东海龙宫:
-            return 东海龙宫;
-        case 主线关卡Type.冥府:
-            return 冥府;
+        switch (Type)
+        {
+            // ==================== 凡间篇（第1~15关）====================
+            case 主线关卡Type.花果山:
+                return 花果山;
+            case 主线关卡Type.水帘洞:
+                return 水帘洞;
+            case 主线关卡Type.蓬莱仙岛:
+                return 蓬莱仙岛;
+            case 主线关卡Type.五行山:
+                return 五行山;
+            case 主线关卡Type.傲来国:
+                return 傲来国;
+            case 主线关卡Type.高老庄:
+                return 高老庄;
+            case 主线关卡Type.女儿国:
+                return 女儿国;
+            case 主线关卡Type.小雷音寺:
+                return 小雷音寺;
+            case 主线关卡Type.平顶山:
+                return 平顶山;
+            case 主线关卡Type.火焰山:
+                return 火焰山;
+            case 主线关卡Type.芭蕉洞:
+                return 芭蕉洞;
+            case 主线关卡Type.流沙河:
+                return 流沙河;
+            case 主线关卡Type.狮驼岭:
+                return 狮驼岭;
+            case 主线关卡Type.东海龙宫:
+                return 东海龙宫;
+            case 主线关卡Type.冥府:
+                return 冥府;
 
-        // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
-        case 主线关卡Type.南天门:
-            return 南天门;
-        case 主线关卡Type.瑶池仙境:
-            return 瑶池仙境;
-        case 主线关卡Type.斩妖台:
-            return 斩妖台;
-        case 主线关卡Type.御马监:
-            return 御马监;
-        case 主线关卡Type.蟠桃园:
-            return 蟠桃园;
-        case 主线关卡Type.兜率宫:
-            return 兜率宫;
-        case 主线关卡Type.紫微宫:
-            return 紫微宫;
-        case 主线关卡Type.昊天殿:
-            return 昊天殿;
+            // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
+            case 主线关卡Type.南天门:
+                return 南天门;
+            case 主线关卡Type.瑶池仙境:
+                return 瑶池仙境;
+            case 主线关卡Type.斩妖台:
+                return 斩妖台;
+            case 主线关卡Type.御马监:
+                return 御马监;
+            case 主线关卡Type.蟠桃园:
+                return 蟠桃园;
+            case 主线关卡Type.兜率宫:
+                return 兜率宫;
+            case 主线关卡Type.紫微宫:
+                return 紫微宫;
+            case 主线关卡Type.昊天殿:
+                return 昊天殿;
 
-        // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
-        case 主线关卡Type.登天路:
-            return 登天路;
-        case 主线关卡Type.欲界天:
-            return 欲界天;
-        case 主线关卡Type.色界天:
-            return 色界天;
-        case 主线关卡Type.无色天:
-            return 无色天;
-        case 主线关卡Type.四梵天:
-            return 四梵天;
-        case 主线关卡Type.玉清境清微天:
-            return 玉清境清微天;
-        case 主线关卡Type.上清境禹余天:
-            return 上清境禹余天;
-        case 主线关卡Type.太清境大赤天:
-            return 太清境大赤天;
-        case 主线关卡Type.大罗天:
-            return 大罗天;
+            // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
+            case 主线关卡Type.登天路:
+                return 登天路;
+            case 主线关卡Type.欲界天:
+                return 欲界天;
+            case 主线关卡Type.色界天:
+                return 色界天;
+            case 主线关卡Type.无色天:
+                return 无色天;
+            case 主线关卡Type.四梵天:
+                return 四梵天;
+            case 主线关卡Type.玉清境清微天:
+                return 玉清境清微天;
+            case 主线关卡Type.上清境禹余天:
+                return 上清境禹余天;
+            case 主线关卡Type.太清境大赤天:
+                return 太清境大赤天;
+            case 主线关卡Type.大罗天:
+                return 大罗天;
 
-        default:
-            return null; // 或者返回一个默认的占位图
+            default:
+                return null; // 或者返回一个默认的占位图
+        }
     }
-}
 
+    public static TMP_ColorGradient Get品质TMP(QualityType Type)
+    {
+        switch (Type)
+        {
+            case QualityType.黄品:
+                return 黄TMP;
+            case QualityType.玄品:
+                return 黄TMP;
+            case QualityType.地品:
+                return 黄TMP;
+            case QualityType.天品:
+                return 黄TMP;
+            case QualityType.宇品:
+                return 黄TMP;
+            case QualityType.宙品:
+                return 黄TMP;
+            case QualityType.洪品:
+                return 黄TMP;
+            case QualityType.荒品:
+                return 黄TMP;
+        }
+
+        return null;
+    }
+
+    public static Sprite Get城墙Sprite(城墙道具Type Type)
+    {
+        switch (Type)
+        {
+            case 城墙道具Type.不动明王阵:
+                return 不动明王阵;
+            case 城墙道具Type.不周山柱:
+                return 不周山柱;
+            case 城墙道具Type.不朽魂晶:
+                return 不朽魂晶;
+            case 城墙道具Type.不死木:
+                return 不死木;
+            case 城墙道具Type.不灭玄石:
+                return 不灭玄石;
+            case 城墙道具Type.九曲黄河阵:
+                return 九曲黄河阵;
+            case 城墙道具Type.初源露:
+                return 初源露;
+            case 城墙道具Type.厚土珠:
+                return 厚土珠;
+            case 城墙道具Type.反伤岩:
+                return 反伤岩;
+            case 城墙道具Type.周天星斗大阵:
+                return 周天星斗大阵;
+            case 城墙道具Type.土灵珠:
+                return 土灵珠;
+            case 城墙道具Type.地髓晶:
+                return 地髓晶;
+            case 城墙道具Type.大道本源:
+                return 大道本源;
+            case 城墙道具Type.天命罗盘:
+                return 天命罗盘;
+            case 城墙道具Type.天机石:
+                return 天机石;
+            case 城墙道具Type.天罡石:
+                return 天罡石;
+            case 城墙道具Type.山河阵盘:
+                return 山河阵盘;
+            case 城墙道具Type.星辰沙:
+                return 星辰沙;
+            case 城墙道具Type.星辰铁:
+                return 星辰铁;
+            case 城墙道具Type.永恒之火:
+                return 永恒之火;
+            case 城墙道具Type.混沌磐石:
+                return 混沌磐石;
+            case 城墙道具Type.灵兽骨粉:
+                return 灵兽骨粉;
+            case 城墙道具Type.灵石尘:
+                return 灵石尘;
+            case 城墙道具Type.灵藤蔓:
+                return 灵藤蔓;
+            case 城墙道具Type.玄武石:
+                return 玄武石;
+            case 城墙道具Type.玄黄之气:
+                return 玄黄之气;
+            case 城墙道具Type.百年桃木:
+                return 百年桃木;
+            case 城墙道具Type.蛟龙骨:
+                return 蛟龙骨;
+            case 城墙道具Type.血琥珀:
+                return 血琥珀;
+            case 城墙道具Type.轮回印记:
+                return 轮回印记;
+            case 城墙道具Type.雷击木:
+                return 雷击木;
+            case 城墙道具Type.鸿蒙灵根:
+                return 鸿蒙灵根;
+            default:
+                return null;
+        }
+    }
+
+    public static Sprite Get城墙Icon()
+    {
+        if (PlayerData.S.城墙等级 < 10)
+        {
+            return 城墙icon白;
+        }else if (PlayerData.S.城墙等级 < 20)
+        {
+            return 城墙icon绿;
+        }else if (PlayerData.S.城墙等级 < 30)
+        {
+            return 城墙icon蓝;
+        }else if (PlayerData.S.城墙等级 < 40)
+        {
+            return 城墙icon紫;
+        }else if (PlayerData.S.城墙等级 < 50)
+        {
+            return 城墙icon橙;
+        }else if (PlayerData.S.城墙等级 < 60)
+        {
+            return 城墙icon粉;
+        }else if (PlayerData.S.城墙等级 < 70)
+        {
+            return 城墙icon红;
+        }else 
+        {
+            return 城墙icon彩;
+        }
+    }
+    
+    public static Sprite Get城墙装备背景框(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 城墙装备背景框白;
+            case QualityType.玄品:
+                return 城墙装备背景框绿;
+            case QualityType.地品:
+                return 城墙装备背景框蓝;
+            case QualityType.天品:
+                return 城墙装备背景框紫;
+            case QualityType.宇品:
+                return 城墙装备背景框橙;
+            case QualityType.宙品:
+                return 城墙装备背景框粉;
+            case QualityType.洪品:
+                return 城墙装备背景框红;
+            case QualityType.荒品:
+                return 城墙装备背景框彩;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        城墙icon白 = Resources.Load<Sprite>("Sprite/城墙icon/白");
+        城墙icon绿 = Resources.Load<Sprite>("Sprite/城墙icon/绿");
+        城墙icon蓝 = Resources.Load<Sprite>("Sprite/城墙icon/蓝");
+        城墙icon紫 = Resources.Load<Sprite>("Sprite/城墙icon/紫");
+        城墙icon橙 = Resources.Load<Sprite>("Sprite/城墙icon/橙");
+        城墙icon粉 = Resources.Load<Sprite>("Sprite/城墙icon/粉");
+        城墙icon红 = Resources.Load<Sprite>("Sprite/城墙icon/红");
+        城墙icon彩 = Resources.Load<Sprite>("Sprite/城墙icon/彩");
+        
+        城墙装备背景框白 = Resources.Load<Sprite>("Sprite/城墙icon/背景框白");
+        城墙装备背景框绿 = Resources.Load<Sprite>("Sprite/城墙icon/背景框绿");
+        城墙装备背景框蓝 = Resources.Load<Sprite>("Sprite/城墙icon/背景框蓝");
+        城墙装备背景框紫 = Resources.Load<Sprite>("Sprite/城墙icon/背景框紫");
+        城墙装备背景框橙 = Resources.Load<Sprite>("Sprite/城墙icon/背景框橙");
+        城墙装备背景框粉 = Resources.Load<Sprite>("Sprite/城墙icon/背景框粉");
+        城墙装备背景框红 = Resources.Load<Sprite>("Sprite/城墙icon/背景框红");
+        城墙装备背景框彩 = Resources.Load<Sprite>("Sprite/城墙icon/背景框彩");
+
+
+        不动明王阵 = Resources.Load<Sprite>("Sprite/城墙icon/不动明王阵");
+        不周山柱 = Resources.Load<Sprite>("Sprite/城墙icon/不周山柱");
+        不朽魂晶 = Resources.Load<Sprite>("Sprite/城墙icon/不朽魂晶");
+        不死木 = Resources.Load<Sprite>("Sprite/城墙icon/不死木");
+        不灭玄石 = Resources.Load<Sprite>("Sprite/城墙icon/不灭玄石");
+        九曲黄河阵 = Resources.Load<Sprite>("Sprite/城墙icon/九曲黄河阵");
+        初源露 = Resources.Load<Sprite>("Sprite/城墙icon/初源露");
+        厚土珠 = Resources.Load<Sprite>("Sprite/城墙icon/厚土珠");
+        反伤岩 = Resources.Load<Sprite>("Sprite/城墙icon/反伤岩");
+        周天星斗大阵 = Resources.Load<Sprite>("Sprite/城墙icon/周天星斗大阵");
+        土灵珠 = Resources.Load<Sprite>("Sprite/城墙icon/土灵珠");
+        地髓晶 = Resources.Load<Sprite>("Sprite/城墙icon/地髓晶");
+        大道本源 = Resources.Load<Sprite>("Sprite/城墙icon/大道本源");
+        天命罗盘 = Resources.Load<Sprite>("Sprite/城墙icon/天命罗盘");
+        天机石 = Resources.Load<Sprite>("Sprite/城墙icon/天机石");
+        天罡石 = Resources.Load<Sprite>("Sprite/城墙icon/天罡石");
+        山河阵盘 = Resources.Load<Sprite>("Sprite/城墙icon/山河阵盘");
+        星辰沙 = Resources.Load<Sprite>("Sprite/城墙icon/星辰沙");
+        星辰铁 = Resources.Load<Sprite>("Sprite/城墙icon/星辰铁");
+        永恒之火 = Resources.Load<Sprite>("Sprite/城墙icon/永恒之火");
+        混沌磐石 = Resources.Load<Sprite>("Sprite/城墙icon/混沌磐石");
+        灵兽骨粉 = Resources.Load<Sprite>("Sprite/城墙icon/灵兽骨粉");
+        灵石尘 = Resources.Load<Sprite>("Sprite/城墙icon/灵石尘");
+        灵藤蔓 = Resources.Load<Sprite>("Sprite/城墙icon/灵藤蔓");
+        玄武石 = Resources.Load<Sprite>("Sprite/城墙icon/玄武石");
+        玄黄之气 = Resources.Load<Sprite>("Sprite/城墙icon/玄黄之气");
+        百年桃木 = Resources.Load<Sprite>("Sprite/城墙icon/百年桃木");
+        蛟龙骨 = Resources.Load<Sprite>("Sprite/城墙icon/蛟龙骨");
+        血琥珀 = Resources.Load<Sprite>("Sprite/城墙icon/血琥珀");
+        轮回印记 = Resources.Load<Sprite>("Sprite/城墙icon/轮回印记");
+        雷击木 = Resources.Load<Sprite>("Sprite/城墙icon/雷击木");
+        鸿蒙灵根 = Resources.Load<Sprite>("Sprite/城墙icon/鸿蒙灵根");
+
         凌霄宝殿按钮 = Resources.Load<Sprite>("Sprite/地图界面UI/按钮");
         凌霄宝殿按钮暗 = Resources.Load<Sprite>("Sprite/地图界面UI/按钮暗");
         凌霄宝殿按钮亮 = Resources.Load<Sprite>("Sprite/地图界面UI/按钮亮");
         混沌虚空格子亮 = Resources.Load<Sprite>("Sprite/地图界面UI/格子亮");
         混沌虚空格子暗 = Resources.Load<Sprite>("Sprite/地图界面UI/格子暗");
-        
+
         道宝标签紫 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签紫");
         道宝标签橙 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签橙");
         道宝标签粉 = Resources.Load<Sprite>("Sprite/道宝标签/道宝标签粉");
@@ -2850,204 +3123,204 @@ public static Sprite 混沌主宰;
 
         //怪物图片
         // ==================== 花果山 ====================
-猴精 = Resources.Load<Sprite>("Sprite/怪物icon/猴精");
-山魈 = Resources.Load<Sprite>("Sprite/怪物icon/山魈");
-马猴头领 = Resources.Load<Sprite>("Sprite/怪物icon/马猴头领");
-通臂猿猴 = Resources.Load<Sprite>("Sprite/怪物icon/通臂猿猴");
+        猴精 = Resources.Load<Sprite>("Sprite/怪物icon/猴精");
+        山魈 = Resources.Load<Sprite>("Sprite/怪物icon/山魈");
+        马猴头领 = Resources.Load<Sprite>("Sprite/怪物icon/马猴头领");
+        通臂猿猴 = Resources.Load<Sprite>("Sprite/怪物icon/通臂猿猴");
 
 // ==================== 水帘洞 ====================
-水虱精 = Resources.Load<Sprite>("Sprite/怪物icon/水虱精");
-蝙蝠精 = Resources.Load<Sprite>("Sprite/怪物icon/蝙蝠精");
-铁背苍猿 = Resources.Load<Sprite>("Sprite/怪物icon/铁背苍猿");
-水帘洞主 = Resources.Load<Sprite>("Sprite/怪物icon/水帘洞主");
+        水虱精 = Resources.Load<Sprite>("Sprite/怪物icon/水虱精");
+        蝙蝠精 = Resources.Load<Sprite>("Sprite/怪物icon/蝙蝠精");
+        铁背苍猿 = Resources.Load<Sprite>("Sprite/怪物icon/铁背苍猿");
+        水帘洞主 = Resources.Load<Sprite>("Sprite/怪物icon/水帘洞主");
 
 // ==================== 傲来国 ====================
-傲来民兵 = Resources.Load<Sprite>("Sprite/怪物icon/傲来民兵");
-猎户 = Resources.Load<Sprite>("Sprite/怪物icon/猎户");
-傲来偏将 = Resources.Load<Sprite>("Sprite/怪物icon/傲来偏将");
-傲来国师 = Resources.Load<Sprite>("Sprite/怪物icon/傲来国师");
+        傲来民兵 = Resources.Load<Sprite>("Sprite/怪物icon/傲来民兵");
+        猎户 = Resources.Load<Sprite>("Sprite/怪物icon/猎户");
+        傲来偏将 = Resources.Load<Sprite>("Sprite/怪物icon/傲来偏将");
+        傲来国师 = Resources.Load<Sprite>("Sprite/怪物icon/傲来国师");
 
 // ==================== 东海龙宫 ====================
-虾兵 = Resources.Load<Sprite>("Sprite/怪物icon/虾兵");
-蟹将 = Resources.Load<Sprite>("Sprite/怪物icon/蟹将");
-龟丞相 = Resources.Load<Sprite>("Sprite/怪物icon/龟丞相");  // 注意：你原来写的是"巡海夜叉"，这里修正为"龟丞相"
-东海龙王 = Resources.Load<Sprite>("Sprite/怪物icon/东海龙王");
+        虾兵 = Resources.Load<Sprite>("Sprite/怪物icon/虾兵");
+        蟹将 = Resources.Load<Sprite>("Sprite/怪物icon/蟹将");
+        龟丞相 = Resources.Load<Sprite>("Sprite/怪物icon/龟丞相"); // 注意：你原来写的是"巡海夜叉"，这里修正为"龟丞相"
+        东海龙王 = Resources.Load<Sprite>("Sprite/怪物icon/东海龙王");
 
 // ==================== 蓬莱仙岛 ====================
-仙鹤 = Resources.Load<Sprite>("Sprite/怪物icon/仙鹤");
-灵芝童 = Resources.Load<Sprite>("Sprite/怪物icon/灵芝童");
-蓬莱剑仙 = Resources.Load<Sprite>("Sprite/怪物icon/蓬莱剑仙");
-蓬莱岛主 = Resources.Load<Sprite>("Sprite/怪物icon/蓬莱岛主");
+        仙鹤 = Resources.Load<Sprite>("Sprite/怪物icon/仙鹤");
+        灵芝童 = Resources.Load<Sprite>("Sprite/怪物icon/灵芝童");
+        蓬莱剑仙 = Resources.Load<Sprite>("Sprite/怪物icon/蓬莱剑仙");
+        蓬莱岛主 = Resources.Load<Sprite>("Sprite/怪物icon/蓬莱岛主");
 
 // ==================== 五行山 ====================
-山石精 = Resources.Load<Sprite>("Sprite/怪物icon/山石精");
-土蝼 = Resources.Load<Sprite>("Sprite/怪物icon/土蝼");
-五行山神 = Resources.Load<Sprite>("Sprite/怪物icon/五行山神");
-压山符灵 = Resources.Load<Sprite>("Sprite/怪物icon/压山符灵");
+        山石精 = Resources.Load<Sprite>("Sprite/怪物icon/山石精");
+        土蝼 = Resources.Load<Sprite>("Sprite/怪物icon/土蝼");
+        五行山神 = Resources.Load<Sprite>("Sprite/怪物icon/五行山神");
+        压山符灵 = Resources.Load<Sprite>("Sprite/怪物icon/压山符灵");
 
 // ==================== 高老庄 ====================
-野猪精 = Resources.Load<Sprite>("Sprite/怪物icon/野猪精");
-高才 = Resources.Load<Sprite>("Sprite/怪物icon/高才");
-高太公 = Resources.Load<Sprite>("Sprite/怪物icon/高太公");
-猪刚鬣 = Resources.Load<Sprite>("Sprite/怪物icon/猪刚鬣");
+        野猪精 = Resources.Load<Sprite>("Sprite/怪物icon/野猪精");
+        高才 = Resources.Load<Sprite>("Sprite/怪物icon/高才");
+        高太公 = Resources.Load<Sprite>("Sprite/怪物icon/高太公");
+        猪刚鬣 = Resources.Load<Sprite>("Sprite/怪物icon/猪刚鬣");
 
 // ==================== 平顶山 ====================
-莲花洞小妖 = Resources.Load<Sprite>("Sprite/怪物icon/莲花洞小妖");
-狐阿七 = Resources.Load<Sprite>("Sprite/怪物icon/狐阿七");
-银角大王 = Resources.Load<Sprite>("Sprite/怪物icon/银角大王");
-金角大王 = Resources.Load<Sprite>("Sprite/怪物icon/金角大王");
+        莲花洞小妖 = Resources.Load<Sprite>("Sprite/怪物icon/莲花洞小妖");
+        狐阿七 = Resources.Load<Sprite>("Sprite/怪物icon/狐阿七");
+        银角大王 = Resources.Load<Sprite>("Sprite/怪物icon/银角大王");
+        金角大王 = Resources.Load<Sprite>("Sprite/怪物icon/金角大王");
 
 // ==================== 女儿国 ====================
-女儿国兵 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国兵");
-女儿国将 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国将");
-女儿国太师 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国太师");
-女儿国国王 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国国王");
+        女儿国兵 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国兵");
+        女儿国将 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国将");
+        女儿国太师 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国太师");
+        女儿国国王 = Resources.Load<Sprite>("Sprite/怪物icon/女儿国国王");
 
 // ==================== 火焰山 ====================
-火焰精 = Resources.Load<Sprite>("Sprite/怪物icon/火焰精");
-赤蛇 = Resources.Load<Sprite>("Sprite/怪物icon/赤蛇");
-红孩儿 = Resources.Load<Sprite>("Sprite/怪物icon/红孩儿");
-牛魔王 = Resources.Load<Sprite>("Sprite/怪物icon/牛魔王");
+        火焰精 = Resources.Load<Sprite>("Sprite/怪物icon/火焰精");
+        赤蛇 = Resources.Load<Sprite>("Sprite/怪物icon/赤蛇");
+        红孩儿 = Resources.Load<Sprite>("Sprite/怪物icon/红孩儿");
+        牛魔王 = Resources.Load<Sprite>("Sprite/怪物icon/牛魔王");
 
 // ==================== 芭蕉洞 ====================
-芭蕉精 = Resources.Load<Sprite>("Sprite/怪物icon/芭蕉精");
-火焰童 = Resources.Load<Sprite>("Sprite/怪物icon/火焰童");
-铁扇侍女 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇侍女");
-铁扇公主 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇公主");
+        芭蕉精 = Resources.Load<Sprite>("Sprite/怪物icon/芭蕉精");
+        火焰童 = Resources.Load<Sprite>("Sprite/怪物icon/火焰童");
+        铁扇侍女 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇侍女");
+        铁扇公主 = Resources.Load<Sprite>("Sprite/怪物icon/铁扇公主");
 
 // ==================== 流沙河 ====================
-流沙精 = Resources.Load<Sprite>("Sprite/怪物icon/流沙精");
-水鬼 = Resources.Load<Sprite>("Sprite/怪物icon/水鬼");
-水蛇妖 = Resources.Load<Sprite>("Sprite/怪物icon/水蛇妖");
-沙和尚 = Resources.Load<Sprite>("Sprite/怪物icon/沙和尚");
+        流沙精 = Resources.Load<Sprite>("Sprite/怪物icon/流沙精");
+        水鬼 = Resources.Load<Sprite>("Sprite/怪物icon/水鬼");
+        水蛇妖 = Resources.Load<Sprite>("Sprite/怪物icon/水蛇妖");
+        沙和尚 = Resources.Load<Sprite>("Sprite/怪物icon/沙和尚");
 
 // ==================== 小雷音寺 ====================
-假罗汉 = Resources.Load<Sprite>("Sprite/怪物icon/假罗汉");
-假金刚 = Resources.Load<Sprite>("Sprite/怪物icon/假金刚");
-黄眉童子 = Resources.Load<Sprite>("Sprite/怪物icon/黄眉童子");
-黄眉老祖 = Resources.Load<Sprite>("Sprite/怪物icon/黄眉老祖");
+        假罗汉 = Resources.Load<Sprite>("Sprite/怪物icon/假罗汉");
+        假金刚 = Resources.Load<Sprite>("Sprite/怪物icon/假金刚");
+        黄眉童子 = Resources.Load<Sprite>("Sprite/怪物icon/黄眉童子");
+        黄眉老祖 = Resources.Load<Sprite>("Sprite/怪物icon/黄眉老祖");
 
 // ==================== 狮驼岭 ====================
-青狮精手下 = Resources.Load<Sprite>("Sprite/怪物icon/青狮精手下");
-白象精手下 = Resources.Load<Sprite>("Sprite/怪物icon/白象精手下");
-大鹏金翅雕 = Resources.Load<Sprite>("Sprite/怪物icon/大鹏金翅雕");
-青狮精 = Resources.Load<Sprite>("Sprite/怪物icon/青狮精");
+        青狮精手下 = Resources.Load<Sprite>("Sprite/怪物icon/青狮精手下");
+        白象精手下 = Resources.Load<Sprite>("Sprite/怪物icon/白象精手下");
+        大鹏金翅雕 = Resources.Load<Sprite>("Sprite/怪物icon/大鹏金翅雕");
+        青狮精 = Resources.Load<Sprite>("Sprite/怪物icon/青狮精");
 
 // ==================== 冥府 ====================
-牛头 = Resources.Load<Sprite>("Sprite/怪物icon/牛头");
-马面 = Resources.Load<Sprite>("Sprite/怪物icon/马面");
-判官 = Resources.Load<Sprite>("Sprite/怪物icon/判官");
-阎罗王 = Resources.Load<Sprite>("Sprite/怪物icon/阎罗王");
+        牛头 = Resources.Load<Sprite>("Sprite/怪物icon/牛头");
+        马面 = Resources.Load<Sprite>("Sprite/怪物icon/马面");
+        判官 = Resources.Load<Sprite>("Sprite/怪物icon/判官");
+        阎罗王 = Resources.Load<Sprite>("Sprite/怪物icon/阎罗王");
 
 // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
 // 南天门
-天兵 = Resources.Load<Sprite>("Sprite/怪物icon/天兵");
-天将 = Resources.Load<Sprite>("Sprite/怪物icon/天将");
-守卫统领 = Resources.Load<Sprite>("Sprite/怪物icon/守卫统领");
-巨灵王 = Resources.Load<Sprite>("Sprite/怪物icon/巨灵王");
+        天兵 = Resources.Load<Sprite>("Sprite/怪物icon/天兵");
+        天将 = Resources.Load<Sprite>("Sprite/怪物icon/天将");
+        守卫统领 = Resources.Load<Sprite>("Sprite/怪物icon/守卫统领");
+        巨灵王 = Resources.Load<Sprite>("Sprite/怪物icon/巨灵王");
 
 // 瑶池仙境
-瑶池仙女 = Resources.Load<Sprite>("Sprite/怪物icon/瑶池仙女");
-瑶池守卫 = Resources.Load<Sprite>("Sprite/怪物icon/瑶池守卫");
-仙女首领 = Resources.Load<Sprite>("Sprite/怪物icon/仙女首领");
-西王母 = Resources.Load<Sprite>("Sprite/怪物icon/西王母");
+        瑶池仙女 = Resources.Load<Sprite>("Sprite/怪物icon/瑶池仙女");
+        瑶池守卫 = Resources.Load<Sprite>("Sprite/怪物icon/瑶池守卫");
+        仙女首领 = Resources.Load<Sprite>("Sprite/怪物icon/仙女首领");
+        西王母 = Resources.Load<Sprite>("Sprite/怪物icon/西王母");
 
 // 斩妖台
-执法天兵 = Resources.Load<Sprite>("Sprite/怪物icon/执法天兵");
-执法天将 = Resources.Load<Sprite>("Sprite/怪物icon/执法天将");
-斩妖剑侍 = Resources.Load<Sprite>("Sprite/怪物icon/斩妖剑侍");
-天刑星君 = Resources.Load<Sprite>("Sprite/怪物icon/天刑星君");
+        执法天兵 = Resources.Load<Sprite>("Sprite/怪物icon/执法天兵");
+        执法天将 = Resources.Load<Sprite>("Sprite/怪物icon/执法天将");
+        斩妖剑侍 = Resources.Load<Sprite>("Sprite/怪物icon/斩妖剑侍");
+        天刑星君 = Resources.Load<Sprite>("Sprite/怪物icon/天刑星君");
 
 // 御马监
-天马精 = Resources.Load<Sprite>("Sprite/怪物icon/天马精");
-监丞侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/监丞侍卫");
-弼马温 = Resources.Load<Sprite>("Sprite/怪物icon/弼马温");
-天马星君 = Resources.Load<Sprite>("Sprite/怪物icon/天马星君");
+        天马精 = Resources.Load<Sprite>("Sprite/怪物icon/天马精");
+        监丞侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/监丞侍卫");
+        弼马温 = Resources.Load<Sprite>("Sprite/怪物icon/弼马温");
+        天马星君 = Resources.Load<Sprite>("Sprite/怪物icon/天马星君");
 
 // 蟠桃园
-桃园力士 = Resources.Load<Sprite>("Sprite/怪物icon/桃园力士");
-桃园仙女 = Resources.Load<Sprite>("Sprite/怪物icon/桃园仙女");
-蟠桃守卫 = Resources.Load<Sprite>("Sprite/怪物icon/蟠桃守卫");
-蟠桃树精 = Resources.Load<Sprite>("Sprite/怪物icon/蟠桃树精");
+        桃园力士 = Resources.Load<Sprite>("Sprite/怪物icon/桃园力士");
+        桃园仙女 = Resources.Load<Sprite>("Sprite/怪物icon/桃园仙女");
+        蟠桃守卫 = Resources.Load<Sprite>("Sprite/怪物icon/蟠桃守卫");
+        蟠桃树精 = Resources.Load<Sprite>("Sprite/怪物icon/蟠桃树精");
 
 // 兜率宫
-炼丹道童 = Resources.Load<Sprite>("Sprite/怪物icon/炼丹道童");
-烧火道童 = Resources.Load<Sprite>("Sprite/怪物icon/烧火道童");
-兜率宫侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/兜率宫侍卫");  // 修正：对应枚举中的兜率宫侍卫
-太上老君 = Resources.Load<Sprite>("Sprite/怪物icon/太上老君");
+        炼丹道童 = Resources.Load<Sprite>("Sprite/怪物icon/炼丹道童");
+        烧火道童 = Resources.Load<Sprite>("Sprite/怪物icon/烧火道童");
+        兜率宫侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/兜率宫侍卫"); // 修正：对应枚举中的兜率宫侍卫
+        太上老君 = Resources.Load<Sprite>("Sprite/怪物icon/太上老君");
 
 // 紫微宫
-紫微星侍 = Resources.Load<Sprite>("Sprite/怪物icon/紫微星侍");
-天罡星卒 = Resources.Load<Sprite>("Sprite/怪物icon/天罡星卒");
-北极星君 = Resources.Load<Sprite>("Sprite/怪物icon/北极星君");
-紫微大帝 = Resources.Load<Sprite>("Sprite/怪物icon/紫微大帝");
+        紫微星侍 = Resources.Load<Sprite>("Sprite/怪物icon/紫微星侍");
+        天罡星卒 = Resources.Load<Sprite>("Sprite/怪物icon/天罡星卒");
+        北极星君 = Resources.Load<Sprite>("Sprite/怪物icon/北极星君");
+        紫微大帝 = Resources.Load<Sprite>("Sprite/怪物icon/紫微大帝");
 
 // 昊天殿
-镇殿守卫 = Resources.Load<Sprite>("Sprite/怪物icon/镇殿守卫");
-镇殿天将 = Resources.Load<Sprite>("Sprite/怪物icon/镇殿天将");
-九龙神卫 = Resources.Load<Sprite>("Sprite/怪物icon/九龙神卫");
-玉皇大帝 = Resources.Load<Sprite>("Sprite/怪物icon/玉皇大帝");
+        镇殿守卫 = Resources.Load<Sprite>("Sprite/怪物icon/镇殿守卫");
+        镇殿天将 = Resources.Load<Sprite>("Sprite/怪物icon/镇殿天将");
+        九龙神卫 = Resources.Load<Sprite>("Sprite/怪物icon/九龙神卫");
+        玉皇大帝 = Resources.Load<Sprite>("Sprite/怪物icon/玉皇大帝");
 
 // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
 // 登天路
-登天石傀 = Resources.Load<Sprite>("Sprite/怪物icon/登天石傀");
-罡风精 = Resources.Load<Sprite>("Sprite/怪物icon/罡风精");
-雷劫之灵 = Resources.Load<Sprite>("Sprite/怪物icon/雷劫之灵");
-守天路神将 = Resources.Load<Sprite>("Sprite/怪物icon/守天路神将");
+        登天石傀 = Resources.Load<Sprite>("Sprite/怪物icon/登天石傀");
+        罡风精 = Resources.Load<Sprite>("Sprite/怪物icon/罡风精");
+        雷劫之灵 = Resources.Load<Sprite>("Sprite/怪物icon/雷劫之灵");
+        守天路神将 = Resources.Load<Sprite>("Sprite/怪物icon/守天路神将");
 
 // 欲界天
-欲念魅妖 = Resources.Load<Sprite>("Sprite/怪物icon/欲念魅妖");
-幻音雀 = Resources.Load<Sprite>("Sprite/怪物icon/幻音雀");
-贪欲魔 = Resources.Load<Sprite>("Sprite/怪物icon/贪欲魔");
-欲界天魔王 = Resources.Load<Sprite>("Sprite/怪物icon/欲界天魔王");
+        欲念魅妖 = Resources.Load<Sprite>("Sprite/怪物icon/欲念魅妖");
+        幻音雀 = Resources.Load<Sprite>("Sprite/怪物icon/幻音雀");
+        贪欲魔 = Resources.Load<Sprite>("Sprite/怪物icon/贪欲魔");
+        欲界天魔王 = Resources.Load<Sprite>("Sprite/怪物icon/欲界天魔王");
 
 // 色界天
-色相天女 = Resources.Load<Sprite>("Sprite/怪物icon/色相天女");
-光音天众 = Resources.Load<Sprite>("Sprite/怪物icon/光音天众");
-形色尊者 = Resources.Load<Sprite>("Sprite/怪物icon/形色尊者");
-色界天主 = Resources.Load<Sprite>("Sprite/怪物icon/色界天主");
+        色相天女 = Resources.Load<Sprite>("Sprite/怪物icon/色相天女");
+        光音天众 = Resources.Load<Sprite>("Sprite/怪物icon/光音天众");
+        形色尊者 = Resources.Load<Sprite>("Sprite/怪物icon/形色尊者");
+        色界天主 = Resources.Load<Sprite>("Sprite/怪物icon/色界天主");
 
 // 无色天
-虚灵 = Resources.Load<Sprite>("Sprite/怪物icon/虚灵");
-空无影 = Resources.Load<Sprite>("Sprite/怪物icon/空无影");
-太虚之魂 = Resources.Load<Sprite>("Sprite/怪物icon/太虚之魂");
-无色天祖 = Resources.Load<Sprite>("Sprite/怪物icon/无色天祖");
+        虚灵 = Resources.Load<Sprite>("Sprite/怪物icon/虚灵");
+        空无影 = Resources.Load<Sprite>("Sprite/怪物icon/空无影");
+        太虚之魂 = Resources.Load<Sprite>("Sprite/怪物icon/太虚之魂");
+        无色天祖 = Resources.Load<Sprite>("Sprite/怪物icon/无色天祖");
 
 // 四梵天
-梵天守卫 = Resources.Load<Sprite>("Sprite/怪物icon/梵天守卫");
-净居天人 = Resources.Load<Sprite>("Sprite/怪物icon/净居天人");
-善现尊者 = Resources.Load<Sprite>("Sprite/怪物icon/善现尊者");
-四梵天王 = Resources.Load<Sprite>("Sprite/怪物icon/四梵天王");
+        梵天守卫 = Resources.Load<Sprite>("Sprite/怪物icon/梵天守卫");
+        净居天人 = Resources.Load<Sprite>("Sprite/怪物icon/净居天人");
+        善现尊者 = Resources.Load<Sprite>("Sprite/怪物icon/善现尊者");
+        四梵天王 = Resources.Load<Sprite>("Sprite/怪物icon/四梵天王");
 
 // 玉清境清微天
-清微仙童 = Resources.Load<Sprite>("Sprite/怪物icon/清微仙童");
-玄光玉女 = Resources.Load<Sprite>("Sprite/怪物icon/玄光玉女");
-玉清道卫 = Resources.Load<Sprite>("Sprite/怪物icon/玉清道卫");
-魔元始天尊 = Resources.Load<Sprite>("Sprite/怪物icon/魔元始天尊");
+        清微仙童 = Resources.Load<Sprite>("Sprite/怪物icon/清微仙童");
+        玄光玉女 = Resources.Load<Sprite>("Sprite/怪物icon/玄光玉女");
+        玉清道卫 = Resources.Load<Sprite>("Sprite/怪物icon/玉清道卫");
+        魔元始天尊 = Resources.Load<Sprite>("Sprite/怪物icon/魔元始天尊");
 
 // 上清境禹余天
-禹余灵官 = Resources.Load<Sprite>("Sprite/怪物icon/禹余灵官");
-紫霞仙鹤 = Resources.Load<Sprite>("Sprite/怪物icon/紫霞仙鹤");
-上清剑侍 = Resources.Load<Sprite>("Sprite/怪物icon/上清剑侍");
-魔灵宝天尊 = Resources.Load<Sprite>("Sprite/怪物icon/魔灵宝天尊");
+        禹余灵官 = Resources.Load<Sprite>("Sprite/怪物icon/禹余灵官");
+        紫霞仙鹤 = Resources.Load<Sprite>("Sprite/怪物icon/紫霞仙鹤");
+        上清剑侍 = Resources.Load<Sprite>("Sprite/怪物icon/上清剑侍");
+        魔灵宝天尊 = Resources.Load<Sprite>("Sprite/怪物icon/魔灵宝天尊");
 
 // 太清境大赤天
-大赤丹童 = Resources.Load<Sprite>("Sprite/怪物icon/大赤丹童");
-炉火精 = Resources.Load<Sprite>("Sprite/怪物icon/炉火精");
-太清护卫 = Resources.Load<Sprite>("Sprite/怪物icon/太清护卫");
-魔老子 = Resources.Load<Sprite>("Sprite/怪物icon/魔老子");
+        大赤丹童 = Resources.Load<Sprite>("Sprite/怪物icon/大赤丹童");
+        炉火精 = Resources.Load<Sprite>("Sprite/怪物icon/炉火精");
+        太清护卫 = Resources.Load<Sprite>("Sprite/怪物icon/太清护卫");
+        魔老子 = Resources.Load<Sprite>("Sprite/怪物icon/魔老子");
 
 // 大罗天
-弥罗侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗侍卫");
-弥罗宫卫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗宫卫");
-混元道兵 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
-魔鸿钧 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
+        弥罗侍卫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗侍卫");
+        弥罗宫卫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗宫卫");
+        混元道兵 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
+        魔鸿钧 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
 
 
-混沌蠕虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗侍卫");
-虚空螯虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗宫卫");
-虚空巨兽 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
-混沌主宰 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
+        混沌蠕虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗侍卫");
+        虚空螯虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗宫卫");
+        虚空巨兽 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
+        混沌主宰 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
 
         //人物图片
         //白

@@ -29,6 +29,7 @@ public class MainWindow : MonoBehaviour
     public 混沌虚空窗口 混沌虚空窗口;
 
     public Button 主线关卡Debug;
+    public Button 城墙Debug;
 
     public void Show主页()
     {
@@ -59,6 +60,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.储物袋Window.gameObject.SetActive(false);
         WindowController.S.道宝Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/道宝界面"));
         WindowController.S.道宝Window.gameObject.SetActive(false);
+        WindowController.S.城墙Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/城墙界面"));
+        WindowController.S.城墙Window.gameObject.SetActive(false);
     }
 
     public void 显示主线关卡弹窗(object[] obj)
@@ -97,9 +100,26 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
+        城墙Debug.onClick.AddListener(() =>
+        {
+            PlayerData.S.城墙等级++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.不动明王阵]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.周天星斗大阵]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.不朽魂晶]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.厚土珠]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.不周山柱]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.永恒之火]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.大道本源]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.不灭玄石]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.九曲黄河阵]++;
+        });
         道宝Button.onClick.AddListener(() =>
         {
             WindowController.S.道宝Window.gameObject.SetActive(true);
+        });
+        城墙Button.onClick.AddListener(() =>
+        {
+            WindowController.S.城墙Window.gameObject.SetActive(true);
         });
         主线关卡Debug.onClick.AddListener(() =>
         {
