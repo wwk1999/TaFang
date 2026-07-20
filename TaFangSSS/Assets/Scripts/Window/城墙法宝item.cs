@@ -15,7 +15,15 @@ public class 城墙法宝item : MonoBehaviour
    public TextMeshProUGUI name;
    public TextMeshProUGUI level;
    public GameObject mask;
-   
+
+   private void Start()
+   {
+      img.onClick.AddListener(() =>
+      {
+         ObserverModuleManager.S.SendEvent("显示城墙法宝详情弹窗",type);
+      });
+   }
+
    public void SetItem()
    {
       if (PlayerData.S.城墙道具等级Dic[type] == 0)

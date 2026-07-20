@@ -23,7 +23,7 @@ public class 城墙界面 : MonoBehaviour
     public Image 鼠标Image;
     public ScrollRect  ScrollView;
     public RectTransform canvasRectTransform;
-
+    public 城墙法宝详情弹窗 城墙法宝详情弹窗;
 
     public void Update()
     {
@@ -108,8 +108,22 @@ public class 城墙界面 : MonoBehaviour
         Show();
     }
 
+    public void 显示城墙法宝详情弹窗(object[] obj)
+    {
+        城墙道具Type type=(城墙道具Type)obj[0];
+        城墙法宝详情弹窗.城墙道具Type = type;
+        城墙法宝详情弹窗.gameObject.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("显示城墙法宝详情弹窗",显示城墙法宝详情弹窗);
+        ObserverModuleManager.S.UnRegisterEvent("刷新城墙界面",刷新城墙界面);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示城墙法宝详情弹窗",显示城墙法宝详情弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新城墙界面",刷新城墙界面);
         exitbutton.onClick.AddListener(() =>
         {

@@ -773,12 +773,12 @@ public class 城墙Config
         { 城墙道具Type.不灭岩 ,QualityType.天品},
     };
 
-    public static Dictionary<道宝Quality, float> 城墙道具升级奖励Dic = new Dictionary<道宝Quality, float>()
+    public static Dictionary<QualityType, float> 城墙道具升级奖励Dic = new Dictionary<QualityType, float>()
     {
-        { 道宝Quality.混沌至宝,5},
-        { 道宝Quality.先天至宝,3},
-        { 道宝Quality.功德至宝,2},
-        { 道宝Quality.先天灵宝,1},
-        { 道宝Quality.后天法宝,0.5f},
+        { QualityType.荒品,5},
+        { QualityType.洪品,3},
+        { QualityType.宙品,2},
+        { QualityType.宇品,1},
+        { QualityType.天品,0.5f},
     };
 }
