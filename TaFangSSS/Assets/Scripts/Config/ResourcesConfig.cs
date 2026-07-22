@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
-    
+    public static Sprite 加号背景框;
+
     // 城墙icon
     public static Sprite 城墙icon白;
     public static Sprite 城墙icon绿;
@@ -2499,6 +2500,8 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        加号背景框 = Resources.Load<Sprite>("Sprite/地图界面UI/加号背景框");
+        
         城墙icon白 = Resources.Load<Sprite>("Sprite/城墙icon/白");
         城墙icon绿 = Resources.Load<Sprite>("Sprite/城墙icon/绿");
         城墙icon蓝 = Resources.Load<Sprite>("Sprite/城墙icon/蓝");

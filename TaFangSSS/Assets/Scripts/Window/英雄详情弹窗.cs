@@ -61,6 +61,12 @@ public class 英雄详情弹窗 : MonoBehaviour
             升星button.gameObject.SetActive(false);
             星级button.gameObject.SetActive(true);
             法则button.gameObject.SetActive(false);
+            法则bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(HeroConfig.HeroQualityDic[HeroType]);
+            法则icon.sprite = ResourcesConfig.Get法则Sprite(HeroType);
+            法则name.text = 法则config.法则名Dic[HeroType];
+            法则当前值.text = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]].ToString();
+            法则需要值.text=法则config.法则升级材料Dic[PlayerData.S.英雄法则等级Dic[HeroType]].ToString();
+            法则button.gameObject.SetActive(HeroConfig.HeroQualityDic[HeroType]>=QualityType.宇品);
         }
         else
         {
@@ -72,13 +78,10 @@ public class 英雄详情弹窗 : MonoBehaviour
             星级button.gameObject.SetActive(false);
             法则button.gameObject.SetActive(true);
         }
-
-        法则bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(HeroConfig.HeroQualityDic[HeroType]);
-        法则icon.sprite = ResourcesConfig.Get法则Sprite(HeroType);
-        法则name.text = 法则config.法则名Dic[HeroType];
-        法则当前值.text = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]].ToString();
-        法则需要值.text=法则config.法则升级材料Dic[PlayerData.S.英雄法则等级Dic[HeroType]].ToString();
-        法则button.gameObject.SetActive(HeroConfig.HeroQualityDic[HeroType]>=QualityType.宇品);
+        if (HeroConfig.HeroQualityDic[HeroType] < QualityType.宇品)
+        {
+            法则button.gameObject.SetActive(false);
+        }
         经验值name.text=HeroConfig.Get职业Name(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType)+"经验值";
         经验值bg.sprite = ResourcesConfig.道具背景框蓝;
         经验值icon.sprite = ResourcesConfig.Get职业经验值Sprite(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType);

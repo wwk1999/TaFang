@@ -21,6 +21,20 @@ public class PlayerData : XSingleton<PlayerData>
     public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
     public int 混沌虚空最大层数 = 1;
     public int 城墙等级 = 1;
+
+    public Dictionary<int, List<HeroType>> 通天塔英雄派遣Dic = new Dictionary<int, List<HeroType>>()
+    {
+        { 1, new List<HeroType>() { HeroType.None ,HeroType.None}},
+        { 2, new List<HeroType>() { HeroType.None ,HeroType.None}},
+        { 3, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+        { 4, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+        { 5, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 6, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 7, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 9, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 10, new List<HeroType>() { HeroType.None ,HeroType.None}},
+    };
     public Dictionary<QualityType, 城墙道具Type> 当前装备城墙道具Dic = new Dictionary<QualityType, 城墙道具Type>()
     {
         { QualityType.黄品 ,城墙道具Type.None},

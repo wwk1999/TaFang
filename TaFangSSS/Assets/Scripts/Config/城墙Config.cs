@@ -775,10 +775,10 @@ public class 城墙Config
 
     public static Dictionary<QualityType, float> 城墙道具升级奖励Dic = new Dictionary<QualityType, float>()
     {
-        { QualityType.荒品,5},
+        { QualityType.荒品,10f},
         { QualityType.洪品,3},
-        { QualityType.宙品,2},
-        { QualityType.宇品,1},
-        { QualityType.天品,0.5f},
+        { QualityType.宙品,1f},
+        { QualityType.宇品,0.3f},
+        { QualityType.天品,0.1f},
     };
 }

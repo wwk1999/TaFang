@@ -6,6 +6,7 @@ namespace Config
     {
         public int Level;
         public int 元神;
+        public bool 派遣;
     }
 
     public class HeroZhiYeYuanSu

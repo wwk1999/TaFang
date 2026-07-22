@@ -27,6 +27,8 @@ public class MainWindow : MonoBehaviour
     public 凌霄宝殿窗口 凌霄宝殿窗口;
     public 三十三重天窗口 三十三重天窗口;
     public 混沌虚空窗口 混沌虚空窗口;
+    public 通天塔窗口 通天塔窗口;
+    public Button 通天塔;
 
     public Button 主线关卡Debug;
     public Button 城墙Debug;
@@ -100,6 +102,10 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
+        通天塔.onClick.AddListener(() =>
+        {
+            通天塔窗口.gameObject.SetActive(true);
+        });
         城墙Debug.onClick.AddListener(() =>
         {
             PlayerData.S.城墙等级++;
