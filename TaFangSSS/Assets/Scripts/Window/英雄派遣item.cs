@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class 英雄派遣item : MonoBehaviour
 {
     [NonSerialized] public HeroType HeroType;
+    [NonSerialized] public int index;
     public Image 元素icon;
     public Image 职业icon;
     public TextMeshProUGUI name;
@@ -20,6 +21,15 @@ public class 英雄派遣item : MonoBehaviour
     public Image image;
     public Button bg;
     public GameObject content;
+
+    private void Awake()
+    {
+        bg.onClick.AddListener(() =>
+        {
+            HeroWindowController.S.通天塔英雄派遣Index = index;
+            ObserverModuleManager.S.SendEvent("显示通天塔英雄派遣弹窗");
+        });
+    }
 
     public void SetItem()
     {

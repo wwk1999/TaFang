@@ -22,5 +22,6 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized]public bool 城墙IsDrag = false;
     [NonSerialized] public 城墙道具Type 城墙道具Type;
 
-
+    [NonSerialized]public HeroType 通天塔当前选择派遣HeroType;
+    [NonSerialized] public int 通天塔英雄派遣Index;
 }

@@ -135,6 +135,7 @@ public class MainWindow : MonoBehaviour
         经验值Debug.onClick.AddListener(() =>
         {
             PlayerData.S.PropListDic[PropType.破镜珠] += 999999;
+            PlayerData.S.JingJieType++;
         });
         储物袋按钮.onClick.AddListener(() =>
         {

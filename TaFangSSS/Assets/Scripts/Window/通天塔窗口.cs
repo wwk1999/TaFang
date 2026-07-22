@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,12 +15,14 @@ public class 通天塔窗口 : MonoBehaviour
    public GameObject 英雄派遣GameObject;
    public TextMeshProUGUI 掉落数量;
    public TextMeshProUGUI 年数;
+   public TextMeshProUGUI 品质;
+   public TextMeshProUGUI 星级;
    public Button 当前收获Button;
    public Button 挑战按钮;
    public Toggle 重复寻宝;
    public Button 概率Button;
    public Button ExitButton;
-
+   public 通天塔英雄派遣弹窗 通天塔英雄派遣弹窗;
    public string get数字(int count)
    {
       switch (count)
@@ -49,14 +52,28 @@ public class 通天塔窗口 : MonoBehaviour
       return null;
    }
 
+   public void 刷新通天塔窗口(object[] obj)
+   {
+      ObserverModuleManager.S.SendEvent("通天塔按钮点击", HeroWindowController.S.当前通天塔层数);
+   }
+
    private void OnDestroy()
    {
       ObserverModuleManager.S.UnRegisterEvent("通天塔按钮点击",通天塔按钮点击);
+      ObserverModuleManager.S.UnRegisterEvent("刷新通天塔窗口",刷新通天塔窗口);
+      ObserverModuleManager.S.UnRegisterEvent("显示通天塔英雄派遣弹窗",显示通天塔英雄派遣弹窗);
    }
 
+   public void 显示通天塔英雄派遣弹窗(object[] obj)
+   {
+      通天塔英雄派遣弹窗.gameObject.SetActive(true);
+   }
    private void Awake()
    {
       ObserverModuleManager.S.RegisterEvent("通天塔按钮点击",通天塔按钮点击);
+      ObserverModuleManager.S.RegisterEvent("刷新通天塔窗口",刷新通天塔窗口);
+      ObserverModuleManager.S.RegisterEvent("显示通天塔英雄派遣弹窗",显示通天塔英雄派遣弹窗);
+
    }
 
    public void Show关卡列表()
@@ -112,15 +129,20 @@ public class 通天塔窗口 : MonoBehaviour
          掉落item.Quality = item.quality;
          掉落item.SetItem();
       }
+      int count=0;
       foreach (var item in PlayerData.S.通天塔英雄派遣Dic[层数])
       {
          var 英雄派遣item = Instantiate(Resources.Load("Prefabs/Window/英雄派遣item"), 英雄派遣GameObject.transform)
                      .GetComponent<英雄派遣item>();
          英雄派遣item.HeroType=item;
+         英雄派遣item.index = count;
          英雄派遣item.SetItem();
+         count++;
       }
 
       掉落数量.text = 通天塔Config.通天塔关卡Dic[层数].掉落数量.ToString();
       年数.text = 通天塔Config.通天塔关卡Dic[层数].需要年数.ToString();
+      品质.text = PropConfig.QualityNameDic[通天塔Config.通天塔关卡Dic[层数].需要英雄品质];
+      星级.text=通天塔Config.通天塔关卡Dic[层数].需要英雄星级.ToString();
    }
 }
