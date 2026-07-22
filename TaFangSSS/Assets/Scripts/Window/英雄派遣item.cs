@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Config;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class 英雄派遣item : MonoBehaviour
@@ -21,7 +22,7 @@ public class 英雄派遣item : MonoBehaviour
     public Image image;
     public Button bg;
     public GameObject content;
-
+    
     private void Awake()
     {
         bg.onClick.AddListener(() =>

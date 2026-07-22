@@ -24,6 +24,19 @@ public class StoreDefine : XSingleton<StoreController>
         public int 混沌虚空最大层数 = 1;
         public int 城墙等级 = 1;
         
+        public Dictionary<int, 秘境寻宝Item> 通天塔寻宝Dic = new Dictionary<int, 秘境寻宝Item>()
+        {
+            {1,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {2,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {3,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {4,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {5,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {6,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {7,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {8,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {9,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+            {10,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        };
         public Dictionary<int, List<HeroType>> 通天塔英雄派遣Dic = new Dictionary<int, List<HeroType>>()
         {
             { 1, new List<HeroType>() { HeroType.None ,HeroType.None}},
@@ -670,6 +683,7 @@ public class StoreDefine : XSingleton<StoreController>
             当前装备城墙道具Dic = runtime.当前装备城墙道具Dic;
             城墙等级 = runtime.城墙等级;
             通天塔英雄派遣Dic = runtime.通天塔英雄派遣Dic;
+            通天塔寻宝Dic = runtime.通天塔寻宝Dic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -699,6 +713,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.当前装备城墙道具Dic = 当前装备城墙道具Dic;
             runtime.城墙等级 = 城墙等级;
             runtime.通天塔英雄派遣Dic = 通天塔英雄派遣Dic;
+            runtime.通天塔寻宝Dic = 通天塔寻宝Dic;
         }
     }
 }

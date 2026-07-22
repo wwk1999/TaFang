@@ -18,7 +18,8 @@ public class 通天塔窗口 : MonoBehaviour
    public TextMeshProUGUI 品质;
    public TextMeshProUGUI 星级;
    public Button 当前收获Button;
-   public Button 挑战按钮;
+   public Button 寻宝按钮;
+   public TextMeshProUGUI 寻宝按钮Text;
    public Toggle 重复寻宝;
    public Button 概率Button;
    public Button ExitButton;
@@ -68,12 +69,51 @@ public class 通天塔窗口 : MonoBehaviour
    {
       通天塔英雄派遣弹窗.gameObject.SetActive(true);
    }
+   private void On重复寻宝切换(bool isOn)
+   {
+      if (isOn)
+      {
+         Debug.LogError("重复寻宝：开启");
+         PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].重复 = true;
+      }
+      else
+      {
+         Debug.LogError("重复寻宝：关闭");
+         PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].重复 = false;
+      }
+   }
    private void Awake()
    {
       ObserverModuleManager.S.RegisterEvent("通天塔按钮点击",通天塔按钮点击);
       ObserverModuleManager.S.RegisterEvent("刷新通天塔窗口",刷新通天塔窗口);
       ObserverModuleManager.S.RegisterEvent("显示通天塔英雄派遣弹窗",显示通天塔英雄派遣弹窗);
+      ExitButton.onClick.AddListener(() =>
+      {
+         gameObject.SetActive(false);
+      });
+      重复寻宝.onValueChanged.AddListener(On重复寻宝切换);      
+      寻宝按钮.onClick.AddListener(() =>
+      {
+         bool flag = true;
+         foreach (var item in PlayerData.S.通天塔英雄派遣Dic[HeroWindowController.S.当前通天塔层数])
+         {
+            if (item == HeroType.None)
+            {
+               flag = false;
+            }
+         }
 
+         if (!flag)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","请选择英雄派遣");
+            return;
+         }
+
+         PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].寻宝 = true;
+         PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time =
+            通天塔Config.通天塔关卡Dic[HeroWindowController.S.当前通天塔层数].需要年数 * 属性config.每年秒数;
+         寻宝按钮.interactable = false;
+      });
    }
 
    public void Show关卡列表()
@@ -97,14 +137,6 @@ public class 通天塔窗口 : MonoBehaviour
       Show关卡列表();
       HeroWindowController.S.当前通天塔层数 = 通天塔Config.Get通天塔最大层数();
       ObserverModuleManager.S.SendEvent("通天塔按钮点击", 通天塔Config.Get通天塔最大层数());
-   }
-
-   private void Start()
-   {
-      ExitButton.onClick.AddListener(() =>
-      {
-         gameObject.SetActive(false);
-      });
    }
 
    public void 通天塔按钮点击(object[] obj)
@@ -144,5 +176,31 @@ public class 通天塔窗口 : MonoBehaviour
       年数.text = 通天塔Config.通天塔关卡Dic[层数].需要年数.ToString();
       品质.text = PropConfig.QualityNameDic[通天塔Config.通天塔关卡Dic[层数].需要英雄品质];
       星级.text=通天塔Config.通天塔关卡Dic[层数].需要英雄星级.ToString();
+      bool 寻宝=PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].寻宝;
+      寻宝按钮.interactable = !寻宝;
+      if (寻宝)
+      {
+         寻宝按钮Text.text = "寻宝中(剩余" + PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time+")";
+      }
+      else
+      {
+         寻宝按钮Text.text = "寻宝";
+      }
+
+      重复寻宝.isOn = PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].重复;
+   }
+
+   private void Update()
+   {
+      bool 寻宝=PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].寻宝;
+      寻宝按钮.interactable = !寻宝;
+      if (寻宝)
+      {
+         寻宝按钮Text.text = "寻宝中(剩余" + PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time+"S)";
+      }
+      else
+      {
+         寻宝按钮Text.text = "寻宝";
+      }
    }
 }

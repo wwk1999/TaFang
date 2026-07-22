@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 
 public class 掉落item
 {
@@ -17,6 +18,14 @@ public class 秘境属性
     public int 需要英雄星级;
     public YuanSuType 需要英雄元素;
     public ZhiYeType 需要英雄职业;
+}
+
+public class 秘境寻宝Item
+{
+    public bool 寻宝;
+    public float time;
+    public bool 重复;
+    public List<寻宝城墙道具item> list;
 }
 
 public class 通天塔Config
@@ -220,4 +229,34 @@ public class 通天塔Config
             }
         },
     };
+
+    public static 城墙道具Type Get随机城墙道具Type(QualityType qualityType)
+    {
+        var list=城墙Config.城墙道具列表Dic[道宝Config.QualityTo道宝Quality[qualityType]];
+        int random=Random.Range(0, list.Count);
+        return  list[random];
+    }
+    public static List<城墙道具Type> Get通天塔掉落(int 层数)
+    {
+        int count = 通天塔关卡Dic[层数].掉落数量;
+        List<城墙道具Type> list = new List<城墙道具Type>();
+        for (int i = 0; i < count; i++)
+        {
+            float random = Random.Range(0, 100f);
+            float 概率 = 0;
+            QualityType quality=QualityType.None;
+            foreach (var item in 通天塔关卡Dic[层数].list)
+            {
+                概率 += item.概率;
+                if (random <= 概率)
+                {
+                    quality=item.quality;
+                    break;
+                }
+            }
+            list.Add(Get随机城墙道具Type(quality));
+        }
+
+        return list;
+    }
 }

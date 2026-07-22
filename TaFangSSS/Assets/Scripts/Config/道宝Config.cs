@@ -73,6 +73,15 @@ public class 道宝Config
         { 道宝Quality.先天灵宝 ,QualityType.宇品},
         { 道宝Quality.后天法宝 ,QualityType.天品},
     };
+    
+    public static Dictionary< QualityType,道宝Quality> QualityTo道宝Quality = new Dictionary<QualityType,道宝Quality>()
+    {
+        { QualityType.荒品,道宝Quality.混沌至宝 },
+        { QualityType.洪品,道宝Quality.先天至宝},
+        {  QualityType.宙品,道宝Quality.功德至宝},
+        {  QualityType.宇品,道宝Quality.先天灵宝},
+        {  QualityType.天品,道宝Quality.后天法宝},
+    };
 
     public static Dictionary<道宝Type, string> 道宝NameDic = new Dictionary<道宝Type, string>()
     {

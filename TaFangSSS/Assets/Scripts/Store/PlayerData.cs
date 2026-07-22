@@ -22,6 +22,19 @@ public class PlayerData : XSingleton<PlayerData>
     public int 混沌虚空最大层数 = 1;
     public int 城墙等级 = 1;
 
+    public Dictionary<int, 秘境寻宝Item> 通天塔寻宝Dic = new Dictionary<int, 秘境寻宝Item>()
+    {
+        {1,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {2,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {3,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {4,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {5,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {6,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {7,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {8,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {9,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+        {10,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
+    };
     public Dictionary<int, List<HeroType>> 通天塔英雄派遣Dic = new Dictionary<int, List<HeroType>>()
     {
         { 1, new List<HeroType>() { HeroType.None ,HeroType.None}},
@@ -81,6 +94,8 @@ public class PlayerData : XSingleton<PlayerData>
         { 城墙道具Type.雷击木, 0 },
         { 城墙道具Type.鸿蒙灵根, 0 },
     };
+    
+    
     
     public Dictionary<道宝Type, int> 道宝LevelDic = new Dictionary<道宝Type, int>()
     {
@@ -671,4 +686,63 @@ public class PlayerData : XSingleton<PlayerData>
         { 主线关卡Type.冥府, false },
 
     };
+    
+    
+    private float timer = 0;
+    private void Update()
+    {
+        timer+=Time.deltaTime;
+        if (timer >= 1)
+        {
+            timer = 0;
+            通关塔掉落();
+        }
+    }
+
+    public void 通天塔单次掉落(int i)
+    {
+        var list = 通天塔Config.Get通天塔掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < 通天塔寻宝Dic[i].list.Count; j++)
+            {
+                if (通天塔寻宝Dic[i].list[j].城墙道具Type == item)
+                {
+                    flag = true;
+                    通天塔寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝城墙道具item 掉落item = new 寻宝城墙道具item(){城墙道具Type =item,count=1 };
+                PlayerData.S.通天塔寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
+
+    public void 通关塔掉落()
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            if (PlayerData.S.通天塔寻宝Dic[i].寻宝)
+            {
+                PlayerData.S.通天塔寻宝Dic[i].time--;
+                if (PlayerData.S.通天塔寻宝Dic[i].time <= 0)
+                {
+                    通天塔单次掉落(i);
+                    if (PlayerData.S.通天塔寻宝Dic[i].重复)
+                    {
+                        通天塔寻宝Dic[i].time = 属性config.每年秒数 * 通天塔Config.通天塔关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        通天塔寻宝Dic[i].寻宝 = false;
+                    }
+                }
+            }
+        }
+    }
+
 }

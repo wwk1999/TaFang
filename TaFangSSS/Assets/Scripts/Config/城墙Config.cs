@@ -60,6 +60,12 @@ public enum 城墙道具属性Type
     免疫护盾,
     开局护盾,
 }
+
+public class 寻宝城墙道具item
+{
+    public 城墙道具Type 城墙道具Type;
+    public int count;
+}
 public class 城墙Config
 {
     public static Dictionary<城墙道具Type, string> 城墙道具介绍Dic = new Dictionary<城墙道具Type, string>()

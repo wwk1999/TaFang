@@ -119,6 +119,7 @@ public class 属性config
      public static 领主总属性 总属性=new 领主总属性();
      public static float 领主攻击力 = 总属性.总攻击力;
      
-     public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.JingJieType];
-     
+     //public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.JingJieType];
+     public static float 每年秒数 => 5;
+
 }

@@ -61,10 +61,10 @@ public class QueueController:XSingleton<QueueController>
     
     [NonSerialized] public Queue<循环伤害技能> 冰旋风Queue = new Queue<循环伤害技能>();
     [NonSerialized] public Queue<Spine一次伤害> 陨石Queue = new Queue<Spine一次伤害>();
-
-
+    
     protected override void Awake()
     {
+        Application.targetFrameRate = 30;
         DontDestroyOnLoad(gameObject);
     }
 
