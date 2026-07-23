@@ -24,6 +24,8 @@ public class 通天塔窗口 : MonoBehaviour
    public Button 概率Button;
    public Button ExitButton;
    public 通天塔英雄派遣弹窗 通天塔英雄派遣弹窗;
+   public 通天塔当前收获弹窗 通天塔当前收获弹窗;
+   public 通天塔概率弹窗 通天塔概率弹窗;
    public string get数字(int count)
    {
       switch (count)
@@ -73,12 +75,10 @@ public class 通天塔窗口 : MonoBehaviour
    {
       if (isOn)
       {
-         Debug.LogError("重复寻宝：开启");
          PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].重复 = true;
       }
       else
       {
-         Debug.LogError("重复寻宝：关闭");
          PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].重复 = false;
       }
    }
@@ -90,6 +90,14 @@ public class 通天塔窗口 : MonoBehaviour
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);
+      });
+      概率Button.onClick.AddListener(() =>
+      {
+         通天塔概率弹窗.gameObject.SetActive(true);
+      });
+      当前收获Button.onClick.AddListener(() =>
+      {
+         通天塔当前收获弹窗.gameObject.SetActive(true);
       });
       重复寻宝.onValueChanged.AddListener(On重复寻宝切换);      
       寻宝按钮.onClick.AddListener(() =>

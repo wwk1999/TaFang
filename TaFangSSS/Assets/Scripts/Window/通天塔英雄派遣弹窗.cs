@@ -11,9 +11,14 @@ public class 通天塔英雄派遣弹窗 : MonoBehaviour
     public Button exitbutton;
     public Button 派遣Button;
     public GameObject list;
+    public Button maskButton;
 
     private void Awake()
     {
+        maskButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
         exitbutton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
