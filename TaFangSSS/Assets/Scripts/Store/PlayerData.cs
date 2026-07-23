@@ -22,6 +22,31 @@ public class PlayerData : XSingleton<PlayerData>
     public int 混沌虚空最大层数 = 1;
     public int 城墙等级 = 1;
 
+    public Dictionary<int, 世界树秘境寻宝Item> 世界树寻宝Dic = new Dictionary<int, 世界树秘境寻宝Item>()
+    {
+        {1,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {2,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {3,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {4,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {5,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {6,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {7,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {8,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        {9,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+    };
+    public Dictionary<int, List<HeroType>> 世界树英雄派遣Dic = new Dictionary<int, List<HeroType>>()
+    {
+        { 1, new List<HeroType>() { HeroType.None ,HeroType.None}},
+        { 2, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+        { 3, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+        { 4, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 5, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 6, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 7, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 9, new List<HeroType>() { HeroType.None ,HeroType.None}},
+    };
+    
     public Dictionary<int, 秘境寻宝Item> 通天塔寻宝Dic = new Dictionary<int, 秘境寻宝Item>()
     {
         {1,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},
@@ -696,6 +721,7 @@ public class PlayerData : XSingleton<PlayerData>
         {
             timer = 0;
             通关塔掉落();
+            世界树掉落();
         }
     }
 
@@ -721,6 +747,29 @@ public class PlayerData : XSingleton<PlayerData>
             }
         }
     }
+    
+    public void 世界树单次掉落(int i)
+    {
+        var list = 世界树Config.Get世界树掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < 世界树寻宝Dic[i].list.Count; j++)
+            {
+                if (世界树寻宝Dic[i].list[j].道宝Type == item)
+                {
+                    flag = true;
+                    世界树寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝道宝道具item 掉落item = new 寻宝道宝道具item(){道宝Type = item,count=1 };
+                世界树寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
 
     public void 通关塔掉落()
     {
@@ -739,6 +788,30 @@ public class PlayerData : XSingleton<PlayerData>
                     else
                     {
                         通天塔寻宝Dic[i].寻宝 = false;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    public void 世界树掉落()
+    {
+        for (int i = 1; i <= 9; i++)
+        {
+            if (世界树寻宝Dic[i].寻宝)
+            {
+                世界树寻宝Dic[i].time--;
+                if (世界树寻宝Dic[i].time <= 0)
+                {
+                    世界树单次掉落(i);
+                    if (世界树寻宝Dic[i].重复)
+                    {
+                        世界树寻宝Dic[i].time = 属性config.每年秒数 * 世界树Config.世界树关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        世界树寻宝Dic[i].寻宝 = false;
                     }
                 }
             }

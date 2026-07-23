@@ -29,6 +29,8 @@ public class MainWindow : MonoBehaviour
     public 混沌虚空窗口 混沌虚空窗口;
     public 通天塔窗口 通天塔窗口;
     public Button 通天塔;
+    public 世界树窗口 世界树窗口;
+    public Button 世界树;
 
     public Button 主线关卡Debug;
     public Button 城墙Debug;
@@ -105,6 +107,15 @@ public class MainWindow : MonoBehaviour
         通天塔.onClick.AddListener(() =>
         {
             通天塔窗口.gameObject.SetActive(true);
+        });
+        世界树.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.JingJieType < 世界树Config.世界树关卡Dic[1].jingJieType)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
+                return;
+            }
+            世界树窗口.gameObject.SetActive(true);
         });
         城墙Debug.onClick.AddListener(() =>
         {

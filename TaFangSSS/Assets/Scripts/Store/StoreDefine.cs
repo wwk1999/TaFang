@@ -23,6 +23,30 @@ public class StoreDefine : XSingleton<StoreController>
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;
         public int 城墙等级 = 1;
+        public Dictionary<int, 世界树秘境寻宝Item> 世界树寻宝Dic = new Dictionary<int, 世界树秘境寻宝Item>()
+        {
+            {1,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {2,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {3,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {4,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {5,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {6,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {7,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {8,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+            {9,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
+        };
+        public Dictionary<int, List<HeroType>> 世界树英雄派遣Dic = new Dictionary<int, List<HeroType>>()
+        {
+            { 1, new List<HeroType>() { HeroType.None ,HeroType.None}},
+            { 2, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+            { 3, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+            { 4, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+            { 5, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+            { 6, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+            { 7, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+            { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+            { 9, new List<HeroType>() { HeroType.None ,HeroType.None}},
+        };
         
         public Dictionary<int, 秘境寻宝Item> 通天塔寻宝Dic = new Dictionary<int, 秘境寻宝Item>()
         {
@@ -684,6 +708,8 @@ public class StoreDefine : XSingleton<StoreController>
             城墙等级 = runtime.城墙等级;
             通天塔英雄派遣Dic = runtime.通天塔英雄派遣Dic;
             通天塔寻宝Dic = runtime.通天塔寻宝Dic;
+            世界树英雄派遣Dic = runtime.世界树英雄派遣Dic;
+            世界树寻宝Dic = runtime.世界树寻宝Dic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -714,6 +740,8 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.城墙等级 = 城墙等级;
             runtime.通天塔英雄派遣Dic = 通天塔英雄派遣Dic;
             runtime.通天塔寻宝Dic = 通天塔寻宝Dic;
+            runtime.世界树英雄派遣Dic = 世界树英雄派遣Dic;
+            runtime.世界树寻宝Dic = 世界树寻宝Dic;
         }
     }
 }

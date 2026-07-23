@@ -16,12 +16,18 @@ public class HeroWindowController:XSingleton<HeroWindowController>
 
     [NonSerialized] public 主线关卡Type 当前凌霄宝殿Type;
     [NonSerialized] public 主线关卡Type 当前三十三重天Type;
-    [NonSerialized] public int 当前通天塔层数;
+    
 
     //城墙
     [NonSerialized]public bool 城墙IsDrag = false;
     [NonSerialized] public 城墙道具Type 城墙道具Type;
-
+    //通天塔
+    [NonSerialized] public int 当前通天塔层数;
     [NonSerialized]public HeroType 通天塔当前选择派遣HeroType;
     [NonSerialized] public int 通天塔英雄派遣Index;
+    
+    //世界树
+    [NonSerialized] public int 当前世界树层数;
+    [NonSerialized]public HeroType 世界树当前选择派遣HeroType;
+    [NonSerialized] public int 世界树英雄派遣Index;
 }

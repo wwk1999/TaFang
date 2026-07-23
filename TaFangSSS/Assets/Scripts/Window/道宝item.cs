@@ -20,7 +20,7 @@ public class 道宝item : MonoBehaviour
       icon.sprite = ResourcesConfig.Get道宝Sprite(道宝Type);
       name.text = 道宝Config.道宝NameDic[道宝Type];
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(道宝Config.道宝QualityToQuality[道宝Config.道宝品质Dic[道宝Type]]);
-      
+      level.text = PlayerData.S.道宝LevelDic[道宝Type].ToString();
       if (PlayerData.S.道宝LevelDic[道宝Type] == 0)
       {
          mask.SetActive(true);
