@@ -1423,38 +1423,38 @@ namespace Config
 
         
 
-        public static Dictionary<QualityType, HashSet<HeroType>> QualityHeroDic =
-            new Dictionary<QualityType, HashSet<HeroType>>()
+        public static Dictionary<QualityType, List<HeroType>> QualityHeroDic =
+            new Dictionary<QualityType, List<HeroType>>()
             {
                 {
                     QualityType.黄品,
-                    new HashSet<HeroType>()
+                    new List<HeroType>()
                         { HeroType.丹童, HeroType.土地, HeroType.河伯, HeroType.瑶池仙女 }
                 },
                 {
                     QualityType.玄品,
-                    new HashSet<HeroType>()
+                    new List<HeroType>()
                         { HeroType.石敢当, HeroType.玄女, HeroType.龟丞相, HeroType.太白金星 }
                 },
                 {
                     QualityType.地品,
-                    new HashSet<HeroType>()
+                    new List<HeroType>()
                         { HeroType.多闻天王, HeroType.广目天王, HeroType.雷震子, HeroType.月老 }
                 },
                 {
                     QualityType.天品,
-                    new HashSet<HeroType>() { HeroType.嫦娥, HeroType.杨戬, HeroType.妲己, HeroType.牛魔王 }
+                    new List<HeroType>() { HeroType.嫦娥, HeroType.杨戬, HeroType.妲己, HeroType.牛魔王 }
                 },
                 {
                     QualityType.宇品,
-                    new HashSet<HeroType>() { HeroType.哪吒, HeroType.孙悟空, HeroType.碧霄, HeroType.琼霄 }
+                    new List<HeroType>() { HeroType.哪吒, HeroType.孙悟空, HeroType.碧霄, HeroType.琼霄 }
                 },
                 {
                     QualityType.宙品,
-                    new HashSet<HeroType>() { HeroType.羲和, HeroType.常羲, HeroType.后羿, HeroType.云霄 }
+                    new List<HeroType>() { HeroType.羲和, HeroType.常羲, HeroType.后羿, HeroType.云霄 }
                 },
-                { QualityType.洪品, new HashSet<HeroType>() { HeroType.女娲, HeroType.老子, HeroType.通天, HeroType.元始 } },
-                { QualityType.荒品, new HashSet<HeroType>() { HeroType.盘古, HeroType.鸿钧 } },
+                { QualityType.洪品, new List<HeroType>() { HeroType.女娲, HeroType.老子, HeroType.通天, HeroType.元始 } },
+                { QualityType.荒品, new List<HeroType>() { HeroType.盘古, HeroType.鸿钧 } },
             };
 
         public static Dictionary<HeroType, string> HeroDescDic = new Dictionary<HeroType, string>()

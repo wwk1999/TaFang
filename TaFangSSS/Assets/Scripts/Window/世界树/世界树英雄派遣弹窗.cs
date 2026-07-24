@@ -24,6 +24,10 @@ public class 世界树英雄派遣弹窗 : MonoBehaviour
         });
         派遣Button.onClick.AddListener(() =>
         {
+            if (HeroWindowController.S.世界树当前选择派遣HeroType == HeroType.None)
+            {
+                return;
+            }
             HeroType 之前HeroType =
                 PlayerData.S.世界树英雄派遣Dic[HeroWindowController.S.当前世界树层数][HeroWindowController.S.世界树英雄派遣Index];
             if (之前HeroType != HeroType.None)
@@ -40,6 +44,8 @@ public class 世界树英雄派遣弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        HeroWindowController.S.世界树当前选择派遣HeroType=HeroType.None;
+
         ShowList();
     }
 

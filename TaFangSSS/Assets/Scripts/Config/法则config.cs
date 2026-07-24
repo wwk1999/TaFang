@@ -24,7 +24,47 @@ public class 法则config
         { HeroType.盘古, "力之法则" },
     };
     
-    
+    public static Dictionary<PropType, HeroType> 法则英雄Dic = new Dictionary<PropType, HeroType>()
+    {
+        { PropType.火之法则 ,HeroType.哪吒},
+        { PropType.斗之法则 ,HeroType.孙悟空},
+        { PropType.冰之法则 ,HeroType.碧霄},
+        { PropType.禁之法则 ,HeroType.琼霄},
+
+        { PropType.剑之法则 ,HeroType.云霄},
+        {  PropType.日之法则 ,HeroType.羲和},
+        {  PropType.月之法则 ,HeroType.常羲},
+        {  PropType.箭之法则 ,HeroType.后羿},
+
+        {  PropType.造化法则 ,HeroType.女娲},
+        {  PropType.原始法则 ,HeroType.元始},
+        {  PropType.诛仙法则 ,HeroType.通天},
+        {  PropType.道之法则 ,HeroType.老子},
+
+        {  PropType.鸿蒙法则 ,HeroType.鸿钧},
+        {  PropType.力之法则 ,HeroType.盘古},
+    };
+
+    public static Dictionary<PropType, QualityType> 法则Quality = new Dictionary<PropType, QualityType>()
+    {
+        { PropType.火之法则 ,QualityType.宇品},
+        { PropType.斗之法则 ,QualityType.宇品},
+        { PropType.冰之法则 ,QualityType.宇品},
+        { PropType.禁之法则 ,QualityType.宇品},
+
+        { PropType.剑之法则 ,QualityType.宙品},
+        {  PropType.日之法则 ,QualityType.宙品},
+        {  PropType.月之法则 ,QualityType.宙品},
+        {  PropType.箭之法则 ,QualityType.宙品},
+
+        {  PropType.造化法则 ,QualityType.洪品},
+        {  PropType.原始法则 ,QualityType.洪品},
+        {  PropType.诛仙法则 ,QualityType.洪品},
+        {  PropType.道之法则 ,QualityType.洪品},
+
+        {  PropType.鸿蒙法则 ,QualityType.荒品},
+        {  PropType.力之法则 ,QualityType.荒品},
+    };
     public static Dictionary<HeroType, PropType> 法则TypeDic = new Dictionary<HeroType, PropType>()
     {
         { HeroType.哪吒, PropType.火之法则 },
@@ -222,41 +262,41 @@ public class 法则config
     public static Dictionary<QualityType, float> 法则升级奖励Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.宇品 ,1f},
-        { QualityType.宙品 ,1.5f},
-        { QualityType.洪品 ,2f},
-        { QualityType.荒品 ,3f},
+        { QualityType.宙品 ,2f},
+        { QualityType.洪品 ,4f},
+        { QualityType.荒品 ,10f},
     };
 
     public static Dictionary<int, int> 法则升级材料Dic = new Dictionary<int, int>()
     {
-        {0,10},
-        {1,10},
-        {2,10},
-        {3,10},
-        {4,10},
+        {0,1},
+        {1,1},
+        {2,1},
+        {3,1},
+        {4,1},
         
-        {5,15},
-        {6,15},
-        {7,15},
-        {8,15},
-        {9,15},
+        {5,2},
+        {6,2},
+        {7,2},
+        {8,2},
+        {9,2},
         
-        {10,20},
-        {11,20},
-        {12,20},
-        {13,20},
-        {14,20},
+        {10,3},
+        {11,3},
+        {12,3},
+        {13,3},
+        {14,3},
         
-        {15,25},
-        {16,25},
-        {17,25},
-        {18,25},
-        {19,25},
+        {15,4},
+        {16,4},
+        {17,4},
+        {18,4},
+        {19,4},
         
-        {20,30},
-        {21,30},
-        {22,30},
-        {23,30},
-        {24,30},
+        {20,5},
+        {21,5},
+        {22,5},
+        {23,5},
+        {24,5},
     };
 }

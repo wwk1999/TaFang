@@ -65,6 +65,8 @@ public class 血海当前收获弹窗 : MonoBehaviour
                 PlayerData.S.血海英雄派遣Dic[HeroWindowController.S.当前血海层数][i] = HeroType.None;
             }
             ObserverModuleManager.S.SendEvent("刷新血海窗口");
+            ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
+
             gameObject.SetActive(false);
         });
     }

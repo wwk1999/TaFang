@@ -21,6 +21,31 @@ public class PlayerData : XSingleton<PlayerData>
     public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
     public int 混沌虚空最大层数 = 1;
     public int 城墙等级 = 1;
+    
+    public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
+    {
+        {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {2,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {3,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {4,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {5,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {6,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {7,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {8,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+        {9,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
+    };
+    public Dictionary<int, List<HeroType>> 不周山英雄派遣Dic = new Dictionary<int, List<HeroType>>()
+    {
+        { 1, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+        { 2, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None}},
+        { 3, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 4, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 5, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 6, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 7, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+        { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
+    };
+    
 
     public Dictionary<int, 血海秘境寻宝Item> 血海寻宝Dic = new Dictionary<int, 血海秘境寻宝Item>()
     {
@@ -748,6 +773,7 @@ public class PlayerData : XSingleton<PlayerData>
             通关塔掉落();
             世界树掉落();
             血海掉落();
+            不周山掉落();
         }
     }
 
@@ -769,7 +795,7 @@ public class PlayerData : XSingleton<PlayerData>
             if (!flag)
             {
                 寻宝城墙道具item 掉落item = new 寻宝城墙道具item(){城墙道具Type =item,count=1 };
-                PlayerData.S.通天塔寻宝Dic[i].list.Add(掉落item);
+                通天塔寻宝Dic[i].list.Add(掉落item);
             }
         }
     }
@@ -778,20 +804,34 @@ public class PlayerData : XSingleton<PlayerData>
     {
         for (int i = 1; i <= 10; i++)
         {
-            if (PlayerData.S.通天塔寻宝Dic[i].寻宝)
+            if (通天塔寻宝Dic[i].寻宝)
             {
-                PlayerData.S.通天塔寻宝Dic[i].time--;
-                if (PlayerData.S.通天塔寻宝Dic[i].time <= 0)
+                通天塔寻宝Dic[i].time--;
+                if (通天塔寻宝Dic[i].time <= 0)
                 {
                     通天塔单次掉落(i);
-                    if (PlayerData.S.通天塔寻宝Dic[i].重复)
+                    if (通天塔寻宝Dic[i].重复)
                     {
                         通天塔寻宝Dic[i].time = 属性config.每年秒数 * 通天塔Config.通天塔关卡Dic[i].需要年数;
                     }
                     else
                     {
                         通天塔寻宝Dic[i].寻宝 = false;
-                    }
+                        foreach (var item in 通天塔寻宝Dic[i].list)
+                        {
+                            城墙道具等级Dic[item.城墙道具Type]+=item.count;
+                        }
+                        通天塔寻宝Dic[i].list.Clear();
+                        通天塔寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < 通天塔英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = 通天塔英雄派遣Dic[i][j];
+                            HeroDataDic[heroType].派遣 = false;
+                            通天塔英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新通天塔窗口");
+                        ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");                    }
                 }
             }
         }
@@ -839,6 +879,21 @@ public class PlayerData : XSingleton<PlayerData>
                     else
                     {
                         世界树寻宝Dic[i].寻宝 = false;
+                        foreach (var item in 世界树寻宝Dic[i].list)
+                        {
+                            道宝LevelDic[item.道宝Type]+=item.count;
+                        }
+                        世界树寻宝Dic[i].list.Clear();
+                        世界树寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < 世界树英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = 世界树英雄派遣Dic[i][j];
+                            HeroDataDic[heroType].派遣 = false;
+                            世界树英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新世界树窗口");
+                        ObserverModuleManager.S.SendEvent("世界树英雄派遣Item刷新");
                     }
                 }
             }
@@ -892,6 +947,86 @@ public class PlayerData : XSingleton<PlayerData>
                     else
                     {
                         血海寻宝Dic[i].寻宝 = false;
+                        foreach (var item in 血海寻宝Dic[i].list)
+                        {
+                            int count = Get道纹数量(item.道纹.道纹Type, item.道纹.quality);
+                            Set道纹数量(item.道纹.道纹Type,item.道纹.quality,count+item.count);
+                        }
+                        血海寻宝Dic[i].list.Clear();
+                        血海寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < 血海英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = 血海英雄派遣Dic[i][j];
+                            HeroDataDic[heroType].派遣 = false;
+                            血海英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新血海窗口");
+                        ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    public void 不周山单次掉落(int i)
+    {
+        var list = 不周山Config.Get不周山掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < 不周山寻宝Dic[i].list.Count; j++)
+            {
+                if (不周山寻宝Dic[i].list[j].法则Type == item)
+                {
+                    flag = true;
+                    不周山寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝法则道具item 掉落item = new 寻宝法则道具item(){法则Type = item,count=1 };
+                不周山寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
+    
+    
+    public void 不周山掉落()
+    {
+        for (int i = 1; i <= 8; i++)
+        {
+            if (不周山寻宝Dic[i].寻宝)
+            {
+                不周山寻宝Dic[i].time--;
+                if (不周山寻宝Dic[i].time <= 0)
+                {
+                    不周山单次掉落(i);
+                    if (不周山寻宝Dic[i].重复)
+                    {
+                        不周山寻宝Dic[i].time = 属性config.每年秒数 * 不周山Config.不周山关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        不周山寻宝Dic[i].寻宝 = false;
+                        foreach (var item in 不周山寻宝Dic[i].list)
+                        {
+                            PropListDic[item.法则Type]+=item.count;
+                        }
+                        不周山寻宝Dic[i].list.Clear();
+                        不周山寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < 不周山英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = 不周山英雄派遣Dic[i][j];
+                            HeroDataDic[heroType].派遣 = false;
+                            不周山英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新不周山窗口");
+                        ObserverModuleManager.S.SendEvent("不周山英雄派遣Item刷新");
                     }
                 }
             }

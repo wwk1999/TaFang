@@ -34,6 +34,9 @@ public class MainWindow : MonoBehaviour
     
     public 血海窗口 血海窗口;
     public Button 血海;
+    
+    public 不周山窗口 不周山窗口;
+    public Button 不周山;
 
     public Button 主线关卡Debug;
     public Button 城墙Debug;
@@ -129,6 +132,16 @@ public class MainWindow : MonoBehaviour
             }
             血海窗口.gameObject.SetActive(true);
         });
+        
+        不周山.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.JingJieType < 不周山Config.不周山关卡Dic[1].jingJieType)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
+                return;
+            }
+            不周山窗口.gameObject.SetActive(true);
+        });
         城墙Debug.onClick.AddListener(() =>
         {
             PlayerData.S.城墙等级++;
@@ -180,6 +193,12 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.衣服锻造石] += 100;
             PlayerData.S.PropListDic[PropType.鞋子锻造石] += 100;
             PlayerData.S.PropListDic[PropType.洗练石] += 100;
+            PlayerData.S.PropListDic[PropType.法师经验值] += 10000;
+            PlayerData.S.PropListDic[PropType.战士经验值] += 10000;
+            PlayerData.S.PropListDic[PropType.辅助经验值] += 10000;
+            PlayerData.S.PropListDic[PropType.控制经验值] += 10000;
+            PlayerData.S.PropListDic[PropType.射手经验值] += 10000;
+
             
             PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.天品,999);
             PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.宇品,999);

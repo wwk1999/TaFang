@@ -120,6 +120,8 @@ public class 血海窗口 : MonoBehaviour
          PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].time =
             血海Config.血海关卡Dic[HeroWindowController.S.当前血海层数].需要年数 * 属性config.每年秒数;
          寻宝按钮.interactable = false;
+         ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
+
       });
    }
 

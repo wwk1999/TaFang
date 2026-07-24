@@ -22,9 +22,16 @@ public class 英雄派遣item : MonoBehaviour
     public Image image;
     public Button bg;
     public GameObject content;
-    
+    public GameObject mask;
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("通天塔英雄派遣Item刷新",通天塔英雄派遣Item刷新);
+    }
+
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("通天塔英雄派遣Item刷新",通天塔英雄派遣Item刷新);
         bg.onClick.AddListener(() =>
         {
             HeroWindowController.S.通天塔英雄派遣Index = index;
@@ -32,8 +39,14 @@ public class 英雄派遣item : MonoBehaviour
         });
     }
 
+    public void 通天塔英雄派遣Item刷新(object[] obj)
+    {
+        SetItem();
+    }
+
     public void SetItem()
     {
+        mask.SetActive(PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].寻宝);
         if (HeroType == HeroType.None)
         {
             bg.image.sprite = ResourcesConfig.加号背景框;

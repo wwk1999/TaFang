@@ -121,6 +121,7 @@ public class 通天塔窗口 : MonoBehaviour
          PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time =
             通天塔Config.通天塔关卡Dic[HeroWindowController.S.当前通天塔层数].需要年数 * 属性config.每年秒数;
          寻宝按钮.interactable = false;
+         ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");
       });
    }
 

@@ -35,4 +35,9 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public int 当前血海层数;
     [NonSerialized]public HeroType 血海当前选择派遣HeroType;
     [NonSerialized] public int 血海英雄派遣Index;
+    
+    //不周山
+    [NonSerialized] public int 当前不周山层数;
+    [NonSerialized]public HeroType 不周山当前选择派遣HeroType;
+    [NonSerialized] public int 不周山英雄派遣Index;
 }

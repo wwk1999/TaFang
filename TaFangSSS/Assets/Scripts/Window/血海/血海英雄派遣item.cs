@@ -21,9 +21,15 @@ public class 血海英雄派遣item : MonoBehaviour
     public Image image;
     public Button bg;
     public GameObject content;
+    public GameObject mask;
     
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("血海英雄派遣Item刷新",血海英雄派遣Item刷新);
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("血海英雄派遣Item刷新",血海英雄派遣Item刷新);
         bg.onClick.AddListener(() =>
         {
             HeroWindowController.S.血海英雄派遣Index = index;
@@ -31,8 +37,14 @@ public class 血海英雄派遣item : MonoBehaviour
         });
     }
 
+    public void 血海英雄派遣Item刷新(object[] obj)
+    {
+        SetItem();
+    }
+
     public void SetItem()
     {
+        mask.SetActive(PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].寻宝);
         if (HeroType == HeroType.None)
         {
             bg.image.sprite = ResourcesConfig.加号背景框;

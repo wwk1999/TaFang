@@ -120,6 +120,8 @@ public class 世界树窗口 : MonoBehaviour
          PlayerData.S.世界树寻宝Dic[HeroWindowController.S.当前世界树层数].time =
             世界树Config.世界树关卡Dic[HeroWindowController.S.当前世界树层数].需要年数 * 属性config.每年秒数;
          寻宝按钮.interactable = false;
+         ObserverModuleManager.S.SendEvent("世界树英雄派遣Item刷新");
+
       });
    }
 

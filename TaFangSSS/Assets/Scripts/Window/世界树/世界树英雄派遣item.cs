@@ -21,9 +21,14 @@ public class 世界树英雄派遣item : MonoBehaviour
     public Image image;
     public Button bg;
     public GameObject content;
-    
+    public GameObject mask;
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("世界树英雄派遣Item刷新",世界树英雄派遣Item刷新);
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("世界树英雄派遣Item刷新",世界树英雄派遣Item刷新);
         bg.onClick.AddListener(() =>
         {
             HeroWindowController.S.世界树英雄派遣Index = index;
@@ -31,8 +36,14 @@ public class 世界树英雄派遣item : MonoBehaviour
         });
     }
 
+    public void 世界树英雄派遣Item刷新(object[] obj)
+    {
+        SetItem();
+    }
+
     public void SetItem()
     {
+        mask.SetActive(PlayerData.S.世界树寻宝Dic[HeroWindowController.S.当前世界树层数].寻宝);
         if (HeroType == HeroType.None)
         {
             bg.image.sprite = ResourcesConfig.加号背景框;
