@@ -67,7 +67,7 @@ public class 储物袋界面 : MonoBehaviour
       QualityType qualityType = (QualityType)obj[1];
       HeroWindowController.S.道纹Type = 道纹Type;
       HeroWindowController.S.道纹QualityType = qualityType;
-      道纹image.sprite = ResourcesConfig.Get道文Sprite(道纹Type,qualityType);
+      道纹image.sprite = ResourcesConfig.Get道纹Sprite(道纹Type,qualityType);
       道纹image.gameObject.SetActive(true);
    }
 

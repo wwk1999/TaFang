@@ -1700,7 +1700,7 @@ public class ResourcesConfig : MonoBehaviour
         return null;
     }
 
-    public static Sprite Get道文Sprite(道纹Type type, QualityType qualityType)
+    public static Sprite Get道纹Sprite(道纹Type type, QualityType qualityType)
     {
         switch (type)
         {

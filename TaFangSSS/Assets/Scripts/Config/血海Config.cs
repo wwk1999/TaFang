@@ -2,21 +2,21 @@ using System.Collections.Generic;
 using Config;
 using UnityEngine;
 
-public class 世界树秘境寻宝Item
+public class 血海秘境寻宝Item
 {
     public bool 寻宝;
     public float time;
     public bool 重复;
-    public List<寻宝道宝道具item> list;
+    public List<寻宝道纹道具item> list;
 }
-public class 寻宝道宝道具item
+public class 寻宝道纹道具item
 {
-    public 道宝Type 道宝Type;
+    public 道纹 道纹=new 道纹();
     public int count;
 }
-public class 世界树Config
+public class 血海Config
 {
-    public static int Get世界树最大层数()
+    public static int Get血海最大层数()
     {
         switch (PlayerData.S.JingJieType)
         {
@@ -51,7 +51,7 @@ public class 世界树Config
         }
         return 0;
     }
-    public static Dictionary<int, 秘境属性> 世界树关卡Dic = new Dictionary<int, 秘境属性>()
+     public static Dictionary<int, 秘境属性> 血海关卡Dic = new Dictionary<int, 秘境属性>()
     {
         {
             1,
@@ -68,8 +68,8 @@ public class 世界树Config
                 需要人数 = 2,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 0,
-                需要英雄元素 = YuanSuType.冰,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.战士,
             }
         },
 
@@ -89,8 +89,8 @@ public class 世界树Config
                 需要人数 = 3,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 1,
-                需要英雄元素 = YuanSuType.火,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.射手,
             }
         },
 
@@ -110,8 +110,8 @@ public class 世界树Config
                 需要人数 = 3,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 2,
-                需要英雄元素 = YuanSuType.物理,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.法师,
             }
         },
 
@@ -132,8 +132,8 @@ public class 世界树Config
                 需要人数 = 4,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 2,
-                需要英雄元素 = YuanSuType.电,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.辅助,
             }
         },
 
@@ -154,8 +154,8 @@ public class 世界树Config
                 需要人数 = 4,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 3,
-                需要英雄元素 = YuanSuType.黑暗,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.控制,
             }
         },
 
@@ -175,8 +175,8 @@ public class 世界树Config
                 需要人数 = 4,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 3,
-                需要英雄元素 = YuanSuType.火,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.战士,
             }
         },
 
@@ -196,8 +196,8 @@ public class 世界树Config
                 需要人数 = 4,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 4,
-                需要英雄元素 = YuanSuType.黑暗,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.射手,
             }
         },
 
@@ -217,8 +217,8 @@ public class 世界树Config
                 需要人数 = 4,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 4,
-                需要英雄元素 = YuanSuType.冰,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.射手,
             }
         },
 
@@ -238,28 +238,31 @@ public class 世界树Config
                 需要人数 = 4,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 5,
-                需要英雄元素 = YuanSuType.物理,
-                需要英雄职业 = ZhiYeType.None,
+                需要英雄元素 = YuanSuType.None,
+                需要英雄职业 = ZhiYeType.控制,
             }
         },
     };
-    public static 道宝Type Get随机道宝Type(QualityType qualityType)
+     
+    public static 道纹 Get随机道纹Type(QualityType qualityType)
     {
-        var list=道宝Config.道宝品质列表[道宝Config.QualityTo道宝Quality[qualityType]];
-        int random=Random.Range(0, list.Count);
-        return  list[random];
+        int random=Random.Range(0, 道纹config.道纹名Dic.Count)+1;
+        道纹 item = new 道纹();
+        item.quality = qualityType;
+        item.道纹Type = (道纹Type)random;
+        return  item;
     }
     
-    public static List<道宝Type> Get世界树掉落(int 层数)
+    public static List<道纹> Get血海掉落(int 层数)
     {
-        int count = 世界树关卡Dic[层数].掉落数量;
-        List<道宝Type> list = new List<道宝Type>();
+        int count = 血海关卡Dic[层数].掉落数量;
+        List<道纹> list = new List<道纹>();
         for (int i = 0; i < count; i++)
         {
             float random = Random.Range(0, 100f);
             float 概率 = 0;
             QualityType quality=QualityType.None;
-            foreach (var item in 世界树关卡Dic[层数].list)
+            foreach (var item in 血海关卡Dic[层数].list)
             {
                 概率 += item.概率;
                 if (random <= 概率)
@@ -268,7 +271,7 @@ public class 世界树Config
                     break;
                 }
             }
-            list.Add(Get随机道宝Type(quality));
+            list.Add(Get随机道纹Type(quality));
         }
 
         return list;

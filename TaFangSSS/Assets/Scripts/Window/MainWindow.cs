@@ -31,6 +31,9 @@ public class MainWindow : MonoBehaviour
     public Button 通天塔;
     public 世界树窗口 世界树窗口;
     public Button 世界树;
+    
+    public 血海窗口 血海窗口;
+    public Button 血海;
 
     public Button 主线关卡Debug;
     public Button 城墙Debug;
@@ -116,6 +119,15 @@ public class MainWindow : MonoBehaviour
                 return;
             }
             世界树窗口.gameObject.SetActive(true);
+        });
+        血海.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.JingJieType < 血海Config.血海关卡Dic[1].jingJieType)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
+                return;
+            }
+            血海窗口.gameObject.SetActive(true);
         });
         城墙Debug.onClick.AddListener(() =>
         {

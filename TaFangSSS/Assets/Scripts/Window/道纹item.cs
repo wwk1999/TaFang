@@ -109,7 +109,7 @@ public class 道纹item : MonoBehaviour, IDropHandler
             hero.SetActive(false);
          }
          锁mask.SetActive(false);
-         image.sprite = ResourcesConfig.Get道文Sprite(道纹Type, 道纹QualityType);
+         image.sprite = ResourcesConfig.Get道纹Sprite(道纹Type, 道纹QualityType);
          艺术字.sprite = ResourcesConfig.Get艺术字(道纹QualityType);
          bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(道纹QualityType);
          name.text = 道纹config.道纹名Dic[道纹Type];

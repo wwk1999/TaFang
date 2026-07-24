@@ -70,7 +70,7 @@ public class 道纹grid : MonoBehaviour,IPointerExitHandler,IPointerEnterHandler
          Hero.SetActive(false);
       }
       name.text = 道纹config.道纹名Dic[道纹Type];
-      image.sprite = ResourcesConfig.Get道文Sprite(道纹Type, QualityType);
+      image.sprite = ResourcesConfig.Get道纹Sprite(道纹Type, QualityType);
       count.text = PlayerData.S.Get道纹数量(道纹Type, QualityType).ToString();
       switch (QualityType)
       {

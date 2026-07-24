@@ -54,8 +54,10 @@ public class 道纹
     public 道纹Type 道纹Type;
     public QualityType quality;
 }
+
 public class 道纹config
 {
+    
     public static Dictionary<道纹Type, Func<float>> 装备道纹数量Dic = new Dictionary<道纹Type, Func<float>>()
 {
     { 道纹Type.增加百分比攻击力, () => Get装备道纹数值(道纹Type.增加百分比攻击力) },

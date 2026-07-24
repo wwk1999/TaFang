@@ -6,17 +6,17 @@ using UnityEngine.EventSystems;
 
 public class 世界树英雄派遣itembg : MonoBehaviour, IPointerClickHandler
 {
-    public 英雄派遣item 英雄派遣item;
+    public 世界树英雄派遣item 世界树英雄派遣item;
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (英雄派遣item.HeroType == HeroType.None)
+            if (世界树英雄派遣item.HeroType == HeroType.None)
             {
                 return;
             }
-            PlayerData.S.世界树英雄派遣Dic[HeroWindowController.S.当前世界树层数][英雄派遣item.index] = HeroType.None;
-            PlayerData.S.HeroDataDic[英雄派遣item.HeroType].派遣=false;
+            PlayerData.S.世界树英雄派遣Dic[HeroWindowController.S.当前世界树层数][世界树英雄派遣item.index] = HeroType.None;
+            PlayerData.S.HeroDataDic[世界树英雄派遣item.HeroType].派遣=false;
             ObserverModuleManager.S.SendEvent("刷新世界树窗口");
         }
     }
