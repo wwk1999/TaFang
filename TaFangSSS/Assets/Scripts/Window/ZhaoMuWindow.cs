@@ -24,8 +24,10 @@ public class ZhaoMuWindow : MonoBehaviour
    public GameObject 商店Content;
    public 招募商店兑换弹窗 招募商店兑换窗口;
 
+   public TextMeshProUGUI 积分;
    public void ResetCount()
    {
+      积分.text=PlayerData.S.招募积分.ToString();
       当前NormalCount.text = PlayerData.S.PropListDic[PropType.招募卷].ToString();
       当前GaoJiCount.text = PlayerData.S.PropListDic[PropType.高级招募卷].ToString();
       if (Is10)
@@ -59,8 +61,20 @@ public class ZhaoMuWindow : MonoBehaviour
          ShangDianItem.SetItem();
       }
    }
+
+   public void 刷新招募界面(object[] obj)
+   {
+      ResetCount();
+   }
+
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("刷新招募界面",刷新招募界面);
+   }
+
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新招募界面",刷新招募界面);
       ShowShangDian();
       概率按钮.onClick.AddListener(() =>
       {
@@ -95,6 +109,8 @@ public class ZhaoMuWindow : MonoBehaviour
             }
             招募成功弹窗.gameObject.SetActive(true);
          }
+
+         ResetCount();
       });
 
       普通招募按钮.onClick.AddListener(() =>
@@ -106,6 +122,7 @@ public class ZhaoMuWindow : MonoBehaviour
             PropType propType = ZhaoMuConfig.NormalZhaoMu();
             招募成功弹窗.Item1Type = propType;
             招募成功弹窗.gameObject.SetActive(true);
+            PlayerData.S.招募积分++;
          }
          else
          {
@@ -116,7 +133,9 @@ public class ZhaoMuWindow : MonoBehaviour
                招募成功弹窗.list[i]=ZhaoMuConfig.NormalZhaoMu();
             }
             招募成功弹窗.gameObject.SetActive(true);
+            PlayerData.S.招募积分+=10;
          }
+         ResetCount();
       });
    }
 }

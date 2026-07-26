@@ -23,6 +23,8 @@ public class StoreDefine : XSingleton<StoreController>
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;
         public int 城墙等级 = 1;
+        public int 招募积分 = 0;
+
         public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
         {
             {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
@@ -763,6 +765,7 @@ public class StoreDefine : XSingleton<StoreController>
             不周山寻宝Dic = runtime.不周山寻宝Dic;
             血海英雄派遣Dic = runtime.血海英雄派遣Dic;
             血海寻宝Dic = runtime.血海寻宝Dic;
+            招募积分 = runtime.招募积分;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -799,6 +802,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.不周山寻宝Dic = 不周山寻宝Dic;
             runtime.血海英雄派遣Dic = 血海英雄派遣Dic;
             runtime.血海寻宝Dic = 血海寻宝Dic;
+            runtime.招募积分 = 招募积分;
         }
     }
 }

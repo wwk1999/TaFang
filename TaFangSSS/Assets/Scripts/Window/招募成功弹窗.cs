@@ -17,9 +17,13 @@ public class 招募成功弹窗 : MonoBehaviour
     public Button maskbutton;
     public Button ZhaoMu1Button;
     public Button ZhaoMu10Button;
-
+    public Button exitButton;
     private void Start()
     {
+        exitButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
         maskbutton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
@@ -36,6 +40,7 @@ public class 招募成功弹窗 : MonoBehaviour
             }
 
             招募一次();
+            ObserverModuleManager.S.SendEvent("刷新招募界面");
         });
         
         ZhaoMu10Button.onClick.AddListener(() =>
@@ -92,6 +97,7 @@ public class 招募成功弹窗 : MonoBehaviour
             ZhaoMuitem.SetItem();
             yield return new  WaitForSeconds(0.1f);
         }
+        ObserverModuleManager.S.SendEvent("刷新招募界面");
     }
     private void OnEnable()
     {

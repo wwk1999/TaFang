@@ -20,6 +20,7 @@ public class 招募商店兑换弹窗 : MonoBehaviour
    [NonSerialized] public PropType Type;
    public Button mask;
    private int count = 1;
+   public Button exitbutton;
 
    public void DuiHuan()
    {
@@ -28,6 +29,10 @@ public class 招募商店兑换弹窗 : MonoBehaviour
    }
    private void Start()
    {
+      exitbutton.onClick.AddListener(() =>
+      {
+         gameObject.SetActive(false);
+      });
       Jia.onClick.AddListener(() =>
       {
          count++;
