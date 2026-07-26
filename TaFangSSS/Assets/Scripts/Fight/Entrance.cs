@@ -91,7 +91,7 @@ public class Entrance : MonoBehaviour
                 return 地图Type.天庭;
       }
 
-      return 地图Type.沙漠;
+      return 地图Type.混沌;
    }
 
    public void InitRenWu()

@@ -393,7 +393,24 @@ namespace Config
             // 彩色 -> 荒
             { PropType.鸿钧元神, QualityType.荒品 },
             { PropType.盘古元神, QualityType.荒品 },
-
+            
+            { PropType.火之法则, QualityType.宇品 },
+            { PropType.斗之法则, QualityType.宇品 },
+            { PropType.冰之法则, QualityType.宇品 },
+            { PropType.禁之法则, QualityType.宇品 },
+            
+            { PropType.剑之法则, QualityType.宙品 },
+            { PropType.日之法则, QualityType.宙品 },
+            { PropType.月之法则, QualityType.宙品 },
+            { PropType.箭之法则, QualityType.宙品 },
+            
+            { PropType.造化法则, QualityType.洪品 },
+            { PropType.原始法则, QualityType.洪品 },
+            { PropType.诛仙法则, QualityType.洪品 },
+            { PropType.道之法则, QualityType.洪品 },
+            
+            { PropType.鸿蒙法则, QualityType.荒品 },
+            { PropType.力之法则, QualityType.荒品 },
             
         };
     }

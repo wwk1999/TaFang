@@ -17,13 +17,17 @@ public class ZhaoMuWindow : MonoBehaviour
    public Toggle Toggle;
    [NonSerialized] public bool Is10=false;
    public TextMeshProUGUI NormalCount;
+   public TextMeshProUGUI 当前NormalCount;
    public TextMeshProUGUI GaoJiCount;
+   public TextMeshProUGUI 当前GaoJiCount;
    public 招募成功弹窗 招募成功弹窗;
    public GameObject 商店Content;
    public 招募商店兑换弹窗 招募商店兑换窗口;
 
    public void ResetCount()
    {
+      当前NormalCount.text = PlayerData.S.PropListDic[PropType.招募卷].ToString();
+      当前GaoJiCount.text = PlayerData.S.PropListDic[PropType.高级招募卷].ToString();
       if (Is10)
       {
          NormalCount.text = "10";

@@ -15,6 +15,7 @@ public class 招募商店item : MonoBehaviour
     public TextMeshProUGUI name;
     [NonSerialized]public 招募商店兑换弹窗 招募商店兑换窗口;
 
+    public Image 艺术字;
     private void Start()
     {
         bg.onClick.AddListener(() =>
@@ -27,6 +28,7 @@ public class 招募商店item : MonoBehaviour
 
     public void SetItem()
     {
+        艺术字.sprite = ResourcesConfig.Get艺术字(HeroConfig.HeroQualityDic[PropConfig.PropToHeroDic[type]]);
         image.sprite=ResourcesConfig.GetHeroSprite(PropConfig.PropToHeroDic[type]);
         name.text = HeroConfig.HeroNameDic[PropConfig.PropToHeroDic[type]];
         count.text = ZhaoMuConfig.招募商店价格Dic[type].ToString();
