@@ -141,33 +141,8 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
          }
       }
 
-      switch (HeroConfig.HeroQualityDic[heroType])
-      {
-         case QualityType.黄品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框白;
-            break;
-         case QualityType.玄品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框绿;
-            break;
-         case QualityType.地品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框蓝;
-            break;
-         case QualityType.天品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框紫;
-            break;
-         case QualityType.宇品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框橙;
-            break;
-         case QualityType.宙品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框粉;
-            break;
-         case QualityType.洪品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框红;
-            break;
-         case QualityType.荒品:
-            bg.image.sprite = ResourcesConfig.UI人物背景框彩;
-            break;
-      }
+      bg.image.sprite = ResourcesConfig.Get道具背景框Sprite1(HeroConfig.HeroQualityDic[heroType]);
+      
 
       职业icon.sprite = ResourcesConfig.Get职业icon(HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
    }

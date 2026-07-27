@@ -567,6 +567,15 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 道具背景框粉;
     public static Sprite 道具背景框红;
     public static Sprite 道具背景框彩;
+    
+    public static Sprite 道具背景框白1;
+    public static Sprite 道具背景框绿1;
+    public static Sprite 道具背景框蓝1;
+    public static Sprite 道具背景框紫1;
+    public static Sprite 道具背景框橙1;
+    public static Sprite 道具背景框粉1;
+    public static Sprite 道具背景框红1;
+    public static Sprite 道具背景框彩1;
 
     //怪物背景框
     public static Sprite 小怪背景框;
@@ -1322,6 +1331,32 @@ public class ResourcesConfig : MonoBehaviour
                 return 道具背景框红;
             case QualityType.荒品:
                 return 道具背景框彩;
+        }
+
+        return null;
+    }
+    
+    
+    public static Sprite Get道具背景框Sprite1(QualityType propType)
+    {
+        switch (propType)
+        {
+            case QualityType.黄品:
+                return 道具背景框白1;
+            case QualityType.玄品:
+                return 道具背景框绿1;
+            case QualityType.地品:
+                return 道具背景框蓝1;
+            case QualityType.天品:
+                return 道具背景框紫1;
+            case QualityType.宇品:
+                return 道具背景框橙1;
+            case QualityType.宙品:
+                return 道具背景框粉1;
+            case QualityType.洪品:
+                return 道具背景框红1;
+            case QualityType.荒品:
+                return 道具背景框彩1;
         }
 
         return null;
@@ -3054,6 +3089,14 @@ public class ResourcesConfig : MonoBehaviour
         道具背景框红 = Resources.Load<Sprite>("Sprite/道具背景框/红");
         道具背景框彩 = Resources.Load<Sprite>("Sprite/道具背景框/彩");
 
+        道具背景框白1 = Resources.Load<Sprite>("Sprite/道具背景框/白4");
+        道具背景框绿1 = Resources.Load<Sprite>("Sprite/道具背景框/绿4");
+        道具背景框蓝1 = Resources.Load<Sprite>("Sprite/道具背景框/蓝4");
+        道具背景框紫1 = Resources.Load<Sprite>("Sprite/道具背景框/紫4");
+        道具背景框橙1 = Resources.Load<Sprite>("Sprite/道具背景框/橙4");
+        道具背景框粉1 = Resources.Load<Sprite>("Sprite/道具背景框/粉4");
+        道具背景框红1 = Resources.Load<Sprite>("Sprite/道具背景框/红4");
+        道具背景框彩1 = Resources.Load<Sprite>("Sprite/道具背景框/彩4");
 
         //怪物背景框
         小怪背景框 = Resources.Load<Sprite>("Sprite/怪物背景框/小怪背景框");

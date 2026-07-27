@@ -198,6 +198,7 @@ public class 英雄详情弹窗 : MonoBehaviour
     {
         if (HeroType != HeroType.None)
         {
+            Is法则 = false;
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
@@ -213,6 +214,8 @@ public class 英雄详情弹窗 : MonoBehaviour
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
+            法则button.gameObject.SetActive(false);
+            星级button.gameObject.SetActive(true);
         });
         星级button.onClick.AddListener(() =>
         {
@@ -220,6 +223,8 @@ public class 英雄详情弹窗 : MonoBehaviour
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
+            法则button.gameObject.SetActive(true);
+            星级button.gameObject.SetActive(false);
         });
         升级button.onClick.AddListener(() =>
         {
