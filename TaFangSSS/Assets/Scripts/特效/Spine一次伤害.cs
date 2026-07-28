@@ -73,7 +73,7 @@ public class Spine一次伤害 : MonoBehaviour
          {
             if (瑶池冰辅助)
             {
-               FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+               QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
             }
             if (黑暗辅助)
             {
@@ -83,7 +83,7 @@ public class Spine一次伤害 : MonoBehaviour
             {
                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
-            FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
+            QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
          }
       }
    }

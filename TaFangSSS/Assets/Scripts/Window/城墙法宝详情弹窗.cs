@@ -34,7 +34,20 @@ public class 城墙法宝详情弹窗 : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        var list = 城墙Config.城墙道具属性升级Info[城墙Config.城墙道具属性Dic[城墙道具Type]];
+        List<string> list = null;
+
+        if (城墙Config.城墙道具QualityDic[城墙道具Type] >= QualityType.宙品)
+        {
+            list = 城墙Config.城墙道具属性升级Info[城墙Config.城墙道具属性Dic[城墙道具Type]];
+        }else if (城墙Config.城墙道具QualityDic[城墙道具Type] == QualityType.宇品)
+        {
+            list = 城墙Config.橙色城墙道具升级Info;
+        }
+        else
+        {
+            list = 城墙Config.紫色城墙道具升级Info;
+        }
+        
         for (int i = 0; i <= 4; i++)
         {
             var item = Instantiate(Resources.Load("Prefabs/Window/城墙道具升级信息item"), 升级信息Content.transform)

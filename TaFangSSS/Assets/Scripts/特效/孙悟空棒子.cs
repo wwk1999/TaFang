@@ -31,7 +31,7 @@ public class 孙悟空棒子 : MonoBehaviour
          hit.gameObject.SetActive(true);
          if (瑶池冰辅助)
          {
-            FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
+            QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
          }
 
          float damage = 属性config.领主攻击力*英雄星级属性.孙悟空攻击数值/100f;
@@ -45,7 +45,7 @@ public class 孙悟空棒子 : MonoBehaviour
          {
             damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
          }
-         FightController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理);
+         QueueController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理);
       }
    }
 

@@ -53,16 +53,16 @@ public class 冰符动画脚本: MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
                 if (Type==攻击特效Type.冰符)
                 {
-                    FightController.S.MonsterColliderDic[col].冰符 = 2;
+                    QueueController.S.MonsterColliderDic[col].冰符 = 2;
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    FightController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
-                    FightController.S.MonsterColliderDic[col].灼烧time = 3f;
+                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
+                    QueueController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
                 if (黑暗辅助)
@@ -74,7 +74,7 @@ public class 冰符动画脚本: MonoBehaviour
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
             }
         }
     }
@@ -97,16 +97,16 @@ public class 冰符动画脚本: MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
                 if (Type==攻击特效Type.冰符)
                 {
-                    FightController.S.MonsterColliderDic[col].冰符 = 2;
+                    QueueController.S.MonsterColliderDic[col].冰符 = 2;
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    FightController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
-                    FightController.S.MonsterColliderDic[col].灼烧time = 3f;
+                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
+                    QueueController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
                 if (黑暗辅助)
@@ -118,7 +118,7 @@ public class 冰符动画脚本: MonoBehaviour
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
             }
         }
     }
@@ -141,16 +141,16 @@ public class 冰符动画脚本: MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
                 if (Type==攻击特效Type.冰符)
                 {
-                    FightController.S.MonsterColliderDic[col].冰符 = 2;
+                    QueueController.S.MonsterColliderDic[col].冰符 = 2;
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    FightController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
-                    FightController.S.MonsterColliderDic[col].灼烧time = 3f;
+                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
+                    QueueController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
                 if (黑暗辅助)
@@ -162,7 +162,7 @@ public class 冰符动画脚本: MonoBehaviour
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
             }
         }
     }

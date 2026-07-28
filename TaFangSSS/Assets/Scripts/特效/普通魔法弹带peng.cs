@@ -63,7 +63,7 @@ public class 普通魔法弹带peng : MonoBehaviour
          {
             damage*=(1+英雄星级属性.女娲辅助伤害/100f);
          }
-         FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
+         QueueController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
          hit.gameObject.SetActive(true);
          if (!穿透)
          {
@@ -71,11 +71,11 @@ public class 普通魔法弹带peng : MonoBehaviour
          }
          if (瑶池冰辅助)
          {
-            FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;//持续2s
+            QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;//持续2s
          }
          if (Type == 攻击特效Type.黑暗魔法弹)
          {
-            FightController.S.MonsterColliderDic[other].transform.position = new Vector3(FightController.S.MonsterColliderDic[other].transform.position.x+英雄星级属性.土地击退距离,FightController.S.MonsterColliderDic[other].transform.position.y,FightController.S.MonsterColliderDic[other].transform.position.z);
+            QueueController.S.MonsterColliderDic[other].transform.position = new Vector3(QueueController.S.MonsterColliderDic[other].transform.position.x+英雄星级属性.土地击退距离,QueueController.S.MonsterColliderDic[other].transform.position.y,QueueController.S.MonsterColliderDic[other].transform.position.z);
          }
       }
    }

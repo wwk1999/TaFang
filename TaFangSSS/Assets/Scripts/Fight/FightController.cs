@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public int 城墙当前生命值 =城墙Config.Get城墙最大生命值();
     [NonSerialized] public float CreateMonsterTime = 1f;
     [NonSerialized] public float 当前创建普通怪物时间 = 0;
     private int NormalMonsterCount = 0;
@@ -30,7 +31,6 @@ public class FightController : XSingleton<FightController>
         { 6, new HashSet<MonsterBase>() },
         { 7, new HashSet<MonsterBase>() },
     };
-    [NonSerialized]public Dictionary<Collider2D,MonsterBase>MonsterColliderDic = new Dictionary<Collider2D,MonsterBase>();
 
    
     
@@ -677,7 +677,6 @@ public class FightController : XSingleton<FightController>
         int random=Random.Range(0,2);
         monster.MonsterTypeName = list[random];
         monster.gameObject.SetActive(true);
-        MonsterColliderDic[monster.Collider2D] = monster;
     }
     
     public void CreateEliteMonster()
@@ -689,7 +688,6 @@ public class FightController : XSingleton<FightController>
         List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         monster.MonsterTypeName = list[2];
         monster.gameObject.SetActive(true);
-        MonsterColliderDic[monster.Collider2D] = monster;
     }
     
     public void CreateBossMonster()
@@ -701,7 +699,6 @@ public class FightController : XSingleton<FightController>
         List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         monster.MonsterTypeName = list[3];
         monster.gameObject.SetActive(true);
-        MonsterColliderDic[monster.Collider2D] = monster;
     }
 
     private void Update()

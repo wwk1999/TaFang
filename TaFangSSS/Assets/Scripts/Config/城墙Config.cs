@@ -787,4 +787,105 @@ public class 城墙Config
         { QualityType.宇品,0.3f},
         { QualityType.天品,0.1f},
     };
+
+    public static int Get城墙最大生命值()
+    {
+        int value = Get城墙基础血量();
+        float count = 0;
+        foreach (var item in PlayerData.S.城墙道具等级Dic)
+        {
+            count += 城墙道具升级奖励Dic[城墙道具QualityDic[item.Key]] * item.Value;
+        }
+
+        foreach (var item in PlayerData.S.当前装备城墙道具Dic)
+        {
+            if (城墙道具QualityDic[item.Value] == QualityType.天品)
+            {
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[0])
+                {
+                    count += 紫橙色道具升级奖励List[0];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[1])
+                {
+                    count += 紫橙色道具升级奖励List[1];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[2])
+                {
+                    count += 紫橙色道具升级奖励List[2];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[3])
+                {
+                    count += 紫橙色道具升级奖励List[3];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[4])
+                {
+                    count += 紫橙色道具升级奖励List[4];
+                }
+            }
+        }
+
+        return (int)(value * (1 + count));
+    }
+    
+    public static int Get防御最大生命值()
+    {
+        int value = Get城墙基础防御();
+        float count = 0;
+
+        foreach (var item in PlayerData.S.当前装备城墙道具Dic)
+        {
+            if (城墙道具QualityDic[item.Value] == QualityType.宇品)
+            {
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[0])
+                {
+                    count += 紫橙色道具升级奖励List[0];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[1])
+                {
+                    count += 紫橙色道具升级奖励List[1];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[2])
+                {
+                    count += 紫橙色道具升级奖励List[2];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[3])
+                {
+                    count += 紫橙色道具升级奖励List[3];
+                }
+                if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[4])
+                {
+                    count += 紫橙色道具升级奖励List[4];
+                }
+            }
+        }
+
+        return (int)(value * (1 + count));
+    }
+
+    public static List<float> 紫橙色道具升级奖励List = new List<float>()
+    {
+        0.5f,
+        1f,
+        2f,
+        3f,
+        5f,
+    };
+
+    public static List<string> 紫色城墙道具升级Info = new List<string>()
+    {
+        { $"城墙最大生命值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[0], 1)}" },
+        { $"城墙最大生命值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[1], 1)}" },
+        { $"城墙最大生命值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[2], 1)}" },
+        { $"城墙最大生命值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[3], 1)}" },
+        { $"城墙最大生命值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[4], 1)}" },
+    };
+    
+    public static List<string> 橙色城墙道具升级Info = new List<string>()
+    {
+        { $"城墙防御值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[0], 1)}" },
+        { $"城墙防御值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[1], 1)}" },
+        { $"城墙防御值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[2], 1)}" },
+        { $"城墙防御值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[3], 1)}" },
+        { $"城墙防御值增加{HeroConfig.Get技能伤害string(紫橙色道具升级奖励List[4], 1)}" },
+    };
 }

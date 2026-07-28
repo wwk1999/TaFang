@@ -53,7 +53,7 @@ public class 人物item : MonoBehaviour
     {
         if(other.CompareTag("Monster"))
         {
-            攻击范围内怪物.Add(FightController.S.MonsterColliderDic[other]);
+            攻击范围内怪物.Add(QueueController.S.MonsterColliderDic[other]);
         }
     }
 

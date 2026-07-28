@@ -16,6 +16,7 @@ public class ToastItem : MonoBehaviour
 
    private void Start()
    {
+      CancelInvoke();
       Invoke(nameof(Destroy1), 5f);
    }
 

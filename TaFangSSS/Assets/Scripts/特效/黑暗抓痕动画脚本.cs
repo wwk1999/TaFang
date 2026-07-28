@@ -38,7 +38,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
 
                 float damage = 属性config.领主攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
@@ -47,7 +47,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                     damage *= (1+英雄星级属性.妲己效果/100f);
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
             }
         }
     }
@@ -70,7 +70,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
 
                 float damage = 属性config.领主攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
@@ -83,7 +83,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
-                FightController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
             }
         }
     }

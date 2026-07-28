@@ -13,6 +13,12 @@ public class Toast : MonoBehaviour
       toastItem.Content = content;
       toastItem.SetItem();
    }
+
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("SendUIToast",SendUIToast);
+   }
+
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("SendUIToast",SendUIToast);

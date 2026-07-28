@@ -30,12 +30,12 @@ public class 火球 : MonoBehaviour
             {
                 damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
-            FightController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType);
             hit.gameObject.SetActive(true);
             
             if (瑶池冰辅助)
             {
-                FightController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;//持续2s
+                QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;//持续2s
             }
            
         }

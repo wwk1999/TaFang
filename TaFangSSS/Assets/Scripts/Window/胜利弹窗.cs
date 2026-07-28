@@ -12,6 +12,13 @@ public class 胜利弹窗 : MonoBehaviour
     public Button AgainButtn;
     public Button ExitButtn;
 
+    public void 清空怪物()
+    {
+        foreach (var item in QueueController.S.MonsterColliderDic)
+        {
+            item.Value.gameObject.SetActive(false);
+        }
+    }
     private void Start()
     {
         ExitButtn.onClick.AddListener(() =>

@@ -2,14 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entrance : MonoBehaviour
 {
    public GameObject 人物Parent;
    public Animator 围栏Animator;
+   public Slider 血条Slider;
+   public TextMeshProUGUI 当前血量;
+   public TextMeshProUGUI 最大血量;
 
+   public void Set血条()
+   {
+       当前血量.text=FightController.S.城墙当前生命值.ToString(); 
+       最大血量.text= 城墙Config.Get城墙最大生命值().ToString();
+       血条Slider.maxValue = 城墙Config.Get城墙最大生命值();
+       血条Slider.value = FightController.S.城墙当前生命值;  
+   }
    public void 围栏受击(object[] obj)
    {
       if (围栏Animator == null)
@@ -20,8 +32,21 @@ public class Entrance : MonoBehaviour
       float y=(float)obj[1];
       围栏Animator.Play("围栏受击",0,0);
       FightController.S.Show伤害数字(damage,YuanSuType.物理,new Vector2(-5,y));
+      FightController.S.城墙当前生命值 -= (int)damage;
+      Set血条();
+      if (FightController.S.城墙当前生命值 <= 0)
+      {
+          FightController.S.战斗结束 = true;
+          StartCoroutine(DelayShow失败弹窗());
+      }
    }
 
+   public IEnumerator DelayShow失败弹窗()
+   {
+       yield return new WaitForSecondsRealtime(1f);
+       Time.timeScale = 0;
+       Instantiate(Resources.Load("Prefabs/Window/失败弹窗"));
+   }
    private void OnDestroy()
    {
       ObserverModuleManager.S.UnRegisterEvent("围栏受击",围栏受击);
@@ -116,5 +141,7 @@ public class Entrance : MonoBehaviour
    private void Awake()
    {
       InitRenWu();
+      Set血条();
+      Canvas.ForceUpdateCanvases();
    }
 }

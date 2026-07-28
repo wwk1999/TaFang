@@ -61,7 +61,8 @@ public class QueueController:XSingleton<QueueController>
     
     [NonSerialized] public Queue<循环伤害技能> 冰旋风Queue = new Queue<循环伤害技能>();
     [NonSerialized] public Queue<Spine一次伤害> 陨石Queue = new Queue<Spine一次伤害>();
-    
+    [NonSerialized]public Dictionary<Collider2D,MonsterBase>MonsterColliderDic = new Dictionary<Collider2D,MonsterBase>();
+
     protected override void Awake()
     {
         Application.targetFrameRate = 30;
@@ -238,6 +239,7 @@ public class QueueController:XSingleton<QueueController>
              var 普通怪 = Instantiate(Resources.Load("Prefabs/Fight/普通怪物Item"),transform).GetComponent<普通怪>();
              普通怪.gameObject.SetActive(false);
              普通怪Queue.Enqueue(普通怪);
+             MonsterColliderDic[普通怪.Collider2D] = 普通怪;
              count++;
              if (count % fream == 0)
              {
@@ -278,9 +280,14 @@ public class QueueController:XSingleton<QueueController>
         }
         for (int i = 0; i < 精英怪数量; i++)
         {
+            if (精英怪Queue.Count > 精英怪数量)
+            {
+                break;
+            }
             var 精英怪 = Instantiate(Resources.Load("Prefabs/Fight/精英怪物Item"),transform).GetComponent<精英怪>();
             精英怪.gameObject.SetActive(false);
             精英怪Queue.Enqueue(精英怪);
+            MonsterColliderDic[精英怪.Collider2D] = 精英怪;
             count++;
             if (count % fream == 0)
             {
@@ -290,17 +297,29 @@ public class QueueController:XSingleton<QueueController>
 
         for (int i = 0; i < 5; i++)
         {
-            var 精英怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/精英怪死亡"),transform).GetComponent<Spine纯显示一次>();
+            if (精英怪死亡Queue.Count > 5)
+            {
+                break;
+            }
+            var 精英怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/精英怪死亡"), transform).GetComponent<Spine纯显示一次>();
             精英怪死亡.gameObject.SetActive(false);
             精英怪死亡Queue.Enqueue(精英怪死亡);
-            
-            var 首领怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/首领怪死亡"),transform).GetComponent<Spine纯显示一次>();
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (首领怪Queue.Count > 5)
+            {
+                break;
+            }
+        var 首领怪死亡 = Instantiate(Resources.Load("Prefabs/特效/怪物死亡特效/首领怪死亡"),transform).GetComponent<Spine纯显示一次>();
             首领怪死亡.gameObject.SetActive(false);
             首领怪死亡Queue.Enqueue(首领怪死亡);
             
             var 首领怪 = Instantiate(Resources.Load("Prefabs/Fight/首领怪物Item"),transform).GetComponent<首领怪>();
             首领怪.gameObject.SetActive(false);
             首领怪Queue.Enqueue(首领怪);
+            MonsterColliderDic[首领怪.Collider2D] = 首领怪;
             count++;
             if (count % fream == 0)
             {

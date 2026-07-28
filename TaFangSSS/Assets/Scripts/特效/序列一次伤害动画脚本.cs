@@ -62,16 +62,16 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    FightController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
 
                 if (type == 攻击特效Type.龟丞相技能)
                 {
-                    FightController.S.MonsterColliderDic[col].龟丞相减速 = 2;
+                    QueueController.S.MonsterColliderDic[col].龟丞相减速 = 2;
                 }
                 if (type == 攻击特效Type.黑暗符)
                 {
-                    FightController.S.MonsterColliderDic[col].Set黑暗符(英雄星级属性.琼霄定身时长);
+                    QueueController.S.MonsterColliderDic[col].Set黑暗符(英雄星级属性.琼霄定身时长);
                 }
 
                 if (黑暗辅助)
@@ -82,7 +82,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 {
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
-               FightController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
             }
         }
     }
