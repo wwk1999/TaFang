@@ -11,9 +11,21 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
-    [NonSerialized] public int 城墙当前生命值 =城墙Config.Get城墙最大生命值();
+    [NonSerialized]public float 免疫护盾间隔时间 = 0;
+    [NonSerialized]public int 免疫护盾次数 = 0;
+    [NonSerialized]public float 每段时间护盾间隔时间 = 0;
+    [NonSerialized]public float 城墙护盾值 = 城墙Config.开局护盾值/100f*城墙Config.Get城墙最大生命值();
+    [NonSerialized] public float 当前冰冻间隔 = 0;
+    [NonSerialized] public int 涅槃次数 = 城墙Config.涅槃次数;
+    [NonSerialized] public float 城墙无敌Time = 0;
+    [NonSerialized] public float 每秒回血Time = 0;
+    [NonSerialized] public float 无敌间隔Time = 0;
+    [NonSerialized] public float 城墙当前生命值 =城墙Config.Get城墙最大生命值();
+    [NonSerialized] public HashSet<MonsterBase>当前怪物Set = new HashSet<MonsterBase>();
     [NonSerialized] public float CreateMonsterTime = 1f;
     [NonSerialized] public float 当前创建普通怪物时间 = 0;
+    [NonSerialized] public float 总杀怪增伤 = 0;
+
     private int NormalMonsterCount = 0;
     public int EliteMonsterCount = 0;
     [NonSerialized]public int KillMonsterCount = 0;
@@ -36,6 +48,42 @@ public class FightController : XSingleton<FightController>
     
     private void Start()
     {
+    }
+
+    public float Get护盾Left()
+    {
+        float 血量value = 城墙当前生命值 / 城墙Config.Get城墙最大生命值();
+        float 护盾比例=城墙护盾值/城墙Config.Get城墙最大生命值();
+        if (护盾比例 >= 1)
+        {
+            return 0;
+        }
+        else if(血量value+护盾比例<=1)
+        {
+            return 144.6f * 血量value;
+        }
+        else
+        {
+            return 144.6f *(1f-护盾比例);
+        }
+    }
+    
+    public float Get护盾Right()
+    {
+        float 血量value = 城墙当前生命值 / 城墙Config.Get城墙最大生命值();
+        float 护盾比例=城墙护盾值/城墙Config.Get城墙最大生命值();
+        if (护盾比例 >= 1)
+        {
+            return 0;
+        }
+        else if(血量value+护盾比例<=1)
+        {
+            return 144.6f * (1-血量value-护盾比例);
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public MonsterBase GetAttackMonster()
@@ -672,6 +720,7 @@ public class FightController : XSingleton<FightController>
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.普通怪Queue.Dequeue();
+        当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
         List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         int random=Random.Range(0,2);
@@ -684,6 +733,7 @@ public class FightController : XSingleton<FightController>
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.精英怪Queue.Dequeue();
+        当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
         List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         monster.MonsterTypeName = list[2];
@@ -695,15 +745,80 @@ public class FightController : XSingleton<FightController>
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.首领怪Queue.Dequeue();
+        当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
         List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
         monster.MonsterTypeName = list[3];
         monster.gameObject.SetActive(true);
     }
 
+    public void 冰冻所有怪物()
+    {
+        foreach (var item in 当前怪物Set)
+        {
+            item.冰冻time = 城墙Config.冰冻时间;
+        }
+    }
     private void Update()
     {
+        免疫护盾间隔时间 += Time.deltaTime;
+        每段时间护盾间隔时间 += Time.deltaTime;
+        无敌间隔Time+=Time.deltaTime;
+        每秒回血Time+=Time.deltaTime;
+        城墙无敌Time-=Time.deltaTime;
         当前创建普通怪物时间+=Time.deltaTime;
+        当前冰冻间隔+=Time.deltaTime;
+        if (免疫护盾间隔时间 > 城墙Config.免疫护盾间隔时间)
+        {
+            免疫护盾间隔时间 = 0;
+            免疫护盾次数++;
+        }
+        if (每秒回血Time > 1)
+        {
+            每秒回血Time = 0;
+            int 回血值 = (int)(城墙Config.每秒回血值/ 100f * 城墙Config.Get城墙最大生命值()) ;
+            int value = (int)(城墙Config.Get城墙最大生命值() - 城墙当前生命值);
+            if (value == 0)
+            {
+                return;
+            }
+            int 真实回血值 = 0;
+            if (value > 回血值)
+            {
+                真实回血值 = 回血值;
+            }
+            else
+            {
+                真实回血值 = value;
+            }
+            Show伤害数字(真实回血值,YuanSuType.None,new Vector2(-5,0),true);
+            城墙当前生命值 += 真实回血值;
+            城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), 城墙当前生命值);
+            ObserverModuleManager.S.SendEvent("设置护盾");
+        }
+        if (每段时间护盾间隔时间 > 城墙Config.护盾间隔时间)
+        {
+            每段时间护盾间隔时间 = 0;
+            城墙护盾值 += (int)(城墙Config.Get城墙最大生命值() * 城墙Config.每段时间护盾值 / 100f);
+            ObserverModuleManager.S.SendEvent("设置护盾");
+        }
+        if (无敌间隔Time > 城墙Config.无敌间隔时间)
+        {
+            无敌间隔Time = 0;
+            if (城墙无敌Time > 0)
+            {
+                城墙无敌Time += 城墙Config.无敌时间;
+            }
+            else
+            {
+                城墙无敌Time = 城墙Config.无敌时间;
+            }
+        }
+        if (当前冰冻间隔 >= 城墙Config.冰冻间隔)
+        {
+            当前冰冻间隔 = 0;
+            冰冻所有怪物();
+        }
         var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].CreateNormalMonsterTime;
         var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
         var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
@@ -715,10 +830,11 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void Show伤害数字(float 最终伤害, YuanSuType yuanSuType,Vector2 pos)
+    public void Show伤害数字(float 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false)
     {
         var item=QueueController.S.伤害数字Queue.Dequeue();
         item.damage = (int)最终伤害;
+        item.is回血 = is回血;
         item.YuanSuType = yuanSuType;
         item.transform.position = pos;
         item.gameObject.SetActive(true);

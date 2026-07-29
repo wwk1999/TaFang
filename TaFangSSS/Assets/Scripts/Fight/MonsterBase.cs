@@ -9,12 +9,14 @@ using Random = UnityEngine.Random;
 
 public class MonsterBase : MonoBehaviour
 {
+   public SpriteRenderer 冰块;
    public GameObject 灼烧obj;
    public SpriteRenderer 灼烧image;
    [NonSerialized]public float 灼烧time = 0;
    [NonSerialized]public float 灼烧伤害=0;
    [NonSerialized]public float 灼烧间隔 = 1;
    [NonSerialized]public float 灼烧当前时间 = 0;
+   [NonSerialized]public float 冰冻time = 0;
 
    public SpriteRenderer bg;
    public Canvas HpCanvas;
@@ -72,6 +74,11 @@ public class MonsterBase : MonoBehaviour
       {
          value *= (1-英雄星级属性.龟丞相减速效果/100f);
       }
+
+      if (transform.position.x < 城墙Config.泥沼减速距离)
+      {
+         value*=(1-城墙Config.泥沼减速效果/100f);
+      }
       return value;
    }
    private void OnEnable()
@@ -88,6 +95,7 @@ public class MonsterBase : MonoBehaviour
       bg.sortingOrder = (int)(transform.position.y * -100);
       HpCanvas.sortingOrder = (int)(transform.position.y * -100)+3;
       灼烧image.sortingOrder = (int)(transform.position.y * -100)+2;
+      冰块.sortingOrder = (int)(transform.position.y * -100)+2;
       MonsterSlider.gameObject.SetActive(false);
       CurrentHP = MonsterAttribute.Hp;
       image.sprite = ResourcesConfig.GetMonsterSprite(MonsterTypeName);
@@ -122,6 +130,16 @@ public class MonsterBase : MonoBehaviour
       MonsterSlider.gameObject.SetActive(true);
       受击Animation.Play("怪物受击",0,0f);
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
+      最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
+      float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
+      if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
+      {
+         最终Damage *= (1 +  城墙Config.低血量增伤值/ 100f);
+      }
+      if (城墙血量比例 > 城墙Config.高血量增伤血量值/100f)
+      {
+         最终Damage *= (1 +  城墙Config.高血量增伤值/ 100f);
+      }
       float 抗性 = 0;
       switch (yuanSuType)
       {
@@ -159,11 +177,13 @@ public class MonsterBase : MonoBehaviour
    {
       灼烧time-=Time.deltaTime;
       灼烧当前时间+=Time.deltaTime;
+      冰冻time-=Time.deltaTime;
       冰符-=Time.deltaTime;
       瑶池冰辅助-=Time.deltaTime;
       龟丞相减速-=Time.deltaTime;
       黑暗符-=Time.deltaTime;
       灼烧obj.gameObject.SetActive(灼烧time>0);
+      冰块.gameObject.SetActive(冰冻time>0);
       if (灼烧time > 0 && 灼烧当前时间 > 灼烧间隔)
       {
          灼烧当前时间 = 0;
@@ -186,14 +206,14 @@ public class MonsterBase : MonoBehaviour
 
       if (transform.position.x > 城墙最近距离)
       {
-         if (黑暗符 <= 0)
+         if (黑暗符 <= 0&&冰冻time<0)
          {
             transform.position=new Vector3(transform.position.x-RealSpeed*Time.deltaTime,transform.position.y,transform.position.z);
          }
       }
       else
       {
-         if (CurrentAttackTime > 1f&&黑暗符 <= 0)
+         if (CurrentAttackTime > 1f&&黑暗符 <= 0&&冰冻time<=0)
          {
             怪物攻击();
             CurrentAttackTime = Random.Range(0f,0.3f);
@@ -229,6 +249,13 @@ public class MonsterBase : MonoBehaviour
          return;
       }
       isDead = true;
+      FightController.S.总杀怪增伤 += 城墙Config.杀怪增伤数值;
+      if (城墙Config.杀怪回血数值 > 0)
+      {
+         int value = (int)(城墙Config.杀怪回血数值 / 100f * 城墙Config.Get城墙最大生命值());
+         FightController.S.城墙当前生命值=Math.Min(城墙Config.Get城墙最大生命值(),FightController.S.城墙当前生命值+value);
+         FightController.S.Show伤害数字(value,YuanSuType.None,new Vector2(-5,0),true);
+      }
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;
       int 小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
@@ -276,6 +303,7 @@ public class MonsterBase : MonoBehaviour
             QueueController.S.首领怪Queue.Enqueue(this as 首领怪);
             break;
       }
+      FightController.S.当前怪物Set.Remove(this);
       if (FightController.S.Monster分区Dic[1].Contains(this))
       {
          FightController.S.Monster分区Dic[1].Remove(this);

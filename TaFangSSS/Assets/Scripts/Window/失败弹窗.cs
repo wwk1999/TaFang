@@ -15,6 +15,7 @@ public class 失败弹窗 : MonoBehaviour
         {
             item.Value.gameObject.SetActive(false);
         }
+        FightController.S.当前怪物Set.Clear();
     }
     private void Start()
     {

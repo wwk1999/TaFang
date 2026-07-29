@@ -14,48 +14,104 @@ public class Entrance : MonoBehaviour
    public Slider 血条Slider;
    public TextMeshProUGUI 当前血量;
    public TextMeshProUGUI 最大血量;
+   public RectTransform 护盾;
 
    public void Set血条()
    {
        当前血量.text=FightController.S.城墙当前生命值.ToString(); 
        最大血量.text= 城墙Config.Get城墙最大生命值().ToString();
        血条Slider.maxValue = 城墙Config.Get城墙最大生命值();
-       血条Slider.value = FightController.S.城墙当前生命值;  
+       血条Slider.value = FightController.S.城墙当前生命值;
+       护盾.offsetMin = new Vector2(FightController.S.Get护盾Left(),护盾.offsetMin.y);
+       护盾.offsetMax = new Vector2(-FightController.S.Get护盾Right(),护盾.offsetMax.y);
    }
    public void 围栏受击(object[] obj)
    {
+       if (FightController.S.城墙无敌Time > 0)
+       {
+           return;
+       }
+
+       if (FightController.S.免疫护盾次数 > 0)
+       {
+           FightController.S.免疫护盾次数--;
+           return;
+       }
       if (围栏Animator == null)
       {
          围栏Animator =GameObject.Find("围栏").GetComponent<Animator>();
       }
       float damage = (float)obj[0];
+      damage -=城墙Config.Get城墙防御();
+      float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
+      if (城墙血量比例 < 城墙Config.Get低血量伤害减免血量值()/ 100f)
+      {
+          damage *= (1f - 城墙Config.低血量伤害减免值 / 100f);
+      }
+      if (城墙血量比例 > 城墙Config.Get高血量伤害减免血量值()/ 100f)
+      {
+          damage *= (1f - 城墙Config.高血量伤害减免值 / 100f);
+      }
+      damage *= (1f - 城墙Config.伤害减免 / 100f);
+      damage=Math.Max(damage,0);
       float y=(float)obj[1];
       围栏Animator.Play("围栏受击",0,0);
       FightController.S.Show伤害数字(damage,YuanSuType.物理,new Vector2(-5,y));
-      FightController.S.城墙当前生命值 -= (int)damage;
-      Set血条();
+      if (FightController.S.城墙护盾值 >= damage)
+      {
+          FightController.S.城墙护盾值 -= (int)damage;
+      }
+      else
+      {
+          FightController.S.城墙当前生命值 -= (int)damage - FightController.S.城墙护盾值;
+          FightController.S.城墙护盾值 = 0;
+      }
       if (FightController.S.城墙当前生命值 <= 0)
       {
-          FightController.S.战斗结束 = true;
-          StartCoroutine(DelayShow失败弹窗());
+          if (FightController.S.涅槃次数 > 0)
+          {
+              FightController.S.涅槃次数--;
+              FightController.S.城墙当前生命值 = (int)(城墙Config.Get城墙最大生命值() * (城墙Config.涅槃血量 / 100f));
+              if (FightController.S.城墙无敌Time > 0)
+              {
+                  FightController.S.城墙无敌Time += 城墙Config.涅槃无敌时间;
+              }
+              else
+              {
+                  FightController.S.城墙无敌Time = 城墙Config.涅槃无敌时间;
+              }
+          }
+          else
+          {
+              Time.timeScale = 0;
+              FightController.S.战斗结束 = true;
+              StartCoroutine(DelayShow失败弹窗());
+          }  
       }
+      Set血条();
    }
 
    public IEnumerator DelayShow失败弹窗()
    {
-       yield return new WaitForSecondsRealtime(1f);
-       Time.timeScale = 0;
+       yield return new WaitForSecondsRealtime(0.5f);
        Instantiate(Resources.Load("Prefabs/Window/失败弹窗"));
+   }
+
+   public void 设置护盾(object[] obj)
+   {
+       Set血条();
    }
    private void OnDestroy()
    {
       ObserverModuleManager.S.UnRegisterEvent("围栏受击",围栏受击);
-   }
+      ObserverModuleManager.S.UnRegisterEvent("设置护盾",设置护盾);
+   }  
 
    private void Start()
    {
       Application.targetFrameRate = 30;
       ObserverModuleManager.S.RegisterEvent("围栏受击",围栏受击);
+      ObserverModuleManager.S.RegisterEvent("设置护盾",设置护盾);
       地图Type type = Get地图Type();
       ObserverModuleManager.S.SendEvent("设置地图",type);
    }

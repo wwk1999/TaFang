@@ -154,6 +154,12 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.城墙道具等级Dic[城墙道具Type.大道本源]++;
             PlayerData.S.城墙道具等级Dic[城墙道具Type.不灭玄石]++;
             PlayerData.S.城墙道具等级Dic[城墙道具Type.九曲黄河阵]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.混沌磐石]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.鸿蒙灵根]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.轮回印记]++;
+            PlayerData.S.城墙道具等级Dic[城墙道具Type.不朽魂晶]++;
+
+
         });
         道宝Button.onClick.AddListener(() =>
         {

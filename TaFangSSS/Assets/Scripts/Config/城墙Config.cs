@@ -68,6 +68,591 @@ public class 寻宝城墙道具item
 }
 public class 城墙Config
 {
+    public static int Get当前装备城墙道具等级(城墙道具Type Type)
+    {
+        foreach (var item in PlayerData.S.当前装备城墙道具Dic)
+        {
+            if (item.Value == Type)
+            {
+                return PlayerData.S.城墙道具等级Dic[Type];
+            }
+        }
+
+        return 0;
+    }
+
+    public static int 涅槃次数 => Get涅槃次数();
+
+    public static int Get涅槃次数()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.涅槃]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[2])
+        {
+            return 1;
+        }else if (level < 城墙道具升级List[4])
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
+    }
+    
+    public static int 涅槃无敌时间 => Get涅槃无敌时间();
+
+    public static int Get涅槃无敌时间()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.涅槃]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 2;
+        }else 
+        {
+            return 3;
+        }
+    }
+    
+    public static int 涅槃血量 => Get涅槃血量();
+
+    public static int Get涅槃血量()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.涅槃]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 30;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 50;
+        }else 
+        {
+            return 80;
+        }
+    }
+    
+    public static float 泥沼减速距离 => Get泥沼减速距离();
+
+    public static float Get泥沼减速距离()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.泥沼]);
+        if (level == 0)
+        {
+            return -5f;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return -1;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 0;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 1;
+        }else 
+        {
+            return 3;
+        }
+    }
+    
+    public static float 泥沼减速效果 => Get泥沼减速效果();
+
+    public static float Get泥沼减速效果()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.泥沼]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 30;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 40;
+        }else 
+        {
+            return 50;
+        }
+    }
+    
+    public static float 冰冻间隔 => Get冰冻间隔();
+
+    public static float Get冰冻间隔()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.冰冻]);
+        if (level == 0)
+        {
+            return int.MaxValue;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 10;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 8;
+        }else 
+        {
+            return 6;
+        }
+    }
+    public static float 冰冻时间 => Get冰冻时间();
+
+    public static float Get冰冻时间()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.冰冻]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 1f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 1.3f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 1.6f;
+        }else 
+        {
+            return 2f;
+        }
+    }
+    
+    
+    public static float 杀怪回血数值 => Get杀怪回血数值();
+
+    public static float Get杀怪回血数值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.杀怪回血]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 1f;
+        }if (level < 城墙道具升级List[1])
+        {
+            return 1.1f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 1.25f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 1.45f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 1.8f;
+        }else 
+        {
+            return 2.2f;
+        }
+    }
+    
+    public static float 杀怪增伤数值 => Get杀怪增伤数值();
+
+    public static float Get杀怪增伤数值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.杀怪增伤]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 0.5f;
+        }if (level < 城墙道具升级List[1])
+        {
+            return 0.55f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 0.65f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 0.75f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 0.9f;
+        }else 
+        {
+            return 1.1f;
+        }
+    }
+    
+    public static float 无敌时间 => Get无敌时间();
+
+    public static float Get无敌时间()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.无敌]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 1f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 1.2f;
+        }else 
+        {
+            return 1.5f;
+        }
+    }
+    
+    public static float 无敌间隔时间 => Get无敌间隔时间();
+
+    public static float Get无敌间隔时间()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.无敌]);
+        if (level == 0)
+        {
+            return int.MaxValue;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 10f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 9f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 8f;
+        }else 
+        {
+            return 7f;
+        }
+    }
+    
+    public static float 伤害减免 => Get伤害减免();
+
+    public static float Get伤害减免()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.伤害减免]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 20f;
+        }if (level < 城墙道具升级List[1])
+        {
+            return 22f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 25f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 28f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 33f;
+        }else 
+        {
+            return 40f;
+        }
+    }
+    
+    public static float 护盾间隔时间 => Get护盾间隔时间();
+
+    public static float Get护盾间隔时间()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.每段时间护盾]);
+        if (level == 0)
+        {
+            return int.MaxValue;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 10f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 8f;
+        }else 
+        {
+            return 6f;
+        }
+    }
+    
+    public static float 每段时间护盾值 => Get每段时间护盾值();
+
+    public static float Get每段时间护盾值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.每段时间护盾]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 10f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 11f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 12.5f;
+        }else 
+        {
+            return 15f;
+        }
+    }
+    
+    public static float 低血量增伤血量值 => Get低血量增伤血量值();
+
+    public static float Get低血量增伤血量值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.低血量增伤]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 30f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 35f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 40f;
+        }else 
+        {
+            return 50f;
+        }
+    }
+    
+    public static float 低血量增伤值 => Get低血量增伤值();
+
+    public static float Get低血量增伤值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.低血量增伤]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 30f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 40;
+        }else 
+        {
+            return 50f;
+        }
+    }
+    
+    public static float Get低血量伤害减免血量值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.低血量伤害减免]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 30f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 35f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 40f;
+        }else 
+        {
+            return 50f;
+        }
+    }
+    
+    public static float 低血量伤害减免值 => Get低血量伤害减免值();
+
+    public static float Get低血量伤害减免值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.低血量伤害减免]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 25;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 30;
+        }else 
+        {
+            return 40f;
+        }
+    }
+    
+    public static float 高血量伤害减免值 => Get高血量伤害减免值();
+
+    public static float Get高血量伤害减免值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.高血量伤害减免]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 25;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 30;
+        }else 
+        {
+            return 40f;
+        }
+    }
+    
+    public static float Get高血量伤害减免血量值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.高血量伤害减免]);
+        if (level == 0)
+        {
+            return 1000;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 70f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 65f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 60f;
+        }else 
+        {
+            return 50f;
+        }
+    }
+    
+    
+    public static float 高血量增伤血量值 => Get高血量增伤血量值();
+
+    public static float Get高血量增伤血量值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.高血量增伤]);
+        if (level == 0)
+        {
+            return 1000;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 70f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 65f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 60f;
+        }else 
+        {
+            return 50f;
+        }
+    }
+    
+    public static float 高血量增伤值 => Get高血量增伤值();
+
+    public static float Get高血量增伤值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.高血量增伤]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[1])
+        {
+            return 30f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 40;
+        }else 
+        {
+            return 50f;
+        }
+    }
+    
+    public static float 每秒回血值 => Get每秒回血值();
+
+    public static float Get每秒回血值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.每秒回血]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 0.5f;
+        }if (level < 城墙道具升级List[1])
+        {
+            return 0.6f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 0.8f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 1.1f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 1.5f;
+        }else 
+        {
+            return 2f;
+        }
+    }
+    
+    public static float 免疫护盾间隔时间 => Get免疫护盾间隔时间();
+
+    public static float Get免疫护盾间隔时间()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.免疫护盾]);
+        if (level == 0)
+        {
+            return int.MaxValue;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 5f;
+        }if (level < 城墙道具升级List[1])
+        {
+            return 4.5f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 4f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 3.5f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 3f;
+        }else 
+        {
+            return 2.5f;
+        }
+    }
+    
+    public static float 开局护盾值 => Get开局护盾值();
+
+    public static float Get开局护盾值()
+    {
+        int level = Get当前装备城墙道具等级(城墙道具属性ToDic[城墙道具属性Type.开局护盾]);
+        if (level == 0)
+        {
+            return 0;
+        }else if (level < 城墙道具升级List[0])
+        {
+            return 30f;
+        }if (level < 城墙道具升级List[1])
+        {
+            return 35f;
+        }if (level < 城墙道具升级List[2])
+        {
+            return 40f;
+        }if (level < 城墙道具升级List[3])
+        {
+            return 50f;
+        }if (level < 城墙道具升级List[4])
+        {
+            return 60f;
+        }else 
+        {
+            return 80f;
+        }
+    }
     public static Dictionary<城墙道具Type, string> 城墙道具介绍Dic = new Dictionary<城墙道具Type, string>()
 {
     { 城墙道具Type.None, "无" },
@@ -133,11 +718,11 @@ public class 城墙Config
             城墙道具属性Type.冰冻, 
             new List<string>()
             {
-                $"冻结时间增加{HeroConfig.Get技能伤害string(0.2f, 2)}",
+                $"冻结时间增加{HeroConfig.Get技能伤害string(0.3f, 2)}",
                 $"间隔时间缩短{HeroConfig.Get技能伤害string(2, 2)}",
-                $"冻结时间增加{HeroConfig.Get技能伤害string(0.2f, 2)}",
+                $"冻结时间增加{HeroConfig.Get技能伤害string(0.3f, 2)}",
                 $"间隔时间缩短{HeroConfig.Get技能伤害string(2, 2)}",
-                $"冻结时间增加{HeroConfig.Get技能伤害string(0.2f, 2)}",
+                $"冻结时间增加{HeroConfig.Get技能伤害string(0.4f, 2)}",
             } 
         },
         
@@ -191,9 +776,9 @@ public class 城墙Config
             new List<string>()
             {
                 $"护盾效果增加{HeroConfig.Get技能伤害string(10, 1)}",
-                $"间隔时间缩短{HeroConfig.Get技能伤害string(1, 2)}",
+                $"间隔时间缩短{HeroConfig.Get技能伤害string(2, 2)}",
                 $"护盾效果增加{HeroConfig.Get技能伤害string(25, 1)}",
-                $"间隔时间缩短{HeroConfig.Get技能伤害string(1, 2)}",
+                $"间隔时间缩短{HeroConfig.Get技能伤害string(2, 2)}",
                 $"护盾效果增加{HeroConfig.Get技能伤害string(50, 1)}",
             } 
         },
@@ -286,13 +871,13 @@ public class 城墙Config
     {
         { 城墙道具属性Type.涅槃 ,$"城墙血量低于0时,可涅槃一次,恢复{HeroConfig.Get技能伤害string(30,1)}的最大生命值,并无敌{HeroConfig.Get技能伤害string(2,2)}"},
         { 城墙道具属性Type.泥沼 ,$"敌人靠近城墙时,降低敌人{HeroConfig.Get技能伤害string(30,1)}的移动速度"},
-        { 城墙道具属性Type.冰冻 ,$"每隔{HeroConfig.Get技能伤害string(10,2)}冻结所有敌人{HeroConfig.Get技能伤害string(0.5f,2)}"},
+        { 城墙道具属性Type.冰冻 ,$"每隔{HeroConfig.Get技能伤害string(10,2)}冻结所有敌人{HeroConfig.Get技能伤害string(0.5f,1)}"},
 
         { 城墙道具属性Type.杀怪回血 ,$"每击杀一个敌人,城墙恢复{HeroConfig.Get技能伤害string(1,1)}的最大生命值"},
         { 城墙道具属性Type.杀怪增伤 ,$"每击杀一个敌人,增加{HeroConfig.Get技能伤害string(0.5f,1)}的英雄伤害"},
         { 城墙道具属性Type.无敌 ,$"每间隔{HeroConfig.Get技能伤害string(10,2)},城墙无敌{HeroConfig.Get技能伤害string(1,2)}"},
         { 城墙道具属性Type.伤害减免 ,$"城墙获得{HeroConfig.Get技能伤害string(20,1)}的伤害减免"},
-        { 城墙道具属性Type.每段时间护盾 ,$"每间隔{HeroConfig.Get技能伤害string(5,2)},城墙获得{HeroConfig.Get技能伤害string(10,1)}最大生命值的护盾"},
+        { 城墙道具属性Type.每段时间护盾 ,$"每间隔{HeroConfig.Get技能伤害string(10,2)},城墙获得{HeroConfig.Get技能伤害string(10,1)}最大生命值的护盾"},
 
         { 城墙道具属性Type.低血量增伤 ,$"城墙血量低于{HeroConfig.Get技能伤害string(30,1)}时,增加{HeroConfig.Get技能伤害string(30,1)}的英雄伤害"},
         { 城墙道具属性Type.低血量伤害减免 ,$"城墙血量低于{HeroConfig.Get技能伤害string(30,1)}时,城墙获得{HeroConfig.Get技能伤害string(25,1)}的伤害减免"},
@@ -321,6 +906,27 @@ public class 城墙Config
         { 城墙道具Type.天罡石, 城墙道具属性Type.每秒回血 },
         { 城墙道具Type.土灵珠, 城墙道具属性Type.免疫护盾 },
         { 城墙道具Type.不灭玄石, 城墙道具属性Type.开局护盾 },
+    };
+    
+    public static Dictionary<城墙道具属性Type, 城墙道具Type> 城墙道具属性ToDic = new Dictionary<城墙道具属性Type, 城墙道具Type>()
+    {
+        { 城墙道具属性Type.涅槃, 城墙道具Type.混沌磐石 },
+        { 城墙道具属性Type.泥沼, 城墙道具Type.大道本源 },
+        { 城墙道具属性Type.冰冻, 城墙道具Type.鸿蒙灵根 },
+
+        { 城墙道具属性Type.杀怪回血, 城墙道具Type.轮回印记 },
+        { 城墙道具属性Type.杀怪增伤, 城墙道具Type.永恒之火 },
+        { 城墙道具属性Type.无敌, 城墙道具Type.玄黄之气 },
+        { 城墙道具属性Type.伤害减免, 城墙道具Type.不周山柱 },
+        { 城墙道具属性Type.每段时间护盾, 城墙道具Type.不朽魂晶 },
+
+        { 城墙道具属性Type.低血量增伤, 城墙道具Type.周天星斗大阵 },
+        { 城墙道具属性Type.低血量伤害减免, 城墙道具Type.天命罗盘 },
+        { 城墙道具属性Type.高血量增伤, 城墙道具Type.九曲黄河阵 },
+        { 城墙道具属性Type.高血量伤害减免, 城墙道具Type.不动明王阵 },
+        { 城墙道具属性Type.每秒回血, 城墙道具Type.天罡石 },
+        { 城墙道具属性Type.免疫护盾, 城墙道具Type.土灵珠 },
+        { 城墙道具属性Type.开局护盾, 城墙道具Type.不灭玄石 },
     };
     public static Dictionary<QualityType, int> 城墙解锁等级Dic = new Dictionary<QualityType, int>()
     {
@@ -794,7 +1400,7 @@ public class 城墙Config
         float count = 0;
         foreach (var item in PlayerData.S.城墙道具等级Dic)
         {
-            count += 城墙道具升级奖励Dic[城墙道具QualityDic[item.Key]] * item.Value;
+            count += 城墙道具升级奖励Dic[城墙道具QualityDic[item.Key]]/100f * item.Value;
         }
 
         foreach (var item in PlayerData.S.当前装备城墙道具Dic)
@@ -803,23 +1409,23 @@ public class 城墙Config
             {
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[0])
                 {
-                    count += 紫橙色道具升级奖励List[0];
+                    count += 紫橙色道具升级奖励List[0]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[1])
                 {
-                    count += 紫橙色道具升级奖励List[1];
+                    count += 紫橙色道具升级奖励List[1]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[2])
                 {
-                    count += 紫橙色道具升级奖励List[2];
+                    count += 紫橙色道具升级奖励List[2]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[3])
                 {
-                    count += 紫橙色道具升级奖励List[3];
+                    count += 紫橙色道具升级奖励List[3]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[4])
                 {
-                    count += 紫橙色道具升级奖励List[4];
+                    count += 紫橙色道具升级奖励List[4]/100f;
                 }
             }
         }
@@ -827,7 +1433,7 @@ public class 城墙Config
         return (int)(value * (1 + count));
     }
     
-    public static int Get防御最大生命值()
+    public static int Get城墙防御()
     {
         int value = Get城墙基础防御();
         float count = 0;
@@ -838,23 +1444,23 @@ public class 城墙Config
             {
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[0])
                 {
-                    count += 紫橙色道具升级奖励List[0];
+                    count += 紫橙色道具升级奖励List[0]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[1])
                 {
-                    count += 紫橙色道具升级奖励List[1];
+                    count += 紫橙色道具升级奖励List[1]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[2])
                 {
-                    count += 紫橙色道具升级奖励List[2];
+                    count += 紫橙色道具升级奖励List[2]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[3])
                 {
-                    count += 紫橙色道具升级奖励List[3];
+                    count += 紫橙色道具升级奖励List[3]/100f;
                 }
                 if (PlayerData.S.城墙道具等级Dic[item.Value] >= 城墙道具升级List[4])
                 {
-                    count += 紫橙色道具升级奖励List[4];
+                    count += 紫橙色道具升级奖励List[4]/100f;
                 }
             }
         }
