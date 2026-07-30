@@ -141,7 +141,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
          }
       }
 
-      bg.image.sprite = ResourcesConfig.Get道具背景框Sprite1(HeroConfig.HeroQualityDic[heroType]);
+      bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByPropType(HeroConfig.HeroQualityDic[heroType]);
       
 
       职业icon.sprite = ResourcesConfig.Get职业icon(HeroConfig.HeroZhiYeDic[heroType].zhiYeType);

@@ -277,7 +277,7 @@ namespace Config
         public static Dictionary<PropType, string> PropNameDic = new Dictionary<PropType, string>()
         {
             { PropType.None, "" },
-            { PropType.破镜珠, "破镜珠" },
+            { PropType.破镜珠, "功德" },
             { PropType.全职业经验值, "全职业经验值" },
             { PropType.功德, "功德" },
             { PropType.头盔锻造石, "头盔锻造石" },

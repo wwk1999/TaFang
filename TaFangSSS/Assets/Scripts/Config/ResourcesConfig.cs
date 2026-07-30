@@ -6,6 +6,32 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //羁绊
+    public static Sprite 羁绊背景框紫;
+    public static Sprite 羁绊背景框橙;
+    public static Sprite 羁绊背景框粉;
+    public static Sprite 羁绊背景框红;
+    public static Sprite 羁绊背景框彩;
+    
+    
+    public static Sprite 混沌归元;
+    public static Sprite 诛仙剑阵;
+    public static Sprite 开天辟地;
+    public static Sprite 圣德光辉;
+    public static Sprite 造化乾坤;
+    public static Sprite 菩提风火;
+    public static Sprite 天地人;
+    public static Sprite 山河七宝;
+    public static Sprite 弑神定海;
+    public static Sprite 翻海断岳;
+    public static Sprite 五行飞仙斩;
+    public static Sprite 照落金莲;
+    public static Sprite 紫金断岳;
+    public static Sprite 五方照落;
+    
+    
+    
+    
     public static Sprite 加号背景框;
 
     // 城墙icon
@@ -1337,7 +1363,7 @@ public class ResourcesConfig : MonoBehaviour
     }
     
     
-    public static Sprite Get道具背景框Sprite1(QualityType propType)
+    public static Sprite Get道具背景框SpriteByPropType(QualityType propType)
     {
         switch (propType)
         {
@@ -2533,8 +2559,86 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get羁绊Sprite(羁绊Type Type)
+    {
+        switch (Type)
+        {
+            case 羁绊Type.混沌归元:
+                return 混沌归元;
+            case 羁绊Type.诛仙剑阵:
+                return 诛仙剑阵;
+            case 羁绊Type.开天辟地:
+                return 开天辟地;
+            case 羁绊Type.圣德光辉:
+                return 圣德光辉;
+            case 羁绊Type.造化乾坤:
+                return 造化乾坤;
+            case 羁绊Type.菩提风火:
+                return 菩提风火;
+            case 羁绊Type.天地人:
+                return 天地人;
+            case 羁绊Type.山河七宝:
+                return 山河七宝;
+            case 羁绊Type.弑神定海:
+                return 弑神定海;
+            case 羁绊Type.翻海断岳:
+                return 翻海断岳;
+            case 羁绊Type.五行飞仙斩:
+                return 五行飞仙斩;
+            case 羁绊Type.照落金莲:
+                return 照落金莲;
+            case 羁绊Type.紫金断岳:
+                return 紫金断岳;
+            case 羁绊Type.五方照落:
+                return 五方照落;
+            default:
+                return 道具背景框白;
+        }
+    }
+
+    public static Sprite Get羁绊背景框(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.天品:
+                return 羁绊背景框紫;
+            case QualityType.宇品:
+                return 羁绊背景框橙;
+            case QualityType.宙品:
+                return 羁绊背景框粉;
+            case QualityType.洪品:
+                return 羁绊背景框红;
+            case QualityType.荒品:
+                return 羁绊背景框彩;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        羁绊背景框紫 = Resources.Load<Sprite>("Sprite/羁绊图标/紫");
+        羁绊背景框橙 = Resources.Load<Sprite>("Sprite/羁绊图标/橙");
+        羁绊背景框粉 = Resources.Load<Sprite>("Sprite/羁绊图标/粉");
+        羁绊背景框红 = Resources.Load<Sprite>("Sprite/羁绊图标/红");
+        羁绊背景框彩 = Resources.Load<Sprite>("Sprite/羁绊图标/彩");
+        
+        混沌归元 = Resources.Load<Sprite>("Sprite/羁绊图标/混沌归元");
+        诛仙剑阵 = Resources.Load<Sprite>("Sprite/羁绊图标/诛仙剑阵");
+        开天辟地 = Resources.Load<Sprite>("Sprite/羁绊图标/开天辟地");
+        圣德光辉 = Resources.Load<Sprite>("Sprite/羁绊图标/圣德光辉");
+        造化乾坤 = Resources.Load<Sprite>("Sprite/羁绊图标/造化乾坤");
+        菩提风火 = Resources.Load<Sprite>("Sprite/羁绊图标/菩提风火");
+        天地人 = Resources.Load<Sprite>("Sprite/羁绊图标/天地人");
+        山河七宝 = Resources.Load<Sprite>("Sprite/羁绊图标/山河七宝");
+        弑神定海 = Resources.Load<Sprite>("Sprite/羁绊图标/弑神定海");
+        翻海断岳 = Resources.Load<Sprite>("Sprite/羁绊图标/翻海断岳");
+        五行飞仙斩 = Resources.Load<Sprite>("Sprite/羁绊图标/五行飞仙斩");
+        照落金莲 = Resources.Load<Sprite>("Sprite/羁绊图标/照落金莲");
+        紫金断岳 = Resources.Load<Sprite>("Sprite/羁绊图标/紫金断岳");
+        五方照落 = Resources.Load<Sprite>("Sprite/羁绊图标/五方照落");
+        
+        
         加号背景框 = Resources.Load<Sprite>("Sprite/地图界面UI/加号背景框");
         
         城墙icon白 = Resources.Load<Sprite>("Sprite/城墙icon/白");

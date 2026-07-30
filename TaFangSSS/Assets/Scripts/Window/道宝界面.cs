@@ -9,6 +9,8 @@ public class 道宝界面 : MonoBehaviour
 {
     public Button exitButton;
     public GameObject content;
+    public Button 羁绊Button;
+    public GameObject 羁绊弹窗;
 
     private void OnEnable()
     {
@@ -28,6 +30,10 @@ public class 道宝界面 : MonoBehaviour
 
     private void Start()
     {
+        羁绊Button.onClick.AddListener(() =>
+        {
+            羁绊弹窗.gameObject.SetActive(true);
+        });
         exitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
