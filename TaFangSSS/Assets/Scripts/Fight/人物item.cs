@@ -43,6 +43,11 @@ public class 人物item : MonoBehaviour
     public float Get攻击间隔()
     {
         float value = 英雄星级属性.Get英雄Cd(heroType);
+        value *= (1 - 属性config.总属性.英雄冷却缩减);
+        if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.控制)
+        {
+            value *= (1 - 属性config.总属性.控制冷却缩减);
+        }
         if (女娲电辅助 > 0)
         {
             value *= (1f-英雄星级属性.女娲效果);

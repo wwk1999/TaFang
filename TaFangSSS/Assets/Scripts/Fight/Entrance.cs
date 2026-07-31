@@ -43,6 +43,7 @@ public class Entrance : MonoBehaviour
       }
       float damage = (float)obj[0];
       damage -=城墙Config.Get城墙防御();
+      属性config.领主总属性 属性 = new 属性config.领主总属性();
       float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.Get低血量伤害减免血量值()/ 100f)
       {
@@ -52,9 +53,7 @@ public class Entrance : MonoBehaviour
       {
           damage *= (1f - 城墙Config.高血量伤害减免值 / 100f);
       }
-
-      属性config.领主总属性 属性 = new 属性config.领主总属性();
-      damage *= (1f - 属性.伤害减免 / 100f);
+      damage *= (1f - 属性.伤害减免);
       damage=Math.Max(damage,0);
       float y=(float)obj[1];
       围栏Animator.Play("围栏受击",0,0);

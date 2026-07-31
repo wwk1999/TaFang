@@ -2015,7 +2015,7 @@ public class ResourcesConfig : MonoBehaviour
 
                 break;
 
-            case 道纹Type.射手连射概率:
+            case 道纹Type.射手对远距离敌人伤害增高:
                 switch ((int)qualityType)
                 {
                     case 4: return 连珠4;

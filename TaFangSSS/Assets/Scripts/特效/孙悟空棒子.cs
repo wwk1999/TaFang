@@ -45,6 +45,10 @@ public class 孙悟空棒子 : MonoBehaviour
          {
             damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
          }
+         if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
+         {
+            damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
+         }
          QueueController.S.MonsterColliderDic[other].Hurt(damage,HeroType.孙悟空);
       }
    }

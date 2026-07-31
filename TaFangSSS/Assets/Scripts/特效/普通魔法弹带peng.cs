@@ -63,6 +63,10 @@ public class 普通魔法弹带peng : MonoBehaviour
          {
             damage*=(1+英雄星级属性.女娲辅助伤害/100f);
          }
+         if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
+         {
+            damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
+         }
          QueueController.S.MonsterColliderDic[other].Hurt(realDamage,HeroType);
          hit.gameObject.SetActive(true);
          if (!穿透)

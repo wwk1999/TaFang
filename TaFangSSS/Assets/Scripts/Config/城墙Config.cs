@@ -1394,9 +1394,9 @@ public class 城墙Config
         { QualityType.天品,0.1f},
     };
 
-    public static int Get城墙最大生命值()
+    public static float Get城墙最大生命值()
     {
-        int value = Get城墙基础血量();
+        float value = Get城墙基础血量()*属性config.总属性.城墙血量增幅;
         float count = 0;
         foreach (var item in PlayerData.S.城墙道具等级Dic)
         {

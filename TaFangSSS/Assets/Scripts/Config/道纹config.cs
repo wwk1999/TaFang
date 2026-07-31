@@ -27,7 +27,7 @@ public enum 道纹Type
     伤害在范围内浮动,
     无视抗性,
     战士对靠近城墙敌人伤害增高,
-    射手连射概率,
+    射手对远距离敌人伤害增高,
     控制冷却缩减,
     法师暴击率,
     辅助被辅助英雄伤害增幅,
@@ -81,7 +81,7 @@ public class 道纹config
     { 道纹Type.伤害在范围内浮动, () => Get装备道纹数值(道纹Type.伤害在范围内浮动) },
     { 道纹Type.无视抗性, () => Get装备道纹数值(道纹Type.无视抗性) },
     { 道纹Type.战士对靠近城墙敌人伤害增高, () => Get装备道纹数值(道纹Type.战士对靠近城墙敌人伤害增高) },
-    { 道纹Type.射手连射概率, () => Get装备道纹数值(道纹Type.射手连射概率) },
+    { 道纹Type.射手对远距离敌人伤害增高, () => Get装备道纹数值(道纹Type.射手对远距离敌人伤害增高) },
     { 道纹Type.控制冷却缩减, () => Get装备道纹数值(道纹Type.控制冷却缩减) },
     { 道纹Type.法师暴击率, () => Get装备道纹数值(道纹Type.法师暴击率) },
     { 道纹Type.辅助被辅助英雄伤害增幅, () => Get装备道纹数值(道纹Type.辅助被辅助英雄伤害增幅) },
@@ -409,8 +409,8 @@ public class 道纹config
                 return $"战士对靠近城墙的敌人增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>的伤害";
                 ;
 
-            case 道纹Type.射手连射概率:
-                return $"射手连射概率增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
+            case 道纹Type.射手对远距离敌人伤害增高:
+                return $"射手对远距离敌人增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>的伤害";
 
             case 道纹Type.控制冷却缩减:
                 return $"控制技能冷却缩减增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
@@ -539,7 +539,7 @@ public class 道纹config
         { 道纹Type.伤害在范围内浮动, new List<float>() { 30, 40, 50, 70, 100 } },
         { 道纹Type.无视抗性, new List<float>() { 5, 10, 15, 20, 30 } },
         { 道纹Type.战士对靠近城墙敌人伤害增高, new List<float>() { 15, 20, 30, 50, 80 } },
-        { 道纹Type.射手连射概率, new List<float>() { 3, 5, 8, 12, 20 } },
+        { 道纹Type.射手对远距离敌人伤害增高, new List<float>() { 15, 20, 30, 50, 80 } },
         { 道纹Type.控制冷却缩减, new List<float>() { 5, 10, 15, 20, 30 } },
         { 道纹Type.法师暴击率, new List<float>() { 5, 10, 15, 20, 30 } },
         { 道纹Type.辅助被辅助英雄伤害增幅, new List<float>() { 15, 20, 30, 50, 80 } },
@@ -586,7 +586,7 @@ public class 道纹config
         { 道纹Type.伤害在范围内浮动, "无常" },
         { 道纹Type.无视抗性, "破法" },
         { 道纹Type.战士对靠近城墙敌人伤害增高, "镇关" },
-        { 道纹Type.射手连射概率, "连珠" },
+        { 道纹Type.射手对远距离敌人伤害增高, "千里" },
         { 道纹Type.控制冷却缩减, "回响" },
         { 道纹Type.法师暴击率, "心炎" },
         { 道纹Type.辅助被辅助英雄伤害增幅, "扶摇" },

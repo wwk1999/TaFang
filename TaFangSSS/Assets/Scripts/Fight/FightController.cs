@@ -17,7 +17,7 @@ public class FightController : XSingleton<FightController>
     
     
     [NonSerialized]public float 免疫护盾间隔时间 = 0;
-    [NonSerialized]public int 免疫护盾次数 = 0;
+    [NonSerialized]public int 免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
     [NonSerialized]public float 每段时间护盾间隔时间 = 0;
     [NonSerialized]public float 城墙护盾值 = 城墙Config.开局护盾值/100f*城墙Config.Get城墙最大生命值();
     [NonSerialized] public float 当前冰冻间隔 = 0;

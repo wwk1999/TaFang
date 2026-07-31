@@ -40,13 +40,13 @@ public class 属性config
           public float 城墙低血增加伤害 => 1f + 道纹config.Get道纹数值(道纹Type.城墙低血增加伤害);
           public float 击杀精英怪城墙回血 => 道纹config.Get道纹数值(道纹Type.击杀精英怪城墙回血);
           public float 城墙血量百分比 => 1f + 道纹config.Get道纹数值(道纹Type.城墙血量百分比);
-          public float 城墙免疫伤害 => 道纹config.Get道纹数值(道纹Type.城墙免疫伤害);
+          public float 城墙免疫伤害 => 道纹config.Get道纹数值(道纹Type.城墙免疫伤害)*100;
           public float 城墙满血时加伤害 => 1f + 道纹config.Get道纹数值(道纹Type.城墙满血时加伤害);
           public float 英雄暴击率 => 道纹config.Get道纹数值(道纹Type.英雄暴击率);
           public float 伤害在范围内浮动 => 道纹config.Get道纹数值(道纹Type.伤害在范围内浮动);
           public float 无视抗性 => 道纹config.Get道纹数值(道纹Type.无视抗性);
           public float 战士对靠近城墙敌人伤害增高 => 1f + 道纹config.Get道纹数值(道纹Type.战士对靠近城墙敌人伤害增高);
-          public float 射手连射概率 => 道纹config.Get道纹数值(道纹Type.射手连射概率);
+          public float 射手对远距离敌人伤害增高 => 1f +道纹config.Get道纹数值(道纹Type.射手对远距离敌人伤害增高);
           public float 控制冷却缩减 => 道纹config.Get道纹数值(道纹Type.控制冷却缩减);
           public float 法师暴击率 => 道纹config.Get道纹数值(道纹Type.法师暴击率);
           public float 辅助被辅助英雄伤害增幅 => 1f + 道纹config.Get道纹数值(道纹Type.辅助被辅助英雄伤害增幅);
@@ -73,22 +73,40 @@ public class 属性config
           public float 城墙血量增幅 => 1f +EquipConfig.装备附加属性数值Dic[附加属性Type.城墙血量]();
      }
 
+     public class 道宝属性
+     {
+          public float 伤害减免 => 道宝Config.羁绊伤害减免/100f;
+          public float 暴击率 => 道宝Config.羁绊暴击率/100f;
+          public float 最终伤害 => 道宝Config.羁绊最终伤害/100f;
+          
+          public float 战士增幅 => 1f + 道宝Config.羁绊战士伤害增幅/100f;
+          public float 射手增幅 => 1f + 道宝Config.羁绊射手伤害增幅/100f;
+          public float 法师增幅 => 1f + 道宝Config.羁绊法师伤害增幅/100f;
+          
+          public float 物理伤害增幅 => 1f + 道宝Config.羁绊物理伤害增幅/100f;
+          public float 火焰伤害增幅 => 1f + 道宝Config.羁绊火焰伤害增幅 /100f;
+          public float 冰霜伤害增幅 => 1f + 道宝Config.羁绊冰霜伤害增幅/100f ;
+          public float 雷电伤害增幅 => 1f + 道宝Config.羁绊雷电伤害增幅/100f ;
+          public float 黑暗伤害增幅 => 1f + 道宝Config.羁绊黑暗伤害增幅/100f;
+     }
+
      public class 领主总属性
 {
     // 创建装备属性和道纹属性的实例
     private 装备属性 _装备 = new 装备属性();
     private 道纹属性 _道纹 = new 道纹属性();
+    private 道宝属性 _道宝 = new 道宝属性();
 
     public float 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力)*(1f+_道纹.增加百分比攻击力);
-    public float 战士增幅 => _装备.战士增幅 * _道纹.增加战士伤害;
-    public float 法师增幅 => _装备.法师增幅 * _道纹.增加法师伤害;
-    public float 射手增幅 => _装备.射手增幅 * _道纹.增加射手伤害;
+    public float 战士增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅;
+    public float 法师增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅;
+    public float 射手增幅 => _装备.射手增幅 * _道纹.增加射手伤害*_道宝.射手增幅;
     public float 控制增幅 => _装备.控制增幅 * _道纹.增加控制伤害;
-    public float 物理伤害增幅 => _装备.物理伤害增幅 * _道纹.增加物理伤害;
-    public float 火焰伤害增幅 => _装备.火焰伤害增幅 * _道纹.增加火焰伤害;
-    public float 冰霜伤害增幅 => _装备.冰霜伤害增幅 * _道纹.增加冰霜伤害;
-    public float 雷电伤害增幅 => _装备.雷电伤害增幅 * _道纹.增加雷电伤害;
-    public float 黑暗伤害增幅 => _装备.黑暗伤害增幅 * _道纹.增加黑暗伤害;
+    public float 物理伤害增幅 => _装备.物理伤害增幅 * _道纹.增加物理伤害*_道宝.物理伤害增幅;
+    public float 火焰伤害增幅 => _装备.火焰伤害增幅 * _道纹.增加火焰伤害*_道宝.火焰伤害增幅;
+    public float 冰霜伤害增幅 => _装备.冰霜伤害增幅 * _道纹.增加冰霜伤害*_道宝.冰霜伤害增幅;
+    public float 雷电伤害增幅 => _装备.雷电伤害增幅 * _道纹.增加雷电伤害*_道宝.雷电伤害增幅;
+    public float 黑暗伤害增幅 => _装备.黑暗伤害增幅 * _道纹.增加黑暗伤害*_道宝.黑暗伤害增幅;
     public float 普通怪伤害增幅 => _装备.普通怪伤害增幅 * _道纹.增加小怪伤害;
     public float 精英怪伤害增幅 => _装备.精英怪伤害增幅 * _道纹.增加精英怪和首领伤害;
     public float 首领伤害增幅 => _装备.首领伤害增幅 * _道纹.增加精英怪和首领伤害;
@@ -97,17 +115,17 @@ public class 属性config
     public float 击杀精英怪城墙回血 => _道纹.击杀精英怪城墙回血;
     public float 城墙免疫伤害 => _道纹.城墙免疫伤害;
     public float 城墙满血时加伤害 => _道纹.城墙满血时加伤害;
-    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+道宝Config.羁绊暴击率/100f;
+    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+_道宝.暴击率;
     public float 法师暴击率 => _道纹.法师暴击率;
     public float 英雄冷却缩减 => _装备.英雄冷却缩减;
     public float 控制冷却缩减 => _道纹.控制冷却缩减;
     public float 伤害在范围内浮动 => _道纹.伤害在范围内浮动;
     public float 无视抗性 => _道纹.无视抗性;
     public float 战士对靠近城墙敌人伤害增高 => _道纹.战士对靠近城墙敌人伤害增高;
-    public float 射手连射概率 => _道纹.射手连射概率;
+    public float 射手对远距离敌人伤害增高 => _道纹.射手对远距离敌人伤害增高;
     public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
-    public float 最终伤害 => _装备.最终伤害;
-    public float 伤害减免 => 1-(1-道宝Config.羁绊伤害减免/100f)*(1-城墙Config.伤害减免/100f);
+    public float 最终伤害 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害);
+    public float 伤害减免 => 1-(1-_道宝.伤害减免/100f)*(1-城墙Config.伤害减免/100f);
 }
 
      public static float Get装备攻击力增幅()

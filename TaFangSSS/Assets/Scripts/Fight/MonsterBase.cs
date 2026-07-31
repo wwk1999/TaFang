@@ -124,48 +124,49 @@ public class MonsterBase : MonoBehaviour
       return 怪物属性;
    }
 
-   public float 羁绊元素伤害(float damage,YuanSuType yuanSuType)
+   public float 元素伤害(float damage,YuanSuType yuanSuType,属性config.领主总属性 属性)
    {
-      float value = damage;
       switch (yuanSuType)
       {
          case YuanSuType.冰:
-            damage *= (1 + 道宝Config.羁绊冰霜伤害增幅 / 100f);
+            damage *= 属性.冰霜伤害增幅;
             break;
          case YuanSuType.火:
-            damage *= (1 + 道宝Config.羁绊火焰伤害增幅 / 100f);
+            damage *= 属性.火焰伤害增幅;
             break;
          case YuanSuType.黑暗:
-            damage *= (1 + 道宝Config.羁绊黑暗伤害增幅 / 100f);
+            damage *= 属性.黑暗伤害增幅;
             break;
          case YuanSuType.物理:
-            damage *= (1 + 道宝Config.羁绊物理伤害增幅 / 100f);
+            damage *= 属性.物理伤害增幅;
             break;
          case YuanSuType.电:
-            damage *= (1 + 道宝Config.羁绊雷电伤害增幅 / 100f);
+            damage *= 属性.雷电伤害增幅;
             break;
       }
 
-      return value;
+      return damage;
    }
    
-   public float 羁绊职业伤害(float damage,ZhiYeType zhiYeType)
+   public float 职业伤害(float damage,ZhiYeType zhiYeType,属性config.领主总属性 属性)
    {
-      float value = damage;
       switch (zhiYeType)
       {
          case ZhiYeType.法师:
-            damage *= (1 + 道宝Config.羁绊法师伤害增幅 / 100f);
+            damage *= 属性.法师增幅;
             break;
          case ZhiYeType.战士:
-            damage *= (1 + 道宝Config.羁绊战士伤害增幅 / 100f);
+            damage *= 属性.战士增幅;
             break;
          case ZhiYeType.射手:
-            damage *= (1 + 道宝Config.羁绊射手伤害增幅 / 100f);
+            damage *= 属性.射手增幅;
+            break;
+         case ZhiYeType.控制:
+            damage *= 属性.控制增幅;
             break;
       }
 
-      return value;
+      return damage;
    }
 
    public bool 暴击检测(HeroType heroType)
@@ -176,6 +177,11 @@ public class MonsterBase : MonoBehaviour
       if (heroType == HeroType.通天)
       {
          value += 英雄星级属性.Get通天暴击率()*100;
+      }
+
+      if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.法师)
+      {
+         value += 属性config.总属性.法师暴击率*100;
       }
       if (random <= value)
       {
@@ -197,14 +203,54 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (2 + 属性config.Get英雄暴击伤害增幅());
       }
 
+      最终Damage *= 属性config.总属性.最终伤害;
+      if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
+      {
+         最终Damage *= 属性config.总属性.战士对靠近城墙敌人伤害增高;
+      }
+      
+      if (transform.position.x > 3.5f && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.射手)
+      {
+         最终Damage *= 属性config.总属性.射手对远距离敌人伤害增高;
+      }
+
+      if (FightController.S.城墙当前生命值 == 城墙Config.Get城墙最大生命值())
+      {
+         最终Damage *= 属性config.总属性.城墙满血时加伤害;
+      }
+
+      if (属性config.总属性.伤害在范围内浮动 != 0)
+      {
+         float random = Random.Range(0.8f, 1f+属性config.总属性.伤害在范围内浮动);
+         最终Damage*=random;
+      }
+
+      switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+      {
+         case MonsterType.Normal:
+            最终Damage *= 属性config.总属性.普通怪伤害增幅;
+            break;
+         case MonsterType.Elite:
+            最终Damage *= 属性config.总属性.精英怪伤害增幅;
+            break;
+         case MonsterType.Boss:
+            最终Damage *= 属性config.总属性.首领伤害增幅;
+            break;
+      }
+      
       最终Damage *= (1 + 道宝Config.羁绊最终伤害 / 100f);
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
-      最终Damage = 羁绊元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
-      最终Damage = 羁绊职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
+      最终Damage = 元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType,属性config.总属性);
+      最终Damage = 职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType,属性config.总属性);
       float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
       {
          最终Damage *= (1 +  城墙Config.低血量增伤值/ 100f);
+      }
+
+      if (城墙血量比例 <= 0.3f)
+      {
+         最终Damage *= 属性config.总属性.城墙低血增加伤害;
       }
       if (城墙血量比例 > 城墙Config.高血量增伤血量值/100f)
       {
@@ -231,7 +277,7 @@ public class MonsterBase : MonoBehaviour
             break;
       }
 
-      最终Damage *= (100 - 抗性) / 100;
+      最终Damage *= (100 - (抗性-属性config.总属性.无视抗性*100)) / 100;
       FightController.S.Show伤害数字(最终Damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);
@@ -359,6 +405,9 @@ public class MonsterBase : MonoBehaviour
             QueueController.S.普通怪Queue.Enqueue(this as 普通怪);
             break;
          case MonsterType.Elite:
+            FightController.S.城墙当前生命值 += 属性config.总属性.击杀精英怪城墙回血 * 城墙Config.Get城墙最大生命值();
+            FightController.S.城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), FightController.S.城墙当前生命值);
+            ObserverModuleManager.S.SendEvent("设置护盾");
             var 精英怪死亡 = QueueController.S.精英怪死亡Queue.Dequeue();
             精英怪死亡.gameObject.transform.position = transform.position;
             精英怪死亡.order=(int)(transform.position.y * -100);
