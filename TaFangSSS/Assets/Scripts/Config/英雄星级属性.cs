@@ -544,36 +544,30 @@ public class 英雄星级属性
         {
             value *= 1.2f;
         }
+        int level = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
+        if (level >= 1)
+        {
+            value *= 1.03f;
+        }
+        if (level >= 2)
+        {
+            value *= 1.06f;
+        }
+        if (level >= 3)
+        {
+            value *= 1.09f;
+        }
+        if (level >= 4)
+        {
+            value *= 1.12f;
+        }
+        if (level >= 5)
+        {
+            value *= 1.15f;
+        }
         return value;
     }
-
-    public static float Get通天暴击率()
-    {
-        float value = 0;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
-        if (法则星级 >= 1)
-        {
-            value += 3f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 6f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 9f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 12f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 15f;
-        }
-
-        return value;
-    }
+    
     public static float Get通天Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.通天];

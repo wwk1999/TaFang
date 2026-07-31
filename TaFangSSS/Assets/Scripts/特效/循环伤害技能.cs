@@ -11,6 +11,7 @@ public class 循环伤害技能 : MonoBehaviour
     public 攻击特效Type Type;
     [NonSerialized]public float DelayTime=15;
     [NonSerialized] public float damage;
+    [NonSerialized] public ZhiYeType ZhiYeType;
     [NonSerialized] public YuanSuType YuanSuType;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
@@ -65,7 +66,7 @@ public class 循环伤害技能 : MonoBehaviour
                 damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
 
-            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, YuanSuType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, YuanSuType,ZhiYeType);
             hit.gameObject.SetActive(true);
             if (瑶池冰辅助)
             {
@@ -96,7 +97,7 @@ public class 循环伤害技能 : MonoBehaviour
                 realDamage *= 1.2f;
             }
 
-            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, YuanSuType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, YuanSuType,ZhiYeType);
             hit.gameObject.SetActive(true);
             if (瑶池冰辅助)
             {

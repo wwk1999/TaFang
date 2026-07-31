@@ -13,6 +13,8 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public bool 黑暗辅助;
     [NonSerialized] public float damage;
     [NonSerialized] public YuanSuType YuanSuType;
+    [NonSerialized] public ZhiYeType ZhiYeType;
+
     [NonSerialized] public bool 女娲电辅助;
 
     public void Hide()
@@ -82,7 +84,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 {
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
-                QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType,ZhiYeType);
             }
         }
     }

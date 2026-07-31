@@ -106,7 +106,53 @@ public enum 道宝Type
 }
 public class 道宝Config
 {
+    public static float Get道宝总修炼速度()
+    {
+        float value = 0;
+        foreach (var item in 道宝品质Dic)
+        {
+            switch (item.Value)
+            {
+                case 道宝Quality.后天法宝:
+                    value+=PlayerData.S.道宝LevelDic[item.Key]*单件升级奖励Dic[0];
+                    break;
+                case 道宝Quality.先天灵宝:
+                    value+=PlayerData.S.道宝LevelDic[item.Key]*单件升级奖励Dic[1];
+                    break;
+                case 道宝Quality.功德至宝:
+                    value+=PlayerData.S.道宝LevelDic[item.Key]*单件升级奖励Dic[2];
+                    break;
+                case 道宝Quality.先天至宝:
+                    value+=PlayerData.S.道宝LevelDic[item.Key]*单件升级奖励Dic[3];
+                    break;
+                case 道宝Quality.混沌至宝:
+                    value+=PlayerData.S.道宝LevelDic[item.Key]*单件升级奖励Dic[4];
+                    break;
+            }
+        }
+
+        return value;
+    }
     public static List<float> 单件升级奖励Dic = new List<float>() {1,2,4,8,20 };
+
+    public static float 羁绊黑暗伤害增幅 => Get羁绊Level(羁绊Type.翻海断岳) * 5;
+    public static float 羁绊火焰伤害增幅 => Get羁绊Level(羁绊Type.五方照落) * 5;
+    public static float 羁绊雷电伤害增幅 => Get羁绊Level(羁绊Type.照落金莲) * 5;
+    public static float 羁绊物理伤害增幅 => Get羁绊Level(羁绊Type.五行飞仙斩) * 5;
+    public static float 羁绊冰霜伤害增幅 => Get羁绊Level(羁绊Type.紫金断岳) * 5;
+    
+    public static float 羁绊法师伤害增幅 => Get羁绊Level(羁绊Type.天地人) * 5;
+    public static float 羁绊战士伤害增幅 => Get羁绊Level(羁绊Type.弑神定海) * 5;
+    public static float 羁绊射手伤害增幅 => Get羁绊Level(羁绊Type.山河七宝) * 5;
+    
+    public static float 羁绊暴击率 => Get羁绊Level(羁绊Type.造化乾坤) * 5;
+    public static float 羁绊伤害减免 => Get羁绊Level(羁绊Type.圣德光辉) * 5;
+    public static float 羁绊最终伤害 => Get羁绊Level(羁绊Type.菩提风火) * 5;
+    
+    public static float 羁绊灵气 => Get羁绊Level(羁绊Type.开天辟地) * 10;
+    public static float 羁绊功德 => Get羁绊Level(羁绊Type.诛仙剑阵) * 10;
+    
+    public static float 羁绊寻宝速度=> Get羁绊Level(羁绊Type.混沌归元) * 10;
 
      public static Dictionary<羁绊Type, 羁绊配置> 羁绊配置 = new Dictionary<羁绊Type, 羁绊配置>()
     {

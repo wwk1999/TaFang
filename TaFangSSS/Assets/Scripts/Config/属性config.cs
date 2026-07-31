@@ -76,7 +76,7 @@ public class 属性config
     public float 击杀精英怪城墙回血 => _道纹.击杀精英怪城墙回血;
     public float 城墙免疫伤害 => _道纹.城墙免疫伤害;
     public float 城墙满血时加伤害 => _道纹.城墙满血时加伤害;
-    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率;
+    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+道宝Config.羁绊暴击率/100f;
     public float 法师暴击率 => _道纹.法师暴击率;
     public float 英雄冷却缩减 => _装备.英雄冷却缩减;
     public float 控制冷却缩减 => _道纹.控制冷却缩减;
