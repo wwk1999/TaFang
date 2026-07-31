@@ -2159,7 +2159,7 @@ public class ResourcesConfig : MonoBehaviour
 
                 break;
 
-            case 道纹Type.女娲增加被辅助英雄暴击率:
+            case 道纹Type.女娲增加被辅助冷却缩减:
                 switch ((int)qualityType)
                 {
                     case 4: return 补天4;

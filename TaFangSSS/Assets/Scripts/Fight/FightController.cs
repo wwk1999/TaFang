@@ -12,7 +12,11 @@ using Random = UnityEngine.Random;
 public class FightController : XSingleton<FightController>
 {
     //法则
-    [NonSerialized]public float 盘古法则增加伤害 = 0;
+    [NonSerialized]public int 孙悟空每秒增加伤害Time = 0;
+    [NonSerialized]public int 通天暴击次数 = 0;
+    [NonSerialized]public int 元始数量 = 英雄星级属性.元始攻击数量;
+    [NonSerialized]public int 鸿钧陨石次数 = 0;
+    [NonSerialized]public int 盘古击杀次数 = 0;
 
     
     
@@ -165,6 +169,24 @@ public class FightController : XSingleton<FightController>
         }
     }
 
+    IEnumerator 碧霄再次释放(float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助)
+    {
+        while (true)
+        {
+            float random=Random.Range(0, 100);
+            if (random < 属性config.总属性.碧霄冰龙再次释放概率 * 100)
+            {
+                yield return new WaitForSeconds(0.1f);
+                MonsterBase monsterBase = GetAttackMonster();
+                一次伤害技能(攻击特效Type.冰龙, monsterBase.transform.position,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
     public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助,int count=0)
     {
         float damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.领主攻击力;
@@ -222,7 +244,8 @@ public class FightController : XSingleton<FightController>
                 妲己黑暗辅助技能();
                 break;
             case HeroType.碧霄:
-                一次伤害技能(攻击特效Type.冰龙, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
+                一次伤害技能(攻击特效Type.冰龙, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);
+                StartCoroutine(碧霄再次释放(瑶池冰辅助, 黑暗辅助, 女娲电辅助));
                 break;
             case HeroType.琼霄:
                 一次伤害技能(攻击特效Type.黑暗符, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
@@ -357,6 +380,7 @@ public class FightController : XSingleton<FightController>
                 while (count>0)
                 {
                      count--;
+                     鸿钧陨石次数++;
                      float randomx=Random.Range(-1.0f, 1.0f);
                      float randomy=Random.Range(-1.0f, 1.0f);
                      Vector2 randomdir=new Vector2(randomx,randomy).normalized;
@@ -777,6 +801,7 @@ public class FightController : XSingleton<FightController>
         }
         if (每秒回血Time > 1)
         {
+            孙悟空每秒增加伤害Time++;
             每秒回血Time = 0;
             int 回血值 = (int)(城墙Config.每秒回血值/ 100f * 城墙Config.Get城墙最大生命值()) ;
             int value = (int)(城墙Config.Get城墙最大生命值() - 城墙当前生命值);

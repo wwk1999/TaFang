@@ -126,6 +126,23 @@ public class 属性config
     public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
     public float 最终伤害 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害);
     public float 伤害减免 => 1-(1-_道宝.伤害减免/100f)*(1-城墙Config.伤害减免/100f);
+
+
+
+    public float 三味真火无视抗性百分比 => 道纹config.Get道纹数值(道纹Type.三味真火无视抗性百分比);
+    public float 孙悟空每秒增加伤害 => 道纹config.Get道纹数值(道纹Type.孙悟空每秒增加伤害);
+    public float 碧霄冰龙再次释放概率 => 道纹config.Get道纹数值(道纹Type.碧霄冰龙有概率再次释放);
+    public float 琼霄定身衰减减少 => 道纹config.Get道纹数值(道纹Type.琼霄定身衰减效果减少);
+    public float 云霄最终伤害 => 1f + 道纹config.Get道纹数值(道纹Type.云霄最终伤害);
+    public float 后羿距离增伤 => 道纹config.Get道纹数值(道纹Type.后羿距离越远伤害越高);
+    public float 羲和灼烧伤害 => 1f + 道纹config.Get道纹数值(道纹Type.羲和灼烧伤害);
+    public float 常曦冻结概率 => 道纹config.Get道纹数值(道纹Type.常曦有概率冻结敌人);
+    public float 女娲辅助冷却缩减 => 道纹config.Get道纹数值(道纹Type.女娲增加被辅助冷却缩减);
+    public float 通天暴击增伤 => 道纹config.Get道纹数值(道纹Type.通天每次暴击增加伤害);
+    public float 老子体积增伤 => 道纹config.Get道纹数值(道纹Type.老子旋风体积越大伤害越高);
+    public float 元始火种增加数量 => 道纹config.Get道纹数值(道纹Type.元始每次释放有概率增加火种数量);
+    public float 鸿钧陨石增伤 => 道纹config.Get道纹数值(道纹Type.鸿钧每释放陨石增加伤害);
+    public float 盘古击杀增伤 => 道纹config.Get道纹数值(道纹Type.盘古每击杀敌人增加伤害);
 }
 
      public static float Get装备攻击力增幅()

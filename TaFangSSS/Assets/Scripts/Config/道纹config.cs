@@ -41,7 +41,7 @@ public enum 道纹Type
     后羿距离越远伤害越高,
     羲和灼烧伤害,
     常曦有概率冻结敌人,
-    女娲增加被辅助英雄暴击率,
+    女娲增加被辅助冷却缩减,
     通天每次暴击增加伤害,
     老子旋风体积越大伤害越高,
     元始每次释放有概率增加火种数量,
@@ -57,199 +57,26 @@ public class 道纹
 
 public class 道纹config
 {
-    
-    public static Dictionary<道纹Type, Func<float>> 装备道纹数量Dic = new Dictionary<道纹Type, Func<float>>()
+    //为了每次都拿到最新值，所以用Func<float>
+    public static Dictionary<道纹Type, Func<float>> 专属道纹值Dic = new Dictionary<道纹Type, Func<float>>()
 {
-    { 道纹Type.增加百分比攻击力, () => Get装备道纹数值(道纹Type.增加百分比攻击力) },
-    { 道纹Type.增加战士伤害, () => Get装备道纹数值(道纹Type.增加战士伤害) },
-    { 道纹Type.增加法师伤害, () => Get装备道纹数值(道纹Type.增加法师伤害) },
-    { 道纹Type.增加控制伤害, () => Get装备道纹数值(道纹Type.增加控制伤害) },
-    { 道纹Type.增加射手伤害, () => Get装备道纹数值(道纹Type.增加射手伤害) },
-    { 道纹Type.增加小怪伤害, () => Get装备道纹数值(道纹Type.增加小怪伤害) },
-    { 道纹Type.增加物理伤害, () => Get装备道纹数值(道纹Type.增加物理伤害) },
-    { 道纹Type.增加雷电伤害, () => Get装备道纹数值(道纹Type.增加雷电伤害) },
-    { 道纹Type.增加冰霜伤害, () => Get装备道纹数值(道纹Type.增加冰霜伤害) },
-    { 道纹Type.增加黑暗伤害, () => Get装备道纹数值(道纹Type.增加黑暗伤害) },
-    { 道纹Type.增加火焰伤害, () => Get装备道纹数值(道纹Type.增加火焰伤害) },
-    { 道纹Type.增加精英怪和首领伤害, () => Get装备道纹数值(道纹Type.增加精英怪和首领伤害) },
-    { 道纹Type.城墙低血增加伤害, () => Get装备道纹数值(道纹Type.城墙低血增加伤害) },
-    { 道纹Type.击杀精英怪城墙回血, () => Get装备道纹数值(道纹Type.击杀精英怪城墙回血) },
-    { 道纹Type.城墙血量百分比, () => Get装备道纹数值(道纹Type.城墙血量百分比) },
-    { 道纹Type.城墙免疫伤害, () => Get装备道纹数值(道纹Type.城墙免疫伤害) },
-    { 道纹Type.城墙满血时加伤害, () => Get装备道纹数值(道纹Type.城墙满血时加伤害) },
-    { 道纹Type.英雄暴击率, () => Get装备道纹数值(道纹Type.英雄暴击率) },
-    { 道纹Type.伤害在范围内浮动, () => Get装备道纹数值(道纹Type.伤害在范围内浮动) },
-    { 道纹Type.无视抗性, () => Get装备道纹数值(道纹Type.无视抗性) },
-    { 道纹Type.战士对靠近城墙敌人伤害增高, () => Get装备道纹数值(道纹Type.战士对靠近城墙敌人伤害增高) },
-    { 道纹Type.射手对远距离敌人伤害增高, () => Get装备道纹数值(道纹Type.射手对远距离敌人伤害增高) },
-    { 道纹Type.控制冷却缩减, () => Get装备道纹数值(道纹Type.控制冷却缩减) },
-    { 道纹Type.法师暴击率, () => Get装备道纹数值(道纹Type.法师暴击率) },
-    { 道纹Type.辅助被辅助英雄伤害增幅, () => Get装备道纹数值(道纹Type.辅助被辅助英雄伤害增幅) },
-    { 道纹Type.三味真火无视抗性百分比, () => Get装备道纹数值(道纹Type.三味真火无视抗性百分比) },
-    { 道纹Type.孙悟空每秒增加伤害, () => Get装备道纹数值(道纹Type.孙悟空每秒增加伤害) },
-    { 道纹Type.碧霄冰龙有概率再次释放, () => Get装备道纹数值(道纹Type.碧霄冰龙有概率再次释放) },
-    { 道纹Type.琼霄定身衰减效果减少, () => Get装备道纹数值(道纹Type.琼霄定身衰减效果减少) },
-    { 道纹Type.云霄最终伤害, () => Get装备道纹数值(道纹Type.云霄最终伤害) },
-    { 道纹Type.后羿距离越远伤害越高, () => Get装备道纹数值(道纹Type.后羿距离越远伤害越高) },
-    { 道纹Type.羲和灼烧伤害, () => Get装备道纹数值(道纹Type.羲和灼烧伤害) },
-    { 道纹Type.常曦有概率冻结敌人, () => Get装备道纹数值(道纹Type.常曦有概率冻结敌人) },
-    { 道纹Type.女娲增加被辅助英雄暴击率, () => Get装备道纹数值(道纹Type.女娲增加被辅助英雄暴击率) },
-    { 道纹Type.通天每次暴击增加伤害, () => Get装备道纹数值(道纹Type.通天每次暴击增加伤害) },
-    { 道纹Type.老子旋风体积越大伤害越高, () => Get装备道纹数值(道纹Type.老子旋风体积越大伤害越高) },
-    { 道纹Type.元始每次释放有概率增加火种数量, () => Get装备道纹数值(道纹Type.元始每次释放有概率增加火种数量) },
-    { 道纹Type.鸿钧每释放陨石增加伤害, () => Get装备道纹数值(道纹Type.鸿钧每释放陨石增加伤害) },
-    { 道纹Type.盘古每击杀敌人增加伤害, () => Get装备道纹数值(道纹Type.盘古每击杀敌人增加伤害) },
+    { 道纹Type.三味真火无视抗性百分比, () => Get道纹数值(道纹Type.三味真火无视抗性百分比) },
+    { 道纹Type.孙悟空每秒增加伤害, () => Get道纹数值(道纹Type.孙悟空每秒增加伤害) },
+    { 道纹Type.碧霄冰龙有概率再次释放, () => Get道纹数值(道纹Type.碧霄冰龙有概率再次释放) },
+    { 道纹Type.琼霄定身衰减效果减少, () => Get道纹数值(道纹Type.琼霄定身衰减效果减少) },
+    { 道纹Type.云霄最终伤害, () => Get道纹数值(道纹Type.云霄最终伤害) },
+    { 道纹Type.后羿距离越远伤害越高, () => Get道纹数值(道纹Type.后羿距离越远伤害越高) },
+    { 道纹Type.羲和灼烧伤害, () => Get道纹数值(道纹Type.羲和灼烧伤害) },
+    { 道纹Type.常曦有概率冻结敌人, () => Get道纹数值(道纹Type.常曦有概率冻结敌人) },
+    { 道纹Type.女娲增加被辅助冷却缩减, () => Get道纹数值(道纹Type.女娲增加被辅助冷却缩减) },
+    { 道纹Type.通天每次暴击增加伤害, () => Get道纹数值(道纹Type.通天每次暴击增加伤害) },
+    { 道纹Type.老子旋风体积越大伤害越高, () => Get道纹数值(道纹Type.老子旋风体积越大伤害越高) },
+    { 道纹Type.元始每次释放有概率增加火种数量, () => Get道纹数值(道纹Type.元始每次释放有概率增加火种数量) },
+    { 道纹Type.鸿钧每释放陨石增加伤害, () => Get道纹数值(道纹Type.鸿钧每释放陨石增加伤害) },
+    { 道纹Type.盘古每击杀敌人增加伤害, () => Get道纹数值(道纹Type.盘古每击杀敌人增加伤害) },
 };
 
-    public static float Get装备道纹数值(道纹Type type)
-    {
-        float count = 0;
-        foreach (var item in PlayerData.S.装备道纹List[EquipType.头盔])
-        {
-            if (item.道纹Type == type)
-            {
-                switch (item.quality)
-                {
-                    case QualityType.天品:
-                        count += 道纹数值Dic[item.道纹Type][0];
-                        break;
-                    case QualityType.宇品:
-                        count += 道纹数值Dic[item.道纹Type][1];
-                        break;
-                    case QualityType.宙品:
-                        count += 道纹数值Dic[item.道纹Type][2];
-                        break;
-                    case QualityType.洪品:
-                        count += 道纹数值Dic[item.道纹Type][3];
-                        break;
-                    case QualityType.荒品:
-                        count += 道纹数值Dic[item.道纹Type][4];
-                        break;
-                }
-            }
-        }
-        foreach (var item in PlayerData.S.装备道纹List[EquipType.项链])
-        {
-            if (item.道纹Type == type)
-            {
-                switch (item.quality)
-                {
-                    case QualityType.天品:
-                        count += 道纹数值Dic[item.道纹Type][0];
-                        break;
-                    case QualityType.宇品:
-                        count += 道纹数值Dic[item.道纹Type][1];
-                        break;
-                    case QualityType.宙品:
-                        count += 道纹数值Dic[item.道纹Type][2];
-                        break;
-                    case QualityType.洪品:
-                        count += 道纹数值Dic[item.道纹Type][3];
-                        break;
-                    case QualityType.荒品:
-                        count += 道纹数值Dic[item.道纹Type][4];
-                        break;
-                }
-            }
-        }
-        foreach (var item in PlayerData.S.装备道纹List[EquipType.戒指])
-        {
-            if (item.道纹Type == type)
-            {
-                switch (item.quality)
-                {
-                    case QualityType.天品:
-                        count += 道纹数值Dic[item.道纹Type][0];
-                        break;
-                    case QualityType.宇品:
-                        count += 道纹数值Dic[item.道纹Type][1];
-                        break;
-                    case QualityType.宙品:
-                        count += 道纹数值Dic[item.道纹Type][2];
-                        break;
-                    case QualityType.洪品:
-                        count += 道纹数值Dic[item.道纹Type][3];
-                        break;
-                    case QualityType.荒品:
-                        count += 道纹数值Dic[item.道纹Type][4];
-                        break;
-                }
-            }
-        }
-        foreach (var item in PlayerData.S.装备道纹List[EquipType.鞋子])
-        {
-            if (item.道纹Type == type)
-            {
-                switch (item.quality)
-                {
-                    case QualityType.天品:
-                        count += 道纹数值Dic[item.道纹Type][0];
-                        break;
-                    case QualityType.宇品:
-                        count += 道纹数值Dic[item.道纹Type][1];
-                        break;
-                    case QualityType.宙品:
-                        count += 道纹数值Dic[item.道纹Type][2];
-                        break;
-                    case QualityType.洪品:
-                        count += 道纹数值Dic[item.道纹Type][3];
-                        break;
-                    case QualityType.荒品:
-                        count += 道纹数值Dic[item.道纹Type][4];
-                        break;
-                }
-            }
-        }
-        foreach (var item in PlayerData.S.装备道纹List[EquipType.护手])
-        {
-            if (item.道纹Type == type)
-            {
-                switch (item.quality)
-                {
-                    case QualityType.天品:
-                        count += 道纹数值Dic[item.道纹Type][0];
-                        break;
-                    case QualityType.宇品:
-                        count += 道纹数值Dic[item.道纹Type][1];
-                        break;
-                    case QualityType.宙品:
-                        count += 道纹数值Dic[item.道纹Type][2];
-                        break;
-                    case QualityType.洪品:
-                        count += 道纹数值Dic[item.道纹Type][3];
-                        break;
-                    case QualityType.荒品:
-                        count += 道纹数值Dic[item.道纹Type][4];
-                        break;
-                }
-            }
-        }
-        foreach (var item in PlayerData.S.装备道纹List[EquipType.衣服])
-        {
-            if (item.道纹Type == type)
-            {
-                switch (item.quality)
-                {
-                    case QualityType.天品:
-                        count += 道纹数值Dic[item.道纹Type][0];
-                        break;
-                    case QualityType.宇品:
-                        count += 道纹数值Dic[item.道纹Type][1];
-                        break;
-                    case QualityType.宙品:
-                        count += 道纹数值Dic[item.道纹Type][2];
-                        break;
-                    case QualityType.洪品:
-                        count += 道纹数值Dic[item.道纹Type][3];
-                        break;
-                    case QualityType.荒品:
-                        count += 道纹数值Dic[item.道纹Type][4];
-                        break;
-                }
-            }
-        }
-        return count;
-    }
+   
     public static bool 检查装备专属道纹(道纹Type type)
     {
         if (!是否专属道纹(type))
@@ -319,7 +146,7 @@ public class 道纹config
         { 道纹Type.后羿距离越远伤害越高, HeroType.后羿 },
         { 道纹Type.羲和灼烧伤害, HeroType.羲和 },
         { 道纹Type.常曦有概率冻结敌人, HeroType.常羲 },
-        { 道纹Type.女娲增加被辅助英雄暴击率, HeroType.女娲 },
+        { 道纹Type.女娲增加被辅助冷却缩减, HeroType.女娲 },
         { 道纹Type.通天每次暴击增加伤害, HeroType.通天 },
         { 道纹Type.老子旋风体积越大伤害越高, HeroType.老子 },
         { 道纹Type.元始每次释放有概率增加火种数量, HeroType.元始 },
@@ -421,6 +248,11 @@ public class 道纹config
             case 道纹Type.辅助被辅助英雄伤害增幅:
                 return $"被辅助英雄伤害增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
 
+            
+            
+            
+            
+            
             case 道纹Type.三味真火无视抗性百分比:
                 return $"三味真火无视抗性<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
 
@@ -445,8 +277,8 @@ public class 道纹config
             case 道纹Type.常曦有概率冻结敌人:
                 return $"月华冰封阵有<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>概率冻结敌人";
 
-            case 道纹Type.女娲增加被辅助英雄暴击率:
-                return $"被补天净化咒辅助英雄暴击率增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
+            case 道纹Type.女娲增加被辅助冷却缩减:
+                return $"被补天净化咒辅助英雄冷却缩减增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
 
             case 道纹Type.通天每次暴击增加伤害:
                 return $"通天每次暴击增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>伤害";
@@ -455,7 +287,7 @@ public class 道纹config
                 return $"老子太清玄冰风每增大<color=green>1%</color>体积，伤害增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
 
             case 道纹Type.元始每次释放有概率增加火种数量:
-                return $"元始释放技能有<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>概率增加火种数量";
+                return $"元始释放技能有<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>概率增加火种数量(最大为10)";
 
             case 道纹Type.鸿钧每释放陨石增加伤害:
                 return $"鸿钧每释放一个陨石，伤害增加<color=green>{HeroConfig.Get技能伤害string(val,1)}</color>";
@@ -549,13 +381,13 @@ public class 道纹config
         
         { 道纹Type.三味真火无视抗性百分比, new List<float>() { 15, 20, 30, 50, 80 } },
         { 道纹Type.孙悟空每秒增加伤害, new List<float>() { 0.3f, 0.45f, 0.6f, 0.8f, 1 } },
-        { 道纹Type.碧霄冰龙有概率再次释放, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.碧霄冰龙有概率再次释放, new List<float>() { 10, 15, 20, 30, 50 } },
         { 道纹Type.琼霄定身衰减效果减少, new List<float>() { 10, 15, 20, 30, 50 } },
         { 道纹Type.云霄最终伤害, new List<float>() { 15, 20, 30, 50, 80 } },
         { 道纹Type.后羿距离越远伤害越高, new List<float>() { 2, 4, 6, 8, 12 } },
         { 道纹Type.羲和灼烧伤害, new List<float>() { 15, 20, 30, 50, 80 } },
         { 道纹Type.常曦有概率冻结敌人, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.女娲增加被辅助英雄暴击率, new List<float>() { 10, 15, 20, 30, 50 } },
+        { 道纹Type.女娲增加被辅助冷却缩减, new List<float>() { 5, 10, 15, 20, 30 } },
         { 道纹Type.通天每次暴击增加伤害, new List<float>() { 0.3f, 0.45f, 0.6f, 0.8f, 1 } },
         { 道纹Type.老子旋风体积越大伤害越高, new List<float>() { 0.5f, 0.7f, 1f, 1.4f, 2 } },
         { 道纹Type.元始每次释放有概率增加火种数量, new List<float>() { 10, 15, 20, 30, 50 } },
@@ -598,7 +430,7 @@ public class 道纹config
         { 道纹Type.后羿距离越远伤害越高, "落日" },
         { 道纹Type.羲和灼烧伤害, "曦日灼" },
         { 道纹Type.常曦有概率冻结敌人, "寒月" },
-        { 道纹Type.女娲增加被辅助英雄暴击率, "补天" },
+        { 道纹Type.女娲增加被辅助冷却缩减, "补天" },
         { 道纹Type.通天每次暴击增加伤害, "截天" },
         { 道纹Type.老子旋风体积越大伤害越高, "玄风" },
         { 道纹Type.元始每次释放有概率增加火种数量, "始火" },

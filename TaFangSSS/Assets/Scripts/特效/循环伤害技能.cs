@@ -68,6 +68,9 @@ public class 循环伤害技能 : MonoBehaviour
             {
                 damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
             }
+
+            float scale = (transform.localScale.x - 1) / 0.01f * 属性config.总属性.老子体积增伤;
+            damage *= (1 + scale);
             QueueController.S.MonsterColliderDic[other].Hurt(realDamage, HeroType);
             hit.gameObject.SetActive(true);
             if (瑶池冰辅助)

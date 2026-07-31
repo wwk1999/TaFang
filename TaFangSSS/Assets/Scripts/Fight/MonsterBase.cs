@@ -42,6 +42,7 @@ public class MonsterBase : MonoBehaviour
 
    public void Set灼烧伤害(float damage)
    {
+      damage *= 属性config.总属性.羲和灼烧伤害;
       if (灼烧time <= 0)
       {
          灼烧伤害 = damage;
@@ -53,7 +54,7 @@ public class MonsterBase : MonoBehaviour
    }
    public void Set黑暗符(float time)
    {
-      float scale = 0.1f * 黑暗符次数;
+      float scale = 0.1f * 黑暗符次数*(1-属性config.总属性.琼霄定身衰减减少/100f);
       黑暗符 = time * (1-scale);
       黑暗符次数++;
    }
@@ -185,12 +186,60 @@ public class MonsterBase : MonoBehaviour
       }
       if (random <= value)
       {
+         if (heroType == HeroType.通天)
+         {
+            FightController.S.通天暴击次数++;
+         }
          return true;
       }
       else
       {
          return false;
       }
+   }
+
+   public float Get道纹伤害(float 原始Damage, HeroType heroType)
+   {
+      if (heroType == HeroType.孙悟空)
+      {
+         原始Damage *= (1 + FightController.S.孙悟空每秒增加伤害Time * 属性config.总属性.孙悟空每秒增加伤害);
+      }
+
+      if (heroType == HeroType.云霄)
+      {
+         原始Damage *= 属性config.总属性.云霄最终伤害;
+      }
+
+      if (heroType == HeroType.后羿)
+      {
+         float 距离 =transform.position.x - (-5f);
+         原始Damage *= (1+属性config.总属性.后羿距离增伤*距离);
+      }
+      if (heroType == HeroType.常羲)
+      {
+         float random = Random.Range(0, 100);
+         if (random <= 属性config.总属性.常曦冻结概率 * 100f)
+         {
+            冰冻time += 1;
+         }
+      }
+
+      if (heroType == HeroType.通天)
+      {
+         原始Damage *= (1 + 属性config.总属性.通天暴击增伤 * FightController.S.通天暴击次数);
+      }
+
+      if (heroType == HeroType.鸿钧)
+      {
+         原始Damage *= (1f + FightController.S.鸿钧陨石次数 * 属性config.总属性.鸿钧陨石增伤);
+      }
+
+      if (heroType == HeroType.盘古)
+      {
+         原始Damage *= (1f + FightController.S.盘古击杀次数 * 属性config.总属性.盘古击杀增伤);
+      }
+
+      return 原始Damage;
    }
    public void Hurt(float 原始Damage,HeroType heroType)
    {
@@ -204,6 +253,7 @@ public class MonsterBase : MonoBehaviour
       }
 
       最终Damage *= 属性config.总属性.最终伤害;
+      最终Damage = Get道纹伤害(原始Damage, heroType);
       if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
       {
          最终Damage *= 属性config.总属性.战士对靠近城墙敌人伤害增高;
@@ -277,7 +327,12 @@ public class MonsterBase : MonoBehaviour
             break;
       }
 
-      最终Damage *= (100 - (抗性-属性config.总属性.无视抗性*100)) / 100;
+      float 无视抗性 = 属性config.总属性.无视抗性 * 100;
+      if (heroType == HeroType.哪吒)
+      {
+         无视抗性 += 属性config.总属性.三味真火无视抗性百分比*100;
+      }
+      最终Damage *= (100 - (抗性-无视抗性)) / 100;
       FightController.S.Show伤害数字(最终Damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);
@@ -285,7 +340,7 @@ public class MonsterBase : MonoBehaviour
       MonsterSlider.value = CurrentHP;
       if (CurrentHP <= 0)
       {
-         Die();
+         Die(heroType);
       }
    }
 
@@ -358,13 +413,17 @@ public class MonsterBase : MonoBehaviour
       }
       Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
    }
-   public void Die()
+   public void Die(HeroType heroType)
    {
       if (isDead)
       {
          return;
       }
       isDead = true;
+      if (heroType == HeroType.盘古)
+      {
+         FightController.S.盘古击杀次数++;
+      }
       FightController.S.总杀怪增伤 += 城墙Config.杀怪增伤数值;
       if (城墙Config.杀怪回血数值 > 0)
       {

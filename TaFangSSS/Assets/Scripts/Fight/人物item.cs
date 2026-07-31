@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Config;
 using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class 人物item : MonoBehaviour
     public 火球旋转parent 火球4;
     public 火球旋转parent 火球5;
     public 火球旋转parent 火球6;
+    public 火球旋转parent 火球7;
+    public 火球旋转parent 火球8;
+    public 火球旋转parent 火球9;
+    public 火球旋转parent 火球10;
+
     public SpriteRenderer bg;
     public SpriteRenderer image;
     public Animator Animator;
@@ -51,6 +57,7 @@ public class 人物item : MonoBehaviour
         if (女娲电辅助 > 0)
         {
             value *= (1f-英雄星级属性.女娲效果);
+            value *= (1f - 属性config.总属性.女娲辅助冷却缩减);
         }
         return value;
     }
@@ -116,8 +123,12 @@ public class 人物item : MonoBehaviour
                 }
                 else if(heroType == HeroType.元始)//上场
                 {
-                    int count = 英雄星级属性.元始攻击数量;
-                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间, true,count);
+                    float random = Random.Range(0, 100f);
+                    if (random < 属性config.总属性.元始火种增加数量 * 100f)
+                    {
+                        FightController.S.元始数量++;
+                    }
+                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间, true,FightController.S.元始数量);
                 }
                 else if(heroType == HeroType.盘古)//上场
                 {
@@ -260,6 +271,44 @@ public class 人物item : MonoBehaviour
                             火球6.damage = 20;
                             火球6.gameObject.SetActive(true);
                             break;
+                        case 7:
+                            火球7.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球7.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球7.女娲电辅助 = 女娲电辅助>0;
+
+                            火球7.RotateSpeed = 100;
+                            火球7.damage = 20;
+                            火球7.gameObject.SetActive(true);
+                            break;
+                        case 8:
+                            火球8.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球8.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球8.女娲电辅助 = 女娲电辅助>0;
+
+                            火球8.RotateSpeed = 100;
+                            火球8.damage = 20;
+                            火球8.gameObject.SetActive(true);
+                            break;
+                        case 9:
+                            火球9.瑶池冰辅助 = 瑶池冰辅助>0;
+                            火球9.黑暗辅助 = 妲己黑暗辅助>0;
+                            火球9.女娲电辅助 = 女娲电辅助>0;
+
+                            火球9.RotateSpeed = 100;
+                            火球9.damage = 20;
+                            火球9.gameObject.SetActive(true);
+                            break;
+                    }
+
+                    if (count >= 10)
+                    {
+                        火球10.瑶池冰辅助 = 瑶池冰辅助>0;
+                        火球10.黑暗辅助 = 妲己黑暗辅助>0;
+                        火球10.女娲电辅助 = 女娲电辅助>0;
+
+                        火球10.RotateSpeed = 100;
+                        火球10.damage = 20;
+                        火球10.gameObject.SetActive(true);
                     }
                     break;
             }
