@@ -704,7 +704,6 @@ public class PlayerData : XSingleton<PlayerData>
 
     public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
     {
-        { PropType.破镜珠, 0 },
         { PropType.全职业经验值, 0 },
         { PropType.功德, 0 },
         { PropType.头盔锻造石, 0 },
@@ -768,7 +767,7 @@ public class PlayerData : XSingleton<PlayerData>
     private void Update()
     {
         timer+=Time.deltaTime;
-        if (timer >= 1)
+        if (timer >= 1f/(1+道宝Config.羁绊寻宝速度/100f))
         {
             timer = 0;
             通关塔掉落();

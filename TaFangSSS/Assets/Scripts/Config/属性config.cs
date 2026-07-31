@@ -107,6 +107,7 @@ public class 属性config
     public float 射手连射概率 => _道纹.射手连射概率;
     public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
     public float 最终伤害 => _装备.最终伤害;
+    public float 伤害减免 => 1-(1-道宝Config.羁绊伤害减免/100f)*(1-城墙Config.伤害减免/100f);
 }
 
      public static float Get装备攻击力增幅()

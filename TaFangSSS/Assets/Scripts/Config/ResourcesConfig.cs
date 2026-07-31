@@ -616,7 +616,6 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 战士;
     public static Sprite 法师;
 
-    public static Sprite 破镜珠;
     public static Sprite 全职业经验值;
     public static Sprite 功德;
     public static Sprite 头盔锻造石;
@@ -1296,8 +1295,7 @@ public class ResourcesConfig : MonoBehaviour
     {
         switch (propType)
         {
-            case PropType.破镜珠:
-                return 破镜珠;
+            
             case PropType.功德:
                 return 功德;
             case PropType.洗练石:
@@ -3208,7 +3206,6 @@ public class ResourcesConfig : MonoBehaviour
         Boss背景框 = Resources.Load<Sprite>("Sprite/怪物背景框/boss背景框");
 
         //道具图片
-        破镜珠 = Resources.Load<Sprite>("Sprite/DaoJu/破镜珠");
         全职业经验值 = Resources.Load<Sprite>("Sprite/DaoJu/全职业经验值");
         功德 = Resources.Load<Sprite>("Sprite/DaoJu/功德");
         头盔锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/头盔锻造石");

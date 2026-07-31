@@ -196,6 +196,8 @@ public class MonsterBase : MonoBehaviour
       {
          最终Damage *= (2 + 属性config.Get英雄暴击伤害增幅());
       }
+
+      最终Damage *= (1 + 道宝Config.羁绊最终伤害 / 100f);
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
       最终Damage = 羁绊元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
       最终Damage = 羁绊职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType);

@@ -6,7 +6,6 @@ namespace Config
     public enum PropType
     {
         None,
-        破镜珠,
         全职业经验值,
         功德,
         头盔锻造石,
@@ -277,7 +276,6 @@ namespace Config
         public static Dictionary<PropType, string> PropNameDic = new Dictionary<PropType, string>()
         {
             { PropType.None, "" },
-            { PropType.破镜珠, "功德" },
             { PropType.全职业经验值, "全职业经验值" },
             { PropType.功德, "功德" },
             { PropType.头盔锻造石, "头盔锻造石" },
@@ -333,7 +331,6 @@ namespace Config
             { PropType.None, QualityType.None },
             { PropType.洗练石, QualityType.宇品 },
             { PropType.全职业经验值, QualityType.天品 },
-            { PropType.破镜珠, QualityType.地品 },
             { PropType.射手经验值, QualityType.地品 },
             { PropType.战士经验值, QualityType.地品 },
             { PropType.辅助经验值, QualityType.地品 },

@@ -52,7 +52,9 @@ public class Entrance : MonoBehaviour
       {
           damage *= (1f - 城墙Config.高血量伤害减免值 / 100f);
       }
-      damage *= (1f - 城墙Config.伤害减免 / 100f);
+
+      属性config.领主总属性 属性 = new 属性config.领主总属性();
+      damage *= (1f - 属性.伤害减免 / 100f);
       damage=Math.Max(damage,0);
       float y=(float)obj[1];
       围栏Animator.Play("围栏受击",0,0);

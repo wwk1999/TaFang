@@ -694,7 +694,6 @@ public class StoreDefine : XSingleton<StoreController>
 
         public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
         {
-            { PropType.破镜珠, 0 },
             { PropType.全职业经验值, 0 },
             { PropType.功德, 0 },
             { PropType.头盔锻造石, 0 },
