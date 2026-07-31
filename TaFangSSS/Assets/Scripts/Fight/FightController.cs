@@ -145,30 +145,23 @@ public class FightController : XSingleton<FightController>
     {
         if (英雄星级属性.后羿攻击数量 == 2)
         {
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,true),damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,false),damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
         }
 
         if (英雄星级属性.后羿攻击数量 == 3)
         {
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, true), damage,
-                HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, false), damage,
-                HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助,
-                黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
+            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, true), damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
+            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, false), damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
+            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
         }
                 
         if (英雄星级属性.后羿攻击数量 == 4)
         {
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 4, true), damage,
-                HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 2, true), damage,
-                HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 4, false), damage,
-                HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 2, false), damage, HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助,
-                黑暗辅助, true,女娲电辅助,HeroConfig.HeroZhiYeDic[HeroType.后羿].zhiYeType);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿);
         }
     }
 
@@ -178,10 +171,10 @@ public class FightController : XSingleton<FightController>
         switch (hero)
         {
             case HeroType.丹童:
-                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.丹童].zhiYeType);
+                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.丹童);
                 break;
             case HeroType.土地:
-                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.土地].zhiYeType);
+                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.土地);
                 break;
             case HeroType.河伯:
                 一次伤害技能(攻击特效Type.冰刺, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
@@ -199,16 +192,16 @@ public class FightController : XSingleton<FightController>
                 一次伤害技能(攻击特效Type.龟丞相技能, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
             case HeroType.太白金星:
-                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.太白金星].zhiYeType);
+                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.太白金星);
                 break;
             case HeroType.多闻天王:
-                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.多闻天王].zhiYeType);
+                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.多闻天王);
                 break;
             case HeroType.雷震子:
                 一次伤害技能(攻击特效Type.落雷, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
             case HeroType.月老:
-                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.月老].zhiYeType);
+                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.月老);
                 break;
             case HeroType.嫦娥:
                 一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
@@ -216,13 +209,13 @@ public class FightController : XSingleton<FightController>
             case HeroType.杨戬:
                 if (英雄星级属性.杨戬攻击数量 == 1)
                 {
-                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.杨戬].zhiYeType);
+                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
                 }
 
                 if (英雄星级属性.杨戬攻击数量 == 2)
                 {
-                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,false),damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.杨戬].zhiYeType);
-                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,true),damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.杨戬].zhiYeType);
+                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,false),damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
+                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,true),damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
                 }
                 break;
             case HeroType.妲己:
@@ -244,7 +237,7 @@ public class FightController : XSingleton<FightController>
                 一次伤害技能(攻击特效Type.火符, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
             case HeroType.云霄:
-                Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.云霄].zhiYeType);
+                Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.云霄);
                 break;
             case HeroType.女娲:
                 女娲电辅助技能();
@@ -255,30 +248,26 @@ public class FightController : XSingleton<FightController>
             case HeroType.通天:
                 if (英雄星级属性.通天攻击数量 == 2)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,true),damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,false),damage,HeroConfig.HeroZhiYeDic[hero].yuanSuType,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.通天);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.通天);
                 }
 
                 if (英雄星级属性.通天攻击数量 == 3)
                 {
                     Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 3, true), damage,
-                        HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
+                         10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroType.通天);
                     Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 3, false), damage,
-                        HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, dir, damage, HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助,
-                        黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
+                         10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroType.通天);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, dir, damage, 10, 瑶池冰辅助,
+                        黑暗辅助, true,女娲电辅助>0,HeroType.通天);
                 }
                 
                 if (英雄星级属性.通天攻击数量 == 4)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 4, true), damage,
-                        HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 2, true), damage,
-                        HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 4, false), damage,
-                        HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 2, false), damage, HeroConfig.HeroZhiYeDic[hero].yuanSuType, 10, 瑶池冰辅助,
-                        黑暗辅助, true,女娲电辅助>0,HeroConfig.HeroZhiYeDic[HeroType.通天].zhiYeType);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.通天);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.通天);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.通天);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.通天);
                 }
                 break;
             case HeroType.鸿钧:
@@ -378,8 +367,7 @@ public class FightController : XSingleton<FightController>
                      陨石.黑暗辅助 = 黑暗辅助;
                      陨石.女娲电辅助 = 女娲电辅助;
                      陨石.damage = damage * 英雄星级属性.鸿钧攻击数值 / 100f;
-                     陨石.YuanSuType = YuanSuType.火;
-                     陨石.zhiyetype = ZhiYeType.法师;
+                     陨石.HeroType = HeroType.鸿钧;
                      陨石.gameObject.SetActive(true);
                      yield return  new WaitForSeconds(0.1f/(count/5f));
                 }
@@ -401,7 +389,7 @@ public class FightController : XSingleton<FightController>
                 嫦娥技能.脚本.黑暗辅助 = 黑暗辅助;
                 嫦娥技能.脚本.女娲电辅助 = 女娲电辅助;
                 嫦娥技能.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.嫦娥)/100f;
-                嫦娥技能.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.嫦娥].yuanSuType;
+                嫦娥技能.脚本.HeroType = HeroType.嫦娥;
                 嫦娥技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰刺:
@@ -411,7 +399,7 @@ public class FightController : XSingleton<FightController>
                 item.脚本.黑暗辅助 = 黑暗辅助;
                 item.脚本.女娲电辅助 = 女娲电辅助;
                 item.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.河伯)/100f;
-                item.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.河伯].yuanSuType;
+                item.脚本.HeroType = HeroType.河伯;
                 item.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.玄女技能:
@@ -421,7 +409,7 @@ public class FightController : XSingleton<FightController>
                 玄女技能.脚本.黑暗辅助 = 黑暗辅助;
                 玄女技能.脚本.女娲电辅助 = 女娲电辅助;
                 玄女技能.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.玄女)/100f;
-                玄女技能.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.玄女].yuanSuType;
+                玄女技能.脚本.HeroType = HeroType.玄女;
                 玄女技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.龟丞相技能:
@@ -431,7 +419,7 @@ public class FightController : XSingleton<FightController>
                 龟丞相技能.脚本.黑暗辅助 = 黑暗辅助;
                 龟丞相技能.脚本.女娲电辅助 = 女娲电辅助;
                 龟丞相技能.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.龟丞相)/100f;
-                龟丞相技能.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.龟丞相].yuanSuType;
+                龟丞相技能.脚本.HeroType = HeroType.龟丞相;
                 龟丞相技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.落雷:
@@ -441,7 +429,7 @@ public class FightController : XSingleton<FightController>
                 落雷.脚本.黑暗辅助 = 黑暗辅助;
                 落雷.脚本.女娲电辅助 = 女娲电辅助;
                 落雷.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.雷震子)/100f;
-                落雷.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.雷震子].yuanSuType;
+                落雷.脚本.HeroType = HeroType.雷震子;
                 落雷.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰龙:
@@ -451,7 +439,7 @@ public class FightController : XSingleton<FightController>
                 冰龙.脚本.黑暗辅助 = 黑暗辅助;
                 冰龙.脚本.女娲电辅助 = 女娲电辅助;
                 冰龙.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.碧霄)/100f;
-                冰龙.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.碧霄].yuanSuType;
+                冰龙.脚本.HeroType = HeroType.碧霄;
                 冰龙.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.黑暗符:
@@ -461,7 +449,7 @@ public class FightController : XSingleton<FightController>
                 黑暗符.脚本.黑暗辅助 = 黑暗辅助;
                 黑暗符.脚本.女娲电辅助 = 女娲电辅助;
                 黑暗符.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.琼霄)/100f;
-                黑暗符.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.琼霄].yuanSuType;
+                黑暗符.脚本.HeroType = HeroType.琼霄;
                 黑暗符.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰符:
@@ -470,10 +458,8 @@ public class FightController : XSingleton<FightController>
                 冰符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 冰符.脚本.黑暗辅助 = 黑暗辅助;
                 冰符.脚本.女娲电辅助 = 女娲电辅助;
-                冰符.脚本.zhiyetype = HeroConfig.HeroZhiYeDic[HeroType.常羲].zhiYeType;
-
+                冰符.脚本.HeroType = HeroType.常羲;
                 冰符.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.常羲)/100f;
-                冰符.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.常羲].yuanSuType;
                 冰符.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.火符:
@@ -484,8 +470,7 @@ public class FightController : XSingleton<FightController>
                 火符.脚本.女娲电辅助 = 女娲电辅助;
 
                 火符.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.羲和)/100f;
-                火符.脚本.YuanSuType = HeroConfig.HeroZhiYeDic[HeroType.羲和].yuanSuType;
-                火符.脚本.zhiyetype = HeroConfig.HeroZhiYeDic[HeroType.羲和].zhiYeType;
+                火符.脚本.HeroType = HeroType.羲和;
                 火符.gameObject.SetActive(true);
                 break;
         }
@@ -498,7 +483,7 @@ public class FightController : XSingleton<FightController>
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
         {
             case 攻击特效Type.冰旋风:
-                魔法弹.ZhiYeType=HeroConfig.HeroZhiYeDic[HeroType.老子].zhiYeType;
+                魔法弹.HeroType=HeroType.老子;
                 魔法弹 = QueueController.S.冰旋风Queue.Dequeue();
                 break;
         }
@@ -507,7 +492,7 @@ public class FightController : XSingleton<FightController>
         魔法弹.damage = damage;
         魔法弹.MoveDirection = dir;
         魔法弹.MoveSpeed = speed;
-        魔法弹.YuanSuType = yuanSuType;
+        魔法弹.HeroType = HeroType.老子;
         魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
         魔法弹.黑暗辅助 = 黑暗辅助>0;
         魔法弹.女娲电辅助 = 女娲电辅助;
@@ -515,7 +500,7 @@ public class FightController : XSingleton<FightController>
     }
 
 
-    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,float speed,float 瑶池冰辅助,float 黑暗辅助,bool 穿透,bool 女娲电辅助,ZhiYeType zhiYeType)
+    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, float speed,float 瑶池冰辅助,float 黑暗辅助,bool 穿透,bool 女娲电辅助,HeroType heroType)
     {
         普通魔法弹带peng 魔法弹 = null;
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
@@ -569,7 +554,7 @@ public class FightController : XSingleton<FightController>
         魔法弹.damage = damage;
         魔法弹.MoveDirection = dir;
         魔法弹.MoveSpeed = speed;
-        魔法弹.YuanSuType = yuanSuType;
+        魔法弹.HeroType = heroType;
         魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
         魔法弹.黑暗辅助 = 黑暗辅助>0;
         魔法弹.女娲电辅助 = 女娲电辅助;

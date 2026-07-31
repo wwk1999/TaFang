@@ -8,8 +8,7 @@ public class 火球 : MonoBehaviour
 {
     public 攻击特效Type Type;
     [NonSerialized] public float damage;
-    [NonSerialized] public YuanSuType YuanSuType=YuanSuType.火;
-    [NonSerialized] public ZhiYeType ZhiYeType=HeroConfig.HeroZhiYeDic[HeroType.元始].zhiYeType;
+    [NonSerialized] public HeroType HeroType=HeroType.元始;
 
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
@@ -32,7 +31,7 @@ public class 火球 : MonoBehaviour
             {
                 damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
-            QueueController.S.MonsterColliderDic[other].Hurt(realDamage,YuanSuType,ZhiYeType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage,HeroType);
             hit.gameObject.SetActive(true);
             
             if (瑶池冰辅助)

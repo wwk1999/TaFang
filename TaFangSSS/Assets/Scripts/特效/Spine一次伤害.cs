@@ -15,8 +15,7 @@ public class Spine一次伤害 : MonoBehaviour
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized] public float damage;
-   [NonSerialized] public YuanSuType YuanSuType;
-   [NonSerialized] public ZhiYeType zhiyetype;
+   [NonSerialized] public HeroType HeroType;
 
    private Vector2 原始scale=Vector2.one;
    [NonSerialized] public bool 女娲电辅助;
@@ -85,7 +84,7 @@ public class Spine一次伤害 : MonoBehaviour
             {
                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
             }
-            QueueController.S.MonsterColliderDic[col].Hurt(damage,YuanSuType,zhiyetype);
+            QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroType);
          }
       }
    }

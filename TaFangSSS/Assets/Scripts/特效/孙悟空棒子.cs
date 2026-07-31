@@ -45,7 +45,7 @@ public class 孙悟空棒子 : MonoBehaviour
          {
             damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
          }
-         QueueController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理,ZhiYeType.战士);
+         QueueController.S.MonsterColliderDic[other].Hurt(damage,HeroType.孙悟空);
       }
    }
 

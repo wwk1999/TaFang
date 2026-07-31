@@ -167,14 +167,38 @@ public class MonsterBase : MonoBehaviour
 
       return value;
    }
-   public void Hurt(float 原始Damage,YuanSuType yuanSuType,ZhiYeType zhiYeType)
+
+   public bool 暴击检测(HeroType heroType)
+   {
+      float random = Random.Range(0, 100);
+      属性config.领主总属性 属性 = new 属性config.领主总属性();
+      float value = 属性.暴击率 * 100;
+      if (heroType == HeroType.通天)
+      {
+         value += 英雄星级属性.Get通天暴击率()*100;
+      }
+      if (random <= value)
+      {
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+   }
+   public void Hurt(float 原始Damage,HeroType heroType)
    {
       MonsterSlider.gameObject.SetActive(true);
       受击Animation.Play("怪物受击",0,0f);
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
+      bool 暴击 = 暴击检测(heroType);
+      if (暴击)
+      {
+         最终Damage *= (2 + 属性config.Get英雄暴击伤害增幅());
+      }
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
-      最终Damage = 羁绊元素伤害(最终Damage, yuanSuType);
-      最终Damage = 羁绊职业伤害(最终Damage, zhiYeType);
+      最终Damage = 羁绊元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
+      最终Damage = 羁绊职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
       float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
       {
@@ -185,7 +209,7 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1 +  城墙Config.高血量增伤值/ 100f);
       }
       float 抗性 = 0;
-      switch (yuanSuType)
+      switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
       {
          case YuanSuType.物理:
             
@@ -206,7 +230,7 @@ public class MonsterBase : MonoBehaviour
       }
 
       最终Damage *= (100 - 抗性) / 100;
-      FightController.S.Show伤害数字(最终Damage,yuanSuType,伤害trans.position);
+      FightController.S.Show伤害数字(最终Damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);
       MonsterSlider.maxValue = MonsterAttribute.Hp;
@@ -231,7 +255,7 @@ public class MonsterBase : MonoBehaviour
       if (灼烧time > 0 && 灼烧当前时间 > 灼烧间隔)
       {
          灼烧当前时间 = 0;
-         Hurt(灼烧伤害,YuanSuType.火,ZhiYeType.法师);
+         Hurt(灼烧伤害,HeroType.羲和);
       }
       float 城墙最近距离 = 0;
       CurrentAttackTime+=Time.deltaTime;

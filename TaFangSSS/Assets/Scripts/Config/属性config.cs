@@ -1,7 +1,28 @@
+using System;
 using System.Collections.Generic;
+using Config;
 
 public class 属性config
 {
+     public static float Get英雄暴击伤害增幅()
+     {
+          float value = 0;
+          foreach (var item in HeroConfig.HeroQualityDic)
+          {
+               int xj = PlayerData.S.HeroDataDic[item.Key].Level;
+               value+=Math.Max(HeroConfig.升星奖励Dic[item.Value] * (xj - 1),0);
+          }
+
+          foreach (var item in HeroConfig.HeroQualityDic)
+          {
+               if (item.Value >= QualityType.宇品)
+               {
+                    value += 法则config.法则升级奖励Dic[item.Value] * PlayerData.S.英雄法则等级Dic[item.Key];
+               }
+          }
+
+          return value / 100f;
+     }
      public class 道纹属性
      {
           public float 增加百分比攻击力 => 1f + 道纹config.Get道纹数值(道纹Type.增加百分比攻击力);

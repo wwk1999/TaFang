@@ -532,6 +532,33 @@ public class 英雄星级属性
 
         return value;
     }
+
+    public static float Get通天暴击率()
+    {
+        float value = 0;
+        int level = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
+        if (level >= 1)
+        {
+            value += 0.03f;
+        }
+        if (level >= 2)
+        {
+            value += 0.06f;
+        }
+        if (level >= 3)
+        {
+            value += 0.09f;
+        }
+        if (level >= 4)
+        {
+            value += 0.12f;
+        }
+        if (level >= 5)
+        {
+            value += 0.15f;
+        }
+        return value;
+    }
     public static float Get通天攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.通天][0];
@@ -543,27 +570,6 @@ public class 英雄星级属性
         if (xj >= 4)
         {
             value *= 1.2f;
-        }
-        int level = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
-        if (level >= 1)
-        {
-            value *= 1.03f;
-        }
-        if (level >= 2)
-        {
-            value *= 1.06f;
-        }
-        if (level >= 3)
-        {
-            value *= 1.09f;
-        }
-        if (level >= 4)
-        {
-            value *= 1.12f;
-        }
-        if (level >= 5)
-        {
-            value *= 1.15f;
         }
         return value;
     }
@@ -1294,17 +1300,6 @@ public class 英雄星级属性
         return value;
     }
     
-    public static float Get牛魔王攻击数量()
-    {
-        float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.牛魔王].Level - 1;
-        if (xj >= 5)
-        {
-            value += 1f;
-        }
-
-        return value;
-    }
     public static float Get牛魔王攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.牛魔王][0];
@@ -1339,17 +1334,6 @@ public class 英雄星级属性
         return value;
     }
     
-
-    public static float Get妲己数量()
-    {
-        float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.妲己].Level - 1;
-        if (xj >= 5)
-        {
-            value += 1f;
-        }
-        return value;
-    }
     public static float Get妲己效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.妲己][0];

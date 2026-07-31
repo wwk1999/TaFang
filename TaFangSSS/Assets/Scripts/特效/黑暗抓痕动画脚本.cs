@@ -51,7 +51,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
-                QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,heroType);
             }
         }
     }
@@ -87,7 +87,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
                 
-                QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
+                QueueController.S.MonsterColliderDic[col].Hurt(damage,heroType);
             }
         }
     }

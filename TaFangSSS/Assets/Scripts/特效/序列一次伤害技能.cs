@@ -15,7 +15,7 @@ public class 序列一次伤害技能 : MonoBehaviour
     private void OnEnable()
     {
         float 目标scale = 1;
-        脚本.ZhiYeType = HeroConfig.HeroZhiYeDic[heroType].zhiYeType;
+        脚本.HeroType = heroType;
         switch (heroType)
         {
             case HeroType.河伯:

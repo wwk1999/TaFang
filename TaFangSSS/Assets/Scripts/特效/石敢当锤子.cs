@@ -59,7 +59,7 @@ public class 石敢当锤子 : MonoBehaviour
             damage*=(1+英雄星级属性.女娲辅助伤害/100f);
          }
          
-         QueueController.S.MonsterColliderDic[other].Hurt(damage,YuanSuType.物理,HeroConfig.HeroZhiYeDic[HeroType.石敢当].zhiYeType);
+         QueueController.S.MonsterColliderDic[other].Hurt(damage,HeroType.石敢当);
       }
    }
 }
