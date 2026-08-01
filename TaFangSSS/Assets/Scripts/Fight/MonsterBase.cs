@@ -333,6 +333,11 @@ public class MonsterBase : MonoBehaviour
          无视抗性 += 属性config.总属性.三味真火无视抗性百分比*100;
       }
       最终Damage *= (100 - (抗性-无视抗性)) / 100;
+      //最终伤害结算
+
+
+
+      FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
       FightController.S.Show伤害数字(最终Damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);

@@ -24,6 +24,8 @@ public class StoreDefine : XSingleton<StoreController>
         public int 混沌虚空最大层数 = 1;
         public int 城墙等级 = 1;
         public int 招募积分 = 0;
+        public float 关卡倍速 = 1;
+
 
         public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
         {
@@ -741,7 +743,7 @@ public class StoreDefine : XSingleton<StoreController>
             HeroDataDic = runtime.HeroDataDic;
             出战英雄List = runtime.出战英雄List;
             编队名List = runtime.编队名List;
-            CurrentBianDui = runtime.CurrentBianDui;
+            CurrentBianDui = runtime.当前出战编队;
             EquipLevelDic = runtime.EquipLevelDic;
             突破Dic = runtime.突破Dic;
             装备附加属性Dic = runtime.装备附加属性Dic;
@@ -765,6 +767,7 @@ public class StoreDefine : XSingleton<StoreController>
             血海英雄派遣Dic = runtime.血海英雄派遣Dic;
             血海寻宝Dic = runtime.血海寻宝Dic;
             招募积分 = runtime.招募积分;
+            关卡倍速 = runtime.关卡倍速;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -778,7 +781,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.HeroDataDic = HeroDataDic;
             runtime.出战英雄List = 出战英雄List;
             runtime.编队名List = 编队名List;
-            runtime.CurrentBianDui = CurrentBianDui;
+            runtime.当前出战编队 = CurrentBianDui;
             runtime.EquipLevelDic = EquipLevelDic;
             runtime.突破Dic = 突破Dic;
             runtime.装备附加属性Dic = 装备附加属性Dic;
@@ -802,6 +805,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.血海英雄派遣Dic = 血海英雄派遣Dic;
             runtime.血海寻宝Dic = 血海寻宝Dic;
             runtime.招募积分 = 招募积分;
+            runtime.关卡倍速 = 关卡倍速;
         }
     }
 }

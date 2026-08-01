@@ -72,7 +72,7 @@ public class QueueController:XSingleton<QueueController>
     
     public IEnumerator InitHeroSkill()
     {
-        var herolist=PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1];
+        var herolist=PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1];
         int count = 0;
         foreach (var hero in herolist)
         {

@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 倍速按钮亮;
+    public static Sprite 倍速按钮暗;
+
     //羁绊
     public static Sprite 羁绊背景框紫;
     public static Sprite 羁绊背景框橙;
@@ -486,6 +489,7 @@ public class ResourcesConfig : MonoBehaviour
 
     public static TMP_ColorGradient 灰色TMP;
     public static TMP_ColorGradient 高级招募TMP;
+    public static TMP_ColorGradient 纯黄TMP;
 
     //突破背景
     public static Sprite 突破背景凡;
@@ -2615,6 +2619,9 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        倍速按钮亮= Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮亮");
+        倍速按钮暗= Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮暗");
+
         羁绊背景框紫 = Resources.Load<Sprite>("Sprite/羁绊图标/紫");
         羁绊背景框橙 = Resources.Load<Sprite>("Sprite/羁绊图标/橙");
         羁绊背景框粉 = Resources.Load<Sprite>("Sprite/羁绊图标/粉");
@@ -3085,6 +3092,7 @@ public class ResourcesConfig : MonoBehaviour
 
         灰色TMP = Resources.Load<TMP_ColorGradient>("TMP/灰色");
         高级招募TMP = Resources.Load<TMP_ColorGradient>("TMP/高级招募");
+        纯黄TMP = Resources.Load<TMP_ColorGradient>("TMP/纯黄");
 
         //突破背景
         突破背景凡 = Resources.Load<Sprite>("Sprite/突破背景/凡");

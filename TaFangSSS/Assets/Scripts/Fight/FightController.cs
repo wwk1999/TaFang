@@ -11,6 +11,12 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
+    //伤害面板
+    [NonSerialized]public Dictionary<HeroType,float>当前英雄伤害Dic = new Dictionary<HeroType, float>();
+    [NonSerialized]public float 伤害面板刷新间隔 = 0.5f;
+    [NonSerialized]public float 当前伤害面板刷新时间 = 0f;
+
+
     //法则
     [NonSerialized]public int 孙悟空每秒增加伤害Time = 0;
     [NonSerialized]public int 通天暴击次数 = 0;
@@ -53,10 +59,32 @@ public class FightController : XSingleton<FightController>
         { 7, new HashSet<MonsterBase>() },
     };
 
-   
-    
-    private void Start()
+    public void 刷新伤害面板()
     {
+        List<伤害item> value = new List<伤害item>();
+        float 总伤害 = 0;
+        foreach (var item in 当前英雄伤害Dic)
+        {
+            总伤害+=item.Value;
+        }
+
+        if (总伤害 != 0)
+        {
+            foreach (var item in 当前英雄伤害Dic)
+            {
+                float 比例 = item.Value / 总伤害;
+                value.Add(new 伤害item(){heroType = item.Key,damage = item.Value,比例 = 比例});
+            }
+        }
+        else
+        {
+            foreach (var item in 当前英雄伤害Dic)
+            {
+                value.Add(new 伤害item(){heroType = item.Key,damage = 0,比例 = 0});
+            }
+        }
+        
+        ObserverModuleManager.S.SendEvent("刷新伤害面板",value);
     }
 
     public float Get护盾Left()
@@ -787,6 +815,7 @@ public class FightController : XSingleton<FightController>
     }
     private void Update()
     {
+        当前伤害面板刷新时间+=Time.deltaTime;
         免疫护盾间隔时间 += Time.deltaTime;
         每段时间护盾间隔时间 += Time.deltaTime;
         无敌间隔Time+=Time.deltaTime;
@@ -794,6 +823,11 @@ public class FightController : XSingleton<FightController>
         城墙无敌Time-=Time.deltaTime;
         当前创建普通怪物时间+=Time.deltaTime;
         当前冰冻间隔+=Time.deltaTime;
+        if (当前伤害面板刷新时间 > 伤害面板刷新间隔)
+        {
+            当前伤害面板刷新时间 = 0;
+            刷新伤害面板();
+        }
         if (免疫护盾间隔时间 > 城墙Config.免疫护盾间隔时间)
         {
             免疫护盾间隔时间 = 0;
@@ -865,5 +899,60 @@ public class FightController : XSingleton<FightController>
         item.YuanSuType = yuanSuType;
         item.transform.position = pos;
         item.gameObject.SetActive(true);
+    }
+    
+    private static readonly (double value, string symbol)[] Units = new (double, string)[]
+    {
+        (1e28, "穰"),  // 10^28
+        (1e24, "秭"),  // 10^24
+        (1e20, "垓"),  // 10^20
+        (1e16, "京"),  // 10^16
+        (1e12, "兆"),  // 10^12
+        (1e8,  "亿"),  // 10^8
+        (1e4,  "万")   // 10^4
+    };
+    
+    
+    public string 格式化数字(double num)
+    {
+        // 处理负数
+        if (num < 0)
+        {
+            return "-" + 格式化数字(Math.Abs(num));
+        }
+
+        // 小于1万直接显示整数
+        if (num < 10000)
+        {
+            return Math.Floor(num).ToString();
+        }
+
+        // 从大到小遍历单位
+        foreach (var unit in Units)
+        {
+            // 达到当前单位的1000倍才转换（即 1000万、1000亿、1000兆...）
+            if (num >= unit.value * 1000)
+            {
+                double value = num / unit.value;
+                double rounded = Math.Round(value, 1, MidpointRounding.AwayFromZero);
+
+                // 如果四舍五入后达到10000，进位到下一个单位
+                if (rounded >= 10000)
+                {
+                    continue;
+                }
+
+                // 如果结果是整数，去掉 .0
+                if (Math.Abs(rounded - Math.Round(rounded)) < 0.01)
+                {
+                    return Math.Round(rounded).ToString() + unit.symbol;
+                }
+
+                return rounded.ToString("F1") + unit.symbol;
+            }
+        }
+
+        // 超大数值降级为科学计数法
+        return num.ToString("E1");
     }
 }

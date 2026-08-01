@@ -115,6 +115,16 @@ public class Entrance : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("设置护盾",设置护盾);
       地图Type type = Get地图Type();
       ObserverModuleManager.S.SendEvent("设置地图",type);
+      InitRenWu();
+      Set血条();
+      Init伤害面板();
+      Set倍速();
+      Canvas.ForceUpdateCanvases();
+   }
+
+   public void Set倍速()
+   {
+       Time.timeScale = PlayerData.S.关卡倍速;
    }
 
    public 地图Type Get地图Type()
@@ -179,7 +189,7 @@ public class Entrance : MonoBehaviour
    public void InitRenWu()
    {
       int index = 1;
-      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1])
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
       {
          if (item == HeroType.None)
          {
@@ -195,10 +205,18 @@ public class Entrance : MonoBehaviour
       }
    }
 
-   private void Awake()
+   public void Init伤害面板()
    {
-      InitRenWu();
-      Set血条();
-      Canvas.ForceUpdateCanvases();
+       List<HeroType> heroTypes = new List<HeroType>();
+       foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+       {
+           if (item != HeroType.None)
+           {
+               FightController.S.当前英雄伤害Dic[item] = 0;
+               heroTypes.Add(item);
+           }
+       }
+       ObserverModuleManager.S.SendEvent("Init伤害面板",heroTypes);
    }
+   
 }

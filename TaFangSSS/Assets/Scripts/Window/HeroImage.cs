@@ -50,16 +50,16 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
             if (HeroWindowController.S.IsJiaoHuan)
             {
                 List<HeroType>list = new List<HeroType>();
-                list.Add(PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][HeroWindowController.S.交换HeroItem.Index-1]);
+                list.Add(PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1][HeroWindowController.S.交换HeroItem.Index-1]);
                 list.Add(HeroWindowController.S.DragHero);
                 for (int i = 0; i < 5; i++)
                 {
-                    if (PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui - 1][i] == HeroWindowController.S.DragHero)
+                    if (PlayerData.S.出战英雄List[PlayerData.S.当前出战编队 - 1][i] == HeroWindowController.S.DragHero)
                     {
-                        PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui - 1][i] = HeroType.None;
+                        PlayerData.S.出战英雄List[PlayerData.S.当前出战编队 - 1][i] = HeroType.None;
                     }
                 }
-                PlayerData.S.出战英雄List[PlayerData.S.CurrentBianDui-1][HeroWindowController.S.交换HeroItem.Index-1]=
+                PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1][HeroWindowController.S.交换HeroItem.Index-1]=
                     HeroWindowController.S.DragHero;
                 ObserverModuleManager.S.SendEvent("交换英雄",list);
             }
