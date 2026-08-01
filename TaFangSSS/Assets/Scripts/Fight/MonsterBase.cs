@@ -449,11 +449,23 @@ public class MonsterBase : MonoBehaviour
          if (FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
          {
             FightController.S.CreateEliteMonster();
-            FightController.S.EliteMonsterCount++;
          }
       }
+
+      int 总数量 = 0;
+      if (LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
+      {
+         总数量 = 小怪数量;
+      }else if (LevelConfig.当前主线关卡Type <= 主线关卡Type.五行山)
+      {
+         总数量 = 小怪数量+ 精英怪数量;
+      }
+      else
+      {
+         总数量 = 小怪数量+ 精英怪数量+1;
+      }
       
-      if (FightController.S.KillMonsterCount == 小怪数量 + 精英怪数量+1)
+      if (FightController.S.KillMonsterCount == 总数量)
       {
          FightController.S.战斗结束 = true;
          FightController.S.StartCoroutine(Show胜利弹窗());

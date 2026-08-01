@@ -784,6 +784,11 @@ public class FightController : XSingleton<FightController>
     
     public void CreateEliteMonster()
     {
+        if (LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
+        {
+            return;
+        }
+        EliteMonsterCount++;
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.精英怪Queue.Dequeue();
@@ -796,6 +801,10 @@ public class FightController : XSingleton<FightController>
     
     public void CreateBossMonster()
     {
+        if (LevelConfig.当前主线关卡Type <= 主线关卡Type.五行山)
+        {
+            return;
+        }
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.首领怪Queue.Dequeue();

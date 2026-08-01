@@ -49,6 +49,7 @@ public class FightWindow : MonoBehaviour
 
     private void Awake()
     {
+        Set倍速Button();
         exitButton.onClick.AddListener(() =>
         {
             Time.timeScale = 0;
