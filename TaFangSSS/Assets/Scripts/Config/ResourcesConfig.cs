@@ -1096,14 +1096,10 @@ public class ResourcesConfig : MonoBehaviour
             // ==================== 花果山 ====================
             case MonsterTypeName.猴精: return 猴精;
             case MonsterTypeName.山魈: return 山魈;
-            case MonsterTypeName.马猴头领: return 马猴头领;
-            case MonsterTypeName.通臂猿猴: return 通臂猿猴;
 
             // ==================== 水帘洞 ====================
             case MonsterTypeName.水虱精: return 水虱精;
             case MonsterTypeName.蝙蝠精: return 蝙蝠精;
-            case MonsterTypeName.铁背苍猿: return 铁背苍猿;
-            case MonsterTypeName.水帘洞主: return 水帘洞主;
 
             // ==================== 傲来国 ====================
             case MonsterTypeName.傲来民兵: return 傲来民兵;
@@ -1121,13 +1117,11 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.仙鹤: return 仙鹤;
             case MonsterTypeName.灵芝童: return 灵芝童;
             case MonsterTypeName.蓬莱剑仙: return 蓬莱剑仙;
-            case MonsterTypeName.蓬莱岛主: return 蓬莱岛主;
 
             // ==================== 五行山 ====================
             case MonsterTypeName.山石精: return 山石精;
             case MonsterTypeName.土蝼: return 土蝼;
             case MonsterTypeName.五行山神: return 五行山神;
-            case MonsterTypeName.压山符灵: return 压山符灵;
 
             // ==================== 高老庄 ====================
             case MonsterTypeName.野猪精: return 野猪精;

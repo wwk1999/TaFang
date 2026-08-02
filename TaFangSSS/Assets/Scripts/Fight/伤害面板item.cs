@@ -21,6 +21,6 @@ public class 伤害面板item : MonoBehaviour
         bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(HeroConfig.HeroQualityDic[heroType]);
         icon.sprite=ResourcesConfig.GetHeroSprite(heroType);
         slider.value = 比例;
-        count.text = FightController.S.格式化数字(damage);
+        count.text = PlayerData.S.格式化数字(damage);
     }
 }

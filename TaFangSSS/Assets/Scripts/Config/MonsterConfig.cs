@@ -7,13 +7,13 @@ public enum MonsterTypeName
   // 花果山
   猴精,
   山魈,
-  马猴头领,
-  通臂猿猴,
+  //马猴头领,
+  //通臂猿猴,
   // 水帘洞
   水虱精,
   蝙蝠精,
-  铁背苍猿,
-  水帘洞主,
+  //铁背苍猿,
+  //水帘洞主,
   // 傲来国
   傲来民兵,
   猎户,
@@ -28,12 +28,12 @@ public enum MonsterTypeName
   仙鹤,
   灵芝童,
   蓬莱剑仙,
-  蓬莱岛主,
+  //蓬莱岛主,
   // 五行山
   山石精,
   土蝼,
   五行山神,
-  压山符灵,
+  //压山符灵,
   // 高老庄
   野猪精,
   高才,
@@ -244,20 +244,20 @@ public class MonsterConfig : MonoBehaviour
     // 花果山
     { MonsterTypeName.猴精, Monster特性Type.普通怪 },
     { MonsterTypeName.山魈, Monster特性Type.普通怪 },
-    { MonsterTypeName.马猴头领, Monster特性Type.普通怪 },
-    { MonsterTypeName.通臂猿猴, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.马猴头领, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.通臂猿猴, Monster特性Type.普通怪 },
 
     // 水帘洞
     { MonsterTypeName.水虱精, Monster特性Type.普通怪 },
     { MonsterTypeName.蝙蝠精, Monster特性Type.普通怪 },
-    { MonsterTypeName.铁背苍猿, Monster特性Type.普通怪 },
-    { MonsterTypeName.水帘洞主, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.铁背苍猿, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.水帘洞主, Monster特性Type.普通怪 },
 
     // 傲来国
     { MonsterTypeName.傲来民兵, Monster特性Type.普通怪 },
     { MonsterTypeName.猎户, Monster特性Type.普通怪 },
     { MonsterTypeName.傲来偏将, Monster特性Type.普通怪 },
-    { MonsterTypeName.傲来国师, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.傲来国师, Monster特性Type.普通怪 },
 
     // 东海龙宫
     { MonsterTypeName.虾兵, Monster特性Type.普通怪 },
@@ -269,13 +269,13 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.仙鹤, Monster特性Type.普通怪 },
     { MonsterTypeName.灵芝童, Monster特性Type.普通怪 },
     { MonsterTypeName.蓬莱剑仙, Monster特性Type.普通怪 },
-    { MonsterTypeName.蓬莱岛主, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.蓬莱岛主, Monster特性Type.普通怪 },
 
     // 五行山
     { MonsterTypeName.山石精, Monster特性Type.普通怪 },
     { MonsterTypeName.土蝼, Monster特性Type.普通怪 },
     { MonsterTypeName.五行山神, Monster特性Type.普通怪 },
-    { MonsterTypeName.压山符灵, Monster特性Type.普通怪 },
+    //{ MonsterTypeName.压山符灵, Monster特性Type.普通怪 },
 
     // 高老庄
     { MonsterTypeName.野猪精, Monster特性Type.普通怪 },
@@ -720,14 +720,12 @@ public class MonsterConfig : MonoBehaviour
             // 花果山
             { MonsterTypeName.猴精, MonsterType.Normal },
             { MonsterTypeName.山魈, MonsterType.Normal },
-            { MonsterTypeName.马猴头领, MonsterType.Elite },
-            { MonsterTypeName.通臂猿猴, MonsterType.Boss },
+          
 
             // 水帘洞
             { MonsterTypeName.水虱精, MonsterType.Normal },
             { MonsterTypeName.蝙蝠精, MonsterType.Normal },
-            { MonsterTypeName.铁背苍猿, MonsterType.Elite },
-            { MonsterTypeName.水帘洞主, MonsterType.Boss },
+            
 
             // 傲来国
             { MonsterTypeName.傲来民兵, MonsterType.Normal },
@@ -745,13 +743,11 @@ public class MonsterConfig : MonoBehaviour
             { MonsterTypeName.仙鹤, MonsterType.Normal },
             { MonsterTypeName.灵芝童, MonsterType.Normal },
             { MonsterTypeName.蓬莱剑仙, MonsterType.Elite },
-            { MonsterTypeName.蓬莱岛主, MonsterType.Boss },
 
             // 五行山
             { MonsterTypeName.山石精, MonsterType.Normal },
             { MonsterTypeName.土蝼, MonsterType.Normal },
             { MonsterTypeName.五行山神, MonsterType.Elite },
-            { MonsterTypeName.压山符灵, MonsterType.Boss },
 
             // 高老庄
             { MonsterTypeName.野猪精, MonsterType.Normal },

@@ -124,7 +124,7 @@ public class 属性config
     public float 战士对靠近城墙敌人伤害增高 => _道纹.战士对靠近城墙敌人伤害增高;
     public float 射手对远距离敌人伤害增高 => _道纹.射手对远距离敌人伤害增高;
     public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
-    public float 最终伤害 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害);
+    public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害);
     public float 伤害减免 => 1-(1-_道宝.伤害减免/100f)*(1-城墙Config.伤害减免/100f);
 
 

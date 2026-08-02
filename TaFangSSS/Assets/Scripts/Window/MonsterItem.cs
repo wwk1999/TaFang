@@ -21,12 +21,7 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.山魈:
                 image.sprite = ResourcesConfig.山魈;
                 break;
-            case MonsterTypeName.马猴头领:
-                image.sprite = ResourcesConfig.马猴头领;
-                break;
-            case MonsterTypeName.通臂猿猴:
-                image.sprite = ResourcesConfig.通臂猿猴;
-                break;
+            
 
             // ==================== 水帘洞 ====================
             case MonsterTypeName.水虱精:
@@ -35,12 +30,7 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.蝙蝠精:
                 image.sprite = ResourcesConfig.蝙蝠精;
                 break;
-            case MonsterTypeName.铁背苍猿:
-                image.sprite = ResourcesConfig.铁背苍猿;
-                break;
-            case MonsterTypeName.水帘洞主:
-                image.sprite = ResourcesConfig.水帘洞主;
-                break;
+           
 
             // ==================== 傲来国 ====================
             case MonsterTypeName.傲来民兵:
@@ -80,10 +70,7 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.蓬莱剑仙:
                 image.sprite = ResourcesConfig.蓬莱剑仙;
                 break;
-            case MonsterTypeName.蓬莱岛主:
-                image.sprite = ResourcesConfig.蓬莱岛主;
-                break;
-
+          
             // ==================== 五行山 ====================
             case MonsterTypeName.山石精:
                 image.sprite = ResourcesConfig.山石精;
@@ -94,10 +81,7 @@ public class MonsterItem : MonoBehaviour
             case MonsterTypeName.五行山神:
                 image.sprite = ResourcesConfig.五行山神;
                 break;
-            case MonsterTypeName.压山符灵:
-                image.sprite = ResourcesConfig.压山符灵;
-                break;
-
+           
             // ==================== 高老庄 ====================
             case MonsterTypeName.野猪精:
                 image.sprite = ResourcesConfig.野猪精;

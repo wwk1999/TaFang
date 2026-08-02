@@ -63,12 +63,22 @@ public class FightWindow : MonoBehaviour
         });
         倍速Button2.onClick.AddListener(() =>
         {
+            if (PlayerData.S.JingJieType < JingJieType.元婴)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
+                return;
+            }
             PlayerData.S.关卡倍速 = 1.5f;
             Set倍速Button();
             Time.timeScale = 1.5f;
         });
         倍速Button3.onClick.AddListener(() =>
         {
+            if (PlayerData.S.JingJieType < JingJieType.天仙)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","天仙境界解锁");
+                return;
+            }
             PlayerData.S.关卡倍速 = 2;
             Set倍速Button();
             Time.timeScale = 2;

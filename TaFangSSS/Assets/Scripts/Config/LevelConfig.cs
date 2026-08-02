@@ -209,7 +209,7 @@ public class LevelConfig : MonoBehaviour
 
     public static Dictionary<主线关卡Type, SmallLevelInfo> LevelInfos = new Dictionary<主线关卡Type, SmallLevelInfo>()
 {
-    { 主线关卡Type.花果山, new SmallLevelInfo() { NormalMonsterCount = 10, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1} },
+    { 主线关卡Type.花果山, new SmallLevelInfo() { NormalMonsterCount = 100, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1} },
     { 主线关卡Type.水帘洞, new SmallLevelInfo() { NormalMonsterCount = 110, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1 } },
     { 主线关卡Type.傲来国, new SmallLevelInfo() { NormalMonsterCount = 120, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1} },
     { 主线关卡Type.东海龙宫, new SmallLevelInfo() { NormalMonsterCount = 130, CreateNormalMonsterTime = 1f, EliteMonsterCount = 1} },
@@ -250,10 +250,10 @@ public class LevelConfig : MonoBehaviour
     {
         // 花果山
         { 主线关卡Type.花果山, new List<MonsterTypeName>() { 
-            MonsterTypeName.猴精, MonsterTypeName.山魈, MonsterTypeName.马猴头领, MonsterTypeName.通臂猿猴 } },
+            MonsterTypeName.猴精, MonsterTypeName.山魈 } },
         // 水帘洞
         { 主线关卡Type.水帘洞, new List<MonsterTypeName>() { 
-            MonsterTypeName.水虱精, MonsterTypeName.蝙蝠精, MonsterTypeName.铁背苍猿, MonsterTypeName.水帘洞主 } },
+            MonsterTypeName.水虱精, MonsterTypeName.蝙蝠精 } },
         // 傲来国
         { 主线关卡Type.傲来国, new List<MonsterTypeName>() { 
             MonsterTypeName.傲来民兵, MonsterTypeName.猎户, MonsterTypeName.傲来偏将, MonsterTypeName.傲来国师 } },
@@ -262,10 +262,10 @@ public class LevelConfig : MonoBehaviour
             MonsterTypeName.虾兵, MonsterTypeName.蟹将, MonsterTypeName.龟丞相, MonsterTypeName.东海龙王 } },
         // 蓬莱仙岛
         { 主线关卡Type.蓬莱仙岛, new List<MonsterTypeName>() { 
-            MonsterTypeName.仙鹤, MonsterTypeName.灵芝童, MonsterTypeName.蓬莱剑仙, MonsterTypeName.蓬莱岛主 } },
+            MonsterTypeName.仙鹤, MonsterTypeName.灵芝童, MonsterTypeName.蓬莱剑仙 } },
         // 五行山
         { 主线关卡Type.五行山, new List<MonsterTypeName>() { 
-            MonsterTypeName.山石精, MonsterTypeName.土蝼, MonsterTypeName.五行山神, MonsterTypeName.压山符灵 } },
+            MonsterTypeName.山石精, MonsterTypeName.土蝼, MonsterTypeName.五行山神 } },
         // 高老庄
         { 主线关卡Type.高老庄, new List<MonsterTypeName>() { 
             MonsterTypeName.野猪精, MonsterTypeName.高才, MonsterTypeName.高太公, MonsterTypeName.猪刚鬣 } },

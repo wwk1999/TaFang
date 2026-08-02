@@ -252,7 +252,7 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (2 + 属性config.Get英雄暴击伤害增幅());
       }
 
-      最终Damage *= 属性config.总属性.最终伤害;
+      最终Damage *= 属性config.总属性.最终伤害增幅;
       最终Damage = Get道纹伤害(原始Damage, heroType);
       if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
       {

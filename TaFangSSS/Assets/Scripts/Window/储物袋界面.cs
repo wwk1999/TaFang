@@ -28,6 +28,8 @@ public class 储物袋界面 : MonoBehaviour
    public GameObject 突破弹窗;
    private bool IsProp = true;
    public GameObject 强化弹窗;
+   public GameObject 人物属性弹窗;
+   public Button 属性Btn;
 
    public void Set境界()
    {
@@ -88,6 +90,10 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("Show道纹弹窗", Show道纹弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
+      属性Btn.onClick.AddListener(() =>
+      {
+         人物属性弹窗.gameObject.SetActive(true);
+      });
       突破Button.onClick.AddListener(() =>
       {
          突破弹窗.SetActive(true);
