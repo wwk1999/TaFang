@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ using UnityEngine.UI;
 public class LoadWindow : MonoBehaviour
 {
     public Slider loadSlider;
+    public TextMeshProUGUI count;
 
     public IEnumerator PreloadAllPools()
     {
@@ -18,6 +20,10 @@ public class LoadWindow : MonoBehaviour
     private void Start()
     {
         StartCoroutine(LoadAndPreload());
+        loadSlider.onValueChanged.AddListener((value) =>
+        {
+            count.text = (int)(value * 100)+"%";
+        });
     }
 
     private IEnumerator LoadAndPreload()
