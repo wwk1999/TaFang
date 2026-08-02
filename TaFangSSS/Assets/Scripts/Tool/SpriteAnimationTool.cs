@@ -13,6 +13,7 @@ using UnityEngine.U2D;
 
 public class SpriteAnimationTool : EditorWindow
 {
+    
     private string folderPath = "";
     private float frameRate = 30f;
     private int atlasSize = 16384;

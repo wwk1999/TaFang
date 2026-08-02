@@ -31,7 +31,7 @@ public class LoadWindow : MonoBehaviour
         // 1. 开始异步加载战斗场景
         AsyncOperation async = SceneManager.LoadSceneAsync("FightScene");
         async.allowSceneActivation = false; // 先不激活
-
+  
         // 2. 等待加载进度达到 0.9（此时场景所有资源已加载完成，但还未实例化）
         while (async.progress < 0.9f)
         {
