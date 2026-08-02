@@ -16,6 +16,7 @@ public class SpriteAnimationTool : EditorWindow
     private string folderPath = "";
     private float frameRate = 30f;
     private int atlasSize = 16384;
+    private bool isImageAnimation = false; // 新增：是否生成Image动画
 
     [MenuItem("Tools/生成动画")]
     public static void ShowWindow()
@@ -60,6 +61,17 @@ public class SpriteAnimationTool : EditorWindow
         atlasSize = EditorGUILayout.IntPopup("图集最大尺寸", atlasSize,
             new string[] { "512", "1024", "2048", "4096", "8192", "16384" },
             new int[] { 512, 1024, 2048, 4096, 8192, 16384 });
+        
+        // 新增：动画类型选择复选框
+        isImageAnimation = EditorGUILayout.Toggle("生成Image动画", isImageAnimation);
+        if (isImageAnimation)
+        {
+            EditorGUILayout.HelpBox("将生成适用于 UI Image 的动画（绑定 sprite 属性）", MessageType.Info);
+        }
+        else
+        {
+            EditorGUILayout.HelpBox("将生成适用于 SpriteRenderer 的动画（绑定 m_Sprite 属性）", MessageType.Info);
+        }
 
         EditorGUILayout.Space();
         if (GUILayout.Button("生成动画", GUILayout.Height(30)))
@@ -213,9 +225,23 @@ public class SpriteAnimationTool : EditorWindow
             };
         }
 
-        AnimationUtility.SetObjectReferenceCurve(clip,
-            EditorCurveBinding.PPtrCurve("", typeof(SpriteRenderer), "m_Sprite"),
-            keyFrames);
+        // 根据复选框选择不同的绑定路径
+        if (isImageAnimation)
+        {
+            // 适用于 UnityEngine.UI.Image 的绑定
+            // Image 组件的 sprite 属性路径是 "m_Sprite"
+            // 但需要通过 typeof(Image) 来指定组件类型
+            AnimationUtility.SetObjectReferenceCurve(clip,
+                EditorCurveBinding.PPtrCurve("", typeof(UnityEngine.UI.Image), "m_Sprite"),
+                keyFrames);
+        }
+        else
+        {
+            // 适用于 SpriteRenderer 的绑定（默认）
+            AnimationUtility.SetObjectReferenceCurve(clip,
+                EditorCurveBinding.PPtrCurve("", typeof(SpriteRenderer), "m_Sprite"),
+                keyFrames);
+        }
 
         string clipPath = $"{folderPath}/{clip.name}.anim";
         AssetDatabase.CreateAsset(clip, clipPath);
@@ -233,7 +259,8 @@ public class SpriteAnimationTool : EditorWindow
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-        EditorUtility.DisplayDialog("完成", $"动画生成成功！\n图集: {atlasPath}\n动画剪辑: {clipPath}\n控制器: {controllerPath}", "确定");
+        string animationType = isImageAnimation ? "Image" : "SpriteRenderer";
+        EditorUtility.DisplayDialog("完成", $"动画生成成功！\n动画类型: {animationType}\n图集: {atlasPath}\n动画剪辑: {clipPath}\n控制器: {controllerPath}", "确定");
         EditorGUIUtility.PingObject(controller);
     }
 

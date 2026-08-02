@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 开始按钮亮;
+    public static Sprite 开始按钮暗;
     public static Sprite 倍速按钮亮;
     public static Sprite 倍速按钮暗;
 
@@ -2619,6 +2621,8 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        开始按钮亮= Resources.Load<Sprite>("Sprite/战斗界面/开始按钮亮");
+        开始按钮暗= Resources.Load<Sprite>("Sprite/战斗界面/开始按钮暗");
         倍速按钮亮= Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮亮");
         倍速按钮暗= Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮暗");
 
