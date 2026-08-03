@@ -7,14 +7,10 @@ public enum MonsterTypeName
   // 花果山
   猴精,
   山魈,
-  //马猴头领,
-  //通臂猿猴,
-  // 水帘洞
+  
   水虱精,
   蝙蝠精,
-  //铁背苍猿,
-  //水帘洞主,
-  // 傲来国
+  
   傲来民兵,
   猎户,
   傲来偏将,
@@ -22,7 +18,7 @@ public enum MonsterTypeName
   // 东海龙宫
   虾兵,
   蟹将,
-  龟丞相,        // ✅ 已存在，修正顺序
+  龟丞相,       
   东海龙王,
   // 蓬莱仙岛
   仙鹤,
@@ -238,26 +234,23 @@ public class MonsterConfig : MonoBehaviour
     { Monster特性Type.自爆怪,1},
     { Monster特性Type.远程怪,1},
   };
-
- public static Dictionary<MonsterTypeName, Monster特性Type> 怪物特性Dic = new Dictionary<MonsterTypeName, Monster特性Type>()
+  
+  public static Dictionary<MonsterTypeName, bool> 怪物翻转Dic = new Dictionary<MonsterTypeName, bool>()
 {
     // 花果山
     { MonsterTypeName.猴精, Monster特性Type.普通怪 },
     { MonsterTypeName.山魈, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.马猴头领, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.通臂猿猴, Monster特性Type.普通怪 },
+    
 
     // 水帘洞
     { MonsterTypeName.水虱精, Monster特性Type.普通怪 },
     { MonsterTypeName.蝙蝠精, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.铁背苍猿, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.水帘洞主, Monster特性Type.普通怪 },
+   
 
     // 傲来国
     { MonsterTypeName.傲来民兵, Monster特性Type.普通怪 },
     { MonsterTypeName.猎户, Monster特性Type.普通怪 },
     { MonsterTypeName.傲来偏将, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.傲来国师, Monster特性Type.普通怪 },
 
     // 东海龙宫
     { MonsterTypeName.虾兵, Monster特性Type.普通怪 },
@@ -269,13 +262,210 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.仙鹤, Monster特性Type.普通怪 },
     { MonsterTypeName.灵芝童, Monster特性Type.普通怪 },
     { MonsterTypeName.蓬莱剑仙, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.蓬莱岛主, Monster特性Type.普通怪 },
 
     // 五行山
     { MonsterTypeName.山石精, Monster特性Type.普通怪 },
     { MonsterTypeName.土蝼, Monster特性Type.普通怪 },
     { MonsterTypeName.五行山神, Monster特性Type.普通怪 },
-    //{ MonsterTypeName.压山符灵, Monster特性Type.普通怪 },
+
+    // 高老庄
+    { MonsterTypeName.野猪精, Monster特性Type.普通怪 },
+    { MonsterTypeName.高才, Monster特性Type.普通怪 },
+    { MonsterTypeName.高太公, Monster特性Type.普通怪 },
+    { MonsterTypeName.猪刚鬣, Monster特性Type.普通怪 },
+
+    // 平顶山
+    { MonsterTypeName.莲花洞小妖, Monster特性Type.普通怪 },
+    { MonsterTypeName.狐阿七, Monster特性Type.普通怪 },
+    { MonsterTypeName.银角大王, Monster特性Type.普通怪 },
+    { MonsterTypeName.金角大王, Monster特性Type.普通怪 },
+
+    // 女儿国
+    { MonsterTypeName.女儿国兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.女儿国将, Monster特性Type.普通怪 },
+    { MonsterTypeName.女儿国太师, Monster特性Type.普通怪 },
+    { MonsterTypeName.女儿国国王, Monster特性Type.普通怪 },
+
+    // 火焰山
+    { MonsterTypeName.火焰精, Monster特性Type.普通怪 },
+    { MonsterTypeName.赤蛇, Monster特性Type.普通怪 },
+    { MonsterTypeName.红孩儿, Monster特性Type.普通怪 },
+    { MonsterTypeName.牛魔王, Monster特性Type.普通怪 },
+
+    // 芭蕉洞
+    { MonsterTypeName.芭蕉精, Monster特性Type.普通怪 },
+    { MonsterTypeName.火焰童, Monster特性Type.普通怪 },
+    { MonsterTypeName.铁扇侍女, Monster特性Type.普通怪 },
+    { MonsterTypeName.铁扇公主, Monster特性Type.普通怪 },
+
+    // 流沙河
+    { MonsterTypeName.流沙精, Monster特性Type.普通怪 },
+    { MonsterTypeName.水鬼, Monster特性Type.普通怪 },
+    { MonsterTypeName.水蛇妖, Monster特性Type.普通怪 },
+    { MonsterTypeName.沙和尚, Monster特性Type.普通怪 },
+
+    // 小雷音寺
+    { MonsterTypeName.假罗汉, Monster特性Type.普通怪 },
+    { MonsterTypeName.假金刚, Monster特性Type.普通怪 },
+    { MonsterTypeName.黄眉童子, Monster特性Type.普通怪 },
+    { MonsterTypeName.黄眉老祖, Monster特性Type.普通怪 },
+
+    // 狮驼岭
+    { MonsterTypeName.青狮精手下, Monster特性Type.普通怪 },
+    { MonsterTypeName.白象精手下, Monster特性Type.普通怪 },
+    { MonsterTypeName.大鹏金翅雕, Monster特性Type.普通怪 },
+    { MonsterTypeName.青狮精, Monster特性Type.普通怪 },
+
+    // 冥府
+    { MonsterTypeName.牛头, Monster特性Type.普通怪 },
+    { MonsterTypeName.马面, Monster特性Type.普通怪 },
+    { MonsterTypeName.判官, Monster特性Type.普通怪 },
+    { MonsterTypeName.阎罗王, Monster特性Type.普通怪 },
+
+    // ==================== 天庭篇（凌霄宝殿十大关） ====================
+    // 南天门
+    { MonsterTypeName.天兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.天将, Monster特性Type.普通怪 },
+    { MonsterTypeName.守卫统领, Monster特性Type.普通怪 },
+    { MonsterTypeName.巨灵王, Monster特性Type.普通怪 },
+
+    // 瑶池仙境
+    { MonsterTypeName.瑶池仙女, Monster特性Type.普通怪 },
+    { MonsterTypeName.瑶池守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.仙女首领, Monster特性Type.普通怪 },
+    { MonsterTypeName.西王母, Monster特性Type.普通怪 },
+
+    // 斩妖台
+    { MonsterTypeName.执法天兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.执法天将, Monster特性Type.普通怪 },
+    { MonsterTypeName.斩妖剑侍, Monster特性Type.普通怪 },
+    { MonsterTypeName.天刑星君, Monster特性Type.普通怪 },
+
+    // 御马监
+    { MonsterTypeName.天马精, Monster特性Type.普通怪 },
+    { MonsterTypeName.监丞侍卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.弼马温, Monster特性Type.普通怪 },
+    { MonsterTypeName.天马星君, Monster特性Type.普通怪 },
+
+    // 蟠桃园
+    { MonsterTypeName.桃园力士, Monster特性Type.普通怪 },
+    { MonsterTypeName.桃园仙女, Monster特性Type.普通怪 },
+    { MonsterTypeName.蟠桃守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.蟠桃树精, Monster特性Type.普通怪 },
+
+    // 兜率宫
+    { MonsterTypeName.炼丹道童, Monster特性Type.普通怪 },
+    { MonsterTypeName.烧火道童, Monster特性Type.普通怪 },
+    { MonsterTypeName.兜率宫侍卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.太上老君, Monster特性Type.普通怪 },
+
+    // 紫微宫
+    { MonsterTypeName.紫微星侍, Monster特性Type.普通怪 },
+    { MonsterTypeName.天罡星卒, Monster特性Type.普通怪 },
+    { MonsterTypeName.北极星君, Monster特性Type.普通怪 },
+    { MonsterTypeName.紫微大帝, Monster特性Type.普通怪 },
+
+    // 昊天殿
+    { MonsterTypeName.镇殿守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.镇殿天将, Monster特性Type.普通怪 },
+    { MonsterTypeName.九龙神卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.玉皇大帝, Monster特性Type.普通怪 },
+
+    // ==================== 登天路 & 六重天/四重天/三清境/大罗天 ====================
+    // 登天路
+    { MonsterTypeName.登天石傀, Monster特性Type.普通怪 },
+    { MonsterTypeName.罡风精, Monster特性Type.普通怪 },
+    { MonsterTypeName.雷劫之灵, Monster特性Type.普通怪 },
+    { MonsterTypeName.守天路神将, Monster特性Type.普通怪 },
+
+    // 欲界天
+    { MonsterTypeName.欲念魅妖, Monster特性Type.普通怪 },
+    { MonsterTypeName.幻音雀, Monster特性Type.普通怪 },
+    { MonsterTypeName.贪欲魔, Monster特性Type.普通怪 },
+    { MonsterTypeName.欲界天魔王, Monster特性Type.普通怪 },
+
+    // 色界天
+    { MonsterTypeName.色相天女, Monster特性Type.普通怪 },
+    { MonsterTypeName.光音天众, Monster特性Type.普通怪 },
+    { MonsterTypeName.形色尊者, Monster特性Type.普通怪 },
+    { MonsterTypeName.色界天主, Monster特性Type.普通怪 },
+
+    // 无色天
+    { MonsterTypeName.虚灵, Monster特性Type.普通怪 },
+    { MonsterTypeName.空无影, Monster特性Type.普通怪 },
+    { MonsterTypeName.太虚之魂, Monster特性Type.普通怪 },
+    { MonsterTypeName.无色天祖, Monster特性Type.普通怪 },
+
+    // 四梵天
+    { MonsterTypeName.梵天守卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.净居天人, Monster特性Type.普通怪 },
+    { MonsterTypeName.善现尊者, Monster特性Type.普通怪 },
+    { MonsterTypeName.四梵天王, Monster特性Type.普通怪 },
+
+    // 玉清境清微天
+    { MonsterTypeName.清微仙童, Monster特性Type.普通怪 },
+    { MonsterTypeName.玄光玉女, Monster特性Type.普通怪 },
+    { MonsterTypeName.玉清道卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.魔元始天尊, Monster特性Type.普通怪 },
+
+    // 上清境禹余天
+    { MonsterTypeName.禹余灵官, Monster特性Type.普通怪 },
+    { MonsterTypeName.紫霞仙鹤, Monster特性Type.普通怪 },
+    { MonsterTypeName.上清剑侍, Monster特性Type.普通怪 },
+    { MonsterTypeName.魔灵宝天尊, Monster特性Type.普通怪 },
+
+    // 太清境大赤天
+    { MonsterTypeName.大赤丹童, Monster特性Type.普通怪 },
+    { MonsterTypeName.炉火精, Monster特性Type.普通怪 },
+    { MonsterTypeName.太清护卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.魔老子, Monster特性Type.普通怪 },
+
+    // 大罗天
+    { MonsterTypeName.弥罗侍卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.弥罗宫卫, Monster特性Type.普通怪 },
+    { MonsterTypeName.混元道兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.魔鸿钧, Monster特性Type.普通怪 },
+    
+    // 大罗天
+    { MonsterTypeName.混沌蠕虫, Monster特性Type.普通怪 },
+    { MonsterTypeName.虚空螯虫, Monster特性Type.普通怪 },
+    { MonsterTypeName.虚空巨兽, Monster特性Type.普通怪 },
+    { MonsterTypeName.混沌主宰, Monster特性Type.普通怪 },
+};
+  
+
+ public static Dictionary<MonsterTypeName, Monster特性Type> 怪物特性Dic = new Dictionary<MonsterTypeName, Monster特性Type>()
+{
+    // 花果山
+    { MonsterTypeName.猴精, Monster特性Type.普通怪 },
+    { MonsterTypeName.山魈, Monster特性Type.普通怪 },
+    
+
+    // 水帘洞
+    { MonsterTypeName.水虱精, Monster特性Type.普通怪 },
+    { MonsterTypeName.蝙蝠精, Monster特性Type.普通怪 },
+   
+
+    // 傲来国
+    { MonsterTypeName.傲来民兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.猎户, Monster特性Type.普通怪 },
+    { MonsterTypeName.傲来偏将, Monster特性Type.普通怪 },
+
+    // 东海龙宫
+    { MonsterTypeName.虾兵, Monster特性Type.普通怪 },
+    { MonsterTypeName.蟹将, Monster特性Type.普通怪 },
+    { MonsterTypeName.龟丞相, Monster特性Type.普通怪 },
+    { MonsterTypeName.东海龙王, Monster特性Type.普通怪 },
+
+    // 蓬莱仙岛
+    { MonsterTypeName.仙鹤, Monster特性Type.普通怪 },
+    { MonsterTypeName.灵芝童, Monster特性Type.普通怪 },
+    { MonsterTypeName.蓬莱剑仙, Monster特性Type.普通怪 },
+
+    // 五行山
+    { MonsterTypeName.山石精, Monster特性Type.普通怪 },
+    { MonsterTypeName.土蝼, Monster特性Type.普通怪 },
+    { MonsterTypeName.五行山神, Monster特性Type.普通怪 },
 
     // 高老庄
     { MonsterTypeName.野猪精, Monster特性Type.普通怪 },
