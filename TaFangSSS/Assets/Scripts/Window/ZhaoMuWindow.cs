@@ -40,7 +40,6 @@ public class ZhaoMuWindow : MonoBehaviour
          NormalCount.text = "1";
          GaoJiCount.text = "1";
       }
-      Canvas.ForceUpdateCanvases();
    }
 
    public void ShowShangDian()

@@ -9,7 +9,6 @@ public class 序列纯显示一次 : MonoBehaviour
    public PengType pengType;
    [NonSerialized]public Vector2 MoveDirection;
 
-
    private void OnEnable()
    {
       CancelInvoke();
