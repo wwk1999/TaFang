@@ -25,6 +25,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public MonsterTypeName MonsterTypeName=MonsterTypeName.None;
    public Transform 伤害trans;
    public Animator 攻击Animation;
+   public Animator 移动Animation;
    public Animator 受击Animation;
    public Collider2D Collider2D;
 
@@ -88,7 +89,6 @@ public class MonsterBase : MonoBehaviour
       {
          return;
       }
-
       黑暗符次数 = 0;
       isDead = false;
       InitAttribute();
@@ -385,13 +385,19 @@ public class MonsterBase : MonoBehaviour
       {
          if (黑暗符 <= 0&&冰冻time<0)
          {
+            移动Animation.speed = 1;
             transform.position=new Vector3(transform.position.x-RealSpeed*Time.deltaTime,transform.position.y,transform.position.z);
+         }
+         else
+         {
+            移动Animation.speed = 0;
          }
       }
       else
       {
          if (CurrentAttackTime > 1f&&黑暗符 <= 0&&冰冻time<=0)
          {
+            移动Animation.enabled = false;
             怪物攻击();
             CurrentAttackTime = Random.Range(0f,0.3f);
          }
