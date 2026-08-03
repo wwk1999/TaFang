@@ -9,14 +9,29 @@ public class 突破弹窗 : MonoBehaviour
 {
    public Button ExitButton;
    public GameObject Content;
-   
+   public 突破确认弹窗 突破确认弹窗;
+
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("显示突破确认弹窗",显示突破确认弹窗);
+      ObserverModuleManager.S.UnRegisterEvent("Hide突破弹窗",Hide);
+   }
+
    private void Start()
    {
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);
       });
+      ObserverModuleManager.S.RegisterEvent("显示突破确认弹窗",显示突破确认弹窗);
       ObserverModuleManager.S.RegisterEvent("Hide突破弹窗",Hide);
+   }
+
+   public void 显示突破确认弹窗(object[] obj)
+   {
+      突破Type type = (突破Type)obj[0];
+      突破确认弹窗.突破Type=type;
+      突破确认弹窗.gameObject.SetActive(true);
    }
 
    public void Hide(object[] obj)

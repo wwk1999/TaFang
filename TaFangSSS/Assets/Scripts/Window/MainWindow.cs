@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public TextMeshProUGUI 道龄剩余时间;
+    public TextMeshProUGUI 道龄所需时间;
+
     public TextMeshProUGUI 道龄;
     public TextMeshProUGUI Name;
     public TextMeshProUGUI JingJie;
@@ -43,12 +46,14 @@ public class MainWindow : MonoBehaviour
 
     public void Show主页()
     {
+        道龄剩余时间.text = "道年剩余时间:" + (int)(属性config.每年秒数 - PlayerData.S.道龄S) + "S";
+        道龄所需时间.text = "(当前每道年时间：" + 属性config.每年秒数 + "S)";
         道龄.text = PlayerData.S.道龄年 + "年";
         Name.text = PlayerData.S.Name;
         JingJie.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
         JingJieSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为;
         JingJieSlider.value = PlayerData.S.Exp;
-        CurrentExp.text=PlayerData.S.Exp.ToString();
+        CurrentExp.text=((int)PlayerData.S.Exp).ToString();
         MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
         LingQi.text=PlayerData.S.LingQi.ToString();
         GongDe.text=PlayerData.S.GongDe.ToString();
@@ -92,6 +97,7 @@ public class MainWindow : MonoBehaviour
     }
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("刷新主页面",刷新主页面);
         ObserverModuleManager.S.UnRegisterEvent("显示混沌虚空弹窗",显示混沌虚空弹窗 );
         ObserverModuleManager.S.UnRegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.UnRegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
@@ -102,10 +108,15 @@ public class MainWindow : MonoBehaviour
     {
         三十三重天窗口.gameObject.SetActive(true);
     }
-    
 
+
+    public void 刷新主页面(object[] obj)
+    {
+        Show主页();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新主页面",刷新主页面);
         ObserverModuleManager.S.RegisterEvent("显示混沌虚空弹窗",显示混沌虚空弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );

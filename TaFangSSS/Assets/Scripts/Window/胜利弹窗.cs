@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,7 +12,9 @@ public class 胜利弹窗 : MonoBehaviour
     public GameObject Content;
     public Button AgainButtn;
     public Button ExitButtn;
+    public TextMeshProUGUI 战斗Text;
 
+    private float 重复挑战Time = 0;
     public void 清空怪物()
     {
         foreach (var item in QueueController.S.MonsterColliderDic)
@@ -31,8 +34,26 @@ public class 胜利弹窗 : MonoBehaviour
         });
     }
 
+    private void Update()
+    {
+        if (PlayerData.S.重复挑战)
+        {
+            重复挑战Time += Time.unscaledDeltaTime;
+            战斗Text.text = "重复挑战:"+(int)(5f-重复挑战Time);
+            if (5f - 重复挑战Time < 0)
+            {
+                SceneManager.LoadScene("LoadScene");
+            }
+        }
+    }
+
     private void OnEnable()
     {
+        重复挑战Time = 0;
+        if (PlayerData.S.重复挑战 == false)
+        {
+            战斗Text.text = "再战一次";
+        }
         普通关卡胜利奖励 value = LevelConfig.Get胜利奖励();
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;

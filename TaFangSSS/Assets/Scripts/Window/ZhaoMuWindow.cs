@@ -15,7 +15,6 @@ public class ZhaoMuWindow : MonoBehaviour
    public Button 高级招募按钮;
    public Button 退出按钮;
    public Toggle Toggle;
-   [NonSerialized] public bool Is10=false;
    public TextMeshProUGUI NormalCount;
    public TextMeshProUGUI 当前NormalCount;
    public TextMeshProUGUI GaoJiCount;
@@ -27,10 +26,11 @@ public class ZhaoMuWindow : MonoBehaviour
    public TextMeshProUGUI 积分;
    public void ResetCount()
    {
+      Toggle.isOn=PlayerData.S.是否招募十次;
       积分.text=PlayerData.S.招募积分.ToString();
       当前NormalCount.text = PlayerData.S.PropListDic[PropType.招募卷].ToString();
       当前GaoJiCount.text = PlayerData.S.PropListDic[PropType.高级招募卷].ToString();
-      if (Is10)
+      if (PlayerData.S.是否招募十次)
       {
          NormalCount.text = "10";
          GaoJiCount.text = "10";
@@ -40,6 +40,7 @@ public class ZhaoMuWindow : MonoBehaviour
          NormalCount.text = "1";
          GaoJiCount.text = "1";
       }
+      Canvas.ForceUpdateCanvases();
    }
 
    public void ShowShangDian()
@@ -62,6 +63,11 @@ public class ZhaoMuWindow : MonoBehaviour
       }
    }
 
+   private void OnEnable()
+   {
+      ResetCount();
+   }
+
    public void 刷新招募界面(object[] obj)
    {
       ResetCount();
@@ -82,7 +88,7 @@ public class ZhaoMuWindow : MonoBehaviour
       });
       Toggle.onValueChanged.AddListener(delegate
       {
-         Is10 = Toggle.isOn;
+         PlayerData.S.是否招募十次 = Toggle.isOn;
          ResetCount();
       });
       退出按钮.onClick.AddListener(() =>
@@ -92,8 +98,14 @@ public class ZhaoMuWindow : MonoBehaviour
       高级招募按钮.onClick.AddListener(() =>
       {
          招募成功弹窗.IsGaoJi = true;
-         if (!Is10)
+         if (!PlayerData.S.是否招募十次)
          {
+            if (PlayerData.S.PropListDic[PropType.高级招募卷] < 1)
+            {
+               ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
+               return;
+            }
+            PlayerData.S.PropListDic[PropType.高级招募卷]--;
             招募成功弹窗.Is10 = false;
             PropType propType = ZhaoMuConfig.GaoJiZhaoMu();
             招募成功弹窗.Item1Type = propType;
@@ -101,6 +113,12 @@ public class ZhaoMuWindow : MonoBehaviour
          }
          else
          {
+            if (PlayerData.S.PropListDic[PropType.高级招募卷] < 10)
+            {
+               ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
+               return;
+            }
+            PlayerData.S.PropListDic[PropType.高级招募卷]-=10;
             招募成功弹窗.Is10 = true;
             招募成功弹窗.list.Clear();
             for (int i = 0; i < 10; i++)
@@ -115,8 +133,14 @@ public class ZhaoMuWindow : MonoBehaviour
 
       普通招募按钮.onClick.AddListener(() =>
       {
+         if (PlayerData.S.PropListDic[PropType.招募卷] < 1)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
+            return;
+         }
+         PlayerData.S.PropListDic[PropType.招募卷]--;
          招募成功弹窗.IsGaoJi = false;
-         if (!Is10)
+         if (!PlayerData.S.是否招募十次)
          {
             招募成功弹窗.Is10 = false;
             PropType propType = ZhaoMuConfig.NormalZhaoMu();
@@ -126,6 +150,12 @@ public class ZhaoMuWindow : MonoBehaviour
          }
          else
          {
+            if (PlayerData.S.PropListDic[PropType.招募卷] < 10)
+            {
+               ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
+               return;
+            }
+            PlayerData.S.PropListDic[PropType.招募卷]-=10;
             招募成功弹窗.Is10 = true;
             招募成功弹窗.list.Clear();
             for (int i = 0; i < 10; i++)

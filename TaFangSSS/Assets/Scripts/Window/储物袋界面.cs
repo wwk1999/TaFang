@@ -115,7 +115,7 @@ public class 储物袋界面 : MonoBehaviour
 
    public void Set经验SLider()
    {
-      CurrentExp.text = PlayerData.S.Exp.ToString();
+      CurrentExp.text = ((int)PlayerData.S.Exp).ToString();
       MaxExp.text = (JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
       ExpSlider.value = PlayerData.S.Exp;
       ExpSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为;

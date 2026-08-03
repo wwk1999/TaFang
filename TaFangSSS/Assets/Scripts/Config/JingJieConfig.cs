@@ -91,7 +91,7 @@ public class JingJieConfig : MonoBehaviour
         { JingJieType.鸿蒙,100000},
     };
 
-    public static float 跟脚 = Get跟脚();
+    public static float 跟脚 => Get跟脚();
 
     public static float Get跟脚()
     {

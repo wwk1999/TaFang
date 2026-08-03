@@ -18,6 +18,7 @@ public class 三十三重天窗口 : MonoBehaviour
     public Button 挑战Button;
     public Button ExitButton;
     public GameObject 关卡列表GameObject;
+    public Toggle 重复挑战Toggle;
 
     public void 三十三重天按钮点击(object[] obj)
     {
@@ -44,6 +45,7 @@ public class 三十三重天窗口 : MonoBehaviour
     private void OnEnable()
     {
         Show关卡列表();
+        重复挑战Toggle.isOn = PlayerData.S.重复挑战;
         HeroWindowController.S.当前三十三重天Type= PlayerData.S.最大主线关卡>主线关卡Type.大罗天?主线关卡Type.大罗天:PlayerData.S.最大主线关卡;
         ObserverModuleManager.S.SendEvent("三十三重天按钮点击",HeroWindowController.S.当前三十三重天Type);
     }
@@ -54,6 +56,10 @@ public class 三十三重天窗口 : MonoBehaviour
         ExitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        重复挑战Toggle.onValueChanged.AddListener(delegate
+        {
+            PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
         });
         挑战Button.onClick.AddListener(() =>
         {

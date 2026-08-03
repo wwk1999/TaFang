@@ -25,7 +25,7 @@ public class 属性config
      }
      public class 道纹属性
      {
-          public float 增加百分比攻击力 => 1f + 道纹config.Get道纹数值(道纹Type.增加百分比攻击力);
+          public float 增加百分比攻击力 =>  道纹config.Get道纹数值(道纹Type.增加百分比攻击力);
           public float 增加战士伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加战士伤害);
           public float 增加法师伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加法师伤害);
           public float 增加控制伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加控制伤害);
@@ -97,7 +97,7 @@ public class 属性config
     private 道纹属性 _道纹 = new 道纹属性();
     private 道宝属性 _道宝 = new 道宝属性();
 
-    public float 总攻击力=>Get境界攻击力()*(_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
+    public float 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
     public float 战士增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅;
     public float 法师增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅;
     public float 射手增幅 => _装备.射手增幅 * _道纹.增加射手伤害*_道宝.射手增幅;
@@ -176,7 +176,5 @@ public class 属性config
      public static 领主总属性 总属性=new 领主总属性();
      public static float 领主攻击力 = 总属性.总攻击力;
      
-     //public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.JingJieType];
-     public static float 每年秒数 => 5;
-
+     public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.JingJieType];
 }

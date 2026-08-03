@@ -29,14 +29,7 @@ public class 突破item : MonoBehaviour
             bgButton.interactable = PlayerData.S.PropListDic[PropType.功德] >= JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][0];
             bgButton.onClick.AddListener(() =>
             {
-                PlayerData.S.PropListDic[PropType.功德] -= need;
-                PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.凡;
-                PlayerData.S.JingJieType++;
-                PlayerData.S.Exp = 0;
-                ObserverModuleManager.S.SendEvent("突破成功");
-                ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                ObserverModuleManager.S.SendEvent("Hide突破弹窗");
-
+                ObserverModuleManager.S.SendEvent("显示突破确认弹窗",突破Type.凡);
             });
             break;
          case 突破Type.灵:
@@ -49,14 +42,7 @@ public class 突破item : MonoBehaviour
              bgButton.interactable = PlayerData.S.PropListDic[PropType.功德] >= need1;
              bgButton.onClick.AddListener(() =>
              {
-                 PlayerData.S.PropListDic[PropType.功德] -= need1;
-                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.灵;
-                 PlayerData.S.JingJieType++;
-                 PlayerData.S.Exp = 0;
-                 ObserverModuleManager.S.SendEvent("突破成功");
-                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
-
+                 ObserverModuleManager.S.SendEvent("显示突破确认弹窗",突破Type.灵);
              });
              break;
          case 突破Type.仙:
@@ -69,14 +55,7 @@ public class 突破item : MonoBehaviour
              bgButton.interactable = PlayerData.S.PropListDic[PropType.功德] >= need2;
              bgButton.onClick.AddListener(() =>
              {
-                 PlayerData.S.PropListDic[PropType.功德] -= need2;
-                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.仙;
-                 PlayerData.S.JingJieType++;
-                 PlayerData.S.Exp = 0;
-                 ObserverModuleManager.S.SendEvent("突破成功");
-                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
-
+                 ObserverModuleManager.S.SendEvent("显示突破确认弹窗",突破Type.仙);
              });
              break;
          case 突破Type.圣:
@@ -89,14 +68,7 @@ public class 突破item : MonoBehaviour
              bgButton.interactable = PlayerData.S.PropListDic[PropType.功德] >= need3;
              bgButton.onClick.AddListener(() =>
              {
-                 PlayerData.S.PropListDic[PropType.功德] -= need3;
-                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.圣;
-                 PlayerData.S.JingJieType++;
-                 PlayerData.S.Exp = 0;
-                 ObserverModuleManager.S.SendEvent("突破成功");
-                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
-
+                 ObserverModuleManager.S.SendEvent("显示突破确认弹窗",突破Type.圣);
              });
              break;
          case 突破Type.荒:
@@ -109,13 +81,7 @@ public class 突破item : MonoBehaviour
              bgButton.interactable = PlayerData.S.PropListDic[PropType.功德] >= need4;
              bgButton.onClick.AddListener(() =>
              {
-                 PlayerData.S.PropListDic[PropType.功德] -= need4;
-                 PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type.荒;
-                 PlayerData.S.JingJieType++;
-                 PlayerData.S.Exp = 0;
-                 ObserverModuleManager.S.SendEvent("突破成功");
-                 ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
-                 ObserverModuleManager.S.SendEvent("Hide突破弹窗");
+                 ObserverModuleManager.S.SendEvent("显示突破确认弹窗",突破Type.荒);
              });
              break;
       }

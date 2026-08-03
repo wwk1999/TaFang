@@ -5,6 +5,7 @@ using Config;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class MonsterBase : MonoBehaviour
@@ -440,13 +441,13 @@ public class MonsterBase : MonoBehaviour
       FightController.S.KillMonsterCount++;
       int 小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
       int 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
-      if (FightController.S.KillMonsterCount == 小怪数量/2)
+      if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == 小怪数量/2)
       {
          FightController.S.CreateBossMonster();
       }
       for (int i = 1; i <= 精英怪数量; i++)
       {
-         if (FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
+         if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
          {
             FightController.S.CreateEliteMonster();
          }

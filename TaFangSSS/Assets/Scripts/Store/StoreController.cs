@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Config;
 using Newtonsoft.Json;
 using UnityEngine;
 public class StoreController : XSingleton<StoreController>
@@ -56,12 +57,21 @@ public class StoreController : XSingleton<StoreController>
     {
         DontDestroyOnLoad(gameObject);
     }
-
+    private float timer = 0;
     private void Update()
     {
-        CurrentTime+= Time.deltaTime;
-        当前增加修为时间+= Time.deltaTime;
-        PlayerData.S.道龄S += Time.deltaTime;
+        timer+=Time.unscaledDeltaTime;
+        if (timer >= 1f/(1+道宝Config.羁绊寻宝速度/100f))
+        {
+            timer = 0;
+            通关塔掉落();
+            世界树掉落();
+            血海掉落();
+            不周山掉落();
+        }
+        CurrentTime+= Time.unscaledDeltaTime;
+        当前增加修为时间+= Time.unscaledDeltaTime;
+        PlayerData.S.道龄S += Time.unscaledDeltaTime;
         if (PlayerData.S.道龄S >= 属性config.每年秒数)
         {
             PlayerData.S.道龄S = 0;
@@ -70,6 +80,7 @@ public class StoreController : XSingleton<StoreController>
         //自动保存
         if (当前增加修为时间 >= 增加修为时间)
         {
+            ObserverModuleManager.S.SendEvent("刷新主页面");
             当前增加修为时间 = 0;
             if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
             {
@@ -82,6 +93,263 @@ public class StoreController : XSingleton<StoreController>
         {
             CurrentTime = 0;
             SaveStoreData();
+        }
+    }
+    
+    
+    public void 通天塔单次掉落(int i)
+    {
+        var list = 通天塔Config.Get通天塔掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < PlayerData.S.通天塔寻宝Dic[i].list.Count; j++)
+            {
+                if (PlayerData.S.通天塔寻宝Dic[i].list[j].城墙道具Type == item)
+                {
+                    flag = true;
+                    PlayerData.S.通天塔寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝城墙道具item 掉落item = new 寻宝城墙道具item(){城墙道具Type =item,count=1 };
+                PlayerData.S.通天塔寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
+
+    public void 通关塔掉落()
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            if (PlayerData.S.通天塔寻宝Dic[i].寻宝)
+            {
+                PlayerData.S.通天塔寻宝Dic[i].time--;
+                if (PlayerData.S.通天塔寻宝Dic[i].time <= 0)
+                {
+                    通天塔单次掉落(i);
+                    if (PlayerData.S.通天塔寻宝Dic[i].重复)
+                    {
+                        PlayerData.S.通天塔寻宝Dic[i].time = 属性config.每年秒数 * 通天塔Config.通天塔关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        PlayerData.S.通天塔寻宝Dic[i].寻宝 = false;
+                        foreach (var item in PlayerData.S.通天塔寻宝Dic[i].list)
+                        {
+                            PlayerData.S.城墙道具等级Dic[item.城墙道具Type]+=item.count;
+                        }
+                        PlayerData.S.通天塔寻宝Dic[i].list.Clear();
+                        PlayerData.S.通天塔寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < PlayerData.S.通天塔英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = PlayerData.S.通天塔英雄派遣Dic[i][j];
+                            PlayerData.S.HeroDataDic[heroType].派遣 = false;
+                            PlayerData.S.通天塔英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新通天塔窗口");
+                        ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");                    }
+                }
+            }
+        }
+    }
+    
+    
+    public void 世界树单次掉落(int i)
+    {
+        var list = 世界树Config.Get世界树掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < PlayerData.S.世界树寻宝Dic[i].list.Count; j++)
+            {
+                if (PlayerData.S.世界树寻宝Dic[i].list[j].道宝Type == item)
+                {
+                    flag = true;
+                    PlayerData.S.世界树寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝道宝道具item 掉落item = new 寻宝道宝道具item(){道宝Type = item,count=1 };
+                PlayerData.S.世界树寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
+    
+    
+    public void 世界树掉落()
+    {
+        for (int i = 1; i <= 9; i++)
+        {
+            if (PlayerData.S.世界树寻宝Dic[i].寻宝)
+            {
+                PlayerData.S.世界树寻宝Dic[i].time--;
+                if (PlayerData.S.世界树寻宝Dic[i].time <= 0)
+                {
+                    世界树单次掉落(i);
+                    if (PlayerData.S.世界树寻宝Dic[i].重复)
+                    {
+                        PlayerData.S.世界树寻宝Dic[i].time = 属性config.每年秒数 * 世界树Config.世界树关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        PlayerData.S.世界树寻宝Dic[i].寻宝 = false;
+                        foreach (var item in PlayerData.S.世界树寻宝Dic[i].list)
+                        {
+                            PlayerData.S.道宝LevelDic[item.道宝Type]+=item.count;
+                        }
+                        PlayerData.S.世界树寻宝Dic[i].list.Clear();
+                        PlayerData.S.世界树寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < PlayerData.S.世界树英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = PlayerData.S.世界树英雄派遣Dic[i][j];
+                            PlayerData.S.HeroDataDic[heroType].派遣 = false;
+                            PlayerData.S.世界树英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新世界树窗口");
+                        ObserverModuleManager.S.SendEvent("世界树英雄派遣Item刷新");
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    public void 血海单次掉落(int i)
+    {
+        var list = 血海Config.Get血海掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < PlayerData.S.血海寻宝Dic[i].list.Count; j++)
+            {
+                if (PlayerData.S.血海寻宝Dic[i].list[j].道纹.道纹Type == item.道纹Type&&PlayerData.S.血海寻宝Dic[i].list[j].道纹.quality == item.quality)
+                {
+                    flag = true;
+                    PlayerData.S.血海寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝道纹道具item 掉落item = new 寻宝道纹道具item(){};
+                掉落item.道纹.道纹Type = item.道纹Type;
+                掉落item.道纹.quality = item.quality;
+                掉落item.count = 1;
+                PlayerData.S.血海寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
+    
+    
+    public void 血海掉落()
+    {
+        for (int i = 1; i <= 9; i++)
+        {
+            if (PlayerData.S.血海寻宝Dic[i].寻宝)
+            {
+                PlayerData.S.血海寻宝Dic[i].time--;
+                if (PlayerData.S.血海寻宝Dic[i].time <= 0)
+                {
+                    血海单次掉落(i);
+                    if (PlayerData.S.血海寻宝Dic[i].重复)
+                    {
+                        PlayerData.S.血海寻宝Dic[i].time = 属性config.每年秒数 * 血海Config.血海关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        PlayerData.S.血海寻宝Dic[i].寻宝 = false;
+                        foreach (var item in PlayerData.S.血海寻宝Dic[i].list)
+                        {
+                            int count = PlayerData.S.Get道纹数量(item.道纹.道纹Type, item.道纹.quality);
+                            PlayerData.S.Set道纹数量(item.道纹.道纹Type,item.道纹.quality,count+item.count);
+                        }
+                        PlayerData.S.血海寻宝Dic[i].list.Clear();
+                        PlayerData.S.血海寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < PlayerData.S.血海英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = PlayerData.S.血海英雄派遣Dic[i][j];
+                            PlayerData.S.HeroDataDic[heroType].派遣 = false;
+                            PlayerData.S.血海英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新血海窗口");
+                        ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    public void 不周山单次掉落(int i)
+    {
+        var list = 不周山Config.Get不周山掉落(i);
+        foreach (var item in list)
+        {
+            bool flag = false;
+            for (int j = 0; j < PlayerData.S.不周山寻宝Dic[i].list.Count; j++)
+            {
+                if (PlayerData.S.不周山寻宝Dic[i].list[j].法则Type == item)
+                {
+                    flag = true;
+                    PlayerData.S.不周山寻宝Dic[i].list[j].count++;
+                    break;
+                }
+            }
+            if (!flag)
+            {
+                寻宝法则道具item 掉落item = new 寻宝法则道具item(){法则Type = item,count=1 };
+                PlayerData.S.不周山寻宝Dic[i].list.Add(掉落item);
+            }
+        }
+    }
+    
+    
+    public void 不周山掉落()
+    {
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.不周山寻宝Dic[i].寻宝)
+            {
+                PlayerData.S.不周山寻宝Dic[i].time--;
+                if (PlayerData.S.不周山寻宝Dic[i].time <= 0)
+                {
+                    不周山单次掉落(i);
+                    if (PlayerData.S.不周山寻宝Dic[i].重复)
+                    {
+                        PlayerData.S.不周山寻宝Dic[i].time = 属性config.每年秒数 * 不周山Config.不周山关卡Dic[i].需要年数;
+                    }
+                    else
+                    {
+                        PlayerData.S.不周山寻宝Dic[i].寻宝 = false;
+                        foreach (var item in PlayerData.S.不周山寻宝Dic[i].list)
+                        {
+                            PlayerData.S.PropListDic[item.法则Type]+=item.count;
+                        }
+                        PlayerData.S.不周山寻宝Dic[i].list.Clear();
+                        PlayerData.S.不周山寻宝Dic[i].寻宝 = false;
+
+                        for (int j = 0; j < PlayerData.S.不周山英雄派遣Dic[i].Count; j++)
+                        {
+                            HeroType heroType = PlayerData.S.不周山英雄派遣Dic[i][j];
+                            PlayerData.S.HeroDataDic[heroType].派遣 = false;
+                            PlayerData.S.不周山英雄派遣Dic[i][j] = HeroType.None;
+                        }
+                        ObserverModuleManager.S.SendEvent("刷新不周山窗口");
+                        ObserverModuleManager.S.SendEvent("不周山英雄派遣Item刷新");
+                    }
+                }
+            }
         }
     }
 

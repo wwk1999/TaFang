@@ -19,6 +19,7 @@ public class 凌霄宝殿窗口 : MonoBehaviour
     public Button 挑战Button;
     public Button ExitButton;
     public GameObject 关卡列表GameObject;
+    public Toggle 重复挑战Toggle;
 
     public void 凌霄宝殿按钮点击(object[] obj)
     {
@@ -45,6 +46,8 @@ public class 凌霄宝殿窗口 : MonoBehaviour
     private void OnEnable()
     {
         Show关卡列表();
+        重复挑战Toggle.isOn = PlayerData.S.重复挑战;
+
         HeroWindowController.S.当前凌霄宝殿Type = PlayerData.S.最大主线关卡>主线关卡Type.昊天殿?主线关卡Type.昊天殿:PlayerData.S.最大主线关卡;
         ObserverModuleManager.S.SendEvent("凌霄宝殿按钮点击",HeroWindowController.S.当前凌霄宝殿Type);
     }
@@ -55,6 +58,10 @@ public class 凌霄宝殿窗口 : MonoBehaviour
         ExitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        重复挑战Toggle.onValueChanged.AddListener(delegate
+        {
+            PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
         });
         挑战Button.onClick.AddListener(() =>
         {

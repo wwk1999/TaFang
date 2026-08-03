@@ -19,9 +19,13 @@ public class 主线关卡窗口 : MonoBehaviour
    public Button 挑战Button;
    public Button ExitButton;
    [NonSerialized] public 主线关卡Type 主线关卡Type;
-
+   public Toggle 重复挑战Toggle;
    private void Start()
    {
+      重复挑战Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
+      });     
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);
@@ -38,6 +42,8 @@ public class 主线关卡窗口 : MonoBehaviour
 
    private void OnEnable()
    {
+      重复挑战Toggle.isOn = PlayerData.S.重复挑战;
+
       image.sprite = ResourcesConfig.Get主线关卡Sprite(主线关卡Type);
       title.text = LevelConfig.主线关卡NameDic[主线关卡Type];
       description.text = LevelConfig.主线关卡介绍Dic[主线关卡Type];

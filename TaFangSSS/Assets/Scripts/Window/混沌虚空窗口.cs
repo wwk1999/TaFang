@@ -22,12 +22,17 @@ public class 混沌虚空窗口 : MonoBehaviour
     public Button 右箭头;
     private int 混沌虚空层数 = 1;
     private int pagenum = 1;
+    public Toggle 重复挑战Toggle;
 
     private void Start()
     {
         ExitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        重复挑战Toggle.onValueChanged.AddListener(delegate
+        {
+            PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
         });
         挑战Button.onClick.AddListener(() =>
         {
@@ -98,6 +103,8 @@ public class 混沌虚空窗口 : MonoBehaviour
 
     private void OnEnable()
     {
+        重复挑战Toggle.isOn = PlayerData.S.重复挑战;
+
         int 最大页数 = Mathf.CeilToInt(PlayerData.S.混沌虚空最大层数 / 30f);
         Show关卡层数(最大页数);
         PageNumText.text = 最大页数.ToString();

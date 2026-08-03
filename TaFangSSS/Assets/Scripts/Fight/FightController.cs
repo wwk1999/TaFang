@@ -221,10 +221,10 @@ public class FightController : XSingleton<FightController>
         switch (hero)
         {
             case HeroType.丹童:
-                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.丹童);
+                Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.丹童);
                 break;
             case HeroType.土地:
-                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.土地);
+                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.土地);
                 break;
             case HeroType.河伯:
                 一次伤害技能(攻击特效Type.冰刺, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
@@ -242,16 +242,16 @@ public class FightController : XSingleton<FightController>
                 一次伤害技能(攻击特效Type.龟丞相技能, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
             case HeroType.太白金星:
-                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.太白金星);
+                Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.太白金星);
                 break;
             case HeroType.多闻天王:
-                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.多闻天王);
+                Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.多闻天王);
                 break;
             case HeroType.雷震子:
                 一次伤害技能(攻击特效Type.落雷, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
             case HeroType.月老:
-                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.月老);
+                Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,false,女娲电辅助>0,HeroType.月老);
                 break;
             case HeroType.嫦娥:
                 一次伤害技能(攻击特效Type.嫦娥技能, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
@@ -259,13 +259,13 @@ public class FightController : XSingleton<FightController>
             case HeroType.杨戬:
                 if (英雄星级属性.杨戬攻击数量 == 1)
                 {
-                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
+                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
                 }
 
                 if (英雄星级属性.杨戬攻击数量 == 2)
                 {
-                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,false),damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
-                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,true),damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
+                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
+                    Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,3,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.杨戬);
                 }
                 break;
             case HeroType.妲己:
@@ -288,7 +288,7 @@ public class FightController : XSingleton<FightController>
                 一次伤害技能(攻击特效Type.火符, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
             case HeroType.云霄:
-                Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,damage,8,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.云霄);
+                Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.云霄);
                 break;
             case HeroType.女娲:
                 女娲电辅助技能();
@@ -896,7 +896,7 @@ public class FightController : XSingleton<FightController>
         var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].CreateNormalMonsterTime;
         var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
         var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
-        if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
+        if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量&&SceneManager.GetActiveScene().name=="FightScene")
         {
             NormalMonsterCount++;
             CreateNormalMonster();
