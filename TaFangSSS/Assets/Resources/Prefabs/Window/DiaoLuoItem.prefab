@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.23310089, y: -1.6318016}
-  m_SizeDelta: {x: -47.5077, y: -33.5207}
+  m_AnchoredPosition: {x: -0.0119018555, y: 0.8177986}
+  m_SizeDelta: {x: -41.1389, y: -38.4198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3692567005949440069
 CanvasRenderer:
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 3406621428217130666}
   - component: {fileID: 6578539067985250234}
   - component: {fileID: 1925188209662779280}
+  - component: {fileID: 3551272217975400219}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -202,3 +203,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3551272217975400219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848513611150321131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dbc47a0418361409b95184ec59602a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u9053\u5177\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  DiaoLuoItem: {fileID: 4255060648346078243}

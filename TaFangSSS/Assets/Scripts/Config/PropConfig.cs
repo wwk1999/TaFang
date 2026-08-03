@@ -3,6 +3,48 @@ using UnityEngine;
 
 namespace Config
 {
+    public enum 道具信息Type
+    {
+        None,
+        功德,
+        头盔锻造石,
+        射手经验值,
+        戒指锻造石,
+        战士经验值,
+        护手锻造石,
+        招募卷,
+        控制经验值,
+        法师经验值,
+        洗练石,
+        灵魂,
+        衣服锻造石,
+        辅助经验值,
+        鞋子锻造石,
+        项链锻造石,
+        高级招募卷,
+        道宝紫,
+        道宝橙,
+        道宝粉,
+        道宝红,
+        道宝彩,
+        
+        道纹紫,
+        道纹橙,
+        道纹粉,
+        道纹红,
+        道纹彩,
+        
+        法则橙,
+        法则粉,
+        法则红,
+        法则彩,
+        
+        城墙紫,
+        城墙橙,
+        城墙粉,
+        城墙红,
+        城墙彩,
+    }
     public enum PropType
     {
         None,
@@ -96,6 +138,224 @@ namespace Config
 
     public class PropConfig : MonoBehaviour
     {
+        public static Sprite Get道具信息Sprite(道具信息Type Type)
+{
+    switch (Type)
+    {
+        case 道具信息Type.功德:
+            return ResourcesConfig.功德;
+        case 道具信息Type.头盔锻造石:
+            return ResourcesConfig.头盔锻造石;
+        case 道具信息Type.射手经验值:
+            return ResourcesConfig.射手经验值;
+        case 道具信息Type.戒指锻造石:
+            return ResourcesConfig.戒指锻造石;
+        case 道具信息Type.战士经验值:
+            return ResourcesConfig.战士经验值;
+        case 道具信息Type.护手锻造石:
+            return ResourcesConfig.护手锻造石;
+        case 道具信息Type.招募卷:
+            return ResourcesConfig.招募卷;
+        case 道具信息Type.控制经验值:
+            return ResourcesConfig.控制经验值;
+        case 道具信息Type.法师经验值:
+            return ResourcesConfig.法师经验值;
+        case 道具信息Type.洗练石:
+            return ResourcesConfig.洗练石;
+        case 道具信息Type.灵魂:
+            return ResourcesConfig.灵魂;
+        case 道具信息Type.衣服锻造石:
+            return ResourcesConfig.衣服锻造石;
+        case 道具信息Type.辅助经验值:
+            return ResourcesConfig.辅助经验值;
+        case 道具信息Type.鞋子锻造石:
+            return ResourcesConfig.鞋子锻造石;
+        case 道具信息Type.项链锻造石:
+            return ResourcesConfig.项链锻造石;
+        case 道具信息Type.高级招募卷:
+            return ResourcesConfig.高级招募卷;
+        case 道具信息Type.道宝紫:
+        case 道具信息Type.道宝橙:
+        case 道具信息Type.道宝粉:
+        case 道具信息Type.道宝红:
+        case 道具信息Type.道宝彩:
+        case 道具信息Type.道纹紫:
+        case 道具信息Type.道纹橙:
+        case 道具信息Type.道纹粉:
+        case 道具信息Type.道纹红:
+        case 道具信息Type.道纹彩:
+        case 道具信息Type.法则橙:
+        case 道具信息Type.法则粉:
+        case 道具信息Type.法则红:
+        case 道具信息Type.法则彩:
+        case 道具信息Type.城墙紫:
+        case 道具信息Type.城墙橙:
+        case 道具信息Type.城墙粉:
+        case 道具信息Type.城墙红:
+        case 道具信息Type.城墙彩:
+            return ResourcesConfig.问号;
+        default:
+            return null;
+    }
+}
+        public static Dictionary<道具信息Type, QualityType> 道具信息品质Dic = new Dictionary<道具信息Type, QualityType>()
+        {
+            { 道具信息Type.功德, QualityType.宇品 },
+            { 道具信息Type.头盔锻造石, QualityType.地品 },
+            { 道具信息Type.射手经验值, QualityType.地品 },
+            { 道具信息Type.戒指锻造石, QualityType.地品 },
+            { 道具信息Type.战士经验值, QualityType.地品 },
+            { 道具信息Type.护手锻造石, QualityType.地品 },
+            { 道具信息Type.招募卷, QualityType.地品 },
+            { 道具信息Type.控制经验值, QualityType.地品 },
+            { 道具信息Type.法师经验值, QualityType.地品 },
+            { 道具信息Type.洗练石, QualityType.宇品 },
+            { 道具信息Type.灵魂, QualityType.地品 },
+            { 道具信息Type.衣服锻造石, QualityType.地品 },
+            { 道具信息Type.辅助经验值, QualityType.地品 },
+            { 道具信息Type.鞋子锻造石, QualityType.地品 },
+            { 道具信息Type.项链锻造石, QualityType.地品 },
+            { 道具信息Type.高级招募卷, QualityType.宇品 },
+            { 道具信息Type.道宝紫, QualityType.天品 },
+            { 道具信息Type.道宝橙, QualityType.宇品 },
+            { 道具信息Type.道宝粉, QualityType.宙品 },
+            { 道具信息Type.道宝红, QualityType.洪品 },
+            { 道具信息Type.道宝彩, QualityType.荒品 },
+            { 道具信息Type.道纹紫, QualityType.天品 },
+            { 道具信息Type.道纹橙, QualityType.宇品 },
+            { 道具信息Type.道纹粉, QualityType.宙品 },
+            { 道具信息Type.道纹红,QualityType.洪品 },
+            { 道具信息Type.道纹彩, QualityType.荒品 },
+            { 道具信息Type.法则橙, QualityType.宇品},
+            { 道具信息Type.法则粉, QualityType.宙品 },
+            { 道具信息Type.法则红, QualityType.洪品 },
+            { 道具信息Type.法则彩, QualityType.荒品 },
+            { 道具信息Type.城墙紫, QualityType.天品 },
+            { 道具信息Type.城墙橙, QualityType.宇品 },
+            { 道具信息Type.城墙粉, QualityType.宙品 },
+            { 道具信息Type.城墙红, QualityType.洪品 },
+            { 道具信息Type.城墙彩, QualityType.荒品 },
+        };
+        
+        public static Dictionary<道具信息Type, PropType> 道具信息ToPropType = new Dictionary<道具信息Type, PropType>()
+        {
+            { 道具信息Type.功德, PropType.功德 },
+            { 道具信息Type.头盔锻造石, PropType.头盔锻造石 },
+            { 道具信息Type.射手经验值, PropType.射手经验值 },
+            { 道具信息Type.戒指锻造石, PropType.戒指锻造石 },
+            { 道具信息Type.战士经验值, PropType.战士经验值 },
+            { 道具信息Type.护手锻造石, PropType.护手锻造石 },
+            { 道具信息Type.招募卷, PropType.招募卷 },
+            { 道具信息Type.控制经验值, PropType.控制经验值 },
+            { 道具信息Type.法师经验值, PropType.法师经验值 },
+            { 道具信息Type.洗练石, PropType.洗练石 },
+            { 道具信息Type.灵魂, PropType.灵魂 },
+            { 道具信息Type.衣服锻造石, PropType.衣服锻造石 },
+            { 道具信息Type.辅助经验值, PropType.辅助经验值 },
+            { 道具信息Type.鞋子锻造石, PropType.鞋子锻造石 },
+            { 道具信息Type.项链锻造石, PropType.项链锻造石 },
+            { 道具信息Type.高级招募卷, PropType.高级招募卷 },
+        };
+        
+        public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
+        {
+            { PropType.功德, 道具信息Type.功德 },
+            { PropType.头盔锻造石, 道具信息Type.头盔锻造石 },
+            { PropType.射手经验值, 道具信息Type.射手经验值 },
+            { PropType.戒指锻造石, 道具信息Type.戒指锻造石 },
+            { PropType.战士经验值, 道具信息Type.战士经验值 },
+            { PropType.护手锻造石, 道具信息Type.护手锻造石 },
+            { PropType.招募卷, 道具信息Type.招募卷 },
+            { PropType.控制经验值, 道具信息Type.控制经验值 },
+            { PropType.法师经验值, 道具信息Type.法师经验值 },
+            { PropType.洗练石, 道具信息Type.洗练石 },
+            { PropType.灵魂, 道具信息Type.灵魂 },
+            { PropType.衣服锻造石, 道具信息Type.衣服锻造石 },
+            { PropType.辅助经验值, 道具信息Type.辅助经验值 },
+            { PropType.鞋子锻造石, 道具信息Type.鞋子锻造石 },
+            { PropType.项链锻造石, 道具信息Type.项链锻造石 },
+            { PropType.高级招募卷, 道具信息Type.高级招募卷 },
+        };
+
+        public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
+        {
+            { 道具信息Type.None, "无" },
+            { 道具信息Type.功德, "功德" },
+            { 道具信息Type.头盔锻造石, "头盔锻造石" },
+            { 道具信息Type.射手经验值, "射手经验值" },
+            { 道具信息Type.戒指锻造石, "戒指锻造石" },
+            { 道具信息Type.战士经验值, "战士经验值" },
+            { 道具信息Type.护手锻造石, "护手锻造石" },
+            { 道具信息Type.招募卷, "招募卷" },
+            { 道具信息Type.控制经验值, "控制经验值" },
+            { 道具信息Type.法师经验值, "法师经验值" },
+            { 道具信息Type.洗练石, "洗练石" },
+            { 道具信息Type.灵魂, "灵气" },
+            { 道具信息Type.衣服锻造石, "衣服锻造石" },
+            { 道具信息Type.辅助经验值, "辅助经验值" },
+            { 道具信息Type.鞋子锻造石, "鞋子锻造石" },
+            { 道具信息Type.项链锻造石, "项链锻造石" },
+            { 道具信息Type.高级招募卷, "高级招募卷" },
+            { 道具信息Type.道宝紫, "天品道宝" },
+            { 道具信息Type.道宝橙, "宇品道宝" },
+            { 道具信息Type.道宝粉, "宙品道宝" },
+            { 道具信息Type.道宝红, "洪品道宝" },
+            { 道具信息Type.道宝彩, "荒品道宝" },
+            { 道具信息Type.道纹紫, "天品道纹" },
+            { 道具信息Type.道纹橙, "宇品道纹" },
+            { 道具信息Type.道纹粉, "宙品道纹" },
+            { 道具信息Type.道纹红, "洪品道纹" },
+            { 道具信息Type.道纹彩, "荒品道纹" },
+            { 道具信息Type.法则橙, "宇品法则" },
+            { 道具信息Type.法则粉, "宙品法则" },
+            { 道具信息Type.法则红, "洪品法则" },
+            { 道具信息Type.法则彩, "荒品法则" },
+            { 道具信息Type.城墙紫, "天品城墙法宝" },
+            { 道具信息Type.城墙橙, "宇品城墙法宝" },
+            { 道具信息Type.城墙粉, "宙品城墙法宝" },
+            { 道具信息Type.城墙红, "洪品城墙法宝" },
+            { 道具信息Type.城墙彩, "荒品城墙法宝" },
+        };
+        
+        public static Dictionary<道具信息Type, string> 道具信息InfoDic = new Dictionary<道具信息Type, string>()
+        {
+            { 道具信息Type.None, "无" },
+            { 道具信息Type.功德, "突破境界时不可或缺的核心材料" },
+            { 道具信息Type.头盔锻造石, "用于升级头盔装备的必备锻造材料" },
+            { 道具信息Type.射手经验值, "提升射手英雄星级等级的关键材料" },
+            { 道具信息Type.戒指锻造石, "用于升级戒指装备的必备锻造材料" },
+            { 道具信息Type.战士经验值, "提升战士英雄星级等级的关键材料" },
+            { 道具信息Type.护手锻造石, "用于升级护手装备的必备锻造材料" },
+            { 道具信息Type.招募卷, "用于招募普通英雄的必备消耗品" },
+            { 道具信息Type.控制经验值, "提升控制英雄星级等级的关键材料" },
+            { 道具信息Type.法师经验值, "提升法师英雄星级等级的关键材料" },
+            { 道具信息Type.洗练石, "用于洗练重置装备附加词条的核心材料" },
+            { 道具信息Type.灵魂, "洪荒世界中流通的通用货币" },
+            { 道具信息Type.衣服锻造石, "用于升级衣服装备的必备锻造材料" },
+            { 道具信息Type.辅助经验值, "提升辅助英雄星级等级的关键材料" },
+            { 道具信息Type.鞋子锻造石, "用于升级鞋子装备的必备锻造材料" },
+            { 道具信息Type.项链锻造石, "用于升级项链装备的必备锻造材料" },
+            { 道具信息Type.高级招募卷, "用于招募高级稀有英雄的珍贵消耗品" },
+            { 道具信息Type.道宝紫, "随机获得一件天品品质的道宝" },
+            { 道具信息Type.道宝橙, "随机获得一件宇品品质的道宝" },
+            { 道具信息Type.道宝粉, "随机获得一件宙品品质的道宝" },
+            { 道具信息Type.道宝红, "随机获得一件洪品品质的道宝" },
+            { 道具信息Type.道宝彩, "随机获得一件荒品品质的道宝" },
+            { 道具信息Type.道纹紫, "随机获得一件天品品质的道纹" },
+            { 道具信息Type.道纹橙, "随机获得一件宇品品质的道纹" },
+            { 道具信息Type.道纹粉, "随机获得一件宙品品质的道纹" },
+            { 道具信息Type.道纹红, "随机获得一件洪品品质的道纹" },
+            { 道具信息Type.道纹彩, "随机获得一件荒品品质的道纹" },
+            { 道具信息Type.法则橙, "随机获得一件宇品品质的法则" },
+            { 道具信息Type.法则粉, "随机获得一件宙品品质的法则" },
+            { 道具信息Type.法则红, "随机获得一件洪品品质的法则" },
+            { 道具信息Type.法则彩, "随机获得一件荒品品质的法则" },
+            { 道具信息Type.城墙紫, "随机获得一件天品品质的城墙法宝" },
+            { 道具信息Type.城墙橙, "随机获得一件宇品品质的城墙法宝" },
+            { 道具信息Type.城墙粉, "随机获得一件宙品品质的城墙法宝" },
+            { 道具信息Type.城墙红, "随机获得一件洪品品质的城墙法宝" },
+            { 道具信息Type.城墙彩, "随机获得一件荒品品质的城墙法宝" },
+        };
 
         
         public static Dictionary<QualityType, string> QualityNameDic = new Dictionary<QualityType, string>()
