@@ -57,7 +57,7 @@ public class 属性config
           public float 暴击率 => EquipConfig.装备附加属性数值Dic[附加属性Type.暴击率]();
           public float 最终伤害 => EquipConfig.装备附加属性数值Dic[附加属性Type.最终伤害]();
           
-          public float 装备总攻击力 => Get装备攻击力增幅();
+          public float 装备总攻击力增幅 => Get装备攻击力增幅();
           public float 战士增幅 => 1f + EquipConfig.装备附加属性数值Dic[附加属性Type.战士伤害增幅]() ;
           public float 射手增幅 => 1f + EquipConfig.装备附加属性数值Dic[附加属性Type.射手伤害增幅]() ;
           public float 控制增幅 => 1f + EquipConfig.装备附加属性数值Dic[附加属性Type.控制伤害增幅]() ;
@@ -97,7 +97,7 @@ public class 属性config
     private 道纹属性 _道纹 = new 道纹属性();
     private 道宝属性 _道宝 = new 道宝属性();
 
-    public float 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力)*(1f+_道纹.增加百分比攻击力);
+    public float 总攻击力=>Get境界攻击力()*(_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
     public float 战士增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅;
     public float 法师增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅;
     public float 射手增幅 => _装备.射手增幅 * _道纹.增加射手伤害*_道宝.射手增幅;

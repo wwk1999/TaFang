@@ -861,10 +861,14 @@ public class FightController : XSingleton<FightController>
             {
                 真实回血值 = value;
             }
-            Show伤害数字(真实回血值,YuanSuType.None,new Vector2(-5,0),true);
-            城墙当前生命值 += 真实回血值;
-            城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), 城墙当前生命值);
-            ObserverModuleManager.S.SendEvent("设置护盾");
+
+            if (真实回血值 > 0)
+            {
+                Show伤害数字(真实回血值,YuanSuType.None,new Vector2(-5,0),true);
+                城墙当前生命值 += 真实回血值;
+                城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), 城墙当前生命值);
+                ObserverModuleManager.S.SendEvent("设置护盾");
+            }
         }
         if (每段时间护盾间隔时间 > 城墙Config.护盾间隔时间)
         {

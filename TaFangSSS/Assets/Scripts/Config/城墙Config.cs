@@ -1046,11 +1046,11 @@ public class 城墙Config
     {
         if (PlayerData.S.城墙等级 <= 80)
         {
-            return 城墙基础血量Dic[PlayerData.S.城墙等级];
+            return 城墙基础血量Dic[PlayerData.S.城墙等级]*2;
         }
         else
         {
-            return 城墙基础血量Dic[80]+50000*(PlayerData.S.城墙等级 - 80);
+            return 城墙基础血量Dic[80]*2+100000*(PlayerData.S.城墙等级 - 80);
         }
     }
     
@@ -1058,11 +1058,11 @@ public class 城墙Config
     {
         if (PlayerData.S.城墙等级 <= 80)
         {
-            return 城墙基础防御Dic[PlayerData.S.城墙等级];
+            return 城墙基础防御Dic[PlayerData.S.城墙等级]*2;
         }
         else 
         {
-            return 城墙基础血量Dic[80]+500*(PlayerData.S.城墙等级 - 80);
+            return 城墙基础血量Dic[80]*2+1000*(PlayerData.S.城墙等级 - 80);
         }
     }
     public static Dictionary<int, int> 城墙基础血量Dic = new Dictionary<int, int>()

@@ -83,6 +83,15 @@ public class 储物袋界面 : MonoBehaviour
       Set境界();
    }
 
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
+      ObserverModuleManager.S.UnRegisterEvent("Show道纹image", Show道纹image);
+      ObserverModuleManager.S.UnRegisterEvent("Show道纹弹窗", Show道纹弹窗);
+      ObserverModuleManager.S.UnRegisterEvent("刷新装备", 刷新装备);
+      ObserverModuleManager.S.UnRegisterEvent("突破成功", 突破成功);
+   }
+
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
