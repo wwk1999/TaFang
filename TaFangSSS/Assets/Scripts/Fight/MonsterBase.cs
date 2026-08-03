@@ -5,11 +5,13 @@ using Config;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class MonsterBase : MonoBehaviour
 {
+   public GameObject 图片;
    public SpriteRenderer 冰块;
    public GameObject 灼烧obj;
    public SpriteRenderer 灼烧image;
@@ -88,6 +90,15 @@ public class MonsterBase : MonoBehaviour
       if (MonsterTypeName == MonsterTypeName.None)
       {
          return;
+      }
+
+      if (MonsterConfig.怪物翻转Dic[MonsterTypeName])
+      {
+         图片.transform.localRotation = Quaternion.Euler(0, 0, 0);   // 不翻转
+      }
+      else
+      {
+         图片.transform.localRotation = Quaternion.Euler(0, 180, 0); // Y轴翻转180度
       }
       黑暗符次数 = 0;
       isDead = false;
