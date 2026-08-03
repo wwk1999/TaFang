@@ -16,6 +16,8 @@ public class 主线关卡地图item : MonoBehaviour
     {
         image.onClick.AddListener(() =>
         {
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.主线关卡;
+            HeroWindowController.S.当前主线关卡Type = 主线关卡Type;
             ObserverModuleManager.S.SendEvent("显示主线关卡弹窗",主线关卡Type);
         });
     }

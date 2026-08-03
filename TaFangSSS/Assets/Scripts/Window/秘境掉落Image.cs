@@ -1,9 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using Config;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class DiaoLuoItemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 秘境掉落Image : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -14,8 +15,7 @@ public class DiaoLuoItemImage : MonoBehaviour, IPointerEnterHandler, IPointerExi
     
     [Tooltip("是否在鼠标移出时立即销毁")]
     [SerializeField] private bool destroyOnExit = true;
-
-    public DiaoLuoItem DiaoLuoItem;
+    public 秘境掉落item 秘境掉落item;
     // 当前显示的弹窗实例
     private GameObject currentPopup;
     // 弹窗所在的Canvas
@@ -23,7 +23,8 @@ public class DiaoLuoItemImage : MonoBehaviour, IPointerEnterHandler, IPointerExi
     // 鼠标是否在当前Image内
     private bool isHovering = false;
     
-    private void Start()
+    
+     private void Start()
     {
         targetCanvas = GetComponentInParent<Canvas>();
     }
@@ -67,19 +68,89 @@ public class DiaoLuoItemImage : MonoBehaviour, IPointerEnterHandler, IPointerExi
         // 在Canvas下创建弹窗
         currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
         道具信息弹窗 弹窗 = currentPopup.GetComponent<道具信息弹窗>();
-        弹窗.type = PropConfig.PropTypeTo道具信息[DiaoLuoItem.propType];
         switch (HeroWindowController.S.当前显示关卡类型)
         {
-            case 当前显示关卡类型.主线关卡:
-                弹窗.主线关卡Type = HeroWindowController.S.当前主线关卡Type;
+            case 当前显示关卡类型.不周山:
+                switch (秘境掉落item.Quality)
+                {
+                    case QualityType.宇品:
+                        弹窗.type = 道具信息Type.法则橙;
+                        break;
+                    case QualityType.宙品:
+                        弹窗.type = 道具信息Type.法则粉;
+                        break;
+                    case QualityType.洪品:
+                        弹窗.type = 道具信息Type.法则红;
+                        break;
+                    case QualityType.荒品:
+                        弹窗.type = 道具信息Type.法则彩;
+                        break;
+                }
                 break;
-            case 当前显示关卡类型.凌霄宝殿:
-                弹窗.主线关卡Type = HeroWindowController.S.当前凌霄宝殿Type;
+            case 当前显示关卡类型.世界树:
+                switch (秘境掉落item.Quality)
+                {
+                    case QualityType.天品:
+                        弹窗.type = 道具信息Type.道宝紫;
+                        break;
+                    case QualityType.宇品:
+                        弹窗.type = 道具信息Type.道宝橙;
+                        break;
+                    case QualityType.宙品:
+                        弹窗.type = 道具信息Type.道宝粉;
+                        break;
+                    case QualityType.洪品:
+                        弹窗.type = 道具信息Type.道宝红;
+                        break;
+                    case QualityType.荒品:
+                        弹窗.type = 道具信息Type.道宝彩;
+                        break;
+                }
                 break;
-            case 当前显示关卡类型.三十三重天:
-                弹窗.主线关卡Type = HeroWindowController.S.当前三十三重天Type;
+            
+            case 当前显示关卡类型.通天塔:
+                switch (秘境掉落item.Quality)
+                {
+                    case QualityType.天品:
+                        弹窗.type = 道具信息Type.城墙紫;
+                        break;
+                    case QualityType.宇品:
+                        弹窗.type = 道具信息Type.城墙橙;
+                        break;
+                    case QualityType.宙品:
+                        弹窗.type = 道具信息Type.城墙粉;
+                        break;
+                    case QualityType.洪品:
+                        弹窗.type = 道具信息Type.城墙红;
+                        break;
+                    case QualityType.荒品:
+                        弹窗.type = 道具信息Type.城墙彩;
+                        break;
+                }
+                break;
+            
+            case 当前显示关卡类型.血海:
+                switch (秘境掉落item.Quality)
+                {
+                    case QualityType.天品:
+                        弹窗.type = 道具信息Type.道纹紫;
+                        break;
+                    case QualityType.宇品:
+                        弹窗.type = 道具信息Type.道纹橙;
+                        break;
+                    case QualityType.宙品:
+                        弹窗.type = 道具信息Type.道纹粉;
+                        break;
+                    case QualityType.洪品:
+                        弹窗.type = 道具信息Type.道纹红;
+                        break;
+                    case QualityType.荒品:
+                        弹窗.type = 道具信息Type.道纹彩;
+                        break;
+                }
                 break;
         }
+        
         弹窗.SetItem();
         // 设置弹窗的位置
         UpdatePopupPosition(mousePosition);

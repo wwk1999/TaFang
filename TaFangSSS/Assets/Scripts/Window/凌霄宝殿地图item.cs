@@ -14,6 +14,7 @@ public class 凌霄宝殿地图item : MonoBehaviour
     {
         image.onClick.AddListener(() =>
         {
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.凌霄宝殿;
             ObserverModuleManager.S.SendEvent("显示凌霄宝殿弹窗");
         });
     }

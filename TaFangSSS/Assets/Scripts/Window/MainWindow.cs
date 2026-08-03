@@ -123,6 +123,7 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
         通天塔.onClick.AddListener(() =>
         {
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.通天塔;
             通天塔窗口.gameObject.SetActive(true);
         });
         世界树.onClick.AddListener(() =>
@@ -132,6 +133,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.世界树;
             世界树窗口.gameObject.SetActive(true);
         });
         血海.onClick.AddListener(() =>
@@ -141,6 +143,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.血海;
             血海窗口.gameObject.SetActive(true);
         });
         
@@ -151,6 +154,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
                 return;
             }
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.不周山;
             不周山窗口.gameObject.SetActive(true);
         });
         城墙Debug.onClick.AddListener(() =>

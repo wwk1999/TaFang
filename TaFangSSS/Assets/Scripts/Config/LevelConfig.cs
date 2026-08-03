@@ -105,6 +105,7 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.流沙河, 30 },
         { 主线关卡Type.狮驼岭, 35 },
         { 主线关卡Type.东海龙宫,35 },
+        { 主线关卡Type.冥府,40 },
         { 主线关卡Type.南天门, 40 },
         { 主线关卡Type.瑶池仙境, 40 },
         { 主线关卡Type.斩妖台, 45 },

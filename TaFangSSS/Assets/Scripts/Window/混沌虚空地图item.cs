@@ -14,6 +14,7 @@ public class 混沌虚空地图item : MonoBehaviour
     {
         image.onClick.AddListener(() =>
         {
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.混沌虚空;
             ObserverModuleManager.S.SendEvent("显示混沌虚空弹窗");
         });
     }

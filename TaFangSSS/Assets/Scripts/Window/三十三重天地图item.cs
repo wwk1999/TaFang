@@ -14,6 +14,7 @@ public class 三十三重天地图item : MonoBehaviour
     {
         image.onClick.AddListener(() =>
         {
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.三十三重天;
             ObserverModuleManager.S.SendEvent("显示三十三重天弹窗");
         });
     }

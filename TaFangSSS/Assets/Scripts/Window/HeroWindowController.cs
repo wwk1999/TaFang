@@ -1,6 +1,18 @@
 using System;
 using Config;
 
+public enum 当前显示关卡类型
+{
+    None,
+    主线关卡,
+    凌霄宝殿,
+    三十三重天,
+    混沌虚空,
+    不周山,
+    世界树,
+    血海,
+    通天塔,
+}
 public class HeroWindowController:XSingleton<HeroWindowController>
 {
     //herowindow
@@ -14,6 +26,8 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 道纹Type 道纹Type;
     [NonSerialized] public QualityType 道纹QualityType;
 
+    [NonSerialized] public 当前显示关卡类型 当前显示关卡类型;
+    [NonSerialized] public 主线关卡Type 当前主线关卡Type;
     [NonSerialized] public 主线关卡Type 当前凌霄宝殿Type;
     [NonSerialized] public 主线关卡Type 当前三十三重天Type;
     
