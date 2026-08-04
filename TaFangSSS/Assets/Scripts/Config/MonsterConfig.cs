@@ -250,8 +250,8 @@ public class MonsterConfig : MonoBehaviour
     // 傲来国
     { MonsterTypeName.傲来民兵, false },
     { MonsterTypeName.猎户, false },
-    { MonsterTypeName.傲来偏将, false },
-    { MonsterTypeName.傲来国师, false },
+    { MonsterTypeName.傲来偏将, true },
+    { MonsterTypeName.傲来国师, true },
 
     // 东海龙宫
     { MonsterTypeName.虾兵, false },

@@ -57,6 +57,7 @@ public class 胜利弹窗 : MonoBehaviour
         普通关卡胜利奖励 value = LevelConfig.Get胜利奖励();
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
+        PlayerData.S.PropListDic[PropType.高级招募卷] += value.高级招募卷;
         PlayerData.S.PropListDic[PropType.射手经验值] += value.射手经验值;
         PlayerData.S.PropListDic[PropType.战士经验值] += value.战士经验值;
         PlayerData.S.PropListDic[PropType.辅助经验值] += value.辅助经验值;
@@ -73,6 +74,13 @@ public class 胜利弹窗 : MonoBehaviour
         foreach (Transform item in Content.transform)
         {
             Destroy(item.gameObject);
+        }
+        if (value.高级招募卷 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.高级招募卷;
+            item.count = value.高级招募卷;
+            item.SetItem();
         }
 
         if (value.灵魂 > 0)
