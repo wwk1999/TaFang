@@ -102,6 +102,8 @@ public class 招募成功弹窗 : MonoBehaviour
 
     public IEnumerator 招募十次()
     {
+        ZhaoMu1Button.interactable=false;
+        ZhaoMu10Button.interactable=false;
         ZhaoMu1Button.GetComponent<RectTransform>().localPosition = new Vector2(-158f, -338f);
         ZhaoMu10Button.GetComponent<RectTransform>().localPosition = new Vector2(166f, -338f);
 
@@ -125,6 +127,8 @@ public class 招募成功弹窗 : MonoBehaviour
             yield return new  WaitForSeconds(0.1f);
         }
         ObserverModuleManager.S.SendEvent("刷新招募界面");
+        ZhaoMu1Button.interactable=true;
+        ZhaoMu10Button.interactable=true;
     }
     private void OnEnable()
     {
