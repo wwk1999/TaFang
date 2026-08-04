@@ -97,27 +97,27 @@
      };
      public static Dictionary<QualityType, 材料Item> 强化材料Dic = new Dictionary<QualityType, 材料Item>()
      {
-         { QualityType.黄品 ,new 材料Item(){材料数量 = 1,灵气数量=30}},
-         { QualityType.玄品 ,new 材料Item(){材料数量 = 2,灵气数量=50}},
-         { QualityType.地品 ,new 材料Item(){材料数量 = 3,灵气数量=100}},
-         { QualityType.天品 ,new 材料Item(){材料数量 = 5,灵气数量=200}},
-         { QualityType.宇品 ,new 材料Item(){材料数量 = 8,灵气数量=300}},
-         { QualityType.宙品 ,new 材料Item(){材料数量 = 12,灵气数量=500}},
-         { QualityType.洪品 ,new 材料Item(){材料数量 = 18,灵气数量=800}},
-         { QualityType.荒品 ,new 材料Item(){材料数量 = 30,灵气数量=1200}},
+         { QualityType.黄品 ,new 材料Item(){材料数量 = 2,灵气数量=100}},
+         { QualityType.玄品 ,new 材料Item(){材料数量 = 4,灵气数量=200}},
+         { QualityType.地品 ,new 材料Item(){材料数量 = 10,灵气数量=500}},
+         { QualityType.天品 ,new 材料Item(){材料数量 = 20,灵气数量=1000}},
+         { QualityType.宇品 ,new 材料Item(){材料数量 = 50,灵气数量=2000}},
+         { QualityType.宙品 ,new 材料Item(){材料数量 = 80,灵气数量=5000}},
+         { QualityType.洪品 ,new 材料Item(){材料数量 = 120,灵气数量=10000}},
+         { QualityType.荒品 ,new 材料Item(){材料数量 = 180,灵气数量=20000}},
 
      };
      
      public static Dictionary<QualityType, 材料Item> 洗练材料Dic = new Dictionary<QualityType, 材料Item>()
      {
          { QualityType.黄品 ,new 材料Item(){材料数量 = 0,灵气数量=0}},
-         { QualityType.玄品 ,new 材料Item(){材料数量 = 1,灵气数量=50}},
-         { QualityType.地品 ,new 材料Item(){材料数量 = 1,灵气数量=100}},
-         { QualityType.天品 ,new 材料Item(){材料数量 = 2,灵气数量=200}},
-         { QualityType.宇品 ,new 材料Item(){材料数量 = 2,灵气数量=300}},
-         { QualityType.宙品 ,new 材料Item(){材料数量 = 3,灵气数量=500}},
-         { QualityType.洪品 ,new 材料Item(){材料数量 = 4,灵气数量=800}},
-         { QualityType.荒品 ,new 材料Item(){材料数量 = 5,灵气数量=1200}},
+         { QualityType.玄品 ,new 材料Item(){材料数量 = 1,灵气数量=200}},
+         { QualityType.地品 ,new 材料Item(){材料数量 = 2,灵气数量=500}},
+         { QualityType.天品 ,new 材料Item(){材料数量 = 3,灵气数量=1000}},
+         { QualityType.宇品 ,new 材料Item(){材料数量 = 4,灵气数量=2000}},
+         { QualityType.宙品 ,new 材料Item(){材料数量 = 5,灵气数量=5000}},
+         { QualityType.洪品 ,new 材料Item(){材料数量 = 6,灵气数量=10000}},
+         { QualityType.荒品 ,new 材料Item(){材料数量 = 7,灵气数量=20000}},
 
      };
      public static Dictionary<EquipType, List<string>> EquipNameDic = new Dictionary<EquipType, List<string>>()

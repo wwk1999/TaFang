@@ -52,6 +52,11 @@ public class 凌霄宝殿窗口 : MonoBehaviour
         ObserverModuleManager.S.SendEvent("凌霄宝殿按钮点击",HeroWindowController.S.当前凌霄宝殿Type);
     }
 
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("凌霄宝殿按钮点击",凌霄宝殿按钮点击);
+    }
+
     private void Awake()
     {
         ObserverModuleManager.S.RegisterEvent("凌霄宝殿按钮点击",凌霄宝殿按钮点击);

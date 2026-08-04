@@ -339,8 +339,8 @@ public class MonsterConfig : MonoBehaviour
     // 斩妖台
     { MonsterTypeName.执法天兵, true },
     { MonsterTypeName.执法天将, true },
-    { MonsterTypeName.斩妖剑侍, true },
-    { MonsterTypeName.天刑星君, true },
+    { MonsterTypeName.斩妖剑侍, false },
+    { MonsterTypeName.天刑星君, false },
 
     // 御马监
     { MonsterTypeName.天马精, true },
@@ -351,8 +351,8 @@ public class MonsterConfig : MonoBehaviour
     // 蟠桃园
     { MonsterTypeName.桃园力士, true },
     { MonsterTypeName.桃园仙女, true },
-    { MonsterTypeName.蟠桃守卫, true },
-    { MonsterTypeName.蟠桃树精, false },
+    { MonsterTypeName.蟠桃守卫, false },
+    { MonsterTypeName.蟠桃树精, true },
 
     // 兜率宫
     { MonsterTypeName.炼丹道童, false },

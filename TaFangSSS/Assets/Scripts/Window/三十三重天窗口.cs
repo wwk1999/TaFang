@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -48,6 +49,11 @@ public class 三十三重天窗口 : MonoBehaviour
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
         HeroWindowController.S.当前三十三重天Type= PlayerData.S.最大主线关卡>主线关卡Type.大罗天?主线关卡Type.大罗天:PlayerData.S.最大主线关卡;
         ObserverModuleManager.S.SendEvent("三十三重天按钮点击",HeroWindowController.S.当前三十三重天Type);
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("三十三重天按钮点击",三十三重天按钮点击);
     }
 
     private void Awake()

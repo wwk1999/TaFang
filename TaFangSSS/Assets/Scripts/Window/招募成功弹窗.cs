@@ -58,17 +58,17 @@ public class 招募成功弹窗 : MonoBehaviour
         ZhaoMu10Button.onClick.AddListener(() =>
         {
             list.Clear();
-            for (int i = 0; i < 10; i++)
-            {
                 if (IsGaoJi)
                 {
                     if (PlayerData.S.PropListDic[PropType.高级招募卷] < 10)
                     {
-                        ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
+                        ObserverModuleManager.S.SendEvent("SendUIToast", "招募卷数量不足");
                         return;
                     }
-                    PlayerData.S.PropListDic[PropType.高级招募卷]-=10;
-                    list[i]=ZhaoMuConfig.GaoJiZhaoMu();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        list[i] = ZhaoMuConfig.GaoJiZhaoMu();
+                    }
                 }
                 else
                 {
@@ -78,9 +78,12 @@ public class 招募成功弹窗 : MonoBehaviour
                         return;
                     }
                     PlayerData.S.PropListDic[PropType.招募卷]-=10;
-                    list[i]=ZhaoMuConfig.NormalZhaoMu();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        list[i]=ZhaoMuConfig.NormalZhaoMu();
+                    }
                 }
-            }
+            
             StopAllCoroutines();
             StartCoroutine(招募十次());
         });
