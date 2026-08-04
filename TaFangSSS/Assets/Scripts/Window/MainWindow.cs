@@ -55,8 +55,8 @@ public class MainWindow : MonoBehaviour
         JingJieSlider.value = PlayerData.S.Exp;
         CurrentExp.text=((int)PlayerData.S.Exp).ToString();
         MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
-        LingQi.text=PlayerData.S.LingQi.ToString();
-        GongDe.text=PlayerData.S.GongDe.ToString();
+        LingQi.text=PlayerData.S.PropListDic[PropType.灵魂].ToString();
+        GongDe.text=PlayerData.S.PropListDic[PropType.功德].ToString();
     }
     public void Init()
     {

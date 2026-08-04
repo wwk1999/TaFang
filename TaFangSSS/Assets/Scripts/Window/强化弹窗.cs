@@ -27,7 +27,8 @@ public class 强化弹窗 : MonoBehaviour
    public Image 材料bg;
    public Image 材料image;
    public TextMeshProUGUI 材料Name;
-   public TextMeshProUGUI 灵魂Count;
+   public TextMeshProUGUI 需要灵魂Count;
+   public TextMeshProUGUI 所有灵魂Count;
    public Button 材料强化Button;
    public Button 材料洗练Button;
   
@@ -285,6 +286,7 @@ public class 强化弹窗 : MonoBehaviour
          材料强化Button.gameObject.SetActive(true);
          材料洗练Button.gameObject.SetActive(false);
          材料bg.sprite = ResourcesConfig.道具背景框蓝;
+         所有灵魂Count.text=PlayerData.S.PropListDic[PropType.灵魂].ToString();
          switch (equipType)
          {
             case EquipType.头盔:
@@ -292,42 +294,42 @@ public class 强化弹窗 : MonoBehaviour
                材料Name.text = PropConfig.PropNameDic[PropType.头盔锻造石];
                当前数量.text = PlayerData.S.PropListDic[PropType.头盔锻造石].ToString();
                强化需要数量.text = EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.头盔)].材料数量.ToString();
-               灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.头盔)].灵气数量.ToString();
+               需要灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.头盔)].灵气数量.ToString();
                break;
             case EquipType.鞋子:
                材料image.sprite = ResourcesConfig.鞋子锻造石;
                材料Name.text = PropConfig.PropNameDic[PropType.鞋子锻造石];
                当前数量.text = PlayerData.S.PropListDic[PropType.鞋子锻造石].ToString();
                强化需要数量.text = EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.鞋子)].材料数量.ToString();
-               灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.鞋子)].灵气数量.ToString();
+               需要灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.鞋子)].灵气数量.ToString();
                break;
             case EquipType.护手:
                材料image.sprite = ResourcesConfig.护手锻造石;
                材料Name.text = PropConfig.PropNameDic[PropType.护手锻造石];
                当前数量.text = PlayerData.S.PropListDic[PropType.护手锻造石].ToString();
                强化需要数量.text = EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.护手)].材料数量.ToString();
-               灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.护手)].灵气数量.ToString();
+               需要灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.护手)].灵气数量.ToString();
                break;
             case EquipType.衣服:
                材料image.sprite = ResourcesConfig.衣服锻造石;
                材料Name.text = PropConfig.PropNameDic[PropType.衣服锻造石];
                当前数量.text = PlayerData.S.PropListDic[PropType.衣服锻造石].ToString();
                强化需要数量.text = EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.衣服)].材料数量.ToString();
-               灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.衣服)].灵气数量.ToString();
+               需要灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.衣服)].灵气数量.ToString();
                break;
             case EquipType.戒指:
                材料image.sprite = ResourcesConfig.戒指锻造石;
                材料Name.text = PropConfig.PropNameDic[PropType.戒指锻造石];
                当前数量.text = PlayerData.S.PropListDic[PropType.戒指锻造石].ToString();
                强化需要数量.text = EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.戒指)].材料数量.ToString();
-               灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.戒指)].灵气数量.ToString();
+               需要灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.戒指)].灵气数量.ToString();
                break;
             case EquipType.项链:
                材料image.sprite = ResourcesConfig.项链锻造石;
                材料Name.text = PropConfig.PropNameDic[PropType.项链锻造石];
                当前数量.text = PlayerData.S.PropListDic[PropType.项链锻造石].ToString();
                强化需要数量.text = EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.项链)].材料数量.ToString();
-               灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.项链)].灵气数量.ToString();
+               需要灵魂Count.text=EquipConfig.强化材料Dic[EquipConfig.GetEquipQuality(EquipType.项链)].灵气数量.ToString();
                break;
          }
       }
@@ -341,7 +343,7 @@ public class 强化弹窗 : MonoBehaviour
          材料image.sprite = ResourcesConfig.洗练石;
          当前数量.text = PlayerData.S.PropListDic[PropType.洗练石].ToString();
          强化需要数量.text = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].材料数量.ToString();
-         灵魂Count.text=EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量.ToString();
+         需要灵魂Count.text=EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量.ToString();
       }
    }
 

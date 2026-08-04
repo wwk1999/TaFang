@@ -100,6 +100,8 @@ public class MonsterBase : MonoBehaviour
       {
          图片.transform.localRotation = Quaternion.Euler(0, 180, 0); // Y轴翻转180度
       }
+      移动Animation.enabled = true;
+      移动Animation.Play("怪物移动", 0, 0f);
       黑暗符次数 = 0;
       isDead = false;
       InitAttribute();

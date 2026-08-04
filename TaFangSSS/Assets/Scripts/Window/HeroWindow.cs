@@ -69,8 +69,22 @@ public class HeroWindow : MonoBehaviour
       英雄详情弹窗.HeroType=heroType;
       英雄详情弹窗.gameObject.SetActive(true);
    }
+
+   public void 升星刷新(object[] obj)
+   {
+      HeroType heroType = (HeroType)obj[0];
+      HeroList[heroType].SetItem();
+   }
+
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("升星刷新", 升星刷新);
+      ObserverModuleManager.S.UnRegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
+   }
+
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("升星刷新", 升星刷新);
       ObserverModuleManager.S.RegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
       var s = HeroWindowController.S;
       ExitButton.onClick.AddListener(() =>

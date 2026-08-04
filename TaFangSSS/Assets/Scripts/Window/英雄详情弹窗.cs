@@ -279,8 +279,9 @@ public class 英雄详情弹窗 : MonoBehaviour
                 PlayerData.S.PropListDic[经验值] -= 经验值需要值;
                 PlayerData.S.HeroDataDic[HeroType].元神 -= 元神需要值;
                 PlayerData.S.HeroDataDic[HeroType].Level++;
-                ObserverModuleManager.S.SendEvent("SendUIToast","升星成功");
                 Set升星信息();
+                ObserverModuleManager.S.SendEvent("SendUIToast","升星成功");
+                ObserverModuleManager.S.SendEvent("升星刷新",HeroType);
             }
             else
             {

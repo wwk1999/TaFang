@@ -11,6 +11,11 @@ using UnityEngine.UI;
 public class KaPaiItem : MonoBehaviour,IPointerDownHandler
 {
    [NonSerialized]public HeroType heroType;
+   public GameObject xx1;
+   public GameObject xx2;
+   public GameObject xx3;
+   public GameObject xx4;
+   public GameObject xx5;
    public Button bg;
    public GameObject 出战icon;
    public Image 职业icon;
@@ -98,6 +103,11 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
 
    public void SetItem()
    {
+      xx1.gameObject.SetActive(PlayerData.S.HeroDataDic[heroType].Level>=2);
+      xx2.gameObject.SetActive(PlayerData.S.HeroDataDic[heroType].Level>=3);
+      xx3.gameObject.SetActive(PlayerData.S.HeroDataDic[heroType].Level>=4);
+      xx4.gameObject.SetActive(PlayerData.S.HeroDataDic[heroType].Level>=5);
+      xx5.gameObject.SetActive(PlayerData.S.HeroDataDic[heroType].Level>=6);
       int level = PlayerData.S.HeroDataDic[heroType].Level;
       int exp = PlayerData.S.HeroDataDic[heroType].元神;
       Exp.maxValue = HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神;

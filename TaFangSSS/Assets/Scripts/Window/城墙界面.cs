@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 城墙界面 : MonoBehaviour
 {
+    public TextMeshProUGUI 灵气count;
     public Button exitbutton;
     public GameObject 左装备COntent;
     public GameObject 右装备COntent;
@@ -49,6 +50,7 @@ public class 城墙界面 : MonoBehaviour
 
     public void Show()
     {
+        灵气count.text = $"<color=green>{PlayerData.S.PropListDic[PropType.灵魂]}</color>/{城墙Config.Get城墙升级灵气()}";
         Icon.sprite = ResourcesConfig.Get城墙Icon();
         name.text = 城墙Config.Get城墙名();
         level.text = PlayerData.S.城墙等级.ToString();
@@ -128,6 +130,18 @@ public class 城墙界面 : MonoBehaviour
         exitbutton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        升级button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.PropListDic[PropType.灵魂] < 城墙Config.Get城墙升级灵气())
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","灵气不足");
+                return;
+            }
+
+            PlayerData.S.PropListDic[PropType.灵魂] -= 城墙Config.Get城墙升级灵气();
+            PlayerData.S.城墙等级++;
+            Show();
         });
     }
 }

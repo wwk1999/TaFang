@@ -15,8 +15,6 @@ public class StoreDefine : XSingleton<StoreController>
         public string Name = "白辰";
         public JingJieType JingJieType = JingJieType.练气;
         public float Exp;
-        public int LingQi;
-        public int GongDe;
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
         public int 道龄年;
@@ -739,8 +737,6 @@ public class StoreDefine : XSingleton<StoreController>
             Name = runtime.Name;
             JingJieType = runtime.JingJieType;
             Exp = runtime.Exp;
-            LingQi = runtime.LingQi;
-            GongDe = runtime.GongDe;
             PropListDic = runtime.PropListDic;
             HeroDataDic = runtime.HeroDataDic;
             出战英雄List = runtime.出战英雄List;
@@ -779,8 +775,6 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.Name = Name;
             runtime.JingJieType = JingJieType;
             runtime.Exp = Exp;
-            runtime.LingQi = LingQi;
-            runtime.GongDe = GongDe;
             runtime.PropListDic = PropListDic;
             runtime.HeroDataDic = HeroDataDic;
             runtime.出战英雄List = 出战英雄List;

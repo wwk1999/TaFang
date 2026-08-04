@@ -141,6 +141,7 @@ public class StoreController : XSingleton<StoreController>
                         {
                             PlayerData.S.城墙道具等级Dic[item.城墙道具Type]+=item.count;
                         }
+                        ObserverModuleManager.S.SendEvent("SendUIToast","寻宝结束,已获得"+城墙Config.城墙道具名Dic[PlayerData.S.通天塔寻宝Dic[i].list[0].城墙道具Type]);
                         PlayerData.S.通天塔寻宝Dic[i].list.Clear();
                         PlayerData.S.通天塔寻宝Dic[i].寻宝 = false;
 
@@ -203,6 +204,8 @@ public class StoreController : XSingleton<StoreController>
                         {
                             PlayerData.S.道宝LevelDic[item.道宝Type]+=item.count;
                         }
+                        ObserverModuleManager.S.SendEvent("SendUIToast","寻宝结束,已获得"+道宝Config.道宝NameDic[PlayerData.S.世界树寻宝Dic[i].list[0].道宝Type]);
+
                         PlayerData.S.世界树寻宝Dic[i].list.Clear();
                         PlayerData.S.世界树寻宝Dic[i].寻宝 = false;
 
@@ -272,6 +275,8 @@ public class StoreController : XSingleton<StoreController>
                             int count = PlayerData.S.Get道纹数量(item.道纹.道纹Type, item.道纹.quality);
                             PlayerData.S.Set道纹数量(item.道纹.道纹Type,item.道纹.quality,count+item.count);
                         }
+                        ObserverModuleManager.S.SendEvent("SendUIToast","寻宝结束,已获得"+道纹config.道纹名Dic[PlayerData.S.血海寻宝Dic[i].list[0].道纹.道纹Type]);
+
                         PlayerData.S.血海寻宝Dic[i].list.Clear();
                         PlayerData.S.血海寻宝Dic[i].寻宝 = false;
 
@@ -336,6 +341,8 @@ public class StoreController : XSingleton<StoreController>
                         {
                             PlayerData.S.PropListDic[item.法则Type]+=item.count;
                         }
+                        ObserverModuleManager.S.SendEvent("SendUIToast","寻宝结束,已获得"+法则config.法则名Dic[法则config.法则英雄Dic[PlayerData.S.不周山寻宝Dic[i].list[0].法则Type]]);
+
                         PlayerData.S.不周山寻宝Dic[i].list.Clear();
                         PlayerData.S.不周山寻宝Dic[i].寻宝 = false;
 

@@ -48,6 +48,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       Set经验SLider();
       Set境界();
+      刷新背包();
    }
 
    public void 刷新装备(object[] obj)
@@ -107,8 +108,15 @@ public class 储物袋界面 : MonoBehaviour
       {
          突破弹窗.SetActive(true);
       });
-      材料Btn.onClick.AddListener(() => { ShowProp(); });
-      道纹Btn.onClick.AddListener(() => { Show道纹(); });
+      材料Btn.onClick.AddListener(() =>
+      {
+         IsProp = true;
+         刷新背包(); 
+      });
+      道纹Btn.onClick.AddListener(() => { 
+         IsProp = false;
+         刷新背包(); 
+      });
       强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
       ExitButton.onClick.AddListener(() => { gameObject.SetActive(false); });
    }
@@ -193,6 +201,18 @@ public class 储物袋界面 : MonoBehaviour
             baggrid.QualityType = QualityType.天品;
             baggrid.SetItem();
          }
+      }
+   }
+
+   public void 刷新背包()
+   {
+      if (IsProp)
+      {
+         ShowProp();
+      }
+      else
+      {
+         Show道纹();
       }
    }
 

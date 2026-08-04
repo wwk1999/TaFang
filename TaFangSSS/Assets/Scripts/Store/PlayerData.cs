@@ -14,8 +14,6 @@ public class PlayerData : XSingleton<PlayerData>
     public string Name = "白辰";
     public JingJieType JingJieType = JingJieType.练气;
     public float Exp;
-    public int LingQi;
-    public int GongDe;
     public int 当前出战编队 = 1;
     public float 道龄S = 0;
     public int 道龄年;
