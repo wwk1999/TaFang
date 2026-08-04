@@ -61,7 +61,7 @@ public class 冰符动画脚本: MonoBehaviour
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
+                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.总属性.总攻击力);
                     QueueController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
@@ -108,7 +108,7 @@ public class 冰符动画脚本: MonoBehaviour
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
+                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.总属性.总攻击力);
                     QueueController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 
@@ -155,7 +155,7 @@ public class 冰符动画脚本: MonoBehaviour
                 }
                 if (Type==攻击特效Type.火符)
                 {
-                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.领主攻击力);
+                    QueueController.S.MonsterColliderDic[col].Set灼烧伤害(英雄星级属性.羲和灼烧伤害 * 属性config.总属性.总攻击力);
                     QueueController.S.MonsterColliderDic[col].灼烧time = 3f;
                 }
 

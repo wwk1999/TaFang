@@ -787,7 +787,7 @@ public class PlayerData : XSingleton<PlayerData>
         }
 
         // 小于1万直接显示整数
-        if (num < 10000)
+        if (num < 1000000)
         {
             return Math.Floor(num).ToString();
         }
@@ -796,24 +796,10 @@ public class PlayerData : XSingleton<PlayerData>
         foreach (var unit in Units)
         {
             // 达到当前单位的1000倍才转换（即 1000万、1000亿、1000兆...）
-            if (num >= unit.value * 1000)
+            if (num >= unit.value * 100)
             {
-                double value = num / unit.value;
-                double rounded = Math.Round(value, 1, MidpointRounding.AwayFromZero);
-
-                // 如果四舍五入后达到10000，进位到下一个单位
-                if (rounded >= 10000)
-                {
-                    continue;
-                }
-
-                // 如果结果是整数，去掉 .0
-                if (Math.Abs(rounded - Math.Round(rounded)) < 0.01)
-                {
-                    return Math.Round(rounded).ToString() + unit.symbol;
-                }
-
-                return rounded.ToString("F1") + unit.symbol;
+                int v = (int)(num / unit.value);
+                return v + unit.symbol;
             }
         }
 

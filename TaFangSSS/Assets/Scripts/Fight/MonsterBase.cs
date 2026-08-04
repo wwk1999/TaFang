@@ -375,7 +375,7 @@ public class MonsterBase : MonoBehaviour
       DOTween.To(() => 残影Slider.value, 
          x => 残影Slider.value = x, 
          CurrentHP, 
-         1);
+         0.5f);
       if (CurrentHP <= 0)
       {
          Die(heroType);

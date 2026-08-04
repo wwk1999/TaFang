@@ -170,7 +170,7 @@ public class 人物item : MonoBehaviour
             盘古拳.脚本.黑暗辅助 = 妲己黑暗辅助 > 0;
             盘古拳.脚本.女娲电辅助 = 女娲电辅助 > 0;
             盘古拳.脚本.HeroType = HeroType.盘古;
-            盘古拳.脚本.damage = 属性config.领主攻击力 * 英雄星级属性.Get英雄攻击数值(HeroType.盘古)/100f*(1+盘古出拳次数*英雄星级属性.盘古出拳增加伤害/100f);
+            盘古拳.脚本.damage = 属性config.总属性.总攻击力 * 英雄星级属性.Get英雄攻击数值(HeroType.盘古)/100f*(1+盘古出拳次数*英雄星级属性.盘古出拳增加伤害/100f);
             盘古拳.gameObject.SetActive(true);
 
             // 等待攻击间隔

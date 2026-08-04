@@ -49,7 +49,7 @@ public class 石敢当锤子 : MonoBehaviour
             QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
          }
 
-         float damage = 属性config.领主攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
+         float damage = 属性config.总属性.总攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
          if (黑暗辅助)
          {
             damage *= (1+英雄星级属性.妲己效果/100f);

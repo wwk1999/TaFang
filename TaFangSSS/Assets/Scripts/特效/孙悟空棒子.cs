@@ -34,7 +34,7 @@ public class 孙悟空棒子 : MonoBehaviour
             QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
          }
 
-         float damage = 属性config.领主攻击力*英雄星级属性.孙悟空攻击数值/100f;
+         float damage = 属性config.总属性.总攻击力*英雄星级属性.孙悟空攻击数值/100f;
          damage *= (1+下场次数 *英雄星级属性.孙悟空每次下场伤害 / 100f);
          if (女娲电辅助)
          {

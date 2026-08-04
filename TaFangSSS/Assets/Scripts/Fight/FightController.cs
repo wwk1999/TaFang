@@ -217,7 +217,7 @@ public class FightController : XSingleton<FightController>
 
     public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助,int count=0)
     {
-        float damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.领主攻击力;
+        float damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.总属性.总攻击力;
         switch (hero)
         {
             case HeroType.丹童:
@@ -401,7 +401,7 @@ public class FightController : XSingleton<FightController>
 
     public IEnumerator Spine一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos, bool 瑶池冰辅助, bool 黑暗辅助,bool 女娲电辅助,int count=0)
     {
-        float damage = 属性config.领主攻击力;
+        float damage = 属性config.总属性.总攻击力;
         switch (攻击特效Type)
         {
             case 攻击特效Type.陨石:
@@ -430,7 +430,7 @@ public class FightController : XSingleton<FightController>
 
     public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助,bool 黑暗辅助,bool 女娲电辅助)
     {
-        float damage = 属性config.领主攻击力;
+        float damage = 属性config.总属性.总攻击力;
         
         switch (攻击特效Type)
         {
