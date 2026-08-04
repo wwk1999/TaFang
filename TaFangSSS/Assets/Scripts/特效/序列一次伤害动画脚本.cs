@@ -15,10 +15,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public HeroType HeroType;
 
     [NonSerialized] public bool 女娲电辅助;
-
     public void Hide()
     {
-        gameObject.SetActive(false);
+        Obj.gameObject.SetActive(false);
         switch (type)
         {
             case 攻击特效Type.嫦娥技能:

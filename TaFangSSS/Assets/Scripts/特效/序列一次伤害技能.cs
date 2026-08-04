@@ -9,11 +9,23 @@ public class 序列一次伤害技能 : MonoBehaviour
     public 序列一次伤害动画脚本 脚本;
     private Vector2 原始scale=Vector2.one;
     public HeroType heroType;
-
+    public Animator anim;
     
 
     private void OnEnable()
     {
+        // 对象池复用时确保子对象(sprite)是激活状态，并强制动画从0帧重新播放
+        if (脚本 != null)
+        {
+            脚本.gameObject.SetActive(true);
+            if (anim != null)
+            {
+                anim.Rebind();
+                anim.Update(0f);
+                if (anim.runtimeAnimatorController != null && anim.runtimeAnimatorController.animationClips != null && anim.runtimeAnimatorController.animationClips.Length > 0)
+                    anim.Play(anim.runtimeAnimatorController.animationClips[0].name, -1, 0f);
+            }
+        }
         float 目标scale = 1;
         脚本.HeroType = heroType;
         switch (heroType)

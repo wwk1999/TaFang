@@ -71,14 +71,10 @@ public class 招募概率弹窗 : MonoBehaviour
       if (!IsGaoJi)
       {
          list=ZhaoMuConfig.ZhaoMuGaiLvNormalDic[JingJieType];
-         NormalZhaoMuButton.image.sprite = ResourcesConfig.招募概率按钮亮;
-         GaoJiZhaoMuButton.image.sprite = ResourcesConfig.招募概率按钮暗;
       }
       else
       {
          list=ZhaoMuConfig.ZhaoMuGaiLvGaoJiDic[JingJieType];
-         NormalZhaoMuButton.image.sprite = ResourcesConfig.招募概率按钮暗;
-         GaoJiZhaoMuButton.image.sprite = ResourcesConfig.招募概率按钮亮;
       }
 
       foreach (var item in list)
