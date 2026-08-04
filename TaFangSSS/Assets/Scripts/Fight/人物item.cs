@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
+    public GameObject content;
     public Transform 盘古拳trans;
     public 火球旋转parent 火球3;
     public 火球旋转parent 火球4;
@@ -64,7 +65,7 @@ public class 人物item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Monster"))
+        if(other.CompareTag("Monster")&&!上场)
         {
             攻击范围内怪物.Add(QueueController.S.MonsterColliderDic[other]);
         }

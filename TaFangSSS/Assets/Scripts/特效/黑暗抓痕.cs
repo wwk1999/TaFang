@@ -13,6 +13,7 @@ public class 黑暗抓痕 : MonoBehaviour
 
     private void OnEnable()
     {
+        脚本.heroType = HeroType;
         // 对象池复用时确保子对象(sprite)是激活状态，并强制动画从0帧重新播放
         if (脚本 != null)
         {
