@@ -250,30 +250,30 @@ public class MonsterConfig : MonoBehaviour
     // 傲来国
     { MonsterTypeName.傲来民兵, false },
     { MonsterTypeName.猎户, false },
-    { MonsterTypeName.傲来偏将, true },
-    { MonsterTypeName.傲来国师, true },
+    { MonsterTypeName.傲来偏将, false },
+    { MonsterTypeName.傲来国师, false },
 
     // 东海龙宫
     { MonsterTypeName.虾兵, false },
     { MonsterTypeName.蟹将, false },
-    { MonsterTypeName.龟丞相, false },
-    { MonsterTypeName.东海龙王, false },
+    { MonsterTypeName.龟丞相, true },
+    { MonsterTypeName.东海龙王, true },
 
     // 蓬莱仙岛
     { MonsterTypeName.仙鹤, false },
     { MonsterTypeName.灵芝童,false },
-    { MonsterTypeName.蓬莱剑仙, true },
+    { MonsterTypeName.蓬莱剑仙, false },
 
     // 五行山
     { MonsterTypeName.山石精, true },
     { MonsterTypeName.土蝼, false },
-    { MonsterTypeName.五行山神, true },
+    { MonsterTypeName.五行山神, false },
 
     // 高老庄
     { MonsterTypeName.野猪精, false },
     { MonsterTypeName.高才, false },
-    { MonsterTypeName.高太公, true },
-    { MonsterTypeName.猪刚鬣, true },
+    { MonsterTypeName.高太公, false },
+    { MonsterTypeName.猪刚鬣, false },
 
     // 平顶山
     { MonsterTypeName.莲花洞小妖, false },

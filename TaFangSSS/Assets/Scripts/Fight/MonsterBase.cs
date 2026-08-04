@@ -457,6 +457,8 @@ public class MonsterBase : MonoBehaviour
          PlayerData.S.混沌虚空最大层数++;
       }
       Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
+      // 立即保存存档，防止退出主界面时LoadStoreData覆盖已更新的值
+      StoreController.S.SaveStoreData();
    }
    public void Die(HeroType heroType)
    {
