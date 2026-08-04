@@ -144,7 +144,7 @@ public class JingJieConfig : MonoBehaviour
         return value.ToString();
     }
    
-    public static float 每秒增加修为 = Get每秒增加修为();
+    public static float 每秒增加修为 => Get每秒增加修为();
     
     public static Dictionary<JingJieType, float> 升级需要年数Dic = new Dictionary<JingJieType, float>()
     {

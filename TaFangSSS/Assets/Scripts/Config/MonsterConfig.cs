@@ -250,7 +250,8 @@ public class MonsterConfig : MonoBehaviour
     // 傲来国
     { MonsterTypeName.傲来民兵, false },
     { MonsterTypeName.猎户, false },
-    { MonsterTypeName.傲来偏将, false },
+    { MonsterTypeName.傲来偏将, true },
+    { MonsterTypeName.傲来国师, true },
 
     // 东海龙宫
     { MonsterTypeName.虾兵, false },
@@ -266,7 +267,7 @@ public class MonsterConfig : MonoBehaviour
     // 五行山
     { MonsterTypeName.山石精, true },
     { MonsterTypeName.土蝼, false },
-    { MonsterTypeName.五行山神, false },
+    { MonsterTypeName.五行山神, true },
 
     // 高老庄
     { MonsterTypeName.野猪精, false },
@@ -450,6 +451,8 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.傲来民兵, Monster特性Type.普通怪 },
     { MonsterTypeName.猎户, Monster特性Type.普通怪 },
     { MonsterTypeName.傲来偏将, Monster特性Type.普通怪 },
+    { MonsterTypeName.傲来国师, Monster特性Type.普通怪 },
+
 
     // 东海龙宫
     { MonsterTypeName.虾兵, Monster特性Type.普通怪 },
