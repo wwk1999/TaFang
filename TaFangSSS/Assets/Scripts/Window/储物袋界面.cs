@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public TextMeshProUGUI 修炼速度count;
    public GameObject 头像框;
    public Button 突破Button;
    public Image 道纹image;
@@ -33,6 +34,7 @@ public class 储物袋界面 : MonoBehaviour
 
    public void Set境界()
    {
+      修炼速度count.text = 属性config.总修炼速度加成 + "%";
       if (PlayerData.S.Exp >= JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
       {
          突破Button.gameObject.SetActive(true);

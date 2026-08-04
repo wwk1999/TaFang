@@ -59,7 +59,8 @@ public class 人物item : MonoBehaviour
             value *= (1f-英雄星级属性.女娲效果);
             value *= (1f - 属性config.总属性.女娲辅助冷却缩减);
         }
-        return value;
+        float random=Random.Range(0.9f,1.1f);
+        return value*random;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

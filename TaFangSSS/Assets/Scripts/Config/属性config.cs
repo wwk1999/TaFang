@@ -175,6 +175,6 @@ public class 属性config
      public static float 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
      public static float 领主攻击力 = 总属性.总攻击力;
-     
+     public static float 总修炼速度加成 => PlayerData.S.关卡修炼速度加成 + 道宝Config.Get道宝总修炼速度();
      public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.JingJieType];
 }

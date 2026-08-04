@@ -25,6 +25,7 @@ public class StoreDefine : XSingleton<StoreController>
         public float 关卡倍速 = 1;
         public bool 是否招募十次 = false;
         public bool 重复挑战 = false;
+        public float 关卡修炼速度加成 = 0;
 
 
         public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
@@ -768,6 +769,7 @@ public class StoreDefine : XSingleton<StoreController>
             关卡倍速 = runtime.关卡倍速;
             是否招募十次 = runtime.是否招募十次;
             重复挑战 = runtime.重复挑战;
+            关卡修炼速度加成 = runtime.关卡修炼速度加成;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -806,6 +808,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.关卡倍速 = 关卡倍速;
             runtime.是否招募十次 = 是否招募十次;
             runtime.重复挑战 = 重复挑战;
+            runtime.关卡修炼速度加成 = 关卡修炼速度加成;
         }
     }
 }

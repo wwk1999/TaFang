@@ -8,7 +8,7 @@ using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
-
+using DG.Tweening;
 public class MonsterBase : MonoBehaviour
 {
    public GameObject 图片;
@@ -32,6 +32,8 @@ public class MonsterBase : MonoBehaviour
    public Collider2D Collider2D;
 
    public Slider MonsterSlider;
+   public Slider 残影Slider;
+
    [NonSerialized] public MonsterAttribute MonsterAttribute;
    [NonSerialized]public float CurrentHP;
    [NonSerialized] public float basespeed;
@@ -83,6 +85,15 @@ public class MonsterBase : MonoBehaviour
       {
          value*=(1-城墙Config.泥沼减速效果/100f);
       }
+
+      if (MonsterConfig.MonsterTypeDic[MonsterTypeName] == MonsterType.Elite)
+      {
+         value /= 1.5f;
+      }
+      if (MonsterConfig.MonsterTypeDic[MonsterTypeName] == MonsterType.Boss)
+      {
+         value /= 2f;
+      }
       return value;
    }
    private void OnEnable()
@@ -111,6 +122,7 @@ public class MonsterBase : MonoBehaviour
       灼烧image.sortingOrder = (int)(transform.position.y * -100)+2;
       冰块.sortingOrder = (int)(transform.position.y * -100)+2;
       MonsterSlider.gameObject.SetActive(false);
+      残影Slider.gameObject.SetActive(false);
       CurrentHP = MonsterAttribute.Hp;
       image.sprite = ResourcesConfig.GetMonsterSprite(MonsterTypeName);
    }
@@ -257,7 +269,6 @@ public class MonsterBase : MonoBehaviour
    }
    public void Hurt(float 原始Damage,HeroType heroType)
    {
-      MonsterSlider.gameObject.SetActive(true);
       受击Animation.Play("怪物受击",0,0f);
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
       bool 暴击 = 暴击检测(heroType);
@@ -353,10 +364,18 @@ public class MonsterBase : MonoBehaviour
 
       FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
       FightController.S.Show伤害数字(最终Damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
+      float 受伤前血量 = CurrentHP;
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);
       MonsterSlider.maxValue = MonsterAttribute.Hp;
       MonsterSlider.value = CurrentHP;
+      残影Slider.gameObject.SetActive(true);
+      残影Slider.maxValue = MonsterAttribute.Hp;
+      残影Slider.value = 受伤前血量;
+      DOTween.To(() => 残影Slider.value, 
+         x => 残影Slider.value = x, 
+         CurrentHP, 
+         1);
       if (CurrentHP <= 0)
       {
          Die(heroType);
@@ -428,6 +447,7 @@ public class MonsterBase : MonoBehaviour
       yield return new WaitForSeconds(1f);
       if (LevelConfig.当前主线关卡Type == PlayerData.S.最大主线关卡)
       {
+         PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
          PlayerData.S.最大主线关卡++;
          ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
       }

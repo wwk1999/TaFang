@@ -24,7 +24,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 关卡倍速 = 1;
     public bool 是否招募十次 = false;
     public bool 重复挑战 = false;
-    
+    public float 关卡修炼速度加成 = 0;
     public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
     {
         {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},

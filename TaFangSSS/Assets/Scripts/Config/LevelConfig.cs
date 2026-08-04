@@ -124,7 +124,7 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.上清境禹余天, 70 },
         { 主线关卡Type.太清境大赤天, 70 },
         { 主线关卡Type.大罗天, 80 },
-        { 主线关卡Type.混沌虚空, 80 },
+        { 主线关卡Type.混沌虚空, 100 },
     };
     public static Dictionary<主线关卡Type, JingJieType> 主线关卡境界Dic = new Dictionary<主线关卡Type, JingJieType>()
     {
@@ -416,7 +416,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.花果山,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 60, minCount = 50, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.战士经验值 },
@@ -437,7 +437,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.水帘洞,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 70, minCount = 60, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.战士经验值 },
@@ -458,7 +458,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.傲来国,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 80, minCount = 70, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.战士经验值 },
@@ -479,7 +479,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.东海龙宫,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.战士经验值 },
@@ -500,7 +500,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.蓬莱仙岛,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.战士经验值 },
@@ -521,7 +521,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.五行山,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 400, minCount = 300, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.战士经验值 },
@@ -542,7 +542,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.高老庄,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 180, minCount = 150, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.战士经验值 },
@@ -563,7 +563,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.平顶山,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 210, minCount = 180, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.战士经验值 },
@@ -585,7 +585,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.女儿国,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.战士经验值 },
@@ -606,7 +606,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.火焰山,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.战士经验值 },
@@ -629,7 +629,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.狮驼岭,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1000, minCount = 800, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.战士经验值 },
@@ -652,7 +652,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.芭蕉洞,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 800, minCount = 700, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.战士经验值 },
@@ -673,7 +673,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.流沙河,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1500, minCount = 1200, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.战士经验值 },
@@ -694,7 +694,7 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.小雷音寺,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 1000, minCount = 900, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 2000, minCount = 1500, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.功德 },
                     new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.战士经验值 },
