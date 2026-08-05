@@ -79,6 +79,9 @@ public class DiaoLuoItemImage : MonoBehaviour, IPointerEnterHandler, IPointerExi
             case 当前显示关卡类型.三十三重天:
                 弹窗.主线关卡Type = HeroWindowController.S.当前三十三重天Type;
                 break;
+            case 当前显示关卡类型.混沌虚空:
+                弹窗.主线关卡Type = 主线关卡Type.混沌虚空;
+                break;
         }
         弹窗.SetItem();
         // 设置弹窗的位置

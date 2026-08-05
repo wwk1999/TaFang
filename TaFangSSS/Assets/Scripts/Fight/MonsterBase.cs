@@ -144,7 +144,7 @@ public class MonsterBase : MonoBehaviour
       MonsterAttribute 怪物属性 = MonsterConfig.主线关卡怪物属性Dic[item];
       if (LevelConfig.Is混沌虚空)
       {
-         int count = LevelConfig.混沌虚空层数 - 1;
+         int count = LevelConfig.战斗混沌虚空层数 - 1;
          怪物属性.Attack*=Mathf.Pow(1.2f, count);
          怪物属性.Hp*=Mathf.Pow(1.2f, count);
          怪物属性.Defense*=Mathf.Pow(1.2f, count);
@@ -454,7 +454,7 @@ public class MonsterBase : MonoBehaviour
          ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
       }
 
-      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.Is混沌虚空 && LevelConfig.混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.Is混沌虚空 && LevelConfig.战斗混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
       {
          PlayerData.S.混沌虚空最大层数++;
       }

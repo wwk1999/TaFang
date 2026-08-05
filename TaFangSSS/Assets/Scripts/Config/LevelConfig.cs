@@ -57,6 +57,12 @@ public class LevelDiaoLuo
     public PropType PropType;
 }
 
+public class minmax
+{
+    public int min;
+    public int max;
+}
+
 public class SmallLevelInfo
 {
     public int NormalMonsterCount;
@@ -89,7 +95,7 @@ public class LevelConfig : MonoBehaviour
     public static 关卡类型 当前关卡类型 = 关卡类型.主线关卡;
     public static 主线关卡Type 当前主线关卡Type = 主线关卡Type.花果山;
     public static bool Is混沌虚空=false;
-    public static int 混沌虚空层数 = 1;
+    public static int 战斗混沌虚空层数 = 1;
     public static Dictionary<主线关卡Type, int> 主线关卡通关奖励Dic = new Dictionary<主线关卡Type, int>()
     {
         { 主线关卡Type.花果山, 5 },
@@ -360,7 +366,14 @@ public class LevelConfig : MonoBehaviour
        普通关卡胜利奖励 value = new 普通关卡胜利奖励();
        foreach (var item in list)
        {
-           int random=Random.Range(item.minCount,item.maxCount+1);
+           int min = item.minCount;
+           int max = item.maxCount;
+           if (当前主线关卡Type == 主线关卡Type.混沌虚空)
+           {
+               min = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).min;
+               max = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).max;
+           }
+           int random=Random.Range(min,max+1);
            switch (item.PropType)
            {
                case PropType.灵魂:
@@ -416,6 +429,81 @@ public class LevelConfig : MonoBehaviour
 
        return value;
    }
+
+   public static minmax Get混沌虚空奖励(int 层数, PropType type)
+ {
+     minmax result = new minmax();
+
+     // 基础值取自混沌虚空掉落表
+     LevelDiaoLuo baseItem = null;
+     foreach (var item in LevelDiaoLuoDic[主线关卡Type.混沌虚空])
+     {
+         if (item.PropType == type)
+         {
+             baseItem = item;
+             break;
+         }
+     }
+
+     if (baseItem == null)
+     {
+         return result;
+     }
+
+     result.min = baseItem.minCount;
+     result.max = baseItem.maxCount;
+
+     // 第1层为基础值，之后每加一层累加加成
+     int 加成层数 = 层数 - 1;
+     if (加成层数 <= 0)
+     {
+         return result;
+     }
+
+     switch (type)
+     {
+         // 每加一层 min/max +1500
+         case PropType.灵魂:
+             result.min += 加成层数 * 1500;
+             result.max += 加成层数 * 1500;
+             break;
+         // 每加一层 min/max +1000
+         case PropType.功德:
+             result.min += 加成层数 * 1000;
+             result.max += 加成层数 * 1000;
+             break;
+         // 经验值：每加一层 min/max +1000
+         case PropType.射手经验值:
+         case PropType.战士经验值:
+         case PropType.辅助经验值:
+         case PropType.控制经验值:
+         case PropType.法师经验值:
+         case PropType.全职业经验值:
+             result.min += 加成层数 * 1000;
+             result.max += 加成层数 * 1000;
+             break;
+         // 锻造石和招募卷：每10层 min/max +1
+         case PropType.衣服锻造石:
+         case PropType.头盔锻造石:
+         case PropType.鞋子锻造石:
+         case PropType.护手锻造石:
+         case PropType.项链锻造石:
+         case PropType.戒指锻造石:
+         case PropType.招募卷:
+             result.min += 加成层数 / 10;
+             result.max += 加成层数 / 10;
+             break;
+         // 洗练石和高级招募卷：每20层 min/max +1
+         case PropType.洗练石:
+         case PropType.高级招募卷:
+             result.min += 加成层数 / 20;
+             result.max += 加成层数 / 20;
+             break;
+     }
+
+     return result;
+ }
+   
     public static Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
         new Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>>()
         {
@@ -1160,20 +1248,22 @@ public class LevelConfig : MonoBehaviour
                 主线关卡Type.混沌虚空,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.功德 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                    new LevelDiaoLuo() { maxCount = 24000, minCount = 22000, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.功德 },
+                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.高级招募卷 },
+                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.招募卷 },
                 }
             },
         };

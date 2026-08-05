@@ -20,7 +20,6 @@ public class 混沌虚空窗口 : MonoBehaviour
     public TextMeshProUGUI PageNumText;
     public Button 左箭头;
     public Button 右箭头;
-    private int 混沌虚空层数 = 1;
     private int pagenum = 1;
     public Toggle 重复挑战Toggle;
 
@@ -39,7 +38,7 @@ public class 混沌虚空窗口 : MonoBehaviour
             LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
             LevelConfig.当前主线关卡Type = 主线关卡Type.混沌虚空;
             LevelConfig.Is混沌虚空 = true;
-            LevelConfig.混沌虚空层数 = 混沌虚空层数;
+            LevelConfig.战斗混沌虚空层数 = HeroWindowController.S.显示混沌虚空层数;
             SceneManager.LoadScene("LoadScene");
         });
         左箭头.onClick.AddListener(() =>
@@ -88,7 +87,7 @@ public class 混沌虚空窗口 : MonoBehaviour
     public void 混沌虚空格子点击(object[] obj)
     {
         int count=(int)obj[0];
-        混沌虚空层数 = count;
+        HeroWindowController.S.显示混沌虚空层数 = count;
     }
 
     private void Awake()
@@ -109,8 +108,8 @@ public class 混沌虚空窗口 : MonoBehaviour
         Show关卡层数(最大页数);
         PageNumText.text = 最大页数.ToString();
         pagenum = 最大页数;
-        混沌虚空层数 = PlayerData.S.混沌虚空最大层数;
-        ObserverModuleManager.S.SendEvent("混沌虚空格子点击",混沌虚空层数);
+        HeroWindowController.S.显示混沌虚空层数 = PlayerData.S.混沌虚空最大层数;
+        ObserverModuleManager.S.SendEvent("混沌虚空格子点击",HeroWindowController.S.显示混沌虚空层数);
         title.text = LevelConfig.主线关卡NameDic[主线关卡Type.混沌虚空];
         description.text = LevelConfig.主线关卡介绍Dic[主线关卡Type.混沌虚空];
         通关奖励.text = $"修炼速度+<color=green>{LevelConfig.主线关卡通关奖励Dic[主线关卡Type.混沌虚空]}%</color>";

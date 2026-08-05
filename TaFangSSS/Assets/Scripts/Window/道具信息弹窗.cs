@@ -53,13 +53,22 @@ public class 道具信息弹窗 : MonoBehaviour
          case 道具信息Type.项链锻造石:
          case 道具信息Type.高级招募卷:
             HashSet<LevelDiaoLuo> list=LevelConfig.LevelDiaoLuoDic[主线关卡Type];
-            foreach (var item in list)
+            if (主线关卡Type == 主线关卡Type.混沌虚空)
             {
-               if (item.PropType == PropConfig.道具信息ToPropType[type])
+               var value=LevelConfig.Get混沌虚空奖励(HeroWindowController.S.显示混沌虚空层数,PropConfig.道具信息ToPropType[type]);
+               数量.text = "掉落数量:" + value.min + "-" + value.max;
+            }
+            else
+            {
+               foreach (var item in list)
                {
-                  数量.text = "掉落数量:" + item.minCount+"-"+item.maxCount;
+                  if (item.PropType == PropConfig.道具信息ToPropType[type])
+                  {
+                     数量.text = "掉落数量:" + item.minCount + "-" + item.maxCount;
+                  }
                }
             }
+
             break;
 
          case 道具信息Type.道宝紫:

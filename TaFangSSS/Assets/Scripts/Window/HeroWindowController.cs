@@ -30,7 +30,8 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 主线关卡Type 当前主线关卡Type;
     [NonSerialized] public 主线关卡Type 当前凌霄宝殿Type;
     [NonSerialized] public 主线关卡Type 当前三十三重天Type;
-    
+
+    [NonSerialized] public int 显示混沌虚空层数 = 0; 
 
     //城墙
     [NonSerialized]public bool 城墙IsDrag = false;
