@@ -696,6 +696,9 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.普通火魔法弹:
                 QueueController.S.普通火魔法弹Queue.Enqueue(普通魔法弹带peng);
                 break;
+            case 攻击特效Type.冰剑气:
+                QueueController.S.冰剑气Queue.Enqueue(普通魔法弹带peng);
+                break;
             case 攻击特效Type.None:
             default:
                 // None 或未知类型不处理，或者可加入默认逻辑

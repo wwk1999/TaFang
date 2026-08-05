@@ -354,7 +354,7 @@ public class QueueController:XSingleton<QueueController>
                     冰旋风Queue.Enqueue(冰旋风);
                     break;
                 case 攻击特效Type.冰剑气:
-                    if (火符Queue.Count > 50)
+                    if (冰剑气Queue.Count > 50)
                     {
                         break;
                     }
