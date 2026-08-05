@@ -46,7 +46,7 @@ public class 人物item : MonoBehaviour
     private bool 上场=false;
     private int 孙悟空下场次数 = 0;
     private int 盘古出拳次数 = 0;
-
+    
     public float Get攻击间隔()
     {
         float value = 英雄星级属性.Get英雄Cd(heroType);

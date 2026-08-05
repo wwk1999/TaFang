@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class 孙悟空棒子 : MonoBehaviour
 {
+   public Collider2D 孙悟空Tri;
    public GameObject 棒子obj;
    public Animator Animator;
    [NonSerialized] public bool 瑶池冰辅助;
@@ -21,39 +22,47 @@ public class 孙悟空棒子 : MonoBehaviour
       if (scale <= 0) scale = 1;
       transform.localScale = new Vector3(原始scale.x * scale, 原始scale.y * scale, 1);
    }
-
-   private void OnTriggerEnter2D(Collider2D other)
+   
+   public void CheckCollisionWithMonsters()
    {
-      if (other.CompareTag("Monster"))
+      // 检测所有重叠的碰撞体
+      List<Collider2D> results = new List<Collider2D>();
+      ContactFilter2D filter = new ContactFilter2D();
+      filter.NoFilter();
+      filter.useTriggers = true;
+    
+      孙悟空Tri.OverlapCollider(filter, results);
+    
+      // 找出所有怪物并处理
+      foreach (Collider2D col in results)
       {
-         Vector2 closestPoint = other.ClosestPoint(transform.position);
-         var hit = FightController.S.GetPeng(攻击特效Type.孙悟空棒子);
-         hit.transform.position = closestPoint;
-         hit.gameObject.SetActive(true);
-         if (瑶池冰辅助)
+         if (col.gameObject == gameObject) continue;
+        
+         if (col.CompareTag("Monster"))
          {
-            QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
-         }
-
-         float damage = 属性config.总属性.总攻击力*英雄星级属性.孙悟空攻击数值/100f;
-         damage *= (1+下场次数 *英雄星级属性.孙悟空每次下场伤害 / 100f);
-         if (女娲电辅助)
-         {
-            damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-         }
+            var hit = FightController.S.GetPeng(攻击特效Type.孙悟空棒子);
+            hit.transform.position = col.gameObject.transform.position;
+            hit.gameObject.SetActive(true);
+            float damage = 属性config.总属性.总攻击力*英雄星级属性.孙悟空攻击数值/100f;
+            damage *= (1+下场次数 *英雄星级属性.孙悟空每次下场伤害 / 100f);
+            if (女娲电辅助)
+            {
+               damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+            }
          
-         if (黑暗辅助)
-         {
-            damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
+            if (黑暗辅助)
+            {
+               damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
+            }
+            if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
+            {
+               damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
+            }
+            QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroType.孙悟空);
          }
-         if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-         {
-            damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-         }
-         QueueController.S.MonsterColliderDic[other].Hurt(damage,HeroType.孙悟空);
       }
    }
-
+   
    public IEnumerator 孙悟空攻击(int count)
    {
       棒子obj.gameObject.SetActive(true);
