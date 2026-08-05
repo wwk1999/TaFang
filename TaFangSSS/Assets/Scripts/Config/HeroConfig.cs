@@ -856,7 +856,7 @@ namespace Config
             { HeroType.妲己, new List<float>() { 20, 2 } },
             { HeroType.牛魔王, new List<float>() { 300 } },
 
-            { HeroType.哪吒, new List<float>() { 200 } },
+            { HeroType.哪吒, new List<float>() { 210 } },
             { HeroType.孙悟空, new List<float>() { 250 } },
             { HeroType.碧霄, new List<float>() { 350 } },
             { HeroType.琼霄, new List<float>() { 250, 1 } },
@@ -1056,17 +1056,17 @@ namespace Config
             { HeroType.太白金星, 1 },
 
             { HeroType.多闻天王, 1 },
-            { HeroType.广目天王, 1.5f },
+            { HeroType.广目天王, 1f },
             { HeroType.雷震子, 2 },
             { HeroType.月老, 1 },
 
             { HeroType.嫦娥, 2 },
             { HeroType.杨戬, 1 },
             { HeroType.妲己, 5 },
-            { HeroType.牛魔王, 1.5f },
+            { HeroType.牛魔王, 1.2f },
 
-            { HeroType.哪吒, 1.5f },
-            { HeroType.孙悟空, 1.5f },
+            { HeroType.哪吒, 1f },
+            { HeroType.孙悟空, 1f },
             { HeroType.碧霄, 2 },
             { HeroType.琼霄, 2 },
 
@@ -1078,9 +1078,9 @@ namespace Config
             { HeroType.女娲, 6 },
             { HeroType.老子, 2 },
             { HeroType.通天, 1f },
-            { HeroType.元始, 1.5f },
+            { HeroType.元始, 1f },
 
-            { HeroType.盘古, 1.5f },
+            { HeroType.盘古, 1f },
             { HeroType.鸿钧, 2 },
 
         };
