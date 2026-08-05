@@ -10,15 +10,16 @@ public class 孙悟空棒子 : MonoBehaviour
    public Animator Animator;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
-   private Vector2 原始scale;
+   private Vector2 原始scale = Vector2.one;
    [NonSerialized] public int 下场次数 = 0;
    [NonSerialized] public bool 女娲电辅助;
 
-   
 
    private void OnEnable()
    {
-      transform.localScale=new Vector3(原始scale.x*英雄星级属性.孙悟空效果范围,原始scale.y*英雄星级属性.孙悟空效果范围,1);
+      float scale = 英雄星级属性.孙悟空效果范围;
+      if (scale <= 0) scale = 1;
+      transform.localScale = new Vector3(原始scale.x * scale, 原始scale.y * scale, 1);
    }
 
    private void OnTriggerEnter2D(Collider2D other)
