@@ -309,7 +309,7 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.假罗汉, false },
     { MonsterTypeName.假金刚, true },
     { MonsterTypeName.黄眉童子, false },
-    { MonsterTypeName.黄眉老祖, true },
+    { MonsterTypeName.黄眉老祖, false },
 
     // 狮驼岭
     { MonsterTypeName.青狮精手下, true },
@@ -400,8 +400,8 @@ public class MonsterConfig : MonoBehaviour
     // 四梵天
     { MonsterTypeName.梵天守卫, true },
     { MonsterTypeName.净居天人, false },
-    { MonsterTypeName.善现尊者, true },
-    { MonsterTypeName.四梵天王, true },
+    { MonsterTypeName.善现尊者, false },
+    { MonsterTypeName.四梵天王, false },
 
     // 玉清境清微天
     { MonsterTypeName.清微仙童, true },
