@@ -71,6 +71,16 @@ public class 人物item : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        // 下场期间(上场=true)进入范围的怪物会被 OnTriggerEnter2D 漏掉
+        // 回到原位(上场=false)后用 Stay 把它们补登进列表，避免英雄只上场一次
+        if (other.CompareTag("Monster") && !上场)
+        {
+            攻击范围内怪物.Add(QueueController.S.MonsterColliderDic[other]);
+        }
+    }
+
     public void 怪物死亡(object[] obj)
     {
         MonsterBase monsterBase = obj[0] as MonsterBase;
@@ -96,7 +106,7 @@ public class 人物item : MonoBehaviour
         }
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         
-        if (monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!FightController.S.战斗结束)
+        if (monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!上场&&!FightController.S.战斗结束)
         { 
             Vector2 targetPos = monsterBase.transform.position;
             CurrentAttackTime = 0;
@@ -242,7 +252,7 @@ public class 人物item : MonoBehaviour
                             火球3.黑暗辅助 = 妲己黑暗辅助>0;
                             火球3.女娲电辅助 = 女娲电辅助>0;
 
-                            火球3.RotateSpeed = 100;
+                            火球3.RotateSpeed = 300;
                             火球3.gameObject.SetActive(true);
                             break;
                         case 4:
@@ -250,7 +260,7 @@ public class 人物item : MonoBehaviour
                             火球4.黑暗辅助 = 妲己黑暗辅助>0;
                             火球4.女娲电辅助 = 女娲电辅助>0;
 
-                            火球4.RotateSpeed = 100;
+                            火球4.RotateSpeed = 300;
                             火球4.gameObject.SetActive(true);
                             break;
                         case 5:
@@ -258,7 +268,7 @@ public class 人物item : MonoBehaviour
                             火球5.黑暗辅助 = 妲己黑暗辅助>0;
                             火球5.女娲电辅助 = 女娲电辅助>0;
 
-                            火球5.RotateSpeed = 100;
+                            火球5.RotateSpeed = 300;
                             火球5.gameObject.SetActive(true);
                             break;
                         case 6:
@@ -266,7 +276,7 @@ public class 人物item : MonoBehaviour
                             火球6.黑暗辅助 = 妲己黑暗辅助>0;
                             火球6.女娲电辅助 = 女娲电辅助>0;
 
-                            火球6.RotateSpeed = 100;
+                            火球6.RotateSpeed = 300;
                             火球6.gameObject.SetActive(true);
                             break;
                         case 7:
@@ -274,7 +284,7 @@ public class 人物item : MonoBehaviour
                             火球7.黑暗辅助 = 妲己黑暗辅助>0;
                             火球7.女娲电辅助 = 女娲电辅助>0;
 
-                            火球7.RotateSpeed = 100;
+                            火球7.RotateSpeed = 300;
                             火球7.gameObject.SetActive(true);
                             break;
                         case 8:
@@ -282,7 +292,7 @@ public class 人物item : MonoBehaviour
                             火球8.黑暗辅助 = 妲己黑暗辅助>0;
                             火球8.女娲电辅助 = 女娲电辅助>0;
 
-                            火球8.RotateSpeed = 100;
+                            火球8.RotateSpeed = 300;
                             火球8.gameObject.SetActive(true);
                             break;
                         case 9:
@@ -290,7 +300,7 @@ public class 人物item : MonoBehaviour
                             火球9.黑暗辅助 = 妲己黑暗辅助>0;
                             火球9.女娲电辅助 = 女娲电辅助>0;
 
-                            火球9.RotateSpeed = 100;
+                            火球9.RotateSpeed = 300;
                             火球9.gameObject.SetActive(true);
                             break;
                     }
@@ -301,7 +311,7 @@ public class 人物item : MonoBehaviour
                         火球10.黑暗辅助 = 妲己黑暗辅助>0;
                         火球10.女娲电辅助 = 女娲电辅助>0;
 
-                        火球10.RotateSpeed = 100;
+                        火球10.RotateSpeed = 300;
                         火球10.gameObject.SetActive(true);
                     }
                     break;

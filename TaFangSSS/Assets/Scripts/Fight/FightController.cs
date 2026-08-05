@@ -413,6 +413,18 @@ public class FightController : XSingleton<FightController>
                      float randomy=Random.Range(-1.0f, 1.0f);
                      Vector2 randomdir=new Vector2(randomx,randomy).normalized;
                      Vector2 randompos=pos+randomdir*1.5f;
+                     if (randompos.y < -4)
+                     {
+                         randompos.y = -4+Random.Range(0, 0.5f);
+                     }
+                     if (randompos.y > 4)
+                     {
+                         randompos.y = 4-Random.Range(0, 0.5f);
+                     }
+                     if (randompos.x < -5)
+                     {
+                         randompos.y = -5+Random.Range(0, 1f);
+                     }
                      var 陨石 = QueueController.S.陨石Queue.Dequeue();
                      陨石.transform.position = randompos;
                      陨石.瑶池冰辅助 = 瑶池冰辅助;
@@ -535,8 +547,8 @@ public class FightController : XSingleton<FightController>
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
         {
             case 攻击特效Type.冰旋风:
-                魔法弹.HeroType=HeroType.老子;
                 魔法弹 = QueueController.S.冰旋风Queue.Dequeue();
+                魔法弹.HeroType=HeroType.老子;
                 break;
         }
        

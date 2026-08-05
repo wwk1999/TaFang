@@ -194,7 +194,7 @@ public class 英雄星级属性
     
     public static float 女娲Cd=> Get女娲Cd();
     public static float 女娲持续时间=> Get女娲持续时间();
-    public static float 女娲效果=> Get女娲效果();
+    public static float 女娲效果=> Get女娲冷却缩减效果();
     public static float 女娲辅助伤害=> Get女娲辅助伤害();
 
     
@@ -704,7 +704,7 @@ public class 英雄星级属性
 
         return value;
     }
-    public static float Get女娲效果()
+    public static float Get女娲冷却缩减效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.女娲][0];
         int xj = PlayerData.S.HeroDataDic[HeroType.女娲].Level - 1;
@@ -716,7 +716,7 @@ public class 英雄星级属性
         {
             value += 10f;
         }
-        return value;
+        return value/100f;
     }
     public static float Get女娲持续时间()
     {
