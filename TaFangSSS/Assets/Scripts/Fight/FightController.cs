@@ -864,7 +864,7 @@ public class FightController : XSingleton<FightController>
 
             if (真实回血值 > 0)
             {
-                Show伤害数字(真实回血值,YuanSuType.None,new Vector2(-5,0),true);
+                Show伤害数字(PlayerData.S.格式化数字(真实回血值),YuanSuType.None,new Vector2(-5,0),true);
                 城墙当前生命值 += 真实回血值;
                 城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), 城墙当前生命值);
                 ObserverModuleManager.S.SendEvent("设置护盾");
@@ -904,10 +904,10 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void Show伤害数字(float 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false)
+    public void Show伤害数字(string 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false)
     {
         var item=QueueController.S.伤害数字Queue.Dequeue();
-        item.damage = (int)最终伤害;
+        item.text = 最终伤害;
         item.is回血 = is回血;
         item.YuanSuType = yuanSuType;
         item.transform.position = pos;

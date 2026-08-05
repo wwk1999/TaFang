@@ -112,7 +112,7 @@ public class MonsterBase : MonoBehaviour
          图片.transform.localRotation = Quaternion.Euler(0, 180, 0); // Y轴翻转180度
       }
 
-     
+      灼烧time = 0;
       移动Animation.enabled = true;
       移动Animation.Play("怪物移动", 0, 0f);
       黑暗符次数 = 0;
@@ -365,7 +365,7 @@ public class MonsterBase : MonoBehaviour
 
 
       FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
-      FightController.S.Show伤害数字(最终Damage,HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
+      FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
       float 受伤前血量 = CurrentHP;
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);
@@ -478,7 +478,7 @@ public class MonsterBase : MonoBehaviour
       {
          int value = (int)(城墙Config.杀怪回血数值 / 100f * 城墙Config.Get城墙最大生命值());
          FightController.S.城墙当前生命值=Math.Min(城墙Config.Get城墙最大生命值(),FightController.S.城墙当前生命值+value);
-         FightController.S.Show伤害数字(value,YuanSuType.None,new Vector2(-5,0),true);
+         FightController.S.Show伤害数字(PlayerData.S.格式化数字(value),YuanSuType.None,new Vector2(-5,0),true);
       }
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;

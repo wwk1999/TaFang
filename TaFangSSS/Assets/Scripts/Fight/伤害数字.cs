@@ -15,7 +15,7 @@ public class 伤害数字 : MonoBehaviour
     public TextMeshProUGUI 黑暗;
     public TextMeshProUGUI 回血;
     [NonSerialized] public YuanSuType YuanSuType=YuanSuType.None;
-    [NonSerialized] public float damage;
+    [NonSerialized] public string text;
     [NonSerialized] public bool is回血;
 
     public void Hide()
@@ -29,7 +29,7 @@ public class 伤害数字 : MonoBehaviour
         if (is回血)
         {
             Animator.Play("回血");
-            回血.text = damage.ToString();
+            回血.text = text.ToString();
         }
         else
         {
@@ -37,23 +37,23 @@ public class 伤害数字 : MonoBehaviour
             {
                 case YuanSuType.火:
                     Animator.Play("火伤害");
-                    火焰.text = damage.ToString();
+                    火焰.text = text.ToString();
                     break;
                 case YuanSuType.冰:
                     Animator.Play("冰伤害");
-                    冰.text = damage.ToString();
+                    冰.text = text.ToString();
                     break;
                 case YuanSuType.电:
                     Animator.Play("雷电伤害");
-                    雷电.text = damage.ToString();
+                    雷电.text = text.ToString();
                     break;
                 case YuanSuType.黑暗:
                     Animator.Play("黑暗伤害");
-                    黑暗.text = damage.ToString();
+                    黑暗.text = text.ToString();
                     break;
                 case YuanSuType.物理:
                     Animator.Play("物理伤害");
-                    物理.text = damage.ToString();
+                    物理.text = text.ToString();
                     break;
             }
         }

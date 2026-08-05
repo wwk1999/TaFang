@@ -57,7 +57,7 @@ public class Entrance : MonoBehaviour
       damage=Math.Max(damage,0);
       float y=(float)obj[1];
       围栏Animator.Play("围栏受击",0,0);
-      FightController.S.Show伤害数字(damage,YuanSuType.物理,new Vector2(-5,y));
+      FightController.S.Show伤害数字(PlayerData.S.格式化数字(damage),YuanSuType.物理,new Vector2(-5,y));
       if (FightController.S.城墙护盾值 >= damage)
       {
           FightController.S.城墙护盾值 -= (int)damage;

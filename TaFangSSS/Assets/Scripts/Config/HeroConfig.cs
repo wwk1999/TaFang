@@ -856,13 +856,13 @@ namespace Config
             { HeroType.妲己, new List<float>() { 20, 2 } },
             { HeroType.牛魔王, new List<float>() { 300 } },
 
-            { HeroType.哪吒, new List<float>() { 150 } },
+            { HeroType.哪吒, new List<float>() { 200 } },
             { HeroType.孙悟空, new List<float>() { 250 } },
             { HeroType.碧霄, new List<float>() { 350 } },
             { HeroType.琼霄, new List<float>() { 250, 1 } },
 
-            { HeroType.羲和, new List<float>() { 400, 100, 3 } },
-            { HeroType.常羲, new List<float>() { 400, 20, 2 } },
+            { HeroType.羲和, new List<float>() { 300, 100, 3 } },
+            { HeroType.常羲, new List<float>() { 300, 20, 2 } },
             { HeroType.后羿, new List<float>() { 300 } },
             { HeroType.云霄, new List<float>() { 300 } },
 
