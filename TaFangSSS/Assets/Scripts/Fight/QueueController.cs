@@ -247,9 +247,9 @@ public class QueueController:XSingleton<QueueController>
              }
         }
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 500; i++)
         {
-            if (伤害数字Queue.Count > 100)
+            if (伤害数字Queue.Count > 500)
             {
                 break;
             }

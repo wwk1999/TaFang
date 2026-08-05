@@ -3475,10 +3475,10 @@ public class ResourcesConfig : MonoBehaviour
         魔鸿钧 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
 
 
-        混沌蠕虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗侍卫");
-        虚空螯虫 = Resources.Load<Sprite>("Sprite/怪物icon/弥罗宫卫");
-        虚空巨兽 = Resources.Load<Sprite>("Sprite/怪物icon/混元道兵");
-        混沌主宰 = Resources.Load<Sprite>("Sprite/怪物icon/魔鸿钧");
+        混沌蠕虫 = Resources.Load<Sprite>("Sprite/怪物icon/混沌蠕虫");
+        虚空螯虫 = Resources.Load<Sprite>("Sprite/怪物icon/混沌巨兽");
+        虚空巨兽 = Resources.Load<Sprite>("Sprite/怪物icon/混沌守卫");
+        混沌主宰 = Resources.Load<Sprite>("Sprite/怪物icon/混沌吞噬者");
 
         //人物图片
         //白

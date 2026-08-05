@@ -899,6 +899,11 @@ public class FightController : XSingleton<FightController>
         var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].CreateNormalMonsterTime;
         var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
         var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        {
+            普通怪物Time = LevelConfig.LevelInfos[主线关卡Type.混沌虚空].CreateNormalMonsterTime-(int)(LevelConfig.战斗混沌虚空层数 / 10) * 0.1f;
+            普通怪物Time = MathF.Max(0.15f, 普通怪物Time);
+        }
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量&&SceneManager.GetActiveScene().name=="FightScene")
         {
             NormalMonsterCount++;

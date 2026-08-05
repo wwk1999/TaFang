@@ -422,16 +422,16 @@ public class MonsterConfig : MonoBehaviour
     { MonsterTypeName.魔老子, false},
 
     // 大罗天
-    { MonsterTypeName.弥罗侍卫, true },
+    { MonsterTypeName.弥罗侍卫, false },
     { MonsterTypeName.弥罗宫卫, false },
-    { MonsterTypeName.混元道兵,false },
-    { MonsterTypeName.魔鸿钧, false },
+    { MonsterTypeName.混元道兵,true },
+    { MonsterTypeName.魔鸿钧, true },
     
     // 大罗天
     { MonsterTypeName.混沌蠕虫, false },
     { MonsterTypeName.虚空螯虫, false },
-    { MonsterTypeName.虚空巨兽, false },
-    { MonsterTypeName.混沌主宰, false },
+    { MonsterTypeName.虚空巨兽, true },
+    { MonsterTypeName.混沌主宰, true },
 };
   
 

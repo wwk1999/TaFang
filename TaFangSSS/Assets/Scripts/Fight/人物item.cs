@@ -243,7 +243,6 @@ public class 人物item : MonoBehaviour
                             火球3.女娲电辅助 = 女娲电辅助>0;
 
                             火球3.RotateSpeed = 100;
-                            火球3.damage = 20;
                             火球3.gameObject.SetActive(true);
                             break;
                         case 4:
@@ -252,7 +251,6 @@ public class 人物item : MonoBehaviour
                             火球4.女娲电辅助 = 女娲电辅助>0;
 
                             火球4.RotateSpeed = 100;
-                            火球4.damage = 20;
                             火球4.gameObject.SetActive(true);
                             break;
                         case 5:
@@ -261,7 +259,6 @@ public class 人物item : MonoBehaviour
                             火球5.女娲电辅助 = 女娲电辅助>0;
 
                             火球5.RotateSpeed = 100;
-                            火球5.damage = 20;
                             火球5.gameObject.SetActive(true);
                             break;
                         case 6:
@@ -270,7 +267,6 @@ public class 人物item : MonoBehaviour
                             火球6.女娲电辅助 = 女娲电辅助>0;
 
                             火球6.RotateSpeed = 100;
-                            火球6.damage = 20;
                             火球6.gameObject.SetActive(true);
                             break;
                         case 7:
@@ -279,7 +275,6 @@ public class 人物item : MonoBehaviour
                             火球7.女娲电辅助 = 女娲电辅助>0;
 
                             火球7.RotateSpeed = 100;
-                            火球7.damage = 20;
                             火球7.gameObject.SetActive(true);
                             break;
                         case 8:
@@ -288,7 +283,6 @@ public class 人物item : MonoBehaviour
                             火球8.女娲电辅助 = 女娲电辅助>0;
 
                             火球8.RotateSpeed = 100;
-                            火球8.damage = 20;
                             火球8.gameObject.SetActive(true);
                             break;
                         case 9:
@@ -297,7 +291,6 @@ public class 人物item : MonoBehaviour
                             火球9.女娲电辅助 = 女娲电辅助>0;
 
                             火球9.RotateSpeed = 100;
-                            火球9.damage = 20;
                             火球9.gameObject.SetActive(true);
                             break;
                     }
@@ -309,7 +302,6 @@ public class 人物item : MonoBehaviour
                         火球10.女娲电辅助 = 女娲电辅助>0;
 
                         火球10.RotateSpeed = 100;
-                        火球10.damage = 20;
                         火球10.gameObject.SetActive(true);
                     }
                     break;

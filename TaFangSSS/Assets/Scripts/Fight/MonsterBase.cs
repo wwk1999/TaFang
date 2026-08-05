@@ -141,13 +141,27 @@ public class MonsterBase : MonoBehaviour
 
    public MonsterAttribute Get怪物属性(主线关卡怪物Item item)
    {
-      MonsterAttribute 怪物属性 = MonsterConfig.主线关卡怪物属性Dic[item];
+      MonsterAttribute 基础属性 = MonsterConfig.主线关卡怪物属性Dic[item];
+      // MonsterAttribute 是引用类型，必须拷贝一份再修改，否则会污染字典里的基础数据
+      // （每生成一只怪都会在原值上再乘一次倍率，导致 HP/攻击指数级膨胀、怪物杀不死）
+      MonsterAttribute 怪物属性 = new MonsterAttribute()
+      {
+         Hp = 基础属性.Hp,
+         Attack = 基础属性.Attack,
+         Defense = 基础属性.Defense,
+         物理抗性 = 基础属性.物理抗性,
+         冰霜抗性 = 基础属性.冰霜抗性,
+         火焰抗性 = 基础属性.火焰抗性,
+         黑暗抗性 = 基础属性.黑暗抗性,
+         雷电抗性 = 基础属性.雷电抗性,
+      };
       if (LevelConfig.Is混沌虚空)
       {
          int count = LevelConfig.战斗混沌虚空层数 - 1;
-         怪物属性.Attack*=Mathf.Pow(1.2f, count);
-         怪物属性.Hp*=Mathf.Pow(1.2f, count);
-         怪物属性.Defense*=Mathf.Pow(1.2f, count);
+         float 倍率 = Mathf.Pow(1.2f, count);
+         怪物属性.Attack *= 倍率;
+         怪物属性.Hp *= 倍率;
+         怪物属性.Defense *= 倍率;
       }
 
       return 怪物属性;
@@ -449,8 +463,18 @@ public class MonsterBase : MonoBehaviour
       yield return new WaitForSeconds(1f);
       if (LevelConfig.当前主线关卡Type == PlayerData.S.最大主线关卡)
       {
-         PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
-         PlayerData.S.最大主线关卡++;
+         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+            if (PlayerData.S.混沌虚空最大层数 == LevelConfig.战斗混沌虚空层数)
+            {
+               PlayerData.S.关卡修炼速度加成 += 100;
+            }
+         }
+         else
+         {
+            PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
+            PlayerData.S.最大主线关卡++;
+         }
          ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
       }
 
