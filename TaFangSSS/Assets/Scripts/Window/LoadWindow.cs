@@ -19,11 +19,17 @@ public class LoadWindow : MonoBehaviour
 
     private void Start()
     {
+        
         StartCoroutine(LoadAndPreload());
         loadSlider.onValueChanged.AddListener((value) =>
         {
             count.text = (int)(value * 100)+"%";
         });
+    }
+
+    private void OnEnable()
+    {
+        ObserverModuleManager.S.SendEvent("播放BGM",false);
     }
 
     private IEnumerator LoadAndPreload()

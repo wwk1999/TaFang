@@ -11,10 +11,16 @@ public class StartWindow : MonoBehaviour
 
    private void Start()
    {
+      ObserverModuleManager.S.SendEvent("播放BGM",true);
       StartBtn.onClick.AddListener(() =>
          {
             SceneManager.LoadScene("UIScene");
          }
       );
+   }
+
+   private void OnEnable()
+   {
+      ObserverModuleManager.S.SendEvent("播放BGM",true);
    }
 }

@@ -17,6 +17,7 @@ public class LevelWindow : MonoBehaviour
     {
         TiaoZhanButton.onClick.AddListener(() =>
         {
+            
             SceneManager.LoadScene("LoadScene");
         });
         RightPanel.SetActive(false);

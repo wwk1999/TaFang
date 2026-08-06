@@ -121,6 +121,8 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
+        ObserverModuleManager.S.SendEvent("播放BGM",true);
+
         通天塔.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.通天塔;
