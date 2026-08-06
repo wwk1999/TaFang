@@ -131,6 +131,7 @@ public class MainWindow : MonoBehaviour
         {
             if (PlayerData.S.JingJieType < 世界树Config.世界树关卡Dic[1].jingJieType)
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
@@ -141,6 +142,7 @@ public class MainWindow : MonoBehaviour
         {
             if (PlayerData.S.JingJieType < 血海Config.血海关卡Dic[1].jingJieType)
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
@@ -152,6 +154,7 @@ public class MainWindow : MonoBehaviour
         {
             if (PlayerData.S.JingJieType < 不周山Config.不周山关卡Dic[1].jingJieType)
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
                 return;
             }

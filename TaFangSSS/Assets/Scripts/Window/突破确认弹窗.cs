@@ -53,6 +53,8 @@ public class 突破确认弹窗 : MonoBehaviour
             PlayerData.S.突破Dic[PlayerData.S.JingJieType] = 突破Type;
             PlayerData.S.JingJieType++;
             PlayerData.S.Exp = 0;
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+
             ObserverModuleManager.S.SendEvent("突破成功");
             ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
             ObserverModuleManager.S.SendEvent("Hide突破弹窗");

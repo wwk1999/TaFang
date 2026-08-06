@@ -34,6 +34,8 @@ public class 招募成功弹窗 : MonoBehaviour
             {
                 if (PlayerData.S.PropListDic[PropType.高级招募卷] < 1)
                 {
+                    ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                     ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
                     return;
                 }
@@ -44,6 +46,8 @@ public class 招募成功弹窗 : MonoBehaviour
             {
                 if (PlayerData.S.PropListDic[PropType.招募卷] < 1)
                 {
+                    ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                     ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
                     return;
                 }
@@ -62,6 +66,8 @@ public class 招募成功弹窗 : MonoBehaviour
                 {
                     if (PlayerData.S.PropListDic[PropType.高级招募卷] < 10)
                     {
+                        ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                         ObserverModuleManager.S.SendEvent("SendUIToast", "招募卷数量不足");
                         return;
                     }
@@ -74,6 +80,8 @@ public class 招募成功弹窗 : MonoBehaviour
                 {
                     if (PlayerData.S.PropListDic[PropType.招募卷] < 10)
                     {
+                        ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
                         return;
                     }

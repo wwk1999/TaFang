@@ -33,6 +33,8 @@ public class 道纹item : MonoBehaviour, IDropHandler
       {
          if (道纹config.检查装备专属道纹(HeroWindowController.S.道纹Type))
          {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
             ObserverModuleManager.S.SendEvent("SendUIToast","专属道纹只能镶嵌一个");
          }
          else

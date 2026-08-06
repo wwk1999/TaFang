@@ -232,6 +232,8 @@ public class 英雄详情弹窗 : MonoBehaviour
             int 当前值 = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]];
             if (当前值 < 需要值)
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                 ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                 return;
             }
@@ -239,6 +241,8 @@ public class 英雄详情弹窗 : MonoBehaviour
             {
                 PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]] -= 需要值;
                 PlayerData.S.英雄法则等级Dic[HeroType]++;
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+
                 ObserverModuleManager.S.SendEvent("SendUIToast","升级成功");
                 Set升星信息();
                 SetHeroInfo();
@@ -281,11 +285,15 @@ public class 英雄详情弹窗 : MonoBehaviour
                 PlayerData.S.HeroDataDic[HeroType].Level++;
                 Set升星信息();
                 Set升星材料();
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+
                 ObserverModuleManager.S.SendEvent("SendUIToast","升星成功");
                 ObserverModuleManager.S.SendEvent("升星刷新",HeroType);
             }
             else
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                 ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
             }
         });

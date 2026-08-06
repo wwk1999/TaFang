@@ -65,6 +65,7 @@ public class FightWindow : MonoBehaviour
         {
             if (PlayerData.S.JingJieType < JingJieType.元婴)
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
                 return;
             }
@@ -76,6 +77,7 @@ public class FightWindow : MonoBehaviour
         {
             if (PlayerData.S.JingJieType < JingJieType.天仙)
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","天仙境界解锁");
                 return;
             }

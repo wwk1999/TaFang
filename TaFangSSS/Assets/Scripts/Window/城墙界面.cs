@@ -135,6 +135,8 @@ public class 城墙界面 : MonoBehaviour
         {
             if (PlayerData.S.PropListDic[PropType.灵魂] < 城墙Config.Get城墙升级灵气())
             {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                 ObserverModuleManager.S.SendEvent("SendUIToast","灵气不足");
                 return;
             }

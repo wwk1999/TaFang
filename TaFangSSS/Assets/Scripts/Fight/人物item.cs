@@ -165,7 +165,12 @@ public class 人物item : MonoBehaviour
             盘古出拳次数++;
             count--;
             // 实时获取当前目标怪物位置
-            Vector2 monstertrans = FightController.S.GetAttackMonster().transform.position;
+            var monsterBase = FightController.S.GetAttackMonster();
+            Vector2 monstertrans = monsterBase.transform.position;
+            if (!攻击范围内怪物.Contains(monsterBase))
+            {
+                continue;
+            }
             Vector2 targetPos = new Vector2(monstertrans.x - 1.5f, monstertrans.y);
 
             // 移动过去，并等待移动完成（0.2秒）

@@ -112,6 +112,8 @@ public class 世界树窗口 : MonoBehaviour
 
          if (!flag)
          {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
             ObserverModuleManager.S.SendEvent("SendUIToast","请选择英雄派遣");
             return;
          }

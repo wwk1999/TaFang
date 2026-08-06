@@ -57,11 +57,15 @@ public class 强化弹窗 : MonoBehaviour
       int lingqi = item.灵气数量;
       if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
       {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
          ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
          return;
       }
       if (PlayerData.S.PropListDic[PropType.洗练石] < cailiao)
       {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
          ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
          return;
       }
@@ -79,6 +83,8 @@ public class 强化弹窗 : MonoBehaviour
             }
          }
       }
+      ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+
       ObserverModuleManager.S.SendEvent("SendUIToast","洗练成功");
       Set属性Panel();
       Set材料();
@@ -91,6 +97,8 @@ public class 强化弹窗 : MonoBehaviour
       int lingqi = item.灵气数量;
       if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
       {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
          ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
          return;
       }
@@ -100,6 +108,8 @@ public class 强化弹窗 : MonoBehaviour
          case EquipType.头盔:
             if (PlayerData.S.PropListDic[PropType.头盔锻造石] < cailiao)
             {
+               ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                return;
             }
@@ -107,6 +117,8 @@ public class 强化弹窗 : MonoBehaviour
          case EquipType.鞋子:
             if (PlayerData.S.PropListDic[PropType.鞋子锻造石] < cailiao)
             {
+               ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                return;
             }
@@ -114,6 +126,8 @@ public class 强化弹窗 : MonoBehaviour
          case EquipType.护手:
             if (PlayerData.S.PropListDic[PropType.护手锻造石] < cailiao)
             {
+               ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                return;
             }
@@ -121,6 +135,8 @@ public class 强化弹窗 : MonoBehaviour
          case EquipType.衣服:
             if (PlayerData.S.PropListDic[PropType.衣服锻造石] < cailiao)
             {
+               ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                return;
             }
@@ -128,6 +144,8 @@ public class 强化弹窗 : MonoBehaviour
          case EquipType.项链:
             if (PlayerData.S.PropListDic[PropType.项链锻造石] < cailiao)
             {
+               ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                return;
             }
@@ -135,6 +153,8 @@ public class 强化弹窗 : MonoBehaviour
          case EquipType.戒指:
             if (PlayerData.S.PropListDic[PropType.戒指锻造石] < cailiao)
             {
+               ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
                return;
             }
@@ -165,6 +185,8 @@ public class 强化弹窗 : MonoBehaviour
       }
 
       PlayerData.S.EquipLevelDic[equipType]++;
+      ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+
       ObserverModuleManager.S.SendEvent("SendUIToast","强化成功");
 
       if (PlayerData.S.EquipLevelDic[equipType] == 11)

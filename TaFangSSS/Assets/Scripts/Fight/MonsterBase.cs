@@ -475,6 +475,7 @@ public class MonsterBase : MonoBehaviour
             PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
             PlayerData.S.最大主线关卡++;
          }
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
          ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
       }
 
