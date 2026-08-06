@@ -87,6 +87,7 @@ public class ZhaoMuWindow : MonoBehaviour
       });
       Toggle.onValueChanged.AddListener(delegate
       {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
          PlayerData.S.是否招募十次 = Toggle.isOn;
          ResetCount();
       });

@@ -6,6 +6,15 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //音效
+    public static AudioClip 按钮进入;
+    public static AudioClip 按钮点击;
+    public static AudioClip 错误;
+    public static AudioClip Toggle;
+    public static AudioClip 招募;
+    public static AudioClip 成功;
+    
+    
     public static Sprite 问号;
 
     
@@ -2618,6 +2627,14 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        按钮进入=Resources.Load<AudioClip>("音效/按钮进入");
+        按钮点击=Resources.Load<AudioClip>("音效/按钮点击");
+        错误=Resources.Load<AudioClip>("音效/错误");
+        Toggle=Resources.Load<AudioClip>("音效/Toggle");
+        招募=Resources.Load<AudioClip>("音效/招募");
+        成功=Resources.Load<AudioClip>("音效/成功");
+        
+        
         问号= Resources.Load<Sprite>("Sprite/问号");
         
         开始按钮亮= Resources.Load<Sprite>("Sprite/战斗界面/开始按钮亮");

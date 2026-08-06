@@ -66,6 +66,7 @@ public class 凌霄宝殿窗口 : MonoBehaviour
         });
         重复挑战Toggle.onValueChanged.AddListener(delegate
         {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
             PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
         });
         挑战Button.onClick.AddListener(() =>

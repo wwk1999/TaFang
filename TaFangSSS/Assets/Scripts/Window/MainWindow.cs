@@ -62,7 +62,6 @@ public class MainWindow : MonoBehaviour
     {
         Show主页();
         InitWindow();
-        ResourcesConfig.Init();
     }
 
     public void InitWindow()

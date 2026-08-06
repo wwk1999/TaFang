@@ -96,6 +96,7 @@ public class 招募成功弹窗 : MonoBehaviour
         Content.SetActive(false);
         item.propType=Item1Type;
         item.SetItem();
+        item.GetComponent<Animator>().Play("ZhaoMuItem1",0,0);
         item.gameObject.SetActive(true);
         PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[Item1Type]].元神++;
     }
@@ -124,7 +125,7 @@ public class 招募成功弹窗 : MonoBehaviour
             招募成功item ZhaoMuitem = Instantiate(Resources.Load("Prefabs/Window/招募成功item"), Content.transform).GetComponent<招募成功item>();
             ZhaoMuitem.propType = list[i];
             ZhaoMuitem.SetItem();
-            yield return new  WaitForSeconds(0.1f);
+            yield return new  WaitForSeconds(0.2f);
         }
         ObserverModuleManager.S.SendEvent("刷新招募界面");
         ZhaoMu1Button.interactable=true;

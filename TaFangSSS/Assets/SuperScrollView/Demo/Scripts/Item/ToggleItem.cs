@@ -22,6 +22,8 @@ namespace SuperScrollView
 
         void OnToggleValueChanged(bool check)
         {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+
             mItemData.mChecked = check;
         }
 

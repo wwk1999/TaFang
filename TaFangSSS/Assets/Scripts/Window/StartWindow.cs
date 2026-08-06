@@ -11,6 +11,7 @@ public class StartWindow : MonoBehaviour
 
    private void Start()
    {
+      ResourcesConfig.Init();
       ObserverModuleManager.S.SendEvent("播放BGM",true);
       StartBtn.onClick.AddListener(() =>
          {

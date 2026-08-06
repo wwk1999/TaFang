@@ -12,12 +12,20 @@ public class 招募成功item : MonoBehaviour
    public Image bg;
    public TextMeshProUGUI name;
    public Image image;
+   public Image 艺术字;
+   public void 播放音效()
+   {
+      ObserverModuleManager.S.SendEvent("播放音效",音效Type.招募);
+   }
+
    public void SetItem()
    {
       if (propType == PropType.None)
       {
          return;
       }
+
+      艺术字.sprite = ResourcesConfig.Get艺术字(PropConfig.PropQualityDic[propType]);
       name.text=PropConfig.PropNameDic[propType];
       image.sprite=PropConfig.GetPropSprite(propType);
       QualityType qualityType = PropConfig.PropQualityDic[propType];
