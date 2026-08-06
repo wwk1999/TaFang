@@ -14,7 +14,18 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
     public HeroType heroType;
     [NonSerialized] public bool 女娲电辅助;
 
-
+    public void 播放广木天王音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.广目天王);
+    }
+    
+    public void 播放牛魔王音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.牛魔王);
+    }
+    
     public void Hide()
     {
         obj.gameObject.SetActive(false);

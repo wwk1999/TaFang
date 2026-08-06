@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,13 @@ public class 失败弹窗 : MonoBehaviour
         }
         FightController.S.当前怪物Set.Clear();
     }
+
+    private void OnEnable()
+    {
+        ObserverModuleManager.S.SendEvent("停止元始音效");
+
+    }
+
     private void Start()
     {
         ExitButtn.onClick.AddListener(() =>

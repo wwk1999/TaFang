@@ -15,6 +15,50 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public HeroType HeroType;
 
     [NonSerialized] public bool 女娲电辅助;
+    
+    
+    
+    public void 播放碧霄音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.碧霄);
+    }
+    public void 播放琼霄音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.琼霄);
+    }
+    
+    public void 播放嫦娥音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.嫦娥);
+    }
+    public void 播放雷震子音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.雷震子);
+    }
+    public void 播放河伯音效1()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.河伯1);
+    }
+    public void 播放河伯音效2()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.河伯2);
+    }
+    public void 播放龟丞相音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.龟丞相);
+    }
+    public void 播放玄女音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.玄女);
+    }
     public void Hide()
     {
         Obj.gameObject.SetActive(false);

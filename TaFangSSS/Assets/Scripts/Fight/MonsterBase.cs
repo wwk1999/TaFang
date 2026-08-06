@@ -494,6 +494,8 @@ public class MonsterBase : MonoBehaviour
          return;
       }
       isDead = true;
+      ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
+      
       if (heroType == HeroType.盘古)
       {
          FightController.S.盘古击杀次数++;

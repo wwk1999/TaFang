@@ -71,6 +71,7 @@ public class 孙悟空棒子 : MonoBehaviour
          count -= 1;
          if (count >= 0)
          {
+            ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.孙悟空);
             Animator.Play("向下", 0, 0f);
             yield return new WaitForSeconds(0.25f);
          }
@@ -78,6 +79,7 @@ public class 孙悟空棒子 : MonoBehaviour
          count -= 1;
          if (count >= 0)
          {
+            ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.孙悟空);
             Animator.Play("向上", 0, 0f);
             yield return new WaitForSeconds(0.25f);
          }

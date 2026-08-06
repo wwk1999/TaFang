@@ -50,6 +50,7 @@ public class Spine一次伤害 : MonoBehaviour
    {
       if (e.Data.Name == "damage")
       {
+         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.鸿钧);
          CheckCollisionWithMonsters();
       }
    }

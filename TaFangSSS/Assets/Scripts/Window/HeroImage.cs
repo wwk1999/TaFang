@@ -61,6 +61,7 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 }
                 PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1][HeroWindowController.S.交换HeroItem.Index-1]=
                     HeroWindowController.S.DragHero;
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
                 ObserverModuleManager.S.SendEvent("交换英雄",list);
             }
         }

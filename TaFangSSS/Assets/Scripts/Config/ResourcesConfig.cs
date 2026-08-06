@@ -7,6 +7,55 @@ using UnityEngine;
 public class ResourcesConfig : MonoBehaviour
 {
     //音效
+    public static AudioClip 瑶池;
+    public static AudioClip 土地;
+    public static AudioClip 丹童;
+    public static AudioClip 河伯1;
+    public static AudioClip 河伯2;
+    public static AudioClip 怪物死亡;
+    public static AudioClip 太白金星;
+    public static AudioClip 石敢当;
+    public static AudioClip 玄女;
+    public static AudioClip 龟丞相audio;
+    
+    public static AudioClip 哪吒;          // 三昧真火
+    public static AudioClip 孙悟空;        // 如意金箍棒
+    public static AudioClip 碧霄;          // 冰龙啸天
+    public static AudioClip 琼霄;          // 暗影定身符
+    
+    // ---- 四大天王 ----
+    public static AudioClip 多闻天王;      // 暗夜星矢
+    public static AudioClip 广目天王;      // 暗影爪
+    public static AudioClip 雷震子;        // 雷霆万钧
+    public static AudioClip 月老;          // 红莲箭
+    
+    // ---- 大能 / 妖族 ----
+    public static AudioClip 嫦娥;          // 月华雷殛
+    public static AudioClip 杨戬;          // 天眼电破
+    public static AudioClip 妲己;          // 惑心魅惑
+    public static AudioClip 牛魔王audio;  
+    
+    
+    // ---- 上古神明 ----
+    public static AudioClip 羲和;          // 烈日灼心阵
+    public static AudioClip 常羲;          // 月华冰封阵
+    public static AudioClip 后羿;          // 射日神箭
+    public static AudioClip 云霄;          // 冰矢破空
+    
+    // ---- 创世 / 圣贤 ----
+    public static AudioClip 女娲;          // 补天净化咒
+    public static AudioClip 老子;          // 太清玄冰风
+    public static AudioClip 元始;          // 鸿蒙火种
+    public static AudioClip 通天;          // 戮仙暗矢
+    
+    // ---- 天道 / 终极 ----
+    public static AudioClip 鸿钧audio;          // 无极天火
+    public static AudioClip 盘古audio;          // 无极天火
+
+   
+    
+    
+    
     public static AudioClip 按钮进入;
     public static AudioClip 按钮点击;
     public static AudioClip 错误;
@@ -2627,6 +2676,51 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        丹童=Resources.Load<AudioClip>("音效/丹童");
+        土地=Resources.Load<AudioClip>("音效/土地");
+        河伯1=Resources.Load<AudioClip>("音效/河伯1");
+        河伯2=Resources.Load<AudioClip>("音效/河伯2");
+        瑶池=Resources.Load<AudioClip>("音效/瑶池");
+        怪物死亡=Resources.Load<AudioClip>("音效/怪物死亡");
+        太白金星=Resources.Load<AudioClip>("音效/太白金星");
+        石敢当=Resources.Load<AudioClip>("音效/石敢当");
+        玄女=Resources.Load<AudioClip>("音效/玄女");
+        龟丞相audio=Resources.Load<AudioClip>("音效/龟丞相");
+        
+        多闻天王 = Resources.Load<AudioClip>("音效/多闻天王");
+        广目天王 = Resources.Load<AudioClip>("音效/广目天王");
+        雷震子 = Resources.Load<AudioClip>("音效/雷震子");
+        月老 = Resources.Load<AudioClip>("音效/月老");
+        
+    
+        // ---- 大能 / 妖族 ----
+        嫦娥 = Resources.Load<AudioClip>("音效/嫦娥");
+        杨戬 = Resources.Load<AudioClip>("音效/杨戬");
+        妲己 = Resources.Load<AudioClip>("音效/妲己");
+        牛魔王audio = Resources.Load<AudioClip>("音效/牛魔王");
+        
+        哪吒 = Resources.Load<AudioClip>("音效/哪吒");
+        孙悟空 = Resources.Load<AudioClip>("音效/孙悟空");
+        碧霄 = Resources.Load<AudioClip>("音效/碧霄");
+        琼霄 = Resources.Load<AudioClip>("音效/琼霄");
+    
+        // ---- 上古神明 ----
+        羲和 = Resources.Load<AudioClip>("音效/羲和");
+        常羲 = Resources.Load<AudioClip>("音效/常羲");
+        后羿 = Resources.Load<AudioClip>("音效/后羿");
+        云霄 = Resources.Load<AudioClip>("音效/云霄");
+    
+        // ---- 创世 / 圣贤 ----
+        女娲 = Resources.Load<AudioClip>("音效/女娲");
+        老子 = Resources.Load<AudioClip>("音效/老子");
+        元始 = Resources.Load<AudioClip>("音效/元始");
+        通天 = Resources.Load<AudioClip>("音效/通天");
+    
+        // ---- 天道 / 终极 ----
+        鸿钧audio = Resources.Load<AudioClip>("音效/鸿钧");
+        盘古audio = Resources.Load<AudioClip>("音效/盘古");
+        
+        
         按钮进入=Resources.Load<AudioClip>("音效/按钮进入");
         按钮点击=Resources.Load<AudioClip>("音效/按钮点击");
         错误=Resources.Load<AudioClip>("音效/错误");

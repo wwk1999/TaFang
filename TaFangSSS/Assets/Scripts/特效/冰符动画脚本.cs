@@ -34,6 +34,22 @@ public class 冰符动画脚本: MonoBehaviour
         }
         obj.gameObject.SetActive(false);
     }
+    public void 播放羲和音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.羲和);
+    }
+    public void 播放盘古音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.盘古);
+    }
+    
+    public void 播放常曦音效()
+    {
+        if (FightController.S.关卡游戏时长 < 2) return;
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.常羲);
+    }
     public void CheckCollisionWithMonsters3()
     {
         // 检测所有重叠的碰撞体

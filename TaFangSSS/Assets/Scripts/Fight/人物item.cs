@@ -60,7 +60,7 @@ public class 人物item : MonoBehaviour
             value *= (1f-英雄星级属性.女娲效果);
             value *= (1f - 属性config.总属性.女娲辅助冷却缩减);
         }
-        float random=Random.Range(0.9f,1.1f);
+        float random=Random.Range(0.8f,1.2f);
         return value*random;
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -238,6 +238,7 @@ public class 人物item : MonoBehaviour
                     喷火.女娲电辅助 = 女娲电辅助>0;
 
                     喷火Obj.gameObject.SetActive(true);
+                    ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.哪吒);
                     喷火Animator.Play("114喷火_Anim",0,0f);
                     break;
                 case 攻击特效Type.孙悟空棒子:
@@ -250,6 +251,7 @@ public class 人物item : MonoBehaviour
                     StartCoroutine(棒子.孙悟空攻击(count));
                     break;
                 case 攻击特效Type.火球:
+                    ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.元始);
                     switch (count)
                     {
                         case 3:
@@ -323,6 +325,13 @@ public class 人物item : MonoBehaviour
             }
         });
         mySequence.AppendInterval(Time);
+        mySequence.AppendCallback(() =>
+        {
+            if (heroType == HeroType.元始)
+            {
+                ObserverModuleManager.S.SendEvent("停止元始音效");
+            }
+        });
         mySequence.Append(transform.DOMove(原始Pos, 0.2f));
         mySequence.AppendCallback(() =>
         {

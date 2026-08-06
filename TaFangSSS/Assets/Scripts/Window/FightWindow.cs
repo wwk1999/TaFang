@@ -57,6 +57,8 @@ public class FightWindow : MonoBehaviour
         });
         倍速Button1.onClick.AddListener(() =>
         {
+            if (PlayerData.S.关卡倍速 == 1) return;
+            ObserverModuleManager.S.SendEvent("倍速更改",PlayerData.S.关卡倍速,1);
             PlayerData.S.关卡倍速 = 1;
             Set倍速Button();
             Time.timeScale = 1;
@@ -69,6 +71,8 @@ public class FightWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
                 return;
             }
+            if (PlayerData.S.关卡倍速 == 1.5f) return;
+            ObserverModuleManager.S.SendEvent("倍速更改",PlayerData.S.关卡倍速,1.5f);
             PlayerData.S.关卡倍速 = 1.5f;
             Set倍速Button();
             Time.timeScale = 1.5f;
@@ -81,6 +85,8 @@ public class FightWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","天仙境界解锁");
                 return;
             }
+            if (PlayerData.S.关卡倍速 == 2) return;
+            ObserverModuleManager.S.SendEvent("倍速更改",PlayerData.S.关卡倍速,2);
             PlayerData.S.关卡倍速 = 2;
             Set倍速Button();
             Time.timeScale = 2;

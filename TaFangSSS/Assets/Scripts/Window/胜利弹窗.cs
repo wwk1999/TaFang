@@ -49,6 +49,7 @@ public class 胜利弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        ObserverModuleManager.S.SendEvent("停止元始音效");
         重复挑战Time = 0;
         if (PlayerData.S.重复挑战 == false)
         {
