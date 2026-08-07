@@ -261,10 +261,10 @@ public class 法则config
 
     public static Dictionary<QualityType, float> 法则升级奖励Dic = new Dictionary<QualityType, float>()
     {
-        { QualityType.宇品 ,1f},
-        { QualityType.宙品 ,2f},
-        { QualityType.洪品 ,4f},
-        { QualityType.荒品 ,10f},
+        { QualityType.宇品 ,10f},
+        { QualityType.宙品 ,20f},
+        { QualityType.洪品 ,50f},
+        { QualityType.荒品 ,100f},
     };
 
     public static Dictionary<int, int> 法则升级材料Dic = new Dictionary<int, int>()
@@ -275,28 +275,28 @@ public class 法则config
         {3,1},
         {4,1},
         
-        {5,2},
-        {6,2},
-        {7,2},
-        {8,2},
-        {9,2},
+        {5,1},
+        {6,1},
+        {7,1},
+        {8,1},
+        {9,1},
         
-        {10,3},
-        {11,3},
-        {12,3},
-        {13,3},
-        {14,3},
+        {10,1},
+        {11,1},
+        {12,1},
+        {13,1},
+        {14,1},
         
-        {15,4},
-        {16,4},
-        {17,4},
-        {18,4},
-        {19,4},
+        {15,1},
+        {16,1},
+        {17,1},
+        {18,1},
+        {19,1},
         
-        {20,5},
-        {21,5},
-        {22,5},
-        {23,5},
-        {24,5},
+        {20,1},
+        {21,1},
+        {22,1},
+        {23,1},
+        {24,1},
     };
 }

@@ -133,7 +133,7 @@ public class 道宝Config
 
         return value;
     }
-    public static List<float> 单件升级奖励Dic = new List<float>() {1,2,4,8,20 };
+    public static List<float> 单件升级奖励Dic = new List<float>() {1,5,30,200,1500 };
 
     public static float 羁绊黑暗伤害增幅 => Get羁绊Level(羁绊Type.翻海断岳) * 5;
     public static float 羁绊火焰伤害增幅 => Get羁绊Level(羁绊Type.五方照落) * 5;

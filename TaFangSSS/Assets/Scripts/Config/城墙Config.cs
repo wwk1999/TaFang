@@ -1387,11 +1387,11 @@ public class 城墙Config
 
     public static Dictionary<QualityType, float> 城墙道具升级奖励Dic = new Dictionary<QualityType, float>()
     {
-        { QualityType.荒品,10f},
-        { QualityType.洪品,3},
-        { QualityType.宙品,1f},
-        { QualityType.宇品,0.3f},
-        { QualityType.天品,0.1f},
+        { QualityType.荒品,300f},
+        { QualityType.洪品,100},
+        { QualityType.宙品,30f},
+        { QualityType.宇品,10f},
+        { QualityType.天品,3f},
     };
 
     public static float Get城墙最大生命值()

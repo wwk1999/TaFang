@@ -343,13 +343,13 @@ namespace Config
         public static Dictionary<QualityType, float> 升星奖励Dic = new Dictionary<QualityType, float>()
         {
             { QualityType.黄品, 1f },
-            { QualityType.玄品, 1.5f },
-            { QualityType.地品, 2f },
-            { QualityType.天品, 3f },
-            { QualityType.宇品, 5f },
-            { QualityType.宙品, 8f },
-            { QualityType.洪品, 12f },
-            { QualityType.荒品, 20f },
+            { QualityType.玄品, 2f },
+            { QualityType.地品, 5f },
+            { QualityType.天品, 10f },
+            { QualityType.宇品, 20f },
+            { QualityType.宙品, 50f },
+            { QualityType.洪品, 100f },
+            { QualityType.荒品, 300f },
         };
         public static string Get技能伤害string(float count, int addPercent = 0)
         {

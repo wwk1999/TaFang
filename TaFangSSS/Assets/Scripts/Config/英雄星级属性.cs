@@ -233,7 +233,7 @@ public class 英雄星级属性
     
     public static int Get鸿钧攻击数量()
     {
-        int value = 3;
+        int value = 4;
         int xj = PlayerData.S.HeroDataDic[HeroType.鸿钧].Level - 1;
         if (xj >= 3)
         {

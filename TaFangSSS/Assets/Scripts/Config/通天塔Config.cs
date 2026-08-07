@@ -12,7 +12,7 @@ public class 秘境属性
     public JingJieType jingJieType;
     public List<掉落item> list;
     public int 掉落数量;
-    public int 需要年数;
+    public float 需要年数;
     public int 需要人数;
     public QualityType 需要英雄品质;
     public int 需要英雄星级;
@@ -75,7 +75,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.练气,
                 list = new List<掉落item>() { new 掉落item() { quality = QualityType.天品, 概率 = 100 } }, 
                 掉落数量 = 1, 
-                需要年数 = 1,
+                需要年数 = 0.1f,
                 需要人数=2,
                 需要英雄品质=QualityType.黄品,
                 需要英雄星级=0,
@@ -91,7 +91,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.金丹,
                 list = new List<掉落item>() { new 掉落item() { quality = QualityType.天品, 概率 = 70 }, new 掉落item() { quality = QualityType.宇品, 概率 = 30 },}, 
                 掉落数量 = 2, 
-                需要年数 = 2,
+                需要年数 = 0.2f,
                 需要人数=2,
                 需要英雄品质=QualityType.玄品,
                 需要英雄星级=0,
@@ -107,7 +107,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.化神,
                 list = new List<掉落item>() { new 掉落item() {  quality = QualityType.天品, 概率 = 50 }, new 掉落item() { quality = QualityType.宇品, 概率 = 40 },  new 掉落item() { quality = QualityType.宙品, 概率 = 10 },}, 
                 掉落数量 = 3, 
-                需要年数 = 3,
+                需要年数 = 0.5f,
                 需要人数=3,
                 需要英雄品质=QualityType.地品,
                 需要英雄星级=1,
@@ -123,7 +123,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.大乘,
                 list = new List<掉落item>() { new 掉落item() {  quality = QualityType.天品, 概率 = 30 }, new 掉落item() { quality = QualityType.宇品, 概率 = 50 },  new 掉落item() { quality = QualityType.宙品, 概率 = 20 },}, 
                 掉落数量 = 4, 
-                需要年数 = 4,
+                需要年数 = 1,
                 需要人数=3,
                 需要英雄品质=QualityType.天品,
                 需要英雄星级=1,
@@ -139,7 +139,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.玄仙,
                 list = new List<掉落item>() { new 掉落item() {  quality = QualityType.天品, 概率 = 10 }, new 掉落item() { quality = QualityType.宇品, 概率 = 55 },  new 掉落item() { quality = QualityType.宙品, 概率 = 30 },new 掉落item() { quality = QualityType.洪品, 概率 = 5 },}, 
                 掉落数量 = 5, 
-                需要年数 = 5,
+                需要年数 = 2,
                 需要人数=4,
                 需要英雄品质=QualityType.天品,
                 需要英雄星级=2,
@@ -156,7 +156,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.太乙金仙,
                 list = new List<掉落item>() { new 掉落item() { quality = QualityType.宇品, 概率 = 50 },  new 掉落item() { quality = QualityType.宙品, 概率 = 40 },new 掉落item() { quality = QualityType.洪品, 概率 = 10 },}, 
                 掉落数量 = 6, 
-                需要年数 = 6,
+                需要年数 = 5,
                 需要人数=4,
                 需要英雄品质=QualityType.宇品,
                 需要英雄星级=2,
@@ -173,7 +173,7 @@ public class 通天塔Config
                 list = new List<掉落item>() { new 掉落item() { quality = QualityType.宇品, 概率 = 35 },  new 掉落item() { quality = QualityType.宙品, 概率 = 50 },new 掉落item() { quality = QualityType.洪品, 概率 = 15 },}, 
                 掉落数量 = 7, 
                 需要年数 = 7,
-                需要人数=4,
+                需要人数=10,
                 需要英雄品质=QualityType.宙品,
                 需要英雄星级=2,
                 需要英雄元素=YuanSuType.None,
@@ -188,7 +188,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.天道圣人,
                 list = new List<掉落item>() { new 掉落item() { quality = QualityType.宇品, 概率 = 20 },  new 掉落item() { quality = QualityType.宙品, 概率 = 60 },new 掉落item() { quality = QualityType.洪品, 概率 = 20 },}, 
                 掉落数量 = 8, 
-                需要年数 = 8,
+                需要年数 = 20,
                 需要人数=4,
                 需要英雄品质=QualityType.宙品,
                 需要英雄星级=3,
@@ -204,7 +204,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.混元圣人,
                 list = new List<掉落item>() {  new 掉落item() { quality = QualityType.宙品, 概率 = 70 },new 掉落item() { quality = QualityType.洪品, 概率 = 25 },new 掉落item() { quality = QualityType.荒品, 概率 = 5 },}, 
                 掉落数量 = 9, 
-                需要年数 = 9,
+                需要年数 = 50,
                 需要人数=4,
                 需要英雄品质=QualityType.洪品,
                 需要英雄星级=2,
@@ -220,7 +220,7 @@ public class 通天塔Config
                 jingJieType = JingJieType.鸿蒙,
                 list = new List<掉落item>() {  new 掉落item() { quality = QualityType.宙品, 概率 = 50 },new 掉落item() { quality = QualityType.洪品, 概率 = 40 },new 掉落item() { quality = QualityType.荒品, 概率 = 10 },}, 
                 掉落数量 = 10, 
-                需要年数 = 10,
+                需要年数 = 100,
                 需要人数=2,
                 需要英雄品质=QualityType.荒品,
                 需要英雄星级=3,
