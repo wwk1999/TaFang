@@ -18,7 +18,7 @@ public class 城墙法宝详情弹窗 : MonoBehaviour
     public TextMeshProUGUI desc;
     public TextMeshProUGUI 效果info;
     public TextMeshProUGUI 效果无;
-    public TextMeshProUGUI 效果tip;
+    public GameObject 效果tip;
     public TextMeshProUGUI 升级奖励;
     public GameObject 升级信息Content;
     public GameObject 升级信息;
@@ -34,6 +34,7 @@ public class 城墙法宝详情弹窗 : MonoBehaviour
         desc.text=城墙Config.城墙道具介绍Dic[城墙道具Type];
         if (quality >= QualityType.宙品)
         {
+            效果info.gameObject.SetActive(true);
             效果info.text = 城墙Config.城墙道具属性Info[城墙Config.城墙道具属性Dic[城墙道具Type]];
             效果tip.gameObject.SetActive(true);
             效果无.gameObject.SetActive(false);
