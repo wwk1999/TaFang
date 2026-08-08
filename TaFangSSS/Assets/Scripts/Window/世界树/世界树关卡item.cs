@@ -74,6 +74,7 @@ public class 世界树关卡item : MonoBehaviour
         {
             HeroWindowController.S.当前世界树层数=层数;
             ObserverModuleManager.S.SendEvent("世界树按钮点击",层数);
+            PlayerData.S.清除世界树无用派遣英雄();
         });
         ObserverModuleManager.S.RegisterEvent("世界树按钮点击",世界树按钮点击);
     }

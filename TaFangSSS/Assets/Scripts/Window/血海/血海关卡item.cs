@@ -74,6 +74,7 @@ public class 血海关卡item : MonoBehaviour
         {
             HeroWindowController.S.当前血海层数=层数;
             ObserverModuleManager.S.SendEvent("血海按钮点击",层数);
+            PlayerData.S.清除血海无用派遣英雄();
         });
         ObserverModuleManager.S.RegisterEvent("血海按钮点击",血海按钮点击);
     }

@@ -58,6 +58,24 @@ public class PlayerData : XSingleton<PlayerData>
             item.Value.list.Clear();
         }
     }
+
+    public void 清除不周山无用派遣英雄()
+    {
+        foreach (var 寻宝Item in 不周山寻宝Dic)
+        {
+            if (!寻宝Item.Value.寻宝)
+            {
+                for (int i = 0; i < 不周山英雄派遣Dic[寻宝Item.Key].Count; i++)
+                {
+                    if (不周山英雄派遣Dic[寻宝Item.Key][i] != HeroType.None)
+                    {
+                        HeroDataDic[不周山英雄派遣Dic[寻宝Item.Key][i]].派遣 = false;
+                        不周山英雄派遣Dic[寻宝Item.Key][i] = HeroType.None;
+                    }
+                }
+            }
+        }
+    }
     public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
     {
         {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
@@ -112,6 +130,59 @@ public class PlayerData : XSingleton<PlayerData>
         return 类型数量映射;
     }
 
+    public void 清除血海无用派遣英雄()
+    {
+        foreach (var 寻宝Item in 血海寻宝Dic)
+        {
+            if (!寻宝Item.Value.寻宝)
+            {
+                for (int i = 0; i < 血海英雄派遣Dic[寻宝Item.Key].Count; i++)
+                {
+                    if (血海英雄派遣Dic[寻宝Item.Key][i] != HeroType.None)
+                    {
+                        HeroDataDic[血海英雄派遣Dic[寻宝Item.Key][i]].派遣 = false;
+                        血海英雄派遣Dic[寻宝Item.Key][i] = HeroType.None;
+                    }
+                }
+            }
+        }
+    }
+    
+    public void 清除世界树无用派遣英雄()
+    {
+        foreach (var 寻宝Item in 世界树寻宝Dic)
+        {
+            if (!寻宝Item.Value.寻宝)
+            {
+                for (int i = 0; i < 世界树英雄派遣Dic[寻宝Item.Key].Count; i++)
+                {
+                    if (世界树英雄派遣Dic[寻宝Item.Key][i] != HeroType.None)
+                    {
+                        HeroDataDic[世界树英雄派遣Dic[寻宝Item.Key][i]].派遣 = false;
+                        世界树英雄派遣Dic[寻宝Item.Key][i] = HeroType.None;
+                    }
+                }
+            }
+        }
+    }
+    public void 清除通天塔无用派遣英雄()
+    {
+        foreach (var 寻宝Item in 通天塔寻宝Dic)
+        {
+            if (!寻宝Item.Value.寻宝)
+            {
+                for (int i = 0; i < 通天塔英雄派遣Dic[寻宝Item.Key].Count; i++)
+                {
+                    if (通天塔英雄派遣Dic[寻宝Item.Key][i] != HeroType.None)
+                    {
+                        HeroDataDic[通天塔英雄派遣Dic[寻宝Item.Key][i]].派遣 = false;
+                        通天塔英雄派遣Dic[寻宝Item.Key][i] = HeroType.None;
+                    }
+                }
+            }
+        }
+    }
+    
     public Dictionary<int, 血海秘境寻宝Item> 血海寻宝Dic = new Dictionary<int, 血海秘境寻宝Item>()
     {
         {1,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},

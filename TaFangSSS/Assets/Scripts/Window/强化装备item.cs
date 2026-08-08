@@ -33,6 +33,7 @@ public class 强化装备item : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("强化弹窗装备点击",强化弹窗装备点击);
       bg.onClick.AddListener(() =>
       {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.按钮点击);
          ObserverModuleManager.S.SendEvent("强化装备Item点击",equipType);
       });
    }

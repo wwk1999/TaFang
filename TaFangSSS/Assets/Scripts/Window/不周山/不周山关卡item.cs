@@ -74,6 +74,7 @@ public class 不周山关卡item : MonoBehaviour
         {
             HeroWindowController.S.当前不周山层数=层数;
             ObserverModuleManager.S.SendEvent("不周山按钮点击",层数);
+            PlayerData.S.清除不周山无用派遣英雄();
         });
         ObserverModuleManager.S.RegisterEvent("不周山按钮点击",不周山按钮点击);
     }

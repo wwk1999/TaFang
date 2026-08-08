@@ -2880,7 +2880,7 @@ public class ResourcesConfig : MonoBehaviour
         战意7 = Resources.LoadAll<Sprite>("Sprite/道纹/战意78")[0];
         战意8 = Resources.LoadAll<Sprite>("Sprite/道纹/战意78")[1];
 
-        咒力4 = Resources.Load<Sprite>("Sprite/道纹/咒力4");
+        咒力4 = Resources.Load<Sprite>("Sprite/道纹/咒力");
         咒力5 = Resources.LoadAll<Sprite>("Sprite/道纹/咒力5678")[0];
         咒力6 = Resources.LoadAll<Sprite>("Sprite/道纹/咒力5678")[1];
         咒力7 = Resources.LoadAll<Sprite>("Sprite/道纹/咒力5678")[2];
