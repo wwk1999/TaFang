@@ -47,13 +47,16 @@ public class PlayerData : XSingleton<PlayerData>
         return 类型数量映射;
     }
 
-    public void 收获不周山()
+    public IEnumerator 收获不周山()
     {
         foreach (var item in 不周山寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 PropListDic[i.法则Type]+=i.count;
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+                ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[i.法则Type],PropConfig.PropQualityDic[i.法则Type],i.count);
+                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
@@ -99,13 +102,16 @@ public class PlayerData : XSingleton<PlayerData>
         { 7, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
         { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
     };
-    public void 收获血海()
+    public IEnumerator 收获血海()
     {
         foreach (var item in 血海寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 Set道纹数量(i.道纹.道纹Type,i.道纹.quality,i.count+Get道纹数量(i.道纹.道纹Type,i.道纹.quality));
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+                ObserverModuleManager.S.SendEvent("SendUIToast",道纹config.道纹名Dic[i.道纹.道纹Type],i.道纹.quality,i.count);
+                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
@@ -207,13 +213,16 @@ public class PlayerData : XSingleton<PlayerData>
         { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
         { 9, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
     };
-    public void 收获世界树()
+    public IEnumerator 收获世界树()
     {
         foreach (var item in 世界树寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 道宝LevelDic[i.道宝Type] += i.count;
+                ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[i.道宝Type],道宝Config.道宝品质Dic[i.道宝Type],i.count);
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
@@ -262,13 +271,16 @@ public class PlayerData : XSingleton<PlayerData>
         { 9, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
     };
     
-    public void 收获通天塔()
+    public IEnumerator 收获通天塔()
     {
         foreach (var item in 通天塔寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 城墙道具等级Dic[i.城墙道具Type] += i.count;
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+                ObserverModuleManager.S.SendEvent("SendUIToast",城墙Config.城墙道具名Dic[i.城墙道具Type],城墙Config.城墙道具QualityDic[i.城墙道具Type],i.count);
+                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }

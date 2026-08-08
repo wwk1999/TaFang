@@ -847,6 +847,7 @@ public class FightController : XSingleton<FightController>
         {
             return;
         }
+        ObserverModuleManager.S.SendEvent("首领出现");
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.首领出现);
         float x = 10f;
         float y = 0;

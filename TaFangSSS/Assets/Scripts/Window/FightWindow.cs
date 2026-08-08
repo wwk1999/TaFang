@@ -17,6 +17,13 @@ public class FightWindow : MonoBehaviour
 
     public Slider 关卡进度Slider;
     public TextMeshProUGUI 进度Text;
+    public Animator 首领出现Animator;
+
+    public void 首领出现(object[] obj)
+    {
+        首领出现Animator.gameObject.SetActive(true);
+        首领出现Animator.Play("首领出现",0,0);
+    }
     public void Set倍速Button()
     {
         switch (PlayerData.S.关卡倍速)
@@ -59,11 +66,13 @@ public class FightWindow : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.UnRegisterEvent("刷新关卡进度",刷新关卡进度);
     }
 
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.RegisterEvent("刷新关卡进度",刷新关卡进度);
         Set倍速Button();
         exitButton.onClick.AddListener(() =>
