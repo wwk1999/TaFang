@@ -19,6 +19,7 @@ public class 装备item : MonoBehaviour
   {
     bgButton.onClick.AddListener(() =>
     {
+      ObserverModuleManager.S.SendEvent("播放音效",音效Type.按钮点击);
       ObserverModuleManager.S.SendEvent("Show道纹弹窗",EquipType);
     });
   }

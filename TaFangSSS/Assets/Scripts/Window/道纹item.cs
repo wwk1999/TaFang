@@ -66,6 +66,7 @@ public class 道纹item : MonoBehaviour, IDropHandler
                   break;
 
             }
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
          }
       }
    }

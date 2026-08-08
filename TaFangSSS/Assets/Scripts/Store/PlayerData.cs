@@ -49,14 +49,18 @@ public class PlayerData : XSingleton<PlayerData>
 
     public IEnumerator 收获不周山()
     {
+        var list = 获取不周山所有道具();
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[item.Key],PropConfig.PropQualityDic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
+        }
         foreach (var item in 不周山寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 PropListDic[i.法则Type]+=i.count;
-                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-                ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[i.法则Type],PropConfig.PropQualityDic[i.法则Type],i.count);
-                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
@@ -104,14 +108,18 @@ public class PlayerData : XSingleton<PlayerData>
     };
     public IEnumerator 收获血海()
     {
+        var list = 获取血海所有道具();
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",道纹config.道纹名Dic[item.Key.道纹Type],item.Key.quality,item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
+        }
         foreach (var item in 血海寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 Set道纹数量(i.道纹.道纹Type,i.道纹.quality,i.count+Get道纹数量(i.道纹.道纹Type,i.道纹.quality));
-                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-                ObserverModuleManager.S.SendEvent("SendUIToast",道纹config.道纹名Dic[i.道纹.道纹Type],i.道纹.quality,i.count);
-                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
@@ -215,14 +223,18 @@ public class PlayerData : XSingleton<PlayerData>
     };
     public IEnumerator 收获世界树()
     {
+        var list = 获取世界树所有道具();
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[item.Key],道宝Config.道宝品质Dic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
+        }
         foreach (var item in 世界树寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 道宝LevelDic[i.道宝Type] += i.count;
-                ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[i.道宝Type],道宝Config.道宝品质Dic[i.道宝Type],i.count);
-                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
@@ -273,14 +285,18 @@ public class PlayerData : XSingleton<PlayerData>
     
     public IEnumerator 收获通天塔()
     {
+        var list = 获取通天塔所有道具();
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",城墙Config.城墙道具名Dic[item.Key],城墙Config.城墙道具QualityDic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
+        }
         foreach (var item in 通天塔寻宝Dic)
         {
             foreach (var i in item.Value.list)
             {
                 城墙道具等级Dic[i.城墙道具Type] += i.count;
-                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-                ObserverModuleManager.S.SendEvent("SendUIToast",城墙Config.城墙道具名Dic[i.城墙道具Type],城墙Config.城墙道具QualityDic[i.城墙道具Type],i.count);
-                yield return new  WaitForSeconds(0.1f);
             }
             item.Value.list.Clear();
         }
