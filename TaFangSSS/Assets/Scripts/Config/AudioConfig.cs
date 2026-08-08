@@ -14,6 +14,7 @@ public enum 音效Type
 
 public enum 战斗音效Type
 {
+    首领出现,
     // ============ 通用战斗音效 ============
     丹童,
     瑶池,
@@ -66,6 +67,8 @@ public class AudioConfig : MonoBehaviour
 {
     switch (type)
     {
+        case 战斗音效Type.首领出现:
+            return ResourcesConfig.首领出现;
         // ============ 通用战斗音效 ============
         case 战斗音效Type.丹童:
             return ResourcesConfig.丹童;

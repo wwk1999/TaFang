@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    public AudioSource 首领AudioSource;
    public AudioSource BgAudioSource;
    public AudioSource 音效Source;
    public AudioSource 元始Source;
@@ -63,6 +64,17 @@ public class AudioController : MonoBehaviour
       }
       return null;
    }
+   public IEnumerator Play首领出现音效()
+   {
+       首领AudioSource.time = 0f;
+       首领AudioSource.Play();
+       yield return new WaitForSeconds(1.3f);
+       首领AudioSource.time = 0f;
+       首领AudioSource.Play();
+       yield return new WaitForSeconds(1.3f);
+       首领AudioSource.time = 0f;
+       首领AudioSource.Play();
+   }
    public void 播放人物音效(object[] obj)
 {
     战斗音效Type type = (战斗音效Type)obj[0];
@@ -71,6 +83,12 @@ public class AudioController : MonoBehaviour
     
     switch (type)
     {
+        case 战斗音效Type.首领出现:
+            首领AudioSource.clip = AudioConfig.Get战斗音效Clip(战斗音效Type.首领出现);
+            首领AudioSource.volume = 1f * PlayerData.S.音效音量;
+            首领AudioSource.pitch = 1f;
+            StartCoroutine(Play首领出现音效());
+            break;
         // ============ 通用战斗音效 ============
         case 战斗音效Type.丹童:
             audio.clip = AudioConfig.Get战斗音效Clip(战斗音效Type.丹童);

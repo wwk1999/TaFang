@@ -847,8 +847,9 @@ public class FightController : XSingleton<FightController>
         {
             return;
         }
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.首领出现);
         float x = 10f;
-        float y = Random.Range(-4f, 4f);
+        float y = 0;
         var monster=QueueController.S.首领怪Queue.Dequeue();
         当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);

@@ -7,6 +7,7 @@ using UnityEngine;
 public class ResourcesConfig : MonoBehaviour
 {
     //音效
+    public static AudioClip 首领出现;
     public static AudioClip 瑶池;
     public static AudioClip 土地;
     public static AudioClip 丹童;
@@ -2681,6 +2682,7 @@ public class ResourcesConfig : MonoBehaviour
         河伯1=Resources.Load<AudioClip>("音效/河伯1");
         河伯2=Resources.Load<AudioClip>("音效/河伯2");
         瑶池=Resources.Load<AudioClip>("音效/瑶池");
+        首领出现=Resources.Load<AudioClip>("音效/首领出现");
         怪物死亡=Resources.Load<AudioClip>("音效/怪物死亡");
         太白金星=Resources.Load<AudioClip>("音效/太白金星");
         石敢当=Resources.Load<AudioClip>("音效/石敢当");
