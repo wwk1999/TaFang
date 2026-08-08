@@ -31,14 +31,19 @@ public class 道纹item : MonoBehaviour, IDropHandler
    {
       if (HeroWindowController.S.道纹IsDrag)
       {
+         if (EquipConfig.GetEquipQuality(equipType) < 解锁境界)
+         {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+            return;
+         }
          if (道纹config.检查装备专属道纹(HeroWindowController.S.道纹Type))
          {
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
-
-            ObserverModuleManager.S.SendEvent("SendUIToast","专属道纹只能镶嵌一个");
+            ObserverModuleManager.S.SendEvent("SendUIToast","同一英雄专属道纹只能镶嵌一个");
          }
          else
          {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             道纹Type = HeroWindowController.S.道纹Type;
             道纹QualityType=HeroWindowController.S.道纹QualityType;
             SetItem();
@@ -64,9 +69,7 @@ public class 道纹item : MonoBehaviour, IDropHandler
                   PlayerData.S.装备道纹List[equipType][4].道纹Type = HeroWindowController.S.道纹Type;
                   PlayerData.S.装备道纹List[equipType][4].quality = HeroWindowController.S.道纹QualityType;
                   break;
-
             }
-            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
          }
       }
    }
