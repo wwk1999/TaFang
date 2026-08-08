@@ -75,10 +75,6 @@ public class MainWindow : MonoBehaviour
     {
         Show主页();
         InitWindow();
-        ObserverModuleManager.S.SendEvent("刷新主页通天塔收获弹窗");
-        ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
-        ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
-        ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
     }
 
     public void InitWindow()
@@ -139,6 +135,11 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
         ObserverModuleManager.S.SendEvent("播放BGM",true);
 
+        
+        ObserverModuleManager.S.SendEvent("刷新主页通天塔收获弹窗");
+        ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
+        ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
+        ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
         通天塔.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.通天塔;

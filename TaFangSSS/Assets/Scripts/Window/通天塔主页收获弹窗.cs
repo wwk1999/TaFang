@@ -36,18 +36,20 @@ public class 通天塔主页收获弹窗 : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         ObserverModuleManager.S.UnRegisterEvent("刷新主页通天塔收获弹窗",刷新主页通天塔收获弹窗);
     }
 
-    private void Awake()
+    private void OnEnable()
     {
         ObserverModuleManager.S.RegisterEvent("刷新主页通天塔收获弹窗",刷新主页通天塔收获弹窗);
+        收获Button.onClick.RemoveAllListeners();
         收获Button.onClick.AddListener(() =>
         {
             PlayerData.S.收获通天塔();
             刷新主页通天塔收获弹窗(null);
         });
+        刷新主页通天塔收获弹窗(null);
     }
 }
