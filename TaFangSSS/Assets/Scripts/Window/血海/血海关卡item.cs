@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class 血海关卡item : MonoBehaviour
 {
+    public GameObject 寻宝中;
+
     public TextMeshProUGUI 关卡名;
     public Image 当前icon;
     public Button bg;
@@ -44,6 +46,8 @@ public class 血海关卡item : MonoBehaviour
     }
     public void SetItem()
     {
+        寻宝中.gameObject.SetActive(PlayerData.S.血海寻宝Dic[层数].寻宝);
+
         bool suo = PlayerData.S.JingJieType < 血海Config.血海关卡Dic[层数].jingJieType;
         if (suo)
         {

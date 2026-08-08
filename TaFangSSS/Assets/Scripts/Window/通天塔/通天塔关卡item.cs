@@ -12,6 +12,7 @@ public class 通天塔关卡item : MonoBehaviour
     public Button bg;
     public GameObject 锁;
     public TextMeshProUGUI suoText;
+    public GameObject 寻宝中;
     [NonSerialized] public int 层数;
 
     public string get数字(int count)
@@ -44,6 +45,7 @@ public class 通天塔关卡item : MonoBehaviour
     }
     public void SetItem()
     {
+        寻宝中.gameObject.SetActive(PlayerData.S.通天塔寻宝Dic[层数].寻宝);
         bool suo = PlayerData.S.JingJieType < 通天塔Config.通天塔关卡Dic[层数].jingJieType;
         if (suo)
         {

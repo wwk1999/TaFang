@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class 不周山关卡item : MonoBehaviour
 {
+    public GameObject 寻宝中;
+
      public TextMeshProUGUI 关卡名;
     public Image 当前icon;
     public Button bg;
@@ -44,6 +46,7 @@ public class 不周山关卡item : MonoBehaviour
     }
     public void SetItem()
     {
+        寻宝中.gameObject.SetActive(PlayerData.S.不周山寻宝Dic[层数].寻宝);
         bool suo = PlayerData.S.JingJieType < 不周山Config.不周山关卡Dic[层数].jingJieType;
         if (suo)
         {
