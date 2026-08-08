@@ -14,6 +14,9 @@ public class FightWindow : MonoBehaviour
     public TextMeshProUGUI 倍速Text2;
     public Button 倍速Button3;
     public TextMeshProUGUI 倍速Text3;
+
+    public Slider 关卡进度Slider;
+    public TextMeshProUGUI 进度Text;
     public void Set倍速Button()
     {
         switch (PlayerData.S.关卡倍速)
@@ -47,8 +50,21 @@ public class FightWindow : MonoBehaviour
 
     public GameObject 退出确认弹窗;
 
+    public void 刷新关卡进度(object[] obj)
+    {
+        float count = (float)obj[0];
+        关卡进度Slider.value = count;
+        进度Text.text = (int)(count * 100f) + "%";
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("刷新关卡进度",刷新关卡进度);
+    }
+
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新关卡进度",刷新关卡进度);
         Set倍速Button();
         exitButton.onClick.AddListener(() =>
         {

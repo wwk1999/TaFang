@@ -88,11 +88,11 @@ public class MonsterBase : MonoBehaviour
 
       if (MonsterConfig.MonsterTypeDic[MonsterTypeName] == MonsterType.Elite)
       {
-         value /= 1.5f;
+         value /= 2.5f;
       }
       if (MonsterConfig.MonsterTypeDic[MonsterTypeName] == MonsterType.Boss)
       {
-         value /= 2f;
+         value /= 5f;
       }
       return value;
    }
@@ -523,7 +523,7 @@ public class MonsterBase : MonoBehaviour
          }
       }
 
-      int 总数量 = 0;
+      float 总数量 = 0;
       if (LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
       {
          总数量 = 小怪数量;
@@ -535,7 +535,7 @@ public class MonsterBase : MonoBehaviour
       {
          总数量 = 小怪数量+ 精英怪数量+1;
       }
-      
+      ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
       if (FightController.S.KillMonsterCount == 总数量)
       {
          FightController.S.战斗结束 = true;
