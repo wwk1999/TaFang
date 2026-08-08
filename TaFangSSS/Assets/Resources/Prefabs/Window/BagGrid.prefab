@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 4960658505631055207}
   - component: {fileID: 8414624683283927743}
   - component: {fileID: 620888883757407694}
+  - component: {fileID: 6801746213855420253}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -129,6 +130,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6801746213855420253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543565468532559840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fe5d7edd315e14c8fddae4e1ae8f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u80CC\u5305Grid\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  BagGrid: {fileID: 6794603927728099990}
 --- !u!1 &3918092101462972822
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -238,8 +255,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -39.1, y: 22.0657}
-  m_SizeDelta: {x: 57.0043, y: 37.863}
+  m_AnchoredPosition: {x: -57.754036, y: 22.0657}
+  m_SizeDelta: {x: 94.3124, y: 37.863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6252360195262220787
 CanvasRenderer:

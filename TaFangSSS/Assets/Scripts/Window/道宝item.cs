@@ -15,6 +15,14 @@ public class 道宝item : MonoBehaviour
    public Button bg;
    public Image icon;
 
+   private void Start()
+   {
+      bg.onClick.AddListener(() =>
+      {
+         ObserverModuleManager.S.SendEvent("显示道宝详情弹窗",道宝Type);
+      });
+   }
+
    public void SetItem()
    {
       icon.sprite = ResourcesConfig.Get道宝Sprite(道宝Type);

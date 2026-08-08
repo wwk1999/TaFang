@@ -14,8 +14,10 @@ public class 道宝界面 : MonoBehaviour
     public GameObject 羁绊弹窗;
     public TextMeshProUGUI 总修炼速度加成;
 
+    public 道宝详情弹窗 道宝详情弹窗;
     private void OnEnable()
     {
+        道宝详情弹窗.gameObject.SetActive(false);
         总修炼速度加成.text = 道宝Config.Get道宝总修炼速度() + "%";
         foreach (Transform item in content.transform)
         {
@@ -31,8 +33,21 @@ public class 道宝界面 : MonoBehaviour
         }
     }
 
+    public void 显示道宝详情弹窗(object[] obj)
+    {
+        道宝Type type=(道宝Type)obj[0];
+        道宝详情弹窗.道宝Type = type;
+        道宝详情弹窗.gameObject.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("显示道宝详情弹窗",显示道宝详情弹窗);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示道宝详情弹窗",显示道宝详情弹窗);
         羁绊Button.onClick.AddListener(() =>
         {
             羁绊弹窗.gameObject.SetActive(true);

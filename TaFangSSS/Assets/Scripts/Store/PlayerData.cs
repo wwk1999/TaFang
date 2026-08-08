@@ -50,12 +50,6 @@ public class PlayerData : XSingleton<PlayerData>
     public IEnumerator 收获不周山()
     {
         var list = 获取不周山所有道具();
-        foreach (var item in list)
-        {
-            ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[item.Key],PropConfig.PropQualityDic[item.Key],item.Value);
-            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-            yield return new  WaitForSeconds(0.1f);
-        }
         foreach (var item in 不周山寻宝Dic)
         {
             foreach (var i in item.Value.list)
@@ -63,6 +57,12 @@ public class PlayerData : XSingleton<PlayerData>
                 PropListDic[i.法则Type]+=i.count;
             }
             item.Value.list.Clear();
+        }
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[item.Key],PropConfig.PropQualityDic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
         }
     }
 
@@ -109,12 +109,6 @@ public class PlayerData : XSingleton<PlayerData>
     public IEnumerator 收获血海()
     {
         var list = 获取血海所有道具();
-        foreach (var item in list)
-        {
-            ObserverModuleManager.S.SendEvent("SendUIToast",道纹config.道纹名Dic[item.Key.道纹Type],item.Key.quality,item.Value);
-            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-            yield return new  WaitForSeconds(0.1f);
-        }
         foreach (var item in 血海寻宝Dic)
         {
             foreach (var i in item.Value.list)
@@ -122,6 +116,12 @@ public class PlayerData : XSingleton<PlayerData>
                 Set道纹数量(i.道纹.道纹Type,i.道纹.quality,i.count+Get道纹数量(i.道纹.道纹Type,i.道纹.quality));
             }
             item.Value.list.Clear();
+        }
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",道纹config.道纹名Dic[item.Key.道纹Type],item.Key.quality,item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
         }
     }
     public Dictionary<道纹, int> 获取血海所有道具()
@@ -224,12 +224,6 @@ public class PlayerData : XSingleton<PlayerData>
     public IEnumerator 收获世界树()
     {
         var list = 获取世界树所有道具();
-        foreach (var item in list)
-        {
-            ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[item.Key],道宝Config.道宝品质Dic[item.Key],item.Value);
-            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-            yield return new  WaitForSeconds(0.1f);
-        }
         foreach (var item in 世界树寻宝Dic)
         {
             foreach (var i in item.Value.list)
@@ -237,6 +231,12 @@ public class PlayerData : XSingleton<PlayerData>
                 道宝LevelDic[i.道宝Type] += i.count;
             }
             item.Value.list.Clear();
+        }
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[item.Key],道宝Config.道宝品质Dic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
         }
     }
     public Dictionary<道宝Type, int> 获取世界树所有道具()
@@ -286,12 +286,6 @@ public class PlayerData : XSingleton<PlayerData>
     public IEnumerator 收获通天塔()
     {
         var list = 获取通天塔所有道具();
-        foreach (var item in list)
-        {
-            ObserverModuleManager.S.SendEvent("SendUIToast",城墙Config.城墙道具名Dic[item.Key],城墙Config.城墙道具QualityDic[item.Key],item.Value);
-            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-            yield return new  WaitForSeconds(0.1f);
-        }
         foreach (var item in 通天塔寻宝Dic)
         {
             foreach (var i in item.Value.list)
@@ -299,6 +293,12 @@ public class PlayerData : XSingleton<PlayerData>
                 城墙道具等级Dic[i.城墙道具Type] += i.count;
             }
             item.Value.list.Clear();
+        }
+        foreach (var item in list)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast",城墙Config.城墙道具名Dic[item.Key],城墙Config.城墙道具QualityDic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            yield return new  WaitForSeconds(0.1f);
         }
     }
     public Dictionary<城墙道具Type, int> 获取通天塔所有道具()
