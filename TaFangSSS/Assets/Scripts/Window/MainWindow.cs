@@ -44,8 +44,21 @@ public class MainWindow : MonoBehaviour
     public Button 主线关卡Debug;
     public Button 城墙Debug;
 
+    public GameObject 通天塔收获弹窗;
+    public GameObject 世界树收获弹窗;
+    public GameObject 血海收获弹窗;
+    public GameObject 不周山收获弹窗;
+
     public void Show主页()
     {
+        var 通天塔list = PlayerData.S.获取通天塔所有道具();
+        通天塔收获弹窗.gameObject.SetActive(通天塔list.Count>0);
+        var 不周山list = PlayerData.S.获取不周山所有道具();
+        不周山收获弹窗.gameObject.SetActive(不周山list.Count>0);
+        var 血海list = PlayerData.S.获取血海所有道具();
+        血海收获弹窗.gameObject.SetActive(血海list.Count>0);
+        var 世界树list = PlayerData.S.获取世界树所有道具();
+        世界树收获弹窗.gameObject.SetActive(世界树list.Count>0);
         道龄剩余时间.text = "道年剩余时间:" + (int)(属性config.每年秒数 - PlayerData.S.道龄S) + "S";
         道龄所需时间.text = "(当前每道年时间：" + 属性config.每年秒数 + "S)";
         道龄.text = PlayerData.S.道龄年 + "年";

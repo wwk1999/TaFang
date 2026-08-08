@@ -53,6 +53,38 @@ public class 道纹
 {
     public 道纹Type 道纹Type;
     public QualityType quality;
+
+    /// <summary>
+    /// 判断两个道纹是否相等（类型和品质都相同）
+    /// </summary>
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        道纹 other = (道纹)obj;
+        return this.道纹Type == other.道纹Type && this.quality == other.quality;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(道纹Type, quality);
+    }
+
+    /// <summary>
+    /// 重载 == 和 != 运算符，方便使用
+    /// </summary>
+    public static bool operator ==(道纹 a, 道纹 b)
+    {
+        if (ReferenceEquals(a, b)) return true;
+        if (a is null || b is null) return false;
+        return a.Equals(b);
+    }
+
+    public static bool operator !=(道纹 a, 道纹 b)
+    {
+        return !(a == b);
+    }
 }
 
 public class 道纹config

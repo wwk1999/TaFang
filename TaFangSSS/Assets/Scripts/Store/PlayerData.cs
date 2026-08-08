@@ -27,6 +27,37 @@ public class PlayerData : XSingleton<PlayerData>
     public float 关卡修炼速度加成 = 0;
     public float BGM音量 = 1;
     public float 音效音量 = 1;
+    public Dictionary<PropType, int> 获取不周山所有道具()
+    {
+        Dictionary<PropType, int> 类型数量映射 = new Dictionary<PropType, int>();
+        foreach (var kvp in 不周山寻宝Dic)
+        { 
+            foreach (var 道具 in kvp.Value.list)
+            {
+                if (类型数量映射.ContainsKey(道具.法则Type))
+                {
+                    类型数量映射[道具.法则Type] += 道具.count;
+                }
+                else
+                {
+                    类型数量映射[道具.法则Type] = 道具.count;
+                }
+            }
+        }
+        return 类型数量映射;
+    }
+
+    public void 收获不周山()
+    {
+        foreach (var item in 不周山寻宝Dic)
+        {
+            foreach (var i in item.Value.list)
+            {
+                PropListDic[i.法则Type]+=i.count;
+            }
+            item.Value.list.Clear();
+        }
+    }
     public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
     {
         {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
@@ -50,7 +81,36 @@ public class PlayerData : XSingleton<PlayerData>
         { 7, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
         { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
     };
-    
+    public void 收获血海()
+    {
+        foreach (var item in 血海寻宝Dic)
+        {
+            foreach (var i in item.Value.list)
+            {
+                Set道纹数量(i.道纹.道纹Type,i.道纹.quality,i.count+Get道纹数量(i.道纹.道纹Type,i.道纹.quality));
+            }
+            item.Value.list.Clear();
+        }
+    }
+    public Dictionary<道纹, int> 获取血海所有道具()
+    {
+        Dictionary<道纹, int> 类型数量映射 = new Dictionary<道纹, int>();
+        foreach (var kvp in 血海寻宝Dic)
+        { 
+            foreach (var 道具 in kvp.Value.list)
+            {
+                if (类型数量映射.ContainsKey(道具.道纹))
+                {
+                    类型数量映射[道具.道纹] += 道具.count;
+                }
+                else
+                {
+                    类型数量映射[道具.道纹] = 道具.count;
+                }
+            }
+        }
+        return 类型数量映射;
+    }
 
     public Dictionary<int, 血海秘境寻宝Item> 血海寻宝Dic = new Dictionary<int, 血海秘境寻宝Item>()
     {
@@ -76,7 +136,36 @@ public class PlayerData : XSingleton<PlayerData>
         { 8, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
         { 9, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
     };
-    
+    public void 收获世界树()
+    {
+        foreach (var item in 世界树寻宝Dic)
+        {
+            foreach (var i in item.Value.list)
+            {
+                道宝LevelDic[i.道宝Type] += i.count;
+            }
+            item.Value.list.Clear();
+        }
+    }
+    public Dictionary<道宝Type, int> 获取世界树所有道具()
+    {
+        Dictionary<道宝Type, int> 类型数量映射 = new Dictionary<道宝Type, int>();
+        foreach (var kvp in 世界树寻宝Dic)
+        { 
+            foreach (var 道具 in kvp.Value.list)
+            {
+                if (类型数量映射.ContainsKey(道具.道宝Type))
+                {
+                    类型数量映射[道具.道宝Type] += 道具.count;
+                }
+                else
+                {
+                    类型数量映射[道具.道宝Type] = 道具.count;
+                }
+            }
+        }
+        return 类型数量映射;
+    }
     public Dictionary<int, 世界树秘境寻宝Item> 世界树寻宝Dic = new Dictionary<int, 世界树秘境寻宝Item>()
     {
         {1,new 世界树秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道宝道具item>()}},
@@ -102,6 +191,36 @@ public class PlayerData : XSingleton<PlayerData>
         { 9, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None}},
     };
     
+    public void 收获通天塔()
+    {
+        foreach (var item in 通天塔寻宝Dic)
+        {
+            foreach (var i in item.Value.list)
+            {
+                城墙道具等级Dic[i.城墙道具Type] += i.count;
+            }
+            item.Value.list.Clear();
+        }
+    }
+    public Dictionary<城墙道具Type, int> 获取通天塔所有道具()
+    {
+        Dictionary<城墙道具Type, int> 类型数量映射 = new Dictionary<城墙道具Type, int>();
+        foreach (var kvp in 通天塔寻宝Dic)
+        { 
+            foreach (var 道具 in kvp.Value.list)
+            {
+                if (类型数量映射.ContainsKey(道具.城墙道具Type))
+                {
+                    类型数量映射[道具.城墙道具Type] += 道具.count;
+                }
+                else
+                {
+                    类型数量映射[道具.城墙道具Type] = 道具.count;
+                }
+            }
+        }
+        return 类型数量映射;
+    }
     public Dictionary<int, 秘境寻宝Item> 通天塔寻宝Dic = new Dictionary<int, 秘境寻宝Item>()
     {
         {1,new 秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝城墙道具item>()}},

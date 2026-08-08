@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class QueueController:XSingleton<QueueController>
 {
+    [NonSerialized] public Queue<主页秘境item> 主页秘境itemQueue = new Queue<主页秘境item>();
+
+    
     [NonSerialized] public Queue<伤害数字> 伤害数字Queue = new Queue<伤害数字>();
     [NonSerialized] public Queue<Spine纯显示一次> 普通怪死亡Queue = new Queue<Spine纯显示一次>();
     [NonSerialized] public Queue<Spine纯显示一次> 精英怪死亡Queue = new Queue<Spine纯显示一次>();
@@ -221,7 +224,21 @@ public class QueueController:XSingleton<QueueController>
         }
     }
 
-    
+
+    public IEnumerator Init主页秘境itemQueue(int fream=5)
+    {
+        int count = 0;
+        for (int i = 0; i < 150; i++)
+        {
+            count++;
+           var item = Instantiate(Resources.Load("Prefabs/Window/主页秘境item"),transform).GetComponent<主页秘境item>();
+            item.gameObject.SetActive(false); 
+            if (count % fream == 0)
+            {
+                yield return null;
+            }
+        }
+    }
     
     
      public IEnumerator Init怪物Queue(int fream=10)

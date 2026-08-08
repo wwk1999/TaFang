@@ -133,6 +133,7 @@ public class StoreController : XSingleton<StoreController>
                     if (PlayerData.S.通天塔寻宝Dic[i].重复)
                     {
                         PlayerData.S.通天塔寻宝Dic[i].time = 属性config.每年秒数 * 通天塔Config.通天塔关卡Dic[i].需要年数;
+                        ObserverModuleManager.S.SendEvent("刷新主页通天塔收获弹窗");
                     }
                     else
                     {
@@ -196,6 +197,7 @@ public class StoreController : XSingleton<StoreController>
                     世界树单次掉落(i);
                     if (PlayerData.S.世界树寻宝Dic[i].重复)
                     {
+                        ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
                         PlayerData.S.世界树寻宝Dic[i].time = 属性config.每年秒数 * 世界树Config.世界树关卡Dic[i].需要年数;
                     }
                     else
@@ -267,6 +269,7 @@ public class StoreController : XSingleton<StoreController>
                     血海单次掉落(i);
                     if (PlayerData.S.血海寻宝Dic[i].重复)
                     {
+                        ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
                         PlayerData.S.血海寻宝Dic[i].time = 属性config.每年秒数 * 血海Config.血海关卡Dic[i].需要年数;
                     }
                     else
@@ -335,6 +338,7 @@ public class StoreController : XSingleton<StoreController>
                     不周山单次掉落(i);
                     if (PlayerData.S.不周山寻宝Dic[i].重复)
                     {
+                        ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
                         PlayerData.S.不周山寻宝Dic[i].time = 属性config.每年秒数 * 不周山Config.不周山关卡Dic[i].需要年数;
                     }
                     else
