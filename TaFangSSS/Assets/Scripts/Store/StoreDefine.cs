@@ -28,7 +28,8 @@ public class StoreDefine : XSingleton<StoreController>
         public float 关卡修炼速度加成 = 0;
         public float BGM音量 = 1;
         public float 音效音量 = 1;
-
+        public Vector2 分辨率 = new Vector2(1920,1080);
+        public bool 是否窗口 = true;
         public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
         {
             {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
@@ -773,6 +774,8 @@ public class StoreDefine : XSingleton<StoreController>
             关卡修炼速度加成 = runtime.关卡修炼速度加成;
             BGM音量 = runtime.BGM音量;
             音效音量 = runtime.音效音量;
+            分辨率 = runtime.分辨率;
+            是否窗口 = runtime.是否窗口;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -814,6 +817,8 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.关卡修炼速度加成 = 关卡修炼速度加成;
             runtime.BGM音量 = BGM音量;
             runtime.音效音量 = 音效音量;
+            runtime.分辨率 = 分辨率;
+            runtime.是否窗口 = 是否窗口;
         }
     }
 }

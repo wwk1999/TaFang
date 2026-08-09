@@ -27,6 +27,8 @@ public class PlayerData : XSingleton<PlayerData>
     public float 关卡修炼速度加成 = 0;
     public float BGM音量 = 1;
     public float 音效音量 = 1;
+    public Vector2 分辨率 = new Vector2(1920,1080);
+    public bool 是否窗口 = true;
     public Dictionary<PropType, int> 获取不周山所有道具()
     {
         Dictionary<PropType, int> 类型数量映射 = new Dictionary<PropType, int>();

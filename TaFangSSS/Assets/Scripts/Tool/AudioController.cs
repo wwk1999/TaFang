@@ -381,6 +381,8 @@ public void 停止元始音效(object[] obj)
    
    private void OnDestroy()
    {
+       ObserverModuleManager.S.UnRegisterEvent("设置BGM音量",设置BGM音量);
+       ObserverModuleManager.S.UnRegisterEvent("设置音效音量",设置音效音量);
        ObserverModuleManager.S.UnRegisterEvent("停止元始音效",停止元始音效);
       ObserverModuleManager.S.UnRegisterEvent("播放BGM",播放BGM);
       ObserverModuleManager.S.UnRegisterEvent("播放音效",Play音效);
@@ -394,12 +396,34 @@ public void 停止元始音效(object[] obj)
       AudioClip alip=AudioConfig.Get音效Clip(type);
       音效Source.PlayOneShot(alip,1);
    }
-   
-   
+
+   public void 设置BGM音量(object[] obj)
+   {
+       BgAudioSource.volume = PlayerData.S.BGM音量;
+   }
+
+   public void 设置音效音量(object[] obj)
+   {
+       首领AudioSource.volume = PlayerData.S.音效音量;
+       音效Source.volume = PlayerData.S.音效音量;
+       元始Source.volume = PlayerData.S.音效音量;
+       foreach (var item in 人物AudioSource)
+       {
+           item.volume = PlayerData.S.音效音量;
+       }
+
+       foreach (var item in 怪物AudioSource)
+       {
+           item.volume = PlayerData.S.音效音量;
+       }
+   }
 
    protected void Awake()
    {
       DontDestroyOnLoad(gameObject); 
+      ObserverModuleManager.S.RegisterEvent("设置BGM音量",设置BGM音量);
+      ObserverModuleManager.S.RegisterEvent("设置音效音量",设置音效音量);
+
       ObserverModuleManager.S.RegisterEvent("播放BGM",播放BGM);
       ObserverModuleManager.S.RegisterEvent("播放音效",Play音效);
       ObserverModuleManager.S.RegisterEvent("播放人物音效",播放人物音效);
