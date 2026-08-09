@@ -65,23 +65,22 @@ public class 设置界面 : MonoBehaviour
 
    分辨率Dropdown.onValueChanged.AddListener(delegate
       {
+         FullScreenMode mode = PlayerData.S.是否窗口 ? FullScreenMode.Windowed : FullScreenMode.ExclusiveFullScreen;
          switch (分辨率Dropdown.value)
          {
             case 0:
                PlayerData.S.分辨率 = new Vector2(2560, 1440);
-               Screen.SetResolution(2560, 1440, PlayerData.S.是否窗口);
+               Screen.SetResolution(2560, 1440, mode);
                break;
             case 1:
                PlayerData.S.分辨率 = new Vector2(1920, 1080);
-               Screen.SetResolution(1920, 1080, PlayerData.S.是否窗口);
+               Screen.SetResolution(1920, 1080, mode);
                break;
             case 2:
                PlayerData.S.分辨率 = new Vector2(1366, 768);
-               Screen.SetResolution(1366, 768, PlayerData.S.是否窗口);
+               Screen.SetResolution(1366, 768, mode);
                break;
          }
-
-         
       });
    }
 }
