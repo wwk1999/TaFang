@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using System.IO;
 using System.Collections.Generic;
 
@@ -123,33 +122,33 @@ public class ExpandToMultipleOf4Tool : EditorWindow
     {
         if (previewFiles.Count == 0) return;
 
-        isProcessing = true;
-        string outputRoot = Path.Combine(selectedFolderPath, "Expanded_MultipleOf4");
-        if (!Directory.Exists(outputRoot))
-            Directory.CreateDirectory(outputRoot);
+        if (!EditorUtility.DisplayDialog("确认替换",
+            $"即将直接替换 {previewFiles.Count} 张原图文件，此操作不可撤销。\n\n建议先备份重要资源。\n\n是否继续？",
+            "确认替换", "取消"))
+        {
+            return;
+        }
 
+        isProcessing = true;
         int total = previewFiles.Count;
         int processed = 0;
+        int skipped = 0;
         bool cancel = false;
 
         try
         {
             foreach (string filePath in previewFiles)
             {
-                string relativePath = GetRelativePath(selectedFolderPath, filePath);
-                string outputPath = Path.Combine(outputRoot, relativePath);
-                string outputDir = Path.GetDirectoryName(outputPath);
-                if (!Directory.Exists(outputDir))
-                    Directory.CreateDirectory(outputDir);
-
-                cancel = EditorUtility.DisplayCancelableProgressBar("扩充图片到4的倍数",
+                cancel = EditorUtility.DisplayCancelableProgressBar("扩充图片到4的倍数（替换原图）",
                     $"处理: {Path.GetFileName(filePath)} ({processed + 1}/{total})",
                     (float)processed / total);
 
                 if (cancel) break;
 
-                ProcessImage(filePath, outputPath);
-                processed++;
+                if (ProcessImage(filePath))
+                    processed++;
+                else
+                    skipped++;
             }
         }
         finally
@@ -162,7 +161,10 @@ public class ExpandToMultipleOf4Tool : EditorWindow
             Debug.Log("已取消处理");
         else
         {
-            EditorUtility.DisplayDialog("完成", $"成功处理 {processed} 张图片\n输出位置：{outputRoot}", "确定");
+            string msg = $"成功替换 {processed} 张图片";
+            if (skipped > 0)
+                msg += $"\n跳过 {skipped} 张（已是4的倍数）";
+            EditorUtility.DisplayDialog("完成", msg, "确定");
             AssetDatabase.Refresh();
         }
     }
@@ -173,29 +175,82 @@ public class ExpandToMultipleOf4Tool : EditorWindow
         return value + (4 - value % 4);
     }
 
-    private static void ProcessImage(string inputPath, string outputPath)
+    // 直接从 PNG 文件头读取真实尺寸（字节 16-23）
+    // PNG 格式: [8字节签名][4字节长度][4字节"IHDR"][4字节宽][4字节高]...
+    private static bool TryReadPngDimensions(string filePath, out int width, out int height)
     {
-        byte[] fileData = File.ReadAllBytes(inputPath);
+        width = 0;
+        height = 0;
+        try
+        {
+            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+            {
+                if (fs.Length < 24) return false;
+                byte[] buf = new byte[24];
+                fs.Read(buf, 0, 24);
+                // 验证 PNG 签名: 89 50 4E 47 0D 0A 1A 0A
+                if (buf[0] != 0x89 || buf[1] != 0x50 || buf[2] != 0x4E || buf[3] != 0x47) return false;
+                // 宽度在字节 16-19（大端序），高度在 20-23
+                width = (buf[16] << 24) | (buf[17] << 16) | (buf[18] << 8) | buf[19];
+                height = (buf[20] << 24) | (buf[21] << 16) | (buf[22] << 8) | buf[23];
+                return width > 0 && height > 0;
+            }
+        }
+        catch { return false; }
+    }
+
+    private static bool ProcessImage(string filePath)
+    {
+        string ext = Path.GetExtension(filePath).ToLower();
+
+        // 读取真实尺寸：PNG 从文件头读，其他格式用 Texture2D
+        int trueW, trueH;
+        bool isPng = (ext == ".png");
+        if (isPng)
+        {
+            if (!TryReadPngDimensions(filePath, out trueW, out trueH))
+            {
+                Debug.LogWarning($"无法读取 PNG 尺寸，跳过: {filePath}");
+                return false;
+            }
+        }
+        else
+        {
+            // 非 PNG 用 Texture2D 读取尺寸
+            byte[] previewData = File.ReadAllBytes(filePath);
+            Texture2D preview = new Texture2D(2, 2);
+            preview.LoadImage(previewData);
+            trueW = preview.width;
+            trueH = preview.height;
+            Object.DestroyImmediate(preview);
+        }
+
+        int newW = RoundUpToMultipleOf4(trueW);
+        int newH = RoundUpToMultipleOf4(trueH);
+
+        Debug.Log($"[{Path.GetFileName(filePath)}] 真实尺寸: {trueW}x{trueH} → 目标: {newW}x{newH}");
+
+        // 已经是4的倍数，跳过
+        if (newW == trueW && newH == trueH)
+            return false;
+
+        // 用 Texture2D 加载像素数据
+        byte[] fileData = File.ReadAllBytes(filePath);
         Texture2D original = new Texture2D(2, 2);
         if (!original.LoadImage(fileData))
         {
-            Debug.LogError($"无法加载图片: {inputPath}");
+            Debug.LogError($"无法加载图片: {filePath}");
             Object.DestroyImmediate(original);
-            return;
+            return false;
         }
 
-        int w = original.width;
-        int h = original.height;
-        int newW = RoundUpToMultipleOf4(w);
-        int newH = RoundUpToMultipleOf4(h);
+        // LoadImage 后的实际尺寸（可能被 Unity 调整过）
+        int loadedW = original.width;
+        int loadedH = original.height;
 
-        // 如果已经是4的倍数，直接复制
-        if (newW == w && newH == h)
-        {
-            File.Copy(inputPath, outputPath, true);
-            Object.DestroyImmediate(original);
-            return;
-        }
+        // 使用真实尺寸计算偏移
+        int offsetX = (newW - trueW) / 2;
+        int offsetY = (newH - trueH) / 2;
 
         Texture2D expanded = new Texture2D(newW, newH, TextureFormat.RGBA32, false);
 
@@ -205,35 +260,25 @@ public class ExpandToMultipleOf4Tool : EditorWindow
             clearColors[i] = new Color(0, 0, 0, 0);
         expanded.SetPixels(clearColors);
 
-        // 居中放置原图
-        int offsetX = (newW - w) / 2;
-        int offsetY = (newH - h) / 2;
-
+        // 复制原图像素到居中位置
+        // 使用 loadedW/loadedH 读取像素（Texture2D 的实际尺寸）
         Color[] originalPixels = original.GetPixels();
-        for (int y = 0; y < h; y++)
+        for (int y = 0; y < loadedH; y++)
         {
-            for (int x = 0; x < w; x++)
+            for (int x = 0; x < loadedW; x++)
             {
-                int srcIdx = y * w + x;
+                int srcIdx = y * loadedW + x;
                 expanded.SetPixel(offsetX + x, offsetY + y, originalPixels[srcIdx]);
             }
         }
         expanded.Apply();
 
+        // 保存为 PNG（覆盖原文件）
         byte[] pngData = expanded.EncodeToPNG();
-        File.WriteAllBytes(outputPath, pngData);
+        File.WriteAllBytes(filePath, pngData);
 
         Object.DestroyImmediate(original);
         Object.DestroyImmediate(expanded);
-    }
-
-    private static string GetRelativePath(string basePath, string fullPath)
-    {
-        if (!basePath.EndsWith(Path.DirectorySeparatorChar.ToString()))
-            basePath += Path.DirectorySeparatorChar;
-        if (fullPath.StartsWith(basePath))
-            return fullPath.Substring(basePath.Length);
-        else
-            return Path.GetFileName(fullPath);
+        return true;
     }
 }

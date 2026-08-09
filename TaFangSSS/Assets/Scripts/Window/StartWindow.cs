@@ -27,8 +27,8 @@ public class StartWindow : MonoBehaviour
          var data = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json);
          if (data?.Player == null) return;
 
-         int x = (int)data.Player.分辨率.x;
-         int y = (int)data.Player.分辨率.y;
+         int x = (int)data.Player.分辨率X;
+         int y = (int)data.Player.分辨率Y;
          if (x <= 0 || y <= 0) { x = 1920; y = 1080; }
 
          var mode = data.Player.是否窗口 ? FullScreenMode.Windowed : FullScreenMode.ExclusiveFullScreen;
