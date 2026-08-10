@@ -290,14 +290,14 @@ public class MonsterConfig : MonoBehaviour
     // 火焰山
     { MonsterTypeName.火焰精, false },
     { MonsterTypeName.赤蛇, true },
-    { MonsterTypeName.红孩儿, false },
-    { MonsterTypeName.牛魔王, true },
+    { MonsterTypeName.红孩儿, true },
+    { MonsterTypeName.牛魔王, false },
 
     // 芭蕉洞
     { MonsterTypeName.芭蕉精, true },
     { MonsterTypeName.火焰童, true },
-    { MonsterTypeName.铁扇侍女, false },
-    { MonsterTypeName.铁扇公主, true },
+    { MonsterTypeName.铁扇侍女, true },
+    { MonsterTypeName.铁扇公主, false },
 
     // 流沙河
     { MonsterTypeName.流沙精, true },

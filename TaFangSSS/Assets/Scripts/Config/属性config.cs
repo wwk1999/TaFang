@@ -76,7 +76,7 @@ public class 属性config
      public class 道宝属性
      {
           public float 伤害减免 => 道宝Config.羁绊伤害减免/100f;
-          public float 暴击率 => 0.5f+道宝Config.羁绊暴击率/100f;
+          public float 暴击率 => 道宝Config.羁绊暴击率/100f;
           public float 最终伤害 => 道宝Config.羁绊最终伤害/100f;
           
           public float 战士增幅 => 1f + 道宝Config.羁绊战士伤害增幅/100f;

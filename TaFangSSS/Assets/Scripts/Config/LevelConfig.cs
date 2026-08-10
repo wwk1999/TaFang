@@ -550,7 +550,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.傲来国,
+                主线关卡Type.蓬莱仙岛,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.灵魂 },
@@ -571,7 +571,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.东海龙宫,
+                主线关卡Type.五行山,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.灵魂 },
@@ -592,7 +592,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.蓬莱仙岛,
+                主线关卡Type.傲来国,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.灵魂 },
@@ -613,7 +613,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.五行山,
+                主线关卡Type.高老庄,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 400, minCount = 300, PropType = PropType.灵魂 },
@@ -634,7 +634,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.高老庄,
+                主线关卡Type.女儿国,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.灵魂 },
@@ -658,7 +658,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.平顶山,
+                主线关卡Type.小雷音寺,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.灵魂 },
@@ -683,7 +683,7 @@ public class LevelConfig : MonoBehaviour
             
             
             {
-                主线关卡Type.女儿国,
+                主线关卡Type.平顶山,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.灵魂 },
@@ -733,7 +733,7 @@ public class LevelConfig : MonoBehaviour
             
             
             {
-                主线关卡Type.狮驼岭,
+                主线关卡Type.芭蕉洞,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 1000, minCount = 800, PropType = PropType.灵魂 },
@@ -759,7 +759,7 @@ public class LevelConfig : MonoBehaviour
             
             
             {
-                主线关卡Type.芭蕉洞,
+                主线关卡Type.流沙河,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.灵魂 },
@@ -783,7 +783,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.流沙河,
+                主线关卡Type.狮驼岭,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 1500, minCount = 1200, PropType = PropType.灵魂 },
@@ -807,7 +807,7 @@ public class LevelConfig : MonoBehaviour
             },
             
             {
-                主线关卡Type.小雷音寺,
+                主线关卡Type.东海龙宫,
                 new HashSet<LevelDiaoLuo>()
                 {
                     new LevelDiaoLuo() { maxCount = 2000, minCount = 1500, PropType = PropType.灵魂 },
