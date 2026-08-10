@@ -44,6 +44,21 @@ namespace Config
         城墙粉,
         城墙红,
         城墙彩,
+        
+        火之法则,
+        斗之法则,
+        冰之法则,
+        禁之法则,
+        剑之法则,
+        日之法则,
+        月之法则,
+        箭之法则,
+        造化法则,
+        原始法则,
+        诛仙法则,
+        道之法则,
+        鸿蒙法则,
+        力之法则,
     }
     public enum PropType
     {
@@ -275,6 +290,21 @@ namespace Config
             { PropType.鞋子锻造石, 道具信息Type.鞋子锻造石 },
             { PropType.项链锻造石, 道具信息Type.项链锻造石 },
             { PropType.高级招募卷, 道具信息Type.高级招募卷 },
+            
+            { PropType.力之法则, 道具信息Type.力之法则 },
+            { PropType.禁之法则, 道具信息Type.禁之法则 },
+            { PropType.鸿蒙法则, 道具信息Type.鸿蒙法则 },
+            { PropType.冰之法则, 道具信息Type.冰之法则 },
+            { PropType.剑之法则, 道具信息Type.剑之法则 },
+            { PropType.原始法则, 道具信息Type.原始法则 },
+            { PropType.斗之法则, 道具信息Type.斗之法则 },
+            { PropType.日之法则, 道具信息Type.日之法则 },
+            { PropType.月之法则, 道具信息Type.月之法则 },
+            { PropType.火之法则, 道具信息Type.火之法则 },
+            { PropType.箭之法则, 道具信息Type.箭之法则 },
+            { PropType.诛仙法则, 道具信息Type.诛仙法则 },
+            { PropType.造化法则, 道具信息Type.造化法则 },
+            { PropType.道之法则, 道具信息Type.道之法则 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -355,6 +385,22 @@ namespace Config
             { 道具信息Type.城墙粉, "随机获得一件宙品品质的城墙法宝" },
             { 道具信息Type.城墙红, "随机获得一件洪品品质的城墙法宝" },
             { 道具信息Type.城墙彩, "随机获得一件荒品品质的城墙法宝" },
+            
+            { 道具信息Type.力之法则, "提升盘古法则等级的关键材料" },
+            { 道具信息Type.禁之法则, "提升琼霄法则等级的关键材料" },
+            { 道具信息Type.鸿蒙法则, "提升鸿钧法则等级的关键材料" },
+            { 道具信息Type.冰之法则, "提升碧霄法则等级的关键材料" },
+            { 道具信息Type.剑之法则, "提升云霄法则等级的关键材料" },
+            { 道具信息Type.原始法则, "提升原始法则等级的关键材料"},
+            { 道具信息Type.日之法则, "提升羲和法则等级的关键材料" },
+            { 道具信息Type.月之法则, "提升常羲法则等级的关键材料" },
+            { 道具信息Type.火之法则, "提升哪吒法则等级的关键材料" },
+            { 道具信息Type.箭之法则, "提升后羿法则等级的关键材料" },
+            { 道具信息Type.道之法则, "提升老子法则等级的关键材料" },
+            { 道具信息Type.斗之法则, "提升孙悟空法则等级的关键材料" },
+            { 道具信息Type.诛仙法则, "提升通天法则等级的关键材料" },
+            { 道具信息Type.造化法则, "提升女娲法则等级的关键材料" },
+
         };
 
         
@@ -584,6 +630,20 @@ namespace Config
             { PropType.盘古元神, "盘古元神" },
             { PropType.鸿钧元神, "鸿钧元神" },
 
+            { PropType.鸿蒙法则, "鸿蒙法则" },
+            { PropType.力之法则, "力之法则" },
+            { PropType.冰之法则, "冰之法则" },
+            { PropType.剑之法则, "剑之法则" },
+            { PropType.原始法则, "原始法则" },
+            { PropType.斗之法则, "斗之法则" },
+            { PropType.日之法则, "日之法则" },
+            { PropType.月之法则, "月之法则" },
+            { PropType.火之法则, "火之法则" },
+            { PropType.禁之法则, "禁之法则" },
+            { PropType.箭之法则, "箭之法则" },
+            { PropType.诛仙法则, "诛仙法则" },
+            { PropType.造化法则, "造化法则" },
+            { PropType.道之法则, "道之法则" },
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()

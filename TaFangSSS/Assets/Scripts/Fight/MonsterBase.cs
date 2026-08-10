@@ -290,7 +290,7 @@ public class MonsterBase : MonoBehaviour
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
       {
-         最终Damage *= (2 + 属性config.Get英雄暴击伤害增幅());
+         最终Damage *= (2f + 属性config.Get英雄暴击伤害增幅()/100f);
       }
 
       最终Damage *= 属性config.总属性.最终伤害增幅;
@@ -379,7 +379,7 @@ public class MonsterBase : MonoBehaviour
 
 
       FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
-      FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position);
+      FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position,is暴击:暴击);
       float 受伤前血量 = CurrentHP;
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);

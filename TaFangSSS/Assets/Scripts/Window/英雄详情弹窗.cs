@@ -241,8 +241,8 @@ public class 英雄详情弹窗 : MonoBehaviour
             {
                 PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]] -= 需要值;
                 PlayerData.S.英雄法则等级Dic[HeroType]++;
+                ObserverModuleManager.S.SendEvent("法则升级");
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-
                 ObserverModuleManager.S.SendEvent("SendUIToast","升级成功");
                 Set升星信息();
                 SetHeroInfo();

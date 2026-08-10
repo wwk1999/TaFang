@@ -21,7 +21,7 @@ public class 属性config
                }
           }
 
-          return value / 100f;
+          return value ;
      }
      public class 道纹属性
      {
@@ -76,7 +76,7 @@ public class 属性config
      public class 道宝属性
      {
           public float 伤害减免 => 道宝Config.羁绊伤害减免/100f;
-          public float 暴击率 => 道宝Config.羁绊暴击率/100f;
+          public float 暴击率 => 0.5f+道宝Config.羁绊暴击率/100f;
           public float 最终伤害 => 道宝Config.羁绊最终伤害/100f;
           
           public float 战士增幅 => 1f + 道宝Config.羁绊战士伤害增幅/100f;
@@ -97,6 +97,7 @@ public class 属性config
     private 道纹属性 _道纹 = new 道纹属性();
     private 道宝属性 _道宝 = new 道宝属性();
 
+    public float 暴击伤害 => 200 + Get英雄暴击伤害增幅();
     public float 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
     public float 战士增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅;
     public float 法师增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅;

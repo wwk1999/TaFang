@@ -1357,7 +1357,35 @@ public class ResourcesConfig : MonoBehaviour
     {
         switch (propType)
         {
-            
+            case PropType.冰之法则:
+                return 冰;
+            case PropType.火之法则:
+                return 火;
+            case PropType.斗之法则:
+                return 斗;
+            case PropType.禁之法则:
+                return 禁;
+            case PropType.剑之法则:
+                return 剑;
+            case PropType.日之法则:
+                return 日;
+            case PropType.月之法则:
+                return 月;
+            case PropType.箭之法则:
+                return 箭;
+            case PropType.造化法则:
+                return 造化;
+            case PropType.原始法则:
+                return 原始;
+            case PropType.诛仙法则:
+                return 诛仙;
+            case PropType.道之法则:
+                return 道;
+            case PropType.鸿蒙法则:
+                return 鸿蒙;
+            case PropType.力之法则:
+                return 力;
+               
             case PropType.功德:
                 return 功德;
             case PropType.洗练石:

@@ -14,9 +14,12 @@ public class 伤害数字 : MonoBehaviour
     public TextMeshProUGUI 雷电;
     public TextMeshProUGUI 黑暗;
     public TextMeshProUGUI 回血;
+    public TextMeshProUGUI 暴击;
     [NonSerialized] public YuanSuType YuanSuType=YuanSuType.None;
     [NonSerialized] public string text;
     [NonSerialized] public bool is回血;
+    [NonSerialized] public bool is暴击=false;
+
 
     public void Hide()
     {
@@ -30,6 +33,11 @@ public class 伤害数字 : MonoBehaviour
         {
             Animator.Play("回血");
             回血.text = text.ToString();
+        }
+        else if (is暴击)
+        {
+            Animator.Play("暴击");
+            暴击.text = "暴击"+text.ToString();
         }
         else
         {

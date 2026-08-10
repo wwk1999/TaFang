@@ -968,11 +968,12 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void Show伤害数字(string 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false)
+    public void Show伤害数字(string 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false,bool is暴击=false)
     {
         var item=QueueController.S.伤害数字Queue.Dequeue();
         item.text = 最终伤害;
         item.is回血 = is回血;
+        item.is暴击 = is暴击;
         item.YuanSuType = yuanSuType;
         item.transform.position = pos;
         item.gameObject.SetActive(true);

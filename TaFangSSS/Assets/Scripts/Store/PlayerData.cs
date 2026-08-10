@@ -62,7 +62,7 @@ public class PlayerData : XSingleton<PlayerData>
         }
         foreach (var item in list)
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[item.Key],PropConfig.PropQualityDic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("SendUIToast",法则config.法则名Dic[法则config.法则英雄Dic[item.Key]],PropConfig.PropQualityDic[item.Key],item.Value);
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             yield return new  WaitForSeconds(0.1f);
         }
@@ -95,7 +95,6 @@ public class PlayerData : XSingleton<PlayerData>
         {6,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
         {7,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
         {8,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
-        {9,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
     };
     public Dictionary<int, List<HeroType>> 不周山英雄派遣Dic = new Dictionary<int, List<HeroType>>()
     {

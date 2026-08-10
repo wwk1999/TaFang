@@ -74,16 +74,23 @@ public class HeroWindow : MonoBehaviour
    {
       HeroType heroType = (HeroType)obj[0];
       HeroList[heroType].SetItem();
+      暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
    }
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("法则升级", 法则升级);
       ObserverModuleManager.S.UnRegisterEvent("升星刷新", 升星刷新);
       ObserverModuleManager.S.UnRegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
    }
 
+   public void 法则升级(object[] obj)
+   {
+      暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("法则升级", 法则升级);
       ObserverModuleManager.S.RegisterEvent("升星刷新", 升星刷新);
       ObserverModuleManager.S.RegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
       var s = HeroWindowController.S;
@@ -154,6 +161,7 @@ public class HeroWindow : MonoBehaviour
 
    private void OnEnable()
    {
+      暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
       ShowHeroList();
       ResetHeroPanel();
    }

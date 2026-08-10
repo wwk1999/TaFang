@@ -54,7 +54,7 @@ public class 人物属性弹窗 : MonoBehaviour
         var 属性 = 属性config.总属性;
         攻击力.text = PlayerData.S.格式化数字(属性.总攻击力);
         暴击率.text = Mathf.RoundToInt(属性.暴击率 * 100f) + "%";
-        暴击伤害.text = Mathf.RoundToInt(属性config.Get英雄暴击伤害增幅() * 100f) + "%";
+        暴击伤害.text = Mathf.RoundToInt(200+属性config.Get英雄暴击伤害增幅() ) + "%";
         冷却缩减.text = Mathf.RoundToInt(属性.英雄冷却缩减 * 100f) + "%";
         战士.text = Mathf.RoundToInt(属性.战士增幅 * 100f - 100) + "%";
         射手.text = Mathf.RoundToInt(属性.射手增幅 * 100f - 100) + "%";
