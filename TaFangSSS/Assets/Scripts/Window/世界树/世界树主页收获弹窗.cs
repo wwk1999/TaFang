@@ -23,27 +23,34 @@ public class 世界树主页收获弹窗 : MonoBehaviour
         var list = PlayerData.S.获取世界树所有道具();
         foreach (var item in list)
         {
-            主页秘境item 秘境item = null;
-            while (QueueController.S.主页秘境itemQueue.Count > 0)
+            try
             {
-                var dequeued = QueueController.S.主页秘境itemQueue.Dequeue();
-                if (dequeued != null)
+                主页秘境item 秘境item = null;
+                while (QueueController.S.主页秘境itemQueue.Count > 0)
                 {
-                    秘境item = dequeued;
-                    break;
+                    var dequeued = QueueController.S.主页秘境itemQueue.Dequeue();
+                    if (dequeued != null)
+                    {
+                        秘境item = dequeued;
+                        break;
+                    }
                 }
+                if (秘境item == null)
+                {
+                    秘境item = Instantiate(Resources.Load("Prefabs/Window/主页秘境item")).GetComponent<主页秘境item>();
+                }
+                秘境item.transform.SetParent(content.transform);
+                秘境item.quality = 道宝Config.道宝QualityToQuality[道宝Config.道宝品质Dic[item.Key]];
+                秘境item.sprite = ResourcesConfig.Get道宝Sprite(item.Key);
+                秘境item.count=item.Value;
+                秘境item.name=道宝Config.道宝NameDic[item.Key];
+                秘境item.SetItem();
+                秘境item.gameObject.SetActive(true);
             }
-            if (秘境item == null)
+            catch (Exception e)
             {
-                秘境item = Instantiate(Resources.Load("Prefabs/Window/主页秘境item")).GetComponent<主页秘境item>();
+                Debug.LogError($"刷新主页世界树收获弹窗: 创建item失败, 道宝Type={item.Key}, Error={e.Message}");
             }
-            秘境item.transform.SetParent(content.transform);
-            秘境item.quality = 道宝Config.道宝QualityToQuality[道宝Config.道宝品质Dic[item.Key]];
-            秘境item.sprite = ResourcesConfig.Get道宝Sprite(item.Key);
-            秘境item.count=item.Value;
-            秘境item.name=道宝Config.道宝NameDic[item.Key];
-            秘境item.SetItem();
-            秘境item.gameObject.SetActive(true);
         }
     }
 
@@ -59,8 +66,8 @@ public class 世界树主页收获弹窗 : MonoBehaviour
         收获Button.onClick.AddListener(() =>
         {
             HeroWindowController.S.StartCoroutine(PlayerData.S.收获世界树());
-            刷新主页世界树收获弹窗(null);
             gameObject.SetActive(false);
+            刷新主页世界树收获弹窗(null);
         });
         刷新主页世界树收获弹窗(null);
     }

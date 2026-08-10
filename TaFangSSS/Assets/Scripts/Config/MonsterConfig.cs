@@ -302,8 +302,8 @@ public class MonsterConfig : MonoBehaviour
     // 流沙河
     { MonsterTypeName.流沙精, true },
     { MonsterTypeName.水鬼, true },
-    { MonsterTypeName.水蛇妖, false },
-    { MonsterTypeName.沙和尚, false },
+    { MonsterTypeName.水蛇妖, true },
+    { MonsterTypeName.沙和尚, true },
 
     // 小雷音寺
     { MonsterTypeName.假罗汉, false },
@@ -314,8 +314,8 @@ public class MonsterConfig : MonoBehaviour
     // 狮驼岭
     { MonsterTypeName.青狮精手下, true },
     { MonsterTypeName.白象精手下, true },
-    { MonsterTypeName.大鹏金翅雕, false },
-    { MonsterTypeName.青狮精, false },
+    { MonsterTypeName.大鹏金翅雕, true },
+    { MonsterTypeName.青狮精, true },
 
     // 冥府
     { MonsterTypeName.牛头, true },
@@ -327,14 +327,14 @@ public class MonsterConfig : MonoBehaviour
     // 南天门
     { MonsterTypeName.天兵, true },
     { MonsterTypeName.天将, true },
-    { MonsterTypeName.守卫统领, true },
-    { MonsterTypeName.巨灵王, false },
+    { MonsterTypeName.守卫统领, false },
+    { MonsterTypeName.巨灵王, true },
 
     // 瑶池仙境
     { MonsterTypeName.瑶池仙女, true },
     { MonsterTypeName.瑶池守卫, true },
-    { MonsterTypeName.仙女首领, true },
-    { MonsterTypeName.西王母, false },
+    { MonsterTypeName.仙女首领, false },
+    { MonsterTypeName.西王母, true },
 
     // 斩妖台
     { MonsterTypeName.执法天兵, true },
