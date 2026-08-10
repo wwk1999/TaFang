@@ -22,6 +22,5 @@ public class WindowController : XSingleton<WindowController>
    {
       MainWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/MainWindow"));
       MainWindow.SetActive(true);
-      StoreController.S.LoadStoreData();
    }
 }

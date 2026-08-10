@@ -28,7 +28,7 @@ public class 退出确认弹窗 : MonoBehaviour
         });
         返回Button.onClick.AddListener(() =>
         {
-            Time.timeScale = 1;
+            Time.timeScale = PlayerData.S.关卡倍速;
             gameObject.SetActive(false);
         });
         确认Button.onClick.AddListener(() =>

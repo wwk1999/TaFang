@@ -51,6 +51,11 @@ public class 强化弹窗 : MonoBehaviour
    [NonSerialized] public EquipType equipType=EquipType.衣服;
    public void 洗练()
    {
+      if (EquipConfig.GetEquipQuality(equipType) < QualityType.玄品)
+      {
+         ObserverModuleManager.S.SendEvent("SendUIToast","玄品之上才可以洗练");
+         return;
+      }
       int level=PlayerData.S.EquipLevelDic[equipType];
       var item = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(level)];
       int cailiao = item.材料数量;

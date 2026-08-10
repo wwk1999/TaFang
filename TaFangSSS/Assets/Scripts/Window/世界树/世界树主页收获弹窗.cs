@@ -23,9 +23,20 @@ public class 世界树主页收获弹窗 : MonoBehaviour
         var list = PlayerData.S.获取世界树所有道具();
         foreach (var item in list)
         {
-            var 秘境item = QueueController.S.主页秘境itemQueue.Count > 0
-                ? QueueController.S.主页秘境itemQueue.Dequeue()
-                : Instantiate(Resources.Load("Prefabs/Window/主页秘境item")).GetComponent<主页秘境item>();
+            主页秘境item 秘境item = null;
+            while (QueueController.S.主页秘境itemQueue.Count > 0)
+            {
+                var dequeued = QueueController.S.主页秘境itemQueue.Dequeue();
+                if (dequeued != null)
+                {
+                    秘境item = dequeued;
+                    break;
+                }
+            }
+            if (秘境item == null)
+            {
+                秘境item = Instantiate(Resources.Load("Prefabs/Window/主页秘境item")).GetComponent<主页秘境item>();
+            }
             秘境item.transform.SetParent(content.transform);
             秘境item.quality = 道宝Config.道宝QualityToQuality[道宝Config.道宝品质Dic[item.Key]];
             秘境item.sprite = ResourcesConfig.Get道宝Sprite(item.Key);
