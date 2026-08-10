@@ -98,11 +98,11 @@ public class FightController : XSingleton<FightController>
         }
         else if(血量value+护盾比例<=1)
         {
-            return 144.6f * 血量value;
+            return 147.6f * 血量value;
         }
         else
         {
-            return 144.6f *(1f-护盾比例);
+            return 147.6f *(1f-护盾比例);
         }
     }
     
@@ -116,7 +116,7 @@ public class FightController : XSingleton<FightController>
         }
         else if(血量value+护盾比例<=1)
         {
-            return 144.6f * (1-血量value-护盾比例);
+            return 147.6f * (1-血量value-护盾比例);
         }
         else
         {

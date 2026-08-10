@@ -236,7 +236,7 @@ public class PlayerData : XSingleton<PlayerData>
         }
         foreach (var item in list)
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[item.Key],道宝Config.道宝品质Dic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("SendUIToast",道宝Config.道宝NameDic[item.Key],道宝Config.道宝QualityToQuality[道宝Config.道宝品质Dic[item.Key]],item.Value);
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             yield return new  WaitForSeconds(0.1f);
         }

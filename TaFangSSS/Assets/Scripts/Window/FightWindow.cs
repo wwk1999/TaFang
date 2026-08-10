@@ -14,7 +14,10 @@ public class FightWindow : MonoBehaviour
     public TextMeshProUGUI 倍速Text2;
     public Button 倍速Button3;
     public TextMeshProUGUI 倍速Text3;
-
+    public Button 倍速Button4;
+    public TextMeshProUGUI 倍速Text4;
+    public Button 倍速Button5;
+    public TextMeshProUGUI 倍速Text5;
     public Slider 关卡进度Slider;
     public TextMeshProUGUI 进度Text;
     public Animator 首领出现Animator;
@@ -35,6 +38,10 @@ public class FightWindow : MonoBehaviour
                 倍速Text2.colorGradientPreset = ResourcesConfig.黄TMP;
                 倍速Button3.image.sprite = ResourcesConfig.倍速按钮暗;
                 倍速Text3.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button4.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text4.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button5.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text5.colorGradientPreset = ResourcesConfig.黄TMP;
                 break;
             case 1.5f:
                 倍速Button2.image.sprite = ResourcesConfig.倍速按钮亮;
@@ -43,6 +50,10 @@ public class FightWindow : MonoBehaviour
                 倍速Text1.colorGradientPreset = ResourcesConfig.黄TMP;
                 倍速Button3.image.sprite = ResourcesConfig.倍速按钮暗;
                 倍速Text3.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button4.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text4.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button5.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text5.colorGradientPreset = ResourcesConfig.黄TMP;
                 break;
             case 2:
                 倍速Button3.image.sprite = ResourcesConfig.倍速按钮亮;
@@ -51,6 +62,36 @@ public class FightWindow : MonoBehaviour
                 倍速Text2.colorGradientPreset = ResourcesConfig.黄TMP;
                 倍速Button1.image.sprite = ResourcesConfig.倍速按钮暗;
                 倍速Text1.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button4.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text4.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button5.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text5.colorGradientPreset = ResourcesConfig.黄TMP;
+                break;
+            
+            case 2.5f:
+                倍速Button4.image.sprite = ResourcesConfig.倍速按钮亮;
+                倍速Text4.colorGradientPreset = ResourcesConfig.纯黄TMP;
+                倍速Button2.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text2.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button1.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text1.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button3.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text3.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button5.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text5.colorGradientPreset = ResourcesConfig.黄TMP;
+                break;
+            
+            case 3:
+                倍速Button5.image.sprite = ResourcesConfig.倍速按钮亮;
+                倍速Text5.colorGradientPreset = ResourcesConfig.纯黄TMP;
+                倍速Button2.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text2.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button1.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text1.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button4.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text4.colorGradientPreset = ResourcesConfig.黄TMP;
+                倍速Button3.image.sprite = ResourcesConfig.倍速按钮暗;
+                倍速Text3.colorGradientPreset = ResourcesConfig.黄TMP;
                 break;
         }
     }
@@ -83,7 +124,6 @@ public class FightWindow : MonoBehaviour
         倍速Button1.onClick.AddListener(() =>
         {
             if (PlayerData.S.关卡倍速 == 1) return;
-            ObserverModuleManager.S.SendEvent("倍速更改",PlayerData.S.关卡倍速,1);
             PlayerData.S.关卡倍速 = 1;
             Set倍速Button();
             Time.timeScale = 1;
@@ -97,7 +137,6 @@ public class FightWindow : MonoBehaviour
                 return;
             }
             if (PlayerData.S.关卡倍速 == 1.5f) return;
-            ObserverModuleManager.S.SendEvent("倍速更改",PlayerData.S.关卡倍速,1.5f);
             PlayerData.S.关卡倍速 = 1.5f;
             Set倍速Button();
             Time.timeScale = 1.5f;
@@ -111,10 +150,37 @@ public class FightWindow : MonoBehaviour
                 return;
             }
             if (PlayerData.S.关卡倍速 == 2) return;
-            ObserverModuleManager.S.SendEvent("倍速更改",PlayerData.S.关卡倍速,2);
             PlayerData.S.关卡倍速 = 2;
             Set倍速Button();
             Time.timeScale = 2;
+        });
+        
+        倍速Button4.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.JingJieType < JingJieType.大罗金仙)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast","大罗金仙境界解锁");
+                return;
+            }
+            if (PlayerData.S.关卡倍速 == 2.5f) return;
+            PlayerData.S.关卡倍速 = 2.5f;
+            Set倍速Button();
+            Time.timeScale = 2.5f;
+        });
+        
+        倍速Button5.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.JingJieType < JingJieType.大道圣人)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast","大道圣人境界解锁");
+                return;
+            }
+            if (PlayerData.S.关卡倍速 == 3) return;
+            PlayerData.S.关卡倍速 = 3;
+            Set倍速Button();
+            Time.timeScale = 3;
         });
     }
 }

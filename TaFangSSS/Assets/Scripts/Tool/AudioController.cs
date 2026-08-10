@@ -239,7 +239,7 @@ public class AudioController : MonoBehaviour
         // ============ 上古神明 ============
         case 战斗音效Type.羲和:
             audio.clip = AudioConfig.Get战斗音效Clip(战斗音效Type.羲和);
-            audio.volume = 1.1f * PlayerData.S.音效音量;
+            audio.volume = 0.6f * PlayerData.S.音效音量;
             audio.pitch = 1.3f;
             audio.time = 0f;
             audio.Play();
