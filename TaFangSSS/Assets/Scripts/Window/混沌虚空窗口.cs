@@ -92,20 +92,25 @@ public class 混沌虚空窗口 : MonoBehaviour
         HeroWindowController.S.显示混沌虚空层数 = count;
     }
 
+    public void 刷新混沌虚空窗口(object[] obj)
+    {
+        通关奖励.text = $"修炼速度+<color=green>{LevelConfig.Get混沌虚空通关奖励(HeroWindowController.S.显示混沌虚空层数)}%</color>";
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新混沌虚空窗口",刷新混沌虚空窗口);
         ObserverModuleManager.S.RegisterEvent("混沌虚空格子点击",混沌虚空格子点击);
     }
 
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("刷新混沌虚空窗口",刷新混沌虚空窗口);
         ObserverModuleManager.S.UnRegisterEvent("混沌虚空格子点击",混沌虚空格子点击);
     }
 
     private void OnEnable()
     {
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
-
         int 最大页数 = Mathf.CeilToInt(PlayerData.S.混沌虚空最大层数 / 30f);
         Show关卡层数(最大页数);
         PageNumText.text = 最大页数.ToString();
@@ -114,7 +119,7 @@ public class 混沌虚空窗口 : MonoBehaviour
         ObserverModuleManager.S.SendEvent("混沌虚空格子点击",HeroWindowController.S.显示混沌虚空层数);
         title.text = LevelConfig.主线关卡NameDic[主线关卡Type.混沌虚空];
         description.text = LevelConfig.主线关卡介绍Dic[主线关卡Type.混沌虚空];
-        通关奖励.text = $"修炼速度+<color=green>{LevelConfig.主线关卡通关奖励Dic[主线关卡Type.混沌虚空]}%</color>";
+        通关奖励.text = $"修炼速度+<color=green>{LevelConfig.Get混沌虚空通关奖励(HeroWindowController.S.显示混沌虚空层数)}%</color>";
         foreach (Transform item in 敌人Content.transform)
         {
             Destroy(item.gameObject);

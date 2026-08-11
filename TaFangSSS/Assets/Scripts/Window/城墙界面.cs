@@ -54,8 +54,8 @@ public class 城墙界面 : MonoBehaviour
         Icon.sprite = ResourcesConfig.Get城墙Icon();
         name.text = 城墙Config.Get城墙名();
         level.text = PlayerData.S.城墙等级.ToString();
-        hp.text = 城墙Config.Get城墙基础血量().ToString();
-        defense.text = 城墙Config.Get城墙基础防御().ToString();
+        hp.text = 城墙Config.Get城墙最大生命值().ToString();
+        defense.text = 城墙Config.Get城墙防御().ToString();
         quality.text = 城墙Config.Get城墙Quality().ToString();
         quality.colorGradientPreset = ResourcesConfig.Get品质TMP(城墙Config.Get城墙Quality());
         foreach (Transform item in 左装备COntent.transform)

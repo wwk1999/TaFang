@@ -467,7 +467,7 @@ public class MonsterBase : MonoBehaviour
          {
             if (PlayerData.S.混沌虚空最大层数 == LevelConfig.战斗混沌虚空层数)
             {
-               PlayerData.S.关卡修炼速度加成 += 100;
+               PlayerData.S.关卡修炼速度加成 += LevelConfig.Get混沌虚空通关奖励(LevelConfig.战斗混沌虚空层数);
             }
          }
          else

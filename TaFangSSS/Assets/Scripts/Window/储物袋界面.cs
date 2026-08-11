@@ -108,6 +108,11 @@ public class 储物袋界面 : MonoBehaviour
       });
       突破Button.onClick.AddListener(() =>
       {
+         if (PlayerData.S.JingJieType > JingJieType.太乙金仙)
+         {
+            ObserverModuleManager.S.SendEvent("感谢您的试玩,敬请期待正式版！");
+            return;
+         }
          突破弹窗.SetActive(true);
       });
       材料Btn.onClick.AddListener(() =>

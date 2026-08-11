@@ -1307,4 +1307,9 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.大罗天, "大罗天" },
         { 主线关卡Type.混沌虚空, "混沌虚空" },
     };
+
+    public static int Get混沌虚空通关奖励(int 层数)
+    {
+        return (层数 - 1) * 2 + 100;
+    }
 }

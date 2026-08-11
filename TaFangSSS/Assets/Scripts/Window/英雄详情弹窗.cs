@@ -255,6 +255,12 @@ public class 英雄详情弹窗 : MonoBehaviour
         });
         升星button.onClick.AddListener(() =>
         {
+            if (PlayerData.S.HeroDataDic[HeroType].Level >= 6)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","星级已满");
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                return;
+            }
             ZhiYeType zhiye=HeroConfig.HeroZhiYeDic[HeroType].zhiYeType;
             PropType 经验值 = PropType.None;
             switch (zhiye)

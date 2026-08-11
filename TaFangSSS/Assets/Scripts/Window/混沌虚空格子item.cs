@@ -28,6 +28,7 @@ public class 混沌虚空格子item : MonoBehaviour
       {
          bg.image.sprite = ResourcesConfig.混沌虚空格子暗;
       }
+      ObserverModuleManager.S.SendEvent("刷新混沌虚空窗口");
    }
    private void Awake()
    {

@@ -117,7 +117,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
       image.sprite=ResourcesConfig.GetHeroSprite(heroType);
       Name.text=HeroConfig.HeroNameDic[heroType];
       Level.text=level.ToString();
-      if (level > 0 && exp >= HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神)
+      if (level<6&&level > 0 && exp >= HeroConfig.Get升星材料(HeroConfig.HeroQualityDic[heroType], PlayerData.S.HeroDataDic[heroType].Level-1).元神)
       {
          升级Obj.SetActive(true);    
       }

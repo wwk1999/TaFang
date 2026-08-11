@@ -122,6 +122,7 @@ public class 不周山窗口 : MonoBehaviour
          PlayerData.S.不周山寻宝Dic[HeroWindowController.S.当前不周山层数].time =
             不周山Config.不周山关卡Dic[HeroWindowController.S.当前不周山层数].需要年数 * 属性config.每年秒数;
          寻宝按钮.interactable = false;
+         Show关卡列表();
          ObserverModuleManager.S.SendEvent("不周山英雄派遣Item刷新");
       });
    }

@@ -388,8 +388,8 @@ public class MonsterConfig : MonoBehaviour
     // 色界天
     { MonsterTypeName.色相天女, false },
     { MonsterTypeName.光音天众, true },
-    { MonsterTypeName.形色尊者, false },
-    { MonsterTypeName.色界天主, false},
+    { MonsterTypeName.形色尊者, true },
+    { MonsterTypeName.色界天主, true},
 
     // 无色天
     { MonsterTypeName.虚灵, false },
@@ -412,14 +412,14 @@ public class MonsterConfig : MonoBehaviour
     // 上清境禹余天
     { MonsterTypeName.禹余灵官, false },
     { MonsterTypeName.紫霞仙鹤, false },
-    { MonsterTypeName.上清剑侍, false },
-    { MonsterTypeName.魔灵宝天尊, false },
+    { MonsterTypeName.上清剑侍, true },
+    { MonsterTypeName.魔灵宝天尊, true },
 
     // 太清境大赤天
     { MonsterTypeName.大赤丹童,false },
     { MonsterTypeName.炉火精, false },
-    { MonsterTypeName.太清护卫, true },
-    { MonsterTypeName.魔老子, false},
+    { MonsterTypeName.太清护卫, false },
+    { MonsterTypeName.魔老子, true},
 
     // 大罗天
     { MonsterTypeName.弥罗侍卫, true },
