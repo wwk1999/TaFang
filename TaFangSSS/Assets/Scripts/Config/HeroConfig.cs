@@ -1045,43 +1045,43 @@ namespace Config
 
         public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
         {
-            { HeroType.丹童, 1 },
-            { HeroType.土地, 1 },
-            { HeroType.河伯, 2 },
+            { HeroType.丹童, 1.5f },
+            { HeroType.土地, 1.5f },
+            { HeroType.河伯, 3 },
             { HeroType.瑶池仙女, 5 },
 
             { HeroType.石敢当, 2 },
-            { HeroType.玄女, 2 },
-            { HeroType.龟丞相, 2 },
-            { HeroType.太白金星, 1 },
+            { HeroType.玄女, 3 },
+            { HeroType.龟丞相, 3 },
+            { HeroType.太白金星, 1.5f },
 
             { HeroType.多闻天王, 1 },
             { HeroType.广目天王, 1f },
-            { HeroType.雷震子, 2 },
-            { HeroType.月老, 1 },
+            { HeroType.雷震子, 3 },
+            { HeroType.月老, 1.5f },
 
-            { HeroType.嫦娥, 2 },
-            { HeroType.杨戬, 1 },
+            { HeroType.嫦娥, 3 },
+            { HeroType.杨戬, 1.5f },
             { HeroType.妲己, 5 },
             { HeroType.牛魔王, 1.2f },
 
             { HeroType.哪吒, 1f },
             { HeroType.孙悟空, 1f },
-            { HeroType.碧霄, 2 },
-            { HeroType.琼霄, 2 },
+            { HeroType.碧霄, 3 },
+            { HeroType.琼霄, 3 },
 
-            { HeroType.羲和, 2 },
-            { HeroType.常羲, 2 },
-            { HeroType.后羿, 1 },
-            { HeroType.云霄, 1 },
+            { HeroType.羲和, 3 },
+            { HeroType.常羲, 3 },
+            { HeroType.后羿, 1.5f },
+            { HeroType.云霄, 1.5f },
 
             { HeroType.女娲, 6 },
-            { HeroType.老子, 2 },
-            { HeroType.通天, 1f },
+            { HeroType.老子, 3 },
+            { HeroType.通天, 1.5f },
             { HeroType.元始, 1f },
 
             { HeroType.盘古, 1f },
-            { HeroType.鸿钧, 2 },
+            { HeroType.鸿钧, 3 },
 
         };
         

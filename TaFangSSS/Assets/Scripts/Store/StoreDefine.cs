@@ -12,7 +12,7 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
-        public string Name = "白辰";
+        public string Name = "修仙者";
         public JingJieType JingJieType = JingJieType.练气;
         public float Exp;
         public int CurrentBianDui = 1;
