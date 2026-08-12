@@ -60,6 +60,7 @@ public class StartWindow : MonoBehaviour
 
    private void Start()
    {
+      Application.runInBackground = true;
       StoreController.S.LoadStoreData();
       QueueController.S.Init主页秘境itemQueue();
       ResourcesConfig.Init();
