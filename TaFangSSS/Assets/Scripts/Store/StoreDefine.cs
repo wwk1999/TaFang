@@ -31,6 +31,8 @@ public class StoreDefine : XSingleton<StoreController>
         public float 分辨率X = 1920;
         public float 分辨率Y = 1080;
         public bool 是否窗口 = true;
+        public int 剩余传道次数 = 0;
+
         public Dictionary<int, 不周山秘境寻宝Item> 不周山寻宝Dic = new Dictionary<int, 不周山秘境寻宝Item>()
         {
             {1,new 不周山秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝法则道具item>()}},
@@ -778,6 +780,7 @@ public class StoreDefine : XSingleton<StoreController>
             分辨率X = runtime.分辨率.x;
             分辨率Y = runtime.分辨率.y;
             是否窗口 = runtime.是否窗口;
+            剩余传道次数 = runtime.剩余传道次数;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -821,6 +824,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.音效音量 = 音效音量;
             runtime.分辨率 = new Vector2(分辨率X, 分辨率Y);
             runtime.是否窗口 = 是否窗口;
+            runtime.剩余传道次数 = 剩余传道次数;
         }
     }
 }

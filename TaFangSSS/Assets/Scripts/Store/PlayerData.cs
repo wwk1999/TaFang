@@ -29,6 +29,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 音效音量 = 1;
     public Vector2 分辨率 = new Vector2(1920,1080);
     public bool 是否窗口 = true;
+    public int 剩余传道次数 = 0;
     public Dictionary<PropType, int> 获取不周山所有道具()
     {
         Dictionary<PropType, int> 类型数量映射 = new Dictionary<PropType, int>();

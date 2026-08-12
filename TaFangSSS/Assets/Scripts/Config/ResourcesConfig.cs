@@ -6,6 +6,83 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 传道背景框彩;
+    public static Sprite 传道背景框橙;
+    public static Sprite 传道背景框白;
+    public static Sprite 传道背景框粉;
+    public static Sprite 传道背景框紫;
+    public static Sprite 传道背景框红;
+    public static Sprite 传道背景框绿;
+    public static Sprite 传道背景框蓝;
+    
+    
+    public static Sprite 传道icon彩;
+    public static Sprite 传道icon橙;
+    public static Sprite 传道icon白;
+    public static Sprite 传道icon粉;
+    public static Sprite 传道icon紫;
+    public static Sprite 传道icon红;
+    public static Sprite 传道icon绿;
+    public static Sprite 传道icon蓝;
+    
+    
+    public static Sprite 传道按钮彩;
+    public static Sprite 传道按钮橙;
+    public static Sprite 传道按钮白;
+    public static Sprite 传道按钮粉;
+    public static Sprite 传道按钮紫;
+    public static Sprite 传道按钮红;
+    public static Sprite 传道按钮绿;
+    public static Sprite 传道按钮蓝;
+    
+    public static Sprite 射手彩;
+    public static Sprite 射手橙;
+    public static Sprite 射手白;
+    public static Sprite 射手粉;
+    public static Sprite 射手紫;
+    public static Sprite 射手红;
+    public static Sprite 射手绿;
+    public static Sprite 射手蓝;
+
+    // 战士系列
+    public static Sprite 战士彩;
+    public static Sprite 战士橙;
+    public static Sprite 战士白;  // 这就是您要补全的定义
+    public static Sprite 战士粉;
+    public static Sprite 战士紫;
+    public static Sprite 战士红;
+    public static Sprite 战士绿;
+    public static Sprite 战士蓝;
+
+    // 控制系列
+    public static Sprite 控制彩;
+    public static Sprite 控制橙;
+    public static Sprite 控制白;
+    public static Sprite 控制粉;
+    public static Sprite 控制紫;
+    public static Sprite 控制红;
+    public static Sprite 控制绿;
+    public static Sprite 控制蓝;
+
+    // 法师系列
+    public static Sprite 法师彩;
+    public static Sprite 法师橙;
+    public static Sprite 法师白;
+    public static Sprite 法师粉;
+    public static Sprite 法师紫;
+    public static Sprite 法师红;
+    public static Sprite 法师绿;
+    public static Sprite 法师蓝;
+
+    // 辅助系列
+    public static Sprite 辅助彩;
+    public static Sprite 辅助橙;
+    public static Sprite 辅助白;
+    public static Sprite 辅助粉;
+    public static Sprite 辅助紫;
+    public static Sprite 辅助红;
+    public static Sprite 辅助绿;
+    public static Sprite 辅助蓝;
     //音效
     public static AudioClip 首领出现;
     public static AudioClip 瑶池;
@@ -2703,8 +2780,157 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get传道背景框(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 传道背景框白;
+            case QualityType.玄品:
+                return 传道背景框绿;
+            case QualityType.地品:
+                return 传道背景框蓝;
+            case QualityType.天品:
+                return 传道背景框紫;
+            case QualityType.宇品:
+                return 传道背景框橙;
+            case QualityType.宙品:
+                return 传道背景框粉;
+            case QualityType.洪品:
+                return 传道背景框红;
+            case QualityType.荒品:
+                return 传道背景框彩;
+        }
+        return null;
+    }
+    
+    public static Sprite Get传道按钮(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 传道按钮白;
+            case QualityType.玄品:
+                return 传道按钮绿;
+            case QualityType.地品:
+                return 传道按钮蓝;
+            case QualityType.天品:
+                return 传道按钮紫;
+            case QualityType.宇品:
+                return 传道按钮橙;
+            case QualityType.宙品:
+                return 传道按钮粉;
+            case QualityType.洪品:
+                return 传道按钮红;
+            case QualityType.荒品:
+                return 传道按钮彩;
+        }
+        return null;
+    }
+    
+    public static Sprite Get传道icon(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 传道icon白;
+            case QualityType.玄品:
+                return 传道icon绿;
+            case QualityType.地品:
+                return 传道icon蓝;
+            case QualityType.天品:
+                return 传道icon紫;
+            case QualityType.宇品:
+                return 传道icon橙;
+            case QualityType.宙品:
+                return 传道icon粉;
+            case QualityType.洪品:
+                return 传道icon红;
+            case QualityType.荒品:
+                return 传道icon彩;
+        }
+        return null;
+    }
     public static void Init()
     {
+        传道背景框彩 = Resources.Load<Sprite>("Sprite/传道/背景框彩");
+        传道背景框橙 = Resources.Load<Sprite>("Sprite/传道/背景框橙");
+        传道背景框白 = Resources.Load<Sprite>("Sprite/传道/背景框白");
+        传道背景框粉 = Resources.Load<Sprite>("Sprite/传道/背景框粉");
+        传道背景框紫 = Resources.Load<Sprite>("Sprite/传道/背景框紫");
+        传道背景框红 = Resources.Load<Sprite>("Sprite/传道/背景框红");
+        传道背景框绿 = Resources.Load<Sprite>("Sprite/传道/背景框绿");
+        传道背景框蓝 = Resources.Load<Sprite>("Sprite/传道/背景框蓝");
+        
+        传道icon彩 = Resources.Load<Sprite>("Sprite/传道/icon彩");
+        传道icon橙 = Resources.Load<Sprite>("Sprite/传道/icon橙");
+        传道icon白 = Resources.Load<Sprite>("Sprite/传道/icon白");
+        传道icon粉 = Resources.Load<Sprite>("Sprite/传道/icon粉");
+        传道icon紫 = Resources.Load<Sprite>("Sprite/传道/icon紫");
+        传道icon红 = Resources.Load<Sprite>("Sprite/传道/icon红");
+        传道icon绿 = Resources.Load<Sprite>("Sprite/传道/icon绿");
+        传道icon蓝 = Resources.Load<Sprite>("Sprite/传道/icon蓝");
+        
+        
+        传道按钮彩 = Resources.Load<Sprite>("Sprite/传道/按钮彩");
+        传道按钮橙 = Resources.Load<Sprite>("Sprite/传道/按钮橙");
+        传道按钮白 = Resources.Load<Sprite>("Sprite/传道/按钮白");
+        传道按钮粉 = Resources.Load<Sprite>("Sprite/传道/按钮粉");
+        传道按钮紫 = Resources.Load<Sprite>("Sprite/传道/按钮紫");
+        传道按钮红 = Resources.Load<Sprite>("Sprite/传道/按钮红");
+        传道按钮绿 = Resources.Load<Sprite>("Sprite/传道/按钮绿");
+        传道按钮蓝 = Resources.Load<Sprite>("Sprite/传道/按钮蓝");
+// 射手系列
+        射手彩 = Resources.Load<Sprite>("Sprite/功法/射手彩");
+        射手橙 = Resources.Load<Sprite>("Sprite/功法/射手橙");
+        射手白 = Resources.Load<Sprite>("Sprite/功法/射手白");
+        射手粉 = Resources.Load<Sprite>("Sprite/功法/射手粉");
+        射手紫 = Resources.Load<Sprite>("Sprite/功法/射手紫");
+        射手红 = Resources.Load<Sprite>("Sprite/功法/射手红");
+        射手绿 = Resources.Load<Sprite>("Sprite/功法/射手绿");
+        射手蓝 = Resources.Load<Sprite>("Sprite/功法/射手蓝");
+
+// 战士系列
+        战士彩 = Resources.Load<Sprite>("Sprite/功法/战士彩");
+        战士橙 = Resources.Load<Sprite>("Sprite/功法/战士橙");
+        战士白 = Resources.Load<Sprite>("Sprite/功法/战士白");
+        战士粉 = Resources.Load<Sprite>("Sprite/功法/战士粉");
+        战士紫 = Resources.Load<Sprite>("Sprite/功法/战士紫");
+        战士红 = Resources.Load<Sprite>("Sprite/功法/战士红");
+        战士绿 = Resources.Load<Sprite>("Sprite/功法/战士绿");
+        战士蓝 = Resources.Load<Sprite>("Sprite/功法/战士蓝");
+
+// 控制系列
+        控制彩 = Resources.Load<Sprite>("Sprite/功法/控制彩");
+        控制橙 = Resources.Load<Sprite>("Sprite/功法/控制橙");
+        控制白 = Resources.Load<Sprite>("Sprite/功法/控制白");
+        控制粉 = Resources.Load<Sprite>("Sprite/功法/控制粉");
+        控制紫 = Resources.Load<Sprite>("Sprite/功法/控制紫");
+        控制红 = Resources.Load<Sprite>("Sprite/功法/控制红");
+        控制绿 = Resources.Load<Sprite>("Sprite/功法/控制绿");
+        控制蓝 = Resources.Load<Sprite>("Sprite/功法/控制蓝");
+
+// 法师系列
+        法师彩 = Resources.Load<Sprite>("Sprite/功法/法师彩");
+        法师橙 = Resources.Load<Sprite>("Sprite/功法/法师橙");
+        法师白 = Resources.Load<Sprite>("Sprite/功法/法师白");
+        法师粉 = Resources.Load<Sprite>("Sprite/功法/法师粉");
+        法师紫 = Resources.Load<Sprite>("Sprite/功法/法师紫");
+        法师红 = Resources.Load<Sprite>("Sprite/功法/法师红");
+        法师绿 = Resources.Load<Sprite>("Sprite/功法/法师绿");
+        法师蓝 = Resources.Load<Sprite>("Sprite/功法/法师蓝");
+
+// 辅助系列
+        辅助彩 = Resources.Load<Sprite>("Sprite/功法/辅助彩");
+        辅助橙 = Resources.Load<Sprite>("Sprite/功法/辅助橙");
+        辅助白 = Resources.Load<Sprite>("Sprite/功法/辅助白");
+        辅助粉 = Resources.Load<Sprite>("Sprite/功法/辅助粉");
+        辅助紫 = Resources.Load<Sprite>("Sprite/功法/辅助紫");
+        辅助红 = Resources.Load<Sprite>("Sprite/功法/辅助红");
+        辅助绿 = Resources.Load<Sprite>("Sprite/功法/辅助绿");
+        辅助蓝 = Resources.Load<Sprite>("Sprite/功法/辅助蓝");
+        
         丹童=Resources.Load<AudioClip>("音效/丹童");
         土地=Resources.Load<AudioClip>("音效/土地");
         河伯1=Resources.Load<AudioClip>("音效/河伯1");
