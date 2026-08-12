@@ -34,7 +34,6 @@
      法师伤害增幅,
      控制伤害增幅,
      战士伤害增幅,
-     英雄冷却缩减,
      普通怪伤害增幅,
      精英怪伤害增幅,
      首领伤害增幅,
@@ -81,7 +80,7 @@
              }
          }
          QualityType quality=(QualityType)(value+2);
-         int random1=Random.Range(1, 18);
+         int random1=Random.Range(1, Enum.GetValues(typeof(附加属性Type)).Length+1);
          附加属性Type 附加属性Type = (附加属性Type)random1;
          return new 词条Item() { 附加属性Type = 附加属性Type, QualityType = quality };
      }
@@ -249,7 +248,6 @@
          { 附加属性Type.法师伤害增幅, "法师伤害增幅" },
          { 附加属性Type.控制伤害增幅, "控制伤害增幅" },
          { 附加属性Type.战士伤害增幅, "战士伤害增幅" },
-         { 附加属性Type.英雄冷却缩减, "英雄冷却缩减" },
          { 附加属性Type.普通怪伤害增幅, "普通怪伤害增幅" },
          { 附加属性Type.精英怪伤害增幅, "精英怪伤害增幅" },
          { 附加属性Type.首领伤害增幅, "首领伤害增幅" },
@@ -270,7 +268,6 @@
          { 附加属性Type.法师伤害增幅, () => Get装备附加属性数值(附加属性Type.法师伤害增幅) },
          { 附加属性Type.控制伤害增幅, () => Get装备附加属性数值(附加属性Type.控制伤害增幅) },
          { 附加属性Type.战士伤害增幅, () => Get装备附加属性数值(附加属性Type.战士伤害增幅) },
-         { 附加属性Type.英雄冷却缩减, () => Get装备附加属性数值(附加属性Type.英雄冷却缩减) },
          { 附加属性Type.普通怪伤害增幅, () => Get装备附加属性数值(附加属性Type.普通怪伤害增幅) },
          { 附加属性Type.精英怪伤害增幅, () => Get装备附加属性数值(附加属性Type.精英怪伤害增幅) },
          { 附加属性Type.首领伤害增幅, () => Get装备附加属性数值(附加属性Type.首领伤害增幅) },
@@ -407,20 +404,6 @@
                  new 附加属性Item() { Type = QualityType.宙品, Count = 15 },
                  new 附加属性Item() { Type = QualityType.洪品, Count = 20 },
                  new 附加属性Item() { Type = QualityType.荒品, Count = 30 },
-             }
-         },
-         
-         {
-             附加属性Type.英雄冷却缩减,
-             new List<附加属性Item>()
-             {
-                 new 附加属性Item() { Type = QualityType.玄品, Count = 2 },
-                 new 附加属性Item() { Type = QualityType.地品, Count = 4 },
-                 new 附加属性Item() { Type = QualityType.天品, Count = 6 },
-                 new 附加属性Item() { Type = QualityType.宇品, Count = 8 },
-                 new 附加属性Item() { Type = QualityType.宙品, Count = 10 },
-                 new 附加属性Item() { Type = QualityType.洪品, Count = 15 },
-                 new 附加属性Item() { Type = QualityType.荒品, Count = 20 },
              }
          },
          

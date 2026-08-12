@@ -53,7 +53,6 @@ public class 属性config
      }
      public class 装备属性
      { 
-          public float 英雄冷却缩减 => EquipConfig.装备附加属性数值Dic[附加属性Type.英雄冷却缩减]();
           public float 暴击率 => EquipConfig.装备附加属性数值Dic[附加属性Type.暴击率]();
           public float 最终伤害 => EquipConfig.装备附加属性数值Dic[附加属性Type.最终伤害]();
           
@@ -118,7 +117,7 @@ public class 属性config
     public float 城墙满血时加伤害 => _道纹.城墙满血时加伤害;
     public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+_道宝.暴击率;
     public float 法师暴击率 => _道纹.法师暴击率;
-    public float 英雄冷却缩减 => _装备.英雄冷却缩减;
+    public float 英雄冷却缩减 => 0;
     public float 控制冷却缩减 => _道纹.控制冷却缩减;
     public float 伤害在范围内浮动 => _道纹.伤害在范围内浮动;
     public float 无视抗性 => _道纹.无视抗性;
