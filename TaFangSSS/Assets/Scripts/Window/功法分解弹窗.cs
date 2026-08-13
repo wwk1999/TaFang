@@ -50,6 +50,19 @@ public class 功法分解弹窗 : MonoBehaviour
         获得经验.text=功法Config.功法分解经验[功法Config.功法TypeQualityDic[功法Type]].ToString();
     }
 
+    private void OnEnable()
+    {
+        数量Slider.maxValue = PlayerData.S.功法数量Dic[功法Type];
+        if (PlayerData.S.功法数量Dic[功法Type] <= 1)
+        {
+            数量Slider.minValue = 0; 
+        }
+        else
+        {
+            数量Slider.minValue = 1;
+        }
+    }
+
     void OnSliderValueChanged(float value)
     {
         if (PlayerData.S.功法数量Dic[功法Type] == 1)

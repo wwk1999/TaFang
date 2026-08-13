@@ -716,6 +716,11 @@ public class 英雄星级属性
         {
             value += 10f;
         }
+
+        if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type].count / 100f);
+        }
         return value/100f;
     }
     public static float Get女娲持续时间()
@@ -905,6 +910,10 @@ public class 英雄星级属性
         {
             value += 15f;
         }
+        if (PlayerData.S.HeroDataDic[HeroType.常羲].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.常羲].功法Type].count / 100f);
+        }
         return value;
     }
     
@@ -1047,6 +1056,10 @@ public class 英雄星级属性
         if (法则星级 >= 5)
         {
             value += 0.5f;
+        }
+        if (PlayerData.S.HeroDataDic[HeroType.琼霄].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.琼霄].功法Type].count / 100f);
         }
         return value;
     }
@@ -1345,6 +1358,10 @@ public class 英雄星级属性
         if (xj >= 5)
         {
             value += 10f;
+        }
+        if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type].count / 100f);
         }
         return value;
     }
@@ -1686,6 +1703,10 @@ public class 英雄星级属性
         {
             value += 10;
         }
+        if (PlayerData.S.HeroDataDic[HeroType.龟丞相].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.龟丞相].功法Type].count / 100f);
+        }
         return value;
     }
     
@@ -1780,6 +1801,10 @@ public class 英雄星级属性
         {
             value += 10f;
         }
+        if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type].count / 100f);
+        }
         return value;
     }
     public static float Get瑶池仙女持续时间()
@@ -1855,6 +1880,10 @@ public class 英雄星级属性
         if (xj >= 5)
         {
             value *= 1.25f;
+        }
+        if (PlayerData.S.HeroDataDic[HeroType.土地].功法Type != 功法Type.None)
+        {
+            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.土地].功法Type].count / 100f);
         }
         return value;
     }

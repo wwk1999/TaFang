@@ -1015,7 +1015,7 @@ namespace Config
 
             {
                 HeroType.女娲,
-                "对所有英雄施加补天净化咒，提高所有英雄" + Get技能伤害string(HeroSkillDamageDic[HeroType.女娲][0], 1) + "的攻击速度,持续" +
+                "对所有英雄施加补天净化咒，提高所有英雄" + Get技能伤害string(HeroSkillDamageDic[HeroType.女娲][0], 1) + "的冷却缩减,持续" +
                 Get技能伤害string(HeroSkillDamageDic[HeroType.女娲][1], 2)
             },
             {

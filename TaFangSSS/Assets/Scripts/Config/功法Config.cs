@@ -397,7 +397,7 @@ public class 功法Config
         }
     }
 
-    public static Dictionary<QualityType, float> 功法升级奖励Dic = new Dictionary<QualityType, float>()
+    public static Dictionary<QualityType, float> 功法升级最终伤害奖励Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 5 },
         { QualityType.玄品, 10 },
@@ -409,6 +409,7 @@ public class 功法Config
         { QualityType.荒品, 200 },
     };
     
+    //增加被辅助英雄伤害
     public static Dictionary<QualityType, float> 辅助功法升级奖励Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 3 },

@@ -283,6 +283,18 @@ public class MonsterBase : MonoBehaviour
 
       return 原始Damage;
    }
+
+   public float 计算法师功法暴击伤害(float damage, HeroType heroType)
+   {
+      if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.法师 &&
+          PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
+      {
+         float 暴击伤害 = 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count;
+         damage *= (1 + 暴击伤害 / 100f);
+      }
+
+      return damage;
+   }
    public void Hurt(float 原始Damage,HeroType heroType)
    {
       受击Animation.Play("怪物受击",0,0f);
@@ -291,10 +303,12 @@ public class MonsterBase : MonoBehaviour
       if (暴击)
       {
          最终Damage *= (2f + 属性config.Get英雄暴击伤害增幅()/100f);
+         最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
       }
-
+      
       最终Damage *= 属性config.总属性.最终伤害增幅;
-      最终Damage = Get道纹伤害(原始Damage, heroType);
+      最终Damage=计算功法伤害(最终Damage,heroType);
+      最终Damage = Get道纹伤害(最终Damage, heroType);
       if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
       {
          最终Damage *= 属性config.总属性.战士对靠近城墙敌人伤害增高;
@@ -487,6 +501,33 @@ public class MonsterBase : MonoBehaviour
       // 立即保存存档，防止退出主界面时LoadStoreData覆盖已更新的值
       StoreController.S.SaveStoreData();
    }
+
+   public float 计算功法伤害(float damage,HeroType  heroType)
+   {
+      if (PlayerData.S.HeroDataDic[heroType].功法Type == 功法Type.None) return damage;
+      int 功法等级 = PlayerData.S.HeroDataDic[heroType].功法等级;
+      float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[heroType].功法Type]];
+
+      damage *= (1 + 功法等级 * 每重奖励 / 100f);
+      return damage;
+   }
+   
+   public void 增加功法经验()
+   {
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+      {
+         if (item == HeroType.None) return;
+         if (PlayerData.S.HeroDataDic[item].功法Type != 功法Type.None)
+         {
+            PlayerData.S.HeroDataDic[item].功法经验++;
+            if (PlayerData.S.HeroDataDic[item].功法经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].功法等级))
+            {
+               PlayerData.S.HeroDataDic[item].功法经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].功法等级);
+               PlayerData.S.HeroDataDic[item].功法等级++;
+            }
+         }
+      }
+   }
    public void Die(HeroType heroType)
    {
       if (isDead)
@@ -495,7 +536,7 @@ public class MonsterBase : MonoBehaviour
       }
       isDead = true;
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
-      
+      增加功法经验();
       if (heroType == HeroType.盘古)
       {
          FightController.S.盘古击杀次数++;

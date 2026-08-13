@@ -133,7 +133,6 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
          功法bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(功法品质);
          功法icon.sprite = ResourcesConfig.Get功法Sprite(功法Type);
          功法Name.text = 功法Config.功法名Dic[功法Type];
-         功法Name.colorGradientPreset = ResourcesConfig.Get品质TMP(功法品质);
          功法level.text = 功法等级.ToString();
       }
 

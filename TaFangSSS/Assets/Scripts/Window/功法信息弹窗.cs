@@ -27,7 +27,7 @@ public class 功法信息弹窗 : MonoBehaviour
         info.text = 功法Config.功法介绍Dic[功法Type];
         基础属性.text = 功法Config.Get功法基础属性(功法Type);
         ZhiYeType zhiYeType = 功法Config.功法职业Dic[功法Type];
-        float 最终伤害 = 功法Config.功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]] ;
+        float 最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]] ;
         float 辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]] ;
         if (zhiYeType == ZhiYeType.辅助)
         {

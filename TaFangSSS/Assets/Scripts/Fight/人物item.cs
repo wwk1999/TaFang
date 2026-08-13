@@ -50,15 +50,22 @@ public class 人物item : MonoBehaviour
     public float Get攻击间隔()
     {
         float value = 英雄星级属性.Get英雄Cd(heroType);
-        value *= (1 - 属性config.总属性.英雄冷却缩减);
+        value /= (1 + 属性config.总属性.英雄冷却缩减);
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.控制)
         {
-            value *= (1 - 属性config.总属性.控制冷却缩减);
+            value /= (1 + 属性config.总属性.控制冷却缩减);
         }
         if (女娲电辅助 > 0)
         {
-            value *= (1f-英雄星级属性.女娲效果);
-            value *= (1f - 属性config.总属性.女娲辅助冷却缩减);
+            float 原始星级效果 = 英雄星级属性.女娲效果;
+            value /= (1f+原始星级效果);
+            value /= (1f + 属性config.总属性.女娲辅助冷却缩减);//道文
+        }
+
+        if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.射手 &&
+            PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
+        {
+            value/=(1f+功法Config.功法属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count/100f);
         }
         float random=Random.Range(0.8f,1.2f);
         return value*random;
@@ -343,6 +350,11 @@ public class 人物item : MonoBehaviour
     {
         image.sprite = ResourcesConfig.GetHeroSprite(heroType);
         float scale = HeroConfig.攻击范围Dic[HeroConfig.HeroZhiYeDic[heroType].zhiYeType];
+        if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士 &&
+            PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
+        {
+            scale+=功法Config.功法属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count;
+        }
         攻击范围Tri.transform.localScale = new Vector3(scale, scale, scale);
         switch (HeroConfig.HeroQualityDic[heroType])
         {
