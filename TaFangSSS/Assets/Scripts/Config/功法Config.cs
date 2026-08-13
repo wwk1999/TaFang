@@ -70,7 +70,7 @@ public class 功法属性Item
 
 public class 功法Config
 {
-    public static Dictionary<QualityType, int> 功法升级经验 = new Dictionary<QualityType, int>()
+    public static Dictionary<QualityType, int> 功法升星经验 = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,100},
         { QualityType.玄品 ,200},
@@ -81,6 +81,32 @@ public class 功法Config
         { QualityType.洪品 ,8000},
         { QualityType.荒品 ,20000},
     };
+
+    public static int Get功法升级经验(int level)
+    {
+        if (level <= 5)return 300;
+        else if (level <= 10)return 500;
+        else if (level <= 15)return 800;
+        else if (level <= 20)return 1200;
+        else if (level <= 25)return 1500;
+        else if (level <= 30)return 1800;
+        else if (level <= 35)return 2100;
+        else if (level <= 40)return 2500;
+        else if (level <= 45)return 3000;
+        else if (level <= 50)return 3500;
+        else if (level <= 55)return 4500;
+        else if (level <= 60)return 5000;
+        else if (level <= 65)return 5500;
+        else if (level <= 70)return 6000;
+        else if (level <= 75)return 6500;
+        else if (level <= 80)return 7000;
+        else if (level <= 85)return 7500;
+        else if (level <= 90)return 8000;
+        else if (level <= 95)return 8500;
+        else if (level <= 100) return 9000;
+        else return 10000;
+    }
+    
     public static Dictionary<QualityType, int> 功法分解经验 = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,50},

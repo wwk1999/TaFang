@@ -15,6 +15,8 @@ public enum 当前显示关卡类型
 }
 public class HeroWindowController:XSingleton<HeroWindowController>
 {
+    [NonSerialized] public 功法Type 当前选择功法 = 功法Type.None;
+
     //herowindow
     [NonSerialized] public bool IsDrag = false;
     [NonSerialized] public bool IsJiaoHuan = false;

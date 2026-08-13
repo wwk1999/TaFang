@@ -12,6 +12,8 @@ using Image = UnityEngine.UI.Image;
 
 public class HeroWindow : MonoBehaviour
 {
+   public 功法选择弹窗 功法选择弹窗;
+   public 功法确认装备弹窗 功法确认装备弹窗;
    public Button ExitButton;
    public GameObject HeroPanelContent;
    public Button JiBanButton;
@@ -79,6 +81,9 @@ public class HeroWindow : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("刷新英雄卡片功法",升星刷新);
+      ObserverModuleManager.S.UnRegisterEvent("显示功法选择弹窗",显示功法选择弹窗);
+      ObserverModuleManager.S.UnRegisterEvent("显示英雄功法确认弹窗",显示英雄功法确认弹窗);
       ObserverModuleManager.S.UnRegisterEvent("法则升级", 法则升级);
       ObserverModuleManager.S.UnRegisterEvent("升星刷新", 升星刷新);
       ObserverModuleManager.S.UnRegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
@@ -88,8 +93,24 @@ public class HeroWindow : MonoBehaviour
    {
       暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
    }
+
+   public void 显示英雄功法确认弹窗(object[] obj)
+   {
+      功法确认装备弹窗.heroType = (HeroType)obj[0];
+      功法确认装备弹窗.gameObject.SetActive(true);
+   }
+
+   public void 显示功法选择弹窗(object[] obj)
+   {
+      功法选择弹窗.HeroType = (HeroType)obj[0];
+      功法选择弹窗.gameObject.SetActive(true);
+   }
+   
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新英雄卡片功法",升星刷新);
+      ObserverModuleManager.S.RegisterEvent("显示功法选择弹窗",显示功法选择弹窗);
+      ObserverModuleManager.S.RegisterEvent("显示英雄功法确认弹窗",显示英雄功法确认弹窗);
       ObserverModuleManager.S.RegisterEvent("法则升级", 法则升级);
       ObserverModuleManager.S.RegisterEvent("升星刷新", 升星刷新);
       ObserverModuleManager.S.RegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
