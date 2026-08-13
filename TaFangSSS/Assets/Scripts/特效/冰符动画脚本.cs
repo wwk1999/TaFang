@@ -83,11 +83,33 @@ public class 冰符动画脚本: MonoBehaviour
 
                 if (黑暗辅助)
                 {
+                    if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
+                    {
+                        damage *= (1 + PlayerData.S.HeroDataDic[HeroType.妲己].功法等级 *
+                            功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type]] /
+                            100f);
+                    }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
                 if (女娲电辅助)
                 {
+                    if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+                    {
+                        damage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
+                            功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
+                            100f);
+                    }
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                }
+
+                if (瑶池冰辅助)
+                {
+                    if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
+                    {
+                        damage *= (1 + PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法等级 *
+                            功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
+                            100f);
+                    }
                 }
                 if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
                 {

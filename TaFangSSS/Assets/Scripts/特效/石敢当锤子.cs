@@ -44,18 +44,37 @@ public class 石敢当锤子 : MonoBehaviour
    {
       if (other.CompareTag("Monster")&&speed>0)
       {
-         if (瑶池冰辅助)
-         {
-            QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
-         }
+         
 
          float damage = 属性config.总属性.总攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
+         if (瑶池冰辅助)
+         {
+            if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
+            {
+               damage *= (1 + PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法等级 *
+                  功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
+                  100f);
+            }
+            QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
+         }
          if (黑暗辅助)
          {
+            if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
+            {
+               damage *= (1 + PlayerData.S.HeroDataDic[HeroType.妲己].功法等级 *
+                  功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type]] /
+                  100f);
+            }
             damage *= (1+英雄星级属性.妲己效果/100f);
          }
          if (女娲电辅助)
          {
+            if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+            {
+               damage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
+                  功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
+                  100f);
+            }
             damage*=(1+英雄星级属性.女娲辅助伤害/100f);
          }
          if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)

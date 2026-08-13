@@ -55,13 +55,38 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                 float damage = 属性config.总属性.总攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
                 if (黑暗辅助)
                 {
+                    if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
+                    {
+                        damage *= (1 + PlayerData.S.HeroDataDic[HeroType.妲己].功法等级 *
+                            功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type]] /
+                            100f);
+                    }
                     damage *= (1+英雄星级属性.妲己效果/100f);
                 }
                 if (女娲电辅助)
                 {
+                    if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+                    {
+                        damage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
+                            功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
+                            100f);
+                    }
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                 }
-                
+
+                if (瑶池冰辅助)
+                {
+                    if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+                    {
+                        damage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
+                            功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
+                            100f);
+                    }
+                }
+                if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
+                {
+                    damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
+                }
                 QueueController.S.MonsterColliderDic[col].Hurt(damage,heroType);
             }
         }

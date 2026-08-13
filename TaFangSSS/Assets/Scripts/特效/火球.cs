@@ -25,16 +25,37 @@ public class 火球 : MonoBehaviour
             float realDamage = damage;
             if (黑暗辅助)
             {
+                if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
+                {
+                    realDamage *= (1 + PlayerData.S.HeroDataDic[HeroType.妲己].功法等级 *
+                        功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type]] /
+                        100f);
+                }
                 realDamage *= (1+英雄星级属性.妲己效果/100f);
             }
             if (女娲电辅助)
             {
-                
-                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+                {
+                    realDamage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
+                        功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
+                        100f);
+                }
+                realDamage*=(1+英雄星级属性.女娲辅助伤害/100f);
+            }
+
+            if (瑶池冰辅助)
+            {
+                if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
+                {
+                    realDamage *= (1 + PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法等级 *
+                        功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
+                        100f);
+                }
             }
             if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
             {
-                damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
+                realDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
             }
             QueueController.S.MonsterColliderDic[other].Hurt(realDamage,HeroType);
             hit.gameObject.SetActive(true);
