@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public 功法分解弹窗 功法分解弹窗;
    public TextMeshProUGUI 修炼速度count;
    public GameObject 头像框;
    public Button 突破Button;
@@ -20,6 +21,7 @@ public class 储物袋界面 : MonoBehaviour
    public Button 强化Btn;
    public Button 材料Btn;
    public Button 道纹Btn;
+   public Button 功法Btn;
    public TextMeshProUGUI  Name;
    public TextMeshProUGUI  跟脚;
    public TextMeshProUGUI 境界Name;
@@ -27,7 +29,7 @@ public class 储物袋界面 : MonoBehaviour
    public TextMeshProUGUI MaxExp;
    public Slider ExpSlider;
    public GameObject 突破弹窗;
-   private bool IsProp = true;
+   private int 显示类型 = 1;//1是材料，2是道文，3是功法
    public GameObject 强化弹窗;
    public GameObject 人物属性弹窗;
    public Button 属性Btn;
@@ -86,8 +88,14 @@ public class 储物袋界面 : MonoBehaviour
       Set境界();
    }
 
+   public void 刷新背包(object[] obj)
+   {
+      刷新背包();
+   }
+
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹image", Show道纹image);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹弹窗", Show道纹弹窗);
@@ -95,12 +103,21 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.UnRegisterEvent("突破成功", 突破成功);
    }
 
+   public void 功法分解(object[] obj)
+   {
+      功法Type type = (功法Type)obj[0];
+      功法分解弹窗.功法Type = type;
+      功法分解弹窗.SetItem();
+      功法分解弹窗.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("功法分解",功法分解);
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.RegisterEvent("Show道纹image", Show道纹image);
       ObserverModuleManager.S.RegisterEvent("Show道纹弹窗", Show道纹弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
+      ObserverModuleManager.S.RegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
       属性Btn.onClick.AddListener(() =>
       {
@@ -110,18 +127,22 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.JingJieType > JingJieType.太乙金仙)
          {
-            ObserverModuleManager.S.SendEvent("感谢您的试玩,敬请期待正式版！");
+            ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版！");
             return;
          }
          突破弹窗.SetActive(true);
       });
       材料Btn.onClick.AddListener(() =>
       {
-         IsProp = true;
+         显示类型 = 1;
          刷新背包(); 
       });
       道纹Btn.onClick.AddListener(() => { 
-         IsProp = false;
+         显示类型 = 2;
+         刷新背包(); 
+      });
+      功法Btn.onClick.AddListener(() => { 
+         显示类型 = 3;
          刷新背包(); 
       });
       强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
@@ -139,7 +160,7 @@ public class 储物袋界面 : MonoBehaviour
 
    private void OnEnable()
    {
-      IsProp = true;
+      显示类型 = 1;
       ShowProp();
       ShowEquip();
       Set经验SLider();
@@ -148,6 +169,8 @@ public class 储物袋界面 : MonoBehaviour
    
    public void Show道纹()
    {
+      功法Btn.image.sprite = ResourcesConfig.按钮暗;
+
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮亮;
       foreach (Transform item in BagContent.transform)
@@ -213,20 +236,45 @@ public class 储物袋界面 : MonoBehaviour
 
    public void 刷新背包()
    {
-      if (IsProp)
+      switch (显示类型)
       {
-         ShowProp();
-      }
-      else
-      {
-         Show道纹();
+         case 1:
+            ShowProp();
+            break;
+         case 2:
+            Show道纹();
+            break;
+         case 3:
+            Show功法();
+            break;
       }
    }
 
+   public void Show功法()
+   {
+      材料Btn.image.sprite = ResourcesConfig.按钮暗;
+      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
+      功法Btn.image.sprite = ResourcesConfig.按钮亮;
+      foreach (Transform item in BagContent.transform)
+      {
+         Destroy(item.gameObject);
+      }
+
+      foreach (var item in PlayerData.S.功法数量Dic)
+      {
+         if (item.Value > 0)
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/功法Grid"), BagContent.transform).GetComponent<功法Grid>();
+            baggrid.功法Type = item.Key;
+            baggrid.SetItem();
+         }
+      }
+   }
    public void ShowProp()
    {
       材料Btn.image.sprite = ResourcesConfig.按钮亮;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
+      功法Btn.image.sprite = ResourcesConfig.按钮暗;
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);

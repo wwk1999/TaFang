@@ -7,6 +7,8 @@ namespace Config
         public int Level;
         public int 元神;
         public bool 派遣;
+        public 功法Type 功法Type;
+        public int 功法等级;
     }
 
     public class HeroZhiYeYuanSu

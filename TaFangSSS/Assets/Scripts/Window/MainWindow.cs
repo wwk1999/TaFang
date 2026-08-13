@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public 紫霄宫传道窗口 紫霄宫传道窗口;
+    public Button 紫霄宫传道Button;
     public TextMeshProUGUI 道龄剩余时间;
     public TextMeshProUGUI 道龄所需时间;
 
@@ -140,6 +142,10 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
+        紫霄宫传道Button.onClick.AddListener(() =>
+        {
+            紫霄宫传道窗口.gameObject.SetActive(true);
+        });
         通天塔.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.通天塔;

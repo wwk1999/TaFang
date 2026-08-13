@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 功法经验;
     public static Sprite 传道背景框彩;
     public static Sprite 传道背景框橙;
     public static Sprite 传道背景框白;
@@ -1097,6 +1098,64 @@ public class ResourcesConfig : MonoBehaviour
         return null;
     }
 
+    public static Sprite Get功法Sprite(功法Type type)
+    {
+        switch (type)
+        {
+            // 战士系列
+            case 功法Type.战士白: return 战士白;
+            case 功法Type.战士绿: return 战士绿;
+            case 功法Type.战士蓝: return 战士蓝;
+            case 功法Type.战士紫: return 战士紫;
+            case 功法Type.战士粉: return 战士粉;
+            case 功法Type.战士红: return 战士红;
+            case 功法Type.战士橙: return 战士橙;
+            case 功法Type.战士彩: return 战士彩;
+
+            // 射手系列
+            case 功法Type.射手白: return 射手白;
+            case 功法Type.射手绿: return 射手绿;
+            case 功法Type.射手蓝: return 射手蓝;
+            case 功法Type.射手紫: return 射手紫;
+            case 功法Type.射手粉: return 射手粉;
+            case 功法Type.射手红: return 射手红;
+            case 功法Type.射手橙: return 射手橙;
+            case 功法Type.射手彩: return 射手彩;
+
+            // 控制系列
+            case 功法Type.控制白: return 控制白;
+            case 功法Type.控制绿: return 控制绿;
+            case 功法Type.控制蓝: return 控制蓝;
+            case 功法Type.控制紫: return 控制紫;
+            case 功法Type.控制粉: return 控制粉;
+            case 功法Type.控制红: return 控制红;
+            case 功法Type.控制橙: return 控制橙;
+            case 功法Type.控制彩: return 控制彩;
+
+            // 辅助系列
+            case 功法Type.辅助白: return 辅助白;
+            case 功法Type.辅助绿: return 辅助绿;
+            case 功法Type.辅助蓝: return 辅助蓝;
+            case 功法Type.辅助紫: return 辅助紫;
+            case 功法Type.辅助粉: return 辅助粉;
+            case 功法Type.辅助红: return 辅助红;
+            case 功法Type.辅助橙: return 辅助橙;
+            case 功法Type.辅助彩: return 辅助彩;
+
+            // 法师系列
+            case 功法Type.法师白: return 法师白;
+            case 功法Type.法师绿: return 法师绿;
+            case 功法Type.法师蓝: return 法师蓝;
+            case 功法Type.法师紫: return 法师紫;
+            case 功法Type.法师粉: return 法师粉;
+            case 功法Type.法师红: return 法师红;
+            case 功法Type.法师橙: return 法师橙;
+            case 功法Type.法师彩: return 法师彩;
+
+            default: return null;
+        }
+    }
+
     public static Sprite Get元素Sprite(YuanSuType yuanSuType)
     {
         switch (yuanSuType)
@@ -1434,6 +1493,8 @@ public class ResourcesConfig : MonoBehaviour
     {
         switch (propType)
         {
+            case PropType.功法经验:
+                return 功法经验;
             case PropType.冰之法则:
                 return 冰;
             case PropType.火之法则:
@@ -2854,6 +2915,8 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        功法经验=Resources.Load<Sprite>("Sprite/DaoJu/功法经验");
+        
         传道背景框彩 = Resources.Load<Sprite>("Sprite/传道/背景框彩");
         传道背景框橙 = Resources.Load<Sprite>("Sprite/传道/背景框橙");
         传道背景框白 = Resources.Load<Sprite>("Sprite/传道/背景框白");

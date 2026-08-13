@@ -76,6 +76,7 @@ public class StoreController : XSingleton<StoreController>
         {
             PlayerData.S.道龄S = 0;
             PlayerData.S.道龄年++;
+            PlayerData.S.剩余传道次数++;
         }
         //自动保存
         if (当前增加修为时间 >= 增加修为时间)

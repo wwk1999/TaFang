@@ -16,8 +16,18 @@ public class 紫霄宫传道窗口 : MonoBehaviour
     public GameObject 概率弹窗;
 
 
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("刷新传道界面",刷新传道界面);
+    }
+
+    public void 刷新传道界面(object[] obj)
+    {
+        传道次数.text = PlayerData.S.剩余传道次数.ToString();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新传道界面",刷新传道界面);
         概率弹窗.gameObject.SetActive(false);
         查看按钮.onClick.AddListener(() =>
         {

@@ -30,6 +30,59 @@ public class PlayerData : XSingleton<PlayerData>
     public Vector2 分辨率 = new Vector2(1920,1080);
     public bool 是否窗口 = true;
     public int 剩余传道次数 = 0;
+    
+    public Dictionary<功法Type, int> 功法数量Dic = new Dictionary<功法Type, int>()
+    {
+        // 战士系列
+        { 功法Type.战士白, 0 },
+        { 功法Type.战士绿, 0 },
+        { 功法Type.战士蓝, 0 },
+        { 功法Type.战士紫, 0 },
+        { 功法Type.战士粉, 0 },
+        { 功法Type.战士红, 0 },
+        { 功法Type.战士橙, 0 },
+        { 功法Type.战士彩, 0 },
+
+        // 射手系列
+        { 功法Type.射手白, 0 },
+        { 功法Type.射手绿, 0 },
+        { 功法Type.射手蓝, 0 },
+        { 功法Type.射手紫, 0 },
+        { 功法Type.射手粉, 0 },
+        { 功法Type.射手红, 0 },
+        { 功法Type.射手橙, 0 },
+        { 功法Type.射手彩, 0 },
+
+        // 控制系列
+        { 功法Type.控制白, 0 },
+        { 功法Type.控制绿, 0 },
+        { 功法Type.控制蓝, 0 },
+        { 功法Type.控制紫, 0 },
+        { 功法Type.控制粉, 0 },
+        { 功法Type.控制红, 0 },
+        { 功法Type.控制橙, 0 },
+        { 功法Type.控制彩, 0 },
+
+        // 辅助系列
+        { 功法Type.辅助白, 0 },
+        { 功法Type.辅助绿, 0 },
+        { 功法Type.辅助蓝, 0 },
+        { 功法Type.辅助紫, 0 },
+        { 功法Type.辅助粉, 0 },
+        { 功法Type.辅助红, 0 },
+        { 功法Type.辅助橙, 0 },
+        { 功法Type.辅助彩, 0 },
+
+        // 法师系列
+        { 功法Type.法师白, 0 },
+        { 功法Type.法师绿, 0 },
+        { 功法Type.法师蓝, 0 },
+        { 功法Type.法师紫, 0 },
+        { 功法Type.法师粉, 0 },
+        { 功法Type.法师红, 0 },
+        { 功法Type.法师橙, 0 },
+        { 功法Type.法师彩, 0 },
+    };
     public Dictionary<PropType, int> 获取不周山所有道具()
     {
         Dictionary<PropType, int> 类型数量映射 = new Dictionary<PropType, int>();
@@ -960,6 +1013,7 @@ public class PlayerData : XSingleton<PlayerData>
         { PropType.造化法则 ,0},
         { PropType.道之法则 ,0},
         { PropType.鸿蒙法则 ,0},
+        { PropType.功法经验 ,0},
     };
 
    
