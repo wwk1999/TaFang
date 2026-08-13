@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public Button 设置按钮;
+    public Canvas canvas;
     public 紫霄宫传道窗口 紫霄宫传道窗口;
     public Button 紫霄宫传道Button;
     public TextMeshProUGUI 道龄剩余时间;
@@ -142,6 +144,11 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
+        设置按钮.onClick.AddListener(() =>
+        {
+            GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
+            obj.transform.SetAsLastSibling();
+        });
         紫霄宫传道Button.onClick.AddListener(() =>
         {
             紫霄宫传道窗口.gameObject.SetActive(true);
@@ -265,6 +272,30 @@ public class MainWindow : MonoBehaviour
         {
             WindowController.S.招募Window.gameObject.SetActive(true);
         });
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            WindowController.S.储物袋Window.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            WindowController.S.道宝Window.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            WindowController.S.英雄Window.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            WindowController.S.招募Window.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            WindowController.S.城墙Window.gameObject.SetActive(true);
+        }
     }
 
     private void OnEnable()

@@ -37,14 +37,6 @@ public class 储物袋界面 : MonoBehaviour
    public void Set境界()
    {
       修炼速度count.text = 属性config.总修炼速度加成 + "%";
-      if (PlayerData.S.Exp >= JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
-      {
-         突破Button.gameObject.SetActive(true);
-      }
-      else
-      {
-         突破Button.gameObject.SetActive(false);
-      }
       跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
       境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
    }
@@ -125,6 +117,11 @@ public class 储物袋界面 : MonoBehaviour
       });
       突破Button.onClick.AddListener(() =>
       {
+         if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","当前经验不足");
+            return;
+         }
          if (PlayerData.S.JingJieType > JingJieType.太乙金仙)
          {
             ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版！");

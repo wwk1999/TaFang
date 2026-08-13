@@ -40,6 +40,8 @@ public class 招募成功弹窗 : MonoBehaviour
                     return;
                 }
                 PlayerData.S.PropListDic[PropType.高级招募卷]--;
+                PlayerData.S.招募积分 += 5;
+
                 Item1Type = ZhaoMuConfig.GaoJiZhaoMu();
             }
             else
@@ -52,6 +54,7 @@ public class 招募成功弹窗 : MonoBehaviour
                     return;
                 }
                 PlayerData.S.PropListDic[PropType.招募卷]--;
+                PlayerData.S.招募积分 += 1;
                 Item1Type = ZhaoMuConfig.NormalZhaoMu();
             }
 
@@ -75,6 +78,8 @@ public class 招募成功弹窗 : MonoBehaviour
                     {
                         list[i] = ZhaoMuConfig.GaoJiZhaoMu();
                     }
+                    PlayerData.S.PropListDic[PropType.高级招募卷]-=10;
+                    PlayerData.S.招募积分 += 50;
                 }
                 else
                 {
@@ -90,6 +95,7 @@ public class 招募成功弹窗 : MonoBehaviour
                     {
                         list[i]=ZhaoMuConfig.NormalZhaoMu();
                     }
+                    PlayerData.S.招募积分 += 10;
                 }
             
             StopAllCoroutines();

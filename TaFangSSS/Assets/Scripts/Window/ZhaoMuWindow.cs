@@ -107,6 +107,8 @@ public class ZhaoMuWindow : MonoBehaviour
                return;
             }
             PlayerData.S.PropListDic[PropType.高级招募卷]--;
+            PlayerData.S.招募积分 += 5;
+
             招募成功弹窗.Is10 = false;
             PropType propType = ZhaoMuConfig.GaoJiZhaoMu();
             招募成功弹窗.Item1Type = propType;
@@ -121,6 +123,7 @@ public class ZhaoMuWindow : MonoBehaviour
                return;
             }
             PlayerData.S.PropListDic[PropType.高级招募卷]-=10;
+            PlayerData.S.招募积分 += 50;
             招募成功弹窗.Is10 = true;
             招募成功弹窗.list.Clear();
             for (int i = 0; i < 10; i++)

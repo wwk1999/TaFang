@@ -47,6 +47,7 @@ public class 道纹item : MonoBehaviour, IDropHandler
             道纹Type = HeroWindowController.S.道纹Type;
             道纹QualityType=HeroWindowController.S.道纹QualityType;
             SetItem();
+            PlayerData.S.Set道纹数量(HeroWindowController.S.道纹Type,HeroWindowController.S.道纹QualityType,PlayerData.S.Get道纹数量(HeroWindowController.S.道纹Type,HeroWindowController.S.道纹QualityType)-1);
             switch (解锁境界)
             {
                case QualityType.天品:

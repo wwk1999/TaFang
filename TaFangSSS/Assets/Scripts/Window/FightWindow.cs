@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public Canvas canvas;
+    public Button 设置Button;
     public Button exitButton;
     public Button 倍速Button1;
     public TextMeshProUGUI 倍速Text1;
@@ -120,6 +122,11 @@ public class FightWindow : MonoBehaviour
         {
             Time.timeScale = 0;
             退出确认弹窗.gameObject.SetActive(true);
+        });
+        设置Button.onClick.AddListener(() =>
+        {
+            GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
+            obj.transform.SetAsLastSibling();
         });
         倍速Button1.onClick.AddListener(() =>
         {

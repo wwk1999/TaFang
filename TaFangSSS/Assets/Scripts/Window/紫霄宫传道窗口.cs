@@ -31,7 +31,7 @@ public class 紫霄宫传道窗口 : MonoBehaviour
         概率弹窗.gameObject.SetActive(false);
         查看按钮.onClick.AddListener(() =>
         {
-            概率弹窗.gameObject.SetActive(false);
+            概率弹窗.gameObject.SetActive(true);
         });
         exitButton.onClick.AddListener(() =>
         {
