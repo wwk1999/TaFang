@@ -139,6 +139,8 @@ public class MonsterBase : MonoBehaviour
       basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
    }
 
+  
+
    public MonsterAttribute Get怪物属性(主线关卡怪物Item item)
    {
       MonsterAttribute 基础属性 = MonsterConfig.主线关卡怪物属性Dic[item];

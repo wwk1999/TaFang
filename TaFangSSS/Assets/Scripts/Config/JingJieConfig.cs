@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 
 public enum JingJieType
@@ -26,46 +27,39 @@ public enum JingJieType
     鸿蒙,
 }
 
-public enum 突破Type
-{
-    None,
-    凡,
-    灵,
-    仙,
-    圣,
-    荒,
-}
 
 public class JingJieConfig : MonoBehaviour
 {
-    public static Dictionary<JingJieType, List<int>> 突破材料Dic = new Dictionary<JingJieType, List<int>>()
+    public static Dictionary<JingJieType, List<long>> 突破材料Dic = new Dictionary<JingJieType, List<long>>()
     {
-        { JingJieType.练气, new List<int>() { 100, 120, 150, 200, 300 } },
-        { JingJieType.筑基, new List<int>() { 200, 240, 300, 400, 600 } },
-        { JingJieType.金丹, new List<int>() { 400, 480, 600, 800, 1200 } },
-        { JingJieType.元婴, new List<int>() { 800, 960, 1200, 1600, 2400 } },
-        { JingJieType.化神, new List<int>() { 1600, 1920, 2400, 3200, 4800 } },
-        { JingJieType.合体, new List<int>() { 3200, 3840, 4800, 6400, 9600 } },
-        { JingJieType.大乘, new List<int>() { 6000, 8000, 10000, 13000, 20000 } },
-        { JingJieType.天仙, new List<int>() { 13000, 15000, 20000, 25000, 38000 } },
-        { JingJieType.玄仙, new List<int>() { 25000, 30000, 38000, 50000, 75000 } },
-        { JingJieType.金仙, new List<int>() { 50000, 60000, 75000, 100000, 150000 } },
-        { JingJieType.太乙金仙, new List<int>() { 100000, 120000, 150000, 200000, 300000 } },
-        { JingJieType.大罗金仙, new List<int>() { 200000, 250000, 300000, 400000, 600000 } },
-        { JingJieType.准圣, new List<int>() { 400000, 500000, 600000, 800000, 1200000 } },
-        { JingJieType.圣人, new List<int>() { 800000, 100000, 1200000, 1600000, 2500000 } },
-        { JingJieType.天道圣人, new List<int>() { 1600000, 2000000, 2500000, 3200000, 5000000 } },
-        { JingJieType.大道圣人, new List<int>() { 3200000, 4000000, 5000000, 6500000,  10000000 } },
-        { JingJieType.混元圣人, new List<int>() { 6500000, 8000000, 10000000, 13000000, 20000000 } },
+        { JingJieType.练气, new List<long>() { 300, 500, 800, 1200, 2000, 3000, 5000, 10000 } },
+        { JingJieType.筑基, new List<long>() { 1000, 2000, 3000, 5000, 10000, 20000, 30000, 50000 } },
+        { JingJieType.金丹, new List<long>() { 3000, 5000, 8000, 12000, 20000, 30000, 50000, 100000 } },
+        { JingJieType.元婴, new List<long>() { 10000, 20000, 30000, 50000, 100000, 200000, 300000, 500000 } },
+        { JingJieType.化神, new List<long>() { 30000, 50000, 80000, 120000, 200000, 300000, 500000, 1000000 } },
+        { JingJieType.合体, new List<long>() { 100000, 200000, 300000, 500000, 1000000, 2000000, 3000000, 5000000 } },
+        { JingJieType.大乘, new List<long>() { 300000, 500000, 800000, 1200000, 2000000, 3000000, 5000000, 10000000 } },
+        { JingJieType.天仙, new List<long>() { 1000000, 2000000, 3000000, 5000000, 10000000, 20000000, 30000000, 50000000 } },
+        { JingJieType.玄仙, new List<long>() { 3000000, 5000000, 8000000, 12000000, 20000000, 30000000, 50000000, 100000000 } },
+        { JingJieType.金仙, new List<long>() { 10000000, 20000000, 30000000, 50000000, 100000000, 200000000, 300000000, 500000000 } },
+        { JingJieType.太乙金仙, new List<long>() { 30000000, 50000000, 80000000, 120000000, 200000000, 300000000, 500000000, 1000000000 } },
+        { JingJieType.大罗金仙, new List<long>() { 100000000, 200000000, 300000000, 500000000, 1000000000, 2000000000, 3000000000, 5000000000 } },
+        { JingJieType.准圣, new List<long>() { 300000000, 500000000, 800000000, 1200000000, 2000000000, 3000000000, 5000000000, 10000000000 } },
+        { JingJieType.圣人, new List<long>() { 1000000000, 2000000000, 3000000000, 5000000000, 10000000000, 20000000000, 30000000000, 50000000000 } },
+        { JingJieType.天道圣人, new List<long>() { 3000000000, 5000000000, 8000000000, 12000000000, 20000000000, 30000000000, 50000000000, 100000000000 } },
+        { JingJieType.大道圣人, new List<long>() { 10000000000, 20000000000, 30000000000, 50000000000, 100000000000, 200000000000, 300000000000, 500000000000 } },
+        { JingJieType.混元圣人, new List<long>() { 30000000000, 50000000000, 80000000000, 120000000000, 200000000000, 300000000000, 500000000000, 1000000000000 } },
     };
-    public static Dictionary<突破Type, float> 突破跟脚Dic = new Dictionary<突破Type, float>()
+    public static Dictionary<QualityType, float> 突破跟脚Dic = new Dictionary<QualityType, float>()
     {
-        { 突破Type.凡, 1f },
-        { 突破Type.灵, 1.1f },
-        { 突破Type.仙, 1.2f },
-        { 突破Type.圣, 1.3f },
-        { 突破Type.荒, 1.4f },
-
+        { QualityType.黄品, 1f },
+        { QualityType.玄品, 1.2f },
+        { QualityType.地品, 1.5f },
+        { QualityType.天品, 2f },
+        { QualityType.宇品, 3f },
+        { QualityType.宙品, 5f },
+        { QualityType.洪品, 10f },
+        { QualityType.荒品, 30f },
     };
     public static Dictionary<JingJieType, int> JingJieAttributeDic =
         new Dictionary<JingJieType, int>()
@@ -98,9 +92,9 @@ public class JingJieConfig : MonoBehaviour
         float value = 1;
         foreach (var item in PlayerData.S.突破Dic)
         {
-            if (item.Value != 突破Type.None)
+            if (item.Value != QualityType.None)
             {
-                value*=JingJieConfig.突破跟脚Dic[item.Value];
+                value*=突破跟脚Dic[item.Value];
             }
         }
 

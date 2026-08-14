@@ -122,11 +122,7 @@ public class 储物袋界面 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("SendUIToast","当前经验不足");
             return;
          }
-         if (PlayerData.S.JingJieType > JingJieType.太乙金仙)
-         {
-            ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版！");
-            return;
-         }
+         
          突破弹窗.SetActive(true);
       });
       材料Btn.onClick.AddListener(() =>

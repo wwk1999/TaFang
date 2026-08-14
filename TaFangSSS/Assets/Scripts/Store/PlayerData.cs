@@ -30,6 +30,174 @@ public class PlayerData : XSingleton<PlayerData>
     public Vector2 分辨率 = new Vector2(1920,1080);
     public bool 是否窗口 = true;
     public int 剩余传道次数 = 0;
+
+    public int Get灵物数量(JingJieType jingJieType, QualityType qualityType)
+    {
+        string value = JingJieConfig.JingJieNameDic[jingJieType]+"_"+PropConfig.QualityNameDic[qualityType];
+        return 突破灵物Dic[value];
+    }
+
+    public void Set灵物数量(JingJieType jingJieType, QualityType qualityType, int count)
+    {
+        string value = JingJieConfig.JingJieNameDic[jingJieType]+"_"+PropConfig.QualityNameDic[qualityType];
+        突破灵物Dic[value]=count;
+    }
+    public Dictionary<string, int> 突破灵物Dic = new Dictionary<string, int>()
+{
+    // 增加百分比攻击力
+    { "练气_黄品", 0 },
+    { "练气_玄品", 0 },
+    { "练气_地品", 0 },
+    { "练气_天品", 0 },
+    { "练气_宇品", 0 },
+    { "练气_宙品", 0 },
+    { "练气_洪品", 0 },
+    { "练气_荒品", 0 },
+
+    { "筑基_黄品", 0 },
+    { "筑基_玄品", 0 },
+    { "筑基_地品", 0 },
+    { "筑基_天品", 0 },
+    { "筑基_宇品", 0 },
+    { "筑基_宙品", 0 },
+    { "筑基_洪品", 0 },
+    { "筑基_荒品", 0 },
+
+    { "金丹_黄品", 0 },
+    { "金丹_玄品", 0 },
+    { "金丹_地品", 0 },
+    { "金丹_天品", 0 },
+    { "金丹_宇品", 0 },
+    { "金丹_宙品", 0 },
+    { "金丹_洪品", 0 },
+    { "金丹_荒品", 0 },
+
+    { "元婴_黄品", 0 },
+    { "元婴_玄品", 0 },
+    { "元婴_地品", 0 },
+    { "元婴_天品", 0 },
+    { "元婴_宇品", 0 },
+    { "元婴_宙品", 0 },
+    { "元婴_洪品", 0 },
+    { "元婴_荒品", 0 },
+
+    { "化神_黄品", 0 },
+    { "化神_玄品", 0 },
+    { "化神_地品", 0 },
+    { "化神_天品", 0 },
+    { "化神_宇品", 0 },
+    { "化神_宙品", 0 },
+    { "化神_洪品", 0 },
+    { "化神_荒品", 0 },
+
+    { "合体_黄品", 0 },
+    { "合体_玄品", 0 },
+    { "合体_地品", 0 },
+    { "合体_天品", 0 },
+    { "合体_宇品", 0 },
+    { "合体_宙品", 0 },
+    { "合体_洪品", 0 },
+    { "合体_荒品", 0 },
+
+    { "大乘_黄品", 0 },
+    { "大乘_玄品", 0 },
+    { "大乘_地品", 0 },
+    { "大乘_天品", 0 },
+    { "大乘_宇品", 0 },
+    { "大乘_宙品", 0 },
+    { "大乘_洪品", 0 },
+    { "大乘_荒品", 0 },
+
+    { "天仙_黄品", 0 },
+    { "天仙_玄品", 0 },
+    { "天仙_地品", 0 },
+    { "天仙_天品", 0 },
+    { "天仙_宇品", 0 },
+    { "天仙_宙品", 0 },
+    { "天仙_洪品", 0 },
+    { "天仙_荒品", 0 },
+
+    { "玄仙_黄品", 0 },
+    { "玄仙_玄品", 0 },
+    { "玄仙_地品", 0 },
+    { "玄仙_天品", 0 },
+    { "玄仙_宇品", 0 },
+    { "玄仙_宙品", 0 },
+    { "玄仙_洪品", 0 },
+    { "玄仙_荒品", 0 },
+
+    { "金仙_黄品", 0 },
+    { "金仙_玄品", 0 },
+    { "金仙_地品", 0 },
+    { "金仙_天品", 0 },
+    { "金仙_宇品", 0 },
+    { "金仙_宙品", 0 },
+    { "金仙_洪品", 0 },
+    { "金仙_荒品", 0 },
+
+    { "太乙金仙_黄品", 0 },
+    { "太乙金仙_玄品", 0 },
+    { "太乙金仙_地品", 0 },
+    { "太乙金仙_天品", 0 },
+    { "太乙金仙_宇品", 0 },
+    { "太乙金仙_宙品", 0 },
+    { "太乙金仙_洪品", 0 },
+    { "太乙金仙_荒品", 0 },
+
+    { "大罗金仙_黄品", 0 },
+    { "大罗金仙_玄品", 0 },
+    { "大罗金仙_地品", 0 },
+    { "大罗金仙_天品", 0 },
+    { "大罗金仙_宇品", 0 },
+    { "大罗金仙_宙品", 0 },
+    { "大罗金仙_洪品", 0 },
+    { "大罗金仙_荒品", 0 },
+
+    { "准圣_黄品", 0 },
+    { "准圣_玄品", 0 },
+    { "准圣_地品", 0 },
+    { "准圣_天品", 0 },
+    { "准圣_宇品", 0 },
+    { "准圣_宙品", 0 },
+    { "准圣_洪品", 0 },
+    { "准圣_荒品", 0 },
+
+    { "圣人_黄品", 0 },
+    { "圣人_玄品", 0 },
+    { "圣人_地品", 0 },
+    { "圣人_天品", 0 },
+    { "圣人_宇品", 0 },
+    { "圣人_宙品", 0 },
+    { "圣人_洪品", 0 },
+    { "圣人_荒品", 0 },
+
+    { "天道圣人_黄品", 0 },
+    { "天道圣人_玄品", 0 },
+    { "天道圣人_地品", 0 },
+    { "天道圣人_天品", 0 },
+    { "天道圣人_宇品", 0 },
+    { "天道圣人_宙品", 0 },
+    { "天道圣人_洪品", 0 },
+    { "天道圣人_荒品", 0 },
+
+    { "大道圣人_黄品", 0 },
+    { "大道圣人_玄品", 0 },
+    { "大道圣人_地品", 0 },
+    { "大道圣人_天品", 0 },
+    { "大道圣人_宇品", 0 },
+    { "大道圣人_宙品", 0 },
+    { "大道圣人_洪品", 0 },
+    { "大道圣人_荒品", 0 },
+
+    { "混元圣人_黄品", 0 },
+    { "混元圣人_玄品", 0 },
+    { "混元圣人_地品", 0 },
+    { "混元圣人_天品", 0 },
+    { "混元圣人_宇品", 0 },
+    { "混元圣人_宙品", 0 },
+    { "混元圣人_洪品", 0 },
+    { "混元圣人_荒品", 0 },
+};
     
     public Dictionary<功法Type, int> 功法数量Dic = new Dictionary<功法Type, int>()
     {
@@ -816,25 +984,25 @@ public class PlayerData : XSingleton<PlayerData>
         { HeroType.盘古 ,0},
         { HeroType.鸿钧 ,0},
     };
-    public Dictionary<JingJieType, 突破Type> 突破Dic = new Dictionary<JingJieType, 突破Type>()
+    public Dictionary<JingJieType, QualityType> 突破Dic = new Dictionary<JingJieType, QualityType>()
     {
-        { JingJieType.练气 ,突破Type.None},
-        { JingJieType.筑基 ,突破Type.None},
-        { JingJieType.金丹 ,突破Type.None},
-        { JingJieType.元婴 ,突破Type.None},
-        { JingJieType.化神 ,突破Type.None},
-        { JingJieType.合体 ,突破Type.None},
-        { JingJieType.大乘 ,突破Type.None},
-        { JingJieType.天仙 ,突破Type.None},
-        { JingJieType.玄仙 ,突破Type.None},
-        { JingJieType.金仙 ,突破Type.None},
-        { JingJieType.太乙金仙 ,突破Type.None},
-        { JingJieType.大罗金仙 ,突破Type.None},
-        { JingJieType.准圣 ,突破Type.None},
-        { JingJieType.圣人 ,突破Type.None},
-        { JingJieType.天道圣人 ,突破Type.None},
-        { JingJieType.大道圣人 ,突破Type.None},
-        { JingJieType.混元圣人 ,突破Type.None},
+        { JingJieType.练气 ,QualityType.None},
+        { JingJieType.筑基 ,QualityType.None},
+        { JingJieType.金丹 ,QualityType.None},
+        { JingJieType.元婴 ,QualityType.None},
+        { JingJieType.化神 ,QualityType.None},
+        { JingJieType.合体 ,QualityType.None},
+        { JingJieType.大乘 ,QualityType.None},
+        { JingJieType.天仙 ,QualityType.None},
+        { JingJieType.玄仙 ,QualityType.None},
+        { JingJieType.金仙 ,QualityType.None},
+        { JingJieType.太乙金仙 ,QualityType.None},
+        { JingJieType.大罗金仙 ,QualityType.None},
+        { JingJieType.准圣 ,QualityType.None},
+        { JingJieType.圣人 ,QualityType.None},
+        { JingJieType.天道圣人 ,QualityType.None},
+        { JingJieType.大道圣人 ,QualityType.None},
+        { JingJieType.混元圣人 ,QualityType.None},
     };
 
     public Dictionary<EquipType, List<附加属性>> 装备附加属性Dic = new Dictionary<EquipType, List<附加属性>>()
@@ -979,7 +1147,7 @@ public class PlayerData : XSingleton<PlayerData>
 
     };
 
-    public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
+    public Dictionary<PropType, long> PropListDic = new Dictionary<PropType, long>()
     {
         { PropType.全职业经验值, 0 },
         { PropType.功德, 0 },

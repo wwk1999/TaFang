@@ -164,7 +164,7 @@ public class 属性config
           float 跟脚 = 1f;
           foreach (var item in PlayerData.S.突破Dic)
           {
-               if (item.Value != 突破Type.None)
+               if (item.Value != QualityType.None)
                {
                     跟脚 *= JingJieConfig.突破跟脚Dic[item.Value];
                }

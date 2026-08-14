@@ -588,25 +588,25 @@ public class StoreDefine : XSingleton<StoreController>
             { HeroType.鸿钧, 0 },
         };
 
-        public Dictionary<JingJieType, 突破Type> 突破Dic = new Dictionary<JingJieType, 突破Type>()
+        public Dictionary<JingJieType, QualityType> 突破Dic = new Dictionary<JingJieType, QualityType>()
         {
-            { JingJieType.练气, 突破Type.None },
-            { JingJieType.筑基, 突破Type.None },
-            { JingJieType.金丹, 突破Type.None },
-            { JingJieType.元婴, 突破Type.None },
-            { JingJieType.化神, 突破Type.None },
-            { JingJieType.合体, 突破Type.None },
-            { JingJieType.大乘, 突破Type.None },
-            { JingJieType.天仙, 突破Type.None },
-            { JingJieType.玄仙, 突破Type.None },
-            { JingJieType.金仙, 突破Type.None },
-            { JingJieType.太乙金仙, 突破Type.None },
-            { JingJieType.大罗金仙, 突破Type.None },
-            { JingJieType.准圣, 突破Type.None },
-            { JingJieType.圣人, 突破Type.None },
-            { JingJieType.天道圣人, 突破Type.None },
-            { JingJieType.大道圣人, 突破Type.None },
-            { JingJieType.混元圣人, 突破Type.None },
+            { JingJieType.练气, QualityType.None },
+            { JingJieType.筑基, QualityType.None },
+            { JingJieType.金丹, QualityType.None },
+            { JingJieType.元婴, QualityType.None },
+            { JingJieType.化神, QualityType.None },
+            { JingJieType.合体, QualityType.None },
+            { JingJieType.大乘, QualityType.None },
+            { JingJieType.天仙, QualityType.None },
+            { JingJieType.玄仙, QualityType.None },
+            { JingJieType.金仙, QualityType.None },
+            { JingJieType.太乙金仙, QualityType.None },
+            { JingJieType.大罗金仙, QualityType.None },
+            { JingJieType.准圣, QualityType.None },
+            { JingJieType.圣人, QualityType.None },
+            { JingJieType.天道圣人, QualityType.None },
+            { JingJieType.大道圣人, QualityType.None },
+            { JingJieType.混元圣人, QualityType.None },
         };
 
         public Dictionary<EquipType, List<附加属性>> 装备附加属性Dic = new Dictionary<EquipType, List<附加属性>>()
@@ -752,7 +752,7 @@ public class StoreDefine : XSingleton<StoreController>
 
         };
 
-        public Dictionary<PropType, int> PropListDic = new Dictionary<PropType, int>()
+        public Dictionary<PropType, long> PropListDic = new Dictionary<PropType, long>()
         {
             { PropType.全职业经验值, 0 },
             { PropType.功德, 0 },

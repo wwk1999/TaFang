@@ -9,6 +9,7 @@ public enum 关卡类型
 {
     None,
     主线关卡,
+    洞天秘境,//突破灵物
 }
 public enum 主线关卡Type
 {

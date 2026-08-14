@@ -6,6 +6,223 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //洞天秘境怪物
+    public static Sprite 青木狼;
+    public static Sprite 铁背龟;
+    public static Sprite 荆棘猿;
+    public static Sprite 千年树精;
+    public static Sprite 熔岩蜥;
+    public static Sprite 火鸦;
+    public static Sprite 炎晶巨人;
+    public static Sprite 地火蛟;
+    public static Sprite 怨魂蝶;
+    public static Sprite 食骨鳄;
+    public static Sprite 无面鬼;
+    public static Sprite 九幽尸王;
+    public static Sprite 罡风鹫;
+    public static Sprite 裂空蝎;
+    public static Sprite 虚影兽;
+    public static Sprite 双首海蛇;
+    public static Sprite 幻鳞鱼;
+    public static Sprite 铁钳蟹;
+    public static Sprite 万象鲸;
+    public static Sprite 饕餮;
+    public static Sprite 云纹兽;
+    public static Sprite 星光蝶;
+    public static Sprite 朱雀;
+    public static Sprite 白虎;
+    public static Sprite 仙灵鹤;
+    public static Sprite 玉兔精;
+    public static Sprite 朱厌;
+    public static Sprite 应龙;
+    public static Sprite 虚空兽;
+    public static Sprite 混沌兽;
+    public static Sprite 归墟古凤;
+    public static Sprite 归墟古龙;
+    public static Sprite 道纹甲虫;
+    public static Sprite 混沌蝠;
+    public static Sprite 梼杌;
+    public static Sprite 霸下;
+    public static Sprite 玄黄蜉蝣;
+    public static Sprite 剑齿虎;
+    public static Sprite 混元兽;
+    public static Sprite 道胎灵童;
+    public static Sprite 青丘白狐;
+    public static Sprite 青丘黑狐;
+    public static Sprite 白泽;
+    public static Sprite 九尾狐;
+    public static Sprite 远古巨兽;
+    public static Sprite 法则之兽;
+    public static Sprite 凤凰;
+    public static Sprite 真龙;
+    public static Sprite 远古凶兽;
+    public static Sprite 远古大蛇;
+    public static Sprite 穷奇;
+    public static Sprite 麒麟;
+    public static Sprite 先天魔神;
+    public static Sprite 混沌巨兽;
+    public static Sprite 劫兽;
+    public static Sprite 混沌之眼;
+    public static Sprite 归墟古兽;
+    public static Sprite 时空扭曲者;
+    public static Sprite 混沌古兽;
+    public static Sprite 永恒之门;
+
+    
+    public static Sprite 练气白;
+    public static Sprite 练气绿;
+    public static Sprite 练气蓝;
+    public static Sprite 练气紫;
+    public static Sprite 练气橙;
+    public static Sprite 练气粉;
+    public static Sprite 练气红;
+    public static Sprite 练气彩;
+    
+    
+    public static Sprite 筑基白;
+    public static Sprite 筑基绿;
+    public static Sprite 筑基蓝;
+    public static Sprite 筑基紫;
+    public static Sprite 筑基橙;
+    public static Sprite 筑基粉;
+    public static Sprite 筑基红;
+    public static Sprite 筑基彩;
+
+    public static Sprite 金丹白;
+    public static Sprite 金丹绿;
+    public static Sprite 金丹蓝;
+    public static Sprite 金丹紫;
+    public static Sprite 金丹橙;
+    public static Sprite 金丹粉;
+    public static Sprite 金丹红;
+    public static Sprite 金丹彩;
+
+    public static Sprite 元婴白;
+    public static Sprite 元婴绿;
+    public static Sprite 元婴蓝;
+    public static Sprite 元婴紫;
+    public static Sprite 元婴橙;
+    public static Sprite 元婴粉;
+    public static Sprite 元婴红;
+    public static Sprite 元婴彩;
+
+    public static Sprite 化神白;
+    public static Sprite 化神绿;
+    public static Sprite 化神蓝;
+    public static Sprite 化神紫;
+    public static Sprite 化神橙;
+    public static Sprite 化神粉;
+    public static Sprite 化神红;
+    public static Sprite 化神彩;
+
+    public static Sprite 合体白;
+    public static Sprite 合体绿;
+    public static Sprite 合体蓝;
+    public static Sprite 合体紫;
+    public static Sprite 合体橙;
+    public static Sprite 合体粉;
+    public static Sprite 合体红;
+    public static Sprite 合体彩;
+
+    public static Sprite 大乘白;
+    public static Sprite 大乘绿;
+    public static Sprite 大乘蓝;
+    public static Sprite 大乘紫;
+    public static Sprite 大乘橙;
+    public static Sprite 大乘粉;
+    public static Sprite 大乘红;
+    public static Sprite 大乘彩;
+
+    public static Sprite 天仙白;
+    public static Sprite 天仙绿;
+    public static Sprite 天仙蓝;
+    public static Sprite 天仙紫;
+    public static Sprite 天仙橙;
+    public static Sprite 天仙粉;
+    public static Sprite 天仙红;
+    public static Sprite 天仙彩;
+
+    public static Sprite 玄仙白;
+    public static Sprite 玄仙绿;
+    public static Sprite 玄仙蓝;
+    public static Sprite 玄仙紫;
+    public static Sprite 玄仙橙;
+    public static Sprite 玄仙粉;
+    public static Sprite 玄仙红;
+    public static Sprite 玄仙彩;
+
+    public static Sprite 金仙白;
+    public static Sprite 金仙绿;
+    public static Sprite 金仙蓝;
+    public static Sprite 金仙紫;
+    public static Sprite 金仙橙;
+    public static Sprite 金仙粉;
+    public static Sprite 金仙红;
+    public static Sprite 金仙彩;
+
+    public static Sprite 太乙金仙白;
+    public static Sprite 太乙金仙绿;
+    public static Sprite 太乙金仙蓝;
+    public static Sprite 太乙金仙紫;
+    public static Sprite 太乙金仙橙;
+    public static Sprite 太乙金仙粉;
+    public static Sprite 太乙金仙红;
+    public static Sprite 太乙金仙彩;
+
+    public static Sprite 大罗金仙白;
+    public static Sprite 大罗金仙绿;
+    public static Sprite 大罗金仙蓝;
+    public static Sprite 大罗金仙紫;
+    public static Sprite 大罗金仙橙;
+    public static Sprite 大罗金仙粉;
+    public static Sprite 大罗金仙红;
+    public static Sprite 大罗金仙彩;
+
+    public static Sprite 准圣白;
+    public static Sprite 准圣绿;
+    public static Sprite 准圣蓝;
+    public static Sprite 准圣紫;
+    public static Sprite 准圣橙;
+    public static Sprite 准圣粉;
+    public static Sprite 准圣红;
+    public static Sprite 准圣彩;
+
+    public static Sprite 圣人白;
+    public static Sprite 圣人绿;
+    public static Sprite 圣人蓝;
+    public static Sprite 圣人紫;
+    public static Sprite 圣人橙;
+    public static Sprite 圣人粉;
+    public static Sprite 圣人红;
+    public static Sprite 圣人彩;
+
+    public static Sprite 天道圣人白;
+    public static Sprite 天道圣人绿;
+    public static Sprite 天道圣人蓝;
+    public static Sprite 天道圣人紫;
+    public static Sprite 天道圣人橙;
+    public static Sprite 天道圣人粉;
+    public static Sprite 天道圣人红;
+    public static Sprite 天道圣人彩;
+
+    public static Sprite 大道圣人白;
+    public static Sprite 大道圣人绿;
+    public static Sprite 大道圣人蓝;
+    public static Sprite 大道圣人紫;
+    public static Sprite 大道圣人橙;
+    public static Sprite 大道圣人粉;
+    public static Sprite 大道圣人红;
+    public static Sprite 大道圣人彩;
+
+    public static Sprite 混元圣人白;
+    public static Sprite 混元圣人绿;
+    public static Sprite 混元圣人蓝;
+    public static Sprite 混元圣人紫;
+    public static Sprite 混元圣人橙;
+    public static Sprite 混元圣人粉;
+    public static Sprite 混元圣人红;
+    public static Sprite 混元圣人彩;
+
     public static Sprite 功法经验;
     public static Sprite 传道背景框彩;
     public static Sprite 传道背景框橙;
@@ -15,8 +232,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 传道背景框红;
     public static Sprite 传道背景框绿;
     public static Sprite 传道背景框蓝;
-    
-    
+
+
     public static Sprite 传道icon彩;
     public static Sprite 传道icon橙;
     public static Sprite 传道icon白;
@@ -25,8 +242,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 传道icon红;
     public static Sprite 传道icon绿;
     public static Sprite 传道icon蓝;
-    
-    
+
+
     public static Sprite 传道按钮彩;
     public static Sprite 传道按钮橙;
     public static Sprite 传道按钮白;
@@ -35,7 +252,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 传道按钮红;
     public static Sprite 传道按钮绿;
     public static Sprite 传道按钮蓝;
-    
+
     public static Sprite 射手彩;
     public static Sprite 射手橙;
     public static Sprite 射手白;
@@ -48,7 +265,7 @@ public class ResourcesConfig : MonoBehaviour
     // 战士系列
     public static Sprite 战士彩;
     public static Sprite 战士橙;
-    public static Sprite 战士白;  // 这就是您要补全的定义
+    public static Sprite 战士白; // 这就是您要补全的定义
     public static Sprite 战士粉;
     public static Sprite 战士紫;
     public static Sprite 战士红;
@@ -83,7 +300,9 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 辅助紫;
     public static Sprite 辅助红;
     public static Sprite 辅助绿;
+
     public static Sprite 辅助蓝;
+
     //音效
     public static AudioClip 首领出现;
     public static AudioClip 瑶池;
@@ -96,56 +315,56 @@ public class ResourcesConfig : MonoBehaviour
     public static AudioClip 石敢当;
     public static AudioClip 玄女;
     public static AudioClip 龟丞相audio;
-    
-    public static AudioClip 哪吒;          // 三昧真火
-    public static AudioClip 孙悟空;        // 如意金箍棒
-    public static AudioClip 碧霄;          // 冰龙啸天
-    public static AudioClip 琼霄;          // 暗影定身符
-    
-    // ---- 四大天王 ----
-    public static AudioClip 多闻天王;      // 暗夜星矢
-    public static AudioClip 广目天王;      // 暗影爪
-    public static AudioClip 雷震子;        // 雷霆万钧
-    public static AudioClip 月老;          // 红莲箭
-    
-    // ---- 大能 / 妖族 ----
-    public static AudioClip 嫦娥;          // 月华雷殛
-    public static AudioClip 杨戬;          // 天眼电破
-    public static AudioClip 妲己;          // 惑心魅惑
-    public static AudioClip 牛魔王audio;  
-    
-    
-    // ---- 上古神明 ----
-    public static AudioClip 羲和;          // 烈日灼心阵
-    public static AudioClip 常羲;          // 月华冰封阵
-    public static AudioClip 后羿;          // 射日神箭
-    public static AudioClip 云霄;          // 冰矢破空
-    
-    // ---- 创世 / 圣贤 ----
-    public static AudioClip 女娲;          // 补天净化咒
-    public static AudioClip 老子;          // 太清玄冰风
-    public static AudioClip 元始;          // 鸿蒙火种
-    public static AudioClip 通天;          // 戮仙暗矢
-    
-    // ---- 天道 / 终极 ----
-    public static AudioClip 鸿钧audio;          // 无极天火
-    public static AudioClip 盘古audio;          // 无极天火
 
-   
-    
-    
-    
+    public static AudioClip 哪吒; // 三昧真火
+    public static AudioClip 孙悟空; // 如意金箍棒
+    public static AudioClip 碧霄; // 冰龙啸天
+    public static AudioClip 琼霄; // 暗影定身符
+
+    // ---- 四大天王 ----
+    public static AudioClip 多闻天王; // 暗夜星矢
+    public static AudioClip 广目天王; // 暗影爪
+    public static AudioClip 雷震子; // 雷霆万钧
+    public static AudioClip 月老; // 红莲箭
+
+    // ---- 大能 / 妖族 ----
+    public static AudioClip 嫦娥; // 月华雷殛
+    public static AudioClip 杨戬; // 天眼电破
+    public static AudioClip 妲己; // 惑心魅惑
+    public static AudioClip 牛魔王audio;
+
+
+    // ---- 上古神明 ----
+    public static AudioClip 羲和; // 烈日灼心阵
+    public static AudioClip 常羲; // 月华冰封阵
+    public static AudioClip 后羿; // 射日神箭
+    public static AudioClip 云霄; // 冰矢破空
+
+    // ---- 创世 / 圣贤 ----
+    public static AudioClip 女娲; // 补天净化咒
+    public static AudioClip 老子; // 太清玄冰风
+    public static AudioClip 元始; // 鸿蒙火种
+    public static AudioClip 通天; // 戮仙暗矢
+
+    // ---- 天道 / 终极 ----
+    public static AudioClip 鸿钧audio; // 无极天火
+    public static AudioClip 盘古audio; // 无极天火
+
+
+
+
+
     public static AudioClip 按钮进入;
     public static AudioClip 按钮点击;
     public static AudioClip 错误;
     public static AudioClip Toggle;
     public static AudioClip 招募;
     public static AudioClip 成功;
-    
-    
+
+
     public static Sprite 问号;
 
-    
+
     public static Sprite 开始按钮亮;
     public static Sprite 开始按钮暗;
     public static Sprite 倍速按钮亮;
@@ -157,8 +376,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 羁绊背景框粉;
     public static Sprite 羁绊背景框红;
     public static Sprite 羁绊背景框彩;
-    
-    
+
+
     public static Sprite 混沌归元;
     public static Sprite 诛仙剑阵;
     public static Sprite 开天辟地;
@@ -173,10 +392,10 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 照落金莲;
     public static Sprite 紫金断岳;
     public static Sprite 五方照落;
-    
-    
-    
-    
+
+
+
+
     public static Sprite 加号背景框;
 
     // 城墙icon
@@ -188,7 +407,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 城墙icon粉;
     public static Sprite 城墙icon红;
     public static Sprite 城墙icon彩;
-    
+
     public static Sprite 城墙装备背景框白;
     public static Sprite 城墙装备背景框绿;
     public static Sprite 城墙装备背景框蓝;
@@ -739,7 +958,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 道具背景框粉;
     public static Sprite 道具背景框红;
     public static Sprite 道具背景框彩;
-    
+
     public static Sprite 道具背景框白1;
     public static Sprite 道具背景框绿1;
     public static Sprite 道具背景框蓝1;
@@ -1284,6 +1503,7 @@ public class ResourcesConfig : MonoBehaviour
             case 道宝Quality.后天法宝:
                 return 道宝标签紫;
         }
+
         return null;
     }
 
@@ -1338,7 +1558,6 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.女儿国将: return 女儿国将;
             case MonsterTypeName.女儿国太师: return 女儿国太师;
             case MonsterTypeName.女儿国国王: return 女儿国国王;
-
             // ==================== 火焰山 ====================
             case MonsterTypeName.火焰精: return 火焰精;
             case MonsterTypeName.赤蛇: return 赤蛇;
@@ -1484,6 +1703,67 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.虚空巨兽: return 虚空巨兽;
             case MonsterTypeName.混沌主宰: return 混沌主宰;
 
+
+            case MonsterTypeName.青木狼: return 青木狼;
+            case MonsterTypeName.铁背龟: return 铁背龟;
+            case MonsterTypeName.荆棘猿: return 荆棘猿;
+            case MonsterTypeName.千年树精: return 千年树精;
+            case MonsterTypeName.熔岩蜥: return 熔岩蜥;
+            case MonsterTypeName.火鸦: return 火鸦;
+            case MonsterTypeName.炎晶巨人: return 炎晶巨人;
+            case MonsterTypeName.地火蛟: return 地火蛟;
+            case MonsterTypeName.怨魂蝶: return 怨魂蝶;
+            case MonsterTypeName.食骨鳄: return 食骨鳄;
+            case MonsterTypeName.无面鬼: return 无面鬼;
+            case MonsterTypeName.九幽尸王: return 九幽尸王;
+            case MonsterTypeName.罡风鹫: return 罡风鹫;
+            case MonsterTypeName.裂空蝎: return 裂空蝎;
+            case MonsterTypeName.虚影兽: return 虚影兽;
+            case MonsterTypeName.双首海蛇: return 双首海蛇;
+            case MonsterTypeName.幻鳞鱼: return 幻鳞鱼;
+            case MonsterTypeName.铁钳蟹: return 铁钳蟹;
+            case MonsterTypeName.万象鲸: return 万象鲸;
+            case MonsterTypeName.饕餮: return 饕餮;
+            case MonsterTypeName.云纹兽: return 云纹兽;
+            case MonsterTypeName.星光蝶: return 星光蝶;
+            case MonsterTypeName.朱雀: return 朱雀;
+            case MonsterTypeName.白虎: return 白虎;
+            case MonsterTypeName.仙灵鹤: return 仙灵鹤;
+            case MonsterTypeName.玉兔精: return 玉兔精;
+            case MonsterTypeName.朱厌: return 朱厌;
+            case MonsterTypeName.应龙: return 应龙;
+            case MonsterTypeName.虚空兽: return 虚空兽;
+            case MonsterTypeName.混沌兽: return 混沌兽;
+            case MonsterTypeName.归墟古凤: return 归墟古凤;
+            case MonsterTypeName.归墟古龙: return 归墟古龙;
+            case MonsterTypeName.道纹甲虫: return 道纹甲虫;
+            case MonsterTypeName.混沌蝠: return 混沌蝠;
+            case MonsterTypeName.梼杌: return 梼杌;
+            case MonsterTypeName.霸下: return 霸下;
+            case MonsterTypeName.玄黄蜉蝣: return 玄黄蜉蝣;
+            case MonsterTypeName.剑齿虎: return 剑齿虎;
+            case MonsterTypeName.混元兽: return 混元兽;
+            case MonsterTypeName.道胎灵童: return 道胎灵童;
+            case MonsterTypeName.青丘白狐: return 青丘白狐;
+            case MonsterTypeName.青丘黑狐: return 青丘黑狐;
+            case MonsterTypeName.白泽: return 白泽;
+            case MonsterTypeName.九尾狐: return 九尾狐;
+            case MonsterTypeName.远古巨兽: return 远古巨兽;
+            case MonsterTypeName.法则之兽: return 法则之兽;
+            case MonsterTypeName.凤凰: return 凤凰;
+            case MonsterTypeName.真龙: return 真龙;
+            case MonsterTypeName.远古凶兽: return 远古凶兽;
+            case MonsterTypeName.远古大蛇: return 远古大蛇;
+            case MonsterTypeName.穷奇: return 穷奇;
+            case MonsterTypeName.麒麟: return 麒麟;
+            case MonsterTypeName.先天魔神: return 先天魔神;
+            case MonsterTypeName.混沌巨兽: return 混沌巨兽;
+            case MonsterTypeName.劫兽: return 劫兽;
+            case MonsterTypeName.混沌之眼: return 混沌之眼;
+            case MonsterTypeName.归墟古兽: return 归墟古兽;
+            case MonsterTypeName.时空扭曲者: return 时空扭曲者;
+            case MonsterTypeName.混沌古兽: return 混沌古兽;
+            case MonsterTypeName.永恒之门: return 永恒之门;
             default:
                 return null;
         }
@@ -1523,7 +1803,7 @@ public class ResourcesConfig : MonoBehaviour
                 return 鸿蒙;
             case PropType.力之法则:
                 return 力;
-               
+
             case PropType.功德:
                 return 功德;
             case PropType.洗练石:
@@ -1587,8 +1867,8 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
-    
-    
+
+
     public static Sprite Get道具背景框SpriteByPropType(QualityType propType)
     {
         switch (propType)
@@ -2737,30 +3017,37 @@ public class ResourcesConfig : MonoBehaviour
         if (PlayerData.S.城墙等级 < 10)
         {
             return 城墙icon白;
-        }else if (PlayerData.S.城墙等级 < 20)
+        }
+        else if (PlayerData.S.城墙等级 < 20)
         {
             return 城墙icon绿;
-        }else if (PlayerData.S.城墙等级 < 30)
+        }
+        else if (PlayerData.S.城墙等级 < 30)
         {
             return 城墙icon蓝;
-        }else if (PlayerData.S.城墙等级 < 40)
+        }
+        else if (PlayerData.S.城墙等级 < 40)
         {
             return 城墙icon紫;
-        }else if (PlayerData.S.城墙等级 < 50)
+        }
+        else if (PlayerData.S.城墙等级 < 50)
         {
             return 城墙icon橙;
-        }else if (PlayerData.S.城墙等级 < 60)
+        }
+        else if (PlayerData.S.城墙等级 < 60)
         {
             return 城墙icon粉;
-        }else if (PlayerData.S.城墙等级 < 70)
+        }
+        else if (PlayerData.S.城墙等级 < 70)
         {
             return 城墙icon红;
-        }else 
+        }
+        else
         {
             return 城墙icon彩;
         }
     }
-    
+
     public static Sprite Get城墙装备背景框(QualityType type)
     {
         switch (type)
@@ -2863,9 +3150,10 @@ public class ResourcesConfig : MonoBehaviour
             case QualityType.荒品:
                 return 传道背景框彩;
         }
+
         return null;
     }
-    
+
     public static Sprite Get传道按钮(QualityType type)
     {
         switch (type)
@@ -2887,9 +3175,10 @@ public class ResourcesConfig : MonoBehaviour
             case QualityType.荒品:
                 return 传道按钮彩;
         }
+
         return null;
     }
-    
+
     public static Sprite Get传道icon(QualityType type)
     {
         switch (type)
@@ -2911,12 +3200,459 @@ public class ResourcesConfig : MonoBehaviour
             case QualityType.荒品:
                 return 传道icon彩;
         }
+
         return null;
     }
+
+    public static Sprite Get突破灵物(JingJieType jingJieType, QualityType type)
+    {
+        switch (jingJieType)
+        {
+            case JingJieType.练气:
+                switch (type)
+                {
+                    case QualityType.黄品: return 练气白;
+                    case QualityType.玄品: return 练气绿;
+                    case QualityType.地品: return 练气蓝;
+                    case QualityType.天品: return 练气紫;
+                    case QualityType.宇品: return 练气橙;
+                    case QualityType.宙品: return 练气粉;
+                    case QualityType.洪品: return 练气红;
+                    case QualityType.荒品: return 练气彩;
+                    default: return null;
+                }
+            case JingJieType.筑基:
+                switch (type)
+                {
+                    case QualityType.黄品: return 筑基白;
+                    case QualityType.玄品: return 筑基绿;
+                    case QualityType.地品: return 筑基蓝;
+                    case QualityType.天品: return 筑基紫;
+                    case QualityType.宇品: return 筑基橙;
+                    case QualityType.宙品: return 筑基粉;
+                    case QualityType.洪品: return 筑基红;
+                    case QualityType.荒品: return 筑基彩;
+                    default: return null;
+                }
+            case JingJieType.金丹:
+                switch (type)
+                {
+                    case QualityType.黄品: return 金丹白;
+                    case QualityType.玄品: return 金丹绿;
+                    case QualityType.地品: return 金丹蓝;
+                    case QualityType.天品: return 金丹紫;
+                    case QualityType.宇品: return 金丹橙;
+                    case QualityType.宙品: return 金丹粉;
+                    case QualityType.洪品: return 金丹红;
+                    case QualityType.荒品: return 金丹彩;
+                    default: return null;
+                }
+            case JingJieType.元婴:
+                switch (type)
+                {
+                    case QualityType.黄品: return 元婴白;
+                    case QualityType.玄品: return 元婴绿;
+                    case QualityType.地品: return 元婴蓝;
+                    case QualityType.天品: return 元婴紫;
+                    case QualityType.宇品: return 元婴橙;
+                    case QualityType.宙品: return 元婴粉;
+                    case QualityType.洪品: return 元婴红;
+                    case QualityType.荒品: return 元婴彩;
+                    default: return null;
+                }
+            case JingJieType.化神:
+                switch (type)
+                {
+                    case QualityType.黄品: return 化神白;
+                    case QualityType.玄品: return 化神绿;
+                    case QualityType.地品: return 化神蓝;
+                    case QualityType.天品: return 化神紫;
+                    case QualityType.宇品: return 化神橙;
+                    case QualityType.宙品: return 化神粉;
+                    case QualityType.洪品: return 化神红;
+                    case QualityType.荒品: return 化神彩;
+                    default: return null;
+                }
+            case JingJieType.合体:
+                switch (type)
+                {
+                    case QualityType.黄品: return 合体白;
+                    case QualityType.玄品: return 合体绿;
+                    case QualityType.地品: return 合体蓝;
+                    case QualityType.天品: return 合体紫;
+                    case QualityType.宇品: return 合体橙;
+                    case QualityType.宙品: return 合体粉;
+                    case QualityType.洪品: return 合体红;
+                    case QualityType.荒品: return 合体彩;
+                    default: return null;
+                }
+            case JingJieType.大乘:
+                switch (type)
+                {
+                    case QualityType.黄品: return 大乘白;
+                    case QualityType.玄品: return 大乘绿;
+                    case QualityType.地品: return 大乘蓝;
+                    case QualityType.天品: return 大乘紫;
+                    case QualityType.宇品: return 大乘橙;
+                    case QualityType.宙品: return 大乘粉;
+                    case QualityType.洪品: return 大乘红;
+                    case QualityType.荒品: return 大乘彩;
+                    default: return null;
+                }
+            case JingJieType.天仙:
+                switch (type)
+                {
+                    case QualityType.黄品: return 天仙白;
+                    case QualityType.玄品: return 天仙绿;
+                    case QualityType.地品: return 天仙蓝;
+                    case QualityType.天品: return 天仙紫;
+                    case QualityType.宇品: return 天仙橙;
+                    case QualityType.宙品: return 天仙粉;
+                    case QualityType.洪品: return 天仙红;
+                    case QualityType.荒品: return 天仙彩;
+                    default: return null;
+                }
+            case JingJieType.玄仙:
+                switch (type)
+                {
+                    case QualityType.黄品: return 玄仙白;
+                    case QualityType.玄品: return 玄仙绿;
+                    case QualityType.地品: return 玄仙蓝;
+                    case QualityType.天品: return 玄仙紫;
+                    case QualityType.宇品: return 玄仙橙;
+                    case QualityType.宙品: return 玄仙粉;
+                    case QualityType.洪品: return 玄仙红;
+                    case QualityType.荒品: return 玄仙彩;
+                    default: return null;
+                }
+            case JingJieType.金仙:
+                switch (type)
+                {
+                    case QualityType.黄品: return 金仙白;
+                    case QualityType.玄品: return 金仙绿;
+                    case QualityType.地品: return 金仙蓝;
+                    case QualityType.天品: return 金仙紫;
+                    case QualityType.宇品: return 金仙橙;
+                    case QualityType.宙品: return 金仙粉;
+                    case QualityType.洪品: return 金仙红;
+                    case QualityType.荒品: return 金仙彩;
+                    default: return null;
+                }
+            case JingJieType.太乙金仙:
+                switch (type)
+                {
+                    case QualityType.黄品: return 太乙金仙白;
+                    case QualityType.玄品: return 太乙金仙绿;
+                    case QualityType.地品: return 太乙金仙蓝;
+                    case QualityType.天品: return 太乙金仙紫;
+                    case QualityType.宇品: return 太乙金仙橙;
+                    case QualityType.宙品: return 太乙金仙粉;
+                    case QualityType.洪品: return 太乙金仙红;
+                    case QualityType.荒品: return 太乙金仙彩;
+                    default: return null;
+                }
+            case JingJieType.大罗金仙:
+                switch (type)
+                {
+                    case QualityType.黄品: return 大罗金仙白;
+                    case QualityType.玄品: return 大罗金仙绿;
+                    case QualityType.地品: return 大罗金仙蓝;
+                    case QualityType.天品: return 大罗金仙紫;
+                    case QualityType.宇品: return 大罗金仙橙;
+                    case QualityType.宙品: return 大罗金仙粉;
+                    case QualityType.洪品: return 大罗金仙红;
+                    case QualityType.荒品: return 大罗金仙彩;
+                    default: return null;
+                }
+            case JingJieType.准圣:
+                switch (type)
+                {
+                    case QualityType.黄品: return 准圣白;
+                    case QualityType.玄品: return 准圣绿;
+                    case QualityType.地品: return 准圣蓝;
+                    case QualityType.天品: return 准圣紫;
+                    case QualityType.宇品: return 准圣橙;
+                    case QualityType.宙品: return 准圣粉;
+                    case QualityType.洪品: return 准圣红;
+                    case QualityType.荒品: return 准圣彩;
+                    default: return null;
+                }
+            case JingJieType.圣人:
+                switch (type)
+                {
+                    case QualityType.黄品: return 圣人白;
+                    case QualityType.玄品: return 圣人绿;
+                    case QualityType.地品: return 圣人蓝;
+                    case QualityType.天品: return 圣人紫;
+                    case QualityType.宇品: return 圣人橙;
+                    case QualityType.宙品: return 圣人粉;
+                    case QualityType.洪品: return 圣人红;
+                    case QualityType.荒品: return 圣人彩;
+                    default: return null;
+                }
+            case JingJieType.天道圣人:
+                switch (type)
+                {
+                    case QualityType.黄品: return 天道圣人白;
+                    case QualityType.玄品: return 天道圣人绿;
+                    case QualityType.地品: return 天道圣人蓝;
+                    case QualityType.天品: return 天道圣人紫;
+                    case QualityType.宇品: return 天道圣人橙;
+                    case QualityType.宙品: return 天道圣人粉;
+                    case QualityType.洪品: return 天道圣人红;
+                    case QualityType.荒品: return 天道圣人彩;
+                    default: return null;
+                }
+            case JingJieType.大道圣人:
+                switch (type)
+                {
+                    case QualityType.黄品: return 大道圣人白;
+                    case QualityType.玄品: return 大道圣人绿;
+                    case QualityType.地品: return 大道圣人蓝;
+                    case QualityType.天品: return 大道圣人紫;
+                    case QualityType.宇品: return 大道圣人橙;
+                    case QualityType.宙品: return 大道圣人粉;
+                    case QualityType.洪品: return 大道圣人红;
+                    case QualityType.荒品: return 大道圣人彩;
+                    default: return null;
+                }
+            case JingJieType.混元圣人:
+                switch (type)
+                {
+                    case QualityType.黄品: return 混元圣人白;
+                    case QualityType.玄品: return 混元圣人绿;
+                    case QualityType.地品: return 混元圣人蓝;
+                    case QualityType.天品: return 混元圣人紫;
+                    case QualityType.宇品: return 混元圣人橙;
+                    case QualityType.宙品: return 混元圣人粉;
+                    case QualityType.洪品: return 混元圣人红;
+                    case QualityType.荒品: return 混元圣人彩;
+                    default: return null;
+                }
+            default:
+                return null;
+        }
+    }
+
+
     public static void Init()
     {
-        功法经验=Resources.Load<Sprite>("Sprite/DaoJu/功法经验");
+        青木狼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/青木狼");
+        铁背龟 = Resources.Load<Sprite>("Sprite/洞天怪物icon/铁背龟");
+        荆棘猿 = Resources.Load<Sprite>("Sprite/洞天怪物icon/荆棘猿");
+        千年树精 = Resources.Load<Sprite>("Sprite/洞天怪物icon/千年树精");
+        熔岩蜥 = Resources.Load<Sprite>("Sprite/洞天怪物icon/熔岩蜥");
+        火鸦 = Resources.Load<Sprite>("Sprite/洞天怪物icon/火鸦");
+        炎晶巨人 = Resources.Load<Sprite>("Sprite/洞天怪物icon/炎晶巨人");
+        地火蛟 = Resources.Load<Sprite>("Sprite/洞天怪物icon/地火蛟");
+        怨魂蝶 = Resources.Load<Sprite>("Sprite/洞天怪物icon/怨魂蝶");
+        食骨鳄 = Resources.Load<Sprite>("Sprite/洞天怪物icon/食骨鳄");
+        无面鬼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/无面鬼");
+        九幽尸王 = Resources.Load<Sprite>("Sprite/洞天怪物icon/九幽尸王");
+        罡风鹫 = Resources.Load<Sprite>("Sprite/洞天怪物icon/罡风鹫");
+        裂空蝎 = Resources.Load<Sprite>("Sprite/洞天怪物icon/裂空蝎");
+        虚影兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/虚影兽");
+        双首海蛇 = Resources.Load<Sprite>("Sprite/洞天怪物icon/双首海蛇");
+        幻鳞鱼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/幻鳞鱼");
+        铁钳蟹 = Resources.Load<Sprite>("Sprite/洞天怪物icon/铁钳蟹");
+        万象鲸 = Resources.Load<Sprite>("Sprite/洞天怪物icon/万象鲸");
+        饕餮 = Resources.Load<Sprite>("Sprite/洞天怪物icon/饕餮");
+        云纹兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/云纹兽");
+        星光蝶 = Resources.Load<Sprite>("Sprite/洞天怪物icon/星光蝶");
+        朱雀 = Resources.Load<Sprite>("Sprite/洞天怪物icon/朱雀");
+        白虎 = Resources.Load<Sprite>("Sprite/洞天怪物icon/白虎");
+        仙灵鹤 = Resources.Load<Sprite>("Sprite/洞天怪物icon/仙灵鹤");
+        玉兔精 = Resources.Load<Sprite>("Sprite/洞天怪物icon/玉兔精");
+        朱厌 = Resources.Load<Sprite>("Sprite/洞天怪物icon/朱厌");
+        应龙 = Resources.Load<Sprite>("Sprite/洞天怪物icon/应龙");
+        虚空兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/虚空兽");
+        混沌兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混沌兽");
+        归墟古凤 = Resources.Load<Sprite>("Sprite/洞天怪物icon/归墟古凤");
+        归墟古龙 = Resources.Load<Sprite>("Sprite/洞天怪物icon/归墟古龙");
+        道纹甲虫 = Resources.Load<Sprite>("Sprite/洞天怪物icon/道纹甲虫");
+        混沌蝠 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混沌蝠");
+        梼杌 = Resources.Load<Sprite>("Sprite/洞天怪物icon/梼杌");
+        霸下 = Resources.Load<Sprite>("Sprite/洞天怪物icon/霸下");
+        玄黄蜉蝣 = Resources.Load<Sprite>("Sprite/洞天怪物icon/玄黄蜉蝣");
+        剑齿虎 = Resources.Load<Sprite>("Sprite/洞天怪物icon/剑齿虎");
+        混元兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混元兽");
+        道胎灵童 = Resources.Load<Sprite>("Sprite/洞天怪物icon/道胎灵童");
+        青丘白狐 = Resources.Load<Sprite>("Sprite/洞天怪物icon/青丘白狐");
+        青丘黑狐 = Resources.Load<Sprite>("Sprite/洞天怪物icon/青丘黑狐");
+        白泽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/白泽");
+        九尾狐 = Resources.Load<Sprite>("Sprite/洞天怪物icon/九尾狐");
+        远古巨兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/远古巨兽");
+        法则之兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/法则之兽");
+        凤凰 = Resources.Load<Sprite>("Sprite/洞天怪物icon/凤凰");
+        真龙 = Resources.Load<Sprite>("Sprite/洞天怪物icon/真龙");
+        远古凶兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/远古凶兽");
+        远古大蛇 = Resources.Load<Sprite>("Sprite/洞天怪物icon/远古大蛇");
+        穷奇 = Resources.Load<Sprite>("Sprite/洞天怪物icon/穷奇");
+        麒麟 = Resources.Load<Sprite>("Sprite/洞天怪物icon/麒麟");
+        先天魔神 = Resources.Load<Sprite>("Sprite/洞天怪物icon/先天魔神");
+        混沌巨兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混沌巨兽");
+        劫兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/劫兽");
+        混沌之眼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混沌之眼");
+        归墟古兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/归墟古兽");
+        时空扭曲者 = Resources.Load<Sprite>("Sprite/洞天怪物icon/时空扭曲者");
+        混沌古兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混沌古兽");
+        永恒之门 = Resources.Load<Sprite>("Sprite/洞天怪物icon/永恒之门");
+        筑基白 = Resources.Load<Sprite>("Sprite/突破灵物/筑基白");
+        筑基绿 = Resources.Load<Sprite>("Sprite/突破灵物/筑基绿");
+        筑基蓝 = Resources.Load<Sprite>("Sprite/突破灵物/筑基蓝");
+        筑基紫 = Resources.Load<Sprite>("Sprite/突破灵物/筑基紫");
+        筑基橙 = Resources.Load<Sprite>("Sprite/突破灵物/筑基橙");
+        筑基粉 = Resources.Load<Sprite>("Sprite/突破灵物/筑基粉");
+        筑基红 = Resources.Load<Sprite>("Sprite/突破灵物/筑基红");
+        筑基彩 = Resources.Load<Sprite>("Sprite/突破灵物/筑基彩");
+
         
+        练气白 = Resources.Load<Sprite>("Sprite/突破灵物/练气白");
+        练气绿 = Resources.Load<Sprite>("Sprite/突破灵物/练气绿");
+        练气蓝 = Resources.Load<Sprite>("Sprite/突破灵物/练气蓝");
+        练气紫 = Resources.Load<Sprite>("Sprite/突破灵物/练气紫");
+        练气橙 = Resources.Load<Sprite>("Sprite/突破灵物/练气橙");
+        练气粉 = Resources.Load<Sprite>("Sprite/突破灵物/练气粉");
+        练气红 = Resources.Load<Sprite>("Sprite/突破灵物/练气红");
+        练气彩 = Resources.Load<Sprite>("Sprite/突破灵物/练气彩");
+        金丹白 = Resources.Load<Sprite>("Sprite/突破灵物/金丹白");
+        金丹绿 = Resources.Load<Sprite>("Sprite/突破灵物/金丹绿");
+        金丹蓝 = Resources.Load<Sprite>("Sprite/突破灵物/金丹蓝");
+        金丹紫 = Resources.Load<Sprite>("Sprite/突破灵物/金丹紫");
+        金丹橙 = Resources.Load<Sprite>("Sprite/突破灵物/金丹橙");
+        金丹粉 = Resources.Load<Sprite>("Sprite/突破灵物/金丹粉");
+        金丹红 = Resources.Load<Sprite>("Sprite/突破灵物/金丹红");
+        金丹彩 = Resources.Load<Sprite>("Sprite/突破灵物/金丹彩");
+
+        元婴白 = Resources.Load<Sprite>("Sprite/突破灵物/元婴白");
+        元婴绿 = Resources.Load<Sprite>("Sprite/突破灵物/元婴绿");
+        元婴蓝 = Resources.Load<Sprite>("Sprite/突破灵物/元婴蓝");
+        元婴紫 = Resources.Load<Sprite>("Sprite/突破灵物/元婴紫");
+        元婴橙 = Resources.Load<Sprite>("Sprite/突破灵物/元婴橙");
+        元婴粉 = Resources.Load<Sprite>("Sprite/突破灵物/元婴粉");
+        元婴红 = Resources.Load<Sprite>("Sprite/突破灵物/元婴红");
+        元婴彩 = Resources.Load<Sprite>("Sprite/突破灵物/元婴彩");
+
+        化神白 = Resources.Load<Sprite>("Sprite/突破灵物/化神白");
+        化神绿 = Resources.Load<Sprite>("Sprite/突破灵物/化神绿");
+        化神蓝 = Resources.Load<Sprite>("Sprite/突破灵物/化神蓝");
+        化神紫 = Resources.Load<Sprite>("Sprite/突破灵物/化神紫");
+        化神橙 = Resources.Load<Sprite>("Sprite/突破灵物/化神橙");
+        化神粉 = Resources.Load<Sprite>("Sprite/突破灵物/化神粉");
+        化神红 = Resources.Load<Sprite>("Sprite/突破灵物/化神红");
+        化神彩 = Resources.Load<Sprite>("Sprite/突破灵物/化神彩");
+
+        合体白 = Resources.Load<Sprite>("Sprite/突破灵物/合体白");
+        合体绿 = Resources.Load<Sprite>("Sprite/突破灵物/合体绿");
+        合体蓝 = Resources.Load<Sprite>("Sprite/突破灵物/合体蓝");
+        合体紫 = Resources.Load<Sprite>("Sprite/突破灵物/合体紫");
+        合体橙 = Resources.Load<Sprite>("Sprite/突破灵物/合体橙");
+        合体粉 = Resources.Load<Sprite>("Sprite/突破灵物/合体粉");
+        合体红 = Resources.Load<Sprite>("Sprite/突破灵物/合体红");
+        合体彩 = Resources.Load<Sprite>("Sprite/突破灵物/合体彩");
+
+        大乘白 = Resources.Load<Sprite>("Sprite/突破灵物/大乘白");
+        大乘绿 = Resources.Load<Sprite>("Sprite/突破灵物/大乘绿");
+        大乘蓝 = Resources.Load<Sprite>("Sprite/突破灵物/大乘蓝");
+        大乘紫 = Resources.Load<Sprite>("Sprite/突破灵物/大乘紫");
+        大乘橙 = Resources.Load<Sprite>("Sprite/突破灵物/大乘橙");
+        大乘粉 = Resources.Load<Sprite>("Sprite/突破灵物/大乘粉");
+        大乘红 = Resources.Load<Sprite>("Sprite/突破灵物/大乘红");
+        大乘彩 = Resources.Load<Sprite>("Sprite/突破灵物/大乘彩");
+
+        天仙白 = Resources.Load<Sprite>("Sprite/突破灵物/天仙白");
+        天仙绿 = Resources.Load<Sprite>("Sprite/突破灵物/天仙绿");
+        天仙蓝 = Resources.Load<Sprite>("Sprite/突破灵物/天仙蓝");
+        天仙紫 = Resources.Load<Sprite>("Sprite/突破灵物/天仙紫");
+        天仙橙 = Resources.Load<Sprite>("Sprite/突破灵物/天仙橙");
+        天仙粉 = Resources.Load<Sprite>("Sprite/突破灵物/天仙粉");
+        天仙红 = Resources.Load<Sprite>("Sprite/突破灵物/天仙红");
+        天仙彩 = Resources.Load<Sprite>("Sprite/突破灵物/天仙彩");
+
+        玄仙白 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙白");
+        玄仙绿 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙绿");
+        玄仙蓝 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙蓝");
+        玄仙紫 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙紫");
+        玄仙橙 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙橙");
+        玄仙粉 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙粉");
+        玄仙红 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙红");
+        玄仙彩 = Resources.Load<Sprite>("Sprite/突破灵物/玄仙彩");
+
+        金仙白 = Resources.Load<Sprite>("Sprite/突破灵物/金仙白");
+        金仙绿 = Resources.Load<Sprite>("Sprite/突破灵物/金仙绿");
+        金仙蓝 = Resources.Load<Sprite>("Sprite/突破灵物/金仙蓝");
+        金仙紫 = Resources.Load<Sprite>("Sprite/突破灵物/金仙紫");
+        金仙橙 = Resources.Load<Sprite>("Sprite/突破灵物/金仙橙");
+        金仙粉 = Resources.Load<Sprite>("Sprite/突破灵物/金仙粉");
+        金仙红 = Resources.Load<Sprite>("Sprite/突破灵物/金仙红");
+        金仙彩 = Resources.Load<Sprite>("Sprite/突破灵物/金仙彩");
+
+        太乙金仙白 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙白");
+        太乙金仙绿 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙绿");
+        太乙金仙蓝 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙蓝");
+        太乙金仙紫 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙紫");
+        太乙金仙橙 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙橙");
+        太乙金仙粉 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙粉");
+        太乙金仙红 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙红");
+        太乙金仙彩 = Resources.Load<Sprite>("Sprite/突破灵物/太乙金仙彩");
+
+        大罗金仙白 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙白");
+        大罗金仙绿 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙绿");
+        大罗金仙蓝 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙蓝");
+        大罗金仙紫 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙紫");
+        大罗金仙橙 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙橙");
+        大罗金仙粉 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙粉");
+        大罗金仙红 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙红");
+        大罗金仙彩 = Resources.Load<Sprite>("Sprite/突破灵物/大罗金仙彩");
+
+        准圣白 = Resources.Load<Sprite>("Sprite/突破灵物/准圣白");
+        准圣绿 = Resources.Load<Sprite>("Sprite/突破灵物/准圣绿");
+        准圣蓝 = Resources.Load<Sprite>("Sprite/突破灵物/准圣蓝");
+        准圣紫 = Resources.Load<Sprite>("Sprite/突破灵物/准圣紫");
+        准圣橙 = Resources.Load<Sprite>("Sprite/突破灵物/准圣橙");
+        准圣粉 = Resources.Load<Sprite>("Sprite/突破灵物/准圣粉");
+        准圣红 = Resources.Load<Sprite>("Sprite/突破灵物/准圣红");
+        准圣彩 = Resources.Load<Sprite>("Sprite/突破灵物/准圣彩");
+
+        圣人白 = Resources.Load<Sprite>("Sprite/突破灵物/圣人白");
+        圣人绿 = Resources.Load<Sprite>("Sprite/突破灵物/圣人绿");
+        圣人蓝 = Resources.Load<Sprite>("Sprite/突破灵物/圣人蓝");
+        圣人紫 = Resources.Load<Sprite>("Sprite/突破灵物/圣人紫");
+        圣人橙 = Resources.Load<Sprite>("Sprite/突破灵物/圣人橙");
+        圣人粉 = Resources.Load<Sprite>("Sprite/突破灵物/圣人粉");
+        圣人红 = Resources.Load<Sprite>("Sprite/突破灵物/圣人红");
+        圣人彩 = Resources.Load<Sprite>("Sprite/突破灵物/圣人彩");
+
+        天道圣人白 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人白");
+        天道圣人绿 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人绿");
+        天道圣人蓝 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人蓝");
+        天道圣人紫 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人紫");
+        天道圣人橙 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人橙");
+        天道圣人粉 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人粉");
+        天道圣人红 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人红");
+        天道圣人彩 = Resources.Load<Sprite>("Sprite/突破灵物/天道圣人彩");
+
+        大道圣人白 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人白");
+        大道圣人绿 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人绿");
+        大道圣人蓝 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人蓝");
+        大道圣人紫 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人紫");
+        大道圣人橙 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人橙");
+        大道圣人粉 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人粉");
+        大道圣人红 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人红");
+        大道圣人彩 = Resources.Load<Sprite>("Sprite/突破灵物/大道圣人彩");
+
+        混元圣人白 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人白");
+        混元圣人绿 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人绿");
+        混元圣人蓝 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人蓝");
+        混元圣人紫 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人紫");
+        混元圣人橙 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人橙");
+        混元圣人粉 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人粉");
+        混元圣人红 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人红");
+        混元圣人彩 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人彩");
+
+
+        功法经验 = Resources.Load<Sprite>("Sprite/DaoJu/功法经验");
+
         传道背景框彩 = Resources.Load<Sprite>("Sprite/传道/背景框彩");
         传道背景框橙 = Resources.Load<Sprite>("Sprite/传道/背景框橙");
         传道背景框白 = Resources.Load<Sprite>("Sprite/传道/背景框白");
@@ -2925,7 +3661,7 @@ public class ResourcesConfig : MonoBehaviour
         传道背景框红 = Resources.Load<Sprite>("Sprite/传道/背景框红");
         传道背景框绿 = Resources.Load<Sprite>("Sprite/传道/背景框绿");
         传道背景框蓝 = Resources.Load<Sprite>("Sprite/传道/背景框蓝");
-        
+
         传道icon彩 = Resources.Load<Sprite>("Sprite/传道/icon彩");
         传道icon橙 = Resources.Load<Sprite>("Sprite/传道/icon橙");
         传道icon白 = Resources.Load<Sprite>("Sprite/传道/icon白");
@@ -2934,8 +3670,8 @@ public class ResourcesConfig : MonoBehaviour
         传道icon红 = Resources.Load<Sprite>("Sprite/传道/icon红");
         传道icon绿 = Resources.Load<Sprite>("Sprite/传道/icon绿");
         传道icon蓝 = Resources.Load<Sprite>("Sprite/传道/icon蓝");
-        
-        
+
+
         传道按钮彩 = Resources.Load<Sprite>("Sprite/传道/按钮彩");
         传道按钮橙 = Resources.Load<Sprite>("Sprite/传道/按钮橙");
         传道按钮白 = Resources.Load<Sprite>("Sprite/传道/按钮白");
@@ -2993,74 +3729,74 @@ public class ResourcesConfig : MonoBehaviour
         辅助红 = Resources.Load<Sprite>("Sprite/功法/辅助红");
         辅助绿 = Resources.Load<Sprite>("Sprite/功法/辅助绿");
         辅助蓝 = Resources.Load<Sprite>("Sprite/功法/辅助蓝");
-        
-        丹童=Resources.Load<AudioClip>("音效/丹童");
-        土地=Resources.Load<AudioClip>("音效/土地");
-        河伯1=Resources.Load<AudioClip>("音效/河伯1");
-        河伯2=Resources.Load<AudioClip>("音效/河伯2");
-        瑶池=Resources.Load<AudioClip>("音效/瑶池");
-        首领出现=Resources.Load<AudioClip>("音效/首领出现");
-        怪物死亡=Resources.Load<AudioClip>("音效/怪物死亡");
-        太白金星=Resources.Load<AudioClip>("音效/太白金星");
-        石敢当=Resources.Load<AudioClip>("音效/石敢当");
-        玄女=Resources.Load<AudioClip>("音效/玄女");
-        龟丞相audio=Resources.Load<AudioClip>("音效/龟丞相");
-        
+
+        丹童 = Resources.Load<AudioClip>("音效/丹童");
+        土地 = Resources.Load<AudioClip>("音效/土地");
+        河伯1 = Resources.Load<AudioClip>("音效/河伯1");
+        河伯2 = Resources.Load<AudioClip>("音效/河伯2");
+        瑶池 = Resources.Load<AudioClip>("音效/瑶池");
+        首领出现 = Resources.Load<AudioClip>("音效/首领出现");
+        怪物死亡 = Resources.Load<AudioClip>("音效/怪物死亡");
+        太白金星 = Resources.Load<AudioClip>("音效/太白金星");
+        石敢当 = Resources.Load<AudioClip>("音效/石敢当");
+        玄女 = Resources.Load<AudioClip>("音效/玄女");
+        龟丞相audio = Resources.Load<AudioClip>("音效/龟丞相");
+
         多闻天王 = Resources.Load<AudioClip>("音效/多闻天王");
         广目天王 = Resources.Load<AudioClip>("音效/广目天王");
         雷震子 = Resources.Load<AudioClip>("音效/雷震子");
         月老 = Resources.Load<AudioClip>("音效/月老");
-        
-    
+
+
         // ---- 大能 / 妖族 ----
         嫦娥 = Resources.Load<AudioClip>("音效/嫦娥");
         杨戬 = Resources.Load<AudioClip>("音效/杨戬");
         妲己 = Resources.Load<AudioClip>("音效/妲己");
         牛魔王audio = Resources.Load<AudioClip>("音效/牛魔王");
-        
+
         哪吒 = Resources.Load<AudioClip>("音效/哪吒");
         孙悟空 = Resources.Load<AudioClip>("音效/孙悟空");
         碧霄 = Resources.Load<AudioClip>("音效/碧霄");
         琼霄 = Resources.Load<AudioClip>("音效/琼霄");
-    
+
         // ---- 上古神明 ----
         羲和 = Resources.Load<AudioClip>("音效/羲和");
         常羲 = Resources.Load<AudioClip>("音效/常羲");
         后羿 = Resources.Load<AudioClip>("音效/后羿");
         云霄 = Resources.Load<AudioClip>("音效/云霄");
-    
+
         // ---- 创世 / 圣贤 ----
         女娲 = Resources.Load<AudioClip>("音效/女娲");
         老子 = Resources.Load<AudioClip>("音效/老子");
         元始 = Resources.Load<AudioClip>("音效/元始");
         通天 = Resources.Load<AudioClip>("音效/通天");
-    
+
         // ---- 天道 / 终极 ----
         鸿钧audio = Resources.Load<AudioClip>("音效/鸿钧");
         盘古audio = Resources.Load<AudioClip>("音效/盘古");
-        
-        
-        按钮进入=Resources.Load<AudioClip>("音效/按钮进入");
-        按钮点击=Resources.Load<AudioClip>("音效/按钮点击");
-        错误=Resources.Load<AudioClip>("音效/错误");
-        Toggle=Resources.Load<AudioClip>("音效/Toggle");
-        招募=Resources.Load<AudioClip>("音效/招募");
-        成功=Resources.Load<AudioClip>("音效/成功");
-        
-        
-        问号= Resources.Load<Sprite>("Sprite/问号");
-        
-        开始按钮亮= Resources.Load<Sprite>("Sprite/战斗界面/开始按钮亮");
-        开始按钮暗= Resources.Load<Sprite>("Sprite/战斗界面/开始按钮暗");
-        倍速按钮亮= Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮亮");
-        倍速按钮暗= Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮暗");
+
+
+        按钮进入 = Resources.Load<AudioClip>("音效/按钮进入");
+        按钮点击 = Resources.Load<AudioClip>("音效/按钮点击");
+        错误 = Resources.Load<AudioClip>("音效/错误");
+        Toggle = Resources.Load<AudioClip>("音效/Toggle");
+        招募 = Resources.Load<AudioClip>("音效/招募");
+        成功 = Resources.Load<AudioClip>("音效/成功");
+
+
+        问号 = Resources.Load<Sprite>("Sprite/问号");
+
+        开始按钮亮 = Resources.Load<Sprite>("Sprite/战斗界面/开始按钮亮");
+        开始按钮暗 = Resources.Load<Sprite>("Sprite/战斗界面/开始按钮暗");
+        倍速按钮亮 = Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮亮");
+        倍速按钮暗 = Resources.Load<Sprite>("Sprite/战斗界面/倍速按钮暗");
 
         羁绊背景框紫 = Resources.Load<Sprite>("Sprite/羁绊图标/紫");
         羁绊背景框橙 = Resources.Load<Sprite>("Sprite/羁绊图标/橙");
         羁绊背景框粉 = Resources.Load<Sprite>("Sprite/羁绊图标/粉");
         羁绊背景框红 = Resources.Load<Sprite>("Sprite/羁绊图标/红");
         羁绊背景框彩 = Resources.Load<Sprite>("Sprite/羁绊图标/彩");
-        
+
         混沌归元 = Resources.Load<Sprite>("Sprite/羁绊图标/混沌归元");
         诛仙剑阵 = Resources.Load<Sprite>("Sprite/羁绊图标/诛仙剑阵");
         开天辟地 = Resources.Load<Sprite>("Sprite/羁绊图标/开天辟地");
@@ -3075,10 +3811,10 @@ public class ResourcesConfig : MonoBehaviour
         照落金莲 = Resources.Load<Sprite>("Sprite/羁绊图标/照落金莲");
         紫金断岳 = Resources.Load<Sprite>("Sprite/羁绊图标/紫金断岳");
         五方照落 = Resources.Load<Sprite>("Sprite/羁绊图标/五方照落");
-        
-        
+
+
         加号背景框 = Resources.Load<Sprite>("Sprite/地图界面UI/加号背景框");
-        
+
         城墙icon白 = Resources.Load<Sprite>("Sprite/城墙icon/白");
         城墙icon绿 = Resources.Load<Sprite>("Sprite/城墙icon/绿");
         城墙icon蓝 = Resources.Load<Sprite>("Sprite/城墙icon/蓝");
@@ -3087,7 +3823,7 @@ public class ResourcesConfig : MonoBehaviour
         城墙icon粉 = Resources.Load<Sprite>("Sprite/城墙icon/粉");
         城墙icon红 = Resources.Load<Sprite>("Sprite/城墙icon/红");
         城墙icon彩 = Resources.Load<Sprite>("Sprite/城墙icon/彩");
-        
+
         城墙装备背景框白 = Resources.Load<Sprite>("Sprite/城墙icon/背景框白");
         城墙装备背景框绿 = Resources.Load<Sprite>("Sprite/城墙icon/背景框绿");
         城墙装备背景框蓝 = Resources.Load<Sprite>("Sprite/城墙icon/背景框蓝");
