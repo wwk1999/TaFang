@@ -1,31 +1,9 @@
 using System.Collections.Generic;
 using Config;
 
-public enum 突破灵物Type
-{
-    None,
-    练气,
-    筑基,
-    金丹,
-    元婴,
-    化神,
-    合体,
-    大乘,
-    天仙,
-    玄仙,
-    金仙,
-    太乙金仙,
-    大罗金仙,
-    准圣,
-    圣人,
-    天道圣人,    
-    大道圣人,
-    混元圣人,
-}
-
 public class 洞天怪物Item
 {
-    public 突破灵物Type 突破灵物Type { get; set; }
+    public JingJieType JingJieType { get; set; }
     public QualityType QualityType { get; set; }
 
     public MonsterType MonsterType { get; set; }
@@ -35,178 +13,27 @@ public class 洞天怪物Item
         if (obj == null || GetType() != obj.GetType())
             return false;
         洞天怪物Item other = (洞天怪物Item)obj;
-        return QualityType==other.QualityType&&突破灵物Type == other.突破灵物Type && MonsterType == other.MonsterType;
+        return QualityType==other.QualityType&&JingJieType == other.JingJieType && MonsterType == other.MonsterType;
     }
+    
+}
 
-
+public class 灵物突破Config
+{
     public static Dictionary<洞天怪物Item, MonsterAttribute> 主线关卡怪物属性Dic = new Dictionary<洞天怪物Item, MonsterAttribute>()
     {
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.练气, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.练气, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.练气, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.练气, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.练气, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.筑基, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.筑基, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.筑基, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.金丹, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.金丹, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.金丹, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.元婴, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.元婴, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.元婴, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.化神, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.化神, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.化神, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.合体, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.合体, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.合体, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大乘, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大乘, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大乘, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.天仙, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.天仙, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.天仙, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.玄仙, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.玄仙, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.玄仙, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.金仙, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.金仙, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.金仙, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.练气, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
@@ -214,87 +41,222 @@ public class 洞天怪物Item
         
         
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.太乙金仙, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.筑基, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.太乙金仙, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.筑基, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.太乙金仙, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        
-        
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大罗金仙, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大罗金仙, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大罗金仙, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.筑基, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         
         
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.准圣, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.金丹, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.准圣, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.金丹, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.准圣, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.金丹, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.元婴, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.元婴, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.元婴, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         
         
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.圣人, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.化神, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.圣人, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.化神, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.圣人, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.化神, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.合体, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.合体, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.合体, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大乘, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大乘, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大乘, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.天仙, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.天仙, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.天仙, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.金仙, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.金仙, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         
         
         
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
         
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.天道圣人, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.天道圣人, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.天道圣人, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.准圣, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.准圣, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.准圣, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.圣人, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.圣人, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
@@ -303,34 +265,53 @@ public class 洞天怪物Item
         
         
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大道圣人, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.天道圣人, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大道圣人, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.天道圣人, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.大道圣人, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.天道圣人, MonsterType = MonsterType.Boss },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        
+        
+        
+        
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大道圣人, MonsterType = MonsterType.Normal },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大道圣人, MonsterType = MonsterType.Elite },
+            new MonsterAttribute()
+                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+        },
+        {
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.大道圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         
         
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.混元圣人, MonsterType = MonsterType.Normal },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.混元圣人, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.混元圣人, MonsterType = MonsterType.Elite },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.混元圣人, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
-            new 洞天怪物Item() { QualityType = QualityType.黄品,突破灵物Type = 突破灵物Type.混元圣人, MonsterType = MonsterType.Boss },
+            new 洞天怪物Item() { QualityType = QualityType.黄品,JingJieType = JingJieType.混元圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
                 { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
@@ -347,11 +328,6 @@ public class 洞天怪物Item
         { QualityType.洪品, 80000 },
         { QualityType.荒品, 3000000 },
     };
-}
-
-public class 灵物突破Config
-{
-    
     public static Dictionary<JingJieType, string> 突破灵物名Dic = new Dictionary<JingJieType, string>()
     {
         { JingJieType.练气, "筑基果" },

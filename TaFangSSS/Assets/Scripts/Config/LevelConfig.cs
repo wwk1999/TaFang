@@ -254,6 +254,136 @@ public class LevelConfig : MonoBehaviour
     { 主线关卡Type.混沌虚空, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
 
 };
+    
+    public static Dictionary<JingJieType, List<MonsterTypeName>> 洞天MonsterDic =
+    new Dictionary<JingJieType, List<MonsterTypeName>>()
+    {
+      {
+        JingJieType.练气, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.仙鹤, MonsterTypeName.灵芝童
+        }
+      },
+      // 筑基 · 青木秘境
+      {
+        JingJieType.筑基, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.青木狼, MonsterTypeName.铁背龟, MonsterTypeName.荆棘猿
+        }
+      },
+      
+      // 金丹 · 赤焰谷
+      {
+        JingJieType.金丹, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.熔岩蜥, MonsterTypeName.火鸦, MonsterTypeName.炎晶巨人, MonsterTypeName.地火蛟
+        }
+      },
+
+      // 元婴 · 幽冥渊
+      {
+        JingJieType.元婴, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.怨魂蝶, MonsterTypeName.食骨鳄, MonsterTypeName.无面鬼, MonsterTypeName.九幽尸王
+        }
+      },
+
+      // 化神 · 裂天峡
+      {
+        JingJieType.化神, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.罡风鹫, MonsterTypeName.裂空蝎, MonsterTypeName.虚影兽, MonsterTypeName.双首海蛇
+        }
+      },
+
+      // 合体 · 万象海
+      {
+        JingJieType.合体, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.幻鳞鱼, MonsterTypeName.铁钳蟹, MonsterTypeName.万象鲸, MonsterTypeName.饕餮
+        }
+      },
+
+      // 大乘 · 天外天
+      {
+        JingJieType.大乘, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.云纹兽, MonsterTypeName.星光蝶, MonsterTypeName.朱雀, MonsterTypeName.白虎
+        }
+      },
+
+      // 天仙 · 瑶光仙境
+      {
+        JingJieType.天仙, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.仙灵鹤, MonsterTypeName.玉兔精, MonsterTypeName.朱厌, MonsterTypeName.应龙
+        }
+      },
+
+      // 玄仙 · 归墟海
+      {
+        JingJieType.玄仙, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.虚空兽, MonsterTypeName.混沌兽, MonsterTypeName.归墟古凤, MonsterTypeName.归墟古龙
+        }
+      },
+
+      // 金仙 · 太初宫
+      {
+        JingJieType.金仙, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.道纹甲虫, MonsterTypeName.混沌蝠, MonsterTypeName.梼杌, MonsterTypeName.霸下
+        }
+      },
+
+      // 太乙金仙 · 混元界
+      {
+        JingJieType.太乙金仙, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.玄黄蜉蝣, MonsterTypeName.剑齿虎, MonsterTypeName.混元兽, MonsterTypeName.道胎灵童
+        }
+      },
+
+      // 大罗金仙 · 无何有之乡
+      {
+        JingJieType.大罗金仙, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.青丘白狐, MonsterTypeName.青丘黑狐, MonsterTypeName.白泽, MonsterTypeName.九尾狐
+        }
+      },
+
+      // 准圣 · 道海
+      {
+        JingJieType.准圣, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.远古巨兽, MonsterTypeName.法则之兽, MonsterTypeName.凤凰, MonsterTypeName.真龙
+        }
+      },
+
+      // 圣人/天道圣人 · 紫霄宫
+      {
+        JingJieType.圣人, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.远古凶兽, MonsterTypeName.远古大蛇, MonsterTypeName.穷奇, MonsterTypeName.麒麟
+        }
+      },
+
+      // 大道圣人 · 混沌海
+      {
+        JingJieType.大道圣人, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.先天魔神, MonsterTypeName.混沌巨兽, MonsterTypeName.劫兽, MonsterTypeName.混沌之眼
+        }
+      },
+
+      // 混元圣人 · 永恒之门
+      {
+        JingJieType.混元圣人, new List<MonsterTypeName>()
+        {
+          MonsterTypeName.归墟古兽, MonsterTypeName.时空扭曲者, MonsterTypeName.混沌古兽, MonsterTypeName.永恒之门
+        }
+      },
+    };
    public static Dictionary<主线关卡Type, List<MonsterTypeName>> LevelMonsterDic =
     new Dictionary<主线关卡Type, List<MonsterTypeName>>()
     {

@@ -1,0 +1,115 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Config;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class 洞天秘境窗口 : MonoBehaviour
+{
+    public Button exitButton;
+    public Button maskButton;
+
+    public GameObject 关卡列表;
+    public TextMeshProUGUI 关卡名;
+    public GameObject 敌人列表;
+    public GameObject 掉落列表;
+    public TextMeshProUGUI 境界要求;
+    public Button left;
+    public Button right;
+    public TextMeshProUGUI 难度;
+    public Button 挑战按钮;
+    public Toggle 重复挑战;
+
+    private QualityType QualityType=QualityType.黄品;
+
+    private void Start()
+    {
+        exitButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
+        maskButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
+        重复挑战.onValueChanged.AddListener((value) =>
+        {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+            PlayerData.S.重复挑战=value;
+        });
+        left.onClick.AddListener(() =>
+        {
+            if (QualityType > QualityType.黄品)
+            {
+                QualityType--;
+                ShowInfo();
+            }
+        });
+        right.onClick.AddListener(() =>
+        {
+            if (QualityType < QualityType.荒品)
+            {
+                QualityType++;
+                ShowInfo();
+            }
+        });
+    }
+
+    private void OnEnable()
+    {
+        ShowInfo();
+        Show关卡列表();
+    }
+
+    public void ShowInfo()
+    {
+        境界要求.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
+        难度.text = PropConfig.QualityNameDic[QualityType];
+        难度.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
+        关卡名.text = JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType] + "境";
+        foreach (Transform item in 敌人列表.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        
+        foreach (Transform item in 掉落列表.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType])
+        {
+            var MonsterItem=Instantiate(Resources.Load("Prefabs/Window/MonsterItem"),敌人列表.transform).GetComponent<MonsterItem>();
+            MonsterItem.MonsterTypeName = item;
+            RectTransform trans = MonsterItem.gameObject.GetComponent<RectTransform>();
+            trans.sizeDelta = new Vector2(80, 80);
+            MonsterItem.SetItem();
+        }
+
+        var list = 灵物突破Config.灵物掉落概率Dic[QualityType];
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] == 0) continue;
+            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
+            DiaoLuoItem.QualityType = (QualityType)(i+1);
+            DiaoLuoItem.SetItem();
+        }
+    }
+    public void Show关卡列表()
+    {
+        foreach (Transform item in 关卡列表.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = 1; i < Enum.GetValues(typeof(JingJieType)).Length-1; i++)
+        {
+            var 关卡item=Instantiate(Resources.Load("Prefabs/Window/洞天秘境关卡item"),关卡列表.transform).GetComponent<洞天秘境关卡item>();
+            关卡item.JingJieType = (JingJieType)i;
+            关卡item.SetItem();
+        }
+    }
+    
+}

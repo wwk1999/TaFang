@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public Button 洞天秘境按钮;
+    public 洞天秘境窗口 洞天秘境窗口;
+
     public Button 设置按钮;
     public Canvas canvas;
     public 紫霄宫传道窗口 紫霄宫传道窗口;
@@ -144,6 +147,11 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
+        
+        洞天秘境按钮.onClick.AddListener(() =>
+        {
+            洞天秘境窗口.gameObject.SetActive(true);
+        });
         设置按钮.onClick.AddListener(() =>
         {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
