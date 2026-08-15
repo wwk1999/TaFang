@@ -22,6 +22,7 @@ public class 储物袋界面 : MonoBehaviour
    public Button 材料Btn;
    public Button 道纹Btn;
    public Button 功法Btn;
+   public Button 灵物Btn;
    public TextMeshProUGUI  Name;
    public TextMeshProUGUI  跟脚;
    public TextMeshProUGUI 境界Name;
@@ -138,6 +139,11 @@ public class 储物袋界面 : MonoBehaviour
          显示类型 = 3;
          刷新背包(); 
       });
+      灵物Btn.onClick.AddListener(() =>
+      {
+         显示类型 = 4;
+         刷新背包();
+      });
       强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
       ExitButton.onClick.AddListener(() => { gameObject.SetActive(false); });
    }
@@ -163,7 +169,7 @@ public class 储物袋界面 : MonoBehaviour
    public void Show道纹()
    {
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
-
+      灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮亮;
       foreach (Transform item in BagContent.transform)
@@ -240,6 +246,9 @@ public class 储物袋界面 : MonoBehaviour
          case 3:
             Show功法();
             break;
+         case 4:
+            Show灵物();
+            break;
       }
    }
 
@@ -248,6 +257,8 @@ public class 储物袋界面 : MonoBehaviour
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮亮;
+      灵物Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -268,6 +279,7 @@ public class 储物袋界面 : MonoBehaviour
       材料Btn.image.sprite = ResourcesConfig.按钮亮;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
+      灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -282,6 +294,34 @@ public class 储物袋界面 : MonoBehaviour
             baggrid.SetItem();
          }
       }
+   }
+   
+   public void Show灵物()
+   {
+      材料Btn.image.sprite = ResourcesConfig.按钮暗;
+      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
+      功法Btn.image.sprite = ResourcesConfig.按钮暗;
+      灵物Btn.image.sprite = ResourcesConfig.按钮亮;
+      foreach (Transform item in BagContent.transform)
+      {
+         Destroy(item.gameObject);
+      }
+
+      
+         for (int j = (int)QualityType.荒品; j >= (int)QualityType.黄品; j--)
+         {
+            for (int i = (int)JingJieType.混元圣人; i >= (int)JingJieType.练气; i--)
+            {
+               if (PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j) > 0)
+               {
+                  var 灵物grid=Instantiate(Resources.Load("Prefabs/Window/灵物Grid"), BagContent.transform).GetComponent<灵物Grid>();
+                  灵物grid.JingJieType = (JingJieType)i;
+                  灵物grid.QualityType = (QualityType)j;
+                  灵物grid.SetItem();
+               }
+            }
+         }
+      
    }
 
    public void ShowEquip()

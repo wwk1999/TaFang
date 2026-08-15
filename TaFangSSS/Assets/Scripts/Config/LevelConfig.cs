@@ -1159,14 +1159,15 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
        value.灵魂=LongRandom.Range(list[0].minCount,list[0].maxCount);
        value.功德=LongRandom.Range(list[1].minCount,list[1].maxCount);
        var 灵物概率列表 = 灵物突破Config.灵物掉落概率Dic[当前洞天QualityType];
-       foreach (var i in 灵物概率列表)
+       for (int index = 0; index < 灵物概率列表.Count; index++)
        {
+           float prob = 灵物概率列表[index];
            float random = Random.Range(0, 100f);
-           if (random < i)
+           if (random < prob)
            {
                灵物item 灵物item = new 灵物item();
                灵物item.JingJieType = PlayerData.S.JingJieType;
-               灵物item.QualityType = (QualityType)(i + 1);
+               灵物item.QualityType = (QualityType)(index + 1);
                灵物list.Add(灵物item);
            }
        }

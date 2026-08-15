@@ -44,7 +44,7 @@ public class 突破item : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","功德不足");
                 return;
             }
-            ObserverModuleManager.S.SendEvent("显示突破确认弹窗");
+            ObserverModuleManager.S.SendEvent("显示突破确认弹窗",quality);
         });
     }
 }

@@ -23,7 +23,7 @@ public class 胜利弹窗item : MonoBehaviour
         {
            Name.text = PropConfig.PropNameDic[Type];
            Name.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.PropQualityDic[Type]);
-            CountText.text=count.ToString();
+           CountText.text = PlayerData.S.格式化数字(count);
             image.sprite=ResourcesConfig.GetPropSprite(Type);
             bg.sprite=ResourcesConfig.Get道具背景框Sprite(Type); 
         }

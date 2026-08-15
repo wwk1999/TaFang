@@ -528,92 +528,92 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
     // 筑基 · 青木秘境
     { MonsterTypeName.青木狼, true },
     { MonsterTypeName.铁背龟, true },
-    { MonsterTypeName.荆棘猿, true },
-    { MonsterTypeName.千年树精, true },
+    { MonsterTypeName.荆棘猿, false },
+    { MonsterTypeName.千年树精, false },
 
     // 金丹 · 赤焰谷
     { MonsterTypeName.熔岩蜥, true },
     { MonsterTypeName.火鸦, true },
-    { MonsterTypeName.炎晶巨人, true },
-    { MonsterTypeName.地火蛟, true },
+    { MonsterTypeName.炎晶巨人, false },
+    { MonsterTypeName.地火蛟, false },
 
     // 元婴 · 幽冥渊
     { MonsterTypeName.怨魂蝶, true },
     { MonsterTypeName.食骨鳄, true },
-    { MonsterTypeName.无面鬼, true },
-    { MonsterTypeName.九幽尸王, true },
+    { MonsterTypeName.无面鬼, false },
+    { MonsterTypeName.九幽尸王, false },
 
     // 化神 · 裂天峡
     { MonsterTypeName.罡风鹫, true },
     { MonsterTypeName.裂空蝎, true },
-    { MonsterTypeName.虚影兽, true },
-    { MonsterTypeName.双首海蛇, true },
+    { MonsterTypeName.虚影兽, false },
+    { MonsterTypeName.双首海蛇, false },
 
     // 合体 · 万象海
     { MonsterTypeName.幻鳞鱼, true },
     { MonsterTypeName.铁钳蟹, true },
-    { MonsterTypeName.万象鲸, true },
-    { MonsterTypeName.饕餮, true },
+    { MonsterTypeName.万象鲸, false },
+    { MonsterTypeName.饕餮, false },
 
     // 大乘 · 天外天
     { MonsterTypeName.云纹兽, true },
     { MonsterTypeName.星光蝶, true },
-    { MonsterTypeName.朱雀, true },
-    { MonsterTypeName.白虎, true },
+    { MonsterTypeName.朱雀, false },
+    { MonsterTypeName.白虎, false },
 
     // 天仙 · 瑶光仙境
     { MonsterTypeName.仙灵鹤, true },
     { MonsterTypeName.玉兔精, true },
-    { MonsterTypeName.朱厌, true },
-    { MonsterTypeName.应龙, true },
+    { MonsterTypeName.朱厌, false },
+    { MonsterTypeName.应龙, false },
 
     // 玄仙 · 归墟海
     { MonsterTypeName.虚空兽, true },
     { MonsterTypeName.混沌兽, true },
-    { MonsterTypeName.归墟古凤, true },
-    { MonsterTypeName.归墟古龙, true },
+    { MonsterTypeName.归墟古凤, false },
+    { MonsterTypeName.归墟古龙, false },
 
     // 金仙 · 太初宫
     { MonsterTypeName.道纹甲虫, true },
     { MonsterTypeName.混沌蝠, true },
-    { MonsterTypeName.梼杌, true },
-    { MonsterTypeName.霸下, true },
+    { MonsterTypeName.梼杌, false },
+    { MonsterTypeName.霸下, false },
 
     // 太乙金仙 · 混元界
     { MonsterTypeName.玄黄蜉蝣, true },
     { MonsterTypeName.剑齿虎, true },
-    { MonsterTypeName.混元兽, true },
-    { MonsterTypeName.道胎灵童, true },
+    { MonsterTypeName.混元兽, false },
+    { MonsterTypeName.道胎灵童, false },
 
     // 大罗金仙 · 无何有之乡
     { MonsterTypeName.青丘白狐, true },
     { MonsterTypeName.青丘黑狐, true },
-    { MonsterTypeName.白泽, true },
-    { MonsterTypeName.九尾狐, true },
+    { MonsterTypeName.白泽, false },
+    { MonsterTypeName.九尾狐, false },
 
     // 准圣 · 道海
     { MonsterTypeName.远古巨兽, true },
     { MonsterTypeName.法则之兽, true },
-    { MonsterTypeName.凤凰, true },
-    { MonsterTypeName.真龙, true },
+    { MonsterTypeName.凤凰, false },
+    { MonsterTypeName.真龙, false },
 
     // 圣人/天道圣人 · 紫霄宫
     { MonsterTypeName.远古凶兽, true },
     { MonsterTypeName.远古大蛇, true },
-    { MonsterTypeName.穷奇, true },
-    { MonsterTypeName.麒麟, true },
+    { MonsterTypeName.穷奇, false },
+    { MonsterTypeName.麒麟, false },
 
     // 大道圣人 · 混沌海
     { MonsterTypeName.先天魔神, true },
     { MonsterTypeName.混沌巨兽, true },
-    { MonsterTypeName.劫兽, true },
-    { MonsterTypeName.混沌之眼, true },
+    { MonsterTypeName.劫兽, false },
+    { MonsterTypeName.混沌之眼, false },
 
     // 混元圣人 · 永恒之门
     { MonsterTypeName.归墟古兽, true },
     { MonsterTypeName.时空扭曲者, true },
-    { MonsterTypeName.混沌古兽, true },
-    { MonsterTypeName.永恒之门, true },
+    { MonsterTypeName.混沌古兽, false },
+    { MonsterTypeName.永恒之门, false },
 };
   
   

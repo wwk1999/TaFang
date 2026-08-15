@@ -63,6 +63,7 @@ public class 胜利弹窗 : MonoBehaviour
         {
             洞天关卡结算();
         }
+        StoreController.S.SaveStoreData();
     }
 
     public void 洞天关卡结算()
