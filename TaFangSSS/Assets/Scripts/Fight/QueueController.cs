@@ -242,9 +242,19 @@ public class QueueController:XSingleton<QueueController>
     
     
      public IEnumerator Init怪物Queue(int fream=10)
-    {
-        var 普通怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
-        var 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+     {
+         int 普通怪数量 = 0;
+         int 精英怪数量 = 0;
+         if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+         {
+             普通怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+             精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+         }
+         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+         {
+             普通怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+             精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].EliteMonsterCount;
+         }
 
         int count = 0;
         for (int i = 0; i < 普通怪数量; i++)

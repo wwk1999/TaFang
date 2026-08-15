@@ -22,15 +22,12 @@ public class 洞天秘境窗口 : MonoBehaviour
     public TextMeshProUGUI 难度;
     public Button 挑战按钮;
     public Toggle 重复挑战;
-
-    private QualityType QualityType=QualityType.黄品;
-
+    
     private void Start()
     {
         挑战按钮.onClick.AddListener(() =>
         {
             LevelConfig.当前关卡类型 = 关卡类型.洞天秘境;
-            LevelConfig.当前洞天QualityType = QualityType;
             SceneManager.LoadScene("LoadScene");
         });
         exitButton.onClick.AddListener(() =>
@@ -48,17 +45,17 @@ public class 洞天秘境窗口 : MonoBehaviour
         });
         left.onClick.AddListener(() =>
         {
-            if (QualityType > QualityType.黄品)
+            if (LevelConfig.当前洞天QualityType > QualityType.黄品)
             {
-                QualityType--;
+                LevelConfig.当前洞天QualityType--;
                 ShowInfo();
             }
         });
         right.onClick.AddListener(() =>
         {
-            if (QualityType < QualityType.荒品)
+            if (LevelConfig.当前洞天QualityType < QualityType.荒品)
             {
-                QualityType++;
+                LevelConfig.当前洞天QualityType++;
                 ShowInfo();
             }
         });
@@ -73,8 +70,8 @@ public class 洞天秘境窗口 : MonoBehaviour
     public void ShowInfo()
     {
         境界要求.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
-        难度.text = PropConfig.QualityNameDic[QualityType];
-        难度.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
+        难度.text = PropConfig.QualityNameDic[LevelConfig.当前洞天QualityType];
+        难度.colorGradientPreset = ResourcesConfig.Get品质TMP(LevelConfig.当前洞天QualityType);
         关卡名.text = JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType] + "境";
         foreach (Transform item in 敌人列表.transform)
         {
@@ -96,19 +93,19 @@ public class 洞天秘境窗口 : MonoBehaviour
         }
         var 功德item=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
         功德item.PropType = PropType.功德;
-        功德item.QualityType = QualityType;
+        功德item.QualityType = LevelConfig.当前洞天QualityType;
 
         RectTransform trans1 = 功德item.gameObject.GetComponent<RectTransform>();
         trans1.sizeDelta = new Vector2(80, 80);
         功德item.SetItem();
         var 灵魂item=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
         灵魂item.PropType = PropType.灵魂;
-        灵魂item.QualityType = QualityType;
+        灵魂item.QualityType = LevelConfig.当前洞天QualityType;
 
         RectTransform trans2 = 灵魂item.gameObject.GetComponent<RectTransform>();
         trans2.sizeDelta = new Vector2(80, 80);
         灵魂item.SetItem();
-        var list = 灵物突破Config.灵物掉落概率Dic[QualityType];
+        var list = 灵物突破Config.灵物掉落概率Dic[LevelConfig.当前洞天QualityType];
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i] == 0) continue;

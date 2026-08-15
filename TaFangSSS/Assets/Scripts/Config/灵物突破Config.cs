@@ -14,7 +14,20 @@ public class 洞天怪物Item
         洞天怪物Item other = (洞天怪物Item)obj;
         return JingJieType == other.JingJieType && MonsterType == other.MonsterType;
     }
-    
+
+    // Dictionary 查找时必须先通过 GetHashCode() 定位桶，再用 Equals() 比较；
+    // 只重写 Equals 不重写 GetHashCode 会导致值相同的两个 new 对象哈希不同，
+    // Dictionary 认为是不同 Key，抛 KeyNotFoundException。
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            int hash = 17;
+            hash = hash * 31 + JingJieType.GetHashCode();
+            hash = hash * 31 + MonsterType.GetHashCode();
+            return hash;
+        }
+    }
 }
 
 public class 洞天关卡Item
@@ -30,7 +43,18 @@ public class 洞天关卡Item
         洞天关卡Item other = (洞天关卡Item)obj;
         return JingJieType == other.JingJieType && qualityType == other.qualityType;
     }
-    
+
+    // 同上：GetHashCode 必须与 Equals 保持一致，使用同样的字段做哈希。
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            int hash = 17;
+            hash = hash * 31 + JingJieType.GetHashCode();
+            hash = hash * 31 + qualityType.GetHashCode();
+            return hash;
+        }
+    }
 }
 
 public class 灵物突破Config
