@@ -11,31 +11,19 @@ public static class LongRandom
     {
         if (min > max)
             throw new ArgumentException("min 必须小于等于 max");
-        
+    
         if (min == max)
             return min;
-        
-        // 计算范围
-        ulong range = (ulong)(max - min);
-        
-        // 如果范围小于 int.MaxValue，直接用 Random.Next()
-        if (range <= int.MaxValue)
-        {
-            int randomInt = _random.Next((int)range + 1);
-            return min + randomInt;
-        }
-        
-        // 大范围：生成随机字节
-        byte[] buffer = new byte[8];
-        ulong result;
-        
-        do
-        {
-            _random.NextBytes(buffer);
-            result = BitConverter.ToUInt64(buffer, 0);
-        } 
-        while (result > range); // 超出范围则重新生成
-        
-        return min + (long)result;
+    
+        // 用 double 作为中间值（精度足够）
+        double range = (double)max - (double)min;
+        double randomDouble = _random.NextDouble(); // 0 ~ 1
+        long result = min + (long)(range * randomDouble);
+    
+        // 边界保护
+        if (result < min) result = min;
+        if (result > max) result = max;
+    
+        return result;
     }
 }

@@ -616,7 +616,7 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
     { MonsterTypeName.永恒之门, true },
 };
   
-
+  
  public static Dictionary<MonsterTypeName, Monster特性Type> 怪物特性Dic = new Dictionary<MonsterTypeName, Monster特性Type>()
 {
     // 花果山

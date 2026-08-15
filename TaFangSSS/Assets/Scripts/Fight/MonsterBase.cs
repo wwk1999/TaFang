@@ -504,27 +504,29 @@ public class MonsterBase : MonoBehaviour
    public IEnumerator Show胜利弹窗()
    {
       yield return new WaitForSeconds(1f);
-      if (LevelConfig.当前主线关卡Type == PlayerData.S.最大主线关卡)
+      if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
       {
-         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
-         {
-            if (PlayerData.S.混沌虚空最大层数 == LevelConfig.战斗混沌虚空层数)
-            {
-               PlayerData.S.关卡修炼速度加成 += LevelConfig.Get混沌虚空通关奖励(LevelConfig.战斗混沌虚空层数);
-            }
-         }
-         else
-         {
-            PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
-            PlayerData.S.最大主线关卡++;
-         }
-         ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-         ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
-      }
-
-      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.Is混沌虚空 && LevelConfig.战斗混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
-      {
-         PlayerData.S.混沌虚空最大层数++;
+          if (LevelConfig.当前主线关卡Type == PlayerData.S.最大主线关卡)
+               {
+                  if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+                  {
+                     if (PlayerData.S.混沌虚空最大层数 == LevelConfig.战斗混沌虚空层数)
+                     {
+                        PlayerData.S.关卡修炼速度加成 += LevelConfig.Get混沌虚空通关奖励(LevelConfig.战斗混沌虚空层数);
+                     }
+                  }
+                  else
+                  {
+                     PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
+                     PlayerData.S.最大主线关卡++;
+                  }
+                  
+                  ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+               }
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.Is混沌虚空 && LevelConfig.战斗混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
+               {
+                  PlayerData.S.混沌虚空最大层数++;
+               }
       }
       Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
       // 立即保存存档，防止退出主界面时LoadStoreData覆盖已更新的值
@@ -556,6 +558,41 @@ public class MonsterBase : MonoBehaviour
             }
          }
       }
+   }
+
+   public int 计算怪物总数(int 小怪数量, int 精英怪数量)
+   {
+      int 总数量 = 0;
+      if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+      {
+         if (LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
+         {
+            总数量 = 小怪数量;
+         }else if (LevelConfig.当前主线关卡Type <= 主线关卡Type.五行山)
+         {
+            总数量 = 小怪数量+ 精英怪数量;
+         }
+         else
+         {
+            总数量 = 小怪数量+ 精英怪数量+1;
+         }
+      }
+      else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+      {
+         if (PlayerData.S.JingJieType < JingJieType.筑基)
+         {
+            总数量 = 小怪数量;
+         }else if (PlayerData.S.JingJieType < JingJieType.金丹)
+         {
+            总数量 = 小怪数量+ 精英怪数量;
+         }
+         else
+         {
+            总数量 = 小怪数量+ 精英怪数量+1;
+         }
+      }
+
+      return 总数量;
    }
    public void Die(HeroType heroType)
    {
@@ -603,17 +640,8 @@ public class MonsterBase : MonoBehaviour
       }
 
       float 总数量 = 0;
-      if (LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
-      {
-         总数量 = 小怪数量;
-      }else if (LevelConfig.当前主线关卡Type <= 主线关卡Type.五行山)
-      {
-         总数量 = 小怪数量+ 精英怪数量;
-      }
-      else
-      {
-         总数量 = 小怪数量+ 精英怪数量+1;
-      }
+      总数量 = 计算怪物总数(小怪数量, 精英怪数量);
+      
       ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
       if (FightController.S.KillMonsterCount == 总数量)
       {

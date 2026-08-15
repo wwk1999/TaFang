@@ -71,6 +71,12 @@ public class SmallLevelInfo
     public int EliteMonsterCount;
 }
 
+public class 洞天关卡胜利奖励
+{
+    public long 灵魂;
+    public long 功德;
+    public List<灵物item> List;
+}
 public class 普通关卡胜利奖励
 {
     public long 灵魂;
@@ -1142,7 +1148,33 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
         { 主线关卡Type.混沌虚空, new List<MonsterTypeName>() { 
             MonsterTypeName.混沌蠕虫, MonsterTypeName.虚空螯虫, MonsterTypeName.虚空巨兽, MonsterTypeName.混沌主宰 } },
     };
-   public static 普通关卡胜利奖励 Get胜利奖励()
+
+   public static 洞天关卡胜利奖励 Get洞天关卡胜利奖励()
+   {
+       洞天关卡Item item = new 洞天关卡Item()
+           { JingJieType = PlayerData.S.JingJieType, qualityType = 当前洞天QualityType };
+       var list = 灵物突破Config.洞天普通掉落Dic[item];
+       洞天关卡胜利奖励 value = new 洞天关卡胜利奖励();
+       List<灵物item> 灵物list = new List<灵物item>();
+       value.灵魂=LongRandom.Range(list[0].minCount,list[0].maxCount);
+       value.功德=LongRandom.Range(list[1].minCount,list[1].maxCount);
+       var 灵物概率列表 = 灵物突破Config.灵物掉落概率Dic[当前洞天QualityType];
+       foreach (var i in 灵物概率列表)
+       {
+           float random = Random.Range(0, 100f);
+           if (random < i)
+           {
+               灵物item 灵物item = new 灵物item();
+               灵物item.JingJieType = PlayerData.S.JingJieType;
+               灵物item.QualityType = (QualityType)(i + 1);
+               灵物list.Add(灵物item);
+           }
+       }
+
+       value.List = 灵物list;
+       return value;
+   }
+   public static 普通关卡胜利奖励 Get主线胜利奖励()
    {
        HashSet<LevelDiaoLuo> list = LevelDiaoLuoDic[当前主线关卡Type];
        普通关卡胜利奖励 value = new 普通关卡胜利奖励();

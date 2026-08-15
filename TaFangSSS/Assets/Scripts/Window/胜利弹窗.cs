@@ -15,13 +15,7 @@ public class 胜利弹窗 : MonoBehaviour
     public TextMeshProUGUI 战斗Text;
 
     private float 重复挑战Time = 0;
-    public void 清空怪物()
-    {
-        foreach (var item in QueueController.S.MonsterColliderDic)
-        {
-            item.Value.gameObject.SetActive(false);
-        }
-    }
+    
     private void Start()
     {
         ExitButtn.onClick.AddListener(() =>
@@ -50,12 +44,63 @@ public class 胜利弹窗 : MonoBehaviour
     private void OnEnable()
     {
         ObserverModuleManager.S.SendEvent("停止元始音效");
+        ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
         重复挑战Time = 0;
         if (PlayerData.S.重复挑战 == false)
         {
             战斗Text.text = "再战一次";
         }
-        普通关卡胜利奖励 value = LevelConfig.Get胜利奖励();
+        foreach (Transform item in Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+        {
+            主线关卡结算();
+        }
+        else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+        {
+            洞天关卡结算();
+        }
+    }
+
+    public void 洞天关卡结算()
+    {
+        洞天关卡胜利奖励 value = LevelConfig.Get洞天关卡胜利奖励();
+        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
+        PlayerData.S.PropListDic[PropType.功德] += value.功德;
+        foreach (var item in value.List)
+        {
+            PlayerData.S.Set灵物数量(item.JingJieType,item.QualityType,PlayerData.S.Get灵物数量(item.JingJieType,item.QualityType)+1);
+        }
+        
+        if (value.灵魂 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.灵魂;
+            item.count = value.灵魂;
+            item.SetItem();
+        }
+        if (value.功德 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.功德;
+            item.count = value.功德;
+            item.SetItem();
+        }
+
+        foreach (var 灵物item in value.List)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.灵物QualityType = 灵物item.QualityType;
+            item.SetItem();
+        }
+    }
+    
+    public void 主线关卡结算()
+    {
+        普通关卡胜利奖励 value = LevelConfig.Get主线胜利奖励();
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
         PlayerData.S.PropListDic[PropType.洗练石] += value.洗练石;
@@ -72,11 +117,7 @@ public class 胜利弹窗 : MonoBehaviour
         PlayerData.S.PropListDic[PropType.项链锻造石] += value.项链锻造石;
         PlayerData.S.PropListDic[PropType.戒指锻造石] += value.戒指锻造石;
         PlayerData.S.PropListDic[PropType.招募卷] += value.招募卷;
-
-        foreach (Transform item in Content.transform)
-        {
-            Destroy(item.gameObject);
-        }
+        
         if (value.高级招募卷 > 0)
         {
             var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
@@ -190,5 +231,6 @@ public class 胜利弹窗 : MonoBehaviour
             item.count = value.洗练石;
             item.SetItem();
         }
+        
     }
 }
