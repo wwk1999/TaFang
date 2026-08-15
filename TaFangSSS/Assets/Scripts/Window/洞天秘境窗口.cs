@@ -6,7 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class 洞天秘境窗口 : MonoBehaviour
 {
     public Button exitButton;
@@ -27,6 +27,12 @@ public class 洞天秘境窗口 : MonoBehaviour
 
     private void Start()
     {
+        挑战按钮.onClick.AddListener(() =>
+        {
+            LevelConfig.当前关卡类型 = 关卡类型.洞天秘境;
+            LevelConfig.当前洞天QualityType = QualityType;
+            SceneManager.LoadScene("LoadScene");
+        });
         exitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
@@ -79,6 +85,7 @@ public class 洞天秘境窗口 : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
         foreach (var item in LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType])
         {
             var MonsterItem=Instantiate(Resources.Load("Prefabs/Window/MonsterItem"),敌人列表.transform).GetComponent<MonsterItem>();
@@ -87,7 +94,20 @@ public class 洞天秘境窗口 : MonoBehaviour
             trans.sizeDelta = new Vector2(80, 80);
             MonsterItem.SetItem();
         }
+        var 功德item=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
+        功德item.PropType = PropType.功德;
+        功德item.QualityType = QualityType;
 
+        RectTransform trans1 = 功德item.gameObject.GetComponent<RectTransform>();
+        trans1.sizeDelta = new Vector2(80, 80);
+        功德item.SetItem();
+        var 灵魂item=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
+        灵魂item.PropType = PropType.灵魂;
+        灵魂item.QualityType = QualityType;
+
+        RectTransform trans2 = 灵魂item.gameObject.GetComponent<RectTransform>();
+        trans2.sizeDelta = new Vector2(80, 80);
+        灵魂item.SetItem();
         var list = 灵物突破Config.灵物掉落概率Dic[QualityType];
         for (int i = 0; i < list.Count; i++)
         {

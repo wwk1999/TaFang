@@ -818,7 +818,15 @@ public class FightController : XSingleton<FightController>
         var monster=QueueController.S.普通怪Queue.Dequeue();
         当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        List<MonsterTypeName> list = null;
+        if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+        {
+            list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        }
+        else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+        {
+            list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+        }
         int random=Random.Range(0,2);
         monster.MonsterTypeName = list[random];
         monster.gameObject.SetActive(true);
@@ -826,7 +834,11 @@ public class FightController : XSingleton<FightController>
     
     public void CreateEliteMonster()
     {
-        if (LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
+        if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type <= 主线关卡Type.水帘洞)
+        {
+            return;
+        }
+        if (LevelConfig.当前关卡类型==关卡类型.洞天秘境&&PlayerData.S.JingJieType < JingJieType.筑基)
         {
             return;
         }
@@ -836,14 +848,26 @@ public class FightController : XSingleton<FightController>
         var monster=QueueController.S.精英怪Queue.Dequeue();
         当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        List<MonsterTypeName> list = null;
+        if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+        {
+            list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        }
+        else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+        {
+            list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+        }        
         monster.MonsterTypeName = list[2];
         monster.gameObject.SetActive(true);
     }
     
     public void CreateBossMonster()
     {
-        if (LevelConfig.当前主线关卡Type <= 主线关卡Type.五行山)
+        if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type <= 主线关卡Type.五行山)
+        {
+            return;
+        }
+        if (LevelConfig.当前关卡类型==关卡类型.洞天秘境&&PlayerData.S.JingJieType<JingJieType.金丹)
         {
             return;
         }
@@ -854,7 +878,15 @@ public class FightController : XSingleton<FightController>
         var monster=QueueController.S.首领怪Queue.Dequeue();
         当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
-        List<MonsterTypeName> list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        List<MonsterTypeName> list = null;
+        if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+        {
+            list = LevelConfig.LevelMonsterDic[LevelConfig.当前主线关卡Type];
+        }
+        else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+        {
+            list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+        }          
         monster.MonsterTypeName = list[3];
         monster.gameObject.SetActive(true);
     }
@@ -952,13 +984,22 @@ public class FightController : XSingleton<FightController>
             当前冰冻间隔 = 0;
             冰冻所有怪物();
         }
-        var 普通怪物Time = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].CreateNormalMonsterTime;
-        var 普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
-        var 精英怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
-        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+
+        float 普通怪物Time = 1;
+        int 普通怪物最大数量 = 100;
+        if (LevelConfig.当前关卡类型==关卡类型.主线关卡)
         {
-            普通怪物Time = LevelConfig.LevelInfos[主线关卡Type.混沌虚空].CreateNormalMonsterTime-(int)(LevelConfig.战斗混沌虚空层数 / 10) * 0.1f;
-            普通怪物Time = MathF.Max(0.15f, 普通怪物Time);
+            普通怪物Time = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].CreateNormalMonsterTime;
+            普通怪物最大数量=LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+            if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+            {
+                普通怪物Time = LevelConfig.LevelInfos[主线关卡Type.混沌虚空].CreateNormalMonsterTime-(int)(LevelConfig.战斗混沌虚空层数 / 10) * 0.1f;
+                普通怪物Time = MathF.Max(0.15f, 普通怪物Time);
+            }
+        }else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+        {
+            普通怪物Time = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].CreateNormalMonsterTime;
+            普通怪物最大数量=LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
         }
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量&&SceneManager.GetActiveScene().name=="FightScene")
         {

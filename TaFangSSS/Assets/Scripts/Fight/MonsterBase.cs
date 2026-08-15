@@ -134,18 +134,45 @@ public class MonsterBase : MonoBehaviour
       主线关卡Type 主线关卡Type = LevelConfig.当前主线关卡Type;
       MonsterType monsterType=MonsterConfig.MonsterTypeDic[MonsterTypeName];
       主线关卡怪物Item 主线关卡怪物Item=new 主线关卡怪物Item(){主线关卡Type =  主线关卡Type, MonsterType = monsterType};
-      MonsterAttribute = Get怪物属性(主线关卡怪物Item);
+      洞天怪物Item 洞天怪物Item=new 洞天怪物Item(){JingJieType =  PlayerData.S.JingJieType, MonsterType = monsterType};
+
+      if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+      {
+         MonsterAttribute = Get主线关卡怪物属性(主线关卡怪物Item);
+      }
+      if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+      {
+         MonsterAttribute = Get洞天怪物属性(洞天怪物Item,LevelConfig.当前洞天QualityType);
+      }
       Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
       basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
    }
 
-  
+   public MonsterAttribute Get洞天怪物属性(洞天怪物Item item,QualityType qualityType)
+   {
+      MonsterAttribute 基础属性 = 灵物突破Config.洞天怪物属性Dic[item];
+      MonsterAttribute 怪物属性 = new MonsterAttribute()
+      {
+         Hp = 基础属性.Hp,
+         Attack = 基础属性.Attack,
+         Defense = 基础属性.Defense,
+         物理抗性 = 基础属性.物理抗性,
+         冰霜抗性 = 基础属性.冰霜抗性,
+         火焰抗性 = 基础属性.火焰抗性,
+         黑暗抗性 = 基础属性.黑暗抗性,
+         雷电抗性 = 基础属性.雷电抗性,
+      };
+      float 倍率 = 灵物突破Config.洞天品质倍数Dic[qualityType - 1];
+      怪物属性.Attack *= 倍率;
+      怪物属性.Hp *= 倍率;
+      怪物属性.Defense *= 倍率;
+      return 怪物属性;
+   }
 
-   public MonsterAttribute Get怪物属性(主线关卡怪物Item item)
+   public MonsterAttribute Get主线关卡怪物属性(主线关卡怪物Item item)
    {
       MonsterAttribute 基础属性 = MonsterConfig.主线关卡怪物属性Dic[item];
       // MonsterAttribute 是引用类型，必须拷贝一份再修改，否则会污染字典里的基础数据
-      // （每生成一只怪都会在原值上再乘一次倍率，导致 HP/攻击指数级膨胀、怪物杀不死）
       MonsterAttribute 怪物属性 = new MonsterAttribute()
       {
          Hp = 基础属性.Hp,
@@ -552,8 +579,17 @@ public class MonsterBase : MonoBehaviour
       }
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       FightController.S.KillMonsterCount++;
-      int 小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
-      int 精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+      int 小怪数量 = 100;
+      int 精英怪数量 = 2;
+      if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+      {
+         小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+         精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+      }else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+      {
+         小怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+         精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = LevelConfig.当前洞天QualityType }].EliteMonsterCount;
+      }
       if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == 小怪数量/2)
       {
          FightController.S.CreateBossMonster();

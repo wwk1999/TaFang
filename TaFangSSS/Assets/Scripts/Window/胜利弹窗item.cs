@@ -13,7 +13,7 @@ public class 胜利弹窗item : MonoBehaviour
     public TextMeshProUGUI CountText;
     public TextMeshProUGUI Name;
     [NonSerialized] public PropType Type;
-    [NonSerialized] public int count;
+    [NonSerialized] public long count;
 
 
     public void SetItem()

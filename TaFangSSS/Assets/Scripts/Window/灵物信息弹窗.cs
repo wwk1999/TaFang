@@ -8,8 +8,10 @@ using UnityEngine.UI;
 
 public class 灵物信息弹窗 : MonoBehaviour
 {
-    [NonSerialized]public JingJieType JingJieType;
-    [NonSerialized]public QualityType QualityType;
+    [NonSerialized] public JingJieType JingJieType;
+    [NonSerialized] public QualityType QualityType;
+    [NonSerialized] public PropType ProType;
+
     public Image bg;
     public Image icon;
     public TextMeshProUGUI name;
@@ -18,11 +20,29 @@ public class 灵物信息弹窗 : MonoBehaviour
 
     public void SetItem()
     {
-        bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
-        icon.sprite = ResourcesConfig.Get突破灵物(JingJieType, QualityType);
-        name.text = 灵物突破Config.突破灵物名Dic[JingJieType];
-        品质.text=PropConfig.QualityNameDic[QualityType];
-        品质.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-        desc.text="突破"+JingJieConfig.JingJieNameDic[JingJieType]+"境界的核心材料";
+        if (ProType == PropType.None)
+        {
+            bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
+            icon.sprite = ResourcesConfig.Get突破灵物(JingJieType, QualityType);
+            name.text = 灵物突破Config.突破灵物名Dic[JingJieType];
+            品质.text = "品质：" + PropConfig.QualityNameDic[QualityType];
+            品质.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
+            desc.text = "突破" + JingJieConfig.JingJieNameDic[JingJieType] + "境界的核心材料";
+        }
+        else
+        {
+            bg.sprite = ResourcesConfig.Get道具背景框Sprite(ProType);
+            icon.sprite = ResourcesConfig.GetPropSprite(ProType);
+            name.text = PropConfig.PropNameDic[ProType];
+            if (ProType == PropType.功德)
+            {
+                品质.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][1].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][1].maxCount);
+            }else if (ProType == PropType.灵魂)
+            {
+                品质.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][0].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][0].maxCount);
+            }
+            品质.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.PropQualityDic[ProType]);
+            desc.text = PropConfig.道具信息InfoDic[PropConfig.PropTypeTo道具信息[ProType]];
+        }
     }
 }

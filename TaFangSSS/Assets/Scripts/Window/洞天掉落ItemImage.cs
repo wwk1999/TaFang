@@ -70,6 +70,8 @@ public class 洞天掉落ItemImage : MonoBehaviour, IPointerEnterHandler, IPoint
         灵物信息弹窗 弹窗 = currentPopup.GetComponent<灵物信息弹窗>();
         弹窗.QualityType = DiaoLuoItem.QualityType;
         弹窗.JingJieType = PlayerData.S.JingJieType;
+        弹窗.ProType = DiaoLuoItem.PropType;
+
         弹窗.SetItem();
         // 设置弹窗的位置
         UpdatePopupPosition(mousePosition);
