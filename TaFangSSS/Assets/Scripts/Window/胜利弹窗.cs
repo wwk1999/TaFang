@@ -102,6 +102,14 @@ public class 胜利弹窗 : MonoBehaviour
     public void 主线关卡结算()
     {
         普通关卡胜利奖励 value = LevelConfig.Get主线胜利奖励();
+        var list = 法器Config.Get关卡法器掉落(LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type]);
+        foreach (var item in list)
+        {
+            PlayerData.S.法器列表.Add(item);
+            var item1=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item1.法器Type = item.法器Type;
+            item1.SetItem();
+        }
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
         PlayerData.S.PropListDic[PropType.洗练石] += value.洗练石;

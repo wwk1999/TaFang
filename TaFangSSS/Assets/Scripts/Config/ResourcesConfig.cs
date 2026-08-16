@@ -2455,6 +2455,204 @@ public static Sprite 射手鞋子彩;
         return null;
     }
 
+    public static Sprite Get法器Sprite(法器Type 法器Type)
+{
+    switch (法器Type)
+    {
+        // ==================== 1. 战士 ====================
+        case 法器Type.战士武器白: return 战士武器白;
+        case 法器Type.战士武器绿: return 战士武器绿;
+        case 法器Type.战士武器蓝: return 战士武器蓝;
+        case 法器Type.战士武器紫: return 战士武器紫;
+        case 法器Type.战士武器橙: return 战士武器橙;
+        case 法器Type.战士武器粉: return 战士武器粉;
+        case 法器Type.战士武器红: return 战士武器红;
+        case 法器Type.战士武器彩: return 战士武器彩;
+
+        case 法器Type.战士头盔白: return 战士头盔白;
+        case 法器Type.战士头盔绿: return 战士头盔绿;
+        case 法器Type.战士头盔蓝: return 战士头盔蓝;
+        case 法器Type.战士头盔紫: return 战士头盔紫;
+        case 法器Type.战士头盔橙: return 战士头盔橙;
+        case 法器Type.战士头盔粉: return 战士头盔粉;
+        case 法器Type.战士头盔红: return 战士头盔红;
+        case 法器Type.战士头盔彩: return 战士头盔彩;
+
+        case 法器Type.战士衣服白: return 战士衣服白;
+        case 法器Type.战士衣服绿: return 战士衣服绿;
+        case 法器Type.战士衣服蓝: return 战士衣服蓝;
+        case 法器Type.战士衣服紫: return 战士衣服紫;
+        case 法器Type.战士衣服橙: return 战士衣服橙;
+        case 法器Type.战士衣服粉: return 战士衣服粉;
+        case 法器Type.战士衣服红: return 战士衣服红;
+        case 法器Type.战士衣服彩: return 战士衣服彩;
+
+        case 法器Type.战士鞋子白: return 战士鞋子白;
+        case 法器Type.战士鞋子绿: return 战士鞋子绿;
+        case 法器Type.战士鞋子蓝: return 战士鞋子蓝;
+        case 法器Type.战士鞋子紫: return 战士鞋子紫;
+        case 法器Type.战士鞋子橙: return 战士鞋子橙;
+        case 法器Type.战士鞋子粉: return 战士鞋子粉;
+        case 法器Type.战士鞋子红: return 战士鞋子红;
+        case 法器Type.战士鞋子彩: return 战士鞋子彩;
+
+
+        // ==================== 2. 控制 ====================
+        case 法器Type.控制武器白: return 控制武器白;
+        case 法器Type.控制武器绿: return 控制武器绿;
+        case 法器Type.控制武器蓝: return 控制武器蓝;
+        case 法器Type.控制武器紫: return 控制武器紫;
+        case 法器Type.控制武器橙: return 控制武器橙;
+        case 法器Type.控制武器粉: return 控制武器粉;
+        case 法器Type.控制武器红: return 控制武器红;
+        case 法器Type.控制武器彩: return 控制武器彩;
+
+        case 法器Type.控制头盔白: return 控制头盔白;
+        case 法器Type.控制头盔绿: return 控制头盔绿;
+        case 法器Type.控制头盔蓝: return 控制头盔蓝;
+        case 法器Type.控制头盔紫: return 控制头盔紫;
+        case 法器Type.控制头盔橙: return 控制头盔橙;
+        case 法器Type.控制头盔粉: return 控制头盔粉;
+        case 法器Type.控制头盔红: return 控制头盔红;
+        case 法器Type.控制头盔彩: return 控制头盔彩;
+
+        case 法器Type.控制衣服白: return 控制衣服白;
+        case 法器Type.控制衣服绿: return 控制衣服绿;
+        case 法器Type.控制衣服蓝: return 控制衣服蓝;
+        case 法器Type.控制衣服紫: return 控制衣服紫;
+        case 法器Type.控制衣服橙: return 控制衣服橙;
+        case 法器Type.控制衣服粉: return 控制衣服粉;
+        case 法器Type.控制衣服红: return 控制衣服红;
+        case 法器Type.控制衣服彩: return 控制衣服彩;
+
+        case 法器Type.控制鞋子白: return 控制鞋子白;
+        case 法器Type.控制鞋子绿: return 控制鞋子绿;
+        case 法器Type.控制鞋子蓝: return 控制鞋子蓝;
+        case 法器Type.控制鞋子紫: return 控制鞋子紫;
+        case 法器Type.控制鞋子橙: return 控制鞋子橙;
+        case 法器Type.控制鞋子粉: return 控制鞋子粉;
+        case 法器Type.控制鞋子红: return 控制鞋子红;
+        case 法器Type.控制鞋子彩: return 控制鞋子彩;
+
+
+        // ==================== 3. 辅助 ====================
+        case 法器Type.辅助武器白: return 辅助武器白;
+        case 法器Type.辅助武器绿: return 辅助武器绿;
+        case 法器Type.辅助武器蓝: return 辅助武器蓝;
+        case 法器Type.辅助武器紫: return 辅助武器紫;
+        case 法器Type.辅助武器橙: return 辅助武器橙;
+        case 法器Type.辅助武器粉: return 辅助武器粉;
+        case 法器Type.辅助武器红: return 辅助武器红;
+        case 法器Type.辅助武器彩: return 辅助武器彩;
+
+        case 法器Type.辅助头盔白: return 辅助头盔白;
+        case 法器Type.辅助头盔绿: return 辅助头盔绿;
+        case 法器Type.辅助头盔蓝: return 辅助头盔蓝;
+        case 法器Type.辅助头盔紫: return 辅助头盔紫;
+        case 法器Type.辅助头盔橙: return 辅助头盔橙;
+        case 法器Type.辅助头盔粉: return 辅助头盔粉;
+        case 法器Type.辅助头盔红: return 辅助头盔红;
+        case 法器Type.辅助头盔彩: return 辅助头盔彩;
+
+        case 法器Type.辅助衣服白: return 辅助衣服白;
+        case 法器Type.辅助衣服绿: return 辅助衣服绿;
+        case 法器Type.辅助衣服蓝: return 辅助衣服蓝;
+        case 法器Type.辅助衣服紫: return 辅助衣服紫;
+        case 法器Type.辅助衣服橙: return 辅助衣服橙;
+        case 法器Type.辅助衣服粉: return 辅助衣服粉;
+        case 法器Type.辅助衣服红: return 辅助衣服红;
+        case 法器Type.辅助衣服彩: return 辅助衣服彩;
+
+        case 法器Type.辅助鞋子白: return 辅助鞋子白;
+        case 法器Type.辅助鞋子绿: return 辅助鞋子绿;
+        case 法器Type.辅助鞋子蓝: return 辅助鞋子蓝;
+        case 法器Type.辅助鞋子紫: return 辅助鞋子紫;
+        case 法器Type.辅助鞋子橙: return 辅助鞋子橙;
+        case 法器Type.辅助鞋子粉: return 辅助鞋子粉;
+        case 法器Type.辅助鞋子红: return 辅助鞋子红;
+        case 法器Type.辅助鞋子彩: return 辅助鞋子彩;
+
+
+        // ==================== 4. 射手 ====================
+        case 法器Type.射手武器白: return 射手武器白;
+        case 法器Type.射手武器绿: return 射手武器绿;
+        case 法器Type.射手武器蓝: return 射手武器蓝;
+        case 法器Type.射手武器紫: return 射手武器紫;
+        case 法器Type.射手武器橙: return 射手武器橙;
+        case 法器Type.射手武器粉: return 射手武器粉;
+        case 法器Type.射手武器红: return 射手武器红;
+        case 法器Type.射手武器彩: return 射手武器彩;
+
+        case 法器Type.射手头盔白: return 射手头盔白;
+        case 法器Type.射手头盔绿: return 射手头盔绿;
+        case 法器Type.射手头盔蓝: return 射手头盔蓝;
+        case 法器Type.射手头盔紫: return 射手头盔紫;
+        case 法器Type.射手头盔橙: return 射手头盔橙;
+        case 法器Type.射手头盔粉: return 射手头盔粉;
+        case 法器Type.射手头盔红: return 射手头盔红;
+        case 法器Type.射手头盔彩: return 射手头盔彩;
+
+        case 法器Type.射手衣服白: return 射手衣服白;
+        case 法器Type.射手衣服绿: return 射手衣服绿;
+        case 法器Type.射手衣服蓝: return 射手衣服蓝;
+        case 法器Type.射手衣服紫: return 射手衣服紫;
+        case 法器Type.射手衣服橙: return 射手衣服橙;
+        case 法器Type.射手衣服粉: return 射手衣服粉;
+        case 法器Type.射手衣服红: return 射手衣服红;
+        case 法器Type.射手衣服彩: return 射手衣服彩;
+
+        case 法器Type.射手鞋子白: return 射手鞋子白;
+        case 法器Type.射手鞋子绿: return 射手鞋子绿;
+        case 法器Type.射手鞋子蓝: return 射手鞋子蓝;
+        case 法器Type.射手鞋子紫: return 射手鞋子紫;
+        case 法器Type.射手鞋子橙: return 射手鞋子橙;
+        case 法器Type.射手鞋子粉: return 射手鞋子粉;
+        case 法器Type.射手鞋子红: return 射手鞋子红;
+        case 法器Type.射手鞋子彩: return 射手鞋子彩;
+
+
+        // ==================== 5. 法师 ====================
+        case 法器Type.法师武器白: return 法师武器白;
+        case 法器Type.法师武器绿: return 法师武器绿;
+        case 法器Type.法师武器蓝: return 法师武器蓝;
+        case 法器Type.法师武器紫: return 法师武器紫;
+        case 法器Type.法师武器橙: return 法师武器橙;
+        case 法器Type.法师武器粉: return 法师武器粉;
+        case 法器Type.法师武器红: return 法师武器红;
+        case 法器Type.法师武器彩: return 法师武器彩;
+
+        case 法器Type.法师头盔白: return 法师头盔白;
+        case 法器Type.法师头盔绿: return 法师头盔绿;
+        case 法器Type.法师头盔蓝: return 法师头盔蓝;
+        case 法器Type.法师头盔紫: return 法师头盔紫;
+        case 法器Type.法师头盔橙: return 法师头盔橙;
+        case 法器Type.法师头盔粉: return 法师头盔粉;
+        case 法器Type.法师头盔红: return 法师头盔红;
+        case 法器Type.法师头盔彩: return 法师头盔彩;
+
+        case 法器Type.法师衣服白: return 法师衣服白;
+        case 法器Type.法师衣服绿: return 法师衣服绿;
+        case 法器Type.法师衣服蓝: return 法师衣服蓝;
+        case 法器Type.法师衣服紫: return 法师衣服紫;
+        case 法器Type.法师衣服橙: return 法师衣服橙;
+        case 法器Type.法师衣服粉: return 法师衣服粉;
+        case 法器Type.法师衣服红: return 法师衣服红;
+        case 法器Type.法师衣服彩: return 法师衣服彩;
+
+        case 法器Type.法师鞋子白: return 法师鞋子白;
+        case 法器Type.法师鞋子绿: return 法师鞋子绿;
+        case 法器Type.法师鞋子蓝: return 法师鞋子蓝;
+        case 法器Type.法师鞋子紫: return 法师鞋子紫;
+        case 法器Type.法师鞋子橙: return 法师鞋子橙;
+        case 法器Type.法师鞋子粉: return 法师鞋子粉;
+        case 法器Type.法师鞋子红: return 法师鞋子红;
+        case 法器Type.法师鞋子彩: return 法师鞋子彩;
+
+        // 默认处理
+        default:
+            return null; // 或者是某个默认的占位图
+    }
+}
     public static Sprite Get道纹Sprite(道纹Type type, QualityType qualityType)
     {
         switch (type)
