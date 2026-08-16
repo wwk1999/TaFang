@@ -247,7 +247,7 @@ public class 法器
 {
     public 法器Type 法器Type;
     public List<法器附加属性值> list=new List<法器附加属性值>();
-    public List<仙石Type> 仙石list=new List<仙石Type>();
+    public List<仙石> 仙石list=new List<仙石>();
     //public list
 }
 public class 法器Config
@@ -1190,7 +1190,7 @@ public class 法器Config
         int 孔个数 = Random.Range(0, (int)掉落品质+1);
         for (int i = 0; i < 孔个数; i++)
         {
-            法器.仙石list.Add(仙石Type.None);
+            法器.仙石list.Add(new 仙石(){quality =QualityType.None,list = null});
         }
         return 法器;
     }

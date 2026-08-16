@@ -16,10 +16,21 @@ public class 胜利弹窗item : MonoBehaviour
     [NonSerialized] public long count;
     [NonSerialized] public QualityType 灵物QualityType=QualityType.None;
     [NonSerialized] public 法器Type 法器Type=法器Type.None;
+    [NonSerialized] public 仙石Type 仙石Type=仙石Type.None;
+    [NonSerialized] public QualityType 仙石QualityType=QualityType.None;
 
 
     public void SetItem()
     {
+        if (仙石Type != 仙石Type.None)
+        {
+            Name.text = 仙石Config.仙石名Dic[仙石Type];
+            Name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石QualityType);
+            CountText.text = "";
+            image.sprite=ResourcesConfig.Get仙石Sprite(仙石Type,仙石QualityType);
+            bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(仙石QualityType);
+            return;
+        }
         if (法器Type != 法器Type.None)
         {
             Name.text = 法器Config.法器名Dic[法器Type];

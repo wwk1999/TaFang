@@ -6,6 +6,61 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 赤阳石白;
+    public static Sprite 赤阳石绿;
+    public static Sprite 赤阳石蓝;
+    public static Sprite 赤阳石紫;
+    public static Sprite 赤阳石橙;
+    public static Sprite 赤阳石粉;
+    public static Sprite 赤阳石红;
+    public static Sprite 赤阳石彩;
+    
+    public static Sprite 天罡石白;
+    public static Sprite 天罡石绿;
+    public static Sprite 天罡石蓝;
+    public static Sprite 天罡石紫;
+    public static Sprite 天罡石橙;
+    public static Sprite 天罡石粉;
+    public static Sprite 天罡石红;
+    public static Sprite 天罡石彩;
+
+    public static Sprite 太虚石白;
+    public static Sprite 太虚石绿;
+    public static Sprite 太虚石蓝;
+    public static Sprite 太虚石紫;
+    public static Sprite 太虚石橙;
+    public static Sprite 太虚石粉;
+    public static Sprite 太虚石红;
+    public static Sprite 太虚石彩;
+    
+    public static Sprite 清心玉白;
+    public static Sprite 清心玉绿;
+    public static Sprite 清心玉蓝;
+    public static Sprite 清心玉紫;
+    public static Sprite 清心玉橙;
+    public static Sprite 清心玉粉;
+    public static Sprite 清心玉红;
+    public static Sprite 清心玉彩;
+    
+    public static Sprite 玄冥石白;
+    public static Sprite 玄冥石绿;
+    public static Sprite 玄冥石蓝;
+    public static Sprite 玄冥石紫;
+    public static Sprite 玄冥石橙;
+    public static Sprite 玄冥石粉;
+    public static Sprite 玄冥石红;
+    public static Sprite 玄冥石彩;
+    
+    public static Sprite 玄灵晶白;
+    public static Sprite 玄灵晶绿;
+    public static Sprite 玄灵晶蓝;
+    public static Sprite 玄灵晶紫;
+    public static Sprite 玄灵晶橙;
+    public static Sprite 玄灵晶粉;
+    public static Sprite 玄灵晶红;
+    public static Sprite 玄灵晶彩;
+    
+    
     // 法器
 // ========== 战士 ==========
 public static Sprite 战士衣服白;
@@ -3820,9 +3875,208 @@ public static Sprite 射手鞋子彩;
         }
     }
 
+    public static Sprite Get仙石Sprite(仙石Type 仙石Type,QualityType qualityType)
+    {
+        switch (仙石Type)
+        {
+            case 仙石Type.赤阳石:
+            switch (qualityType)
+            {
+                case QualityType.黄品:
+                    return 赤阳石白;
+                case QualityType.玄品:
+                    return 赤阳石绿;
+                case QualityType.地品:
+                    return 赤阳石蓝;
+                case QualityType.天品:
+                    return 赤阳石紫;
+                case QualityType.宇品:
+                    return 赤阳石橙;
+                case QualityType.宙品:
+                    return 赤阳石粉;
+                case QualityType.洪品:
+                    return 赤阳石红;
+                case QualityType.荒品:
+                    return 赤阳石彩;
+            }
+            break;
+            
+            
+            case 仙石Type.天罡石:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 天罡石白;
+                    case QualityType.玄品:
+                        return 天罡石绿;
+                    case QualityType.地品:
+                        return 天罡石蓝;
+                    case QualityType.天品:
+                        return 天罡石紫;
+                    case QualityType.宇品:
+                        return 天罡石橙;
+                    case QualityType.宙品:
+                        return 天罡石粉;
+                    case QualityType.洪品:
+                        return 天罡石红;
+                    case QualityType.荒品:
+                        return 天罡石彩;
+                }
+                break;
+            
+            
+            case 仙石Type.玄灵晶:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 玄灵晶白;
+                    case QualityType.玄品:
+                        return 玄灵晶绿;
+                    case QualityType.地品:
+                        return 玄灵晶蓝;
+                    case QualityType.天品:
+                        return 玄灵晶紫;
+                    case QualityType.宇品:
+                        return 玄灵晶橙;
+                    case QualityType.宙品:
+                        return 玄灵晶粉;
+                    case QualityType.洪品:
+                        return 玄灵晶红;
+                    case QualityType.荒品:
+                        return 玄灵晶彩;
+                }
+                break;
+            
+            
+            case 仙石Type.玄冥石:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 玄冥石白;
+                    case QualityType.玄品:
+                        return 玄冥石绿;
+                    case QualityType.地品:
+                        return 玄冥石蓝;
+                    case QualityType.天品:
+                        return 玄冥石紫;
+                    case QualityType.宇品:
+                        return 玄冥石橙;
+                    case QualityType.宙品:
+                        return 玄冥石粉;
+                    case QualityType.洪品:
+                        return 玄冥石红;
+                    case QualityType.荒品:
+                        return 玄冥石彩;
+                }
+                break;
+            
+            
+            case 仙石Type.清心玉:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 清心玉白;
+                    case QualityType.玄品:
+                        return 清心玉绿;
+                    case QualityType.地品:
+                        return 清心玉蓝;
+                    case QualityType.天品:
+                        return 清心玉紫;
+                    case QualityType.宇品:
+                        return 清心玉橙;
+                    case QualityType.宙品:
+                        return 清心玉粉;
+                    case QualityType.洪品:
+                        return 清心玉红;
+                    case QualityType.荒品:
+                        return 清心玉彩;
+                }
+                break;
+            
+            
+            
+            case 仙石Type.太虚石:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 太虚石白;
+                    case QualityType.玄品:
+                        return 太虚石绿;
+                    case QualityType.地品:
+                        return 太虚石蓝;
+                    case QualityType.天品:
+                        return 太虚石紫;
+                    case QualityType.宇品:
+                        return 太虚石橙;
+                    case QualityType.宙品:
+                        return 太虚石粉;
+                    case QualityType.洪品:
+                        return 太虚石红;
+                    case QualityType.荒品:
+                        return 太虚石彩;
+                }
+                break;
+        }
+
+        return null;
+    }
 
     public static void Init()
     {
+        赤阳石白= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[0];
+        赤阳石绿= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[1];
+        赤阳石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[2];
+        赤阳石紫= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[3];
+        赤阳石橙= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[4];
+        赤阳石粉= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[5];
+        赤阳石红= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[6];
+        赤阳石彩= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[7];
+
+        太虚石白= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[0];
+        太虚石绿= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[1];
+        太虚石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[2];
+        太虚石紫= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[3];
+        太虚石橙= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[4];
+        太虚石粉= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[5];
+        太虚石红= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[6];
+        太虚石彩= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[7];
+        
+        清心玉白= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[0];
+        清心玉绿= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[1];
+        清心玉蓝= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[2];
+        清心玉紫= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[3];
+        清心玉橙= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[4];
+        清心玉粉= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[5];
+        清心玉红= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[6];
+        清心玉彩= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[7];
+        
+        玄冥石白= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[0];
+        玄冥石绿= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[1];
+        玄冥石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[2];
+        玄冥石紫= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[3];
+        玄冥石橙= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[4];
+        玄冥石粉= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[5];
+        玄冥石红= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[6];
+        玄冥石彩= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[7];
+        玄冥石白= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[0];
+        
+        
+        玄灵晶绿= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[1];
+        玄灵晶蓝= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[2];
+        玄灵晶紫= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[3];
+        玄灵晶橙= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[4];
+        玄灵晶粉= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[5];
+        玄灵晶红= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[6];
+        玄灵晶彩= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[7];
+        
+        天罡石白= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[0];
+        天罡石绿= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[1];
+        天罡石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[2];
+        天罡石紫= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[3];
+        天罡石橙= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[4];
+        天罡石粉= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[5];
+        天罡石红= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[6];
+        天罡石彩= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[7];
 // ========== 战士 ==========
 战士衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[0];
 战士衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[1];

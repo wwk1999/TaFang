@@ -33,6 +33,7 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 是否窗口 = true;
         public int 剩余传道次数 = 0;
         public List<法器> 法器列表 = new List<法器>();
+        public List<仙石> 仙石列表 = new List<仙石>();
 
 
         public Dictionary<string, int> 突破灵物Dic = new Dictionary<string, int>()
@@ -996,6 +997,7 @@ public class StoreDefine : XSingleton<StoreController>
             功法数量Dic = runtime.功法数量Dic;
             突破灵物Dic = runtime.突破灵物Dic;
             法器列表 = runtime.法器列表;
+            仙石列表 = runtime.仙石列表;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -1043,6 +1045,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.功法数量Dic = 功法数量Dic;
             runtime.突破灵物Dic = 突破灵物Dic;
             runtime.法器列表 = 法器列表;
+            runtime.仙石列表 = 仙石列表;
         }
     }
 }

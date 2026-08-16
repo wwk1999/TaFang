@@ -110,6 +110,16 @@ public class 胜利弹窗 : MonoBehaviour
             item1.法器Type = item.法器Type;
             item1.SetItem();
         }
+
+        var 仙石列表 = 仙石Config.Get关卡仙石掉落(LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type]);
+        foreach (var item in 仙石列表)
+        {
+            PlayerData.S.仙石列表.Add(item);
+            var item1=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item1.仙石Type = item.type;
+            item1.仙石QualityType = item.quality;
+            item1.SetItem();
+        }
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
         PlayerData.S.PropListDic[PropType.洗练石] += value.洗练石;
