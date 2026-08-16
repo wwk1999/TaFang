@@ -162,7 +162,7 @@ public class MonsterBase : MonoBehaviour
          黑暗抗性 = 基础属性.黑暗抗性,
          雷电抗性 = 基础属性.雷电抗性,
       };
-      float 倍率 = 灵物突破Config.洞天品质倍数Dic[qualityType - 1];
+      float 倍率 = 灵物突破Config.洞天品质倍数Dic[qualityType];
       怪物属性.Attack *= 倍率;
       怪物属性.Hp *= 倍率;
       怪物属性.Defense *= 倍率;

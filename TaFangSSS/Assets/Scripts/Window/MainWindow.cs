@@ -50,6 +50,7 @@ public class MainWindow : MonoBehaviour
 
     public Button 主线关卡Debug;
     public Button 城墙Debug;
+    public Button 灵宝Debug;
 
     public GameObject 通天塔收获弹窗;
     public GameObject 世界树收获弹窗;
@@ -148,6 +149,16 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
         
+        灵宝Debug.onClick.AddListener(() =>
+        {
+            for (int i = (int)JingJieType.练气; i <= (int)JingJieType.混元圣人; i++)
+            {
+                for (int j = (int)QualityType.黄品; j <= (int)QualityType.荒品; j++)
+                {
+                    PlayerData.S.Set灵物数量((JingJieType)i, (QualityType)j,PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j)+1);
+                }
+            }
+        });
         洞天秘境按钮.onClick.AddListener(() =>
         {
             洞天秘境窗口.gameObject.SetActive(true);
