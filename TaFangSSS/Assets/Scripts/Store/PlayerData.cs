@@ -31,6 +31,8 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 是否窗口 = true;
     public int 剩余传道次数 = 0;
 
+    public List<法器> 法器列表 = new List<法器>();
+        
     public int Get灵物数量(JingJieType jingJieType, QualityType qualityType)
     {
         string value = JingJieConfig.JingJieNameDic[jingJieType]+"_"+PropConfig.QualityNameDic[qualityType];

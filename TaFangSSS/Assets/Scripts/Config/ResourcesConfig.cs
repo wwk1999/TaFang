@@ -6,6 +6,194 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    // 法器
+// ========== 战士 ==========
+public static Sprite 战士衣服白;
+public static Sprite 战士衣服绿;
+public static Sprite 战士衣服蓝;
+public static Sprite 战士衣服紫;
+public static Sprite 战士衣服橙;
+public static Sprite 战士衣服粉;
+public static Sprite 战士衣服红;
+public static Sprite 战士衣服彩;
+
+public static Sprite 战士武器白;
+public static Sprite 战士武器绿;
+public static Sprite 战士武器蓝;
+public static Sprite 战士武器紫;
+public static Sprite 战士武器橙;
+public static Sprite 战士武器粉;
+public static Sprite 战士武器红;
+public static Sprite 战士武器彩;
+
+public static Sprite 战士头盔白;
+public static Sprite 战士头盔绿;
+public static Sprite 战士头盔蓝;
+public static Sprite 战士头盔紫;
+public static Sprite 战士头盔橙;
+public static Sprite 战士头盔粉;
+public static Sprite 战士头盔红;
+public static Sprite 战士头盔彩;
+
+public static Sprite 战士鞋子白;
+public static Sprite 战士鞋子绿;
+public static Sprite 战士鞋子蓝;
+public static Sprite 战士鞋子紫;
+public static Sprite 战士鞋子橙;
+public static Sprite 战士鞋子粉;
+public static Sprite 战士鞋子红;
+public static Sprite 战士鞋子彩;
+
+// ========== 法师 ==========
+public static Sprite 法师衣服白;
+public static Sprite 法师衣服绿;
+public static Sprite 法师衣服蓝;
+public static Sprite 法师衣服紫;
+public static Sprite 法师衣服橙;
+public static Sprite 法师衣服粉;
+public static Sprite 法师衣服红;
+public static Sprite 法师衣服彩;
+
+public static Sprite 法师武器白;
+public static Sprite 法师武器绿;
+public static Sprite 法师武器蓝;
+public static Sprite 法师武器紫;
+public static Sprite 法师武器橙;
+public static Sprite 法师武器粉;
+public static Sprite 法师武器红;
+public static Sprite 法师武器彩;
+
+public static Sprite 法师头盔白;
+public static Sprite 法师头盔绿;
+public static Sprite 法师头盔蓝;
+public static Sprite 法师头盔紫;
+public static Sprite 法师头盔橙;
+public static Sprite 法师头盔粉;
+public static Sprite 法师头盔红;
+public static Sprite 法师头盔彩;
+
+public static Sprite 法师鞋子白;
+public static Sprite 法师鞋子绿;
+public static Sprite 法师鞋子蓝;
+public static Sprite 法师鞋子紫;
+public static Sprite 法师鞋子橙;
+public static Sprite 法师鞋子粉;
+public static Sprite 法师鞋子红;
+public static Sprite 法师鞋子彩;
+
+// ========== 控制 ==========
+public static Sprite 控制衣服白;
+public static Sprite 控制衣服绿;
+public static Sprite 控制衣服蓝;
+public static Sprite 控制衣服紫;
+public static Sprite 控制衣服橙;
+public static Sprite 控制衣服粉;
+public static Sprite 控制衣服红;
+public static Sprite 控制衣服彩;
+
+public static Sprite 控制武器白;
+public static Sprite 控制武器绿;
+public static Sprite 控制武器蓝;
+public static Sprite 控制武器紫;
+public static Sprite 控制武器橙;
+public static Sprite 控制武器粉;
+public static Sprite 控制武器红;
+public static Sprite 控制武器彩;
+
+public static Sprite 控制头盔白;
+public static Sprite 控制头盔绿;
+public static Sprite 控制头盔蓝;
+public static Sprite 控制头盔紫;
+public static Sprite 控制头盔橙;
+public static Sprite 控制头盔粉;
+public static Sprite 控制头盔红;
+public static Sprite 控制头盔彩;
+
+public static Sprite 控制鞋子白;
+public static Sprite 控制鞋子绿;
+public static Sprite 控制鞋子蓝;
+public static Sprite 控制鞋子紫;
+public static Sprite 控制鞋子橙;
+public static Sprite 控制鞋子粉;
+public static Sprite 控制鞋子红;
+public static Sprite 控制鞋子彩;
+
+// ========== 辅助 ==========
+public static Sprite 辅助衣服白;
+public static Sprite 辅助衣服绿;
+public static Sprite 辅助衣服蓝;
+public static Sprite 辅助衣服紫;
+public static Sprite 辅助衣服橙;
+public static Sprite 辅助衣服粉;
+public static Sprite 辅助衣服红;
+public static Sprite 辅助衣服彩;
+
+public static Sprite 辅助武器白;
+public static Sprite 辅助武器绿;
+public static Sprite 辅助武器蓝;
+public static Sprite 辅助武器紫;
+public static Sprite 辅助武器橙;
+public static Sprite 辅助武器粉;
+public static Sprite 辅助武器红;
+public static Sprite 辅助武器彩;
+
+public static Sprite 辅助头盔白;
+public static Sprite 辅助头盔绿;
+public static Sprite 辅助头盔蓝;
+public static Sprite 辅助头盔紫;
+public static Sprite 辅助头盔橙;
+public static Sprite 辅助头盔粉;
+public static Sprite 辅助头盔红;
+public static Sprite 辅助头盔彩;
+
+public static Sprite 辅助鞋子白;
+public static Sprite 辅助鞋子绿;
+public static Sprite 辅助鞋子蓝;
+public static Sprite 辅助鞋子紫;
+public static Sprite 辅助鞋子橙;
+public static Sprite 辅助鞋子粉;
+public static Sprite 辅助鞋子红;
+public static Sprite 辅助鞋子彩;
+
+// ========== 射手 ==========
+public static Sprite 射手衣服白;
+public static Sprite 射手衣服绿;
+public static Sprite 射手衣服蓝;
+public static Sprite 射手衣服紫;
+public static Sprite 射手衣服橙;
+public static Sprite 射手衣服粉;
+public static Sprite 射手衣服红;
+public static Sprite 射手衣服彩;
+
+public static Sprite 射手武器白;
+public static Sprite 射手武器绿;
+public static Sprite 射手武器蓝;
+public static Sprite 射手武器紫;
+public static Sprite 射手武器橙;
+public static Sprite 射手武器粉;
+public static Sprite 射手武器红;
+public static Sprite 射手武器彩;
+
+public static Sprite 射手头盔白;
+public static Sprite 射手头盔绿;
+public static Sprite 射手头盔蓝;
+public static Sprite 射手头盔紫;
+public static Sprite 射手头盔橙;
+public static Sprite 射手头盔粉;
+public static Sprite 射手头盔红;
+public static Sprite 射手头盔彩;
+
+public static Sprite 射手鞋子白;
+public static Sprite 射手鞋子绿;
+public static Sprite 射手鞋子蓝;
+public static Sprite 射手鞋子紫;
+public static Sprite 射手鞋子橙;
+public static Sprite 射手鞋子粉;
+public static Sprite 射手鞋子红;
+public static Sprite 射手鞋子彩;
+
+    
+    
     //洞天秘境怪物
     public static Sprite 青木狼;
     public static Sprite 铁背龟;
@@ -3437,6 +3625,191 @@ public class ResourcesConfig : MonoBehaviour
 
     public static void Init()
     {
+// ========== 战士 ==========
+战士衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[0];
+战士衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[1];
+战士衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[2];
+战士衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[3];
+战士衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[4];
+战士衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[5];
+战士衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[6];
+战士衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[7];
+
+战士武器白 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[0];
+战士武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[1];
+战士武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[2];
+战士武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[3];
+战士武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[4];
+战士武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[5];
+战士武器红 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[6];
+战士武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[7];
+
+战士头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[0];
+战士头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[1];
+战士头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[2];
+战士头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[3];
+战士头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[4];
+战士头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[5];
+战士头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[6];
+战士头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[7];
+
+战士鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[0];
+战士鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[1];
+战士鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[2];
+战士鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[3];
+战士鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[4];
+战士鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[5];
+战士鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[6];
+战士鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[7];
+
+// ========== 法师 ==========
+法师衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[0];
+法师衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[1];
+法师衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[2];
+法师衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[3];
+法师衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[4];
+法师衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[5];
+法师衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[6];
+法师衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[7];
+
+法师武器白 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[0];
+法师武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[1];
+法师武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[2];
+法师武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[3];
+法师武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[4];
+法师武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[5];
+法师武器红 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[6];
+法师武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[7];
+
+法师头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[0];
+法师头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[1];
+法师头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[2];
+法师头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[3];
+法师头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[4];
+法师头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[5];
+法师头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[6];
+法师头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[7];
+
+法师鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[0];
+法师鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[1];
+法师鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[2];
+法师鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[3];
+法师鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[4];
+法师鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[5];
+法师鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[6];
+法师鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[7];
+
+// ========== 控制 ==========
+控制衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[0];
+控制衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[1];
+控制衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[2];
+控制衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[3];
+控制衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[4];
+控制衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[5];
+控制衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[6];
+控制衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[7];
+
+控制武器白 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[0];
+控制武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[1];
+控制武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[2];
+控制武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[3];
+控制武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[4];
+控制武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[5];
+控制武器红 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[6];
+控制武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[7];
+
+控制头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[0];
+控制头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[1];
+控制头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[2];
+控制头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[3];
+控制头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[4];
+控制头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[5];
+控制头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[6];
+控制头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[7];
+
+控制鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[0];
+控制鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[1];
+控制鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[2];
+控制鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[3];
+控制鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[4];
+控制鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[5];
+控制鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[6];
+控制鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[7];
+
+// ========== 辅助 ==========
+辅助衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[0];
+辅助衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[1];
+辅助衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[2];
+辅助衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[3];
+辅助衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[4];
+辅助衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[5];
+辅助衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[6];
+辅助衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[7];
+
+辅助武器白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[0];
+辅助武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[1];
+辅助武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[2];
+辅助武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[3];
+辅助武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[4];
+辅助武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[5];
+辅助武器红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[6];
+辅助武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[7];
+
+辅助头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[0];
+辅助头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[1];
+辅助头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[2];
+辅助头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[3];
+辅助头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[4];
+辅助头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[5];
+辅助头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[6];
+辅助头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[7];
+
+辅助鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[0];
+辅助鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[1];
+辅助鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[2];
+辅助鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[3];
+辅助鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[4];
+辅助鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[5];
+辅助鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[6];
+辅助鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[7];
+
+// ========== 射手 ==========
+射手衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[0];
+射手衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[1];
+射手衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[2];
+射手衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[3];
+射手衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[4];
+射手衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[5];
+射手衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[6];
+射手衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[7];
+
+射手武器白 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[0];
+射手武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[1];
+射手武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[2];
+射手武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[3];
+射手武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[4];
+射手武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[5];
+射手武器红 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[6];
+射手武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[7];
+
+射手头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[0];
+射手头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[1];
+射手头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[2];
+射手头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[3];
+射手头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[4];
+射手头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[5];
+射手头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[6];
+射手头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[7];
+
+射手鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[0];
+射手鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[1];
+射手鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[2];
+射手鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[3];
+射手鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[4];
+射手鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[5];
+射手鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[6];
+射手鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[7];        
+        
         青木狼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/青木狼");
         铁背龟 = Resources.Load<Sprite>("Sprite/洞天怪物icon/铁背龟");
         荆棘猿 = Resources.Load<Sprite>("Sprite/洞天怪物icon/荆棘猿");
