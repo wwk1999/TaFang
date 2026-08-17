@@ -33,6 +33,7 @@ public class MainWindow : MonoBehaviour
     public Button 经验值Debug;
     public Button 道宝Button;
     public Button 城墙Button;
+    public Button 炼器Button;
     public 主线关卡窗口 主线关卡窗口;
     public 凌霄宝殿窗口 凌霄宝殿窗口;
     public 三十三重天窗口 三十三重天窗口;
@@ -97,6 +98,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.道宝Window.gameObject.SetActive(false);
         WindowController.S.城墙Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/城墙界面"));
         WindowController.S.城墙Window.gameObject.SetActive(false);
+        WindowController.S.炼器Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/炼器/炼器界面"));
+        WindowController.S.炼器Window.gameObject.SetActive(false);
     }
 
     public void 显示主线关卡弹窗(object[] obj)
@@ -237,6 +240,10 @@ public class MainWindow : MonoBehaviour
         城墙Button.onClick.AddListener(() =>
         {
             WindowController.S.城墙Window.gameObject.SetActive(true);
+        });
+        炼器Button.onClick.AddListener(() =>
+        {
+            WindowController.S.炼器Window.gameObject.SetActive(true);
         });
         主线关卡Debug.onClick.AddListener(() =>
         {

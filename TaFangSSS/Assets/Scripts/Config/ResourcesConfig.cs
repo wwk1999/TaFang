@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 按钮黑;
+    public static Sprite 按钮白;
+    public static Sprite 孔背景框;
+
+    
     public static Sprite 赤阳石白;
     public static Sprite 赤阳石绿;
     public static Sprite 赤阳石蓝;
@@ -4023,6 +4028,10 @@ public static Sprite 射手鞋子彩;
 
     public static void Init()
     {
+        孔背景框= Resources.Load<Sprite>("Sprite/按钮/孔背景框");
+        按钮黑= Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[0];
+        按钮白= Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[1];
+
         赤阳石白= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[0];
         赤阳石绿= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[1];
         赤阳石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[2];

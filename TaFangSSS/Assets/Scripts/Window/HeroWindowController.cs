@@ -57,4 +57,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public int 当前不周山层数;
     [NonSerialized]public HeroType 不周山当前选择派遣HeroType;
     [NonSerialized] public int 不周山英雄派遣Index;
+
+    [NonSerialized] public bool 仙石拖拽 = false;
+    [NonSerialized] public 仙石 仙石 = null;
 }
