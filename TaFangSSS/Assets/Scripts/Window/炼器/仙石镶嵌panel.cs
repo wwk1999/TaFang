@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class 仙石镶嵌panel : MonoBehaviour
 {
@@ -45,6 +46,22 @@ public class 仙石镶嵌panel : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
+            if (HeroWindowController.S.仙石拖拽 && HeroWindowController.S.仙石 != null)
+            {
+                PointerEventData eventData = new PointerEventData(EventSystem.current);
+                eventData.position = Input.mousePosition;
+                List<RaycastResult> results = new List<RaycastResult>();
+                EventSystem.current.RaycastAll(eventData, results);
+                foreach (var result in results)
+                {
+                    var 孔item = result.gameObject.GetComponent<镶嵌孔item>();
+                    if (孔item != null)
+                    {
+                        ObserverModuleManager.S.SendEvent("显示仙石镶嵌确认弹窗", HeroWindowController.S.仙石, 孔item.index, HeroWindowController.S.仙石镶嵌panel当前法器);
+                        break;
+                    }
+                }
+            }
             StartCoroutine(Delay松开());
         }
         Vector2 localPoint;
