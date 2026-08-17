@@ -60,4 +60,5 @@ public class HeroWindowController:XSingleton<HeroWindowController>
 
     [NonSerialized] public bool 仙石拖拽 = false;
     [NonSerialized] public 仙石 仙石 = null;
+    [NonSerialized] public 法器 仙石镶嵌panel当前法器 = null;
 }

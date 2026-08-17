@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class 镶嵌孔item : MonoBehaviour
+public class 镶嵌孔item : MonoBehaviour,IDropHandler
 {
     [NonSerialized] public 仙石 仙石;
     [NonSerialized] public int index = 0;
@@ -13,6 +14,13 @@ public class 镶嵌孔item : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI name;
 
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (HeroWindowController.S.仙石 != null)
+        {
+            ObserverModuleManager.S.SendEvent("显示仙石镶嵌确认弹窗",HeroWindowController.S.仙石,index,HeroWindowController.S.仙石镶嵌panel当前法器);
+        }
+    }
     public void SetItem()
     {
         if (仙石.type == 仙石Type.None)

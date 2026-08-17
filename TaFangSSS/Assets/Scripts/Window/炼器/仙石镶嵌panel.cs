@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class 仙石镶嵌panel : MonoBehaviour
 {
+    public 仙石确认镶嵌弹窗 仙石确认镶嵌弹窗;
     public Button 法器Button;
     public Button 仙石Button;
     public TextMeshProUGUI 法器白;
@@ -34,6 +35,8 @@ public class 仙石镶嵌panel : MonoBehaviour
 
     private void OnEnable()
     {
+        HeroWindowController.S.仙石镶嵌panel当前法器 = null;
+        HeroWindowController.S.仙石=null;
         仙石Image.gameObject.SetActive(false);
         Show();
     }
@@ -58,7 +61,7 @@ public class 仙石镶嵌panel : MonoBehaviour
     {
         法器 item = obj[0] as 法器;
         当前法器 = item;
-        Show();
+        Show右Panel();
     }
 
     public void Show仙石image(object[] obj)
@@ -80,17 +83,36 @@ public class 仙石镶嵌panel : MonoBehaviour
     {
         yield return null;
         HeroWindowController.S.仙石拖拽 = false;
+        HeroWindowController.S.仙石=null;
         仙石Image.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新仙石镶嵌Panel",刷新仙石镶嵌Panel);
         ObserverModuleManager.S.UnRegisterEvent("Show仙石image",Show仙石image);
         ObserverModuleManager.S.UnRegisterEvent("镶嵌法器点击",镶嵌法器点击);
     }
 
+    public void 刷新仙石镶嵌Panel(object[] obj)
+    {
+        Show();
+    }
+
+    public void 显示仙石镶嵌确认弹窗(object[] obj)
+    {
+        仙石 仙石=obj[0] as 仙石;
+        int index=(int)obj[1];
+        法器 法器 = obj[2] as 法器;
+        仙石确认镶嵌弹窗.仙石 = 仙石;
+        仙石确认镶嵌弹窗.index = index;
+        仙石确认镶嵌弹窗.法器 = 法器;
+        仙石确认镶嵌弹窗.gameObject.SetActive(true);
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示仙石镶嵌确认弹窗",显示仙石镶嵌确认弹窗);
+        ObserverModuleManager.S.RegisterEvent("刷新仙石镶嵌Panel",刷新仙石镶嵌Panel);
         ObserverModuleManager.S.RegisterEvent("Show仙石image",Show仙石image);
         ObserverModuleManager.S.RegisterEvent("镶嵌法器点击",镶嵌法器点击);
         左箭头.onClick.AddListener(() =>
@@ -184,6 +206,8 @@ public class 仙石镶嵌panel : MonoBehaviour
                     .GetComponent<镶嵌法器item>();
                 法器item.法器 = PlayerData.S.法器列表[i];
                 法器item.SetItem();
+                if (当前法器 != null && 法器item.法器 == 当前法器)
+                    法器item.gou.SetActive(true);
             }
         }
         else

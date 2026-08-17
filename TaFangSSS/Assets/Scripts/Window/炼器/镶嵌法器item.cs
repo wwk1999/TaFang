@@ -18,7 +18,7 @@ public class 镶嵌法器item : MonoBehaviour
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
       icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
       name.text = 法器Config.法器名Dic[法器.法器Type];
-      gou.SetActive(false);
+      gou.SetActive(HeroWindowController.S.仙石镶嵌panel当前法器==法器);
    }
 
    public void 镶嵌法器点击(object[] obj)
@@ -37,6 +37,7 @@ public class 镶嵌法器item : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("镶嵌法器点击",镶嵌法器点击);
       bg.onClick.AddListener(() =>
          {
+            HeroWindowController.S.仙石镶嵌panel当前法器 = 法器;
             ObserverModuleManager.S.SendEvent("镶嵌法器点击",法器);
          }
       );
