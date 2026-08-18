@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 5460966550038074218}
   - component: {fileID: 4902032709120564332}
   - component: {fileID: 7039467417999895310}
+  - component: {fileID: 658414175294266357}
   m_Layer: 0
   m_Name: "\u5B54item"
   m_TagString: Untagged
@@ -141,8 +142,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2dc9fbf8211600b458ba2ac4164dbd3f, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8cc6e86505153f94b928eca2f8fcf16c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -151,3 +152,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &658414175294266357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8537827086058630089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93a2e59bb52edd49bb7470a66b906bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 6896941992358004299}
+  bg: {fileID: 7039467417999895310}

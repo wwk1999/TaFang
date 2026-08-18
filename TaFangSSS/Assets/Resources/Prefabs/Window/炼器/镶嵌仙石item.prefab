@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7635960357714487676}
   - component: {fileID: 5875824397408531834}
   - component: {fileID: 2999954774399649917}
+  - component: {fileID: 1758726358890925692}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -77,6 +78,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1758726358890925692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136274282997688137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a34894c4e75f1f4093b25666e1965ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u4ED9\u77F3\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  "\u9576\u5D4C\u4ED9\u77F3item": {fileID: 1148893704927348551}
 --- !u!1 &3925221500161186477
 GameObject:
   m_ObjectHideFlags: 0
