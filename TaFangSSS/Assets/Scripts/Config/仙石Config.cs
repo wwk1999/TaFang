@@ -78,6 +78,26 @@ public class 仙石Config
         { JingJieType.混元圣人 , new List<float>(){0,0,0,0,20,65,15,0}},
         { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,4,70,25,1}},
     };
+
+    public static int Get法器仙石数量(法器 法器, 仙石Type type)
+    {
+        int count = 0;
+        foreach (var item in 法器.仙石list)
+        {
+            if(item.type==type)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static Dictionary<int, float> 仙石羁绊效果Dic = new Dictionary<int, float>()
+    {
+        { 4, 20 },
+        { 6, 30 },
+        { 8, 50 },
+    };
     public static Dictionary<QualityType, int> 仙石分解Dic = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,50},

@@ -1,0 +1,188 @@
+using System.Collections;
+using System.Collections.Generic;
+using Config;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class 英雄法器itemImage : MonoBehaviour,IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+{
+    [Header("弹窗设置")]
+    [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
+    [SerializeField] private string popupPrefabPath = "Prefabs/Window/法器信息弹窗";
+    
+    [Tooltip("弹窗偏移量（相对于鼠标位置）")]
+    [SerializeField] private Vector2 popupOffset = new Vector2(0, 0);
+    
+    [Tooltip("是否在鼠标移出时立即销毁")]
+    [SerializeField] private bool destroyOnExit = true;
+    // 当前显示的弹窗实例
+    private GameObject currentPopup;
+    // 弹窗所在的Canvas
+    private Canvas targetCanvas;
+    // 鼠标是否在当前Image内
+    private bool isHovering = false;
+    public 英雄法器item 英雄法器item;
+    
+     private void Start()
+    {
+        targetCanvas = GetComponentInParent<Canvas>();
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            法器 item = null;
+            switch (英雄法器item.法器类型)
+            {
+                case 法器类型.头盔:
+                    item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].头盔;
+                    break;
+                case 法器类型.武器:
+                    item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器;
+                    break;
+                case 法器类型.鞋子:
+                    item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子;
+                    break;
+                case 法器类型.衣服:
+                    item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服;
+                    break;
+            }
+
+            if (item == null)
+            {
+                return;
+            }
+            switch (英雄法器item.法器类型)
+            {
+                case 法器类型.头盔:
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].头盔.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].头盔 = null;
+                    break;
+                case 法器类型.武器:
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器 = null;                    break;
+                case 法器类型.鞋子:
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子 = null;                      break;
+                case 法器类型.衣服:
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服 = null;                      break;
+            }
+            ObserverModuleManager.S.SendEvent("法器装备刷新");
+        }
+    }
+    
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isHovering = true;
+        ShowPopup(eventData.position);
+    }
+    
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isHovering = false;
+        if (destroyOnExit)
+        {
+            DestroyPopup();
+        }
+    }
+    
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        if (isHovering && currentPopup != null)
+        {
+            UpdatePopupPosition(eventData.position);
+        }
+    }
+    
+    private void DestroyPopup()
+    {
+        if (currentPopup != null)
+        {
+            Destroy(currentPopup);
+            currentPopup = null;
+        }
+    }
+    
+    private void ShowPopup(Vector2 mousePosition)
+    {
+        // 如果已经有弹窗，先销毁
+        if (currentPopup != null)
+        {
+            DestroyPopup();
+        }
+
+        法器 item = null;
+        switch (英雄法器item.法器类型)
+        {
+            case 法器类型.头盔:
+                item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].头盔;
+                break;
+            case 法器类型.武器:
+                item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器;
+                break;
+            case 法器类型.鞋子:
+                item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子;
+                break;
+            case 法器类型.衣服:
+                item = PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服;
+                break;
+        }
+
+        if (item == null)
+        {
+            return;
+        }
+        
+        // 加载弹窗预制体
+        GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
+        // 在Canvas下创建弹窗
+        currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+        // 防止弹窗拦截射线导致OnPointerEnter/Exit反复触发
+        CanvasGroup cg = currentPopup.GetComponent<CanvasGroup>();
+        if (cg == null) cg = currentPopup.AddComponent<CanvasGroup>();
+        cg.blocksRaycasts = false;
+        法器信息弹窗 弹窗 = currentPopup.GetComponent<法器信息弹窗>();
+        弹窗.法器 = item;
+        弹窗.SetItem();
+        // 设置弹窗的位置
+        UpdatePopupPosition(mousePosition);
+        currentPopup.transform.SetAsLastSibling();
+    }
+    private void OnDisable()
+    {
+        DestroyPopup();
+    }
+    private void OnDestroy()
+    {
+        DestroyPopup();
+    }
+    
+    private void UpdatePopupPosition(Vector2 mousePosition)
+    {
+        if (currentPopup == null) return;
+        
+        RectTransform rectTransform = currentPopup.GetComponent<RectTransform>();
+        if (rectTransform == null) return;
+        
+        // 将鼠标位置转换为Canvas本地坐标
+        Vector2 localPoint;
+        RectTransform canvasRect = targetCanvas.GetComponent<RectTransform>();
+        
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvasRect, 
+                mousePosition + popupOffset, 
+                targetCanvas.worldCamera, 
+                out localPoint))
+        {
+            rectTransform.localPosition = localPoint;
+        }
+        else
+        {
+            // 如果转换失败，使用屏幕坐标直接设置
+            rectTransform.position = mousePosition + popupOffset;
+        }
+    }
+}
