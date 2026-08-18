@@ -9,6 +9,11 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public Button 左箭头;
+   public Button 右箭头;
+   public TextMeshProUGUI 页数;
+   private int 页数Num = 1;
+   public 法器仙石分解弹窗 法器仙石分解弹窗;
    public 功法分解弹窗 功法分解弹窗;
    public TextMeshProUGUI 修炼速度count;
    public GameObject 头像框;
@@ -25,6 +30,7 @@ public class 储物袋界面 : MonoBehaviour
    public Button 灵物Btn;
    public Button 法器Btn;
    public Button 仙石Btn;
+   public Button 分解Btn;
 
    public TextMeshProUGUI  Name;
    public TextMeshProUGUI  跟脚;
@@ -37,9 +43,16 @@ public class 储物袋界面 : MonoBehaviour
    public GameObject 强化弹窗;
    public GameObject 人物属性弹窗;
    public Button 属性Btn;
+   public Image 头像框Icon;
 
+   public void Set头像框()
+   {
+      头像框Icon.sprite = ResourcesConfig.Get境界Icon(PlayerData.S.JingJieType);
+      头像框Icon.SetNativeSize();
+   }
    public void Set境界()
    {
+      Set头像框();
       修炼速度count.text = 属性config.总修炼速度加成 + "%";
       跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
       境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
@@ -115,6 +128,68 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
+      分解Btn.onClick.AddListener(() =>
+      {
+         if (显示类型 == 5)
+         {
+            法器仙石分解弹窗.分解类型 = 分解类型.法器;
+            法器仙石分解弹窗.gameObject.SetActive(true);
+         }
+         if (显示类型 == 6)
+         {
+            法器仙石分解弹窗.分解类型 = 分解类型.仙石;
+            法器仙石分解弹窗.gameObject.SetActive(true);
+         }
+      });
+      左箭头.onClick.AddListener(() =>
+      {
+         if (页数Num > 1)
+         {
+            页数Num--;
+            刷新背包();
+         }
+      });
+      右箭头.onClick.AddListener(() =>
+      {
+         switch (显示类型)
+         {
+            case 2:
+               if (页数Num < Get道纹最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
+            case 3:
+               if (页数Num < Get功法最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
+            case 4:
+               if (页数Num < Get灵物最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
+            case 5:
+               if (页数Num < Get法器最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
+            case 6:
+               if (页数Num < Get仙石最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
+         }
+      });
       属性Btn.onClick.AddListener(() =>
       {
          人物属性弹窗.gameObject.SetActive(true);
@@ -132,29 +207,35 @@ public class 储物袋界面 : MonoBehaviour
       材料Btn.onClick.AddListener(() =>
       {
          显示类型 = 1;
+         页数Num = 1;
          刷新背包(); 
       });
       道纹Btn.onClick.AddListener(() => { 
          显示类型 = 2;
+         页数Num = 1;
          刷新背包(); 
       });
       功法Btn.onClick.AddListener(() => { 
          显示类型 = 3;
+         页数Num = 1;
          刷新背包(); 
       });
       灵物Btn.onClick.AddListener(() =>
       {
          显示类型 = 4;
+         页数Num = 1;
          刷新背包();
       });
       法器Btn.onClick.AddListener(() =>
       {
          显示类型 = 5;
+         页数Num = 1;
          刷新背包();
       });
       仙石Btn.onClick.AddListener(() =>
       {
          显示类型 = 6;
+         页数Num = 1;
          刷新背包();
       });
       强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
@@ -178,9 +259,26 @@ public class 储物袋界面 : MonoBehaviour
       Set经验SLider();
       Set境界();
    }
-   
+
+   public int Get道纹最大页数()
+   {
+      int count = 0;
+      foreach (var item in 道纹config.道纹名Dic)
+      {
+         for (int j = (int)QualityType.天品; j <=  (int)QualityType.荒品; j++)
+         {
+            int v=PlayerData.S.Get道纹数量(item.Key, (QualityType)j);
+            if (v > 0)
+            {
+               count++;
+            }
+         }
+      }
+      return Mathf.CeilToInt(count / 48f);
+   }
    public void Show道纹()
    {
+      分解Btn.gameObject.SetActive(false);
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -193,14 +291,19 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
+      int count = 0;
       foreach (var item in 道纹config.道纹名Dic)
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.荒品)>0)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-            baggrid.道纹Type = item.Key;
-            baggrid.QualityType = QualityType.荒品;
-            baggrid.SetItem();
+            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+               baggrid.道纹Type = item.Key;
+               baggrid.QualityType = QualityType.荒品;
+               baggrid.SetItem();
+            }
+            count++;
          }
       }
       
@@ -208,10 +311,14 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.洪品)>0)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-            baggrid.道纹Type = item.Key;
-            baggrid.QualityType = QualityType.洪品;
-            baggrid.SetItem();
+            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+               baggrid.道纹Type = item.Key;
+               baggrid.QualityType = QualityType.洪品;
+               baggrid.SetItem();
+            }
+            count++;
          }
       }
       
@@ -219,10 +326,14 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.宙品)>0)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-            baggrid.道纹Type = item.Key;
-            baggrid.QualityType = QualityType.宙品;
-            baggrid.SetItem();
+            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+               baggrid.道纹Type = item.Key;
+               baggrid.QualityType = QualityType.宙品;
+               baggrid.SetItem();
+            }
+            count++;
          }
       }
       
@@ -230,10 +341,14 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.宇品)>0)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-            baggrid.道纹Type = item.Key;
-            baggrid.QualityType = QualityType.宇品;
-            baggrid.SetItem();
+            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+               baggrid.道纹Type = item.Key;
+               baggrid.QualityType = QualityType.宇品;
+               baggrid.SetItem();
+            }
+            count++;
          }
       }
       
@@ -241,16 +356,21 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.天品)>0)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-            baggrid.道纹Type = item.Key;
-            baggrid.QualityType = QualityType.天品;
-            baggrid.SetItem();
+            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
+               baggrid.道纹Type = item.Key;
+               baggrid.QualityType = QualityType.天品;
+               baggrid.SetItem();
+            }
+            count++;
          }
       }
    }
 
    public void 刷新背包()
    {
+      页数.text = 页数Num.ToString();
       switch (显示类型)
       {
          case 1:
@@ -274,8 +394,21 @@ public class 储物袋界面 : MonoBehaviour
       }
    }
 
+   public int Get功法最大页数()
+   {
+      int count = 0;
+      foreach (var item in PlayerData.S.功法数量Dic)
+      {
+         if (item.Value > 0)
+         {
+            count++;
+         }
+      }
+      return Mathf.CeilToInt(count / 48f);
+   }
    public void Show功法()
    {
+      分解Btn.gameObject.SetActive(false);
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮亮;
@@ -288,18 +421,24 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
+      int count = 0;
       foreach (var item in PlayerData.S.功法数量Dic)
       {
          if (item.Value > 0)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/功法Grid"), BagContent.transform).GetComponent<功法Grid>();
-            baggrid.功法Type = item.Key;
-            baggrid.SetItem();
+            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/功法Grid"), BagContent.transform).GetComponent<功法Grid>();
+               baggrid.功法Type = item.Key;
+               baggrid.SetItem();
+            }
+            count++;
          }
       }
    }
    public void ShowProp()
    {
+      分解Btn.gameObject.SetActive(false);
       材料Btn.image.sprite = ResourcesConfig.按钮亮;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -311,7 +450,6 @@ public class 储物袋界面 : MonoBehaviour
       {
          Destroy(item.gameObject);
       }
-
       foreach (var item in PlayerData.S.PropListDic)
       {
          if (item.Value > 0)
@@ -322,9 +460,24 @@ public class 储物袋界面 : MonoBehaviour
          }
       }
    }
-   
+   public int Get灵物最大页数()
+   {
+      int count = 0;
+      for (int j = (int)QualityType.荒品; j >= (int)QualityType.黄品; j--)
+      {
+         for (int i = (int)JingJieType.混元圣人; i >= (int)JingJieType.练气; i--)
+         {
+            if (PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j) > 0)
+            {
+               count++;
+            }
+         }
+      }
+      return Mathf.CeilToInt(count / 48f);
+   }
    public void Show灵物()
    {
+      分解Btn.gameObject.SetActive(false);
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -337,6 +490,7 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
+      int count = 0;
       
          for (int j = (int)QualityType.荒品; j >= (int)QualityType.黄品; j--)
          {
@@ -344,18 +498,35 @@ public class 储物袋界面 : MonoBehaviour
             {
                if (PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j) > 0)
                {
-                  var 灵物grid=Instantiate(Resources.Load("Prefabs/Window/灵物Grid"), BagContent.transform).GetComponent<灵物Grid>();
-                  灵物grid.JingJieType = (JingJieType)i;
-                  灵物grid.QualityType = (QualityType)j;
-                  灵物grid.SetItem();
+                  if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+                  {
+                     var 灵物grid=Instantiate(Resources.Load("Prefabs/Window/灵物Grid"), BagContent.transform).GetComponent<灵物Grid>();
+                     灵物grid.JingJieType = (JingJieType)i;
+                     灵物grid.QualityType = (QualityType)j;
+                     灵物grid.SetItem();
+                  }
+                  count++;
                }
             }
          }
       
    }
    
+   public int Get仙石最大页数()
+   {
+      int count = 0;
+      
+      return Mathf.CeilToInt(PlayerData.S.仙石列表.Count / 48f);
+   }
+   public int Get法器最大页数()
+   {
+      int count = 0;
+      
+      return Mathf.CeilToInt(PlayerData.S.法器列表.Count / 48f);
+   }
    public void Show仙石()
    {
+      分解Btn.gameObject.SetActive(true);
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -368,17 +539,17 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-
-      foreach (var item in PlayerData.S.仙石列表)
+      for (int i = 48 * (页数Num - 1); i < Math.Min(页数Num * 48, PlayerData.S.仙石列表.Count); i++)
       {
          var 仙石item = Instantiate(Resources.Load("Prefabs/Window/仙石Grid"), BagContent.transform).GetComponent<仙石Grid>();
-         仙石item.仙石 = item;
+         仙石item.仙石 = PlayerData.S.仙石列表[i];
          仙石item.SetItem();
       }
    }
    
    public void Show法器()
    {
+      分解Btn.gameObject.SetActive(true);
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -391,11 +562,10 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-
-      foreach (var item in PlayerData.S.法器列表)
+      for (int i = 48 * (页数Num - 1); i < Math.Min(页数Num * 48, PlayerData.S.法器列表.Count); i++)
       {
          var 法器item = Instantiate(Resources.Load("Prefabs/Window/法器Grid"), BagContent.transform).GetComponent<法器Grid>();
-         法器item.法器 = item;
+         法器item.法器 = PlayerData.S.法器列表[i];
          法器item.SetItem();
       }
    }

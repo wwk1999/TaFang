@@ -6,6 +6,27 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 练气;
+    public static Sprite 筑基;
+    public static Sprite 金丹;
+    public static Sprite 元婴;
+    public static Sprite 化神;
+    public static Sprite 合体;
+    public static Sprite 大乘;
+    public static Sprite 天仙;
+    public static Sprite 玄仙;
+    public static Sprite 金仙;
+    public static Sprite 太乙金仙;
+    public static Sprite 大罗金仙;
+    public static Sprite 准圣;
+    public static Sprite 圣人;
+    public static Sprite 天道圣人;
+    public static Sprite 大道圣人;
+    public static Sprite 混元圣人;
+    
+    public static Sprite 仙石精华;
+    public static Sprite 法器粉尘;
+
     public static Sprite 古朴按钮亮;
     public static Sprite 古朴按钮暗;
     public static Sprite 按钮黑;
@@ -2088,6 +2109,10 @@ public static Sprite 射手鞋子彩;
                 return 招募卷;
             case PropType.高级招募卷:
                 return 高级招募卷;
+            case PropType.法器粉尘:
+                return 法器粉尘;
+            case PropType.仙石精华:
+                return 仙石精华;
         }
 
         return null;
@@ -4028,8 +4053,71 @@ public static Sprite 射手鞋子彩;
         return null;
     }
 
+    public static Sprite Get境界Icon(JingJieType jingJieType)
+    {
+        switch (jingJieType)
+        {
+            case JingJieType.练气:
+                return 练气;
+            case JingJieType.筑基:
+                return 筑基;
+            case JingJieType.金丹:
+                return 金丹;
+            case JingJieType.元婴:
+                return 元婴;
+            case JingJieType.化神:
+                return 化神;
+            case JingJieType.合体:
+                return 合体;
+            case JingJieType.大乘:
+                return 大乘;
+            case JingJieType.天仙:
+                return 天仙;
+            case JingJieType.玄仙:
+                return 玄仙;
+            case JingJieType.金仙:
+                return 金仙;
+            case JingJieType.太乙金仙:
+                return 太乙金仙;
+            case JingJieType.大罗金仙:
+                return 大罗金仙;
+            case JingJieType.准圣:
+                return 准圣;
+            case JingJieType.圣人:
+                return 圣人;
+            case JingJieType.天道圣人:
+                return 天道圣人;
+            case JingJieType.大道圣人:
+                return 大道圣人;
+            case JingJieType.混元圣人:
+            case JingJieType.鸿蒙:
+                return 混元圣人;
+            default:
+                return null;
+        }
+    }
     public static void Init()
     {
+        练气 = Resources.Load<Sprite>("Sprite/境界/练气");
+        筑基 = Resources.Load<Sprite>("Sprite/境界/筑基");
+        金丹 = Resources.Load<Sprite>("Sprite/境界/金丹");
+        元婴 = Resources.Load<Sprite>("Sprite/境界/元婴");
+        化神 = Resources.Load<Sprite>("Sprite/境界/化神");
+        合体 = Resources.Load<Sprite>("Sprite/境界/合体");
+        大乘 = Resources.Load<Sprite>("Sprite/境界/大乘");
+        天仙 = Resources.Load<Sprite>("Sprite/境界/天仙");
+        玄仙 = Resources.Load<Sprite>("Sprite/境界/玄仙");
+        金仙 = Resources.Load<Sprite>("Sprite/境界/金仙");
+        太乙金仙 = Resources.Load<Sprite>("Sprite/境界/太乙金仙");
+        大罗金仙 = Resources.Load<Sprite>("Sprite/境界/大罗金仙");
+        准圣 = Resources.Load<Sprite>("Sprite/境界/准圣");
+        圣人 = Resources.Load<Sprite>("Sprite/境界/圣人");
+        天道圣人 = Resources.Load<Sprite>("Sprite/境界/天道圣人");
+        大道圣人 = Resources.Load<Sprite>("Sprite/境界/大道圣人");
+        混元圣人 = Resources.Load<Sprite>("Sprite/境界/混元圣人");
+        
+        法器粉尘= Resources.Load<Sprite>("Sprite/法器/粉尘");
+        仙石精华= Resources.Load<Sprite>("Sprite/仙石/精华");
         古朴按钮亮= Resources.Load<Sprite>("Sprite/按钮/古朴按钮亮");
         古朴按钮暗= Resources.Load<Sprite>("Sprite/按钮/古朴按钮暗");
 

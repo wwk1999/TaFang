@@ -78,6 +78,17 @@ public class 仙石Config
         { JingJieType.混元圣人 , new List<float>(){0,0,0,0,20,65,15,0}},
         { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,4,70,25,1}},
     };
+    public static Dictionary<QualityType, int> 仙石分解Dic = new Dictionary<QualityType, int>()
+    {
+        { QualityType.黄品 ,50},
+        { QualityType.玄品 ,150},
+        { QualityType.地品 ,500},
+        { QualityType.天品 ,1500},
+        { QualityType.宇品 ,5000},
+        { QualityType.宙品 ,15000},
+        { QualityType.洪品 ,50000},
+        { QualityType.荒品 ,250000},
+    };
     public static List<法器附加属性值> Get仙石附加属性(QualityType qualityType)
     {
         List<法器附加属性值> list = new List<法器附加属性值>();

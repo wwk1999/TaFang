@@ -1184,6 +1184,8 @@ public class PlayerData : XSingleton<PlayerData>
         { PropType.道之法则 ,0},
         { PropType.鸿蒙法则 ,0},
         { PropType.功法经验 ,0},
+        { PropType.仙石精华 ,0},
+        { PropType.法器粉尘 ,0},
     };
 
    
