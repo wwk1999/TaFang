@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public 分解确认弹窗 分解确认弹窗;
    public Button 左箭头;
    public Button 右箭头;
    public TextMeshProUGUI 页数;
@@ -104,6 +105,7 @@ public class 储物袋界面 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.UnRegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹image", Show道纹image);
@@ -119,8 +121,27 @@ public class 储物袋界面 : MonoBehaviour
       功法分解弹窗.SetItem();
       功法分解弹窗.gameObject.SetActive(true);
    }
+
+   public void 显示确认分解弹窗(object[] obj)
+   {
+      分解类型 类型 = (分解类型)obj[0];
+      if (类型 == 分解类型.法器)
+      {
+         法器 法器 = obj[1] as 法器;
+         分解确认弹窗.分解类型 = 类型;
+         分解确认弹窗.法器 = 法器;
+      }
+      else
+      {
+         仙石 仙石 = obj[1] as 仙石;
+         分解确认弹窗.分解类型 = 类型;
+         分解确认弹窗.仙石 = 仙石;
+      }
+      分解确认弹窗.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.RegisterEvent("功法分解",功法分解);
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.RegisterEvent("Show道纹image", Show道纹image);

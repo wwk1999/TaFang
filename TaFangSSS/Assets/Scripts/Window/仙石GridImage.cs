@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 仙石GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 仙石GridImage : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
    [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -25,6 +25,13 @@ public class 仙石GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
      private void Start()
     {
         targetCanvas = GetComponentInParent<Canvas>();
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            ObserverModuleManager.S.SendEvent("显示确认分解弹窗",分解类型.仙石,仙石Grid.仙石);
+        }
     }
     
     public void OnPointerEnter(PointerEventData eventData)

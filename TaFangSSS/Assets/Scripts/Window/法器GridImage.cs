@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 法器GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 法器GridImage : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
    [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -26,7 +27,14 @@ public class 法器GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         targetCanvas = GetComponentInParent<Canvas>();
     }
-    
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            ObserverModuleManager.S.SendEvent("显示确认分解弹窗",分解类型.法器,法器Grid.法器);
+        }
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         isHovering = true;
