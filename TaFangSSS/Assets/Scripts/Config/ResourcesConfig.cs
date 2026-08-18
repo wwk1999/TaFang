@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 古朴按钮亮;
+    public static Sprite 古朴按钮暗;
     public static Sprite 按钮黑;
     public static Sprite 按钮白;
     public static Sprite 孔背景框;
@@ -4028,6 +4030,9 @@ public static Sprite 射手鞋子彩;
 
     public static void Init()
     {
+        古朴按钮亮= Resources.Load<Sprite>("Sprite/按钮/古朴按钮亮");
+        古朴按钮暗= Resources.Load<Sprite>("Sprite/按钮/古朴按钮暗");
+
         孔背景框= Resources.Load<Sprite>("Sprite/按钮/孔背景框");
         按钮黑= Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[0];
         按钮白= Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[1];
@@ -4067,9 +4072,9 @@ public static Sprite 射手鞋子彩;
         玄冥石粉= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[5];
         玄冥石红= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[6];
         玄冥石彩= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[7];
-        玄冥石白= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[0];
         
         
+        玄灵晶白= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[0];
         玄灵晶绿= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[1];
         玄灵晶蓝= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[2];
         玄灵晶紫= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[3];

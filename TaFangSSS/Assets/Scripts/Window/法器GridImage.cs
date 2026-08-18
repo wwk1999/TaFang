@@ -71,6 +71,10 @@ public class 法器GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
         GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
         // 在Canvas下创建弹窗
         currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+        // 防止弹窗拦截射线导致OnPointerEnter/Exit反复触发
+        CanvasGroup cg = currentPopup.GetComponent<CanvasGroup>();
+        if (cg == null) cg = currentPopup.AddComponent<CanvasGroup>();
+        cg.blocksRaycasts = false;
         法器信息弹窗 弹窗 = currentPopup.GetComponent<法器信息弹窗>();
         弹窗.法器 = 法器Grid.法器;
         弹窗.SetItem();

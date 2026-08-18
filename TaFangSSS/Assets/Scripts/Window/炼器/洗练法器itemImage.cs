@@ -71,6 +71,10 @@ public class 洗练法器itemImage : MonoBehaviour, IPointerEnterHandler, IPoint
         GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
         // 在Canvas下创建弹窗
         currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+        // 防止弹窗拦截射线导致OnPointerEnter/Exit反复触发
+        CanvasGroup cg = currentPopup.GetComponent<CanvasGroup>();
+        if (cg == null) cg = currentPopup.AddComponent<CanvasGroup>();
+        cg.blocksRaycasts = false;
         法器信息弹窗 弹窗 = currentPopup.GetComponent<法器信息弹窗>();
         弹窗.法器 = 洗练法器item.法器;
         currentPopup.GetComponent<RectTransform>().pivot = new Vector2(0, 0);

@@ -64,4 +64,8 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 法器 仙石镶嵌panel当前法器 = null;
     [NonSerialized] public 法器 洗练panel当前法器 = null;
     [NonSerialized] public List<法器附加属性值> 洗练后词条 = null;
+    [NonSerialized] public 仙石 重铸panel当前仙石 = null;
+    [NonSerialized] public List<法器附加属性值> 仙石重铸后词条 = null;
+    [NonSerialized] public 仙石Type 重铸后仙石Type;
+
 }

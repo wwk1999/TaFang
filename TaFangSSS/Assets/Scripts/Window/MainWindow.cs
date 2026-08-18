@@ -281,6 +281,13 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.控制经验值] += 10000;
             PlayerData.S.PropListDic[PropType.射手经验值] += 10000;
 
+            for (int i = 0; i < 100; i++)
+            {
+                法器 法器 = 法器Config.单次法器掉落(JingJieType.圣人);
+                PlayerData.S.法器列表.Add(法器);
+                仙石 仙石 = 仙石Config.单次仙石掉落(JingJieType.圣人);
+                PlayerData.S.仙石列表.Add(仙石);
+            }
             
             PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.天品,999);
             PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.宇品,999);

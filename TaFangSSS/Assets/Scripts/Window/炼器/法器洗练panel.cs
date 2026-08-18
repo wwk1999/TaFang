@@ -73,9 +73,10 @@ public class 法器洗练panel : MonoBehaviour
         }
 
         页数.text = 页数num.ToString();
-        for (int i = 48 * (页数num - 1); i < Math.Min(页数num * 48 - 1, PlayerData.S.法器列表.Count); i++)
+        GameObject prefab = Resources.Load("Prefabs/Window/炼器/洗练法器item") as GameObject;
+        for (int i = 48 * (页数num - 1); i < Math.Min(页数num * 48, PlayerData.S.法器列表.Count); i++)
         {
-            var 法器item = Instantiate(Resources.Load("Prefabs/Window/炼器/洗练法器item"), Content.transform)
+            var 法器item = Instantiate(prefab, Content.transform)
                 .GetComponent<洗练法器item>();
             法器item.法器 = PlayerData.S.法器列表[i];
             法器item.SetItem();
@@ -104,7 +105,13 @@ public class 法器洗练panel : MonoBehaviour
     public void 洗练法器点击(object[] obj)
     {
         HeroWindowController.S.洗练panel当前法器 = obj[0] as 法器;
-        Show();
+        Show右Panel();
+        foreach (Transform item in Content.transform)
+        {
+            var 洗练item = item.GetComponent<洗练法器item>();
+            if (洗练item != null)
+                洗练item.gou.SetActive(HeroWindowController.S.洗练panel当前法器 == 洗练item.法器);
+        }
     }
 
     public void 洗练()
@@ -142,7 +149,7 @@ public class 法器洗练panel : MonoBehaviour
 
     public void 刷新洗练Panel(object[] obj)
     {
-        Show();
+        Show右Panel();
     }
 
     public void 显示洗练保留确认弹窗(object[] obj)
@@ -157,11 +164,14 @@ public class 法器洗练panel : MonoBehaviour
         洗练Button.onClick.AddListener(() =>
         {
             洗练();
-            Show();
+            Show右Panel();
         });
         保留Button.onClick.AddListener(() =>
         {
-            保留();
+            if (HeroWindowController.S.洗练后词条 != null)
+            {
+                保留();
+            }
         });
         左Button.onClick.AddListener(() =>
         {

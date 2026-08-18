@@ -80,7 +80,7 @@
              }
          }
          QualityType quality=(QualityType)(value+2);
-         int random1=Random.Range(1, Enum.GetValues(typeof(附加属性Type)).Length+1);
+         int random1=Random.Range(1, Enum.GetValues(typeof(附加属性Type)).Length);
          附加属性Type 附加属性Type = (附加属性Type)random1;
          return new 词条Item() { 附加属性Type = 附加属性Type, QualityType = quality };
      }

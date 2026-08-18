@@ -46,6 +46,17 @@ public class 仙石Config
     {
         10, 40, 30, 15, 5
     };
+    public static Dictionary<QualityType, int> 仙石重铸消耗Dic = new Dictionary<QualityType, int>()
+    {
+        { QualityType.黄品 ,100},
+        { QualityType.玄品 ,300},
+        { QualityType.地品 ,1000},
+        { QualityType.天品 ,3000},
+        { QualityType.宇品 ,10000},
+        { QualityType.宙品 ,30000},
+        { QualityType.洪品 ,100000},
+        { QualityType.荒品 ,500000},
+    };
     public static Dictionary<JingJieType, List<float>> 仙石掉落概率Dic = new Dictionary<JingJieType, List<float>>()
     {
         { JingJieType.练气 , new List<float>(){100,0,0,0,0,0,0,0}},
@@ -84,6 +95,7 @@ public class 仙石Config
         }
         return list;
     }
+    
     
     public static 仙石 单次仙石掉落(JingJieType jingJieType)
     {
