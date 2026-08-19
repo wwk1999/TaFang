@@ -826,6 +826,9 @@ public class FightController : XSingleton<FightController>
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
             list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+        }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+        {
+            list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
         }
         int random=Random.Range(0,2);
         monster.MonsterTypeName = list[random];
@@ -856,7 +859,10 @@ public class FightController : XSingleton<FightController>
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
             list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
-        }        
+        }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+        {
+            list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
+        }          
         monster.MonsterTypeName = list[2];
         monster.gameObject.SetActive(true);
     }
@@ -886,7 +892,10 @@ public class FightController : XSingleton<FightController>
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
             list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
-        }          
+        }   else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+        {
+            list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
+        }       
         monster.MonsterTypeName = list[3];
         monster.gameObject.SetActive(true);
     }
@@ -1000,6 +1009,11 @@ public class FightController : XSingleton<FightController>
         {
             普通怪物Time = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].CreateNormalMonsterTime;
             普通怪物最大数量=LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+        }
+        else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+        {
+            普通怪物Time = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].CreateNormalMonsterTime;
+            普通怪物最大数量=神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
         }
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量&&SceneManager.GetActiveScene().name=="FightScene")
         {

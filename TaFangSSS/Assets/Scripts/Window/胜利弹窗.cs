@@ -62,6 +62,9 @@ public class 胜利弹窗 : MonoBehaviour
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
             洞天关卡结算();
+        }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+        {
+            遗迹关卡结算();
         }
         StoreController.S.SaveStoreData();
     }
@@ -95,6 +98,37 @@ public class 胜利弹窗 : MonoBehaviour
         {
             var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
             item.灵物QualityType = 灵物item.QualityType;
+            item.SetItem();
+        }
+    }
+    
+    
+    public void 遗迹关卡结算()
+    {
+        遗迹关卡胜利奖励 value = 神物Config.Get遗迹关卡奖励();
+        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
+        PlayerData.S.PropListDic[PropType.功德] += value.功德;
+        if (value.神物&&PlayerData.S.神物获得Dic[LevelConfig.当前神物Type] == false)
+        {
+            PlayerData.S.神物获得Dic[LevelConfig.当前神物Type] = true;
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.神物Type = LevelConfig.当前神物Type;
+            item.SetItem();
+            PlayerData.S.最大神物关卡++;
+        }
+        
+        if (value.灵魂 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.灵魂;
+            item.count = value.灵魂;
+            item.SetItem();
+        }
+        if (value.功德 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.功德;
+            item.count = value.功德;
             item.SetItem();
         }
     }

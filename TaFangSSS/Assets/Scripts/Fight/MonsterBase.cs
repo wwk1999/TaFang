@@ -144,8 +144,29 @@ public class MonsterBase : MonoBehaviour
       {
          MonsterAttribute = Get洞天怪物属性(洞天怪物Item,LevelConfig.当前洞天QualityType);
       }
+      if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+      {
+         MonsterAttribute = Get遗迹怪物属性(monsterType);
+      }
       Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
       basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
+   }
+   
+   public MonsterAttribute Get遗迹怪物属性(MonsterType monsterType)
+   {
+      MonsterAttribute 基础属性 = 神物Config.遗迹关卡怪物属性Dic[new 遗迹关卡怪物Item(){神物Type = LevelConfig.当前神物Type,MonsterType = monsterType}];
+      MonsterAttribute 怪物属性 = new MonsterAttribute()
+      {
+         Hp = 基础属性.Hp,
+         Attack = 基础属性.Attack,
+         Defense = 基础属性.Defense,
+         物理抗性 = 基础属性.物理抗性,
+         冰霜抗性 = 基础属性.冰霜抗性,
+         火焰抗性 = 基础属性.火焰抗性,
+         黑暗抗性 = 基础属性.黑暗抗性,
+         雷电抗性 = 基础属性.雷电抗性,
+      };
+      return 怪物属性;
    }
 
    public MonsterAttribute Get洞天怪物属性(洞天怪物Item item,QualityType qualityType)
@@ -588,6 +609,9 @@ public class MonsterBase : MonoBehaviour
          {
             总数量 = 小怪数量+ 精英怪数量+1;
          }
+      }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+      {
+         总数量 = 小怪数量+ 精英怪数量+1;
       }
 
       return 总数量;
@@ -624,6 +648,10 @@ public class MonsterBase : MonoBehaviour
       {
          小怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
          精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = LevelConfig.当前洞天QualityType }].EliteMonsterCount;
+      }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+      {
+         小怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
+         精英怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].EliteMonsterCount;
       }
       if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == 小怪数量/2)
       {

@@ -255,6 +255,12 @@ public class QueueController:XSingleton<QueueController>
              普通怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
              精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].EliteMonsterCount;
          }
+         else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+         {
+             普通怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
+             精英怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].EliteMonsterCount;
+         }
+
 
         int count = 0;
         for (int i = 0; i < 普通怪数量; i++)

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 
 public enum 神物Type
 {
@@ -17,6 +18,13 @@ public enum 神物Type
     轮回次数加伤,
     轮回系数,
     时间流速加快,
+}
+
+public class 遗迹关卡胜利奖励
+{
+    public long 灵魂;
+    public long 功德;
+    public bool 神物;
 }
 
 public class 遗迹关卡怪物Item
@@ -78,7 +86,69 @@ public class 神物Config
         { 神物Type.轮回系数, 1 },
         { 神物Type.时间流速加快, 20 },
     };
-    
+
+    public static 遗迹关卡胜利奖励 Get遗迹关卡奖励()
+    {
+        遗迹关卡胜利奖励 遗迹关卡胜利奖励 = new 遗迹关卡胜利奖励();
+        var list = 遗迹掉落Dic[LevelConfig.当前神物Type];
+        foreach (var item in list)
+        {
+            if (item.PropType == PropType.功德)
+            {
+                遗迹关卡胜利奖励.功德=LongRandom.Range(item.minCount, item.maxCount);
+            }
+            if (item.PropType == PropType.灵魂)
+            {
+                遗迹关卡胜利奖励.灵魂=LongRandom.Range(item.minCount, item.maxCount);
+            }
+        }
+        float random=Random.Range(0f, 100f);
+        遗迹关卡胜利奖励.神物 = random < 神物掉落概率Dic[LevelConfig.当前神物Type];
+        return 遗迹关卡胜利奖励;
+    }
+
+    public static Dictionary<神物Type, SmallLevelInfo> 遗迹关卡信息Dic = new Dictionary<神物Type, SmallLevelInfo>()
+    {
+        {
+            神物Type.最终伤害, new SmallLevelInfo() { NormalMonsterCount = 30, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        },
+        {
+            神物Type.冷却缩减, new SmallLevelInfo() { NormalMonsterCount = 28, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        },
+        {
+            神物Type.全元素增伤, new SmallLevelInfo() { NormalMonsterCount = 30, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        },
+        {
+            神物Type.元素人人为我, new SmallLevelInfo() { NormalMonsterCount = 32, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+        {
+            神物Type.元素我为人人, new SmallLevelInfo() { NormalMonsterCount = 32, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+        {
+            神物Type.全职业增伤, new SmallLevelInfo() { NormalMonsterCount = 30, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        },
+        {
+            神物Type.职业人人为我, new SmallLevelInfo() { NormalMonsterCount = 32, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+        {
+            神物Type.职业我为人人, new SmallLevelInfo() { NormalMonsterCount = 32, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+        {
+            神物Type.暴击爆伤, new SmallLevelInfo() { NormalMonsterCount = 25, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        },
+        {
+            神物Type.二次暴击, new SmallLevelInfo() { NormalMonsterCount = 25, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        },
+        {
+            神物Type.轮回次数加伤, new SmallLevelInfo() { NormalMonsterCount = 35, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+        {
+            神物Type.轮回系数, new SmallLevelInfo() { NormalMonsterCount = 35, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+        {
+            神物Type.时间流速加快, new SmallLevelInfo() { NormalMonsterCount = 30, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+        },
+    };
     public static Dictionary<神物Type, string> 神物descDic = new Dictionary<神物Type, string>()
     {
         { 神物Type.最终伤害, $"最终伤害+{神物数值Dic[神物Type.最终伤害]}%" },
