@@ -6,6 +6,22 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //神物
+    public static Sprite 最终伤害;
+    public static Sprite 冷却缩减;
+    public static Sprite 全元素增伤;
+    public static Sprite 元素人人为我;
+    public static Sprite 元素我为人人;
+    public static Sprite 全职业增伤;
+    public static Sprite 职业人人为我;
+    public static Sprite 职业我为人人;
+    public static Sprite 暴击爆伤;
+    public static Sprite 二次暴击;
+    public static Sprite 轮回次数加伤;
+    public static Sprite 轮回系数;
+    public static Sprite 时间流速加快;
+
+    
     public static Sprite 练气;
     public static Sprite 筑基;
     public static Sprite 金丹;
@@ -23,7 +39,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 天道圣人;
     public static Sprite 大道圣人;
     public static Sprite 混元圣人;
-    
+
     public static Sprite 仙石精华;
     public static Sprite 法器粉尘;
 
@@ -33,7 +49,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 按钮白;
     public static Sprite 孔背景框;
 
-    
+
     public static Sprite 赤阳石白;
     public static Sprite 赤阳石绿;
     public static Sprite 赤阳石蓝;
@@ -42,7 +58,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 赤阳石粉;
     public static Sprite 赤阳石红;
     public static Sprite 赤阳石彩;
-    
+
     public static Sprite 天罡石白;
     public static Sprite 天罡石绿;
     public static Sprite 天罡石蓝;
@@ -60,7 +76,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 太虚石粉;
     public static Sprite 太虚石红;
     public static Sprite 太虚石彩;
-    
+
     public static Sprite 清心玉白;
     public static Sprite 清心玉绿;
     public static Sprite 清心玉蓝;
@@ -69,7 +85,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 清心玉粉;
     public static Sprite 清心玉红;
     public static Sprite 清心玉彩;
-    
+
     public static Sprite 玄冥石白;
     public static Sprite 玄冥石绿;
     public static Sprite 玄冥石蓝;
@@ -78,7 +94,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 玄冥石粉;
     public static Sprite 玄冥石红;
     public static Sprite 玄冥石彩;
-    
+
     public static Sprite 玄灵晶白;
     public static Sprite 玄灵晶绿;
     public static Sprite 玄灵晶蓝;
@@ -87,196 +103,196 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 玄灵晶粉;
     public static Sprite 玄灵晶红;
     public static Sprite 玄灵晶彩;
-    
-    
+
+
     // 法器
 // ========== 战士 ==========
-public static Sprite 战士衣服白;
-public static Sprite 战士衣服绿;
-public static Sprite 战士衣服蓝;
-public static Sprite 战士衣服紫;
-public static Sprite 战士衣服橙;
-public static Sprite 战士衣服粉;
-public static Sprite 战士衣服红;
-public static Sprite 战士衣服彩;
+    public static Sprite 战士衣服白;
+    public static Sprite 战士衣服绿;
+    public static Sprite 战士衣服蓝;
+    public static Sprite 战士衣服紫;
+    public static Sprite 战士衣服橙;
+    public static Sprite 战士衣服粉;
+    public static Sprite 战士衣服红;
+    public static Sprite 战士衣服彩;
 
-public static Sprite 战士武器白;
-public static Sprite 战士武器绿;
-public static Sprite 战士武器蓝;
-public static Sprite 战士武器紫;
-public static Sprite 战士武器橙;
-public static Sprite 战士武器粉;
-public static Sprite 战士武器红;
-public static Sprite 战士武器彩;
+    public static Sprite 战士武器白;
+    public static Sprite 战士武器绿;
+    public static Sprite 战士武器蓝;
+    public static Sprite 战士武器紫;
+    public static Sprite 战士武器橙;
+    public static Sprite 战士武器粉;
+    public static Sprite 战士武器红;
+    public static Sprite 战士武器彩;
 
-public static Sprite 战士头盔白;
-public static Sprite 战士头盔绿;
-public static Sprite 战士头盔蓝;
-public static Sprite 战士头盔紫;
-public static Sprite 战士头盔橙;
-public static Sprite 战士头盔粉;
-public static Sprite 战士头盔红;
-public static Sprite 战士头盔彩;
+    public static Sprite 战士头盔白;
+    public static Sprite 战士头盔绿;
+    public static Sprite 战士头盔蓝;
+    public static Sprite 战士头盔紫;
+    public static Sprite 战士头盔橙;
+    public static Sprite 战士头盔粉;
+    public static Sprite 战士头盔红;
+    public static Sprite 战士头盔彩;
 
-public static Sprite 战士鞋子白;
-public static Sprite 战士鞋子绿;
-public static Sprite 战士鞋子蓝;
-public static Sprite 战士鞋子紫;
-public static Sprite 战士鞋子橙;
-public static Sprite 战士鞋子粉;
-public static Sprite 战士鞋子红;
-public static Sprite 战士鞋子彩;
+    public static Sprite 战士鞋子白;
+    public static Sprite 战士鞋子绿;
+    public static Sprite 战士鞋子蓝;
+    public static Sprite 战士鞋子紫;
+    public static Sprite 战士鞋子橙;
+    public static Sprite 战士鞋子粉;
+    public static Sprite 战士鞋子红;
+    public static Sprite 战士鞋子彩;
 
 // ========== 法师 ==========
-public static Sprite 法师衣服白;
-public static Sprite 法师衣服绿;
-public static Sprite 法师衣服蓝;
-public static Sprite 法师衣服紫;
-public static Sprite 法师衣服橙;
-public static Sprite 法师衣服粉;
-public static Sprite 法师衣服红;
-public static Sprite 法师衣服彩;
+    public static Sprite 法师衣服白;
+    public static Sprite 法师衣服绿;
+    public static Sprite 法师衣服蓝;
+    public static Sprite 法师衣服紫;
+    public static Sprite 法师衣服橙;
+    public static Sprite 法师衣服粉;
+    public static Sprite 法师衣服红;
+    public static Sprite 法师衣服彩;
 
-public static Sprite 法师武器白;
-public static Sprite 法师武器绿;
-public static Sprite 法师武器蓝;
-public static Sprite 法师武器紫;
-public static Sprite 法师武器橙;
-public static Sprite 法师武器粉;
-public static Sprite 法师武器红;
-public static Sprite 法师武器彩;
+    public static Sprite 法师武器白;
+    public static Sprite 法师武器绿;
+    public static Sprite 法师武器蓝;
+    public static Sprite 法师武器紫;
+    public static Sprite 法师武器橙;
+    public static Sprite 法师武器粉;
+    public static Sprite 法师武器红;
+    public static Sprite 法师武器彩;
 
-public static Sprite 法师头盔白;
-public static Sprite 法师头盔绿;
-public static Sprite 法师头盔蓝;
-public static Sprite 法师头盔紫;
-public static Sprite 法师头盔橙;
-public static Sprite 法师头盔粉;
-public static Sprite 法师头盔红;
-public static Sprite 法师头盔彩;
+    public static Sprite 法师头盔白;
+    public static Sprite 法师头盔绿;
+    public static Sprite 法师头盔蓝;
+    public static Sprite 法师头盔紫;
+    public static Sprite 法师头盔橙;
+    public static Sprite 法师头盔粉;
+    public static Sprite 法师头盔红;
+    public static Sprite 法师头盔彩;
 
-public static Sprite 法师鞋子白;
-public static Sprite 法师鞋子绿;
-public static Sprite 法师鞋子蓝;
-public static Sprite 法师鞋子紫;
-public static Sprite 法师鞋子橙;
-public static Sprite 法师鞋子粉;
-public static Sprite 法师鞋子红;
-public static Sprite 法师鞋子彩;
+    public static Sprite 法师鞋子白;
+    public static Sprite 法师鞋子绿;
+    public static Sprite 法师鞋子蓝;
+    public static Sprite 法师鞋子紫;
+    public static Sprite 法师鞋子橙;
+    public static Sprite 法师鞋子粉;
+    public static Sprite 法师鞋子红;
+    public static Sprite 法师鞋子彩;
 
 // ========== 控制 ==========
-public static Sprite 控制衣服白;
-public static Sprite 控制衣服绿;
-public static Sprite 控制衣服蓝;
-public static Sprite 控制衣服紫;
-public static Sprite 控制衣服橙;
-public static Sprite 控制衣服粉;
-public static Sprite 控制衣服红;
-public static Sprite 控制衣服彩;
+    public static Sprite 控制衣服白;
+    public static Sprite 控制衣服绿;
+    public static Sprite 控制衣服蓝;
+    public static Sprite 控制衣服紫;
+    public static Sprite 控制衣服橙;
+    public static Sprite 控制衣服粉;
+    public static Sprite 控制衣服红;
+    public static Sprite 控制衣服彩;
 
-public static Sprite 控制武器白;
-public static Sprite 控制武器绿;
-public static Sprite 控制武器蓝;
-public static Sprite 控制武器紫;
-public static Sprite 控制武器橙;
-public static Sprite 控制武器粉;
-public static Sprite 控制武器红;
-public static Sprite 控制武器彩;
+    public static Sprite 控制武器白;
+    public static Sprite 控制武器绿;
+    public static Sprite 控制武器蓝;
+    public static Sprite 控制武器紫;
+    public static Sprite 控制武器橙;
+    public static Sprite 控制武器粉;
+    public static Sprite 控制武器红;
+    public static Sprite 控制武器彩;
 
-public static Sprite 控制头盔白;
-public static Sprite 控制头盔绿;
-public static Sprite 控制头盔蓝;
-public static Sprite 控制头盔紫;
-public static Sprite 控制头盔橙;
-public static Sprite 控制头盔粉;
-public static Sprite 控制头盔红;
-public static Sprite 控制头盔彩;
+    public static Sprite 控制头盔白;
+    public static Sprite 控制头盔绿;
+    public static Sprite 控制头盔蓝;
+    public static Sprite 控制头盔紫;
+    public static Sprite 控制头盔橙;
+    public static Sprite 控制头盔粉;
+    public static Sprite 控制头盔红;
+    public static Sprite 控制头盔彩;
 
-public static Sprite 控制鞋子白;
-public static Sprite 控制鞋子绿;
-public static Sprite 控制鞋子蓝;
-public static Sprite 控制鞋子紫;
-public static Sprite 控制鞋子橙;
-public static Sprite 控制鞋子粉;
-public static Sprite 控制鞋子红;
-public static Sprite 控制鞋子彩;
+    public static Sprite 控制鞋子白;
+    public static Sprite 控制鞋子绿;
+    public static Sprite 控制鞋子蓝;
+    public static Sprite 控制鞋子紫;
+    public static Sprite 控制鞋子橙;
+    public static Sprite 控制鞋子粉;
+    public static Sprite 控制鞋子红;
+    public static Sprite 控制鞋子彩;
 
 // ========== 辅助 ==========
-public static Sprite 辅助衣服白;
-public static Sprite 辅助衣服绿;
-public static Sprite 辅助衣服蓝;
-public static Sprite 辅助衣服紫;
-public static Sprite 辅助衣服橙;
-public static Sprite 辅助衣服粉;
-public static Sprite 辅助衣服红;
-public static Sprite 辅助衣服彩;
+    public static Sprite 辅助衣服白;
+    public static Sprite 辅助衣服绿;
+    public static Sprite 辅助衣服蓝;
+    public static Sprite 辅助衣服紫;
+    public static Sprite 辅助衣服橙;
+    public static Sprite 辅助衣服粉;
+    public static Sprite 辅助衣服红;
+    public static Sprite 辅助衣服彩;
 
-public static Sprite 辅助武器白;
-public static Sprite 辅助武器绿;
-public static Sprite 辅助武器蓝;
-public static Sprite 辅助武器紫;
-public static Sprite 辅助武器橙;
-public static Sprite 辅助武器粉;
-public static Sprite 辅助武器红;
-public static Sprite 辅助武器彩;
+    public static Sprite 辅助武器白;
+    public static Sprite 辅助武器绿;
+    public static Sprite 辅助武器蓝;
+    public static Sprite 辅助武器紫;
+    public static Sprite 辅助武器橙;
+    public static Sprite 辅助武器粉;
+    public static Sprite 辅助武器红;
+    public static Sprite 辅助武器彩;
 
-public static Sprite 辅助头盔白;
-public static Sprite 辅助头盔绿;
-public static Sprite 辅助头盔蓝;
-public static Sprite 辅助头盔紫;
-public static Sprite 辅助头盔橙;
-public static Sprite 辅助头盔粉;
-public static Sprite 辅助头盔红;
-public static Sprite 辅助头盔彩;
+    public static Sprite 辅助头盔白;
+    public static Sprite 辅助头盔绿;
+    public static Sprite 辅助头盔蓝;
+    public static Sprite 辅助头盔紫;
+    public static Sprite 辅助头盔橙;
+    public static Sprite 辅助头盔粉;
+    public static Sprite 辅助头盔红;
+    public static Sprite 辅助头盔彩;
 
-public static Sprite 辅助鞋子白;
-public static Sprite 辅助鞋子绿;
-public static Sprite 辅助鞋子蓝;
-public static Sprite 辅助鞋子紫;
-public static Sprite 辅助鞋子橙;
-public static Sprite 辅助鞋子粉;
-public static Sprite 辅助鞋子红;
-public static Sprite 辅助鞋子彩;
+    public static Sprite 辅助鞋子白;
+    public static Sprite 辅助鞋子绿;
+    public static Sprite 辅助鞋子蓝;
+    public static Sprite 辅助鞋子紫;
+    public static Sprite 辅助鞋子橙;
+    public static Sprite 辅助鞋子粉;
+    public static Sprite 辅助鞋子红;
+    public static Sprite 辅助鞋子彩;
 
 // ========== 射手 ==========
-public static Sprite 射手衣服白;
-public static Sprite 射手衣服绿;
-public static Sprite 射手衣服蓝;
-public static Sprite 射手衣服紫;
-public static Sprite 射手衣服橙;
-public static Sprite 射手衣服粉;
-public static Sprite 射手衣服红;
-public static Sprite 射手衣服彩;
+    public static Sprite 射手衣服白;
+    public static Sprite 射手衣服绿;
+    public static Sprite 射手衣服蓝;
+    public static Sprite 射手衣服紫;
+    public static Sprite 射手衣服橙;
+    public static Sprite 射手衣服粉;
+    public static Sprite 射手衣服红;
+    public static Sprite 射手衣服彩;
 
-public static Sprite 射手武器白;
-public static Sprite 射手武器绿;
-public static Sprite 射手武器蓝;
-public static Sprite 射手武器紫;
-public static Sprite 射手武器橙;
-public static Sprite 射手武器粉;
-public static Sprite 射手武器红;
-public static Sprite 射手武器彩;
+    public static Sprite 射手武器白;
+    public static Sprite 射手武器绿;
+    public static Sprite 射手武器蓝;
+    public static Sprite 射手武器紫;
+    public static Sprite 射手武器橙;
+    public static Sprite 射手武器粉;
+    public static Sprite 射手武器红;
+    public static Sprite 射手武器彩;
 
-public static Sprite 射手头盔白;
-public static Sprite 射手头盔绿;
-public static Sprite 射手头盔蓝;
-public static Sprite 射手头盔紫;
-public static Sprite 射手头盔橙;
-public static Sprite 射手头盔粉;
-public static Sprite 射手头盔红;
-public static Sprite 射手头盔彩;
+    public static Sprite 射手头盔白;
+    public static Sprite 射手头盔绿;
+    public static Sprite 射手头盔蓝;
+    public static Sprite 射手头盔紫;
+    public static Sprite 射手头盔橙;
+    public static Sprite 射手头盔粉;
+    public static Sprite 射手头盔红;
+    public static Sprite 射手头盔彩;
 
-public static Sprite 射手鞋子白;
-public static Sprite 射手鞋子绿;
-public static Sprite 射手鞋子蓝;
-public static Sprite 射手鞋子紫;
-public static Sprite 射手鞋子橙;
-public static Sprite 射手鞋子粉;
-public static Sprite 射手鞋子红;
-public static Sprite 射手鞋子彩;
+    public static Sprite 射手鞋子白;
+    public static Sprite 射手鞋子绿;
+    public static Sprite 射手鞋子蓝;
+    public static Sprite 射手鞋子紫;
+    public static Sprite 射手鞋子橙;
+    public static Sprite 射手鞋子粉;
+    public static Sprite 射手鞋子红;
+    public static Sprite 射手鞋子彩;
 
-    
-    
+
+
     //洞天秘境怪物
     public static Sprite 青木狼;
     public static Sprite 铁背龟;
@@ -339,7 +355,110 @@ public static Sprite 射手鞋子彩;
     public static Sprite 混沌古兽;
     public static Sprite 永恒之门;
 
-    
+
+    //遗迹怪物icon
+    public static Sprite 石皮野猪;
+    public static Sprite 铁羽麻雀;
+    public static Sprite 裂蹄蛮牛;
+    public static Sprite 风吼应龙;
+
+    public static Sprite 棘背豪猪;
+    public static Sprite 赤眼乌鸦;
+    public static Sprite 碎岩巨蜥;
+    public static Sprite 雷翼飞廉;
+
+    public static Sprite 甲壳穿山;
+    public static Sprite 毒牙田鼠;
+    public static Sprite 震地巨蟾;
+    public static Sprite 冰晶玄龟;
+
+    public static Sprite 骨刺刺猬;
+    public static Sprite 火羽雉鸡;
+    public static Sprite 熔岩巨蟒;
+    public static Sprite 双首炎蟒;
+
+    public static Sprite 铜鳞鲤鱼;
+    public static Sprite 铁爪鹰隼;
+    public static Sprite 金刚巨猿;
+    public static Sprite 紫电麒麟;
+
+    public static Sprite 青面狼妖;
+    public static Sprite 赤尾狐精;
+    public static Sprite 三眼毒蟾;
+    public static Sprite 九尾天狐;
+
+    public static Sprite 黑风蛇妖;
+    public static Sprite 金瞳猫妖;
+    public static Sprite 四臂魔猿;
+    public static Sprite 七首蛟龙;
+
+    public static Sprite 碧磷蝎精;
+    public static Sprite 霜白蛛妖;
+    public static Sprite 六翼蜈蚣;
+    public static Sprite 八足火蛛;
+
+    public static Sprite 黄沙鼠妖;
+    public static Sprite 紫电貂精;
+    public static Sprite 双头狼王;
+    public static Sprite 金翅大鹏;
+
+    public static Sprite 赤焰蚁精;
+    public static Sprite 寒冰蝶妖;
+    public static Sprite 五色毒蟾;
+    public static Sprite 玄冥巨蟒;
+
+    public static Sprite 噬骨秃鹫;
+    public static Sprite 腐肉豺狼;
+    public static Sprite 血瞳巨人;
+    public static Sprite 三头地狱犬;
+
+    public static Sprite 丧魂幽灵;
+    public static Sprite 碎骨骷髅;
+    public static Sprite 尸煞尸王;
+    public static Sprite 六臂夜叉;
+
+    public static Sprite 怨气怨灵;
+    public static Sprite 诅咒木偶;
+    public static Sprite 嗜血蝠王;
+    public static Sprite 九婴凶蛇;
+
+    public static Sprite 毒雾瘴精;
+    public static Sprite 枯木树妖;
+    public static Sprite 熔岩巨人;
+    public static Sprite 赤地旱魃;
+
+    public static Sprite 暗影影魔;
+    public static Sprite 蚀金蚁群;
+    public static Sprite 暴风巨鹏;
+    public static Sprite 吞天朱厌;
+
+    public static Sprite 雷霆石像;
+    public static Sprite 寒冰雕像;
+    public static Sprite 烈焰守护者;
+    public static Sprite 混沌饕餮;
+
+    public static Sprite 黄金剑狮;
+    public static Sprite 月影毒狼;
+    public static Sprite 星辰守护者;
+    public static Sprite 太极鲲鹏;
+
+    public static Sprite 地脉石灵;
+    public static Sprite 天罡星傀;
+    public static Sprite 时空撕裂者;
+    public static Sprite 烛龙九阴;
+
+    public static Sprite 虚无吞噬兽;
+    public static Sprite 混沌畸变体;
+    public static Sprite 轮回审判官;
+    public static Sprite 魔化盘古;
+
+    public static Sprite 因果裁决者;
+    public static Sprite 终末湮灭虫;
+    public static Sprite 命运编织者;
+    public static Sprite 混沌道尊;
+
+
+
     public static Sprite 练气白;
     public static Sprite 练气绿;
     public static Sprite 练气蓝;
@@ -348,8 +467,8 @@ public static Sprite 射手鞋子彩;
     public static Sprite 练气粉;
     public static Sprite 练气红;
     public static Sprite 练气彩;
-    
-    
+
+
     public static Sprite 筑基白;
     public static Sprite 筑基绿;
     public static Sprite 筑基蓝;
@@ -2035,6 +2154,105 @@ public static Sprite 射手鞋子彩;
             case MonsterTypeName.时空扭曲者: return 时空扭曲者;
             case MonsterTypeName.混沌古兽: return 混沌古兽;
             case MonsterTypeName.永恒之门: return 永恒之门;
+            case MonsterTypeName.石皮野猪: return 石皮野猪;
+            case MonsterTypeName.铁羽麻雀: return 铁羽麻雀;
+            case MonsterTypeName.裂蹄蛮牛: return 裂蹄蛮牛;
+            case MonsterTypeName.风吼应龙: return 风吼应龙;
+
+            case MonsterTypeName.棘背豪猪: return 棘背豪猪;
+            case MonsterTypeName.赤眼乌鸦: return 赤眼乌鸦;
+            case MonsterTypeName.碎岩巨蜥: return 碎岩巨蜥;
+            case MonsterTypeName.雷翼飞廉: return 雷翼飞廉;
+
+            case MonsterTypeName.甲壳穿山: return 甲壳穿山;
+            case MonsterTypeName.毒牙田鼠: return 毒牙田鼠;
+            case MonsterTypeName.震地巨蟾: return 震地巨蟾;
+            case MonsterTypeName.冰晶玄龟: return 冰晶玄龟;
+
+            case MonsterTypeName.骨刺刺猬: return 骨刺刺猬;
+            case MonsterTypeName.火羽雉鸡: return 火羽雉鸡;
+            case MonsterTypeName.熔岩巨蟒: return 熔岩巨蟒;
+            case MonsterTypeName.双首炎蟒: return 双首炎蟒;
+
+            case MonsterTypeName.铜鳞鲤鱼: return 铜鳞鲤鱼;
+            case MonsterTypeName.铁爪鹰隼: return 铁爪鹰隼;
+            case MonsterTypeName.金刚巨猿: return 金刚巨猿;
+            case MonsterTypeName.紫电麒麟: return 紫电麒麟;
+
+            case MonsterTypeName.青面狼妖: return 青面狼妖;
+            case MonsterTypeName.赤尾狐精: return 赤尾狐精;
+            case MonsterTypeName.三眼毒蟾: return 三眼毒蟾;
+            case MonsterTypeName.九尾天狐: return 九尾天狐;
+
+            case MonsterTypeName.黑风蛇妖: return 黑风蛇妖;
+            case MonsterTypeName.金瞳猫妖: return 金瞳猫妖;
+            case MonsterTypeName.四臂魔猿: return 四臂魔猿;
+            case MonsterTypeName.七首蛟龙: return 七首蛟龙;
+
+            case MonsterTypeName.碧磷蝎精: return 碧磷蝎精;
+            case MonsterTypeName.霜白蛛妖: return 霜白蛛妖;
+            case MonsterTypeName.六翼蜈蚣: return 六翼蜈蚣;
+            case MonsterTypeName.八足火蛛: return 八足火蛛;
+
+            case MonsterTypeName.黄沙鼠妖: return 黄沙鼠妖;
+            case MonsterTypeName.紫电貂精: return 紫电貂精;
+            case MonsterTypeName.双头狼王: return 双头狼王;
+            case MonsterTypeName.金翅大鹏: return 金翅大鹏;
+
+            case MonsterTypeName.赤焰蚁精: return 赤焰蚁精;
+            case MonsterTypeName.寒冰蝶妖: return 寒冰蝶妖;
+            case MonsterTypeName.五色毒蟾: return 五色毒蟾;
+            case MonsterTypeName.玄冥巨蟒: return 玄冥巨蟒;
+
+            case MonsterTypeName.噬骨秃鹫: return 噬骨秃鹫;
+            case MonsterTypeName.腐肉豺狼: return 腐肉豺狼;
+            case MonsterTypeName.血瞳巨人: return 血瞳巨人;
+            case MonsterTypeName.三头地狱犬: return 三头地狱犬;
+
+            case MonsterTypeName.丧魂幽灵: return 丧魂幽灵;
+            case MonsterTypeName.碎骨骷髅: return 碎骨骷髅;
+            case MonsterTypeName.尸煞尸王: return 尸煞尸王;
+            case MonsterTypeName.六臂夜叉: return 六臂夜叉;
+
+            case MonsterTypeName.怨气怨灵: return 怨气怨灵;
+            case MonsterTypeName.诅咒木偶: return 诅咒木偶;
+            case MonsterTypeName.嗜血蝠王: return 嗜血蝠王;
+            case MonsterTypeName.九婴凶蛇: return 九婴凶蛇;
+
+            case MonsterTypeName.毒雾瘴精: return 毒雾瘴精;
+            case MonsterTypeName.枯木树妖: return 枯木树妖;
+            case MonsterTypeName.熔岩巨人: return 熔岩巨人;
+            case MonsterTypeName.赤地旱魃: return 赤地旱魃;
+
+            case MonsterTypeName.暗影影魔: return 暗影影魔;
+            case MonsterTypeName.蚀金蚁群: return 蚀金蚁群;
+            case MonsterTypeName.暴风巨鹏: return 暴风巨鹏;
+            case MonsterTypeName.吞天朱厌: return 吞天朱厌;
+
+            case MonsterTypeName.雷霆石像: return 雷霆石像;
+            case MonsterTypeName.寒冰雕像: return 寒冰雕像;
+            case MonsterTypeName.烈焰守护者: return 烈焰守护者;
+            case MonsterTypeName.混沌饕餮: return 混沌饕餮;
+
+            case MonsterTypeName.黄金剑狮: return 黄金剑狮;
+            case MonsterTypeName.月影毒狼: return 月影毒狼;
+            case MonsterTypeName.星辰守护者: return 星辰守护者;
+            case MonsterTypeName.太极鲲鹏: return 太极鲲鹏;
+
+            case MonsterTypeName.地脉石灵: return 地脉石灵;
+            case MonsterTypeName.天罡星傀: return 天罡星傀;
+            case MonsterTypeName.时空撕裂者: return 时空撕裂者;
+            case MonsterTypeName.烛龙九阴: return 烛龙九阴;
+
+            case MonsterTypeName.虚无吞噬兽: return 虚无吞噬兽;
+            case MonsterTypeName.混沌畸变体: return 混沌畸变体;
+            case MonsterTypeName.轮回审判官: return 轮回审判官;
+            case MonsterTypeName.魔化盘古: return 魔化盘古;
+
+            case MonsterTypeName.因果裁决者: return 因果裁决者;
+            case MonsterTypeName.终末湮灭虫: return 终末湮灭虫;
+            case MonsterTypeName.命运编织者: return 命运编织者;
+            case MonsterTypeName.混沌道尊: return 混沌道尊;
             default:
                 return null;
         }
@@ -2543,203 +2761,204 @@ public static Sprite 射手鞋子彩;
     }
 
     public static Sprite Get法器Sprite(法器Type 法器Type)
-{
-    switch (法器Type)
     {
-        // ==================== 1. 战士 ====================
-        case 法器Type.战士武器白: return 战士武器白;
-        case 法器Type.战士武器绿: return 战士武器绿;
-        case 法器Type.战士武器蓝: return 战士武器蓝;
-        case 法器Type.战士武器紫: return 战士武器紫;
-        case 法器Type.战士武器橙: return 战士武器橙;
-        case 法器Type.战士武器粉: return 战士武器粉;
-        case 法器Type.战士武器红: return 战士武器红;
-        case 法器Type.战士武器彩: return 战士武器彩;
+        switch (法器Type)
+        {
+            // ==================== 1. 战士 ====================
+            case 法器Type.战士武器白: return 战士武器白;
+            case 法器Type.战士武器绿: return 战士武器绿;
+            case 法器Type.战士武器蓝: return 战士武器蓝;
+            case 法器Type.战士武器紫: return 战士武器紫;
+            case 法器Type.战士武器橙: return 战士武器橙;
+            case 法器Type.战士武器粉: return 战士武器粉;
+            case 法器Type.战士武器红: return 战士武器红;
+            case 法器Type.战士武器彩: return 战士武器彩;
 
-        case 法器Type.战士头盔白: return 战士头盔白;
-        case 法器Type.战士头盔绿: return 战士头盔绿;
-        case 法器Type.战士头盔蓝: return 战士头盔蓝;
-        case 法器Type.战士头盔紫: return 战士头盔紫;
-        case 法器Type.战士头盔橙: return 战士头盔橙;
-        case 法器Type.战士头盔粉: return 战士头盔粉;
-        case 法器Type.战士头盔红: return 战士头盔红;
-        case 法器Type.战士头盔彩: return 战士头盔彩;
+            case 法器Type.战士头盔白: return 战士头盔白;
+            case 法器Type.战士头盔绿: return 战士头盔绿;
+            case 法器Type.战士头盔蓝: return 战士头盔蓝;
+            case 法器Type.战士头盔紫: return 战士头盔紫;
+            case 法器Type.战士头盔橙: return 战士头盔橙;
+            case 法器Type.战士头盔粉: return 战士头盔粉;
+            case 法器Type.战士头盔红: return 战士头盔红;
+            case 法器Type.战士头盔彩: return 战士头盔彩;
 
-        case 法器Type.战士衣服白: return 战士衣服白;
-        case 法器Type.战士衣服绿: return 战士衣服绿;
-        case 法器Type.战士衣服蓝: return 战士衣服蓝;
-        case 法器Type.战士衣服紫: return 战士衣服紫;
-        case 法器Type.战士衣服橙: return 战士衣服橙;
-        case 法器Type.战士衣服粉: return 战士衣服粉;
-        case 法器Type.战士衣服红: return 战士衣服红;
-        case 法器Type.战士衣服彩: return 战士衣服彩;
+            case 法器Type.战士衣服白: return 战士衣服白;
+            case 法器Type.战士衣服绿: return 战士衣服绿;
+            case 法器Type.战士衣服蓝: return 战士衣服蓝;
+            case 法器Type.战士衣服紫: return 战士衣服紫;
+            case 法器Type.战士衣服橙: return 战士衣服橙;
+            case 法器Type.战士衣服粉: return 战士衣服粉;
+            case 法器Type.战士衣服红: return 战士衣服红;
+            case 法器Type.战士衣服彩: return 战士衣服彩;
 
-        case 法器Type.战士鞋子白: return 战士鞋子白;
-        case 法器Type.战士鞋子绿: return 战士鞋子绿;
-        case 法器Type.战士鞋子蓝: return 战士鞋子蓝;
-        case 法器Type.战士鞋子紫: return 战士鞋子紫;
-        case 法器Type.战士鞋子橙: return 战士鞋子橙;
-        case 法器Type.战士鞋子粉: return 战士鞋子粉;
-        case 法器Type.战士鞋子红: return 战士鞋子红;
-        case 法器Type.战士鞋子彩: return 战士鞋子彩;
-
-
-        // ==================== 2. 控制 ====================
-        case 法器Type.控制武器白: return 控制武器白;
-        case 法器Type.控制武器绿: return 控制武器绿;
-        case 法器Type.控制武器蓝: return 控制武器蓝;
-        case 法器Type.控制武器紫: return 控制武器紫;
-        case 法器Type.控制武器橙: return 控制武器橙;
-        case 法器Type.控制武器粉: return 控制武器粉;
-        case 法器Type.控制武器红: return 控制武器红;
-        case 法器Type.控制武器彩: return 控制武器彩;
-
-        case 法器Type.控制头盔白: return 控制头盔白;
-        case 法器Type.控制头盔绿: return 控制头盔绿;
-        case 法器Type.控制头盔蓝: return 控制头盔蓝;
-        case 法器Type.控制头盔紫: return 控制头盔紫;
-        case 法器Type.控制头盔橙: return 控制头盔橙;
-        case 法器Type.控制头盔粉: return 控制头盔粉;
-        case 法器Type.控制头盔红: return 控制头盔红;
-        case 法器Type.控制头盔彩: return 控制头盔彩;
-
-        case 法器Type.控制衣服白: return 控制衣服白;
-        case 法器Type.控制衣服绿: return 控制衣服绿;
-        case 法器Type.控制衣服蓝: return 控制衣服蓝;
-        case 法器Type.控制衣服紫: return 控制衣服紫;
-        case 法器Type.控制衣服橙: return 控制衣服橙;
-        case 法器Type.控制衣服粉: return 控制衣服粉;
-        case 法器Type.控制衣服红: return 控制衣服红;
-        case 法器Type.控制衣服彩: return 控制衣服彩;
-
-        case 法器Type.控制鞋子白: return 控制鞋子白;
-        case 法器Type.控制鞋子绿: return 控制鞋子绿;
-        case 法器Type.控制鞋子蓝: return 控制鞋子蓝;
-        case 法器Type.控制鞋子紫: return 控制鞋子紫;
-        case 法器Type.控制鞋子橙: return 控制鞋子橙;
-        case 法器Type.控制鞋子粉: return 控制鞋子粉;
-        case 法器Type.控制鞋子红: return 控制鞋子红;
-        case 法器Type.控制鞋子彩: return 控制鞋子彩;
+            case 法器Type.战士鞋子白: return 战士鞋子白;
+            case 法器Type.战士鞋子绿: return 战士鞋子绿;
+            case 法器Type.战士鞋子蓝: return 战士鞋子蓝;
+            case 法器Type.战士鞋子紫: return 战士鞋子紫;
+            case 法器Type.战士鞋子橙: return 战士鞋子橙;
+            case 法器Type.战士鞋子粉: return 战士鞋子粉;
+            case 法器Type.战士鞋子红: return 战士鞋子红;
+            case 法器Type.战士鞋子彩: return 战士鞋子彩;
 
 
-        // ==================== 3. 辅助 ====================
-        case 法器Type.辅助武器白: return 辅助武器白;
-        case 法器Type.辅助武器绿: return 辅助武器绿;
-        case 法器Type.辅助武器蓝: return 辅助武器蓝;
-        case 法器Type.辅助武器紫: return 辅助武器紫;
-        case 法器Type.辅助武器橙: return 辅助武器橙;
-        case 法器Type.辅助武器粉: return 辅助武器粉;
-        case 法器Type.辅助武器红: return 辅助武器红;
-        case 法器Type.辅助武器彩: return 辅助武器彩;
+            // ==================== 2. 控制 ====================
+            case 法器Type.控制武器白: return 控制武器白;
+            case 法器Type.控制武器绿: return 控制武器绿;
+            case 法器Type.控制武器蓝: return 控制武器蓝;
+            case 法器Type.控制武器紫: return 控制武器紫;
+            case 法器Type.控制武器橙: return 控制武器橙;
+            case 法器Type.控制武器粉: return 控制武器粉;
+            case 法器Type.控制武器红: return 控制武器红;
+            case 法器Type.控制武器彩: return 控制武器彩;
 
-        case 法器Type.辅助头盔白: return 辅助头盔白;
-        case 法器Type.辅助头盔绿: return 辅助头盔绿;
-        case 法器Type.辅助头盔蓝: return 辅助头盔蓝;
-        case 法器Type.辅助头盔紫: return 辅助头盔紫;
-        case 法器Type.辅助头盔橙: return 辅助头盔橙;
-        case 法器Type.辅助头盔粉: return 辅助头盔粉;
-        case 法器Type.辅助头盔红: return 辅助头盔红;
-        case 法器Type.辅助头盔彩: return 辅助头盔彩;
+            case 法器Type.控制头盔白: return 控制头盔白;
+            case 法器Type.控制头盔绿: return 控制头盔绿;
+            case 法器Type.控制头盔蓝: return 控制头盔蓝;
+            case 法器Type.控制头盔紫: return 控制头盔紫;
+            case 法器Type.控制头盔橙: return 控制头盔橙;
+            case 法器Type.控制头盔粉: return 控制头盔粉;
+            case 法器Type.控制头盔红: return 控制头盔红;
+            case 法器Type.控制头盔彩: return 控制头盔彩;
 
-        case 法器Type.辅助衣服白: return 辅助衣服白;
-        case 法器Type.辅助衣服绿: return 辅助衣服绿;
-        case 法器Type.辅助衣服蓝: return 辅助衣服蓝;
-        case 法器Type.辅助衣服紫: return 辅助衣服紫;
-        case 法器Type.辅助衣服橙: return 辅助衣服橙;
-        case 法器Type.辅助衣服粉: return 辅助衣服粉;
-        case 法器Type.辅助衣服红: return 辅助衣服红;
-        case 法器Type.辅助衣服彩: return 辅助衣服彩;
+            case 法器Type.控制衣服白: return 控制衣服白;
+            case 法器Type.控制衣服绿: return 控制衣服绿;
+            case 法器Type.控制衣服蓝: return 控制衣服蓝;
+            case 法器Type.控制衣服紫: return 控制衣服紫;
+            case 法器Type.控制衣服橙: return 控制衣服橙;
+            case 法器Type.控制衣服粉: return 控制衣服粉;
+            case 法器Type.控制衣服红: return 控制衣服红;
+            case 法器Type.控制衣服彩: return 控制衣服彩;
 
-        case 法器Type.辅助鞋子白: return 辅助鞋子白;
-        case 法器Type.辅助鞋子绿: return 辅助鞋子绿;
-        case 法器Type.辅助鞋子蓝: return 辅助鞋子蓝;
-        case 法器Type.辅助鞋子紫: return 辅助鞋子紫;
-        case 法器Type.辅助鞋子橙: return 辅助鞋子橙;
-        case 法器Type.辅助鞋子粉: return 辅助鞋子粉;
-        case 法器Type.辅助鞋子红: return 辅助鞋子红;
-        case 法器Type.辅助鞋子彩: return 辅助鞋子彩;
-
-
-        // ==================== 4. 射手 ====================
-        case 法器Type.射手武器白: return 射手武器白;
-        case 法器Type.射手武器绿: return 射手武器绿;
-        case 法器Type.射手武器蓝: return 射手武器蓝;
-        case 法器Type.射手武器紫: return 射手武器紫;
-        case 法器Type.射手武器橙: return 射手武器橙;
-        case 法器Type.射手武器粉: return 射手武器粉;
-        case 法器Type.射手武器红: return 射手武器红;
-        case 法器Type.射手武器彩: return 射手武器彩;
-
-        case 法器Type.射手头盔白: return 射手头盔白;
-        case 法器Type.射手头盔绿: return 射手头盔绿;
-        case 法器Type.射手头盔蓝: return 射手头盔蓝;
-        case 法器Type.射手头盔紫: return 射手头盔紫;
-        case 法器Type.射手头盔橙: return 射手头盔橙;
-        case 法器Type.射手头盔粉: return 射手头盔粉;
-        case 法器Type.射手头盔红: return 射手头盔红;
-        case 法器Type.射手头盔彩: return 射手头盔彩;
-
-        case 法器Type.射手衣服白: return 射手衣服白;
-        case 法器Type.射手衣服绿: return 射手衣服绿;
-        case 法器Type.射手衣服蓝: return 射手衣服蓝;
-        case 法器Type.射手衣服紫: return 射手衣服紫;
-        case 法器Type.射手衣服橙: return 射手衣服橙;
-        case 法器Type.射手衣服粉: return 射手衣服粉;
-        case 法器Type.射手衣服红: return 射手衣服红;
-        case 法器Type.射手衣服彩: return 射手衣服彩;
-
-        case 法器Type.射手鞋子白: return 射手鞋子白;
-        case 法器Type.射手鞋子绿: return 射手鞋子绿;
-        case 法器Type.射手鞋子蓝: return 射手鞋子蓝;
-        case 法器Type.射手鞋子紫: return 射手鞋子紫;
-        case 法器Type.射手鞋子橙: return 射手鞋子橙;
-        case 法器Type.射手鞋子粉: return 射手鞋子粉;
-        case 法器Type.射手鞋子红: return 射手鞋子红;
-        case 法器Type.射手鞋子彩: return 射手鞋子彩;
+            case 法器Type.控制鞋子白: return 控制鞋子白;
+            case 法器Type.控制鞋子绿: return 控制鞋子绿;
+            case 法器Type.控制鞋子蓝: return 控制鞋子蓝;
+            case 法器Type.控制鞋子紫: return 控制鞋子紫;
+            case 法器Type.控制鞋子橙: return 控制鞋子橙;
+            case 法器Type.控制鞋子粉: return 控制鞋子粉;
+            case 法器Type.控制鞋子红: return 控制鞋子红;
+            case 法器Type.控制鞋子彩: return 控制鞋子彩;
 
 
-        // ==================== 5. 法师 ====================
-        case 法器Type.法师武器白: return 法师武器白;
-        case 法器Type.法师武器绿: return 法师武器绿;
-        case 法器Type.法师武器蓝: return 法师武器蓝;
-        case 法器Type.法师武器紫: return 法师武器紫;
-        case 法器Type.法师武器橙: return 法师武器橙;
-        case 法器Type.法师武器粉: return 法师武器粉;
-        case 法器Type.法师武器红: return 法师武器红;
-        case 法器Type.法师武器彩: return 法师武器彩;
+            // ==================== 3. 辅助 ====================
+            case 法器Type.辅助武器白: return 辅助武器白;
+            case 法器Type.辅助武器绿: return 辅助武器绿;
+            case 法器Type.辅助武器蓝: return 辅助武器蓝;
+            case 法器Type.辅助武器紫: return 辅助武器紫;
+            case 法器Type.辅助武器橙: return 辅助武器橙;
+            case 法器Type.辅助武器粉: return 辅助武器粉;
+            case 法器Type.辅助武器红: return 辅助武器红;
+            case 法器Type.辅助武器彩: return 辅助武器彩;
 
-        case 法器Type.法师头盔白: return 法师头盔白;
-        case 法器Type.法师头盔绿: return 法师头盔绿;
-        case 法器Type.法师头盔蓝: return 法师头盔蓝;
-        case 法器Type.法师头盔紫: return 法师头盔紫;
-        case 法器Type.法师头盔橙: return 法师头盔橙;
-        case 法器Type.法师头盔粉: return 法师头盔粉;
-        case 法器Type.法师头盔红: return 法师头盔红;
-        case 法器Type.法师头盔彩: return 法师头盔彩;
+            case 法器Type.辅助头盔白: return 辅助头盔白;
+            case 法器Type.辅助头盔绿: return 辅助头盔绿;
+            case 法器Type.辅助头盔蓝: return 辅助头盔蓝;
+            case 法器Type.辅助头盔紫: return 辅助头盔紫;
+            case 法器Type.辅助头盔橙: return 辅助头盔橙;
+            case 法器Type.辅助头盔粉: return 辅助头盔粉;
+            case 法器Type.辅助头盔红: return 辅助头盔红;
+            case 法器Type.辅助头盔彩: return 辅助头盔彩;
 
-        case 法器Type.法师衣服白: return 法师衣服白;
-        case 法器Type.法师衣服绿: return 法师衣服绿;
-        case 法器Type.法师衣服蓝: return 法师衣服蓝;
-        case 法器Type.法师衣服紫: return 法师衣服紫;
-        case 法器Type.法师衣服橙: return 法师衣服橙;
-        case 法器Type.法师衣服粉: return 法师衣服粉;
-        case 法器Type.法师衣服红: return 法师衣服红;
-        case 法器Type.法师衣服彩: return 法师衣服彩;
+            case 法器Type.辅助衣服白: return 辅助衣服白;
+            case 法器Type.辅助衣服绿: return 辅助衣服绿;
+            case 法器Type.辅助衣服蓝: return 辅助衣服蓝;
+            case 法器Type.辅助衣服紫: return 辅助衣服紫;
+            case 法器Type.辅助衣服橙: return 辅助衣服橙;
+            case 法器Type.辅助衣服粉: return 辅助衣服粉;
+            case 法器Type.辅助衣服红: return 辅助衣服红;
+            case 法器Type.辅助衣服彩: return 辅助衣服彩;
 
-        case 法器Type.法师鞋子白: return 法师鞋子白;
-        case 法器Type.法师鞋子绿: return 法师鞋子绿;
-        case 法器Type.法师鞋子蓝: return 法师鞋子蓝;
-        case 法器Type.法师鞋子紫: return 法师鞋子紫;
-        case 法器Type.法师鞋子橙: return 法师鞋子橙;
-        case 法器Type.法师鞋子粉: return 法师鞋子粉;
-        case 法器Type.法师鞋子红: return 法师鞋子红;
-        case 法器Type.法师鞋子彩: return 法师鞋子彩;
+            case 法器Type.辅助鞋子白: return 辅助鞋子白;
+            case 法器Type.辅助鞋子绿: return 辅助鞋子绿;
+            case 法器Type.辅助鞋子蓝: return 辅助鞋子蓝;
+            case 法器Type.辅助鞋子紫: return 辅助鞋子紫;
+            case 法器Type.辅助鞋子橙: return 辅助鞋子橙;
+            case 法器Type.辅助鞋子粉: return 辅助鞋子粉;
+            case 法器Type.辅助鞋子红: return 辅助鞋子红;
+            case 法器Type.辅助鞋子彩: return 辅助鞋子彩;
 
-        // 默认处理
-        default:
-            return null; // 或者是某个默认的占位图
+
+            // ==================== 4. 射手 ====================
+            case 法器Type.射手武器白: return 射手武器白;
+            case 法器Type.射手武器绿: return 射手武器绿;
+            case 法器Type.射手武器蓝: return 射手武器蓝;
+            case 法器Type.射手武器紫: return 射手武器紫;
+            case 法器Type.射手武器橙: return 射手武器橙;
+            case 法器Type.射手武器粉: return 射手武器粉;
+            case 法器Type.射手武器红: return 射手武器红;
+            case 法器Type.射手武器彩: return 射手武器彩;
+
+            case 法器Type.射手头盔白: return 射手头盔白;
+            case 法器Type.射手头盔绿: return 射手头盔绿;
+            case 法器Type.射手头盔蓝: return 射手头盔蓝;
+            case 法器Type.射手头盔紫: return 射手头盔紫;
+            case 法器Type.射手头盔橙: return 射手头盔橙;
+            case 法器Type.射手头盔粉: return 射手头盔粉;
+            case 法器Type.射手头盔红: return 射手头盔红;
+            case 法器Type.射手头盔彩: return 射手头盔彩;
+
+            case 法器Type.射手衣服白: return 射手衣服白;
+            case 法器Type.射手衣服绿: return 射手衣服绿;
+            case 法器Type.射手衣服蓝: return 射手衣服蓝;
+            case 法器Type.射手衣服紫: return 射手衣服紫;
+            case 法器Type.射手衣服橙: return 射手衣服橙;
+            case 法器Type.射手衣服粉: return 射手衣服粉;
+            case 法器Type.射手衣服红: return 射手衣服红;
+            case 法器Type.射手衣服彩: return 射手衣服彩;
+
+            case 法器Type.射手鞋子白: return 射手鞋子白;
+            case 法器Type.射手鞋子绿: return 射手鞋子绿;
+            case 法器Type.射手鞋子蓝: return 射手鞋子蓝;
+            case 法器Type.射手鞋子紫: return 射手鞋子紫;
+            case 法器Type.射手鞋子橙: return 射手鞋子橙;
+            case 法器Type.射手鞋子粉: return 射手鞋子粉;
+            case 法器Type.射手鞋子红: return 射手鞋子红;
+            case 法器Type.射手鞋子彩: return 射手鞋子彩;
+
+
+            // ==================== 5. 法师 ====================
+            case 法器Type.法师武器白: return 法师武器白;
+            case 法器Type.法师武器绿: return 法师武器绿;
+            case 法器Type.法师武器蓝: return 法师武器蓝;
+            case 法器Type.法师武器紫: return 法师武器紫;
+            case 法器Type.法师武器橙: return 法师武器橙;
+            case 法器Type.法师武器粉: return 法师武器粉;
+            case 法器Type.法师武器红: return 法师武器红;
+            case 法器Type.法师武器彩: return 法师武器彩;
+
+            case 法器Type.法师头盔白: return 法师头盔白;
+            case 法器Type.法师头盔绿: return 法师头盔绿;
+            case 法器Type.法师头盔蓝: return 法师头盔蓝;
+            case 法器Type.法师头盔紫: return 法师头盔紫;
+            case 法器Type.法师头盔橙: return 法师头盔橙;
+            case 法器Type.法师头盔粉: return 法师头盔粉;
+            case 法器Type.法师头盔红: return 法师头盔红;
+            case 法器Type.法师头盔彩: return 法师头盔彩;
+
+            case 法器Type.法师衣服白: return 法师衣服白;
+            case 法器Type.法师衣服绿: return 法师衣服绿;
+            case 法器Type.法师衣服蓝: return 法师衣服蓝;
+            case 法器Type.法师衣服紫: return 法师衣服紫;
+            case 法器Type.法师衣服橙: return 法师衣服橙;
+            case 法器Type.法师衣服粉: return 法师衣服粉;
+            case 法器Type.法师衣服红: return 法师衣服红;
+            case 法器Type.法师衣服彩: return 法师衣服彩;
+
+            case 法器Type.法师鞋子白: return 法师鞋子白;
+            case 法器Type.法师鞋子绿: return 法师鞋子绿;
+            case 法器Type.法师鞋子蓝: return 法师鞋子蓝;
+            case 法器Type.法师鞋子紫: return 法师鞋子紫;
+            case 法器Type.法师鞋子橙: return 法师鞋子橙;
+            case 法器Type.法师鞋子粉: return 法师鞋子粉;
+            case 法器Type.法师鞋子红: return 法师鞋子红;
+            case 法器Type.法师鞋子彩: return 法师鞋子彩;
+
+            // 默认处理
+            default:
+                return null; // 或者是某个默认的占位图
+        }
     }
-}
+
     public static Sprite Get道纹Sprite(道纹Type type, QualityType qualityType)
     {
         switch (type)
@@ -3907,33 +4126,34 @@ public static Sprite 射手鞋子彩;
         }
     }
 
-    public static Sprite Get仙石Sprite(仙石Type 仙石Type,QualityType qualityType)
+    public static Sprite Get仙石Sprite(仙石Type 仙石Type, QualityType qualityType)
     {
         switch (仙石Type)
         {
             case 仙石Type.赤阳石:
-            switch (qualityType)
-            {
-                case QualityType.黄品:
-                    return 赤阳石白;
-                case QualityType.玄品:
-                    return 赤阳石绿;
-                case QualityType.地品:
-                    return 赤阳石蓝;
-                case QualityType.天品:
-                    return 赤阳石紫;
-                case QualityType.宇品:
-                    return 赤阳石橙;
-                case QualityType.宙品:
-                    return 赤阳石粉;
-                case QualityType.洪品:
-                    return 赤阳石红;
-                case QualityType.荒品:
-                    return 赤阳石彩;
-            }
-            break;
-            
-            
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 赤阳石白;
+                    case QualityType.玄品:
+                        return 赤阳石绿;
+                    case QualityType.地品:
+                        return 赤阳石蓝;
+                    case QualityType.天品:
+                        return 赤阳石紫;
+                    case QualityType.宇品:
+                        return 赤阳石橙;
+                    case QualityType.宙品:
+                        return 赤阳石粉;
+                    case QualityType.洪品:
+                        return 赤阳石红;
+                    case QualityType.荒品:
+                        return 赤阳石彩;
+                }
+
+                break;
+
+
             case 仙石Type.天罡石:
                 switch (qualityType)
                 {
@@ -3954,9 +4174,10 @@ public static Sprite 射手鞋子彩;
                     case QualityType.荒品:
                         return 天罡石彩;
                 }
+
                 break;
-            
-            
+
+
             case 仙石Type.玄灵晶:
                 switch (qualityType)
                 {
@@ -3977,9 +4198,10 @@ public static Sprite 射手鞋子彩;
                     case QualityType.荒品:
                         return 玄灵晶彩;
                 }
+
                 break;
-            
-            
+
+
             case 仙石Type.玄冥石:
                 switch (qualityType)
                 {
@@ -4000,9 +4222,10 @@ public static Sprite 射手鞋子彩;
                     case QualityType.荒品:
                         return 玄冥石彩;
                 }
+
                 break;
-            
-            
+
+
             case 仙石Type.清心玉:
                 switch (qualityType)
                 {
@@ -4023,10 +4246,11 @@ public static Sprite 射手鞋子彩;
                     case QualityType.荒品:
                         return 清心玉彩;
                 }
+
                 break;
-            
-            
-            
+
+
+
             case 仙石Type.太虚石:
                 switch (qualityType)
                 {
@@ -4047,6 +4271,7 @@ public static Sprite 射手鞋子彩;
                     case QualityType.荒品:
                         return 太虚石彩;
                 }
+
                 break;
         }
 
@@ -4096,9 +4321,44 @@ public static Sprite 射手鞋子彩;
                 return null;
         }
     }
+
+    public static Sprite Get神物Icon(神物Type type)
+    {
+        switch (type)
+        {
+            case 神物Type.最终伤害: return 最终伤害;
+            case 神物Type.冷却缩减: return 冷却缩减;
+            case 神物Type.全元素增伤: return 全元素增伤;
+            case 神物Type.元素人人为我: return 元素人人为我;
+            case 神物Type.元素我为人人: return 元素我为人人;
+            case 神物Type.全职业增伤: return 全职业增伤;
+            case 神物Type.职业人人为我: return 职业人人为我;
+            case 神物Type.职业我为人人: return 职业我为人人;
+            case 神物Type.暴击爆伤: return 暴击爆伤;
+            case 神物Type.二次暴击: return 二次暴击;
+            case 神物Type.轮回次数加伤: return 轮回次数加伤;
+            case 神物Type.轮回系数: return 轮回系数;
+            case 神物Type.时间流速加快: return 时间流速加快;
+            default: return null;
+        }
+    }
+    
+
     public static void Init()
     {
-        练气 = Resources.Load<Sprite>("Sprite/境界/练气");
+        最终伤害 = Resources.Load<Sprite>("Sprite/神物icon/最终伤害");
+        冷却缩减 = Resources.Load<Sprite>("Sprite/神物icon/冷却缩减");
+        全元素增伤 = Resources.Load<Sprite>("Sprite/神物icon/全元素增伤");
+        元素人人为我 = Resources.Load<Sprite>("Sprite/神物icon/元素人人为我");
+        元素我为人人 = Resources.Load<Sprite>("Sprite/神物icon/元素我为人人");
+        全职业增伤 = Resources.Load<Sprite>("Sprite/神物icon/全职业增伤");
+        职业人人为我 = Resources.Load<Sprite>("Sprite/神物icon/职业人人为我");
+        职业我为人人 = Resources.Load<Sprite>("Sprite/神物icon/职业我为人人");
+        暴击爆伤 = Resources.Load<Sprite>("Sprite/神物icon/暴击爆伤");
+        二次暴击 = Resources.Load<Sprite>("Sprite/神物icon/二次暴击");
+        轮回次数加伤 = Resources.Load<Sprite>("Sprite/神物icon/轮回次数加伤");
+        轮回系数 = Resources.Load<Sprite>("Sprite/神物icon/轮回系数");
+        时间流速加快 = Resources.Load<Sprite>("Sprite/神物icon/时间流速加快");        练气 = Resources.Load<Sprite>("Sprite/境界/练气");
         筑基 = Resources.Load<Sprite>("Sprite/境界/筑基");
         金丹 = Resources.Load<Sprite>("Sprite/境界/金丹");
         元婴 = Resources.Load<Sprite>("Sprite/境界/元婴");
@@ -4115,255 +4375,255 @@ public static Sprite 射手鞋子彩;
         天道圣人 = Resources.Load<Sprite>("Sprite/境界/天道圣人");
         大道圣人 = Resources.Load<Sprite>("Sprite/境界/大道圣人");
         混元圣人 = Resources.Load<Sprite>("Sprite/境界/混元圣人");
-        
-        法器粉尘= Resources.Load<Sprite>("Sprite/法器/粉尘");
-        仙石精华= Resources.Load<Sprite>("Sprite/仙石/精华");
-        古朴按钮亮= Resources.Load<Sprite>("Sprite/按钮/古朴按钮亮");
-        古朴按钮暗= Resources.Load<Sprite>("Sprite/按钮/古朴按钮暗");
 
-        孔背景框= Resources.Load<Sprite>("Sprite/按钮/孔背景框");
-        按钮黑= Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[0];
-        按钮白= Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[1];
+        法器粉尘 = Resources.Load<Sprite>("Sprite/法器/粉尘");
+        仙石精华 = Resources.Load<Sprite>("Sprite/仙石/精华");
+        古朴按钮亮 = Resources.Load<Sprite>("Sprite/按钮/古朴按钮亮");
+        古朴按钮暗 = Resources.Load<Sprite>("Sprite/按钮/古朴按钮暗");
 
-        赤阳石白= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[0];
-        赤阳石绿= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[1];
-        赤阳石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[2];
-        赤阳石紫= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[3];
-        赤阳石橙= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[4];
-        赤阳石粉= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[5];
-        赤阳石红= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[6];
-        赤阳石彩= Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[7];
+        孔背景框 = Resources.Load<Sprite>("Sprite/按钮/孔背景框");
+        按钮黑 = Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[0];
+        按钮白 = Resources.LoadAll<Sprite>("Sprite/按钮/黑白按钮")[1];
 
-        太虚石白= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[0];
-        太虚石绿= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[1];
-        太虚石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[2];
-        太虚石紫= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[3];
-        太虚石橙= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[4];
-        太虚石粉= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[5];
-        太虚石红= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[6];
-        太虚石彩= Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[7];
-        
-        清心玉白= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[0];
-        清心玉绿= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[1];
-        清心玉蓝= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[2];
-        清心玉紫= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[3];
-        清心玉橙= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[4];
-        清心玉粉= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[5];
-        清心玉红= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[6];
-        清心玉彩= Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[7];
-        
-        玄冥石白= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[0];
-        玄冥石绿= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[1];
-        玄冥石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[2];
-        玄冥石紫= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[3];
-        玄冥石橙= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[4];
-        玄冥石粉= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[5];
-        玄冥石红= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[6];
-        玄冥石彩= Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[7];
-        
-        
-        玄灵晶白= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[0];
-        玄灵晶绿= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[1];
-        玄灵晶蓝= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[2];
-        玄灵晶紫= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[3];
-        玄灵晶橙= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[4];
-        玄灵晶粉= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[5];
-        玄灵晶红= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[6];
-        玄灵晶彩= Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[7];
-        
-        天罡石白= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[0];
-        天罡石绿= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[1];
-        天罡石蓝= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[2];
-        天罡石紫= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[3];
-        天罡石橙= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[4];
-        天罡石粉= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[5];
-        天罡石红= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[6];
-        天罡石彩= Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[7];
+        赤阳石白 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[0];
+        赤阳石绿 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[1];
+        赤阳石蓝 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[2];
+        赤阳石紫 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[3];
+        赤阳石橙 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[4];
+        赤阳石粉 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[5];
+        赤阳石红 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[6];
+        赤阳石彩 = Resources.LoadAll<Sprite>("Sprite/仙石/赤阳石")[7];
+
+        太虚石白 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[0];
+        太虚石绿 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[1];
+        太虚石蓝 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[2];
+        太虚石紫 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[3];
+        太虚石橙 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[4];
+        太虚石粉 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[5];
+        太虚石红 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[6];
+        太虚石彩 = Resources.LoadAll<Sprite>("Sprite/仙石/太虚石")[7];
+
+        清心玉白 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[0];
+        清心玉绿 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[1];
+        清心玉蓝 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[2];
+        清心玉紫 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[3];
+        清心玉橙 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[4];
+        清心玉粉 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[5];
+        清心玉红 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[6];
+        清心玉彩 = Resources.LoadAll<Sprite>("Sprite/仙石/清心玉")[7];
+
+        玄冥石白 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[0];
+        玄冥石绿 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[1];
+        玄冥石蓝 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[2];
+        玄冥石紫 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[3];
+        玄冥石橙 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[4];
+        玄冥石粉 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[5];
+        玄冥石红 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[6];
+        玄冥石彩 = Resources.LoadAll<Sprite>("Sprite/仙石/玄冥石")[7];
+
+
+        玄灵晶白 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[0];
+        玄灵晶绿 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[1];
+        玄灵晶蓝 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[2];
+        玄灵晶紫 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[3];
+        玄灵晶橙 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[4];
+        玄灵晶粉 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[5];
+        玄灵晶红 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[6];
+        玄灵晶彩 = Resources.LoadAll<Sprite>("Sprite/仙石/玄灵晶")[7];
+
+        天罡石白 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[0];
+        天罡石绿 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[1];
+        天罡石蓝 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[2];
+        天罡石紫 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[3];
+        天罡石橙 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[4];
+        天罡石粉 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[5];
+        天罡石红 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[6];
+        天罡石彩 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[7];
 // ========== 战士 ==========
-战士衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[0];
-战士衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[1];
-战士衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[2];
-战士衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[3];
-战士衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[4];
-战士衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[5];
-战士衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[6];
-战士衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[7];
+        战士衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[0];
+        战士衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[1];
+        战士衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[2];
+        战士衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[3];
+        战士衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[4];
+        战士衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[5];
+        战士衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[6];
+        战士衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服")[7];
 
-战士武器白 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[0];
-战士武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[1];
-战士武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[2];
-战士武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[3];
-战士武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[4];
-战士武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[5];
-战士武器红 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[6];
-战士武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[7];
+        战士武器白 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[0];
+        战士武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[1];
+        战士武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[2];
+        战士武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[3];
+        战士武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[4];
+        战士武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[5];
+        战士武器红 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[6];
+        战士武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士武器")[7];
 
-战士头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[0];
-战士头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[1];
-战士头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[2];
-战士头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[3];
-战士头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[4];
-战士头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[5];
-战士头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[6];
-战士头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[7];
+        战士头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[0];
+        战士头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[1];
+        战士头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[2];
+        战士头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[3];
+        战士头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[4];
+        战士头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[5];
+        战士头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[6];
+        战士头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔")[7];
 
-战士鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[0];
-战士鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[1];
-战士鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[2];
-战士鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[3];
-战士鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[4];
-战士鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[5];
-战士鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[6];
-战士鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[7];
+        战士鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[0];
+        战士鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[1];
+        战士鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[2];
+        战士鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[3];
+        战士鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[4];
+        战士鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[5];
+        战士鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[6];
+        战士鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子")[7];
 
 // ========== 法师 ==========
-法师衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[0];
-法师衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[1];
-法师衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[2];
-法师衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[3];
-法师衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[4];
-法师衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[5];
-法师衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[6];
-法师衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[7];
+        法师衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[0];
+        法师衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[1];
+        法师衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[2];
+        法师衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[3];
+        法师衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[4];
+        法师衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[5];
+        法师衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[6];
+        法师衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服")[7];
 
-法师武器白 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[0];
-法师武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[1];
-法师武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[2];
-法师武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[3];
-法师武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[4];
-法师武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[5];
-法师武器红 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[6];
-法师武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[7];
+        法师武器白 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[0];
+        法师武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[1];
+        法师武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[2];
+        法师武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[3];
+        法师武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[4];
+        法师武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[5];
+        法师武器红 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[6];
+        法师武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师武器")[7];
 
-法师头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[0];
-法师头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[1];
-法师头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[2];
-法师头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[3];
-法师头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[4];
-法师头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[5];
-法师头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[6];
-法师头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[7];
+        法师头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[0];
+        法师头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[1];
+        法师头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[2];
+        法师头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[3];
+        法师头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[4];
+        法师头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[5];
+        法师头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[6];
+        法师头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔")[7];
 
-法师鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[0];
-法师鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[1];
-法师鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[2];
-法师鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[3];
-法师鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[4];
-法师鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[5];
-法师鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[6];
-法师鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[7];
+        法师鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[0];
+        法师鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[1];
+        法师鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[2];
+        法师鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[3];
+        法师鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[4];
+        法师鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[5];
+        法师鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[6];
+        法师鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子")[7];
 
 // ========== 控制 ==========
-控制衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[0];
-控制衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[1];
-控制衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[2];
-控制衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[3];
-控制衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[4];
-控制衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[5];
-控制衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[6];
-控制衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[7];
+        控制衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[0];
+        控制衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[1];
+        控制衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[2];
+        控制衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[3];
+        控制衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[4];
+        控制衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[5];
+        控制衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[6];
+        控制衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服")[7];
 
-控制武器白 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[0];
-控制武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[1];
-控制武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[2];
-控制武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[3];
-控制武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[4];
-控制武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[5];
-控制武器红 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[6];
-控制武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[7];
+        控制武器白 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[0];
+        控制武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[1];
+        控制武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[2];
+        控制武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[3];
+        控制武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[4];
+        控制武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[5];
+        控制武器红 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[6];
+        控制武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制武器")[7];
 
-控制头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[0];
-控制头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[1];
-控制头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[2];
-控制头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[3];
-控制头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[4];
-控制头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[5];
-控制头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[6];
-控制头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[7];
+        控制头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[0];
+        控制头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[1];
+        控制头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[2];
+        控制头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[3];
+        控制头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[4];
+        控制头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[5];
+        控制头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[6];
+        控制头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔")[7];
 
-控制鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[0];
-控制鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[1];
-控制鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[2];
-控制鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[3];
-控制鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[4];
-控制鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[5];
-控制鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[6];
-控制鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[7];
+        控制鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[0];
+        控制鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[1];
+        控制鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[2];
+        控制鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[3];
+        控制鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[4];
+        控制鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[5];
+        控制鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[6];
+        控制鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子")[7];
 
 // ========== 辅助 ==========
-辅助衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[0];
-辅助衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[1];
-辅助衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[2];
-辅助衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[3];
-辅助衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[4];
-辅助衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[5];
-辅助衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[6];
-辅助衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[7];
+        辅助衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[0];
+        辅助衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[1];
+        辅助衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[2];
+        辅助衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[3];
+        辅助衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[4];
+        辅助衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[5];
+        辅助衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[6];
+        辅助衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服")[7];
 
-辅助武器白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[0];
-辅助武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[1];
-辅助武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[2];
-辅助武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[3];
-辅助武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[4];
-辅助武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[5];
-辅助武器红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[6];
-辅助武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[7];
+        辅助武器白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[0];
+        辅助武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[1];
+        辅助武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[2];
+        辅助武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[3];
+        辅助武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[4];
+        辅助武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[5];
+        辅助武器红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[6];
+        辅助武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器")[7];
 
-辅助头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[0];
-辅助头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[1];
-辅助头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[2];
-辅助头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[3];
-辅助头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[4];
-辅助头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[5];
-辅助头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[6];
-辅助头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[7];
+        辅助头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[0];
+        辅助头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[1];
+        辅助头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[2];
+        辅助头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[3];
+        辅助头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[4];
+        辅助头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[5];
+        辅助头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[6];
+        辅助头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔")[7];
 
-辅助鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[0];
-辅助鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[1];
-辅助鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[2];
-辅助鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[3];
-辅助鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[4];
-辅助鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[5];
-辅助鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[6];
-辅助鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[7];
+        辅助鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[0];
+        辅助鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[1];
+        辅助鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[2];
+        辅助鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[3];
+        辅助鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[4];
+        辅助鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[5];
+        辅助鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[6];
+        辅助鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子")[7];
 
 // ========== 射手 ==========
-射手衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[0];
-射手衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[1];
-射手衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[2];
-射手衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[3];
-射手衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[4];
-射手衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[5];
-射手衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[6];
-射手衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[7];
+        射手衣服白 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[0];
+        射手衣服绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[1];
+        射手衣服蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[2];
+        射手衣服紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[3];
+        射手衣服橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[4];
+        射手衣服粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[5];
+        射手衣服红 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[6];
+        射手衣服彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服")[7];
 
-射手武器白 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[0];
-射手武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[1];
-射手武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[2];
-射手武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[3];
-射手武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[4];
-射手武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[5];
-射手武器红 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[6];
-射手武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[7];
+        射手武器白 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[0];
+        射手武器绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[1];
+        射手武器蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[2];
+        射手武器紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[3];
+        射手武器橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[4];
+        射手武器粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[5];
+        射手武器红 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[6];
+        射手武器彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手武器")[7];
 
-射手头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[0];
-射手头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[1];
-射手头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[2];
-射手头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[3];
-射手头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[4];
-射手头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[5];
-射手头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[6];
-射手头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[7];
+        射手头盔白 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[0];
+        射手头盔绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[1];
+        射手头盔蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[2];
+        射手头盔紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[3];
+        射手头盔橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[4];
+        射手头盔粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[5];
+        射手头盔红 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[6];
+        射手头盔彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔")[7];
 
-射手鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[0];
-射手鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[1];
-射手鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[2];
-射手鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[3];
-射手鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[4];
-射手鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[5];
-射手鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[6];
-射手鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[7];        
-        
+        射手鞋子白 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[0];
+        射手鞋子绿 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[1];
+        射手鞋子蓝 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[2];
+        射手鞋子紫 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[3];
+        射手鞋子橙 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[4];
+        射手鞋子粉 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[5];
+        射手鞋子红 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[6];
+        射手鞋子彩 = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子")[7];
+
         青木狼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/青木狼");
         铁背龟 = Resources.Load<Sprite>("Sprite/洞天怪物icon/铁背龟");
         荆棘猿 = Resources.Load<Sprite>("Sprite/洞天怪物icon/荆棘猿");
@@ -4424,6 +4684,107 @@ public static Sprite 射手鞋子彩;
         时空扭曲者 = Resources.Load<Sprite>("Sprite/洞天怪物icon/时空扭曲者");
         混沌古兽 = Resources.Load<Sprite>("Sprite/洞天怪物icon/混沌古兽");
         永恒之门 = Resources.Load<Sprite>("Sprite/洞天怪物icon/永恒之门");
+
+        石皮野猪 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/石皮野猪");
+        铁羽麻雀 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/铁羽麻雀");
+        裂蹄蛮牛 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/裂蹄蛮牛");
+        风吼应龙 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/风吼应龙");
+
+        棘背豪猪 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/棘背豪猪");
+        赤眼乌鸦 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/赤眼乌鸦");
+        碎岩巨蜥 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/碎岩巨蜥");
+        雷翼飞廉 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/雷翼飞廉");
+
+        甲壳穿山 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/甲壳穿山");
+        毒牙田鼠 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/毒牙田鼠");
+        震地巨蟾 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/震地巨蟾");
+        冰晶玄龟 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/冰晶玄龟");
+
+        骨刺刺猬 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/骨刺刺猬");
+        火羽雉鸡 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/火羽雉鸡");
+        熔岩巨蟒 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/熔岩巨蟒");
+        双首炎蟒 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/双首炎蟒");
+
+        铜鳞鲤鱼 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/铜鳞鲤鱼");
+        铁爪鹰隼 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/铁爪鹰隼");
+        金刚巨猿 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/金刚巨猿");
+        紫电麒麟 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/紫电麒麟");
+
+        青面狼妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/青面狼妖");
+        赤尾狐精 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/赤尾狐精");
+        三眼毒蟾 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/三眼毒蟾");
+        九尾天狐 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/九尾天狐");
+
+        黑风蛇妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/黑风蛇妖");
+        金瞳猫妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/金瞳猫妖");
+        四臂魔猿 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/四臂魔猿");
+        七首蛟龙 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/七首蛟龙");
+
+        碧磷蝎精 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/碧磷蝎精");
+        霜白蛛妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/霜白蛛妖");
+        六翼蜈蚣 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/六翼蜈蚣");
+        八足火蛛 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/八足火蛛");
+
+        黄沙鼠妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/黄沙鼠妖");
+        紫电貂精 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/紫电貂精");
+        双头狼王 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/双头狼王");
+        金翅大鹏 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/金翅大鹏");
+
+        赤焰蚁精 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/赤焰蚁精");
+        寒冰蝶妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/寒冰蝶妖");
+        五色毒蟾 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/五色毒蟾");
+        玄冥巨蟒 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/玄冥巨蟒");
+
+        噬骨秃鹫 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/噬骨秃鹫");
+        腐肉豺狼 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/腐肉豺狼");
+        血瞳巨人 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/血瞳巨人");
+        三头地狱犬 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/三头地狱犬");
+
+        丧魂幽灵 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/丧魂幽灵");
+        碎骨骷髅 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/碎骨骷髅");
+        尸煞尸王 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/尸煞尸王");
+        六臂夜叉 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/六臂夜叉");
+
+        怨气怨灵 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/怨气怨灵");
+        诅咒木偶 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/诅咒木偶");
+        嗜血蝠王 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/嗜血蝠王");
+        九婴凶蛇 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/九婴凶蛇");
+
+        毒雾瘴精 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/毒雾瘴精");
+        枯木树妖 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/枯木树妖");
+        熔岩巨人 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/熔岩巨人");
+        赤地旱魃 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/赤地旱魃");
+
+        暗影影魔 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/暗影影魔");
+        蚀金蚁群 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/蚀金蚁群");
+        暴风巨鹏 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/暴风巨鹏");
+        吞天朱厌 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/吞天朱厌");
+
+        雷霆石像 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/雷霆石像");
+        寒冰雕像 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/寒冰雕像");
+        烈焰守护者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/烈焰守护者");
+        混沌饕餮 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/混沌饕餮");
+
+        黄金剑狮 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/黄金剑狮");
+        月影毒狼 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/月影毒狼");
+        星辰守护者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/星辰守护者");
+        太极鲲鹏 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/太极鲲鹏");
+
+        地脉石灵 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/地脉石灵");
+        天罡星傀 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/天罡星傀");
+        时空撕裂者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/时空撕裂者");
+        烛龙九阴 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/烛龙九阴");
+
+        虚无吞噬兽 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/虚无吞噬兽");
+        混沌畸变体 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/混沌畸变体");
+        轮回审判官 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/轮回审判官");
+        魔化盘古 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/魔化盘古");
+
+        因果裁决者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/因果裁决者");
+        终末湮灭虫 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/终末湮灭虫");
+        命运编织者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/命运编织者");
+        混沌道尊 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/混沌道尊");
+
         筑基白 = Resources.Load<Sprite>("Sprite/突破灵物/筑基白");
         筑基绿 = Resources.Load<Sprite>("Sprite/突破灵物/筑基绿");
         筑基蓝 = Resources.Load<Sprite>("Sprite/突破灵物/筑基蓝");
@@ -4433,7 +4794,7 @@ public static Sprite 射手鞋子彩;
         筑基红 = Resources.Load<Sprite>("Sprite/突破灵物/筑基红");
         筑基彩 = Resources.Load<Sprite>("Sprite/突破灵物/筑基彩");
 
-        
+
         练气白 = Resources.Load<Sprite>("Sprite/突破灵物/练气白");
         练气绿 = Resources.Load<Sprite>("Sprite/突破灵物/练气绿");
         练气蓝 = Resources.Load<Sprite>("Sprite/突破灵物/练气蓝");

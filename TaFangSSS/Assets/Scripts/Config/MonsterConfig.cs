@@ -716,6 +716,107 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
     { MonsterTypeName.时空扭曲者, true },
     { MonsterTypeName.混沌古兽, false },
     { MonsterTypeName.永恒之门, false },
+    
+    { MonsterTypeName.石皮野猪, false },
+{ MonsterTypeName.铁羽麻雀, false },
+{ MonsterTypeName.裂蹄蛮牛, false },
+{ MonsterTypeName.风吼应龙, false },
+
+{ MonsterTypeName.棘背豪猪, false },
+{ MonsterTypeName.赤眼乌鸦, false },
+{ MonsterTypeName.碎岩巨蜥, false },
+{ MonsterTypeName.雷翼飞廉, false },
+
+{ MonsterTypeName.甲壳穿山, false },
+{ MonsterTypeName.毒牙田鼠, false },
+{ MonsterTypeName.震地巨蟾, false },
+{ MonsterTypeName.冰晶玄龟, false },
+
+{ MonsterTypeName.骨刺刺猬, false },
+{ MonsterTypeName.火羽雉鸡, false },
+{ MonsterTypeName.熔岩巨蟒, false },
+{ MonsterTypeName.双首炎蟒, false },
+
+{ MonsterTypeName.铜鳞鲤鱼, false },
+{ MonsterTypeName.铁爪鹰隼, false },
+{ MonsterTypeName.金刚巨猿, false },
+{ MonsterTypeName.紫电麒麟, false },
+
+{ MonsterTypeName.青面狼妖, false },
+{ MonsterTypeName.赤尾狐精, false },
+{ MonsterTypeName.三眼毒蟾, false },
+{ MonsterTypeName.九尾天狐, false },
+
+{ MonsterTypeName.黑风蛇妖, false },
+{ MonsterTypeName.金瞳猫妖, false },
+{ MonsterTypeName.四臂魔猿, false },
+{ MonsterTypeName.七首蛟龙, false },
+
+{ MonsterTypeName.碧磷蝎精, false },
+{ MonsterTypeName.霜白蛛妖, false },
+{ MonsterTypeName.六翼蜈蚣, false },
+{ MonsterTypeName.八足火蛛, false },
+
+{ MonsterTypeName.黄沙鼠妖, false },
+{ MonsterTypeName.紫电貂精, false },
+{ MonsterTypeName.双头狼王, false },
+{ MonsterTypeName.金翅大鹏, false },
+
+{ MonsterTypeName.赤焰蚁精, false },
+{ MonsterTypeName.寒冰蝶妖, false },
+{ MonsterTypeName.五色毒蟾, false },
+{ MonsterTypeName.玄冥巨蟒, false },
+
+{ MonsterTypeName.噬骨秃鹫, false },
+{ MonsterTypeName.腐肉豺狼, false },
+{ MonsterTypeName.血瞳巨人, false },
+{ MonsterTypeName.三头地狱犬, false },
+
+{ MonsterTypeName.丧魂幽灵, false },
+{ MonsterTypeName.碎骨骷髅, false },
+{ MonsterTypeName.尸煞尸王, false },
+{ MonsterTypeName.六臂夜叉, false },
+
+{ MonsterTypeName.怨气怨灵, false },
+{ MonsterTypeName.诅咒木偶, false },
+{ MonsterTypeName.嗜血蝠王, false },
+{ MonsterTypeName.九婴凶蛇, false },
+
+{ MonsterTypeName.毒雾瘴精, false },
+{ MonsterTypeName.枯木树妖, false },
+{ MonsterTypeName.熔岩巨人, false },
+{ MonsterTypeName.赤地旱魃, false },
+
+{ MonsterTypeName.暗影影魔, false },
+{ MonsterTypeName.蚀金蚁群, false },
+{ MonsterTypeName.暴风巨鹏, false },
+{ MonsterTypeName.吞天朱厌, false },
+
+{ MonsterTypeName.雷霆石像, false },
+{ MonsterTypeName.寒冰雕像, false },
+{ MonsterTypeName.烈焰守护者, false },
+{ MonsterTypeName.混沌饕餮, false },
+
+{ MonsterTypeName.黄金剑狮, false },
+{ MonsterTypeName.月影毒狼, false },
+{ MonsterTypeName.星辰守护者, false },
+{ MonsterTypeName.太极鲲鹏, false },
+
+{ MonsterTypeName.地脉石灵, false },
+{ MonsterTypeName.天罡星傀, false },
+{ MonsterTypeName.时空撕裂者, false },
+{ MonsterTypeName.烛龙九阴, false },
+
+{ MonsterTypeName.虚无吞噬兽, false },
+{ MonsterTypeName.混沌畸变体, false },
+{ MonsterTypeName.轮回审判官, false },
+{ MonsterTypeName.魔化盘古, false },
+
+{ MonsterTypeName.因果裁决者, false },
+{ MonsterTypeName.终末湮灭虫, false },
+{ MonsterTypeName.命运编织者, false },
+{ MonsterTypeName.混沌道尊, false },
+
 };
   
   
@@ -1005,6 +1106,107 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
     { MonsterTypeName.时空扭曲者, Monster特性Type.普通怪 },
     { MonsterTypeName.混沌古兽, Monster特性Type.普通怪 },
     { MonsterTypeName.永恒之门, Monster特性Type.普通怪 },
+    
+    { MonsterTypeName.石皮野猪, Monster特性Type.普通怪 },
+{ MonsterTypeName.铁羽麻雀, Monster特性Type.普通怪 },
+{ MonsterTypeName.裂蹄蛮牛, Monster特性Type.普通怪 },
+{ MonsterTypeName.风吼应龙, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.棘背豪猪, Monster特性Type.普通怪 },
+{ MonsterTypeName.赤眼乌鸦, Monster特性Type.普通怪 },
+{ MonsterTypeName.碎岩巨蜥, Monster特性Type.普通怪 },
+{ MonsterTypeName.雷翼飞廉, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.甲壳穿山, Monster特性Type.普通怪 },
+{ MonsterTypeName.毒牙田鼠, Monster特性Type.普通怪 },
+{ MonsterTypeName.震地巨蟾, Monster特性Type.普通怪 },
+{ MonsterTypeName.冰晶玄龟, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.骨刺刺猬, Monster特性Type.普通怪 },
+{ MonsterTypeName.火羽雉鸡, Monster特性Type.普通怪 },
+{ MonsterTypeName.熔岩巨蟒, Monster特性Type.普通怪 },
+{ MonsterTypeName.双首炎蟒, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.铜鳞鲤鱼, Monster特性Type.普通怪 },
+{ MonsterTypeName.铁爪鹰隼, Monster特性Type.普通怪 },
+{ MonsterTypeName.金刚巨猿, Monster特性Type.普通怪 },
+{ MonsterTypeName.紫电麒麟, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.青面狼妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.赤尾狐精, Monster特性Type.普通怪 },
+{ MonsterTypeName.三眼毒蟾, Monster特性Type.普通怪 },
+{ MonsterTypeName.九尾天狐, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.黑风蛇妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.金瞳猫妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.四臂魔猿, Monster特性Type.普通怪 },
+{ MonsterTypeName.七首蛟龙, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.碧磷蝎精, Monster特性Type.普通怪 },
+{ MonsterTypeName.霜白蛛妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.六翼蜈蚣, Monster特性Type.普通怪 },
+{ MonsterTypeName.八足火蛛, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.黄沙鼠妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.紫电貂精, Monster特性Type.普通怪 },
+{ MonsterTypeName.双头狼王, Monster特性Type.普通怪 },
+{ MonsterTypeName.金翅大鹏, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.赤焰蚁精, Monster特性Type.普通怪 },
+{ MonsterTypeName.寒冰蝶妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.五色毒蟾, Monster特性Type.普通怪 },
+{ MonsterTypeName.玄冥巨蟒, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.噬骨秃鹫, Monster特性Type.普通怪 },
+{ MonsterTypeName.腐肉豺狼, Monster特性Type.普通怪 },
+{ MonsterTypeName.血瞳巨人, Monster特性Type.普通怪 },
+{ MonsterTypeName.三头地狱犬, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.丧魂幽灵, Monster特性Type.普通怪 },
+{ MonsterTypeName.碎骨骷髅, Monster特性Type.普通怪 },
+{ MonsterTypeName.尸煞尸王, Monster特性Type.普通怪 },
+{ MonsterTypeName.六臂夜叉, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.怨气怨灵, Monster特性Type.普通怪 },
+{ MonsterTypeName.诅咒木偶, Monster特性Type.普通怪 },
+{ MonsterTypeName.嗜血蝠王, Monster特性Type.普通怪 },
+{ MonsterTypeName.九婴凶蛇, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.毒雾瘴精, Monster特性Type.普通怪 },
+{ MonsterTypeName.枯木树妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.熔岩巨人, Monster特性Type.普通怪 },
+{ MonsterTypeName.赤地旱魃, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.暗影影魔, Monster特性Type.普通怪 },
+{ MonsterTypeName.蚀金蚁群, Monster特性Type.普通怪 },
+{ MonsterTypeName.暴风巨鹏, Monster特性Type.普通怪 },
+{ MonsterTypeName.吞天朱厌, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.雷霆石像, Monster特性Type.普通怪 },
+{ MonsterTypeName.寒冰雕像, Monster特性Type.普通怪 },
+{ MonsterTypeName.烈焰守护者, Monster特性Type.普通怪 },
+{ MonsterTypeName.混沌饕餮, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.黄金剑狮, Monster特性Type.普通怪 },
+{ MonsterTypeName.月影毒狼, Monster特性Type.普通怪 },
+{ MonsterTypeName.星辰守护者, Monster特性Type.普通怪 },
+{ MonsterTypeName.太极鲲鹏, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.地脉石灵, Monster特性Type.普通怪 },
+{ MonsterTypeName.天罡星傀, Monster特性Type.普通怪 },
+{ MonsterTypeName.时空撕裂者, Monster特性Type.普通怪 },
+{ MonsterTypeName.烛龙九阴, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.虚无吞噬兽, Monster特性Type.普通怪 },
+{ MonsterTypeName.混沌畸变体, Monster特性Type.普通怪 },
+{ MonsterTypeName.轮回审判官, Monster特性Type.普通怪 },
+{ MonsterTypeName.魔化盘古, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.因果裁决者, Monster特性Type.普通怪 },
+{ MonsterTypeName.终末湮灭虫, Monster特性Type.普通怪 },
+{ MonsterTypeName.命运编织者, Monster特性Type.普通怪 },
+{ MonsterTypeName.混沌道尊, Monster特性Type.普通怪 },
+
 };
 
 public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡怪物属性Dic = new Dictionary<主线关卡怪物Item, MonsterAttribute>()
@@ -1763,5 +1965,106 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
             { MonsterTypeName.时空扭曲者, MonsterType.Normal },
             { MonsterTypeName.混沌古兽, MonsterType.Elite },
             { MonsterTypeName.永恒之门, MonsterType.Boss },
+            
+            { MonsterTypeName.石皮野猪, MonsterType.Normal },
+{ MonsterTypeName.铁羽麻雀, MonsterType.Normal },
+{ MonsterTypeName.裂蹄蛮牛, MonsterType.Elite },
+{ MonsterTypeName.风吼应龙, MonsterType.Boss },
+
+{ MonsterTypeName.棘背豪猪, MonsterType.Normal },
+{ MonsterTypeName.赤眼乌鸦, MonsterType.Normal },
+{ MonsterTypeName.碎岩巨蜥, MonsterType.Elite },
+{ MonsterTypeName.雷翼飞廉, MonsterType.Boss },
+
+{ MonsterTypeName.甲壳穿山, MonsterType.Normal },
+{ MonsterTypeName.毒牙田鼠, MonsterType.Normal },
+{ MonsterTypeName.震地巨蟾, MonsterType.Elite },
+{ MonsterTypeName.冰晶玄龟, MonsterType.Boss },
+
+{ MonsterTypeName.骨刺刺猬, MonsterType.Normal },
+{ MonsterTypeName.火羽雉鸡, MonsterType.Normal },
+{ MonsterTypeName.熔岩巨蟒, MonsterType.Elite },
+{ MonsterTypeName.双首炎蟒, MonsterType.Boss },
+
+{ MonsterTypeName.铜鳞鲤鱼, MonsterType.Normal },
+{ MonsterTypeName.铁爪鹰隼, MonsterType.Normal },
+{ MonsterTypeName.金刚巨猿, MonsterType.Elite },
+{ MonsterTypeName.紫电麒麟, MonsterType.Boss },
+
+{ MonsterTypeName.青面狼妖, MonsterType.Normal },
+{ MonsterTypeName.赤尾狐精, MonsterType.Normal },
+{ MonsterTypeName.三眼毒蟾, MonsterType.Elite },
+{ MonsterTypeName.九尾天狐, MonsterType.Boss },
+
+{ MonsterTypeName.黑风蛇妖, MonsterType.Normal },
+{ MonsterTypeName.金瞳猫妖, MonsterType.Normal },
+{ MonsterTypeName.四臂魔猿, MonsterType.Elite },
+{ MonsterTypeName.七首蛟龙, MonsterType.Boss },
+
+{ MonsterTypeName.碧磷蝎精, MonsterType.Normal },
+{ MonsterTypeName.霜白蛛妖, MonsterType.Normal },
+{ MonsterTypeName.六翼蜈蚣, MonsterType.Elite },
+{ MonsterTypeName.八足火蛛, MonsterType.Boss },
+
+{ MonsterTypeName.黄沙鼠妖, MonsterType.Normal },
+{ MonsterTypeName.紫电貂精, MonsterType.Normal },
+{ MonsterTypeName.双头狼王, MonsterType.Elite },
+{ MonsterTypeName.金翅大鹏, MonsterType.Boss },
+
+{ MonsterTypeName.赤焰蚁精, MonsterType.Normal },
+{ MonsterTypeName.寒冰蝶妖, MonsterType.Normal },
+{ MonsterTypeName.五色毒蟾, MonsterType.Elite },
+{ MonsterTypeName.玄冥巨蟒, MonsterType.Boss },
+
+{ MonsterTypeName.噬骨秃鹫, MonsterType.Normal },
+{ MonsterTypeName.腐肉豺狼, MonsterType.Normal },
+{ MonsterTypeName.血瞳巨人, MonsterType.Elite },
+{ MonsterTypeName.三头地狱犬, MonsterType.Boss },
+
+{ MonsterTypeName.丧魂幽灵, MonsterType.Normal },
+{ MonsterTypeName.碎骨骷髅, MonsterType.Normal },
+{ MonsterTypeName.尸煞尸王, MonsterType.Elite },
+{ MonsterTypeName.六臂夜叉, MonsterType.Boss },
+
+{ MonsterTypeName.怨气怨灵, MonsterType.Normal },
+{ MonsterTypeName.诅咒木偶, MonsterType.Normal },
+{ MonsterTypeName.嗜血蝠王, MonsterType.Elite },
+{ MonsterTypeName.九婴凶蛇, MonsterType.Boss },
+
+{ MonsterTypeName.毒雾瘴精, MonsterType.Normal },
+{ MonsterTypeName.枯木树妖, MonsterType.Normal },
+{ MonsterTypeName.熔岩巨人, MonsterType.Elite },
+{ MonsterTypeName.赤地旱魃, MonsterType.Boss },
+
+{ MonsterTypeName.暗影影魔, MonsterType.Normal },
+{ MonsterTypeName.蚀金蚁群, MonsterType.Normal },
+{ MonsterTypeName.暴风巨鹏, MonsterType.Elite },
+{ MonsterTypeName.吞天朱厌, MonsterType.Boss },
+
+{ MonsterTypeName.雷霆石像, MonsterType.Normal },
+{ MonsterTypeName.寒冰雕像, MonsterType.Normal },
+{ MonsterTypeName.烈焰守护者, MonsterType.Elite },
+{ MonsterTypeName.混沌饕餮, MonsterType.Boss },
+
+{ MonsterTypeName.黄金剑狮, MonsterType.Normal },
+{ MonsterTypeName.月影毒狼, MonsterType.Normal },
+{ MonsterTypeName.星辰守护者, MonsterType.Elite },
+{ MonsterTypeName.太极鲲鹏, MonsterType.Boss },
+
+{ MonsterTypeName.地脉石灵, MonsterType.Normal },
+{ MonsterTypeName.天罡星傀, MonsterType.Normal },
+{ MonsterTypeName.时空撕裂者, MonsterType.Elite },
+{ MonsterTypeName.烛龙九阴, MonsterType.Boss },
+
+{ MonsterTypeName.虚无吞噬兽, MonsterType.Normal },
+{ MonsterTypeName.混沌畸变体, MonsterType.Normal },
+{ MonsterTypeName.轮回审判官, MonsterType.Elite },
+{ MonsterTypeName.魔化盘古, MonsterType.Boss },
+
+{ MonsterTypeName.因果裁决者, MonsterType.Normal },
+{ MonsterTypeName.终末湮灭虫, MonsterType.Normal },
+{ MonsterTypeName.命运编织者, MonsterType.Elite },
+{ MonsterTypeName.混沌道尊, MonsterType.Boss },
+
         };
 }
