@@ -5,7 +5,7 @@ using Config;
 using Spine;  
 using Spine.Unity;
 using UnityEngine;
-
+ 
 public class Spine一次伤害 : MonoBehaviour
 {
    public string name;
