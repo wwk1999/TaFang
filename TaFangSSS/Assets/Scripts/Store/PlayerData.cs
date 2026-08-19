@@ -18,6 +18,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 道龄S = 0;
     public int 道龄年;
     public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
+    public 神物Type 最大神物关卡 = 神物Type.最终伤害;
     public int 混沌虚空最大层数 = 1;
     public int 城墙等级 = 1;
     public int 招募积分 = 0;
@@ -33,6 +34,24 @@ public class PlayerData : XSingleton<PlayerData>
 
     public List<法器> 法器列表 = new List<法器>();
     public List<仙石> 仙石列表 = new List<仙石>();
+
+    public Dictionary<神物Type, bool> 神物获得Dic = new Dictionary<神物Type, bool>()
+    {
+        { 神物Type.最终伤害, false },
+        { 神物Type.冷却缩减, false },
+        { 神物Type.全元素增伤, false },
+        { 神物Type.元素人人为我, false },
+        { 神物Type.元素我为人人, false },
+        { 神物Type.全职业增伤, false },
+        { 神物Type.职业我为人人, false },
+        { 神物Type.职业人人为我, false },
+        { 神物Type.暴击爆伤, false },
+        { 神物Type.二次暴击, false },
+        { 神物Type.轮回次数加伤, false },
+        { 神物Type.轮回系数, false },
+        { 神物Type.时间流速加快, false },
+    };
+    
     public int Get灵物数量(JingJieType jingJieType, QualityType qualityType)
     {
         string value = JingJieConfig.JingJieNameDic[jingJieType]+"_"+PropConfig.QualityNameDic[qualityType];

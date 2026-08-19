@@ -270,6 +270,8 @@ namespace Config
         
         public static Dictionary<道具信息Type, PropType> 道具信息ToPropType = new Dictionary<道具信息Type, PropType>()
         {
+            { 道具信息Type.None, PropType.None },
+
             { 道具信息Type.功德, PropType.功德 },
             { 道具信息Type.头盔锻造石, PropType.头盔锻造石 },
             { 道具信息Type.射手经验值, PropType.射手经验值 },
@@ -293,6 +295,8 @@ namespace Config
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
         {
+            { PropType.None, 道具信息Type.None },
+
             { PropType.功德, 道具信息Type.功德 },
             { PropType.头盔锻造石, 道具信息Type.头盔锻造石 },
             { PropType.射手经验值, 道具信息Type.射手经验值 },

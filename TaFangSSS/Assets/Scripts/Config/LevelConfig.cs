@@ -10,6 +10,7 @@ public enum 关卡类型
     None,
     主线关卡,
     洞天秘境,//突破灵物
+    远古遗迹,
 }
 public enum 主线关卡Type
 {
@@ -102,6 +103,7 @@ public class LevelConfig : MonoBehaviour
     public static 关卡类型 当前关卡类型 = 关卡类型.主线关卡;
     public static 主线关卡Type 当前主线关卡Type = 主线关卡Type.花果山;
     public static QualityType 当前洞天QualityType = QualityType.黄品;
+    public static 神物Type 当前神物Type = 神物Type.最终伤害;
 
     public static bool Is混沌虚空=false;
     public static int 战斗混沌虚空层数 = 1;

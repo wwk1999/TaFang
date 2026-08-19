@@ -67,5 +67,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 仙石 重铸panel当前仙石 = null;
     [NonSerialized] public List<法器附加属性值> 仙石重铸后词条 = null;
     [NonSerialized] public 仙石Type 重铸后仙石Type;
+    
+    [NonSerialized]public 神物Type 当前遗迹关卡Type=神物Type.None;
 
 }

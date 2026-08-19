@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public Button 远古遗迹按钮;
+    public 远古遗迹窗口 远古遗迹窗口;
     public Button 洞天秘境按钮;
     public 洞天秘境窗口 洞天秘境窗口;
 
@@ -161,6 +163,10 @@ public class MainWindow : MonoBehaviour
                     PlayerData.S.Set灵物数量((JingJieType)i, (QualityType)j,PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j)+1);
                 }
             }
+        });
+        远古遗迹按钮.onClick.AddListener(() =>
+        {
+            远古遗迹窗口.gameObject.SetActive(true);
         });
         洞天秘境按钮.onClick.AddListener(() =>
         {

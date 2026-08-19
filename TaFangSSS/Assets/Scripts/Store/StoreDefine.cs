@@ -12,6 +12,8 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public 神物Type 最大神物关卡 = 神物Type.最终伤害;
+
         public string Name = "修仙者";
         public JingJieType JingJieType = JingJieType.练气;
         public float Exp;
@@ -35,7 +37,22 @@ public class StoreDefine : XSingleton<StoreController>
         public List<法器> 法器列表 = new List<法器>();
         public List<仙石> 仙石列表 = new List<仙石>();
 
-
+        public Dictionary<神物Type, bool> 神物获得Dic = new Dictionary<神物Type, bool>()
+        {
+            { 神物Type.最终伤害, false },
+            { 神物Type.冷却缩减, false },
+            { 神物Type.全元素增伤, false },
+            { 神物Type.元素人人为我, false },
+            { 神物Type.元素我为人人, false },
+            { 神物Type.全职业增伤, false },
+            { 神物Type.职业我为人人, false },
+            { 神物Type.职业人人为我, false },
+            { 神物Type.暴击爆伤, false },
+            { 神物Type.二次暴击, false },
+            { 神物Type.轮回次数加伤, false },
+            { 神物Type.轮回系数, false },
+            { 神物Type.时间流速加快, false },
+        };
         public Dictionary<string, int> 突破灵物Dic = new Dictionary<string, int>()
 {
     // 增加百分比攻击力
@@ -1000,6 +1017,8 @@ public class StoreDefine : XSingleton<StoreController>
             突破灵物Dic = runtime.突破灵物Dic;
             法器列表 = runtime.法器列表;
             仙石列表 = runtime.仙石列表;
+            最大神物关卡 = runtime.最大神物关卡;  
+            神物获得Dic = runtime.神物获得Dic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -1048,6 +1067,8 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.突破灵物Dic = 突破灵物Dic;
             runtime.法器列表 = 法器列表;
             runtime.仙石列表 = 仙石列表;
+            runtime.最大神物关卡 = 最大神物关卡;
+            runtime.神物获得Dic = 神物获得Dic;
         }
     }
 }
