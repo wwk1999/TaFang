@@ -32,6 +32,7 @@ public class 储物袋界面 : MonoBehaviour
    public Button 法器Btn;
    public Button 仙石Btn;
    public Button 分解Btn;
+   public Button 神物Btn;
 
    public TextMeshProUGUI  Name;
    public TextMeshProUGUI  跟脚;
@@ -259,6 +260,12 @@ public class 储物袋界面 : MonoBehaviour
          页数Num = 1;
          刷新背包();
       });
+      神物Btn.onClick.AddListener(() =>
+      {
+         显示类型 = 7;
+         页数Num = 1;
+         刷新背包();
+      });
       强化Btn.onClick.AddListener(() => { 强化弹窗.gameObject.SetActive(true); });
       ExitButton.onClick.AddListener(() => { gameObject.SetActive(false); });
    }
@@ -306,7 +313,7 @@ public class 储物袋界面 : MonoBehaviour
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮亮;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
-
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -412,6 +419,9 @@ public class 储物袋界面 : MonoBehaviour
          case 6:
             Show仙石();
             break;
+         case 7:
+            Show神物();
+            break;
       }
    }
 
@@ -436,6 +446,7 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
 
       foreach (Transform item in BagContent.transform)
       {
@@ -466,6 +477,7 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
 
       foreach (Transform item in BagContent.transform)
       {
@@ -505,6 +517,7 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮亮;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
 
       foreach (Transform item in BagContent.transform)
       {
@@ -554,6 +567,7 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
       仙石Btn.image.sprite = ResourcesConfig.按钮亮;
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
 
       foreach (Transform item in BagContent.transform)
       {
@@ -577,6 +591,7 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮亮;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
 
       foreach (Transform item in BagContent.transform)
       {
@@ -588,6 +603,34 @@ public class 储物袋界面 : MonoBehaviour
          var 法器item = Instantiate(Resources.Load("Prefabs/Window/法器Grid"), BagContent.transform).GetComponent<法器Grid>();
          法器item.法器 = PlayerData.S.法器列表[i];
          法器item.SetItem();
+      }
+   }
+   
+   
+   public void Show神物()
+   {
+      分解Btn.gameObject.SetActive(false);
+      材料Btn.image.sprite = ResourcesConfig.按钮暗;
+      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
+      功法Btn.image.sprite = ResourcesConfig.按钮暗;
+      灵物Btn.image.sprite = ResourcesConfig.按钮暗;
+      法器Btn.image.sprite = ResourcesConfig.按钮暗;
+      仙石Btn.image.sprite = ResourcesConfig.按钮暗;
+      神物Btn.image.sprite = ResourcesConfig.按钮亮;
+
+      foreach (Transform item in BagContent.transform)
+      {
+         Destroy(item.gameObject);
+      }
+
+      foreach (var item in PlayerData.S.神物获得Dic)
+      {
+         if (item.Value)
+         {
+            var 神物item = Instantiate(Resources.Load("Prefabs/Window/远古遗迹/神物Grid"), BagContent.transform).GetComponent<神物Grid>();
+            神物item.type = item.Key;
+            神物item.SetItem();
+         }
       }
    }
 

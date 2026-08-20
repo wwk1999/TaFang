@@ -63,7 +63,7 @@ public class 传道概率弹窗 : MonoBehaviour
         {
             if (list[i] == 0)
             {
-                return;
+                continue;
             }
             var gailvItem = Instantiate(Resources.Load("Prefabs/Window/概率Item"),Content.transform).GetComponent<招募概率item>();
             gailvItem.QualityType=(QualityType)(i+1);
