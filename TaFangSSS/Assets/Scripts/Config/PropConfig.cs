@@ -28,12 +28,6 @@ namespace Config
         道宝红,
         道宝彩,
         
-        道纹紫,
-        道纹橙,
-        道纹粉,
-        道纹红,
-        道纹彩,
-        
         法则橙,
         法则粉,
         法则红,
@@ -44,6 +38,15 @@ namespace Config
         城墙粉,
         城墙红,
         城墙彩,
+        
+        灵药白,
+        灵药绿,
+        灵药蓝,
+        灵药紫,
+        灵药橙,
+        灵药粉,
+        灵药红,
+        灵药彩,
         
         火之法则,
         斗之法则,
@@ -207,11 +210,14 @@ namespace Config
         case 道具信息Type.道宝粉:
         case 道具信息Type.道宝红:
         case 道具信息Type.道宝彩:
-        case 道具信息Type.道纹紫:
-        case 道具信息Type.道纹橙:
-        case 道具信息Type.道纹粉:
-        case 道具信息Type.道纹红:
-        case 道具信息Type.道纹彩:
+        case 道具信息Type.灵药白:
+        case 道具信息Type.灵药绿:
+        case 道具信息Type.灵药蓝:
+        case 道具信息Type.灵药紫:
+        case 道具信息Type.灵药橙:
+        case 道具信息Type.灵药粉:
+        case 道具信息Type.灵药红:
+        case 道具信息Type.灵药彩:
         case 道具信息Type.法则橙:
         case 道具信息Type.法则粉:
         case 道具信息Type.法则红:
@@ -223,7 +229,7 @@ namespace Config
         case 道具信息Type.城墙彩:
             return ResourcesConfig.问号;
         default:
-            return null;
+            return ResourcesConfig.问号;
     }
 }
         public static Dictionary<道具信息Type, QualityType> 道具信息品质Dic = new Dictionary<道具信息Type, QualityType>()
@@ -252,11 +258,15 @@ namespace Config
             { 道具信息Type.道宝粉, QualityType.宙品 },
             { 道具信息Type.道宝红, QualityType.洪品 },
             { 道具信息Type.道宝彩, QualityType.荒品 },
-            { 道具信息Type.道纹紫, QualityType.天品 },
-            { 道具信息Type.道纹橙, QualityType.宇品 },
-            { 道具信息Type.道纹粉, QualityType.宙品 },
-            { 道具信息Type.道纹红,QualityType.洪品 },
-            { 道具信息Type.道纹彩, QualityType.荒品 },
+            { 道具信息Type.灵药白, QualityType.黄品 },
+            { 道具信息Type.灵药绿, QualityType.玄品 },
+            { 道具信息Type.灵药蓝, QualityType.地品 },
+            { 道具信息Type.灵药紫,QualityType.天品 },
+            { 道具信息Type.灵药橙, QualityType.宇品 },
+            { 道具信息Type.灵药粉, QualityType.宙品 },
+            { 道具信息Type.灵药红, QualityType.洪品 },
+            { 道具信息Type.灵药彩, QualityType.荒品 },
+
             { 道具信息Type.法则橙, QualityType.宇品},
             { 道具信息Type.法则粉, QualityType.宙品 },
             { 道具信息Type.法则红, QualityType.洪品 },
@@ -360,11 +370,15 @@ namespace Config
             { 道具信息Type.道宝粉, "宙品道宝" },
             { 道具信息Type.道宝红, "洪品道宝" },
             { 道具信息Type.道宝彩, "荒品道宝" },
-            { 道具信息Type.道纹紫, "天品道纹" },
-            { 道具信息Type.道纹橙, "宇品道纹" },
-            { 道具信息Type.道纹粉, "宙品道纹" },
-            { 道具信息Type.道纹红, "洪品道纹" },
-            { 道具信息Type.道纹彩, "荒品道纹" },
+            { 道具信息Type.灵药白, "黄品灵药" },
+            { 道具信息Type.灵药绿, "玄品灵药" },
+            { 道具信息Type.灵药蓝, "地品灵药" },
+            { 道具信息Type.灵药紫, "天品灵药" },
+            { 道具信息Type.灵药橙, "宇品灵药" },
+            { 道具信息Type.灵药粉, "宙品灵药" },
+            { 道具信息Type.灵药红, "洪品灵药" },
+            { 道具信息Type.灵药彩, "荒品灵药" },
+
             { 道具信息Type.法则橙, "宇品法则" },
             { 道具信息Type.法则粉, "宙品法则" },
             { 道具信息Type.法则红, "洪品法则" },
@@ -400,11 +414,14 @@ namespace Config
             { 道具信息Type.道宝粉, "随机获得一件宙品品质的道宝" },
             { 道具信息Type.道宝红, "随机获得一件洪品品质的道宝" },
             { 道具信息Type.道宝彩, "随机获得一件荒品品质的道宝" },
-            { 道具信息Type.道纹紫, "随机获得一件天品品质的道纹" },
-            { 道具信息Type.道纹橙, "随机获得一件宇品品质的道纹" },
-            { 道具信息Type.道纹粉, "随机获得一件宙品品质的道纹" },
-            { 道具信息Type.道纹红, "随机获得一件洪品品质的道纹" },
-            { 道具信息Type.道纹彩, "随机获得一件荒品品质的道纹" },
+            { 道具信息Type.灵药白, "随机获得一件黄品品质的灵药" },
+            { 道具信息Type.灵药绿, "随机获得一件玄品品质的灵药" },
+            { 道具信息Type.灵药蓝, "随机获得一件地品品质的灵药" },
+            { 道具信息Type.灵药紫, "随机获得一件天品品质的灵药" },
+            { 道具信息Type.灵药橙, "随机获得一件宇品品质的灵药" },
+            { 道具信息Type.灵药粉, "随机获得一件宙品品质的灵药" },
+            { 道具信息Type.灵药红, "随机获得一件洪品品质的灵药" },
+            { 道具信息Type.灵药彩, "随机获得一件荒品品质的灵药" },
             { 道具信息Type.法则橙, "随机获得一件宇品品质的法则" },
             { 道具信息Type.法则粉, "随机获得一件宙品品质的法则" },
             { 道具信息Type.法则红, "随机获得一件洪品品质的法则" },

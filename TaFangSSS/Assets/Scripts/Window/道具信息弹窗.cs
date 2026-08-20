@@ -76,11 +76,6 @@ public class 道具信息弹窗 : MonoBehaviour
          case 道具信息Type.道宝粉:
          case 道具信息Type.道宝红:
          case 道具信息Type.道宝彩:
-         case 道具信息Type.道纹紫:
-         case 道具信息Type.道纹橙:
-         case 道具信息Type.道纹粉:
-         case 道具信息Type.道纹红:
-         case 道具信息Type.道纹彩:
          case 道具信息Type.法则橙:
          case 道具信息Type.法则粉:
          case 道具信息Type.法则红:
@@ -90,6 +85,14 @@ public class 道具信息弹窗 : MonoBehaviour
          case 道具信息Type.城墙粉:
          case 道具信息Type.城墙红:
          case 道具信息Type.城墙彩:
+         case 道具信息Type.灵药白:
+         case 道具信息Type.灵药绿:
+         case 道具信息Type.灵药蓝:
+         case 道具信息Type.灵药紫:
+         case 道具信息Type.灵药橙:
+         case 道具信息Type.灵药粉:
+         case 道具信息Type.灵药红:
+         case 道具信息Type.灵药彩:
             数量.text = "品质:" + PropConfig.QualityNameDic[PropConfig.道具信息品质Dic[type]];
             break;
       }

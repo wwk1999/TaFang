@@ -6,6 +6,108 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //灵药
+    // 金银花蕊
+    public static Sprite 金银花蕊白;
+    public static Sprite 金银花蕊绿;
+    public static Sprite 金银花蕊蓝;
+    public static Sprite 金银花蕊紫;
+    public static Sprite 金银花蕊橙;
+    public static Sprite 金银花蕊粉;
+    public static Sprite 金银花蕊红;
+    public static Sprite 金银花蕊彩;
+
+// 马兜铃果
+    public static Sprite 马兜铃果白;
+    public static Sprite 马兜铃果绿;
+    public static Sprite 马兜铃果蓝;
+    public static Sprite 马兜铃果紫;
+    public static Sprite 马兜铃果橙;
+    public static Sprite 马兜铃果粉;
+    public static Sprite 马兜铃果红;
+    public static Sprite 马兜铃果彩;
+
+// 四叶参根
+    public static Sprite 四叶参根白;
+    public static Sprite 四叶参根绿;
+    public static Sprite 四叶参根蓝;
+    public static Sprite 四叶参根紫;
+    public static Sprite 四叶参根橙;
+    public static Sprite 四叶参根粉;
+    public static Sprite 四叶参根红;
+    public static Sprite 四叶参根彩;
+
+// 千年雪莲
+    public static Sprite 千年雪莲白;
+    public static Sprite 千年雪莲绿;
+    public static Sprite 千年雪莲蓝;
+    public static Sprite 千年雪莲紫;
+    public static Sprite 千年雪莲橙;
+    public static Sprite 千年雪莲粉;
+    public static Sprite 千年雪莲红;
+    public static Sprite 千年雪莲彩;
+
+// 回春草
+    public static Sprite 回春草白;
+    public static Sprite 回春草绿;
+    public static Sprite 回春草蓝;
+    public static Sprite 回春草紫;
+    public static Sprite 回春草橙;
+    public static Sprite 回春草粉;
+    public static Sprite 回春草红;
+    public static Sprite 回春草彩;
+
+// 补血花
+    public static Sprite 补血花白;
+    public static Sprite 补血花绿;
+    public static Sprite 补血花蓝;
+    public static Sprite 补血花紫;
+    public static Sprite 补血花橙;
+    public static Sprite 补血花粉;
+    public static Sprite 补血花红;
+    public static Sprite 补血花彩;
+
+// 龙纹草
+    public static Sprite 龙纹草白;
+    public static Sprite 龙纹草绿;
+    public static Sprite 龙纹草蓝;
+    public static Sprite 龙纹草紫;
+    public static Sprite 龙纹草橙;
+    public static Sprite 龙纹草粉;
+    public static Sprite 龙纹草红;
+    public static Sprite 龙纹草彩;
+
+// 九曲黄泉草
+    public static Sprite 九曲黄泉草白;
+    public static Sprite 九曲黄泉草绿;
+    public static Sprite 九曲黄泉草蓝;
+    public static Sprite 九曲黄泉草紫;
+    public static Sprite 九曲黄泉草橙;
+    public static Sprite 九曲黄泉草粉;
+    public static Sprite 九曲黄泉草红;
+    public static Sprite 九曲黄泉草彩;
+
+// 千幻蝶恋花
+    public static Sprite 千幻蝶恋花白;
+    public static Sprite 千幻蝶恋花绿;
+    public static Sprite 千幻蝶恋花蓝;
+    public static Sprite 千幻蝶恋花紫;
+    public static Sprite 千幻蝶恋花橙;
+    public static Sprite 千幻蝶恋花粉;
+    public static Sprite 千幻蝶恋花红;
+    public static Sprite 千幻蝶恋花彩;
+
+// 聚灵凝神叶
+    public static Sprite 聚灵凝神叶白;
+    public static Sprite 聚灵凝神叶绿;
+    public static Sprite 聚灵凝神叶蓝;
+    public static Sprite 聚灵凝神叶紫;
+    public static Sprite 聚灵凝神叶橙;
+    public static Sprite 聚灵凝神叶粉;
+    public static Sprite 聚灵凝神叶红;
+    public static Sprite 聚灵凝神叶彩;
+
+
     //神物
     public static Sprite 最终伤害;
     public static Sprite 冷却缩减;
@@ -21,7 +123,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 轮回系数;
     public static Sprite 时间流速加快;
 
-    
+
     public static Sprite 练气;
     public static Sprite 筑基;
     public static Sprite 金丹;
@@ -4342,10 +4444,257 @@ public class ResourcesConfig : MonoBehaviour
             default: return null;
         }
     }
-    
+
+    public static Sprite Get灵药Icon(灵药Type type, QualityType qualityType)
+    {
+        switch (type)
+        {
+            case 灵药Type.金银花蕊:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 金银花蕊白;
+                    case QualityType.玄品: return 金银花蕊绿;
+                    case QualityType.地品: return 金银花蕊蓝;
+                    case QualityType.天品: return 金银花蕊紫;
+                    case QualityType.宇品: return 金银花蕊橙;
+                    case QualityType.宙品: return 金银花蕊粉;
+                    case QualityType.洪品: return 金银花蕊红;
+                    case QualityType.荒品: return 金银花蕊彩;
+                    default: return null;
+                }
+
+            case 灵药Type.马兜铃果:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 马兜铃果白;
+                    case QualityType.玄品: return 马兜铃果绿;
+                    case QualityType.地品: return 马兜铃果蓝;
+                    case QualityType.天品: return 马兜铃果紫;
+                    case QualityType.宇品: return 马兜铃果橙;
+                    case QualityType.宙品: return 马兜铃果粉;
+                    case QualityType.洪品: return 马兜铃果红;
+                    case QualityType.荒品: return 马兜铃果彩;
+                    default: return null;
+                }
+
+            case 灵药Type.四叶参根:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 四叶参根白;
+                    case QualityType.玄品: return 四叶参根绿;
+                    case QualityType.地品: return 四叶参根蓝;
+                    case QualityType.天品: return 四叶参根紫;
+                    case QualityType.宇品: return 四叶参根橙;
+                    case QualityType.宙品: return 四叶参根粉;
+                    case QualityType.洪品: return 四叶参根红;
+                    case QualityType.荒品: return 四叶参根彩;
+                    default: return null;
+                }
+
+            case 灵药Type.千年雪莲:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 千年雪莲白;
+                    case QualityType.玄品: return 千年雪莲绿;
+                    case QualityType.地品: return 千年雪莲蓝;
+                    case QualityType.天品: return 千年雪莲紫;
+                    case QualityType.宇品: return 千年雪莲橙;
+                    case QualityType.宙品: return 千年雪莲粉;
+                    case QualityType.洪品: return 千年雪莲红;
+                    case QualityType.荒品: return 千年雪莲彩;
+                    default: return null;
+                }
+
+            case 灵药Type.回春草:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 回春草白;
+                    case QualityType.玄品: return 回春草绿;
+                    case QualityType.地品: return 回春草蓝;
+                    case QualityType.天品: return 回春草紫;
+                    case QualityType.宇品: return 回春草橙;
+                    case QualityType.宙品: return 回春草粉;
+                    case QualityType.洪品: return 回春草红;
+                    case QualityType.荒品: return 回春草彩;
+                    default: return null;
+                }
+
+            case 灵药Type.补血花:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 补血花白;
+                    case QualityType.玄品: return 补血花绿;
+                    case QualityType.地品: return 补血花蓝;
+                    case QualityType.天品: return 补血花紫;
+                    case QualityType.宇品: return 补血花橙;
+                    case QualityType.宙品: return 补血花粉;
+                    case QualityType.洪品: return 补血花红;
+                    case QualityType.荒品: return 补血花彩;
+                    default: return null;
+                }
+
+            case 灵药Type.龙纹草:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 龙纹草白;
+                    case QualityType.玄品: return 龙纹草绿;
+                    case QualityType.地品: return 龙纹草蓝;
+                    case QualityType.天品: return 龙纹草紫;
+                    case QualityType.宇品: return 龙纹草橙;
+                    case QualityType.宙品: return 龙纹草粉;
+                    case QualityType.洪品: return 龙纹草红;
+                    case QualityType.荒品: return 龙纹草彩;
+                    default: return null;
+                }
+
+            case 灵药Type.九曲黄泉草:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 九曲黄泉草白;
+                    case QualityType.玄品: return 九曲黄泉草绿;
+                    case QualityType.地品: return 九曲黄泉草蓝;
+                    case QualityType.天品: return 九曲黄泉草紫;
+                    case QualityType.宇品: return 九曲黄泉草橙;
+                    case QualityType.宙品: return 九曲黄泉草粉;
+                    case QualityType.洪品: return 九曲黄泉草红;
+                    case QualityType.荒品: return 九曲黄泉草彩;
+                    default: return null;
+                }
+
+            case 灵药Type.千幻蝶恋花:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 千幻蝶恋花白;
+                    case QualityType.玄品: return 千幻蝶恋花绿;
+                    case QualityType.地品: return 千幻蝶恋花蓝;
+                    case QualityType.天品: return 千幻蝶恋花紫;
+                    case QualityType.宇品: return 千幻蝶恋花橙;
+                    case QualityType.宙品: return 千幻蝶恋花粉;
+                    case QualityType.洪品: return 千幻蝶恋花红;
+                    case QualityType.荒品: return 千幻蝶恋花彩;
+                    default: return null;
+                }
+
+            case 灵药Type.聚灵凝神叶:
+                switch (qualityType)
+                {
+                    case QualityType.黄品: return 聚灵凝神叶白;
+                    case QualityType.玄品: return 聚灵凝神叶绿;
+                    case QualityType.地品: return 聚灵凝神叶蓝;
+                    case QualityType.天品: return 聚灵凝神叶紫;
+                    case QualityType.宇品: return 聚灵凝神叶橙;
+                    case QualityType.宙品: return 聚灵凝神叶粉;
+                    case QualityType.洪品: return 聚灵凝神叶红;
+                    case QualityType.荒品: return 聚灵凝神叶彩;
+                    default: return null;
+                }
+
+            default:
+                return null;
+        }
+    }
 
     public static void Init()
     {
+// 金银花蕊
+        金银花蕊白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[0];
+        金银花蕊绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[1];
+        金银花蕊蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[2];
+        金银花蕊紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[3];
+        金银花蕊橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[4];
+        金银花蕊粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[5];
+        金银花蕊红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[6];
+        金银花蕊彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[7];
+
+// 马兜铃果
+        马兜铃果白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[0];
+        马兜铃果绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[1];
+        马兜铃果蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[2];
+        马兜铃果紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[3];
+        马兜铃果橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[4];
+        马兜铃果粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[5];
+        马兜铃果红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[6];
+        马兜铃果彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/马兜铃果")[7];
+
+// 四叶参根
+        四叶参根白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[0];
+        四叶参根绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[1];
+        四叶参根蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[2];
+        四叶参根紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[3];
+        四叶参根橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[4];
+        四叶参根粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[5];
+        四叶参根红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[6];
+        四叶参根彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/四叶参根")[7];
+
+// 千年雪莲
+        千年雪莲白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[0];
+        千年雪莲绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[1];
+        千年雪莲蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[2];
+        千年雪莲紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[3];
+        千年雪莲橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[4];
+        千年雪莲粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[5];
+        千年雪莲红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[6];
+        千年雪莲彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千年雪莲")[7];
+
+// 回春草
+        回春草白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[0];
+        回春草绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[1];
+        回春草蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[2];
+        回春草紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[3];
+        回春草橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[4];
+        回春草粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[5];
+        回春草红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[6];
+        回春草彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/回春草")[7];
+
+// 补血花
+        补血花白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[0];
+        补血花绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[1];
+        补血花蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[2];
+        补血花紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[3];
+        补血花橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[4];
+        补血花粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[5];
+        补血花红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[6];
+        补血花彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/补血花")[7];
+
+// 龙纹草
+        龙纹草白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[0];
+        龙纹草绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[1];
+        龙纹草蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[2];
+        龙纹草紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[3];
+        龙纹草橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[4];
+        龙纹草粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[5];
+        龙纹草红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[6];
+        龙纹草彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/龙纹草")[7];
+
+// 九曲黄泉草
+        九曲黄泉草白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[0];
+        九曲黄泉草绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[1];
+        九曲黄泉草蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[2];
+        九曲黄泉草紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[3];
+        九曲黄泉草橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[4];
+        九曲黄泉草粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[5];
+        九曲黄泉草红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[6];
+        九曲黄泉草彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/九曲黄泉草")[7];
+
+// 千幻蝶恋花
+        千幻蝶恋花白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[0];
+        千幻蝶恋花绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[1];
+        千幻蝶恋花蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[2];
+        千幻蝶恋花紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[3];
+        千幻蝶恋花橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[4];
+        千幻蝶恋花粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[5];
+        千幻蝶恋花红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[6];
+        千幻蝶恋花彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/千幻蝶恋花")[7];
+
+// 聚灵凝神叶
+        聚灵凝神叶白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[0];
+        聚灵凝神叶绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[1];
+        聚灵凝神叶蓝 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[2];
+        聚灵凝神叶紫 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[3];
+        聚灵凝神叶橙 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[4];
+        聚灵凝神叶粉 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[5];
+        聚灵凝神叶红 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[6];
+        聚灵凝神叶彩 = Resources.LoadAll<Sprite>("Sprite/灵药icon/聚灵凝神叶")[7];
         最终伤害 = Resources.Load<Sprite>("Sprite/神物icon/最终伤害");
         冷却缩减 = Resources.Load<Sprite>("Sprite/神物icon/冷却缩减");
         全元素增伤 = Resources.Load<Sprite>("Sprite/神物icon/全元素增伤");
@@ -4358,7 +4707,8 @@ public class ResourcesConfig : MonoBehaviour
         二次暴击 = Resources.Load<Sprite>("Sprite/神物icon/二次暴击");
         轮回次数加伤 = Resources.Load<Sprite>("Sprite/神物icon/轮回次数加伤");
         轮回系数 = Resources.Load<Sprite>("Sprite/神物icon/轮回系数");
-        时间流速加快 = Resources.Load<Sprite>("Sprite/神物icon/时间流速加快");        练气 = Resources.Load<Sprite>("Sprite/境界/练气");
+        时间流速加快 = Resources.Load<Sprite>("Sprite/神物icon/时间流速加快");
+        练气 = Resources.Load<Sprite>("Sprite/境界/练气");
         筑基 = Resources.Load<Sprite>("Sprite/境界/筑基");
         金丹 = Resources.Load<Sprite>("Sprite/境界/金丹");
         元婴 = Resources.Load<Sprite>("Sprite/境界/元婴");

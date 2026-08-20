@@ -236,10 +236,10 @@ public class StoreController : XSingleton<StoreController>
         var list = 血海Config.Get血海掉落(i);
         foreach (var item in list)
         {
-            bool flag = false;
+            bool flag = false;//字典里是否已经有了
             for (int j = 0; j < PlayerData.S.血海寻宝Dic[i].list.Count; j++)
             {
-                if (PlayerData.S.血海寻宝Dic[i].list[j].道纹.道纹Type == item.道纹Type&&PlayerData.S.血海寻宝Dic[i].list[j].道纹.quality == item.quality)
+                if (PlayerData.S.血海寻宝Dic[i].list[j].灵药.灵药Type == item.灵药Type&&PlayerData.S.血海寻宝Dic[i].list[j].灵药.QualityType == item.QualityType)
                 {
                     flag = true;
                     PlayerData.S.血海寻宝Dic[i].list[j].count++;
@@ -248,9 +248,9 @@ public class StoreController : XSingleton<StoreController>
             }
             if (!flag)
             {
-                寻宝道纹道具item 掉落item = new 寻宝道纹道具item(){};
-                掉落item.道纹.道纹Type = item.道纹Type;
-                掉落item.道纹.quality = item.quality;
+                寻宝灵药道具item 掉落item = new 寻宝灵药道具item(){};
+                掉落item.灵药.灵药Type = item.灵药Type;
+                掉落item.灵药.QualityType = item.QualityType;
                 掉落item.count = 1;
                 PlayerData.S.血海寻宝Dic[i].list.Add(掉落item);
             }
@@ -278,11 +278,11 @@ public class StoreController : XSingleton<StoreController>
                         PlayerData.S.血海寻宝Dic[i].寻宝 = false;
                         foreach (var item in PlayerData.S.血海寻宝Dic[i].list)
                         {
-                            int count = PlayerData.S.Get道纹数量(item.道纹.道纹Type, item.道纹.quality);
-                            PlayerData.S.Set道纹数量(item.道纹.道纹Type,item.道纹.quality,count+item.count);
+                            int count = PlayerData.S.Get灵药数量(item.灵药.灵药Type, item.灵药.QualityType);
+                            PlayerData.S.Set灵药数量(item.灵药.灵药Type,item.灵药.QualityType,count+item.count);
                         }
                         ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-                        ObserverModuleManager.S.SendEvent("SendUIToast","寻宝结束,已获得"+道纹config.道纹名Dic[PlayerData.S.血海寻宝Dic[i].list[0].道纹.道纹Type]);
+                        ObserverModuleManager.S.SendEvent("SendUIToast","寻宝结束,已获得"+丹药Config.灵药名Dic[PlayerData.S.血海寻宝Dic[i].list[0].灵药.灵药Type]);
 
                         PlayerData.S.血海寻宝Dic[i].list.Clear();
                         PlayerData.S.血海寻宝Dic[i].寻宝 = false;

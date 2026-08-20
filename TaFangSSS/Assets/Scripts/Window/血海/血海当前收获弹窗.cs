@@ -23,7 +23,8 @@ public class 血海当前收获弹窗 : MonoBehaviour
         {
             var 收获item = Instantiate(Resources.Load("Prefabs/Window/血海当前收获item"), content.transform)
                 .GetComponent<血海当前收获item>();
-            收获item.道纹= item.道纹;
+            收获item.灵药Type= item.灵药.灵药Type;
+            收获item.QualityType= item.灵药.QualityType;
             收获item.count=item.count;
             收获item.SetItem();
         }
@@ -52,8 +53,8 @@ public class 血海当前收获弹窗 : MonoBehaviour
             }
             foreach (var item in PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].list)
             {
-                int count = PlayerData.S.Get道纹数量(item.道纹.道纹Type, item.道纹.quality);
-                PlayerData.S.Set道纹数量(item.道纹.道纹Type,item.道纹.quality,count+item.count);
+                int count = PlayerData.S.Get灵药数量(item.灵药.灵药Type, item.灵药.QualityType);
+                PlayerData.S.Set灵药数量(item.灵药.灵药Type,item.灵药.QualityType,count+item.count);
             }
             PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].list.Clear();
             PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].寻宝 = false;

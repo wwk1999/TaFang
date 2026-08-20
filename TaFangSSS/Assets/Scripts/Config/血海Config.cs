@@ -7,11 +7,12 @@ public class 血海秘境寻宝Item
     public bool 寻宝;
     public float time;
     public bool 重复;
-    public List<寻宝道纹道具item> list;
+    public List<寻宝灵药道具item> list;
 }
-public class 寻宝道纹道具item
+
+public class 寻宝灵药道具item
 {
-    public 道纹 道纹=new 道纹();
+    public 灵药 灵药=new 灵药();
     public int count;
 }
 public class 血海Config
@@ -60,8 +61,8 @@ public class 血海Config
                 jingJieType = JingJieType.金丹,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.天品, 概率 = 70 },
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 30 },
+                    new 掉落item() { quality = QualityType.黄品, 概率 = 70 },
+                    new 掉落item() { quality = QualityType.玄品, 概率 = 30 },
                 },
                 掉落数量 = 2,
                 需要年数 = 0.2f,
@@ -80,9 +81,9 @@ public class 血海Config
                 jingJieType = JingJieType.化神,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.天品, 概率 = 50 },
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 40 },
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 10 },
+                    new 掉落item() { quality = QualityType.黄品, 概率 = 40 },
+                    new 掉落item() { quality = QualityType.玄品, 概率 = 40 },
+                    new 掉落item() { quality = QualityType.地品, 概率 = 20 },
                 },
                 掉落数量 = 3,
                 需要年数 = 0.5f,
@@ -101,9 +102,10 @@ public class 血海Config
                 jingJieType = JingJieType.大乘,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.天品, 概率 = 30 },
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 50 },
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 20 },
+                    new 掉落item() { quality = QualityType.黄品, 概率 = 20 },
+                    new 掉落item() { quality = QualityType.玄品, 概率 = 30 },
+                    new 掉落item() { quality = QualityType.地品, 概率 = 35 },
+                    new 掉落item() { quality = QualityType.天品, 概率 = 15 },
                 },
                 掉落数量 = 4,
                 需要年数 = 1,
@@ -122,10 +124,10 @@ public class 血海Config
                 jingJieType = JingJieType.玄仙,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.天品, 概率 = 10 },
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 55 },
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 30 },
-                    new 掉落item() { quality = QualityType.洪品, 概率 = 5 },
+                    new 掉落item() { quality = QualityType.玄品, 概率 = 30 },
+                    new 掉落item() { quality = QualityType.地品, 概率 = 35 },
+                    new 掉落item() { quality = QualityType.天品, 概率 = 25 },
+                    new 掉落item() { quality = QualityType.宇品, 概率 = 10 },
                 },
                 掉落数量 = 5,
                 需要年数 = 2,
@@ -145,9 +147,10 @@ public class 血海Config
                 jingJieType = JingJieType.太乙金仙,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 50 },
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 40 },
-                    new 掉落item() { quality = QualityType.洪品, 概率 = 10 },
+                    new 掉落item() { quality = QualityType.地品, 概率 = 33 },
+                    new 掉落item() { quality = QualityType.天品, 概率 = 35 },
+                    new 掉落item() { quality = QualityType.宇品, 概率 = 25 },
+                    new 掉落item() { quality = QualityType.宙品, 概率 = 7 },
                 },
                 掉落数量 = 6,
                 需要年数 = 5,
@@ -166,9 +169,10 @@ public class 血海Config
                 jingJieType = JingJieType.准圣,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 35 },
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 50 },
-                    new 掉落item() { quality = QualityType.洪品, 概率 = 15 },
+                    new 掉落item() { quality = QualityType.地品, 概率 = 10 },
+                    new 掉落item() { quality = QualityType.天品, 概率 = 25 },
+                    new 掉落item() { quality = QualityType.宇品, 概率 = 45 },
+                    new 掉落item() { quality = QualityType.宙品, 概率 = 20 },
                 },
                 掉落数量 = 7,
                 需要年数 = 10,
@@ -187,9 +191,10 @@ public class 血海Config
                 jingJieType = JingJieType.天道圣人,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.宇品, 概率 = 20 },
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 60 },
-                    new 掉落item() { quality = QualityType.洪品, 概率 = 20 },
+                    new 掉落item() { quality = QualityType.天品, 概率 = 10 },
+                    new 掉落item() { quality = QualityType.宇品, 概率 = 55 },
+                    new 掉落item() { quality = QualityType.宙品, 概率 = 30 },
+                    new 掉落item() { quality = QualityType.洪品, 概率 = 5 },
                 },
                 掉落数量 = 8,
                 需要年数 = 20,
@@ -208,9 +213,9 @@ public class 血海Config
                 jingJieType = JingJieType.混元圣人,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 70 },
-                    new 掉落item() { quality = QualityType.洪品, 概率 = 25 },
-                    new 掉落item() { quality = QualityType.荒品, 概率 = 5 },
+                    new 掉落item() { quality = QualityType.宇品, 概率 = 35 },
+                    new 掉落item() { quality = QualityType.宙品, 概率 = 50 },
+                    new 掉落item() { quality = QualityType.洪品, 概率 = 15 },
                 },
                 掉落数量 = 9,
                 需要年数 = 50,
@@ -229,9 +234,9 @@ public class 血海Config
                 jingJieType = JingJieType.鸿蒙,
                 list = new List<掉落item>()
                 {
-                    new 掉落item() { quality = QualityType.宙品, 概率 = 50 },
-                    new 掉落item() { quality = QualityType.洪品, 概率 = 40 },
-                    new 掉落item() { quality = QualityType.荒品, 概率 = 10 },
+                    new 掉落item() { quality = QualityType.宙品, 概率 = 72 },
+                    new 掉落item() { quality = QualityType.洪品, 概率 = 25 },
+                    new 掉落item() { quality = QualityType.荒品, 概率 = 3 },
                 },
                 掉落数量 = 10,
                 需要年数 = 100,
@@ -253,10 +258,19 @@ public class 血海Config
         return  item;
     }
     
-    public static List<道纹> Get血海掉落(int 层数)
+    public static 灵药 Get随机灵药Type(QualityType qualityType)
+    {
+        int random=Random.Range(0, 丹药Config.灵药名Dic.Count)+1;
+        灵药 item = new 灵药();
+        item.QualityType = qualityType;
+        item.灵药Type = (灵药Type)random;
+        return  item;
+    }
+    
+    public static List<灵药> Get血海掉落(int 层数)
     {
         int count = 血海关卡Dic[层数].掉落数量;
-        List<道纹> list = new List<道纹>();
+        List<灵药> list = new List<灵药>();
         for (int i = 0; i < count; i++)
         {
             float random = Random.Range(0, 100f);
@@ -271,7 +285,7 @@ public class 血海Config
                     break;
                 }
             }
-            list.Add(Get随机道纹Type(quality));
+            list.Add(Get随机灵药Type(quality));
         }
 
         return list;

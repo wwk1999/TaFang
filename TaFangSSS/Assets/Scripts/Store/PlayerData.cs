@@ -63,6 +63,125 @@ public class PlayerData : XSingleton<PlayerData>
         string value = JingJieConfig.JingJieNameDic[jingJieType]+"_"+PropConfig.QualityNameDic[qualityType];
         突破灵物Dic[value]=count;
     }
+
+    public Dictionary<string, int> 灵药Dic = new Dictionary<string, int>()
+    {
+        // 金银花蕊
+        { "金银花蕊_黄品", 0 },
+        { "金银花蕊_玄品", 0 },
+        { "金银花蕊_地品", 0 },
+        { "金银花蕊_天品", 0 },
+        { "金银花蕊_宇品", 0 },
+        { "金银花蕊_宙品", 0 },
+        { "金银花蕊_洪品", 0 },
+        { "金银花蕊_荒品", 0 },
+
+        // 马兜铃果
+        { "马兜铃果_黄品", 0 },
+        { "马兜铃果_玄品", 0 },
+        { "马兜铃果_地品", 0 },
+        { "马兜铃果_天品", 0 },
+        { "马兜铃果_宇品", 0 },
+        { "马兜铃果_宙品", 0 },
+        { "马兜铃果_洪品", 0 },
+        { "马兜铃果_荒品", 0 },
+
+        // 四叶参根
+        { "四叶参根_黄品", 0 },
+        { "四叶参根_玄品", 0 },
+        { "四叶参根_地品", 0 },
+        { "四叶参根_天品", 0 },
+        { "四叶参根_宇品", 0 },
+        { "四叶参根_宙品", 0 },
+        { "四叶参根_洪品", 0 },
+        { "四叶参根_荒品", 0 },
+
+        // 千年雪莲
+        { "千年雪莲_黄品", 0 },
+        { "千年雪莲_玄品", 0 },
+        { "千年雪莲_地品", 0 },
+        { "千年雪莲_天品", 0 },
+        { "千年雪莲_宇品", 0 },
+        { "千年雪莲_宙品", 0 },
+        { "千年雪莲_洪品", 0 },
+        { "千年雪莲_荒品", 0 },
+
+        // 回春草
+        { "回春草_黄品", 0 },
+        { "回春草_玄品", 0 },
+        { "回春草_地品", 0 },
+        { "回春草_天品", 0 },
+        { "回春草_宇品", 0 },
+        { "回春草_宙品", 0 },
+        { "回春草_洪品", 0 },
+        { "回春草_荒品", 0 },
+
+        // 补血花
+        { "补血花_黄品", 0 },
+        { "补血花_玄品", 0 },
+        { "补血花_地品", 0 },
+        { "补血花_天品", 0 },
+        { "补血花_宇品", 0 },
+        { "补血花_宙品", 0 },
+        { "补血花_洪品", 0 },
+        { "补血花_荒品", 0 },
+
+        // 龙纹草
+        { "龙纹草_黄品", 0 },
+        { "龙纹草_玄品", 0 },
+        { "龙纹草_地品", 0 },
+        { "龙纹草_天品", 0 },
+        { "龙纹草_宇品", 0 },
+        { "龙纹草_宙品", 0 },
+        { "龙纹草_洪品", 0 },
+        { "龙纹草_荒品", 0 },
+
+        // 九曲黄泉草
+        { "九曲黄泉草_黄品", 0 },
+        { "九曲黄泉草_玄品", 0 },
+        { "九曲黄泉草_地品", 0 },
+        { "九曲黄泉草_天品", 0 },
+        { "九曲黄泉草_宇品", 0 },
+        { "九曲黄泉草_宙品", 0 },
+        { "九曲黄泉草_洪品", 0 },
+        { "九曲黄泉草_荒品", 0 },
+
+        // 千幻蝶恋花
+        { "千幻蝶恋花_黄品", 0 },
+        { "千幻蝶恋花_玄品", 0 },
+        { "千幻蝶恋花_地品", 0 },
+        { "千幻蝶恋花_天品", 0 },
+        { "千幻蝶恋花_宇品", 0 },
+        { "千幻蝶恋花_宙品", 0 },
+        { "千幻蝶恋花_洪品", 0 },
+        { "千幻蝶恋花_荒品", 0 },
+
+        // 聚灵凝神叶
+        { "聚灵凝神叶_黄品", 0 },
+        { "聚灵凝神叶_玄品", 0 },
+        { "聚灵凝神叶_地品", 0 },
+        { "聚灵凝神叶_天品", 0 },
+        { "聚灵凝神叶_宇品", 0 },
+        { "聚灵凝神叶_宙品", 0 },
+        { "聚灵凝神叶_洪品", 0 },
+        { "聚灵凝神叶_荒品", 0 },
+    };
+
+    public int Get灵药数量(灵药Type type, QualityType qualityType)
+    {
+        string key = $"{type}_{qualityType}";
+        if (灵药Dic.ContainsKey(key))
+            return 灵药Dic[key];
+        return 0;
+    }
+
+    public void Set灵药数量(灵药Type type, QualityType qualityType, int count)
+    {
+        string key = $"{type}_{qualityType}";
+        灵药Dic[key] = count;
+    }
+
+
     public Dictionary<string, int> 突破灵物Dic = new Dictionary<string, int>()
 {
     // 增加百分比攻击力
@@ -357,31 +476,31 @@ public class PlayerData : XSingleton<PlayerData>
         {
             foreach (var i in item.Value.list)
             {
-                Set道纹数量(i.道纹.道纹Type,i.道纹.quality,i.count+Get道纹数量(i.道纹.道纹Type,i.道纹.quality));
+                Set灵药数量(i.灵药.灵药Type,i.灵药.QualityType,i.count+Get灵药数量(i.灵药.灵药Type,i.灵药.QualityType));
             }
             item.Value.list.Clear();
         }
         foreach (var item in list)
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast",道纹config.道纹名Dic[item.Key.道纹Type],item.Key.quality,item.Value);
+            ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.灵药名Dic[item.Key.灵药Type],item.Key.QualityType,item.Value);
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             yield return new  WaitForSeconds(0.1f);
         }
     }
-    public Dictionary<道纹, int> 获取血海所有道具()
+    public Dictionary<灵药, int> 获取血海所有道具()
     {
-        Dictionary<道纹, int> 类型数量映射 = new Dictionary<道纹, int>();
+        Dictionary<灵药, int> 类型数量映射 = new Dictionary<灵药, int>();
         foreach (var kvp in 血海寻宝Dic)
         { 
             foreach (var 道具 in kvp.Value.list)
             {
-                if (类型数量映射.ContainsKey(道具.道纹))
+                if (类型数量映射.ContainsKey(道具.灵药))
                 {
-                    类型数量映射[道具.道纹] += 道具.count;
+                    类型数量映射[道具.灵药] += 道具.count;
                 }
                 else
                 {
-                    类型数量映射[道具.道纹] = 道具.count;
+                    类型数量映射[道具.灵药] = 道具.count;
                 }
             }
         }
@@ -443,15 +562,15 @@ public class PlayerData : XSingleton<PlayerData>
     
     public Dictionary<int, 血海秘境寻宝Item> 血海寻宝Dic = new Dictionary<int, 血海秘境寻宝Item>()
     {
-        {1,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {2,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {3,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {4,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {5,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {6,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {7,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {8,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-        {9,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
+        {1,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {2,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {3,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {4,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {5,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {6,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {7,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {8,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+        {9,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
     };
     public Dictionary<int, List<HeroType>> 血海英雄派遣Dic = new Dictionary<int, List<HeroType>>()
     {

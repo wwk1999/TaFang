@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Config;
 
 public enum 丹药Type
 {
@@ -29,6 +30,29 @@ public enum 丹药Type
     加最终伤害,
 }
 
+public class 灵药
+{
+    public 灵药Type 灵药Type = 灵药Type.None;
+    public QualityType QualityType = QualityType.None;
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        灵药 other = (灵药)obj;
+        return 灵药Type == other.灵药Type && QualityType == other.QualityType;
+    }
+
+    public override int GetHashCode()
+    {
+        int hash = 17;
+        hash = hash * 31 + 灵药Type.GetHashCode();
+        hash = hash * 31 + QualityType.GetHashCode();
+        return hash;
+    }
+}
+
 public enum 灵药Type
 {
     None,
@@ -46,6 +70,19 @@ public enum 灵药Type
 
 public class 丹药Config
 {
+    public static Dictionary<灵药Type, string> 灵药名Dic = new Dictionary<灵药Type, string>()
+    {
+        { 灵药Type.金银花蕊, "金银花蕊" },
+        { 灵药Type.马兜铃果, "马兜铃果" },
+        { 灵药Type.四叶参根, "四叶参根" },
+        { 灵药Type.千年雪莲, "千年雪莲" },
+        { 灵药Type.回春草, "回春草" },
+        { 灵药Type.补血花, "补血花" },
+        { 灵药Type.龙纹草, "龙纹草" },
+        { 灵药Type.九曲黄泉草, "九曲黄泉草" },
+        { 灵药Type.千幻蝶恋花, "千幻蝶恋花" },
+        { 灵药Type.聚灵凝神叶, "聚灵凝神叶" },
+    };
     public static Dictionary<丹药Type, List<灵药Type>> 丹方Dic = new Dictionary<丹药Type, List<灵药Type>>()
     {
         // 伤害类丹药（11种）

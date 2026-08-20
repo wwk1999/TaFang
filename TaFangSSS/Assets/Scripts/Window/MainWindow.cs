@@ -194,7 +194,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
-            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.世界树;
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.血海;
             世界树窗口.gameObject.SetActive(true);
         });
         血海.onClick.AddListener(() =>
@@ -205,7 +205,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
-            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.血海;
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.世界树;
             血海窗口.gameObject.SetActive(true);
         });
         

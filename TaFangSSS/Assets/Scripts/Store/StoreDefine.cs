@@ -288,15 +288,15 @@ public class StoreDefine : XSingleton<StoreController>
         
         public Dictionary<int, 血海秘境寻宝Item> 血海寻宝Dic = new Dictionary<int, 血海秘境寻宝Item>()
         {
-            {1,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {2,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {3,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {4,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {5,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {6,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {7,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {8,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
-            {9,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝道纹道具item>()}},
+            {1,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {2,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {3,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {4,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {5,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {6,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {7,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {8,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
+            {9,new 血海秘境寻宝Item(){寻宝=false,time = 0,重复=false,list=new List<寻宝灵药道具item>()}},
         };
         public Dictionary<int, List<HeroType>> 血海英雄派遣Dic = new Dictionary<int, List<HeroType>>()
         {

@@ -38,10 +38,10 @@ public class 血海主页收获弹窗 : MonoBehaviour
                 秘境item = Instantiate(Resources.Load("Prefabs/Window/主页秘境item")).GetComponent<主页秘境item>();
             }
             秘境item.transform.SetParent(content.transform);
-            秘境item.quality = item.Key.quality;
-            秘境item.sprite = ResourcesConfig.Get道纹Sprite(item.Key.道纹Type,item.Key.quality);
+            秘境item.quality = item.Key.QualityType;
+            秘境item.sprite = ResourcesConfig.Get灵药Icon(item.Key.灵药Type,item.Key.QualityType);
             秘境item.count=item.Value;
-            秘境item.name=道纹config.道纹名Dic[item.Key.道纹Type];
+            秘境item.name=丹药Config.灵药名Dic[item.Key.灵药Type];
             秘境item.SetItem();
             秘境item.gameObject.SetActive(true);
         }

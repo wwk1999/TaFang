@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class 血海当前收获item : MonoBehaviour
 {
-    [NonSerialized] public 道纹 道纹=new 道纹();
+    [NonSerialized] public 灵药Type 灵药Type=灵药Type.None;
+    [NonSerialized] public QualityType QualityType=QualityType.None;
+
     [NonSerialized] public int count;
     public Image bg;
     public Image image;
@@ -17,9 +19,9 @@ public class 血海当前收获item : MonoBehaviour
 
     public void SetItem()
     {
-        bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(道纹.quality);
-        image.sprite = ResourcesConfig.Get道纹Sprite(道纹.道纹Type,道纹.quality);
-        Name.text = 道纹config.道纹名Dic[道纹.道纹Type];
+        bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
+        image.sprite = ResourcesConfig.Get灵药Icon(灵药Type,QualityType);
+        Name.text = 丹药Config.灵药名Dic[灵药Type];
         Count.text = count.ToString();
     }
 }

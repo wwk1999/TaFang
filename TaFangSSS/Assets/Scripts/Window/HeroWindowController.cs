@@ -11,8 +11,8 @@ public enum 当前显示关卡类型
     混沌虚空,
     不周山,
     世界树,
-    血海,
     通天塔,
+    血海,
 }
 public class HeroWindowController:XSingleton<HeroWindowController>
 {

@@ -90,20 +90,29 @@ public class 秘境掉落Image : MonoBehaviour, IPointerEnterHandler, IPointerEx
             case 当前显示关卡类型.世界树:
                 switch (秘境掉落item.Quality)
                 {
+                    case QualityType.黄品:
+                        弹窗.type = 道具信息Type.灵药白;
+                        break;
+                    case QualityType.玄品:
+                        弹窗.type = 道具信息Type.灵药绿;
+                        break;
+                    case QualityType.地品:
+                        弹窗.type = 道具信息Type.灵药蓝;
+                        break;
                     case QualityType.天品:
-                        弹窗.type = 道具信息Type.道宝紫;
+                        弹窗.type = 道具信息Type.灵药紫;
                         break;
                     case QualityType.宇品:
-                        弹窗.type = 道具信息Type.道宝橙;
+                        弹窗.type = 道具信息Type.灵药橙;
                         break;
                     case QualityType.宙品:
-                        弹窗.type = 道具信息Type.道宝粉;
+                        弹窗.type = 道具信息Type.灵药粉;
                         break;
                     case QualityType.洪品:
-                        弹窗.type = 道具信息Type.道宝红;
+                        弹窗.type = 道具信息Type.灵药红;
                         break;
                     case QualityType.荒品:
-                        弹窗.type = 道具信息Type.道宝彩;
+                        弹窗.type = 道具信息Type.灵药彩;
                         break;
                 }
                 break;
@@ -133,19 +142,19 @@ public class 秘境掉落Image : MonoBehaviour, IPointerEnterHandler, IPointerEx
                 switch (秘境掉落item.Quality)
                 {
                     case QualityType.天品:
-                        弹窗.type = 道具信息Type.道纹紫;
+                        弹窗.type = 道具信息Type.道宝紫;
                         break;
                     case QualityType.宇品:
-                        弹窗.type = 道具信息Type.道纹橙;
+                        弹窗.type = 道具信息Type.道宝橙;
                         break;
                     case QualityType.宙品:
-                        弹窗.type = 道具信息Type.道纹粉;
+                        弹窗.type = 道具信息Type.道宝粉;
                         break;
                     case QualityType.洪品:
-                        弹窗.type = 道具信息Type.道纹红;
+                        弹窗.type = 道具信息Type.道宝红;
                         break;
                     case QualityType.荒品:
-                        弹窗.type = 道具信息Type.道纹彩;
+                        弹窗.type = 道具信息Type.道宝彩;
                         break;
                 }
                 break;
