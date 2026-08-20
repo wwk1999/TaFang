@@ -13,21 +13,23 @@ public enum 丹药Type
     法师伤害,
     射手伤害,
     控制伤害,
+    辅助伤害,
     最终伤害,
     修炼速度,
     掉宝率,
-    英雄永久增伤,
+    英雄暴击伤害,
     加跟脚,//轮回后重置
-    加火焰伤害,
-    加冰霜伤害,
-    加雷电伤害,
-    加黑暗伤害,
-    加物理伤害,
-    加战士伤害,
-    加法师伤害,
-    加射手伤害,
-    加控制伤害,
-    加最终伤害,
+    英雄火焰伤害,
+    英雄冰霜伤害,
+    英雄雷电伤害,
+    英雄黑暗伤害,
+    英雄物理伤害,
+    英雄战士伤害,
+    英雄法师伤害,
+    英雄射手伤害,
+    英雄控制伤害,
+    英雄辅助伤害,
+    英雄最终伤害,
 }
 
 public class 灵药
@@ -83,6 +85,36 @@ public class 丹药Config
         { 灵药Type.千幻蝶恋花, "千幻蝶恋花" },
         { 灵药Type.聚灵凝神叶, "聚灵凝神叶" },
     };
+    public static Dictionary<丹药Type, string> 丹药名Dic = new Dictionary<丹药Type, string>()
+    {
+        { 丹药Type.None, "无" },
+        { 丹药Type.火焰伤害, "火元丹" },
+        { 丹药Type.冰霜伤害, "霜华丹" },
+        { 丹药Type.雷电伤害, "雷魄丹" },
+        { 丹药Type.黑暗伤害, "玄冥丹" },
+        { 丹药Type.物理伤害, "破罡丹" },
+        { 丹药Type.战士伤害, "虎力丹" },
+        { 丹药Type.法师伤害, "灵蕴丹" },
+        { 丹药Type.射手伤害, "凝矢丹" },
+        { 丹药Type.控制伤害, "缚灵丹" },
+        { 丹药Type.辅助伤害, "玄辅丹" },
+        { 丹药Type.最终伤害, "归元丹" },
+        { 丹药Type.修炼速度, "悟道丹" },
+        { 丹药Type.掉宝率, "寻龙丹" },
+        { 丹药Type.英雄暴击伤害, "绝杀丹" },
+        { 丹药Type.加跟脚, "洗髓伐脉丹" },
+        { 丹药Type.英雄火焰伤害, "凤火丹" },
+        { 丹药Type.英雄冰霜伤害, "玄冰丹" },
+        { 丹药Type.英雄雷电伤害, "奔雷丹" },
+        { 丹药Type.英雄黑暗伤害, "幽泉丹" },
+        { 丹药Type.英雄物理伤害, "金刚丹" },
+        { 丹药Type.英雄战士伤害, "骁勇丹" },
+        { 丹药Type.英雄法师伤害, "天机丹" },
+        { 丹药Type.英雄射手伤害, "破军丹" },
+        { 丹药Type.英雄控制伤害, "镇魂丹" },
+        { 丹药Type.英雄辅助伤害, "太初丹" },
+        { 丹药Type.英雄最终伤害, "混元丹" },
+    };
     public static Dictionary<丹药Type, List<灵药Type>> 丹方Dic = new Dictionary<丹药Type, List<灵药Type>>()
     {
         // 伤害类丹药（11种）
@@ -95,26 +127,29 @@ public class 丹药Config
         { 丹药Type.法师伤害, new List<灵药Type> { 灵药Type.聚灵凝神叶, 灵药Type.聚灵凝神叶, 灵药Type.四叶参根, 灵药Type.千幻蝶恋花 } },
         { 丹药Type.射手伤害, new List<灵药Type> { 灵药Type.补血花, 灵药Type.补血花, 灵药Type.马兜铃果, 灵药Type.金银花蕊 } },
         { 丹药Type.控制伤害, new List<灵药Type> { 灵药Type.千幻蝶恋花, 灵药Type.千幻蝶恋花, 灵药Type.龙纹草, 灵药Type.九曲黄泉草 } },
+        { 丹药Type.辅助伤害, new List<灵药Type> { 灵药Type.金银花蕊, 灵药Type.马兜铃果, 灵药Type.四叶参根, 灵药Type.千年雪莲 } },
+        { 丹药Type.英雄辅助伤害, new List<灵药Type> { 灵药Type.九曲黄泉草, 灵药Type.千幻蝶恋花, 灵药Type.回春草, 灵药Type.补血花 } },
+
         { 丹药Type.最终伤害, new List<灵药Type> { 灵药Type.回春草, 灵药Type.回春草, 灵药Type.补血花, 灵药Type.千年雪莲 } },
 
         // 功能类丹药（5种）
         { 丹药Type.修炼速度, new List<灵药Type> { 灵药Type.金银花蕊, 灵药Type.四叶参根, 灵药Type.聚灵凝神叶, 灵药Type.回春草 } },
         { 丹药Type.掉宝率, new List<灵药Type> { 灵药Type.马兜铃果, 灵药Type.千年雪莲, 灵药Type.千幻蝶恋花, 灵药Type.龙纹草 } },
-        { 丹药Type.英雄永久增伤, new List<灵药Type> { 灵药Type.九曲黄泉草, 灵药Type.补血花, 灵药Type.金银花蕊, 灵药Type.四叶参根 } },
+        { 丹药Type.英雄暴击伤害, new List<灵药Type> { 灵药Type.九曲黄泉草, 灵药Type.补血花, 灵药Type.金银花蕊, 灵药Type.四叶参根 } },
         { 丹药Type.加跟脚, new List<灵药Type> { 灵药Type.龙纹草, 灵药Type.聚灵凝神叶, 灵药Type.千年雪莲, 灵药Type.马兜铃果 } },
-        { 丹药Type.加火焰伤害, new List<灵药Type> { 灵药Type.回春草, 灵药Type.千幻蝶恋花, 灵药Type.九曲黄泉草, 灵药Type.补血花 } },
+        { 丹药Type.英雄火焰伤害, new List<灵药Type> { 灵药Type.回春草, 灵药Type.千幻蝶恋花, 灵药Type.九曲黄泉草, 灵药Type.补血花 } },
 
         // 元素增伤类（6种）
-        { 丹药Type.加冰霜伤害, new List<灵药Type> { 灵药Type.四叶参根, 灵药Type.金银花蕊, 灵药Type.补血花, 灵药Type.回春草 } },
-        { 丹药Type.加雷电伤害, new List<灵药Type> { 灵药Type.马兜铃果, 灵药Type.龙纹草, 灵药Type.九曲黄泉草, 灵药Type.聚灵凝神叶 } },
-        { 丹药Type.加黑暗伤害, new List<灵药Type> { 灵药Type.千年雪莲, 灵药Type.千幻蝶恋花, 灵药Type.四叶参根, 灵药Type.金银花蕊 } },
-        { 丹药Type.加物理伤害, new List<灵药Type> { 灵药Type.九曲黄泉草, 灵药Type.回春草, 灵药Type.马兜铃果, 灵药Type.千年雪莲 } },
-        { 丹药Type.加战士伤害, new List<灵药Type> { 灵药Type.龙纹草, 灵药Type.聚灵凝神叶, 灵药Type.补血花, 灵药Type.千幻蝶恋花 } },
-        { 丹药Type.加法师伤害, new List<灵药Type> { 灵药Type.金银花蕊, 灵药Type.四叶参根, 灵药Type.马兜铃果, 灵药Type.九曲黄泉草 } },
+        { 丹药Type.英雄冰霜伤害, new List<灵药Type> { 灵药Type.四叶参根, 灵药Type.金银花蕊, 灵药Type.补血花, 灵药Type.回春草 } },
+        { 丹药Type.英雄雷电伤害, new List<灵药Type> { 灵药Type.马兜铃果, 灵药Type.龙纹草, 灵药Type.九曲黄泉草, 灵药Type.聚灵凝神叶 } },
+        { 丹药Type.英雄黑暗伤害, new List<灵药Type> { 灵药Type.千年雪莲, 灵药Type.千幻蝶恋花, 灵药Type.四叶参根, 灵药Type.金银花蕊 } },
+        { 丹药Type.英雄物理伤害, new List<灵药Type> { 灵药Type.九曲黄泉草, 灵药Type.回春草, 灵药Type.马兜铃果, 灵药Type.千年雪莲 } },
+        { 丹药Type.英雄战士伤害, new List<灵药Type> { 灵药Type.龙纹草, 灵药Type.聚灵凝神叶, 灵药Type.补血花, 灵药Type.千幻蝶恋花 } },
+        { 丹药Type.英雄法师伤害, new List<灵药Type> { 灵药Type.金银花蕊, 灵药Type.四叶参根, 灵药Type.马兜铃果, 灵药Type.九曲黄泉草 } },
 
         // 加伤类（3种）
-        { 丹药Type.加射手伤害, new List<灵药Type> { 灵药Type.补血花, 灵药Type.千年雪莲, 灵药Type.聚灵凝神叶, 灵药Type.回春草 } },
-        { 丹药Type.加控制伤害, new List<灵药Type> { 灵药Type.千幻蝶恋花, 灵药Type.龙纹草, 灵药Type.金银花蕊, 灵药Type.四叶参根 } },
-        { 丹药Type.加最终伤害, new List<灵药Type> { 灵药Type.回春草, 灵药Type.马兜铃果, 灵药Type.九曲黄泉草, 灵药Type.千年雪莲 } },
+        { 丹药Type.英雄射手伤害, new List<灵药Type> { 灵药Type.补血花, 灵药Type.千年雪莲, 灵药Type.聚灵凝神叶, 灵药Type.回春草 } },
+        { 丹药Type.英雄控制伤害, new List<灵药Type> { 灵药Type.千幻蝶恋花, 灵药Type.龙纹草, 灵药Type.金银花蕊, 灵药Type.四叶参根 } },
+        { 丹药Type.英雄最终伤害, new List<灵药Type> { 灵药Type.回春草, 灵药Type.马兜铃果, 灵药Type.九曲黄泉草, 灵药Type.千年雪莲 } },
     };
 }
