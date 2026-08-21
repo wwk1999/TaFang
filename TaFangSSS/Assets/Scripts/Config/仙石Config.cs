@@ -126,8 +126,16 @@ public class 仙石Config
         }
         return list;
     }
-    
-    
+
+    public static 仙石 Get坊市仙石(仙石Type type, QualityType qualityType)
+    {
+        仙石 仙石 = new 仙石();
+        仙石.quality = qualityType;
+        仙石.type = type;
+        var 附加属性列表 = Get仙石附加属性(qualityType);
+        仙石.list = 附加属性列表;
+        return 仙石;
+    }
     public static 仙石 单次仙石掉落(JingJieType jingJieType)
     {
         QualityType 掉落品质 = QualityType.黄品;

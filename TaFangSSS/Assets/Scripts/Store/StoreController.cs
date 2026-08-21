@@ -77,10 +77,14 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.道龄S = 0;
             PlayerData.S.道龄年++;
             PlayerData.S.剩余传道次数++;
+            坊市Config.刷新坊市列表();
+            ObserverModuleManager.S.SendEvent("刷新坊市窗口");
+            PlayerData.S.坊市刷新次数++;
         }
         //自动保存
         if (当前增加修为时间 >= 增加修为时间)
         {
+            ObserverModuleManager.S.SendEvent("刷新坊市剩余时间");
             ObserverModuleManager.S.SendEvent("刷新主页面");
             当前增加修为时间 = 0;
             if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)

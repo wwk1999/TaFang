@@ -280,7 +280,7 @@ public class MainWindow : MonoBehaviour
         {
             PlayerData.S.PropListDic[PropType.高级招募卷] += 100;
             PlayerData.S.PropListDic[PropType.招募卷] += 100;
-            PlayerData.S.PropListDic[PropType.灵魂] += 10000;
+            PlayerData.S.PropListDic[PropType.灵魂] += 10000000;
             PlayerData.S.PropListDic[PropType.头盔锻造石] += 100;
             PlayerData.S.PropListDic[PropType.护手锻造石] += 100;
             PlayerData.S.PropListDic[PropType.项链锻造石] += 100;

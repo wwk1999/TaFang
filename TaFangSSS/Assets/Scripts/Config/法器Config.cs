@@ -1410,6 +1410,20 @@ public class 法器Config
         { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,4,70,25,1}},
     };
 
+    public static 法器 Get坊市法器(法器Type type)
+    {
+        法器 法器 = new 法器();
+        法器.法器Type = type;
+        var 品质 = 法器品质Dic[type];
+        var 附加属性列表 = Get法器附加属性(品质);
+        法器.list = 附加属性列表;
+        int 孔个数 = Random.Range(0, (int)品质+1);
+        for (int i = 0; i < 孔个数; i++)
+        {
+            法器.仙石list.Add(new 仙石(){type = 仙石Type.None,quality =QualityType.None,list = null});
+        }
+        return 法器;
+    }
     public static 法器 单次法器掉落(JingJieType jingJieType)
     {
         QualityType 掉落品质 = QualityType.黄品;

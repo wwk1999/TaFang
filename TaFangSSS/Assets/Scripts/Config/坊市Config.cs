@@ -11,6 +11,7 @@ public class 坊市物品
     public 丹药Type 丹药Type;
     public 丹药Type 丹方Type;
     public QualityType QualityType;
+    public bool 是否被购买 = false;
 }
 public class 坊市Config
 {
@@ -393,6 +394,16 @@ public class 坊市Config
         }
 
         return QualityType.黄品;
+    }
+
+    public static void 刷新坊市列表()
+    {
+        PlayerData.S.坊市物品列表.Clear();
+        for (int i = 0; i < 12; i++)
+        {
+            var item = 坊市Config.Get坊市物品();
+            PlayerData.S.坊市物品列表.Add(item);
+        }
     }
 
     public static 坊市物品 Get坊市物品()
