@@ -147,7 +147,7 @@ public class LevelConfig : MonoBehaviour
     public static Dictionary<主线关卡Type, JingJieType> 主线关卡境界Dic = new Dictionary<主线关卡Type, JingJieType>()
     {
         { 主线关卡Type.花果山, JingJieType.练气 },
-        { 主线关卡Type.水帘洞, JingJieType.练气 },
+        { 主线关卡Type.水帘洞, JingJieType.练气 }, 
         { 主线关卡Type.蓬莱仙岛, JingJieType.筑基 },
         { 主线关卡Type.五行山, JingJieType.筑基 },
         { 主线关卡Type.傲来国, JingJieType.金丹 },

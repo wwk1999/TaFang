@@ -36,6 +36,9 @@ public class MainWindow : MonoBehaviour
     public Button 道宝Button;
     public Button 城墙Button;
     public Button 炼器Button;
+    public Button 坊市Button;
+    public GameObject 坊市窗口;
+
     public 主线关卡窗口 主线关卡窗口;
     public 凌霄宝殿窗口 凌霄宝殿窗口;
     public 三十三重天窗口 三十三重天窗口;
@@ -163,6 +166,10 @@ public class MainWindow : MonoBehaviour
                     PlayerData.S.Set灵物数量((JingJieType)i, (QualityType)j,PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j)+1);
                 }
             }
+        });
+        坊市Button.onClick.AddListener(() =>
+        {
+            坊市窗口.gameObject.SetActive(true);
         });
         远古遗迹按钮.onClick.AddListener(() =>
         {

@@ -6,6 +6,479 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //丹药
+    public static Sprite 丹方火焰伤害白;
+public static Sprite 丹方火焰伤害绿;
+public static Sprite 丹方火焰伤害蓝;
+public static Sprite 丹方火焰伤害紫;
+public static Sprite 丹方火焰伤害橙;
+public static Sprite 丹方火焰伤害粉;
+public static Sprite 丹方火焰伤害红;
+public static Sprite 丹方火焰伤害彩;
+
+public static Sprite 丹方冰霜伤害白;
+public static Sprite 丹方冰霜伤害绿;
+public static Sprite 丹方冰霜伤害蓝;
+public static Sprite 丹方冰霜伤害紫;
+public static Sprite 丹方冰霜伤害橙;
+public static Sprite 丹方冰霜伤害粉;
+public static Sprite 丹方冰霜伤害红;
+public static Sprite 丹方冰霜伤害彩;
+
+public static Sprite 丹方雷电伤害白;
+public static Sprite 丹方雷电伤害绿;
+public static Sprite 丹方雷电伤害蓝;
+public static Sprite 丹方雷电伤害紫;
+public static Sprite 丹方雷电伤害橙;
+public static Sprite 丹方雷电伤害粉;
+public static Sprite 丹方雷电伤害红;
+public static Sprite 丹方雷电伤害彩;
+
+public static Sprite 丹方黑暗伤害白;
+public static Sprite 丹方黑暗伤害绿;
+public static Sprite 丹方黑暗伤害蓝;
+public static Sprite 丹方黑暗伤害紫;
+public static Sprite 丹方黑暗伤害橙;
+public static Sprite 丹方黑暗伤害粉;
+public static Sprite 丹方黑暗伤害红;
+public static Sprite 丹方黑暗伤害彩;
+
+public static Sprite 丹方物理伤害白;
+public static Sprite 丹方物理伤害绿;
+public static Sprite 丹方物理伤害蓝;
+public static Sprite 丹方物理伤害紫;
+public static Sprite 丹方物理伤害橙;
+public static Sprite 丹方物理伤害粉;
+public static Sprite 丹方物理伤害红;
+public static Sprite 丹方物理伤害彩;
+
+public static Sprite 丹方战士伤害白;
+public static Sprite 丹方战士伤害绿;
+public static Sprite 丹方战士伤害蓝;
+public static Sprite 丹方战士伤害紫;
+public static Sprite 丹方战士伤害橙;
+public static Sprite 丹方战士伤害粉;
+public static Sprite 丹方战士伤害红;
+public static Sprite 丹方战士伤害彩;
+
+public static Sprite 丹方法师伤害白;
+public static Sprite 丹方法师伤害绿;
+public static Sprite 丹方法师伤害蓝;
+public static Sprite 丹方法师伤害紫;
+public static Sprite 丹方法师伤害橙;
+public static Sprite 丹方法师伤害粉;
+public static Sprite 丹方法师伤害红;
+public static Sprite 丹方法师伤害彩;
+
+public static Sprite 丹方射手伤害白;
+public static Sprite 丹方射手伤害绿;
+public static Sprite 丹方射手伤害蓝;
+public static Sprite 丹方射手伤害紫;
+public static Sprite 丹方射手伤害橙;
+public static Sprite 丹方射手伤害粉;
+public static Sprite 丹方射手伤害红;
+public static Sprite 丹方射手伤害彩;
+
+public static Sprite 丹方控制伤害白;
+public static Sprite 丹方控制伤害绿;
+public static Sprite 丹方控制伤害蓝;
+public static Sprite 丹方控制伤害紫;
+public static Sprite 丹方控制伤害橙;
+public static Sprite 丹方控制伤害粉;
+public static Sprite 丹方控制伤害红;
+public static Sprite 丹方控制伤害彩;
+
+public static Sprite 丹方辅助伤害白;
+public static Sprite 丹方辅助伤害绿;
+public static Sprite 丹方辅助伤害蓝;
+public static Sprite 丹方辅助伤害紫;
+public static Sprite 丹方辅助伤害橙;
+public static Sprite 丹方辅助伤害粉;
+public static Sprite 丹方辅助伤害红;
+public static Sprite 丹方辅助伤害彩;
+
+public static Sprite 丹方最终伤害白;
+public static Sprite 丹方最终伤害绿;
+public static Sprite 丹方最终伤害蓝;
+public static Sprite 丹方最终伤害紫;
+public static Sprite 丹方最终伤害橙;
+public static Sprite 丹方最终伤害粉;
+public static Sprite 丹方最终伤害红;
+public static Sprite 丹方最终伤害彩;
+
+public static Sprite 丹方修炼速度白;
+public static Sprite 丹方修炼速度绿;
+public static Sprite 丹方修炼速度蓝;
+public static Sprite 丹方修炼速度紫;
+public static Sprite 丹方修炼速度橙;
+public static Sprite 丹方修炼速度粉;
+public static Sprite 丹方修炼速度红;
+public static Sprite 丹方修炼速度彩;
+
+public static Sprite 丹方掉宝率白;
+public static Sprite 丹方掉宝率绿;
+public static Sprite 丹方掉宝率蓝;
+public static Sprite 丹方掉宝率紫;
+public static Sprite 丹方掉宝率橙;
+public static Sprite 丹方掉宝率粉;
+public static Sprite 丹方掉宝率红;
+public static Sprite 丹方掉宝率彩;
+
+public static Sprite 丹方英雄暴击伤害白;
+public static Sprite 丹方英雄暴击伤害绿;
+public static Sprite 丹方英雄暴击伤害蓝;
+public static Sprite 丹方英雄暴击伤害紫;
+public static Sprite 丹方英雄暴击伤害橙;
+public static Sprite 丹方英雄暴击伤害粉;
+public static Sprite 丹方英雄暴击伤害红;
+public static Sprite 丹方英雄暴击伤害彩;
+
+public static Sprite 丹方加跟脚白;
+public static Sprite 丹方加跟脚绿;
+public static Sprite 丹方加跟脚蓝;
+public static Sprite 丹方加跟脚紫;
+public static Sprite 丹方加跟脚橙;
+public static Sprite 丹方加跟脚粉;
+public static Sprite 丹方加跟脚红;
+public static Sprite 丹方加跟脚彩;
+
+public static Sprite 丹方英雄火焰伤害白;
+public static Sprite 丹方英雄火焰伤害绿;
+public static Sprite 丹方英雄火焰伤害蓝;
+public static Sprite 丹方英雄火焰伤害紫;
+public static Sprite 丹方英雄火焰伤害橙;
+public static Sprite 丹方英雄火焰伤害粉;
+public static Sprite 丹方英雄火焰伤害红;
+public static Sprite 丹方英雄火焰伤害彩;
+
+public static Sprite 丹方英雄冰霜伤害白;
+public static Sprite 丹方英雄冰霜伤害绿;
+public static Sprite 丹方英雄冰霜伤害蓝;
+public static Sprite 丹方英雄冰霜伤害紫;
+public static Sprite 丹方英雄冰霜伤害橙;
+public static Sprite 丹方英雄冰霜伤害粉;
+public static Sprite 丹方英雄冰霜伤害红;
+public static Sprite 丹方英雄冰霜伤害彩;
+
+public static Sprite 丹方英雄雷电伤害白;
+public static Sprite 丹方英雄雷电伤害绿;
+public static Sprite 丹方英雄雷电伤害蓝;
+public static Sprite 丹方英雄雷电伤害紫;
+public static Sprite 丹方英雄雷电伤害橙;
+public static Sprite 丹方英雄雷电伤害粉;
+public static Sprite 丹方英雄雷电伤害红;
+public static Sprite 丹方英雄雷电伤害彩;
+
+public static Sprite 丹方英雄黑暗伤害白;
+public static Sprite 丹方英雄黑暗伤害绿;
+public static Sprite 丹方英雄黑暗伤害蓝;
+public static Sprite 丹方英雄黑暗伤害紫;
+public static Sprite 丹方英雄黑暗伤害橙;
+public static Sprite 丹方英雄黑暗伤害粉;
+public static Sprite 丹方英雄黑暗伤害红;
+public static Sprite 丹方英雄黑暗伤害彩;
+
+public static Sprite 丹方英雄物理伤害白;
+public static Sprite 丹方英雄物理伤害绿;
+public static Sprite 丹方英雄物理伤害蓝;
+public static Sprite 丹方英雄物理伤害紫;
+public static Sprite 丹方英雄物理伤害橙;
+public static Sprite 丹方英雄物理伤害粉;
+public static Sprite 丹方英雄物理伤害红;
+public static Sprite 丹方英雄物理伤害彩;
+
+public static Sprite 丹方英雄战士伤害白;
+public static Sprite 丹方英雄战士伤害绿;
+public static Sprite 丹方英雄战士伤害蓝;
+public static Sprite 丹方英雄战士伤害紫;
+public static Sprite 丹方英雄战士伤害橙;
+public static Sprite 丹方英雄战士伤害粉;
+public static Sprite 丹方英雄战士伤害红;
+public static Sprite 丹方英雄战士伤害彩;
+
+public static Sprite 丹方英雄法师伤害白;
+public static Sprite 丹方英雄法师伤害绿;
+public static Sprite 丹方英雄法师伤害蓝;
+public static Sprite 丹方英雄法师伤害紫;
+public static Sprite 丹方英雄法师伤害橙;
+public static Sprite 丹方英雄法师伤害粉;
+public static Sprite 丹方英雄法师伤害红;
+public static Sprite 丹方英雄法师伤害彩;
+
+public static Sprite 丹方英雄射手伤害白;
+public static Sprite 丹方英雄射手伤害绿;
+public static Sprite 丹方英雄射手伤害蓝;
+public static Sprite 丹方英雄射手伤害紫;
+public static Sprite 丹方英雄射手伤害橙;
+public static Sprite 丹方英雄射手伤害粉;
+public static Sprite 丹方英雄射手伤害红;
+public static Sprite 丹方英雄射手伤害彩;
+
+public static Sprite 丹方英雄控制伤害白;
+public static Sprite 丹方英雄控制伤害绿;
+public static Sprite 丹方英雄控制伤害蓝;
+public static Sprite 丹方英雄控制伤害紫;
+public static Sprite 丹方英雄控制伤害橙;
+public static Sprite 丹方英雄控制伤害粉;
+public static Sprite 丹方英雄控制伤害红;
+public static Sprite 丹方英雄控制伤害彩;
+
+public static Sprite 丹方英雄辅助伤害白;
+public static Sprite 丹方英雄辅助伤害绿;
+public static Sprite 丹方英雄辅助伤害蓝;
+public static Sprite 丹方英雄辅助伤害紫;
+public static Sprite 丹方英雄辅助伤害橙;
+public static Sprite 丹方英雄辅助伤害粉;
+public static Sprite 丹方英雄辅助伤害红;
+public static Sprite 丹方英雄辅助伤害彩;
+
+public static Sprite 丹方英雄最终伤害白;
+public static Sprite 丹方英雄最终伤害绿;
+public static Sprite 丹方英雄最终伤害蓝;
+public static Sprite 丹方英雄最终伤害紫;
+public static Sprite 丹方英雄最终伤害橙;
+public static Sprite 丹方英雄最终伤害粉;
+public static Sprite 丹方英雄最终伤害红;
+public static Sprite 丹方英雄最终伤害彩;
+    
+    
+    
+    //丹药
+    public static Sprite 火焰伤害白;
+public static Sprite 火焰伤害绿;
+public static Sprite 火焰伤害蓝;
+public static Sprite 火焰伤害紫;
+public static Sprite 火焰伤害橙;
+public static Sprite 火焰伤害粉;
+public static Sprite 火焰伤害红;
+public static Sprite 火焰伤害彩;
+
+public static Sprite 冰霜伤害白;
+public static Sprite 冰霜伤害绿;
+public static Sprite 冰霜伤害蓝;
+public static Sprite 冰霜伤害紫;
+public static Sprite 冰霜伤害橙;
+public static Sprite 冰霜伤害粉;
+public static Sprite 冰霜伤害红;
+public static Sprite 冰霜伤害彩;
+
+public static Sprite 雷电伤害白;
+public static Sprite 雷电伤害绿;
+public static Sprite 雷电伤害蓝;
+public static Sprite 雷电伤害紫;
+public static Sprite 雷电伤害橙;
+public static Sprite 雷电伤害粉;
+public static Sprite 雷电伤害红;
+public static Sprite 雷电伤害彩;
+
+public static Sprite 黑暗伤害白;
+public static Sprite 黑暗伤害绿;
+public static Sprite 黑暗伤害蓝;
+public static Sprite 黑暗伤害紫;
+public static Sprite 黑暗伤害橙;
+public static Sprite 黑暗伤害粉;
+public static Sprite 黑暗伤害红;
+public static Sprite 黑暗伤害彩;
+
+public static Sprite 物理伤害白;
+public static Sprite 物理伤害绿;
+public static Sprite 物理伤害蓝;
+public static Sprite 物理伤害紫;
+public static Sprite 物理伤害橙;
+public static Sprite 物理伤害粉;
+public static Sprite 物理伤害红;
+public static Sprite 物理伤害彩;
+
+public static Sprite 战士伤害白;
+public static Sprite 战士伤害绿;
+public static Sprite 战士伤害蓝;
+public static Sprite 战士伤害紫;
+public static Sprite 战士伤害橙;
+public static Sprite 战士伤害粉;
+public static Sprite 战士伤害红;
+public static Sprite 战士伤害彩;
+
+public static Sprite 法师伤害白;
+public static Sprite 法师伤害绿;
+public static Sprite 法师伤害蓝;
+public static Sprite 法师伤害紫;
+public static Sprite 法师伤害橙;
+public static Sprite 法师伤害粉;
+public static Sprite 法师伤害红;
+public static Sprite 法师伤害彩;
+
+public static Sprite 射手伤害白;
+public static Sprite 射手伤害绿;
+public static Sprite 射手伤害蓝;
+public static Sprite 射手伤害紫;
+public static Sprite 射手伤害橙;
+public static Sprite 射手伤害粉;
+public static Sprite 射手伤害红;
+public static Sprite 射手伤害彩;
+
+public static Sprite 控制伤害白;
+public static Sprite 控制伤害绿;
+public static Sprite 控制伤害蓝;
+public static Sprite 控制伤害紫;
+public static Sprite 控制伤害橙;
+public static Sprite 控制伤害粉;
+public static Sprite 控制伤害红;
+public static Sprite 控制伤害彩;
+
+public static Sprite 辅助伤害白;
+public static Sprite 辅助伤害绿;
+public static Sprite 辅助伤害蓝;
+public static Sprite 辅助伤害紫;
+public static Sprite 辅助伤害橙;
+public static Sprite 辅助伤害粉;
+public static Sprite 辅助伤害红;
+public static Sprite 辅助伤害彩;
+
+public static Sprite 最终伤害白;
+public static Sprite 最终伤害绿;
+public static Sprite 最终伤害蓝;
+public static Sprite 最终伤害紫;
+public static Sprite 最终伤害橙;
+public static Sprite 最终伤害粉;
+public static Sprite 最终伤害红;
+public static Sprite 最终伤害彩;
+
+public static Sprite 修炼速度白;
+public static Sprite 修炼速度绿;
+public static Sprite 修炼速度蓝;
+public static Sprite 修炼速度紫;
+public static Sprite 修炼速度橙;
+public static Sprite 修炼速度粉;
+public static Sprite 修炼速度红;
+public static Sprite 修炼速度彩;
+
+public static Sprite 掉宝率白;
+public static Sprite 掉宝率绿;
+public static Sprite 掉宝率蓝;
+public static Sprite 掉宝率紫;
+public static Sprite 掉宝率橙;
+public static Sprite 掉宝率粉;
+public static Sprite 掉宝率红;
+public static Sprite 掉宝率彩;
+
+public static Sprite 英雄暴击伤害白;
+public static Sprite 英雄暴击伤害绿;
+public static Sprite 英雄暴击伤害蓝;
+public static Sprite 英雄暴击伤害紫;
+public static Sprite 英雄暴击伤害橙;
+public static Sprite 英雄暴击伤害粉;
+public static Sprite 英雄暴击伤害红;
+public static Sprite 英雄暴击伤害彩;
+
+public static Sprite 加跟脚白;
+public static Sprite 加跟脚绿;
+public static Sprite 加跟脚蓝;
+public static Sprite 加跟脚紫;
+public static Sprite 加跟脚橙;
+public static Sprite 加跟脚粉;
+public static Sprite 加跟脚红;
+public static Sprite 加跟脚彩;
+
+public static Sprite 英雄火焰伤害白;
+public static Sprite 英雄火焰伤害绿;
+public static Sprite 英雄火焰伤害蓝;
+public static Sprite 英雄火焰伤害紫;
+public static Sprite 英雄火焰伤害橙;
+public static Sprite 英雄火焰伤害粉;
+public static Sprite 英雄火焰伤害红;
+public static Sprite 英雄火焰伤害彩;
+
+public static Sprite 英雄冰霜伤害白;
+public static Sprite 英雄冰霜伤害绿;
+public static Sprite 英雄冰霜伤害蓝;
+public static Sprite 英雄冰霜伤害紫;
+public static Sprite 英雄冰霜伤害橙;
+public static Sprite 英雄冰霜伤害粉;
+public static Sprite 英雄冰霜伤害红;
+public static Sprite 英雄冰霜伤害彩;
+
+public static Sprite 英雄雷电伤害白;
+public static Sprite 英雄雷电伤害绿;
+public static Sprite 英雄雷电伤害蓝;
+public static Sprite 英雄雷电伤害紫;
+public static Sprite 英雄雷电伤害橙;
+public static Sprite 英雄雷电伤害粉;
+public static Sprite 英雄雷电伤害红;
+public static Sprite 英雄雷电伤害彩;
+
+public static Sprite 英雄黑暗伤害白;
+public static Sprite 英雄黑暗伤害绿;
+public static Sprite 英雄黑暗伤害蓝;
+public static Sprite 英雄黑暗伤害紫;
+public static Sprite 英雄黑暗伤害橙;
+public static Sprite 英雄黑暗伤害粉;
+public static Sprite 英雄黑暗伤害红;
+public static Sprite 英雄黑暗伤害彩;
+
+public static Sprite 英雄物理伤害白;
+public static Sprite 英雄物理伤害绿;
+public static Sprite 英雄物理伤害蓝;
+public static Sprite 英雄物理伤害紫;
+public static Sprite 英雄物理伤害橙;
+public static Sprite 英雄物理伤害粉;
+public static Sprite 英雄物理伤害红;
+public static Sprite 英雄物理伤害彩;
+
+public static Sprite 英雄战士伤害白;
+public static Sprite 英雄战士伤害绿;
+public static Sprite 英雄战士伤害蓝;
+public static Sprite 英雄战士伤害紫;
+public static Sprite 英雄战士伤害橙;
+public static Sprite 英雄战士伤害粉;
+public static Sprite 英雄战士伤害红;
+public static Sprite 英雄战士伤害彩;
+
+public static Sprite 英雄法师伤害白;
+public static Sprite 英雄法师伤害绿;
+public static Sprite 英雄法师伤害蓝;
+public static Sprite 英雄法师伤害紫;
+public static Sprite 英雄法师伤害橙;
+public static Sprite 英雄法师伤害粉;
+public static Sprite 英雄法师伤害红;
+public static Sprite 英雄法师伤害彩;
+
+public static Sprite 英雄射手伤害白;
+public static Sprite 英雄射手伤害绿;
+public static Sprite 英雄射手伤害蓝;
+public static Sprite 英雄射手伤害紫;
+public static Sprite 英雄射手伤害橙;
+public static Sprite 英雄射手伤害粉;
+public static Sprite 英雄射手伤害红;
+public static Sprite 英雄射手伤害彩;
+
+public static Sprite 英雄控制伤害白;
+public static Sprite 英雄控制伤害绿;
+public static Sprite 英雄控制伤害蓝;
+public static Sprite 英雄控制伤害紫;
+public static Sprite 英雄控制伤害橙;
+public static Sprite 英雄控制伤害粉;
+public static Sprite 英雄控制伤害红;
+public static Sprite 英雄控制伤害彩;
+
+public static Sprite 英雄辅助伤害白;
+public static Sprite 英雄辅助伤害绿;
+public static Sprite 英雄辅助伤害蓝;
+public static Sprite 英雄辅助伤害紫;
+public static Sprite 英雄辅助伤害橙;
+public static Sprite 英雄辅助伤害粉;
+public static Sprite 英雄辅助伤害红;
+public static Sprite 英雄辅助伤害彩;
+
+public static Sprite 英雄最终伤害白;
+public static Sprite 英雄最终伤害绿;
+public static Sprite 英雄最终伤害蓝;
+public static Sprite 英雄最终伤害紫;
+public static Sprite 英雄最终伤害橙;
+public static Sprite 英雄最终伤害粉;
+public static Sprite 英雄最终伤害红;
+public static Sprite 英雄最终伤害彩;
+
+    
     //灵药
     // 金银花蕊
     public static Sprite 金银花蕊白;
@@ -4594,8 +5067,1142 @@ public class ResourcesConfig : MonoBehaviour
         }
     }
 
+   public static Sprite Get丹方icon(丹药Type 丹药Type, QualityType qualityType)
+{
+    switch (丹药Type)
+    {
+        case 丹药Type.火焰伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方火焰伤害白;
+                case QualityType.玄品: return 丹方火焰伤害绿;
+                case QualityType.地品: return 丹方火焰伤害蓝;
+                case QualityType.天品: return 丹方火焰伤害紫;
+                case QualityType.宇品: return 丹方火焰伤害橙;
+                case QualityType.宙品: return 丹方火焰伤害粉;
+                case QualityType.洪品: return 丹方火焰伤害红;
+                case QualityType.荒品: return 丹方火焰伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.冰霜伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方冰霜伤害白;
+                case QualityType.玄品: return 丹方冰霜伤害绿;
+                case QualityType.地品: return 丹方冰霜伤害蓝;
+                case QualityType.天品: return 丹方冰霜伤害紫;
+                case QualityType.宇品: return 丹方冰霜伤害橙;
+                case QualityType.宙品: return 丹方冰霜伤害粉;
+                case QualityType.洪品: return 丹方冰霜伤害红;
+                case QualityType.荒品: return 丹方冰霜伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.雷电伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方雷电伤害白;
+                case QualityType.玄品: return 丹方雷电伤害绿;
+                case QualityType.地品: return 丹方雷电伤害蓝;
+                case QualityType.天品: return 丹方雷电伤害紫;
+                case QualityType.宇品: return 丹方雷电伤害橙;
+                case QualityType.宙品: return 丹方雷电伤害粉;
+                case QualityType.洪品: return 丹方雷电伤害红;
+                case QualityType.荒品: return 丹方雷电伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.黑暗伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方黑暗伤害白;
+                case QualityType.玄品: return 丹方黑暗伤害绿;
+                case QualityType.地品: return 丹方黑暗伤害蓝;
+                case QualityType.天品: return 丹方黑暗伤害紫;
+                case QualityType.宇品: return 丹方黑暗伤害橙;
+                case QualityType.宙品: return 丹方黑暗伤害粉;
+                case QualityType.洪品: return 丹方黑暗伤害红;
+                case QualityType.荒品: return 丹方黑暗伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.物理伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方物理伤害白;
+                case QualityType.玄品: return 丹方物理伤害绿;
+                case QualityType.地品: return 丹方物理伤害蓝;
+                case QualityType.天品: return 丹方物理伤害紫;
+                case QualityType.宇品: return 丹方物理伤害橙;
+                case QualityType.宙品: return 丹方物理伤害粉;
+                case QualityType.洪品: return 丹方物理伤害红;
+                case QualityType.荒品: return 丹方物理伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.战士伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方战士伤害白;
+                case QualityType.玄品: return 丹方战士伤害绿;
+                case QualityType.地品: return 丹方战士伤害蓝;
+                case QualityType.天品: return 丹方战士伤害紫;
+                case QualityType.宇品: return 丹方战士伤害橙;
+                case QualityType.宙品: return 丹方战士伤害粉;
+                case QualityType.洪品: return 丹方战士伤害红;
+                case QualityType.荒品: return 丹方战士伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.法师伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方法师伤害白;
+                case QualityType.玄品: return 丹方法师伤害绿;
+                case QualityType.地品: return 丹方法师伤害蓝;
+                case QualityType.天品: return 丹方法师伤害紫;
+                case QualityType.宇品: return 丹方法师伤害橙;
+                case QualityType.宙品: return 丹方法师伤害粉;
+                case QualityType.洪品: return 丹方法师伤害红;
+                case QualityType.荒品: return 丹方法师伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.射手伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方射手伤害白;
+                case QualityType.玄品: return 丹方射手伤害绿;
+                case QualityType.地品: return 丹方射手伤害蓝;
+                case QualityType.天品: return 丹方射手伤害紫;
+                case QualityType.宇品: return 丹方射手伤害橙;
+                case QualityType.宙品: return 丹方射手伤害粉;
+                case QualityType.洪品: return 丹方射手伤害红;
+                case QualityType.荒品: return 丹方射手伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.控制伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方控制伤害白;
+                case QualityType.玄品: return 丹方控制伤害绿;
+                case QualityType.地品: return 丹方控制伤害蓝;
+                case QualityType.天品: return 丹方控制伤害紫;
+                case QualityType.宇品: return 丹方控制伤害橙;
+                case QualityType.宙品: return 丹方控制伤害粉;
+                case QualityType.洪品: return 丹方控制伤害红;
+                case QualityType.荒品: return 丹方控制伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.辅助伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方辅助伤害白;
+                case QualityType.玄品: return 丹方辅助伤害绿;
+                case QualityType.地品: return 丹方辅助伤害蓝;
+                case QualityType.天品: return 丹方辅助伤害紫;
+                case QualityType.宇品: return 丹方辅助伤害橙;
+                case QualityType.宙品: return 丹方辅助伤害粉;
+                case QualityType.洪品: return 丹方辅助伤害红;
+                case QualityType.荒品: return 丹方辅助伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.最终伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方最终伤害白;
+                case QualityType.玄品: return 丹方最终伤害绿;
+                case QualityType.地品: return 丹方最终伤害蓝;
+                case QualityType.天品: return 丹方最终伤害紫;
+                case QualityType.宇品: return 丹方最终伤害橙;
+                case QualityType.宙品: return 丹方最终伤害粉;
+                case QualityType.洪品: return 丹方最终伤害红;
+                case QualityType.荒品: return 丹方最终伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.修炼速度:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方修炼速度白;
+                case QualityType.玄品: return 丹方修炼速度绿;
+                case QualityType.地品: return 丹方修炼速度蓝;
+                case QualityType.天品: return 丹方修炼速度紫;
+                case QualityType.宇品: return 丹方修炼速度橙;
+                case QualityType.宙品: return 丹方修炼速度粉;
+                case QualityType.洪品: return 丹方修炼速度红;
+                case QualityType.荒品: return 丹方修炼速度彩;
+                default: return null;
+            }
+
+        case 丹药Type.掉宝率:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方掉宝率白;
+                case QualityType.玄品: return 丹方掉宝率绿;
+                case QualityType.地品: return 丹方掉宝率蓝;
+                case QualityType.天品: return 丹方掉宝率紫;
+                case QualityType.宇品: return 丹方掉宝率橙;
+                case QualityType.宙品: return 丹方掉宝率粉;
+                case QualityType.洪品: return 丹方掉宝率红;
+                case QualityType.荒品: return 丹方掉宝率彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄暴击伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄暴击伤害白;
+                case QualityType.玄品: return 丹方英雄暴击伤害绿;
+                case QualityType.地品: return 丹方英雄暴击伤害蓝;
+                case QualityType.天品: return 丹方英雄暴击伤害紫;
+                case QualityType.宇品: return 丹方英雄暴击伤害橙;
+                case QualityType.宙品: return 丹方英雄暴击伤害粉;
+                case QualityType.洪品: return 丹方英雄暴击伤害红;
+                case QualityType.荒品: return 丹方英雄暴击伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.加跟脚:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方加跟脚白;
+                case QualityType.玄品: return 丹方加跟脚绿;
+                case QualityType.地品: return 丹方加跟脚蓝;
+                case QualityType.天品: return 丹方加跟脚紫;
+                case QualityType.宇品: return 丹方加跟脚橙;
+                case QualityType.宙品: return 丹方加跟脚粉;
+                case QualityType.洪品: return 丹方加跟脚红;
+                case QualityType.荒品: return 丹方加跟脚彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄火焰伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄火焰伤害白;
+                case QualityType.玄品: return 丹方英雄火焰伤害绿;
+                case QualityType.地品: return 丹方英雄火焰伤害蓝;
+                case QualityType.天品: return 丹方英雄火焰伤害紫;
+                case QualityType.宇品: return 丹方英雄火焰伤害橙;
+                case QualityType.宙品: return 丹方英雄火焰伤害粉;
+                case QualityType.洪品: return 丹方英雄火焰伤害红;
+                case QualityType.荒品: return 丹方英雄火焰伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄冰霜伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄冰霜伤害白;
+                case QualityType.玄品: return 丹方英雄冰霜伤害绿;
+                case QualityType.地品: return 丹方英雄冰霜伤害蓝;
+                case QualityType.天品: return 丹方英雄冰霜伤害紫;
+                case QualityType.宇品: return 丹方英雄冰霜伤害橙;
+                case QualityType.宙品: return 丹方英雄冰霜伤害粉;
+                case QualityType.洪品: return 丹方英雄冰霜伤害红;
+                case QualityType.荒品: return 丹方英雄冰霜伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄雷电伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄雷电伤害白;
+                case QualityType.玄品: return 丹方英雄雷电伤害绿;
+                case QualityType.地品: return 丹方英雄雷电伤害蓝;
+                case QualityType.天品: return 丹方英雄雷电伤害紫;
+                case QualityType.宇品: return 丹方英雄雷电伤害橙;
+                case QualityType.宙品: return 丹方英雄雷电伤害粉;
+                case QualityType.洪品: return 丹方英雄雷电伤害红;
+                case QualityType.荒品: return 丹方英雄雷电伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄黑暗伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄黑暗伤害白;
+                case QualityType.玄品: return 丹方英雄黑暗伤害绿;
+                case QualityType.地品: return 丹方英雄黑暗伤害蓝;
+                case QualityType.天品: return 丹方英雄黑暗伤害紫;
+                case QualityType.宇品: return 丹方英雄黑暗伤害橙;
+                case QualityType.宙品: return 丹方英雄黑暗伤害粉;
+                case QualityType.洪品: return 丹方英雄黑暗伤害红;
+                case QualityType.荒品: return 丹方英雄黑暗伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄物理伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄物理伤害白;
+                case QualityType.玄品: return 丹方英雄物理伤害绿;
+                case QualityType.地品: return 丹方英雄物理伤害蓝;
+                case QualityType.天品: return 丹方英雄物理伤害紫;
+                case QualityType.宇品: return 丹方英雄物理伤害橙;
+                case QualityType.宙品: return 丹方英雄物理伤害粉;
+                case QualityType.洪品: return 丹方英雄物理伤害红;
+                case QualityType.荒品: return 丹方英雄物理伤害彩;
+                default: return null;
+            }
+
+        
+        case 丹药Type.英雄最终伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 丹方英雄最终伤害白;
+                case QualityType.玄品: return 丹方英雄最终伤害绿;
+                case QualityType.地品: return 丹方英雄最终伤害蓝;
+                case QualityType.天品: return 丹方英雄最终伤害紫;
+                case QualityType.宇品: return 丹方英雄最终伤害橙;
+                case QualityType.宙品: return 丹方英雄最终伤害粉;
+                case QualityType.洪品: return 丹方英雄最终伤害红;
+                case QualityType.荒品: return 丹方英雄最终伤害彩;
+                default: return null;
+            }
+
+        default:
+            return null;
+    }
+}
+
+
+    public static Sprite Get丹药icon(丹药Type 丹药Type, QualityType qualityType)
+{
+    switch (丹药Type)
+    {
+        case 丹药Type.火焰伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 火焰伤害白;
+                case QualityType.玄品: return 火焰伤害绿;
+                case QualityType.地品: return 火焰伤害蓝;
+                case QualityType.天品: return 火焰伤害紫;
+                case QualityType.宇品: return 火焰伤害橙;
+                case QualityType.宙品: return 火焰伤害粉;
+                case QualityType.洪品: return 火焰伤害红;
+                case QualityType.荒品: return 火焰伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.冰霜伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 冰霜伤害白;
+                case QualityType.玄品: return 冰霜伤害绿;
+                case QualityType.地品: return 冰霜伤害蓝;
+                case QualityType.天品: return 冰霜伤害紫;
+                case QualityType.宇品: return 冰霜伤害橙;
+                case QualityType.宙品: return 冰霜伤害粉;
+                case QualityType.洪品: return 冰霜伤害红;
+                case QualityType.荒品: return 冰霜伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.雷电伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 雷电伤害白;
+                case QualityType.玄品: return 雷电伤害绿;
+                case QualityType.地品: return 雷电伤害蓝;
+                case QualityType.天品: return 雷电伤害紫;
+                case QualityType.宇品: return 雷电伤害橙;
+                case QualityType.宙品: return 雷电伤害粉;
+                case QualityType.洪品: return 雷电伤害红;
+                case QualityType.荒品: return 雷电伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.黑暗伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 黑暗伤害白;
+                case QualityType.玄品: return 黑暗伤害绿;
+                case QualityType.地品: return 黑暗伤害蓝;
+                case QualityType.天品: return 黑暗伤害紫;
+                case QualityType.宇品: return 黑暗伤害橙;
+                case QualityType.宙品: return 黑暗伤害粉;
+                case QualityType.洪品: return 黑暗伤害红;
+                case QualityType.荒品: return 黑暗伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.物理伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 物理伤害白;
+                case QualityType.玄品: return 物理伤害绿;
+                case QualityType.地品: return 物理伤害蓝;
+                case QualityType.天品: return 物理伤害紫;
+                case QualityType.宇品: return 物理伤害橙;
+                case QualityType.宙品: return 物理伤害粉;
+                case QualityType.洪品: return 物理伤害红;
+                case QualityType.荒品: return 物理伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.战士伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 战士伤害白;
+                case QualityType.玄品: return 战士伤害绿;
+                case QualityType.地品: return 战士伤害蓝;
+                case QualityType.天品: return 战士伤害紫;
+                case QualityType.宇品: return 战士伤害橙;
+                case QualityType.宙品: return 战士伤害粉;
+                case QualityType.洪品: return 战士伤害红;
+                case QualityType.荒品: return 战士伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.法师伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 法师伤害白;
+                case QualityType.玄品: return 法师伤害绿;
+                case QualityType.地品: return 法师伤害蓝;
+                case QualityType.天品: return 法师伤害紫;
+                case QualityType.宇品: return 法师伤害橙;
+                case QualityType.宙品: return 法师伤害粉;
+                case QualityType.洪品: return 法师伤害红;
+                case QualityType.荒品: return 法师伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.射手伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 射手伤害白;
+                case QualityType.玄品: return 射手伤害绿;
+                case QualityType.地品: return 射手伤害蓝;
+                case QualityType.天品: return 射手伤害紫;
+                case QualityType.宇品: return 射手伤害橙;
+                case QualityType.宙品: return 射手伤害粉;
+                case QualityType.洪品: return 射手伤害红;
+                case QualityType.荒品: return 射手伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.控制伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 控制伤害白;
+                case QualityType.玄品: return 控制伤害绿;
+                case QualityType.地品: return 控制伤害蓝;
+                case QualityType.天品: return 控制伤害紫;
+                case QualityType.宇品: return 控制伤害橙;
+                case QualityType.宙品: return 控制伤害粉;
+                case QualityType.洪品: return 控制伤害红;
+                case QualityType.荒品: return 控制伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.辅助伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 辅助伤害白;
+                case QualityType.玄品: return 辅助伤害绿;
+                case QualityType.地品: return 辅助伤害蓝;
+                case QualityType.天品: return 辅助伤害紫;
+                case QualityType.宇品: return 辅助伤害橙;
+                case QualityType.宙品: return 辅助伤害粉;
+                case QualityType.洪品: return 辅助伤害红;
+                case QualityType.荒品: return 辅助伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.最终伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 最终伤害白;
+                case QualityType.玄品: return 最终伤害绿;
+                case QualityType.地品: return 最终伤害蓝;
+                case QualityType.天品: return 最终伤害紫;
+                case QualityType.宇品: return 最终伤害橙;
+                case QualityType.宙品: return 最终伤害粉;
+                case QualityType.洪品: return 最终伤害红;
+                case QualityType.荒品: return 最终伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.修炼速度:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 修炼速度白;
+                case QualityType.玄品: return 修炼速度绿;
+                case QualityType.地品: return 修炼速度蓝;
+                case QualityType.天品: return 修炼速度紫;
+                case QualityType.宇品: return 修炼速度橙;
+                case QualityType.宙品: return 修炼速度粉;
+                case QualityType.洪品: return 修炼速度红;
+                case QualityType.荒品: return 修炼速度彩;
+                default: return null;
+            }
+
+        case 丹药Type.掉宝率:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 掉宝率白;
+                case QualityType.玄品: return 掉宝率绿;
+                case QualityType.地品: return 掉宝率蓝;
+                case QualityType.天品: return 掉宝率紫;
+                case QualityType.宇品: return 掉宝率橙;
+                case QualityType.宙品: return 掉宝率粉;
+                case QualityType.洪品: return 掉宝率红;
+                case QualityType.荒品: return 掉宝率彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄暴击伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄暴击伤害白;
+                case QualityType.玄品: return 英雄暴击伤害绿;
+                case QualityType.地品: return 英雄暴击伤害蓝;
+                case QualityType.天品: return 英雄暴击伤害紫;
+                case QualityType.宇品: return 英雄暴击伤害橙;
+                case QualityType.宙品: return 英雄暴击伤害粉;
+                case QualityType.洪品: return 英雄暴击伤害红;
+                case QualityType.荒品: return 英雄暴击伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.加跟脚:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 加跟脚白;
+                case QualityType.玄品: return 加跟脚绿;
+                case QualityType.地品: return 加跟脚蓝;
+                case QualityType.天品: return 加跟脚紫;
+                case QualityType.宇品: return 加跟脚橙;
+                case QualityType.宙品: return 加跟脚粉;
+                case QualityType.洪品: return 加跟脚红;
+                case QualityType.荒品: return 加跟脚彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄火焰伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄火焰伤害白;
+                case QualityType.玄品: return 英雄火焰伤害绿;
+                case QualityType.地品: return 英雄火焰伤害蓝;
+                case QualityType.天品: return 英雄火焰伤害紫;
+                case QualityType.宇品: return 英雄火焰伤害橙;
+                case QualityType.宙品: return 英雄火焰伤害粉;
+                case QualityType.洪品: return 英雄火焰伤害红;
+                case QualityType.荒品: return 英雄火焰伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄冰霜伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄冰霜伤害白;
+                case QualityType.玄品: return 英雄冰霜伤害绿;
+                case QualityType.地品: return 英雄冰霜伤害蓝;
+                case QualityType.天品: return 英雄冰霜伤害紫;
+                case QualityType.宇品: return 英雄冰霜伤害橙;
+                case QualityType.宙品: return 英雄冰霜伤害粉;
+                case QualityType.洪品: return 英雄冰霜伤害红;
+                case QualityType.荒品: return 英雄冰霜伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄雷电伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄雷电伤害白;
+                case QualityType.玄品: return 英雄雷电伤害绿;
+                case QualityType.地品: return 英雄雷电伤害蓝;
+                case QualityType.天品: return 英雄雷电伤害紫;
+                case QualityType.宇品: return 英雄雷电伤害橙;
+                case QualityType.宙品: return 英雄雷电伤害粉;
+                case QualityType.洪品: return 英雄雷电伤害红;
+                case QualityType.荒品: return 英雄雷电伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄黑暗伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄黑暗伤害白;
+                case QualityType.玄品: return 英雄黑暗伤害绿;
+                case QualityType.地品: return 英雄黑暗伤害蓝;
+                case QualityType.天品: return 英雄黑暗伤害紫;
+                case QualityType.宇品: return 英雄黑暗伤害橙;
+                case QualityType.宙品: return 英雄黑暗伤害粉;
+                case QualityType.洪品: return 英雄黑暗伤害红;
+                case QualityType.荒品: return 英雄黑暗伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄物理伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄物理伤害白;
+                case QualityType.玄品: return 英雄物理伤害绿;
+                case QualityType.地品: return 英雄物理伤害蓝;
+                case QualityType.天品: return 英雄物理伤害紫;
+                case QualityType.宇品: return 英雄物理伤害橙;
+                case QualityType.宙品: return 英雄物理伤害粉;
+                case QualityType.洪品: return 英雄物理伤害红;
+                case QualityType.荒品: return 英雄物理伤害彩;
+                default: return null;
+            }
+
+        case 丹药Type.英雄最终伤害:
+            switch (qualityType)
+            {
+                case QualityType.黄品: return 英雄最终伤害白;
+                case QualityType.玄品: return 英雄最终伤害绿;
+                case QualityType.地品: return 英雄最终伤害蓝;
+                case QualityType.天品: return 英雄最终伤害紫;
+                case QualityType.宇品: return 英雄最终伤害橙;
+                case QualityType.宙品: return 英雄最终伤害粉;
+                case QualityType.洪品: return 英雄最终伤害红;
+                case QualityType.荒品: return 英雄最终伤害彩;
+                default: return null;
+            }
+
+        default:
+            return null;
+    }
+}
+
     public static void Init()
     {
+        
+        // 火焰伤害
+// 火焰伤害 - 火元丹
+丹方火焰伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[0];
+丹方火焰伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[1];
+丹方火焰伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[2];
+丹方火焰伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[3];
+丹方火焰伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[4];
+丹方火焰伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[5];
+丹方火焰伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[6];
+丹方火焰伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[7];
+
+// 冰霜伤害 - 霜华丹
+丹方冰霜伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[0];
+丹方冰霜伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[1];
+丹方冰霜伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[2];
+丹方冰霜伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[3];
+丹方冰霜伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[4];
+丹方冰霜伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[5];
+丹方冰霜伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[6];
+丹方冰霜伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/霜华丹")[7];
+
+// 雷电伤害 - 雷魄丹
+丹方雷电伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[0];
+丹方雷电伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[1];
+丹方雷电伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[2];
+丹方雷电伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[3];
+丹方雷电伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[4];
+丹方雷电伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[5];
+丹方雷电伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[6];
+丹方雷电伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/雷魄丹")[7];
+
+// 黑暗伤害 - 玄冥丹
+丹方黑暗伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[0];
+丹方黑暗伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[1];
+丹方黑暗伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[2];
+丹方黑暗伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[3];
+丹方黑暗伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[4];
+丹方黑暗伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[5];
+丹方黑暗伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[6];
+丹方黑暗伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冥丹")[7];
+
+// 物理伤害 - 破罡丹
+丹方物理伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[0];
+丹方物理伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[1];
+丹方物理伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[2];
+丹方物理伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[3];
+丹方物理伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[4];
+丹方物理伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[5];
+丹方物理伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[6];
+丹方物理伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破罡丹")[7];
+
+// 战士伤害 - 虎力丹
+丹方战士伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[0];
+丹方战士伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[1];
+丹方战士伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[2];
+丹方战士伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[3];
+丹方战士伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[4];
+丹方战士伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[5];
+丹方战士伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[6];
+丹方战士伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/虎力丹")[7];
+
+// 法师伤害 - 灵蕴丹
+丹方法师伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[0];
+丹方法师伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[1];
+丹方法师伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[2];
+丹方法师伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[3];
+丹方法师伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[4];
+丹方法师伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[5];
+丹方法师伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[6];
+丹方法师伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/灵蕴丹")[7];
+
+// 射手伤害 - 凝矢丹
+丹方射手伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[0];
+丹方射手伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[1];
+丹方射手伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[2];
+丹方射手伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[3];
+丹方射手伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[4];
+丹方射手伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[5];
+丹方射手伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[6];
+丹方射手伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凝矢丹")[7];
+
+// 控制伤害 - 缚灵丹
+丹方控制伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[0];
+丹方控制伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[1];
+丹方控制伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[2];
+丹方控制伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[3];
+丹方控制伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[4];
+丹方控制伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[5];
+丹方控制伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[6];
+丹方控制伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/缚灵丹")[7];
+
+// 辅助伤害 - 玄辅丹
+丹方辅助伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[0];
+丹方辅助伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[1];
+丹方辅助伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[2];
+丹方辅助伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[3];
+丹方辅助伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[4];
+丹方辅助伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[5];
+丹方辅助伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[6];
+丹方辅助伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄辅丹")[7];
+
+// 最终伤害 - 归元丹
+丹方最终伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[0];
+丹方最终伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[1];
+丹方最终伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[2];
+丹方最终伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[3];
+丹方最终伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[4];
+丹方最终伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[5];
+丹方最终伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[6];
+丹方最终伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/归元丹")[7];
+
+// 修炼速度 - 悟道丹
+丹方修炼速度白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[0];
+丹方修炼速度绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[1];
+丹方修炼速度蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[2];
+丹方修炼速度紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[3];
+丹方修炼速度橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[4];
+丹方修炼速度粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[5];
+丹方修炼速度红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[6];
+丹方修炼速度彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/悟道丹")[7];
+
+// 掉宝率 - 寻龙丹
+丹方掉宝率白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[0];
+丹方掉宝率绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[1];
+丹方掉宝率蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[2];
+丹方掉宝率紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[3];
+丹方掉宝率橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[4];
+丹方掉宝率粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[5];
+丹方掉宝率红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[6];
+丹方掉宝率彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/寻龙丹")[7];
+
+// 英雄暴击伤害 - 绝杀丹
+丹方英雄暴击伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[0];
+丹方英雄暴击伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[1];
+丹方英雄暴击伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[2];
+丹方英雄暴击伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[3];
+丹方英雄暴击伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[4];
+丹方英雄暴击伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[5];
+丹方英雄暴击伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[6];
+丹方英雄暴击伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/绝杀丹")[7];
+
+// 加跟脚 - 洗髓伐脉丹
+丹方加跟脚白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[0];
+丹方加跟脚绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[1];
+丹方加跟脚蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[2];
+丹方加跟脚紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[3];
+丹方加跟脚橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[4];
+丹方加跟脚粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[5];
+丹方加跟脚红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[6];
+丹方加跟脚彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/洗髓伐脉丹")[7];
+
+// 英雄火焰伤害 - 凤火丹
+丹方英雄火焰伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[0];
+丹方英雄火焰伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[1];
+丹方英雄火焰伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[2];
+丹方英雄火焰伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[3];
+丹方英雄火焰伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[4];
+丹方英雄火焰伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[5];
+丹方英雄火焰伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[6];
+丹方英雄火焰伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/凤火丹")[7];
+
+// 英雄冰霜伤害 - 玄冰丹
+丹方英雄冰霜伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[0];
+丹方英雄冰霜伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[1];
+丹方英雄冰霜伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[2];
+丹方英雄冰霜伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[3];
+丹方英雄冰霜伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[4];
+丹方英雄冰霜伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[5];
+丹方英雄冰霜伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[6];
+丹方英雄冰霜伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/玄冰丹")[7];
+
+// 英雄雷电伤害 - 奔雷丹
+丹方英雄雷电伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[0];
+丹方英雄雷电伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[1];
+丹方英雄雷电伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[2];
+丹方英雄雷电伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[3];
+丹方英雄雷电伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[4];
+丹方英雄雷电伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[5];
+丹方英雄雷电伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[6];
+丹方英雄雷电伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/奔雷丹")[7];
+
+// 英雄黑暗伤害 - 幽泉丹
+丹方英雄黑暗伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[0];
+丹方英雄黑暗伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[1];
+丹方英雄黑暗伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[2];
+丹方英雄黑暗伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[3];
+丹方英雄黑暗伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[4];
+丹方英雄黑暗伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[5];
+丹方英雄黑暗伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[6];
+丹方英雄黑暗伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/幽泉丹")[7];
+
+// 英雄物理伤害 - 金刚丹
+丹方英雄物理伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[0];
+丹方英雄物理伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[1];
+丹方英雄物理伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[2];
+丹方英雄物理伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[3];
+丹方英雄物理伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[4];
+丹方英雄物理伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[5];
+丹方英雄物理伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[6];
+丹方英雄物理伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/金刚丹")[7];
+
+// 英雄战士伤害 - 骁勇丹
+丹方英雄战士伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[0];
+丹方英雄战士伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[1];
+丹方英雄战士伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[2];
+丹方英雄战士伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[3];
+丹方英雄战士伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[4];
+丹方英雄战士伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[5];
+丹方英雄战士伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[6];
+丹方英雄战士伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/骁勇丹")[7];
+
+// 英雄法师伤害 - 天机丹
+丹方英雄法师伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[0];
+丹方英雄法师伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[1];
+丹方英雄法师伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[2];
+丹方英雄法师伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[3];
+丹方英雄法师伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[4];
+丹方英雄法师伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[5];
+丹方英雄法师伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[6];
+丹方英雄法师伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/天机丹")[7];
+
+// 英雄射手伤害 - 破军丹
+丹方英雄射手伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[0];
+丹方英雄射手伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[1];
+丹方英雄射手伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[2];
+丹方英雄射手伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[3];
+丹方英雄射手伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[4];
+丹方英雄射手伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[5];
+丹方英雄射手伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[6];
+丹方英雄射手伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/破军丹")[7];
+
+// 英雄控制伤害 - 镇魂丹
+丹方英雄控制伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[0];
+丹方英雄控制伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[1];
+丹方英雄控制伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[2];
+丹方英雄控制伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[3];
+丹方英雄控制伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[4];
+丹方英雄控制伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[5];
+丹方英雄控制伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[6];
+丹方英雄控制伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/镇魂丹")[7];
+
+// 英雄辅助伤害 - 太初丹
+丹方英雄辅助伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[0];
+丹方英雄辅助伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[1];
+丹方英雄辅助伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[2];
+丹方英雄辅助伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[3];
+丹方英雄辅助伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[4];
+丹方英雄辅助伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[5];
+丹方英雄辅助伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[6];
+丹方英雄辅助伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/太初丹")[7];
+
+// 英雄最终伤害 - 混元丹
+丹方英雄最终伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[0];
+丹方英雄最终伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[1];
+丹方英雄最终伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[2];
+丹方英雄最终伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[3];
+丹方英雄最终伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[4];
+丹方英雄最终伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[5];
+丹方英雄最终伤害红 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[6];
+丹方英雄最终伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹方icon/混元丹")[7];
+        
+      
+
+
+
+
+// 火焰伤害
+火焰伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[0];
+火焰伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[1];
+火焰伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[2];
+火焰伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[3];
+火焰伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[4];
+火焰伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[5];
+火焰伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[6];
+火焰伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/火焰伤害")[7];
+
+// 冰霜伤害
+冰霜伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[0];
+冰霜伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[1];
+冰霜伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[2];
+冰霜伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[3];
+冰霜伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[4];
+冰霜伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[5];
+冰霜伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[6];
+冰霜伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/冰霜伤害")[7];
+
+// 雷电伤害
+雷电伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[0];
+雷电伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[1];
+雷电伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[2];
+雷电伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[3];
+雷电伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[4];
+雷电伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[5];
+雷电伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[6];
+雷电伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/雷电伤害")[7];
+
+// 黑暗伤害
+黑暗伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[0];
+黑暗伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[1];
+黑暗伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[2];
+黑暗伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[3];
+黑暗伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[4];
+黑暗伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[5];
+黑暗伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[6];
+黑暗伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/黑暗伤害")[7];
+
+// 物理伤害
+物理伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[0];
+物理伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[1];
+物理伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[2];
+物理伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[3];
+物理伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[4];
+物理伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[5];
+物理伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[6];
+物理伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/物理伤害")[7];
+
+// 战士伤害
+战士伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[0];
+战士伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[1];
+战士伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[2];
+战士伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[3];
+战士伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[4];
+战士伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[5];
+战士伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[6];
+战士伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/战士伤害")[7];
+
+// 法师伤害
+法师伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[0];
+法师伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[1];
+法师伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[2];
+法师伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[3];
+法师伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[4];
+法师伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[5];
+法师伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[6];
+法师伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/法师伤害")[7];
+
+// 射手伤害
+射手伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[0];
+射手伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[1];
+射手伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[2];
+射手伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[3];
+射手伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[4];
+射手伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[5];
+射手伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[6];
+射手伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/射手伤害")[7];
+
+// 控制伤害
+控制伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[0];
+控制伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[1];
+控制伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[2];
+控制伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[3];
+控制伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[4];
+控制伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[5];
+控制伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[6];
+控制伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/控制伤害")[7];
+
+// 辅助伤害
+辅助伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[0];
+辅助伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[1];
+辅助伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[2];
+辅助伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[3];
+辅助伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[4];
+辅助伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[5];
+辅助伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[6];
+辅助伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/辅助伤害")[7];
+
+// 最终伤害
+最终伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[0];
+最终伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[1];
+最终伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[2];
+最终伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[3];
+最终伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[4];
+最终伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[5];
+最终伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[6];
+最终伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/最终伤害")[7];
+
+// 修炼速度
+修炼速度白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[0];
+修炼速度绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[1];
+修炼速度蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[2];
+修炼速度紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[3];
+修炼速度橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[4];
+修炼速度粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[5];
+修炼速度红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[6];
+修炼速度彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/修炼速度")[7];
+
+// 掉宝率
+掉宝率白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[0];
+掉宝率绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[1];
+掉宝率蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[2];
+掉宝率紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[3];
+掉宝率橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[4];
+掉宝率粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[5];
+掉宝率红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[6];
+掉宝率彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/掉宝率")[7];
+
+// 英雄暴击伤害
+英雄暴击伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[0];
+英雄暴击伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[1];
+英雄暴击伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[2];
+英雄暴击伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[3];
+英雄暴击伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[4];
+英雄暴击伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[5];
+英雄暴击伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[6];
+英雄暴击伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄暴击伤害")[7];
+
+// 加跟脚
+加跟脚白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[0];
+加跟脚绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[1];
+加跟脚蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[2];
+加跟脚紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[3];
+加跟脚橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[4];
+加跟脚粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[5];
+加跟脚红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[6];
+加跟脚彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/加跟脚")[7];
+
+// 英雄火焰伤害
+英雄火焰伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[0];
+英雄火焰伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[1];
+英雄火焰伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[2];
+英雄火焰伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[3];
+英雄火焰伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[4];
+英雄火焰伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[5];
+英雄火焰伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[6];
+英雄火焰伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄火焰伤害")[7];
+
+// 英雄冰霜伤害
+英雄冰霜伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[0];
+英雄冰霜伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[1];
+英雄冰霜伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[2];
+英雄冰霜伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[3];
+英雄冰霜伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[4];
+英雄冰霜伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[5];
+英雄冰霜伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[6];
+英雄冰霜伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄冰霜伤害")[7];
+
+// 英雄雷电伤害
+英雄雷电伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[0];
+英雄雷电伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[1];
+英雄雷电伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[2];
+英雄雷电伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[3];
+英雄雷电伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[4];
+英雄雷电伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[5];
+英雄雷电伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[6];
+英雄雷电伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄雷电伤害")[7];
+
+// 英雄黑暗伤害
+英雄黑暗伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[0];
+英雄黑暗伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[1];
+英雄黑暗伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[2];
+英雄黑暗伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[3];
+英雄黑暗伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[4];
+英雄黑暗伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[5];
+英雄黑暗伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[6];
+英雄黑暗伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄黑暗伤害")[7];
+
+// 英雄物理伤害
+英雄物理伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[0];
+英雄物理伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[1];
+英雄物理伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[2];
+英雄物理伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[3];
+英雄物理伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[4];
+英雄物理伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[5];
+英雄物理伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[6];
+英雄物理伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄物理伤害")[7];
+
+// 英雄战士伤害
+英雄战士伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[0];
+英雄战士伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[1];
+英雄战士伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[2];
+英雄战士伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[3];
+英雄战士伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[4];
+英雄战士伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[5];
+英雄战士伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[6];
+英雄战士伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄战士伤害")[7];
+
+// 英雄法师伤害
+英雄法师伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[0];
+英雄法师伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[1];
+英雄法师伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[2];
+英雄法师伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[3];
+英雄法师伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[4];
+英雄法师伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[5];
+英雄法师伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[6];
+英雄法师伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄法师伤害")[7];
+
+// 英雄射手伤害
+英雄射手伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[0];
+英雄射手伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[1];
+英雄射手伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[2];
+英雄射手伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[3];
+英雄射手伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[4];
+英雄射手伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[5];
+英雄射手伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[6];
+英雄射手伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄射手伤害")[7];
+
+// 英雄控制伤害
+英雄控制伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[0];
+英雄控制伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[1];
+英雄控制伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[2];
+英雄控制伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[3];
+英雄控制伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[4];
+英雄控制伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[5];
+英雄控制伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[6];
+英雄控制伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄控制伤害")[7];
+
+// 英雄辅助伤害
+英雄辅助伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[0];
+英雄辅助伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[1];
+英雄辅助伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[2];
+英雄辅助伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[3];
+英雄辅助伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[4];
+英雄辅助伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[5];
+英雄辅助伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[6];
+英雄辅助伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄辅助伤害")[7];
+
+// 英雄最终伤害
+英雄最终伤害白 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[0];
+英雄最终伤害绿 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[1];
+英雄最终伤害蓝 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[2];
+英雄最终伤害紫 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[3];
+英雄最终伤害橙 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[4];
+英雄最终伤害粉 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[5];
+英雄最终伤害红 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[6];
+英雄最终伤害彩 = Resources.LoadAll<Sprite>("Sprite/丹药icon/英雄最终伤害")[7];
 // 金银花蕊
         金银花蕊白 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[0];
         金银花蕊绿 = Resources.LoadAll<Sprite>("Sprite/灵药icon/金银花蕊")[1];
