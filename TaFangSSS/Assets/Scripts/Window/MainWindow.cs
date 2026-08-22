@@ -37,6 +37,7 @@ public class MainWindow : MonoBehaviour
     public Button 城墙Button;
     public Button 炼器Button;
     public Button 坊市Button;
+    public Button 炼丹Button;
     public GameObject 坊市窗口;
 
     public 主线关卡窗口 主线关卡窗口;
@@ -105,6 +106,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.城墙Window.gameObject.SetActive(false);
         WindowController.S.炼器Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/炼器/炼器界面"));
         WindowController.S.炼器Window.gameObject.SetActive(false);
+        WindowController.S.炼丹Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/炼丹界面/炼丹界面"));
+        WindowController.S.炼丹Window.gameObject.SetActive(false);
     }
 
     public void 显示主线关卡弹窗(object[] obj)
@@ -257,6 +260,10 @@ public class MainWindow : MonoBehaviour
         炼器Button.onClick.AddListener(() =>
         {
             WindowController.S.炼器Window.gameObject.SetActive(true);
+        });
+        炼丹Button.onClick.AddListener(() =>
+        {
+            WindowController.S.炼丹Window.gameObject.SetActive(true);
         });
         主线关卡Debug.onClick.AddListener(() =>
         {

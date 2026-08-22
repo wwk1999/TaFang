@@ -12,6 +12,7 @@ public class WindowController : XSingleton<WindowController>
    [NonSerialized]public GameObject 道宝Window;
    [NonSerialized]public GameObject 城墙Window;
    [NonSerialized]public GameObject 炼器Window;
+   [NonSerialized]public GameObject 炼丹Window;
 
 
    private void Awake()

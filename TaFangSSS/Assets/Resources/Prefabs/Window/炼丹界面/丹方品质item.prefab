@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5935559939931336726}
   - component: {fileID: 3072447834360281875}
   - component: {fileID: 8485675790377141826}
+  - component: {fileID: 7696659945740683524}
   m_Layer: 0
   m_Name: "\u4E39\u65B9\u54C1\u8D28item"
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 741f8144a7da4224e973549b8a31fb42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -197,6 +198,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7696659945740683524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6814228393458650745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e47f12ead791c4190d9caa03f02d1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bg: {fileID: 8485675790377141826}
+  icon: {fileID: 6380527845582812525}
+  name: {fileID: 385819066115603938}
 --- !u!1 &7348812274787566010
 GameObject:
   m_ObjectHideFlags: 0
