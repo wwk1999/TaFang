@@ -217,7 +217,7 @@ public class 仙石镶嵌panel : MonoBehaviour
         页数.text=页数num.ToString();
         if (显示法器)
         {
-            for (int i = 40*(页数num-1); i < Math.Min(页数num*40,PlayerData.S.法器列表.Count); i++)
+            for (int i = 40*(页数num-1); i < Math.Min(页数num*40-1,PlayerData.S.法器列表.Count); i++)
             {
                 var 法器item = Instantiate(Resources.Load("Prefabs/Window/炼器/镶嵌法器item"), content.transform)
                     .GetComponent<镶嵌法器item>();
@@ -229,7 +229,7 @@ public class 仙石镶嵌panel : MonoBehaviour
         }
         else
         {
-            for (int i = 40*(页数num-1); i < Math.Min(页数num*40,PlayerData.S.仙石列表.Count); i++)
+            for (int i = 40*(页数num-1); i < Math.Min(页数num*40-1,PlayerData.S.仙石列表.Count); i++)
             {
                 var 仙石item = Instantiate(Resources.Load("Prefabs/Window/炼器/镶嵌仙石item"), content.transform)
                     .GetComponent<镶嵌仙石item>();

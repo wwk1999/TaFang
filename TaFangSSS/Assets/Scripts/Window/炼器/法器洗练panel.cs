@@ -168,10 +168,7 @@ public class 法器洗练panel : MonoBehaviour
         });
         保留Button.onClick.AddListener(() =>
         {
-            if (HeroWindowController.S.洗练后词条 != null)
-            {
-                保留();
-            }
+            保留();
         });
         左Button.onClick.AddListener(() =>
         {

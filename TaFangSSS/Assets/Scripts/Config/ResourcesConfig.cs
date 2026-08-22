@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 加号背景框1;
+
     //丹药
     public static Sprite 丹方火焰伤害白;
 public static Sprite 丹方火焰伤害绿;
@@ -5677,7 +5679,7 @@ public static Sprite 英雄最终伤害彩;
 
     public static void Init()
     {
-        
+        加号背景框1= Resources.Load<Sprite>("Sprite/按钮/加号背景框");
         // 火焰伤害
 // 火焰伤害 - 火元丹
 丹方火焰伤害白 = Resources.LoadAll<Sprite>("Sprite/丹方icon/火元丹")[0];

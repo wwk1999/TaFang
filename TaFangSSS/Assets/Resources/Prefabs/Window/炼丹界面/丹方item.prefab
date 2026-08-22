@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1228516535919491783}
   - component: {fileID: 4197745455988517582}
   - component: {fileID: 1324931522169575355}
+  - component: {fileID: 209565126267160396}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -75,6 +76,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &209565126267160396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481818933430777067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1324931522169575355}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1461283826845531510
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -275,6 +320,7 @@ GameObject:
   - component: {fileID: 8549753241375144058}
   - component: {fileID: 7375824930045578470}
   - component: {fileID: 4507574894979284094}
+  - component: {fileID: 3738457766281195337}
   m_Layer: 0
   m_Name: "\u4E39\u65B9item"
   m_TagString: Untagged
@@ -343,6 +389,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3738457766281195337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551819231645010356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd7a1ca5ebb6644990b8212548ddb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trans: {fileID: 8549753241375144058}
+  name: {fileID: 6437731808695656255}
+  "\u7BAD\u5934": {fileID: 1519524544661462526}
+  "\u4E39\u65B9\u4E0B\u62C9\u533A\u57DF": {fileID: 9193221204076948332}
+  "\u6309\u94AE": {fileID: 209565126267160396}
 --- !u!1 &6440600951271153165
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -651,3 +714,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2431630019656161843, guid: 390e15b8e8971dc4797819b13b2f1396, type: 3}
   m_PrefabInstance: {fileID: 8538831844550636773}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9193221204076948332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 654402556119981961, guid: 390e15b8e8971dc4797819b13b2f1396, type: 3}
+  m_PrefabInstance: {fileID: 8538831844550636773}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7352fc7538acf0b46bf7dc2561933d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -69,5 +69,8 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 仙石Type 重铸后仙石Type;
     
     [NonSerialized]public 神物Type 当前遗迹关卡Type=神物Type.None;
-
+    
+    
+    [NonSerialized] public 丹药Type 当前炼丹显示Type;
+    [NonSerialized] public QualityType 当前炼丹显示QualityType;
 }
