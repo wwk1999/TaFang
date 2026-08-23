@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public 丹方使用弹窗 丹方使用弹窗;
    public 确认服用造化丹药弹窗 确认服用造化丹药弹窗;
    public 服用辅助丹药弹窗 服用辅助丹药弹窗;
    public 根基丹药服用弹窗 根基丹药服用弹窗;
@@ -112,6 +113,7 @@ public class 储物袋界面 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("显示使用丹方弹窗",显示使用丹方弹窗);
       ObserverModuleManager.S.UnRegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
       ObserverModuleManager.S.UnRegisterEvent("服用根基丹药",服用根基丹药);
       ObserverModuleManager.S.UnRegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
@@ -175,8 +177,18 @@ public class 储物袋界面 : MonoBehaviour
       确认服用造化丹药弹窗.qualityType = qualityType;
       确认服用造化丹药弹窗.gameObject.SetActive(true);
    }
+
+   public void 显示使用丹方弹窗(object[] obj)
+   {
+      丹药Type type = (丹药Type)obj[0];
+      QualityType qualityType=(QualityType)obj[1];
+      丹方使用弹窗.qualityType = qualityType;
+      丹方使用弹窗.丹药Type = type;
+      丹方使用弹窗.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("显示使用丹方弹窗",显示使用丹方弹窗);
       ObserverModuleManager.S.RegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
       ObserverModuleManager.S.RegisterEvent("服用根基丹药",服用根基丹药);
       ObserverModuleManager.S.RegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
@@ -664,23 +676,50 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-      int 道具数量 = 0;
-      if (页数Num == 1)
+      // 收集道具和丹方，按品质降序排序
+      var itemList = new List<(int quality, bool is丹方, PropType propType, 丹药Type 丹药Type, QualityType 丹方Quality)>();
+
+      foreach (var item in PlayerData.S.PropListDic)
       {
-         foreach (var item in PlayerData.S.PropListDic)
+         if (item.Value > 0)
          {
-            if (item.Value > 0)
+            itemList.Add(((int)PropConfig.PropQualityDic[item.Key], false, item.Key, 0, QualityType.None));
+         }
+      }
+
+      foreach (var item in PlayerData.S.丹方Dic)
+      {
+         if (item.Value > 0)
+         {
+            var parts = item.Key.Split('_');
+            if (parts.Length == 2 && Enum.TryParse(parts[0], out 丹药Type 丹药type) && Enum.TryParse(parts[1], out QualityType quality))
             {
-               var baggrid = Instantiate(Resources.Load("Prefabs/Window/BagGrid"), BagContent.transform).GetComponent<BagGrid>();
-               baggrid.propType = item.Key;
-               baggrid.SetItem();
-               道具数量++;
+               itemList.Add(((int)quality, true, PropType.None, 丹药type, quality));
             }
          }
       }
-      
-      
-      
+
+      itemList.Sort((a, b) => b.quality.CompareTo(a.quality));
+
+      int startIndex = (页数Num - 1) * 48;
+      int endIndex = Mathf.Min(页数Num * 48, itemList.Count);
+      for (int i = startIndex; i < endIndex; i++)
+      {
+         var entry = itemList[i];
+         if (entry.is丹方)
+         {
+            var 丹方grid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/丹方Grid"), BagContent.transform).GetComponent<丹方Grid>();
+            丹方grid.丹药Type = entry.丹药Type;
+            丹方grid.QualityType = entry.丹方Quality;
+            丹方grid.SetItem();
+         }
+         else
+         {
+            var baggrid = Instantiate(Resources.Load("Prefabs/Window/BagGrid"), BagContent.transform).GetComponent<BagGrid>();
+            baggrid.propType = entry.propType;
+            baggrid.SetItem();
+         }
+      }
    }
    public int Get灵物最大页数()
    {

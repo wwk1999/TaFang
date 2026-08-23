@@ -10,14 +10,22 @@ public class 丹方Grid : MonoBehaviour
 {
     [NonSerialized] public 丹药Type 丹药Type;
     [NonSerialized] public QualityType QualityType;
-    public Image bg;
+    public Button bg;
     public Image icon;
     public TextMeshProUGUI name;
     public TextMeshProUGUI count;
 
+    private void Start()
+    {
+        bg.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("显示使用丹方弹窗",丹药Type,QualityType);
+        });
+    }
+
     public void SetItem()
     {
-        bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
+        bg.image.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite=ResourcesConfig.Get丹方icon(丹药Type,QualityType);
         name.text = 丹药Config.丹方名Dic[丹药Type];
         count.text = PlayerData.S.Get丹方数量(丹药Type, QualityType).ToString();

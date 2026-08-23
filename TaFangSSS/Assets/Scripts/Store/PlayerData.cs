@@ -884,9 +884,9 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
 {
     // 火焰伤害
     {"火焰伤害_黄品", 1},
-    {"火焰伤害_玄品", 1},
-    {"火焰伤害_地品", 1},
-    {"火焰伤害_天品", 1},
+    {"火焰伤害_玄品", 0},
+    {"火焰伤害_地品", 0},
+    {"火焰伤害_天品", 0},
     {"火焰伤害_宇品", 0},
     {"火焰伤害_宙品", 0},
     {"火焰伤害_洪品", 0},
@@ -1762,9 +1762,9 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     {
         string key = type.ToString() + "_" + qualityType.ToString();
     
-        if (丹药Dic.ContainsKey(key))
+        if (丹方解锁Dic.ContainsKey(key))
         {
-            丹药Dic[key] = count?1:0;
+            丹方解锁Dic[key] = count?1:0;
         }
         else
         {

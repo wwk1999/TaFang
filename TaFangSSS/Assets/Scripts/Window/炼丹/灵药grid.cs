@@ -14,11 +14,14 @@ public class 灵药grid : MonoBehaviour
     public Image icon;
     public Image 艺术字;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI count;
+
     public void SetItem()
     {
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite = ResourcesConfig.Get灵药Icon(灵药Type,QualityType);
         艺术字.sprite = ResourcesConfig.Get艺术字(QualityType);
         name.text = 丹药Config.灵药名Dic[灵药Type];
+        count.text = PlayerData.S.Get灵药数量(灵药Type, QualityType).ToString();
     }
 }

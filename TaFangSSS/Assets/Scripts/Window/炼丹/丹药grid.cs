@@ -14,6 +14,7 @@ public class 丹药grid : MonoBehaviour
     public Image icon;
     public Image 艺术字;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI count;
 
     private void Start()
     {
@@ -46,5 +47,6 @@ public class 丹药grid : MonoBehaviour
         icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
         艺术字.sprite = ResourcesConfig.Get艺术字(QualityType);
         name.text = 丹药Config.丹药名Dic[丹药Type];
+        count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType).ToString();
     }
 }

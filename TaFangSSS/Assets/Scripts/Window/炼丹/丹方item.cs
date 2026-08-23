@@ -26,10 +26,28 @@ public class 丹方item : MonoBehaviour
         Canvas.ForceUpdateCanvases();
     }
 
+    public void 关闭下拉区域(object[] obj)
+    {
+        丹药Type Type=(丹药Type)obj[0];
+        if (丹药Type != Type)
+        {
+            丹方下拉区域.gameObject.SetActive(false);
+            箭头.localScale = new Vector3(1, -1, 1);
+        }
+        
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("关闭下拉区域",关闭下拉区域);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("关闭下拉区域",关闭下拉区域);
         按钮.onClick.AddListener(() =>
         {
+            //ObserverModuleManager.S.SendEvent("关闭下拉区域",丹药Type);
             if (!展开)
             {
                 展开 = !展开;

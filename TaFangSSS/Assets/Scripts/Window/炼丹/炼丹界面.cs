@@ -166,7 +166,7 @@ public class 炼丹界面 : MonoBehaviour
         }
         炼制进度条.maxValue = 需要时间;
         炼制进度条.value = PlayerData.S.当前炼制秒数;
-        炼制百分比.text = (PlayerData.S.当前炼制秒数 / 需要时间*100f).ToString("F1")+"%";
+        炼制百分比.text = (MathF.Min(PlayerData.S.当前炼制秒数 / 需要时间*100f,100f)).ToString("F1")+"%";
     }
 
     public void 刷新炼丹界面(object[] obj)
@@ -179,7 +179,7 @@ public class 炼丹界面 : MonoBehaviour
         float 需要时间 = 丹药Config.Get炼制丹药需要时间(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
         炼制进度条.maxValue = 需要时间;
         炼制进度条.value = PlayerData.S.当前炼制秒数;
-        炼制百分比.text = (PlayerData.S.当前炼制秒数 / 需要时间*100f).ToString("F1")+"%";
+        炼制百分比.text = (MathF.Min(PlayerData.S.当前炼制秒数 / 需要时间*100f,100f)).ToString("F1")+"%";
         剩余.text="剩余数量:"+PlayerData.S.剩余炼制数量;
     }
 
