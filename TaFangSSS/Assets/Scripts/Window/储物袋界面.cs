@@ -9,6 +9,10 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public 确认服用造化丹药弹窗 确认服用造化丹药弹窗;
+   public 服用辅助丹药弹窗 服用辅助丹药弹窗;
+   public 根基丹药服用弹窗 根基丹药服用弹窗;
+   
    public 分解确认弹窗 分解确认弹窗;
    public Button 左箭头;
    public Button 右箭头;
@@ -108,12 +112,16 @@ public class 储物袋界面 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
+      ObserverModuleManager.S.UnRegisterEvent("服用根基丹药",服用根基丹药);
+      ObserverModuleManager.S.UnRegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
       ObserverModuleManager.S.UnRegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
-      ObserverModuleManager.S.UnRegisterEvent("刷新背包", 刷新背包);
+      ObserverModuleManager.S.UnRegisterEvent("功法分解",功法分解);
       ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹image", Show道纹image);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹弹窗", Show道纹弹窗);
       ObserverModuleManager.S.UnRegisterEvent("刷新装备", 刷新装备);
+      ObserverModuleManager.S.UnRegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.UnRegisterEvent("突破成功", 突破成功);
    }
 
@@ -142,8 +150,36 @@ public class 储物袋界面 : MonoBehaviour
       }
       分解确认弹窗.gameObject.SetActive(true);
    }
+
+   public void 服用辅助丹药弹窗1(object[] obj)
+   {
+      丹药Type type=(丹药Type)obj[0];
+      QualityType qualityType = (QualityType)obj[1];
+      服用辅助丹药弹窗.丹药Type = type;
+      服用辅助丹药弹窗.QualityType = qualityType;
+      服用辅助丹药弹窗.gameObject.SetActive(true);
+   }
+
+   public void 服用根基丹药(object[] obj)
+   {
+      丹药Type type=(丹药Type)obj[0];
+      QualityType qualityType = (QualityType)obj[1];
+      根基丹药服用弹窗.丹药Type = type;
+      根基丹药服用弹窗.QualityType = qualityType;
+      根基丹药服用弹窗.gameObject.SetActive(true);
+   }
+
+   public void 显示服用造化丹药确认弹窗(object[] obj)
+   {
+      QualityType qualityType=(QualityType)obj[0];
+      确认服用造化丹药弹窗.qualityType = qualityType;
+      确认服用造化丹药弹窗.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
+      ObserverModuleManager.S.RegisterEvent("服用根基丹药",服用根基丹药);
+      ObserverModuleManager.S.RegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
       ObserverModuleManager.S.RegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.RegisterEvent("功法分解",功法分解);
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);

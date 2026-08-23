@@ -355,6 +355,31 @@ public class 丹药Config
         { 灵药Type.千幻蝶恋花, "千幻蝶恋花" },
         { 灵药Type.聚灵凝神叶, "聚灵凝神叶" },
     };
+    
+    public static Dictionary<丹药Type, YuanSuType> 丹药元素类型Dic = new Dictionary<丹药Type, YuanSuType>()
+    {
+        { 丹药Type.火焰伤害, YuanSuType.None },
+        { 丹药Type.冰霜伤害, YuanSuType.None },
+        { 丹药Type.雷电伤害, YuanSuType.None },
+        { 丹药Type.黑暗伤害, YuanSuType.None },
+        { 丹药Type.物理伤害, YuanSuType.None },
+        { 丹药Type.战士伤害, YuanSuType.None },
+        { 丹药Type.法师伤害, YuanSuType.None },
+        { 丹药Type.射手伤害, YuanSuType.None },
+        { 丹药Type.控制伤害, YuanSuType.None },
+        { 丹药Type.辅助伤害, YuanSuType.None },
+        { 丹药Type.最终伤害, YuanSuType.None},
+        { 丹药Type.修炼速度, YuanSuType.None },
+        { 丹药Type.掉宝率, YuanSuType.None },
+        { 丹药Type.英雄暴击伤害, YuanSuType.None },
+        { 丹药Type.加跟脚, YuanSuType.None },
+        { 丹药Type.英雄火焰伤害, YuanSuType.火 },
+        { 丹药Type.英雄冰霜伤害, YuanSuType.冰 },
+        { 丹药Type.英雄雷电伤害, YuanSuType.电 },
+        { 丹药Type.英雄黑暗伤害, YuanSuType.黑暗 },
+        { 丹药Type.英雄物理伤害, YuanSuType.物理 },
+        { 丹药Type.英雄最终伤害, YuanSuType.None },
+    };
 
     public static Dictionary<丹药Type, 丹药类型> 丹药类型Dic = new Dictionary<丹药Type, 丹药类型>()
     {
