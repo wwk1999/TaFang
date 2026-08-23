@@ -264,6 +264,30 @@ public class 丹药Config
         return min;
     }
 
+    public static float Get炼制丹药需要时间(丹药Type type, QualityType qualityType)
+    {
+        if (type == 丹药Type.None) return 1;
+        丹药类型 当前炼制丹药类型 = 丹药类型Dic[type];
+        float 需要时间 = 0;
+        switch (当前炼制丹药类型)
+        {
+            case 丹药类型.战斗丹药:
+                需要时间 = 属性config.每年秒数 * 战斗丹药炼制时间Dic[qualityType];
+                break;
+            case 丹药类型.辅助丹药:
+                需要时间 = 属性config.每年秒数 * 辅助丹药炼制时间Dic[qualityType];
+                break;
+            case 丹药类型.根基丹药:
+                需要时间 = 属性config.每年秒数 * 根基丹药炼制时间Dic[qualityType];
+                break;
+            case 丹药类型.造化丹药:
+                需要时间 = 属性config.每年秒数 * 造化丹药炼制时间Dic[qualityType];
+                break;
+        }
+
+        return 需要时间;
+    }
+
     public static List<灵药> Get炼制灵药(丹药Type type, QualityType qualityType)
     {
         if (type == 丹药Type.None) return null;
