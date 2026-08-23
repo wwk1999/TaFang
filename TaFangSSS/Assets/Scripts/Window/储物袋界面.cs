@@ -248,6 +248,20 @@ public class 储物袋界面 : MonoBehaviour
                   刷新背包();
                }
                break;
+            case 8:
+               if (页数Num < Get灵药最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
+            case 9:
+               if (页数Num < Get丹药最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
          }
       });
       属性Btn.onClick.AddListener(() =>
@@ -557,6 +571,37 @@ public class 储物袋界面 : MonoBehaviour
             break;
       }
    }
+   public int Get灵药最大页数()
+   {
+      int count = 0;
+      foreach (var item in 丹药Config.灵药名Dic)
+      {
+         for (int i = 1; i <= 8; i++)
+         {
+            if (PlayerData.S.Get灵药数量(item.Key, (QualityType)i) > 0)
+            {
+               count++;
+            }
+         }
+      }
+      return Mathf.CeilToInt(count / 48f);
+   }
+   
+   public int Get丹药最大页数()
+   {
+      int count = 0;
+      foreach (var item in 丹药Config.丹药名Dic)
+      {
+         for (int i = 1; i <= 8; i++)
+         {
+            if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i) > 0)
+            {
+               count++;
+            }
+         }
+      }
+      return Mathf.CeilToInt(count / 48f);
+   }
 
    public int Get功法最大页数()
    {
@@ -618,15 +663,24 @@ public class 储物袋界面 : MonoBehaviour
       {
          Destroy(item.gameObject);
       }
-      foreach (var item in PlayerData.S.PropListDic)
+
+      int 道具数量 = 0;
+      if (页数Num == 1)
       {
-         if (item.Value > 0)
+         foreach (var item in PlayerData.S.PropListDic)
          {
-            var baggrid = Instantiate(Resources.Load("Prefabs/Window/BagGrid"), BagContent.transform).GetComponent<BagGrid>();
-            baggrid.propType = item.Key;
-            baggrid.SetItem();
+            if (item.Value > 0)
+            {
+               var baggrid = Instantiate(Resources.Load("Prefabs/Window/BagGrid"), BagContent.transform).GetComponent<BagGrid>();
+               baggrid.propType = item.Key;
+               baggrid.SetItem();
+               道具数量++;
+            }
          }
       }
+      
+      
+      
    }
    public int Get灵物最大页数()
    {
