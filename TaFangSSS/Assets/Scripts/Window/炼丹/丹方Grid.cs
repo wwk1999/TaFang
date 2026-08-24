@@ -19,6 +19,11 @@ public class 丹方Grid : MonoBehaviour
     {
         bg.onClick.AddListener(() =>
         {
+            if (PlayerData.S.炼丹等级 < 丹药Config.Get炼制丹药等级(丹药Type, QualityType))
+            {
+                ObserverModuleManager.S.SendEvent("炼丹等级不足,无法学习丹方");
+                return;
+            }
             ObserverModuleManager.S.SendEvent("显示使用丹方弹窗",丹药Type,QualityType);
         });
     }

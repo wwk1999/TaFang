@@ -21,6 +21,8 @@ public class StoreDefine : XSingleton<StoreController>
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
         public int 道龄年;
+        public float 初始跟脚 = 1;
+
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;
         public int 城墙等级 = 1;
@@ -40,7 +42,7 @@ public class StoreDefine : XSingleton<StoreController>
         public List<法器> 法器列表 = new List<法器>();
         public List<仙石> 仙石列表 = new List<仙石>();
         public int 炼丹等级 = 1;
-        public int 炼丹经验 = 0;
+        public long 炼丹经验 = 0;
         public 丹药Type 当前炼制丹药Type = 丹药Type.None;
         public int 剩余炼制数量;
         public float 当前炼制秒数;
@@ -2723,6 +2725,7 @@ public class StoreDefine : XSingleton<StoreController>
             英雄根基丹药服用Dic = runtime.英雄根基丹药服用Dic;
             造化丹药List = runtime.造化丹药List;
             当前轮回造化丹药QualityType =runtime.当前轮回造化丹药QualityType;
+            初始跟脚 = runtime.初始跟脚;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -2790,6 +2793,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.英雄根基丹药服用Dic = 英雄根基丹药服用Dic;
             runtime.造化丹药List = 造化丹药List;
             runtime.当前轮回造化丹药QualityType = 当前轮回造化丹药QualityType;
+            runtime.初始跟脚 = 初始跟脚;
         }
     }
 }

@@ -86,10 +86,10 @@ public class JingJieConfig : MonoBehaviour
     };
 
     public static float 跟脚 => Get跟脚();
-
+    public static float 轮回系数 = 1;
     public static float Get跟脚()
     {
-        float value = 1;
+        float value = PlayerData.S.初始跟脚;
         foreach (var item in PlayerData.S.当前轮回突破Dic)
         {
             if (item.Value != QualityType.None)

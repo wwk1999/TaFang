@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public 轮回确认弹窗 轮回确认弹窗;
    public Button 轮回按钮;
    public 丹方使用弹窗 丹方使用弹窗;
    public 确认服用造化丹药弹窗 确认服用造化丹药弹窗;
@@ -63,6 +64,7 @@ public class 储物袋界面 : MonoBehaviour
    public void Set境界()
    {
       Set头像框();
+      轮回按钮.gameObject.SetActive(PlayerData.S.当前轮回境界>=JingJieType.合体);
       修炼速度count.text = 属性config.总修炼速度加成 + "%";
       跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
       境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
@@ -209,6 +211,10 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
+      轮回按钮.onClick.AddListener(() =>
+      {
+         轮回确认弹窗.gameObject.SetActive(true);
+      });
       分解Btn.onClick.AddListener(() =>
       {
          if (显示类型 == 5)
@@ -293,7 +299,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200)
          {
-            ObserverModuleManager.S.SendEvent("SendUIToast","当前经验不足");
+            ObserverModuleManager.S.SendEvent("SendUIToast","当前修为不足");
             return;
          }
          

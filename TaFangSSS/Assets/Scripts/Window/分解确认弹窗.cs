@@ -16,18 +16,9 @@ public class 分解确认弹窗 : MonoBehaviour
     public Button 返回Button;
     public Button 确认Button;
     public Button maskButton;
-    private void OnEnable()
+
+    private void Start()
     {
-        if (分解类型 == 分解类型.仙石)
-        {
-            name.text = 仙石Config.仙石名Dic[仙石.type];
-            name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石.quality);
-        }
-        else
-        {
-            name.text = 法器Config.法器名Dic[法器.法器Type];
-            name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[法器.法器Type]);
-        }
         返回Button.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
@@ -51,5 +42,19 @@ public class 分解确认弹窗 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);
         });
+    }
+
+    private void OnEnable()
+    {
+        if (分解类型 == 分解类型.仙石)
+        {
+            name.text = 仙石Config.仙石名Dic[仙石.type];
+            name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石.quality);
+        }
+        else
+        {
+            name.text = 法器Config.法器名Dic[法器.法器Type];
+            name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[法器.法器Type]);
+        }
     }
 }

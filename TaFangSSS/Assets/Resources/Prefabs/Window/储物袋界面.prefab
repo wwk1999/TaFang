@@ -837,7 +837,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 7, y: -140}
-  m_SizeDelta: {x: -119.893005, y: 450}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765310746707672893
 MonoBehaviour:
@@ -29951,14 +29951,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5028431798511990608}
-  - component: {fileID: 3152143458467473304}
+  - component: {fileID: 520937506496815533}
   m_Layer: 5
   m_Name: "\u8F6E\u56DE\u786E\u8BA4\u5F39\u7A97"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5028431798511990608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29980,7 +29980,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3152143458467473304
+--- !u!114 &520937506496815533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29989,10 +29989,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7318128442838948642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7420efe63fd959842afdee2a39f66a1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4397ee7072c4c76459a0134623222509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: {fileID: 0}
+  text: {fileID: 3543653986616423010}
   "\u8FD4\u56DEButton": {fileID: 5221668918987567555}
   "\u786E\u8BA4Button": {fileID: 7462360018800594411}
   maskButton: {fileID: 947354747196732962}
@@ -33280,7 +33280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9515678e4fcd39c49b367ecf9d22d90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u8F6E\u56DE\u6309\u94AE": {fileID: 0}
+  "\u8F6E\u56DE\u786E\u8BA4\u5F39\u7A97": {fileID: 520937506496815533}
+  "\u8F6E\u56DE\u6309\u94AE": {fileID: 3691366469451636445}
   "\u4E39\u65B9\u4F7F\u7528\u5F39\u7A97": {fileID: 8537141565367094543}
   "\u786E\u8BA4\u670D\u7528\u9020\u5316\u4E39\u836F\u5F39\u7A97": {fileID: 3866007827069111828}
   "\u670D\u7528\u8F85\u52A9\u4E39\u836F\u5F39\u7A97": {fileID: 4139018373997064385}

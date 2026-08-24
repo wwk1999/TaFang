@@ -21,7 +21,7 @@ public class 丹方信息弹窗 : MonoBehaviour
         bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite=ResourcesConfig.Get丹方icon(丹药Type,QualityType);
         name.text = 丹药Config.丹方名Dic[丹药Type];
-        品质.text=PropConfig.QualityNameDic[QualityType];
+        品质.text = 丹药Config.Get最大炼制数量(丹药Type, QualityType).ToString();
         desc.text = 丹药Config.丹方DescDic[丹药Type];
     }
 }

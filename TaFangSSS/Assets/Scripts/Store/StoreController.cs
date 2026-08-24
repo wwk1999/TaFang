@@ -119,6 +119,12 @@ public class StoreController : XSingleton<StoreController>
                 PlayerData.S.Set丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质,PlayerData.S.Get丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质)+1);
                 PlayerData.S.当前炼制秒数 = 0;
                 PlayerData.S.剩余炼制数量--;
+                PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
+                if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
+                {
+                    PlayerData.S.炼丹经验 -= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
+                    PlayerData.S.炼丹等级++;
+                }
                 if (PlayerData.S.剩余炼制数量 == 0)
                 {
                     ObserverModuleManager.S.SendEvent("炼制结束",PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质);

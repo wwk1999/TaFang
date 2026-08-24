@@ -24,6 +24,7 @@ public class 确认服用造化丹药弹窗 : MonoBehaviour
         });
         确认按钮.onClick.AddListener(() =>
         {
+            PlayerData.S.造化丹药List.Add(qualityType);
             PlayerData.S.当前轮回造化丹药QualityType = qualityType;
             ObserverModuleManager.S.SendEvent("SendUIToast","服用丹药成功");
             PlayerData.S.Set丹药数量(丹药Type.加跟脚,qualityType,PlayerData.S.Get丹药数量(丹药Type.加跟脚,qualityType)-1);

@@ -105,6 +105,24 @@ public class 丹药Config
         { 丹药类型.造化丹药, "造化丹药" },
         { 丹药类型.辅助丹药, "辅助丹药" },
     };
+
+    public static long Get炼制丹药经验(丹药Type type, QualityType qualityType)
+    {
+        var 类型 = 丹药类型Dic[type];
+        switch (类型)
+        {
+            case 丹药类型.战斗丹药:
+                return 战斗丹药经验Dic[qualityType];
+            case 丹药类型.辅助丹药:
+                return 辅助丹药经验Dic[qualityType];
+            case 丹药类型.根基丹药:
+                return 根基丹药经验Dic[qualityType];
+            case 丹药类型.造化丹药:
+                return 造化丹药经验Dic[qualityType];
+        }
+
+        return 0;
+    }
     public static Dictionary<QualityType, long> 战斗丹药经验Dic = new Dictionary<QualityType, long>()
     {
         { QualityType.黄品, 30 },
@@ -116,7 +134,24 @@ public class 丹药Config
         { QualityType.洪品, 30000 },
         { QualityType.荒品, 100000 },
     };
-    
+
+    public static long Get炼制丹药等级(丹药Type type, QualityType qualityType)
+    {
+        var 类型 = 丹药类型Dic[type];
+        switch (类型)
+        {
+            case 丹药类型.战斗丹药:
+                return 战斗丹药炼制等级Dic[qualityType];
+            case 丹药类型.辅助丹药:
+                return 辅助丹药炼制等级Dic[qualityType];
+            case 丹药类型.根基丹药:
+                return 根基丹药炼制等级Dic[qualityType];
+            case 丹药类型.造化丹药:
+                return 造化丹药炼制等级Dic[qualityType];
+        }
+
+        return 0;
+    }
     public static Dictionary<QualityType, long> 战斗丹药炼制等级Dic = new Dictionary<QualityType, long>()
     {
         { QualityType.黄品, 1 },
