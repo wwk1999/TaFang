@@ -47,7 +47,7 @@ public class 世界树关卡item : MonoBehaviour
     public void SetItem()
     {
         寻宝中.gameObject.SetActive(PlayerData.S.世界树寻宝Dic[层数].寻宝);
-        bool suo = PlayerData.S.JingJieType < 世界树Config.世界树关卡Dic[层数].jingJieType;
+        bool suo = PlayerData.S.历史最高境界 < 世界树Config.世界树关卡Dic[层数].jingJieType;
         if (suo)
         {
             关卡名.gameObject.SetActive(false);
@@ -92,7 +92,7 @@ public class 世界树关卡item : MonoBehaviour
         else
         {
             当前icon.gameObject.SetActive(false);
-            bool suo = PlayerData.S.JingJieType < 世界树Config.世界树关卡Dic[层数].jingJieType;
+            bool suo = PlayerData.S.历史最高境界 < 世界树Config.世界树关卡Dic[层数].jingJieType;
             if (suo)
             {
                 bg.image.sprite = ResourcesConfig.凌霄宝殿按钮暗;

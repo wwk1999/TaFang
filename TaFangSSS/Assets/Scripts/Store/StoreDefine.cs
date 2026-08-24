@@ -15,7 +15,8 @@ public class StoreDefine : XSingleton<StoreController>
         public 神物Type 最大神物关卡 = 神物Type.最终伤害;
 
         public string Name = "修仙者";
-        public JingJieType JingJieType = JingJieType.练气;
+        public JingJieType 历史最高境界 = JingJieType.练气;
+        public JingJieType 当前轮回境界 = JingJieType.练气;
         public float Exp;
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
@@ -2456,7 +2457,7 @@ public class StoreDefine : XSingleton<StoreController>
             { HeroType.鸿钧, 0 },
         };
 
-        public Dictionary<JingJieType, QualityType> 突破Dic = new Dictionary<JingJieType, QualityType>()
+        public Dictionary<JingJieType, QualityType> 当前轮回突破Dic = new Dictionary<JingJieType, QualityType>()
         {
             { JingJieType.练气, QualityType.None },
             { JingJieType.筑基, QualityType.None },
@@ -2664,7 +2665,8 @@ public class StoreDefine : XSingleton<StoreController>
         public void CopyFromRuntime(PlayerData runtime)
         {
             Name = runtime.Name;
-            JingJieType = runtime.JingJieType;
+            历史最高境界 = runtime.历史最高境界;
+            当前轮回境界 = runtime.当前轮回境界;
             Exp = runtime.Exp;
             PropListDic = runtime.PropListDic;
             HeroDataDic = runtime.HeroDataDic;
@@ -2672,7 +2674,7 @@ public class StoreDefine : XSingleton<StoreController>
             编队名List = runtime.编队名List;
             CurrentBianDui = runtime.当前出战编队;
             EquipLevelDic = runtime.EquipLevelDic;
-            突破Dic = runtime.突破Dic;
+            当前轮回突破Dic = runtime.当前轮回突破Dic;
             装备附加属性Dic = runtime.装备附加属性Dic;
             英雄法则等级Dic = runtime.英雄法则等级Dic;
             道纹List = runtime.道纹List;
@@ -2726,7 +2728,8 @@ public class StoreDefine : XSingleton<StoreController>
         public void ApplyToRuntime(PlayerData runtime)
         {
             runtime.Name = Name;
-            runtime.JingJieType = JingJieType;
+            runtime.历史最高境界 = 历史最高境界;
+            runtime.当前轮回境界 = 当前轮回境界;            
             runtime.Exp = Exp;
             runtime.PropListDic = PropListDic;
             runtime.HeroDataDic = HeroDataDic;
@@ -2734,7 +2737,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.编队名List = 编队名List;
             runtime.当前出战编队 = CurrentBianDui;
             runtime.EquipLevelDic = EquipLevelDic;
-            runtime.突破Dic = 突破Dic;
+            runtime.当前轮回突破Dic = 当前轮回突破Dic;
             runtime.装备附加属性Dic = 装备附加属性Dic;
             runtime.英雄法则等级Dic = 英雄法则等级Dic;
             runtime.道纹List = 道纹List;

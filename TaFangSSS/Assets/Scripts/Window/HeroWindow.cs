@@ -52,7 +52,7 @@ public class HeroWindow : MonoBehaviour
       {
          count++;
          var HeroItem=Instantiate(Resources.Load("Prefabs/Window/HeroItem"),HeroPanelContent.transform).GetComponent<HeroItem>();
-         if (PlayerData.S.JingJieType<(JingJieType)count)
+         if (PlayerData.S.历史最高境界<(JingJieType)count)
          {
             HeroItem.IsSuo = true;
          }

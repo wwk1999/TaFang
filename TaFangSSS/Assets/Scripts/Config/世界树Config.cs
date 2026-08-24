@@ -18,7 +18,7 @@ public class 世界树Config
 {
     public static int Get世界树最大层数()
     {
-        switch (PlayerData.S.JingJieType)
+        switch (PlayerData.S.历史最高境界)
         {
             case JingJieType.练气:
             case JingJieType.筑基:

@@ -515,7 +515,7 @@ namespace Config
 
         public static PropType NormalZhaoMu()
         {
-            List<ZhaoMuItem> list = ZhaoMuGaiLvNormalDic[PlayerData.S.JingJieType];
+            List<ZhaoMuItem> list = ZhaoMuGaiLvNormalDic[PlayerData.S.历史最高境界];
             int random=Random.Range(1, 101);
             int count = 0;
             int quality = 1;
@@ -537,7 +537,7 @@ namespace Config
         
         public static PropType GaoJiZhaoMu()
         {
-            List<ZhaoMuItem> list = ZhaoMuGaiLvGaoJiDic[PlayerData.S.JingJieType];
+            List<ZhaoMuItem> list = ZhaoMuGaiLvGaoJiDic[PlayerData.S.历史最高境界];
             int random=Random.Range(1, 101);
             int count = 0;
             int quality = 1;

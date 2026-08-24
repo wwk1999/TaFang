@@ -137,7 +137,7 @@ public class FightWindow : MonoBehaviour
         });
         倍速Button2.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < JingJieType.元婴)
+            if (PlayerData.S.历史最高境界 < JingJieType.元婴)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
@@ -150,7 +150,7 @@ public class FightWindow : MonoBehaviour
         });
         倍速Button3.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < JingJieType.天仙)
+            if (PlayerData.S.历史最高境界 < JingJieType.天仙)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","天仙境界解锁");
@@ -164,7 +164,7 @@ public class FightWindow : MonoBehaviour
         
         倍速Button4.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < JingJieType.大罗金仙)
+            if (PlayerData.S.历史最高境界 < JingJieType.大罗金仙)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","大罗金仙境界解锁");
@@ -178,7 +178,7 @@ public class FightWindow : MonoBehaviour
         
         倍速Button5.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < JingJieType.大道圣人)
+            if (PlayerData.S.历史最高境界 < JingJieType.大道圣人)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","大道圣人境界解锁");

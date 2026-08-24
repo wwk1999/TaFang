@@ -46,7 +46,7 @@ public class 通天塔关卡item : MonoBehaviour
     public void SetItem()
     {
         寻宝中.gameObject.SetActive(PlayerData.S.通天塔寻宝Dic[层数].寻宝);
-        bool suo = PlayerData.S.JingJieType < 通天塔Config.通天塔关卡Dic[层数].jingJieType;
+        bool suo = PlayerData.S.历史最高境界 < 通天塔Config.通天塔关卡Dic[层数].jingJieType;
         if (suo)
         {
             关卡名.gameObject.SetActive(false);
@@ -91,7 +91,7 @@ public class 通天塔关卡item : MonoBehaviour
         else
         {
             当前icon.gameObject.SetActive(false);
-            bool suo = PlayerData.S.JingJieType < 通天塔Config.通天塔关卡Dic[层数].jingJieType;
+            bool suo = PlayerData.S.历史最高境界 < 通天塔Config.通天塔关卡Dic[层数].jingJieType;
             if (suo)
             {
                 bg.image.sprite = ResourcesConfig.凌霄宝殿按钮暗;

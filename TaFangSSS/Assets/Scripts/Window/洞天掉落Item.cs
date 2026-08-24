@@ -16,7 +16,7 @@ public class 洞天掉落Item : MonoBehaviour
     {
         if (PropType==PropType.None)
         {
-            image.sprite = ResourcesConfig.Get突破灵物(PlayerData.S.JingJieType, QualityType);
+            image.sprite = ResourcesConfig.Get突破灵物(PlayerData.S.当前轮回境界, QualityType);
             bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         }
         else

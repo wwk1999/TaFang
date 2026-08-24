@@ -52,10 +52,10 @@ public class 胜利弹窗item : MonoBehaviour
         }
         if (灵物QualityType != QualityType.None)
         {
-            Name.text = 灵物突破Config.突破灵物名Dic[PlayerData.S.JingJieType];
+            Name.text = 灵物突破Config.突破灵物名Dic[PlayerData.S.当前轮回境界];
             Name.colorGradientPreset = ResourcesConfig.Get品质TMP(灵物QualityType);
             CountText.text = "";
-            image.sprite=ResourcesConfig.Get突破灵物(PlayerData.S.JingJieType,灵物QualityType);
+            image.sprite=ResourcesConfig.Get突破灵物(PlayerData.S.当前轮回境界,灵物QualityType);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(灵物QualityType);
             return;
         }

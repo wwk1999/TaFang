@@ -252,8 +252,8 @@ public class QueueController:XSingleton<QueueController>
          }
          else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
          {
-             普通怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
-             精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].EliteMonsterCount;
+             普通怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+             精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].EliteMonsterCount;
          }
          else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
          {

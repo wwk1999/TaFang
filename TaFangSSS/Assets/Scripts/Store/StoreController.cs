@@ -87,7 +87,7 @@ public class StoreController : XSingleton<StoreController>
             ObserverModuleManager.S.SendEvent("刷新坊市剩余时间");
             ObserverModuleManager.S.SendEvent("刷新主页面");
             当前增加修为时间 = 0;
-            if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
+            if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200)
             {
                 PlayerData.S.Exp += JingJieConfig.每秒增加修为;
                 ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);

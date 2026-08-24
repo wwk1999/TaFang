@@ -825,7 +825,7 @@ public class FightController : XSingleton<FightController>
         }
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
-            list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+            list = LevelConfig.洞天MonsterDic[PlayerData.S.当前轮回境界];
         }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {
             list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
@@ -841,7 +841,7 @@ public class FightController : XSingleton<FightController>
         {
             return;
         }
-        if (LevelConfig.当前关卡类型==关卡类型.洞天秘境&&PlayerData.S.JingJieType < JingJieType.筑基)
+        if (LevelConfig.当前关卡类型==关卡类型.洞天秘境&&PlayerData.S.当前轮回境界 < JingJieType.筑基)
         {
             return;
         }
@@ -858,7 +858,7 @@ public class FightController : XSingleton<FightController>
         }
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
-            list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+            list = LevelConfig.洞天MonsterDic[PlayerData.S.当前轮回境界];
         }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {
             list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
@@ -873,7 +873,7 @@ public class FightController : XSingleton<FightController>
         {
             return;
         }
-        if (LevelConfig.当前关卡类型==关卡类型.洞天秘境&&PlayerData.S.JingJieType<JingJieType.金丹)
+        if (LevelConfig.当前关卡类型==关卡类型.洞天秘境&&PlayerData.S.当前轮回境界<JingJieType.金丹)
         {
             return;
         }
@@ -891,7 +891,7 @@ public class FightController : XSingleton<FightController>
         }
         else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
-            list = LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType];
+            list = LevelConfig.洞天MonsterDic[PlayerData.S.当前轮回境界];
         }   else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {
             list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
@@ -1007,8 +1007,8 @@ public class FightController : XSingleton<FightController>
             }
         }else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
         {
-            普通怪物Time = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].CreateNormalMonsterTime;
-            普通怪物最大数量=LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+            普通怪物Time = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].CreateNormalMonsterTime;
+            普通怪物最大数量=LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
         }
         else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {

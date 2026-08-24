@@ -12,7 +12,9 @@ public class PlayerData : XSingleton<PlayerData>
     }
 
     public string Name = "修仙者";
-    public JingJieType JingJieType = JingJieType.练气;
+    public JingJieType 历史最高境界 = JingJieType.练气;
+    public JingJieType 当前轮回境界 = JingJieType.练气;
+
     public float Exp;
     public int 当前出战编队 = 1;
     public float 道龄S = 0;
@@ -2859,7 +2861,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { HeroType.盘古 ,0},
         { HeroType.鸿钧 ,0},
     };
-    public Dictionary<JingJieType, QualityType> 突破Dic = new Dictionary<JingJieType, QualityType>()
+    public Dictionary<JingJieType, QualityType> 当前轮回突破Dic = new Dictionary<JingJieType, QualityType>()
     {
         { JingJieType.练气 ,QualityType.None},
         { JingJieType.筑基 ,QualityType.None},

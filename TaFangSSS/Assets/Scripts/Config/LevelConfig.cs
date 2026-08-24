@@ -1154,7 +1154,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
    public static 洞天关卡胜利奖励 Get洞天关卡胜利奖励()
    {
        洞天关卡Item item = new 洞天关卡Item()
-           { JingJieType = PlayerData.S.JingJieType, qualityType = 当前洞天QualityType };
+           { JingJieType = PlayerData.S.当前轮回境界, qualityType = 当前洞天QualityType };
        var list = 灵物突破Config.洞天普通掉落Dic[item];
        洞天关卡胜利奖励 value = new 洞天关卡胜利奖励();
        List<灵物item> 灵物list = new List<灵物item>();
@@ -1168,7 +1168,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
            if (random < prob)
            {
                灵物item 灵物item = new 灵物item();
-               灵物item.JingJieType = PlayerData.S.JingJieType;
+               灵物item.JingJieType = PlayerData.S.当前轮回境界;
                灵物item.QualityType = (QualityType)(index + 1);
                灵物list.Add(灵物item);
            }

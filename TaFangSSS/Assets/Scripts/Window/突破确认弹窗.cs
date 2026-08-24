@@ -32,10 +32,14 @@ public class 突破确认弹窗 : MonoBehaviour
         });
         确认Button.onClick.AddListener(() =>
         {
-            long need = JingJieConfig.突破材料Dic[PlayerData.S.JingJieType][(int)(QualityType-1)];
+            long need = JingJieConfig.突破材料Dic[PlayerData.S.当前轮回境界][(int)(QualityType-1)];
             PlayerData.S.PropListDic[PropType.功德] -= need;
-            PlayerData.S.突破Dic[PlayerData.S.JingJieType] = QualityType;
-            PlayerData.S.JingJieType++;
+            PlayerData.S.当前轮回突破Dic[PlayerData.S.当前轮回境界] = QualityType;
+            PlayerData.S.当前轮回境界++;
+            if (PlayerData.S.当前轮回境界 > PlayerData.S.历史最高境界)
+            {
+                PlayerData.S.历史最高境界 = PlayerData.S.当前轮回境界;
+            }
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
 

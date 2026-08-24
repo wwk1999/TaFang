@@ -15,7 +15,7 @@ public class 洞天秘境关卡item : MonoBehaviour
 
     public void SetItem()
     {
-        if (PlayerData.S.JingJieType == JingJieType)
+        if (PlayerData.S.当前轮回境界 == JingJieType)
         {
             suo.SetActive(false);
             关卡名.gameObject.SetActive(true);

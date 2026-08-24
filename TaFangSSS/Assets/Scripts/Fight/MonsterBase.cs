@@ -134,7 +134,7 @@ public class MonsterBase : MonoBehaviour
       主线关卡Type 主线关卡Type = LevelConfig.当前主线关卡Type;
       MonsterType monsterType=MonsterConfig.MonsterTypeDic[MonsterTypeName];
       主线关卡怪物Item 主线关卡怪物Item=new 主线关卡怪物Item(){主线关卡Type =  主线关卡Type, MonsterType = monsterType};
-      洞天怪物Item 洞天怪物Item=new 洞天怪物Item(){JingJieType =  PlayerData.S.JingJieType, MonsterType = monsterType};
+      洞天怪物Item 洞天怪物Item=new 洞天怪物Item(){JingJieType =  PlayerData.S.当前轮回境界, MonsterType = monsterType};
 
       if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
       {
@@ -598,10 +598,10 @@ public class MonsterBase : MonoBehaviour
       }
       else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
       {
-         if (PlayerData.S.JingJieType < JingJieType.筑基)
+         if (PlayerData.S.当前轮回境界 < JingJieType.筑基)
          {
             总数量 = 小怪数量;
-         }else if (PlayerData.S.JingJieType < JingJieType.金丹)
+         }else if (PlayerData.S.当前轮回境界 < JingJieType.金丹)
          {
             总数量 = 小怪数量+ 精英怪数量;
          }
@@ -646,8 +646,8 @@ public class MonsterBase : MonoBehaviour
          精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
       }else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
       {
-         小怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.JingJieType,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
-         精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = LevelConfig.当前洞天QualityType }].EliteMonsterCount;
+         小怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+         精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = LevelConfig.当前洞天QualityType }].EliteMonsterCount;
       }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
       {
          小怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;

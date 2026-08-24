@@ -23,7 +23,7 @@ public class 招募概率弹窗 : MonoBehaviour
 
    private void OnEnable()
    {
-      JingJieType = PlayerData.S.JingJieType;
+      JingJieType = PlayerData.S.历史最高境界;
       Show();
    }
 

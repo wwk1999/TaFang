@@ -78,11 +78,11 @@ public class MainWindow : MonoBehaviour
         道龄所需时间.text = "(当前每道年时间：" + 属性config.每年秒数 + "S)";
         道龄.text = PlayerData.S.道龄年 + "年";
         Name.text = PlayerData.S.Name;
-        JingJie.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
-        JingJieSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为;
+        JingJie.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
+        JingJieSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为;
         JingJieSlider.value = PlayerData.S.Exp;
         CurrentExp.text=((int)PlayerData.S.Exp).ToString();
-        MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
+        MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为).ToString();
         LingQi.text=PlayerData.S.PropListDic[PropType.灵魂].ToString();
         GongDe.text=PlayerData.S.PropListDic[PropType.功德].ToString();
     }
@@ -198,7 +198,7 @@ public class MainWindow : MonoBehaviour
         });
         世界树.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < 世界树Config.世界树关卡Dic[1].jingJieType)
+            if (PlayerData.S.历史最高境界 < 世界树Config.世界树关卡Dic[1].jingJieType)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
@@ -209,7 +209,7 @@ public class MainWindow : MonoBehaviour
         });
         血海.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < 血海Config.血海关卡Dic[1].jingJieType)
+            if (PlayerData.S.历史最高境界 < 血海Config.血海关卡Dic[1].jingJieType)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
@@ -221,7 +221,7 @@ public class MainWindow : MonoBehaviour
         
         不周山.onClick.AddListener(() =>
         {
-            if (PlayerData.S.JingJieType < 不周山Config.不周山关卡Dic[1].jingJieType)
+            if (PlayerData.S.历史最高境界 < 不周山Config.不周山关卡Dic[1].jingJieType)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
@@ -273,7 +273,8 @@ public class MainWindow : MonoBehaviour
         经验值Debug.onClick.AddListener(() =>
         {
             PlayerData.S.PropListDic[PropType.功德] += 999999;
-            PlayerData.S.JingJieType++;
+            PlayerData.S.历史最高境界++;
+            PlayerData.S.当前轮回境界++;
         });
         储物袋按钮.onClick.AddListener(() =>
         {

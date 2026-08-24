@@ -19,7 +19,7 @@ public class 血海Config
 {
     public static int Get血海最大层数()
     {
-        switch (PlayerData.S.JingJieType)
+        switch (PlayerData.S.历史最高境界)
         {
             case JingJieType.练气:
             case JingJieType.筑基:

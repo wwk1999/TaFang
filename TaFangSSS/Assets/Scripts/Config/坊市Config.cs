@@ -381,7 +381,7 @@ public class 坊市Config
 
     public static QualityType Get坊市物品品质()
     {
-        List<ZhaoMuItem> list = 坊市概率Dic[PlayerData.S.JingJieType];
+        List<ZhaoMuItem> list = 坊市概率Dic[PlayerData.S.历史最高境界];
         float random = Random.Range(0, 100f);
         float count = 0;
         foreach (var  item in list)

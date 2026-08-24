@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public Button 轮回按钮;
    public 丹方使用弹窗 丹方使用弹窗;
    public 确认服用造化丹药弹窗 确认服用造化丹药弹窗;
    public 服用辅助丹药弹窗 服用辅助丹药弹窗;
@@ -56,7 +57,7 @@ public class 储物袋界面 : MonoBehaviour
 
    public void Set头像框()
    {
-      头像框Icon.sprite = ResourcesConfig.Get境界Icon(PlayerData.S.JingJieType);
+      头像框Icon.sprite = ResourcesConfig.Get境界Icon(PlayerData.S.当前轮回境界);
       头像框Icon.SetNativeSize();
    }
    public void Set境界()
@@ -64,7 +65,7 @@ public class 储物袋界面 : MonoBehaviour
       Set头像框();
       修炼速度count.text = 属性config.总修炼速度加成 + "%";
       跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
-      境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
+      境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
    }
    public void 突破成功(object[] obj)
    {
@@ -113,6 +114,7 @@ public class 储物袋界面 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("刷新人物信息",刷新人物信息);
       ObserverModuleManager.S.UnRegisterEvent("显示使用丹方弹窗",显示使用丹方弹窗);
       ObserverModuleManager.S.UnRegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
       ObserverModuleManager.S.UnRegisterEvent("服用根基丹药",服用根基丹药);
@@ -186,8 +188,15 @@ public class 储物袋界面 : MonoBehaviour
       丹方使用弹窗.丹药Type = type;
       丹方使用弹窗.gameObject.SetActive(true);
    }
+
+   public void 刷新人物信息(object[] obj)
+   {
+      Set经验SLider();
+      Set境界();
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新人物信息",刷新人物信息);
       ObserverModuleManager.S.RegisterEvent("显示使用丹方弹窗",显示使用丹方弹窗);
       ObserverModuleManager.S.RegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
       ObserverModuleManager.S.RegisterEvent("服用根基丹药",服用根基丹药);
@@ -282,7 +291,7 @@ public class 储物袋界面 : MonoBehaviour
       });
       突破Button.onClick.AddListener(() =>
       {
-         if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType] * 200)
+         if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200)
          {
             ObserverModuleManager.S.SendEvent("SendUIToast","当前经验不足");
             return;
@@ -349,9 +358,9 @@ public class 储物袋界面 : MonoBehaviour
    public void Set经验SLider()
    {
       CurrentExp.text = ((int)PlayerData.S.Exp).ToString();
-      MaxExp.text = (JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为).ToString();
+      MaxExp.text = (JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为).ToString();
       ExpSlider.value = PlayerData.S.Exp;
-      ExpSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.JingJieType]*JingJieConfig.每年基础修为;
+      ExpSlider.maxValue=JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为;
    }
    
 

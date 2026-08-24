@@ -48,7 +48,7 @@ public class 血海关卡item : MonoBehaviour
     {
         寻宝中.gameObject.SetActive(PlayerData.S.血海寻宝Dic[层数].寻宝);
 
-        bool suo = PlayerData.S.JingJieType < 血海Config.血海关卡Dic[层数].jingJieType;
+        bool suo = PlayerData.S.历史最高境界 < 血海Config.血海关卡Dic[层数].jingJieType;
         if (suo)
         {
             关卡名.gameObject.SetActive(false);
@@ -93,7 +93,7 @@ public class 血海关卡item : MonoBehaviour
         else
         {
             当前icon.gameObject.SetActive(false);
-            bool suo = PlayerData.S.JingJieType < 血海Config.血海关卡Dic[层数].jingJieType;
+            bool suo = PlayerData.S.历史最高境界 < 血海Config.血海关卡Dic[层数].jingJieType;
             if (suo)
             {
                 bg.image.sprite = ResourcesConfig.凌霄宝殿按钮暗;

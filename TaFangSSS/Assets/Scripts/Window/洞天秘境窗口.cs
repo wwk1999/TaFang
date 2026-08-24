@@ -69,10 +69,10 @@ public class 洞天秘境窗口 : MonoBehaviour
 
     public void ShowInfo()
     {
-        境界要求.text=JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType];
+        境界要求.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
         难度.text = PropConfig.QualityNameDic[LevelConfig.当前洞天QualityType];
         难度.colorGradientPreset = ResourcesConfig.Get品质TMP(LevelConfig.当前洞天QualityType);
-        关卡名.text = JingJieConfig.JingJieNameDic[PlayerData.S.JingJieType] + "境";
+        关卡名.text = JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界] + "境";
         foreach (Transform item in 敌人列表.transform)
         {
             Destroy(item.gameObject);
@@ -83,7 +83,7 @@ public class 洞天秘境窗口 : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach (var item in LevelConfig.洞天MonsterDic[PlayerData.S.JingJieType])
+        foreach (var item in LevelConfig.洞天MonsterDic[PlayerData.S.当前轮回境界])
         {
             var MonsterItem=Instantiate(Resources.Load("Prefabs/Window/MonsterItem"),敌人列表.transform).GetComponent<MonsterItem>();
             MonsterItem.MonsterTypeName = item;

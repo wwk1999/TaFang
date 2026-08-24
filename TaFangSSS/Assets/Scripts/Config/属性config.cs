@@ -160,9 +160,9 @@ public class 属性config
 
      public static float Get境界攻击力()
      {
-          float 基础攻击 = JingJieConfig.JingJieAttributeDic[PlayerData.S.JingJieType];
+          float 基础攻击 = JingJieConfig.JingJieAttributeDic[PlayerData.S.当前轮回境界];
           float 跟脚 = 1f;
-          foreach (var item in PlayerData.S.突破Dic)
+          foreach (var item in PlayerData.S.当前轮回突破Dic)
           {
                if (item.Value != QualityType.None)
                {
@@ -175,5 +175,5 @@ public class 属性config
      public static float 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
      public static float 总修炼速度加成 => PlayerData.S.关卡修炼速度加成 + 道宝Config.Get道宝总修炼速度();
-     public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.JingJieType];
+     public static float 每年秒数 => JingJieConfig.每年秒数Dic[PlayerData.S.历史最高境界];
 }

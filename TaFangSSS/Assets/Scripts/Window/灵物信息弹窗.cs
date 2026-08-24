@@ -46,10 +46,10 @@ public class 灵物信息弹窗 : MonoBehaviour
             name.text = PropConfig.PropNameDic[ProType];
             if (ProType == PropType.功德)
             {
-                数量.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][1].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][1].maxCount);
+                数量.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][1].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][1].maxCount);
             }else if (ProType == PropType.灵魂)
             {
-                数量.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][0].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.JingJieType, qualityType = QualityType }][0].maxCount);
+                数量.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][0].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][0].maxCount);
             }
             desc.text = PropConfig.道具信息InfoDic[PropConfig.PropTypeTo道具信息[ProType]];
         }
