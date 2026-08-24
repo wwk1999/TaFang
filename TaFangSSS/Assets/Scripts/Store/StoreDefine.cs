@@ -21,7 +21,7 @@ public class StoreDefine : XSingleton<StoreController>
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
         public int 道龄年;
-        public float 初始跟脚 = 1;
+        public long 初始跟脚 = 1;
 
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;

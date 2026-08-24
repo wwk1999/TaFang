@@ -14,7 +14,7 @@ public class PlayerData : XSingleton<PlayerData>
     public string Name = "修仙者";
     public JingJieType 历史最高境界 = JingJieType.练气;
     public JingJieType 当前轮回境界 = JingJieType.练气;
-    public float 初始跟脚 = 1;
+    public long 初始跟脚 = 1;
     public float Exp;
     public int 当前出战编队 = 1;
     public float 道龄S = 0;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Config;
 using UnityEngine;
 
@@ -50,16 +51,16 @@ public class JingJieConfig : MonoBehaviour
         { JingJieType.大道圣人, new List<long>() { 10000000000, 20000000000, 30000000000, 50000000000, 100000000000, 200000000000, 300000000000, 500000000000 } },
         { JingJieType.混元圣人, new List<long>() { 30000000000, 50000000000, 80000000000, 120000000000, 200000000000, 300000000000, 500000000000, 1000000000000 } },
     };
-    public static Dictionary<QualityType, float> 突破跟脚Dic = new Dictionary<QualityType, float>()
+    public static Dictionary<QualityType, decimal> 突破跟脚Dic = new Dictionary<QualityType, decimal>()
     {
-        { QualityType.黄品, 1f },
-        { QualityType.玄品, 1.2f },
-        { QualityType.地品, 1.5f },
-        { QualityType.天品, 2f },
-        { QualityType.宇品, 3f },
-        { QualityType.宙品, 5f },
-        { QualityType.洪品, 10f },
-        { QualityType.荒品, 30f },
+        { QualityType.黄品, 1m },
+        { QualityType.玄品, 1.1m },
+        { QualityType.地品, 1.3m },
+        { QualityType.天品, 1.6m },
+        { QualityType.宇品, 2m },
+        { QualityType.宙品, 3m },
+        { QualityType.洪品, 5m },
+        { QualityType.荒品, 10m },
     };
     public static Dictionary<JingJieType, int> JingJieAttributeDic =
         new Dictionary<JingJieType, int>()
@@ -85,11 +86,11 @@ public class JingJieConfig : MonoBehaviour
         { JingJieType.鸿蒙,100000},
     };
 
-    public static float 跟脚 => Get跟脚();
+    public static decimal  跟脚 => Get跟脚();
     public static float 轮回系数 = 1;
-    public static float Get跟脚()
+    public static decimal  Get跟脚()
     {
-        float value = PlayerData.S.初始跟脚;
+        decimal value = PlayerData.S.初始跟脚;
         foreach (var item in PlayerData.S.当前轮回突破Dic)
         {
             if (item.Value != QualityType.None)
