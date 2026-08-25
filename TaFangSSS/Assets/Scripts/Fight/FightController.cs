@@ -11,17 +11,24 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public float 物理伤害 = 属性config.总属性.物理伤害增幅;
+    [NonSerialized] public float 冰霜伤害 = 属性config.总属性.冰霜伤害增幅;
+    [NonSerialized] public float 火焰伤害 = 属性config.总属性.火焰伤害增幅;
+    [NonSerialized] public float 雷电伤害 = 属性config.总属性.雷电伤害增幅;
+    [NonSerialized] public float 黑暗伤害 = 属性config.总属性.黑暗伤害增幅;
+    
+    [NonSerialized] public float 射手伤害 = 属性config.总属性.射手增幅;
+    [NonSerialized] public float 战士伤害 = 属性config.总属性.战士增幅;
+    [NonSerialized] public float 控制伤害 = 属性config.总属性.控制增幅;
+    [NonSerialized] public float 法师伤害 = 属性config.总属性.法师增幅;
+
     [NonSerialized] public Dictionary<HeroType, 法器属性> 英雄法器属性Dic = new Dictionary<HeroType, 法器属性>();
-    
-    
-    
     //伤害面板
     [NonSerialized] public int 关卡游戏时长 = 0;
     [NonSerialized]public Dictionary<HeroType,float>当前英雄伤害Dic = new Dictionary<HeroType, float>();
     [NonSerialized]public float 伤害面板刷新间隔 = 0.5f;
     [NonSerialized]public float 当前伤害面板刷新时间 = 0f;
-
-
+    
     //法则
     [NonSerialized]public int 孙悟空每秒增加伤害Time = 0;
     [NonSerialized]public int 通天暴击次数 = 0;

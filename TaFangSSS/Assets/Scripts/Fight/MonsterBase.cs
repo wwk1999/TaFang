@@ -217,45 +217,45 @@ public class MonsterBase : MonoBehaviour
       return 怪物属性;
    }
 
-   public float 元素伤害(float damage,YuanSuType yuanSuType,属性config.领主总属性 属性)
+   public float 元素伤害(float damage,YuanSuType yuanSuType)
    {
       switch (yuanSuType)
       {
          case YuanSuType.冰:
-            damage *= 属性.冰霜伤害增幅;
+            damage *= FightController.S.冰霜伤害;
             break;
          case YuanSuType.火:
-            damage *= 属性.火焰伤害增幅;
+            damage *= FightController.S.火焰伤害;
             break;
          case YuanSuType.黑暗:
-            damage *= 属性.黑暗伤害增幅;
+            damage *= FightController.S.黑暗伤害;
             break;
          case YuanSuType.物理:
-            damage *= 属性.物理伤害增幅;
+            damage *= FightController.S.物理伤害;
             break;
          case YuanSuType.电:
-            damage *= 属性.雷电伤害增幅;
+            damage *= FightController.S.雷电伤害;
             break;
       }
 
       return damage;
    }
    
-   public float 职业伤害(float damage,ZhiYeType zhiYeType,属性config.领主总属性 属性)
+   public float 职业伤害(float damage,ZhiYeType zhiYeType)
    {
       switch (zhiYeType)
       {
          case ZhiYeType.法师:
-            damage *= 属性.法师增幅;
+            damage *= FightController.S.法师伤害;
             break;
          case ZhiYeType.战士:
-            damage *= 属性.战士增幅;
+            damage *= FightController.S.战士伤害;
             break;
          case ZhiYeType.射手:
-            damage *= 属性.射手增幅;
+            damage *= FightController.S.射手伤害;
             break;
          case ZhiYeType.控制:
-            damage *= 属性.控制增幅;
+            damage *= FightController.S.控制伤害;
             break;
       }
 
@@ -265,6 +265,35 @@ public class MonsterBase : MonoBehaviour
    public bool 暴击检测(HeroType heroType)
    {
       float random = Random.Range(0, 100);
+      属性config.领主总属性 属性 = new 属性config.领主总属性();
+      float value = 属性.暴击率 * 100;
+      value += FightController.S.英雄法器属性Dic[heroType].暴击率;
+      if (heroType == HeroType.通天)
+      {
+         value += 英雄星级属性.Get通天暴击率()*100;
+      }
+
+      if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.法师)
+      {
+         value += 属性config.总属性.法师暴击率*100;
+      }
+      if (random <= value)
+      {
+         if (heroType == HeroType.通天)
+         {
+            FightController.S.通天暴击次数++;
+         }
+         return true;
+      }
+      else
+      {
+         return false;
+      }
+   }
+   
+   public bool 二次暴击检测(HeroType heroType)
+   {
+      float random = Random.Range(0, 500);
       属性config.领主总属性 属性 = new 属性config.领主总属性();
       float value = 属性.暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
@@ -353,11 +382,21 @@ public class MonsterBase : MonoBehaviour
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
       {
-         最终Damage *= (2f + 属性config.Get英雄暴击伤害增幅()/100f);
+         最终Damage *= (属性config.总属性.暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
          最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
+         if (属性config.总属性.二次暴击 != 0)
+         {
+            bool 二次暴击=二次暴击检测(heroType);
+            if (二次暴击)
+            {
+               最终Damage *= (属性config.总属性.暴击伤害/100f);
+               最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
+               最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
+            }
+         }
       }
-      
+      最终Damage *= (1f+PlayerData.S.轮回次数*属性config.总属性.轮回次数加伤);
       最终Damage *= 属性config.总属性.最终伤害增幅;
       最终Damage=计算功法伤害(最终Damage,heroType);
       最终Damage=计算法器伤害(最终Damage,heroType);
@@ -395,11 +434,10 @@ public class MonsterBase : MonoBehaviour
             最终Damage *= 属性config.总属性.首领伤害增幅;
             break;
       }
-      
       最终Damage *= (1 + 道宝Config.羁绊最终伤害 / 100f);
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
-      最终Damage = 元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType,属性config.总属性);
-      最终Damage = 职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType,属性config.总属性);
+      最终Damage = 元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
+      最终Damage = 职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
       float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
       {

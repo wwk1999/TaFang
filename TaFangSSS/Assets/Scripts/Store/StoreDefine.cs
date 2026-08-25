@@ -23,6 +23,7 @@ public class StoreDefine : XSingleton<StoreController>
         public int 道龄年;
         public float 初始跟脚 = 1;
         public 体质Type 当前体质 = 体质Type.凡体;
+        public int 轮回次数 = 0;
 
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;
@@ -2728,6 +2729,8 @@ public class StoreDefine : XSingleton<StoreController>
             当前轮回造化丹药QualityType =runtime.当前轮回造化丹药QualityType;
             初始跟脚 = runtime.初始跟脚;
             当前体质 =  runtime.当前体质;
+            轮回次数 = runtime.轮回次数;
+
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -2797,6 +2800,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.当前轮回造化丹药QualityType = 当前轮回造化丹药QualityType;
             runtime.初始跟脚 = 初始跟脚;
             runtime.当前体质 = 当前体质;
+            runtime.轮回次数 = 轮回次数;
         }
     }
 }
