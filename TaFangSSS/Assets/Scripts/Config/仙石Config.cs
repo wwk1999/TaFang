@@ -92,6 +92,64 @@ public class 仙石Config
         return count;
     }
 
+    public static float Get法器仙石效果(法器 法器)
+    {
+        float value = 0;
+        float 赤阳石数量 = 0;
+        float 太虚石数量 = 0;
+        float 清心玉数量 = 0;
+        float 玄冥石数量 = 0;
+        float 玄灵晶数量 = 0;
+        float 天罡石数量 = 0;
+        foreach (var item in 法器.仙石list)
+        {
+            switch (item.type)
+            {
+                case 仙石Type.天罡石:
+                    天罡石数量++;
+                    break;
+                case 仙石Type.赤阳石:
+                    赤阳石数量++;
+                    break;
+                case 仙石Type.太虚石:
+                    太虚石数量++;
+                    break;
+                case 仙石Type.清心玉:
+                    清心玉数量++;
+                    break;
+                case 仙石Type.玄冥石:
+                    玄冥石数量++;
+                    break;
+                case 仙石Type.玄灵晶:
+                    玄灵晶数量++;
+                    break;
+            }
+        }
+        if (天罡石数量 > 4) value += 仙石羁绊效果Dic[4];
+        if (天罡石数量 > 6) value += 仙石羁绊效果Dic[6];
+        if (天罡石数量 > 8) value += 仙石羁绊效果Dic[8];
+            
+        if (赤阳石数量 > 4) value += 仙石羁绊效果Dic[4];
+        if (赤阳石数量 > 6) value += 仙石羁绊效果Dic[6];
+        if (赤阳石数量 > 8) value += 仙石羁绊效果Dic[8];
+            
+        if (玄灵晶数量 > 4) value += 仙石羁绊效果Dic[4];
+        if (玄灵晶数量 > 6) value += 仙石羁绊效果Dic[6];
+        if (玄灵晶数量 > 8) value += 仙石羁绊效果Dic[8];
+            
+        if (太虚石数量 > 4) value += 仙石羁绊效果Dic[4];
+        if (太虚石数量 > 6) value += 仙石羁绊效果Dic[6];
+        if (太虚石数量 > 8) value += 仙石羁绊效果Dic[8];
+            
+        if (清心玉数量 > 4) value += 仙石羁绊效果Dic[4];
+        if (清心玉数量 > 6) value += 仙石羁绊效果Dic[6];
+        if (清心玉数量 > 8) value += 仙石羁绊效果Dic[8];
+            
+        if (玄冥石数量 > 4) value += 仙石羁绊效果Dic[4];
+        if (玄冥石数量 > 6) value += 仙石羁绊效果Dic[6];
+        if (玄冥石数量 > 8) value += 仙石羁绊效果Dic[8];
+        return value;
+    }
     public static Dictionary<int, float> 仙石羁绊效果Dic = new Dictionary<int, float>()
     {
         { 4, 20 },

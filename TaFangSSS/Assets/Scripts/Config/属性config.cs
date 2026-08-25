@@ -51,6 +51,7 @@ public class 属性config
           public float 法师暴击率 => 道纹config.Get道纹数值(道纹Type.法师暴击率);
           public float 辅助被辅助英雄伤害增幅 => 1f + 道纹config.Get道纹数值(道纹Type.辅助被辅助英雄伤害增幅);
      }
+     
      public class 装备属性
      { 
           public float 暴击率 => EquipConfig.装备附加属性数值Dic[附加属性Type.暴击率]();
@@ -71,6 +72,7 @@ public class 属性config
           public float 首领伤害增幅 => 1f + EquipConfig.装备附加属性数值Dic[附加属性Type.首领伤害增幅]() ;
           public float 城墙血量增幅 => 1f +EquipConfig.装备附加属性数值Dic[附加属性Type.城墙血量]();
      }
+     
 
      public class 道宝属性
      {
@@ -95,7 +97,7 @@ public class 属性config
     private 装备属性 _装备 = new 装备属性();
     private 道纹属性 _道纹 = new 道纹属性();
     private 道宝属性 _道宝 = new 道宝属性();
-
+    
     public float 暴击伤害 => 200 + Get英雄暴击伤害增幅();
     public float 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
     public float 战士增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅;

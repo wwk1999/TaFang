@@ -274,6 +274,10 @@ public class MainWindow : MonoBehaviour
         {
             PlayerData.S.PropListDic[PropType.功德] += 999999;
             PlayerData.S.历史最高境界++;
+            if (PlayerData.S.历史最高境界 > JingJieType.混元圣人)
+            {
+                PlayerData.S.历史最高境界 = JingJieType.混元圣人;
+            }
             PlayerData.S.当前轮回境界++;
         });
         储物袋按钮.onClick.AddListener(() =>

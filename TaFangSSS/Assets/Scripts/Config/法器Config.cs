@@ -258,8 +258,189 @@ public class 法器
     public List<仙石> 仙石list=new List<仙石>();
     public HeroType HeroType=HeroType.None;
 }
+
+public class 法器属性
+{
+    public float 暴击率;
+    public float 暴击伤害;
+    public float 火焰伤害;
+    public float 雷电伤害;
+    public float 黑暗伤害;
+    public float 冰霜伤害;
+    public float 物理伤害;
+    public float 最终伤害;
+    public float 普通怪增伤;
+    public float 精英怪增伤;
+    public float 首领怪增伤;
+    public float 火焰穿透;
+    public float 雷电穿透;
+    public float 物理穿透;
+    public float 冰霜穿透;
+    public float 黑暗穿透;
+
+    public static 法器属性 operator +(法器属性 a, 法器属性 b)
+    {
+        if (a == null) return b;
+        if (b == null) return a;
+        
+        return new 法器属性
+        {
+            暴击率 = a.暴击率 + b.暴击率,
+            暴击伤害 = a.暴击伤害 + b.暴击伤害,
+            火焰伤害 = a.火焰伤害 + b.火焰伤害,
+            雷电伤害 = a.雷电伤害 + b.雷电伤害,
+            黑暗伤害 = a.黑暗伤害 + b.黑暗伤害,
+            冰霜伤害 = a.冰霜伤害 + b.冰霜伤害,
+            物理伤害 = a.物理伤害 + b.物理伤害,
+            最终伤害 = a.最终伤害 + b.最终伤害,
+            普通怪增伤 = a.普通怪增伤 + b.普通怪增伤,
+            精英怪增伤 = a.精英怪增伤 + b.精英怪增伤,
+            首领怪增伤 = a.首领怪增伤 + b.首领怪增伤,
+            火焰穿透 = a.火焰穿透 + b.火焰穿透,
+            雷电穿透 = a.雷电穿透 + b.雷电穿透,
+            物理穿透 = a.物理穿透 + b.物理穿透,
+            冰霜穿透 = a.冰霜穿透 + b.冰霜穿透,
+            黑暗穿透 = a.黑暗穿透 + b.黑暗穿透,
+        };
+    }
+}
 public class 法器Config
 {
+
+    public static 法器属性 Get英雄法器属性(HeroType heroType)
+    {
+        法器属性 法器属性 = new 法器属性();
+        法器属性 衣服属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].衣服);
+        法器属性 头盔属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].头盔);
+        法器属性 鞋子属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].鞋子);
+        法器属性 武器属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].武器);
+        法器属性 = 衣服属性 + 头盔属性 + 鞋子属性 + 武器属性;
+        return 法器属性;
+    }
+    public static 法器属性 Get法器属性(法器 法器)
+    {
+        法器属性 法器属性 = new 法器属性();
+        foreach (var item in 法器.list)
+        {
+            switch (item.法器附加属性Type)
+            {
+                case 法器附加属性Type.暴击率:
+                    法器属性.暴击率 += item.count;
+                    break;
+                case 法器附加属性Type.暴击伤害:
+                    法器属性.暴击伤害 += item.count;
+                    break;
+                case 法器附加属性Type.火焰伤害:
+                    法器属性.火焰伤害 += item.count;
+                    break;
+                case 法器附加属性Type.雷电伤害:
+                    法器属性.雷电伤害 += item.count;
+                    break;
+                case 法器附加属性Type.黑暗伤害:
+                    法器属性.黑暗伤害 += item.count;
+                    break;
+                case 法器附加属性Type.冰霜伤害:
+                    法器属性.冰霜伤害 += item.count;
+                    break;
+                case 法器附加属性Type.物理伤害:
+                    法器属性.物理伤害 += item.count;
+                    break;
+                case 法器附加属性Type.最终伤害:
+                    法器属性.最终伤害 += item.count;
+                    break;
+                case 法器附加属性Type.普通怪增伤:
+                    法器属性.普通怪增伤 += item.count;
+                    break;
+                case 法器附加属性Type.精英怪增伤:
+                    法器属性.精英怪增伤 += item.count;
+                    break;
+                case 法器附加属性Type.首领怪增伤:
+                    法器属性.首领怪增伤 += item.count;
+                    break;
+                case 法器附加属性Type.火焰穿透:
+                    法器属性.火焰穿透 += item.count;
+                    break;
+                case 法器附加属性Type.雷电穿透:
+                    法器属性.雷电穿透 += item.count;
+                    break;
+                case 法器附加属性Type.物理穿透:
+                    法器属性.物理穿透 += item.count;
+                    break;
+                case 法器附加属性Type.冰霜穿透:
+                    法器属性.冰霜穿透 += item.count;
+                    break;
+                case 法器附加属性Type.黑暗穿透:
+                    法器属性.黑暗穿透 += item.count;
+                    break;
+                case 法器附加属性Type.None:
+                default:
+                    break;
+            }
+        }
+
+        float 仙石效果 = 仙石Config.Get法器仙石效果(法器);
+        foreach (var 仙石 in 法器.仙石list)
+        {
+            foreach (var item in 仙石.list)
+            {
+                switch (item.法器附加属性Type)
+                {
+                    case 法器附加属性Type.暴击率:
+                        法器属性.暴击率 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.暴击伤害:
+                        法器属性.暴击伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.火焰伤害:
+                        法器属性.火焰伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.雷电伤害:
+                        法器属性.雷电伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.黑暗伤害:
+                        法器属性.黑暗伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.冰霜伤害:
+                        法器属性.冰霜伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.物理伤害:
+                        法器属性.物理伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.最终伤害:
+                        法器属性.最终伤害 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.普通怪增伤:
+                        法器属性.普通怪增伤 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.精英怪增伤:
+                        法器属性.精英怪增伤 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.首领怪增伤:
+                        法器属性.首领怪增伤 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.火焰穿透:
+                        法器属性.火焰穿透 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.雷电穿透:
+                        法器属性.雷电穿透 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.物理穿透:
+                        法器属性.物理穿透 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.冰霜穿透:
+                        法器属性.冰霜穿透 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.黑暗穿透:
+                        法器属性.黑暗穿透 += item.count*(1+仙石效果/100f);
+                        break;
+                    case 法器附加属性Type.None:
+                    default:
+                        break;
+                }
+            }
+        }
+        return 法器属性;
+    }
     public static Dictionary<法器Type, 法器类型> 法器类型Dic = new Dictionary<法器Type, 法器类型>()
 {
     // ============== 1. 战士 ==============

@@ -328,7 +328,7 @@ public class 功法Config
     { 功法Type.法师彩, "参悟万法本源之道，言出法随造化由心，天地法则尽在掌中。" },
 };
 
-    public static string Get功法基础属性(功法Type type)
+    public static string Get功法基础属性String(功法Type type)
     {
         if (!功法属性Dic.ContainsKey(type)) return "";
 

@@ -267,6 +267,7 @@ public class MonsterBase : MonoBehaviour
       float random = Random.Range(0, 100);
       属性config.领主总属性 属性 = new 属性config.领主总属性();
       float value = 属性.暴击率 * 100;
+      value += FightController.S.英雄法器属性Dic[heroType].暴击率;
       if (heroType == HeroType.通天)
       {
          value += 英雄星级属性.Get通天暴击率()*100;
@@ -354,10 +355,12 @@ public class MonsterBase : MonoBehaviour
       {
          最终Damage *= (2f + 属性config.Get英雄暴击伤害增幅()/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
+         最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
       }
       
       最终Damage *= 属性config.总属性.最终伤害增幅;
       最终Damage=计算功法伤害(最终Damage,heroType);
+      最终Damage=计算法器伤害(最终Damage,heroType);
       最终Damage = Get道纹伤害(最终Damage, heroType);
       if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
       {
@@ -416,19 +419,19 @@ public class MonsterBase : MonoBehaviour
       {
          case YuanSuType.物理:
             
-            抗性 = MonsterAttribute.物理抗性;
+            抗性 = MonsterAttribute.物理抗性-FightController.S.英雄法器属性Dic[heroType].物理穿透/100f;
             break;
          case YuanSuType.电:
-            抗性 = MonsterAttribute.雷电抗性;
+            抗性 = MonsterAttribute.雷电抗性-FightController.S.英雄法器属性Dic[heroType].雷电穿透/100f;
             break;
          case YuanSuType.冰:
-            抗性 = MonsterAttribute.冰霜抗性;
+            抗性 = MonsterAttribute.冰霜抗性-FightController.S.英雄法器属性Dic[heroType].冰霜穿透/100f;
             break;
          case YuanSuType.火:
-            抗性 = MonsterAttribute.火焰抗性;
+            抗性 = MonsterAttribute.火焰抗性-FightController.S.英雄法器属性Dic[heroType].火焰穿透/100f;
             break;
          case YuanSuType.黑暗:
-            抗性 = MonsterAttribute.黑暗抗性;
+            抗性 = MonsterAttribute.黑暗抗性-FightController.S.英雄法器属性Dic[heroType].黑暗穿透/100f;
             break;
       }
 
@@ -559,6 +562,45 @@ public class MonsterBase : MonoBehaviour
       float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[heroType].功法Type]];
 
       damage *= (1 + 功法等级 * 每重奖励 / 100f);
+      return damage;
+   }
+   public float 计算法器伤害(float damage,HeroType  heroType)
+   {
+      法器属性 法器属性 = FightController.S.英雄法器属性Dic[heroType];
+      MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
+      YuanSuType yuansu = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
+      switch (monsterType)
+      {
+         case MonsterType.Normal:
+            damage*=(1+法器属性.普通怪增伤/100f);
+            break;
+         case MonsterType.Elite:
+            damage*=(1+法器属性.精英怪增伤/100f);
+            break;
+         case MonsterType.Boss:
+            damage*=(1+法器属性.首领怪增伤/100f);
+            break;
+      }
+      switch (yuansu)
+      {
+         case YuanSuType.冰:
+            damage*=(1+法器属性.冰霜伤害/100f);
+            break;
+         case YuanSuType.火:
+            damage*=(1+法器属性.火焰伤害/100f);
+            break;
+         case YuanSuType.黑暗:
+            damage*=(1+法器属性.黑暗伤害/100f);
+            break;
+         case YuanSuType.电:
+            damage*=(1+法器属性.雷电伤害/100f);
+            break;
+         case YuanSuType.物理:
+            damage*=(1+法器属性.物理伤害/100f);
+            break;
+      }
+
+      damage *= (1 + 法器属性.最终伤害 / 100f);
       return damage;
    }
    

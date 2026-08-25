@@ -45,6 +45,8 @@ public class 储物袋界面 : MonoBehaviour
 
    public TextMeshProUGUI  Name;
    public TextMeshProUGUI  跟脚;
+   public TextMeshProUGUI  体质;
+
    public TextMeshProUGUI 境界Name;
    public TextMeshProUGUI CurrentExp;
    public TextMeshProUGUI MaxExp;
@@ -64,6 +66,8 @@ public class 储物袋界面 : MonoBehaviour
    public void Set境界()
    {
       Set头像框();
+      体质.text = 体质Config.体质名Dic[PlayerData.S.当前体质];
+      体质.colorGradientPreset = ResourcesConfig.Get品质TMP(体质Config.体质品质Dic[PlayerData.S.当前体质]);
       轮回按钮.gameObject.SetActive(PlayerData.S.当前轮回境界>=JingJieType.合体);
       修炼速度count.text = 属性config.总修炼速度加成 + "%";
       跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();

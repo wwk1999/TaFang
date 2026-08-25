@@ -11,6 +11,10 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public Dictionary<HeroType, 法器属性> 英雄法器属性Dic = new Dictionary<HeroType, 法器属性>();
+    
+    
+    
     //伤害面板
     [NonSerialized] public int 关卡游戏时长 = 0;
     [NonSerialized]public Dictionary<HeroType,float>当前英雄伤害Dic = new Dictionary<HeroType, float>();
