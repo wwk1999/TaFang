@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public 丹药选择弹窗 丹药选择弹窗;
     public Button 远古遗迹按钮;
     public 远古遗迹窗口 远古遗迹窗口;
     public Button 洞天秘境按钮;
@@ -128,6 +129,7 @@ public class MainWindow : MonoBehaviour
     }
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页面",刷新主页面);
         ObserverModuleManager.S.UnRegisterEvent("显示混沌虚空弹窗",显示混沌虚空弹窗 );
         ObserverModuleManager.S.UnRegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
@@ -145,16 +147,21 @@ public class MainWindow : MonoBehaviour
     {
         Show主页();
     }
+
+    public void 显示丹药选择弹窗(object[] obj)
+    {
+        丹药选择弹窗.index = (int)obj[0];
+        丹药选择弹窗.gameObject.SetActive(true);
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新主页面",刷新主页面);
         ObserverModuleManager.S.RegisterEvent("显示混沌虚空弹窗",显示混沌虚空弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示三十三重天弹窗",显示三十三重天弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示凌霄宝殿弹窗",显示凌霄宝殿弹窗 );
         ObserverModuleManager.S.RegisterEvent("显示主线关卡弹窗",显示主线关卡弹窗 );
         ObserverModuleManager.S.SendEvent("播放BGM",true);
-
-        
         ObserverModuleManager.S.SendEvent("刷新主页通天塔收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");

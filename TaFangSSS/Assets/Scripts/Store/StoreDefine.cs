@@ -51,6 +51,13 @@ public class StoreDefine : XSingleton<StoreController>
         public QualityType 当前炼制丹药品质;
         public List<QualityType>造化丹药List = new List<QualityType>();
         public QualityType 当前轮回造化丹药QualityType = QualityType.None;
+        
+        public Dictionary<int, 丹药> 战斗选择丹药Dic = new Dictionary<int, 丹药>()
+        {
+            { 1, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
+            { 2, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
+            { 3, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
+        };
         public Dictionary<string, int> 英雄根基丹药服用Dic = new Dictionary<string, int>()
 {
     // ==================== 丹童（火系） ====================
@@ -2730,6 +2737,7 @@ public class StoreDefine : XSingleton<StoreController>
             初始跟脚 = runtime.初始跟脚;
             当前体质 =  runtime.当前体质;
             轮回次数 = runtime.轮回次数;
+            战斗选择丹药Dic = runtime.战斗选择丹药Dic;
 
         }
 
@@ -2801,6 +2809,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.初始跟脚 = 初始跟脚;
             runtime.当前体质 = 当前体质;
             runtime.轮回次数 = 轮回次数;
+            runtime.战斗选择丹药Dic = 战斗选择丹药Dic;
         }
     }
 }

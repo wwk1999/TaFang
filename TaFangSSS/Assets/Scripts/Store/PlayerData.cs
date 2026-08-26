@@ -46,6 +46,12 @@ public class PlayerData : XSingleton<PlayerData>
     public int 剩余炼制数量;
     public float 当前炼制秒数;
 
+    public Dictionary<int, 丹药> 战斗选择丹药Dic = new Dictionary<int, 丹药>()
+    {
+        { 1, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
+        { 2, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
+        { 3, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
+    };
 
     public Dictionary<string, int> 英雄根基丹药服用Dic = new Dictionary<string, int>()
 {
