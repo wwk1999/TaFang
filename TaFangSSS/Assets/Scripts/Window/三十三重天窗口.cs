@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 三十三重天窗口 : MonoBehaviour
 {
+    public GameObject 丹药content;
+
    public Image image;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
@@ -45,19 +47,41 @@ public class 三十三重天窗口 : MonoBehaviour
 
     private void OnEnable()
     {
+        Set丹药();
         Show关卡列表();
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
         HeroWindowController.S.当前三十三重天Type= PlayerData.S.最大主线关卡>主线关卡Type.大罗天?主线关卡Type.大罗天:PlayerData.S.最大主线关卡;
         ObserverModuleManager.S.SendEvent("三十三重天按钮点击",HeroWindowController.S.当前三十三重天Type);
     }
+    public void 刷新战斗丹药(object[] obj)
+    {
+        Set丹药();
+    }
+    public void Set丹药()
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
 
+        foreach (var item in PlayerData.S.战斗选择丹药Dic)
+        {
+            var 丹药item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/战斗丹药tem"),丹药content.transform).GetComponent<战斗丹药tem>();
+            丹药item.index = item.Key;
+            丹药item.SetItem();
+        }
+    }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
         ObserverModuleManager.S.UnRegisterEvent("三十三重天按钮点击",三十三重天按钮点击);
     }
 
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
         ObserverModuleManager.S.RegisterEvent("三十三重天按钮点击",三十三重天按钮点击);
         ExitButton.onClick.AddListener(() =>
         {

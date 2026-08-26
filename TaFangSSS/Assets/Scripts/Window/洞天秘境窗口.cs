@@ -9,6 +9,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class 洞天秘境窗口 : MonoBehaviour
 {
+    public GameObject 丹药content;
+
     public Button exitButton;
     public Button maskButton;
 
@@ -25,6 +27,7 @@ public class 洞天秘境窗口 : MonoBehaviour
     
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
         挑战按钮.onClick.AddListener(() =>
         {
             LevelConfig.当前关卡类型 = 关卡类型.洞天秘境;
@@ -60,9 +63,33 @@ public class 洞天秘境窗口 : MonoBehaviour
             }
         });
     }
+    public void 刷新战斗丹药(object[] obj)
+    {
+        Set丹药();
+    }
+    public void Set丹药()
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in PlayerData.S.战斗选择丹药Dic)
+        {
+            var 丹药item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/战斗丹药tem"),丹药content.transform).GetComponent<战斗丹药tem>();
+            丹药item.index = item.Key;
+            丹药item.SetItem();
+        }
+    }
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
+    }
 
     private void OnEnable()
     {
+        Set丹药();
         ShowInfo();
         Show关卡列表();
     }

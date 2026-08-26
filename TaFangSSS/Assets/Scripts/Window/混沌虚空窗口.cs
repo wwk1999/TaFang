@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 混沌虚空窗口 : MonoBehaviour
 {
+    public GameObject 丹药content;
+
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
     public TextMeshProUGUI 通关奖励;
@@ -98,18 +100,40 @@ public class 混沌虚空窗口 : MonoBehaviour
     }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
         ObserverModuleManager.S.RegisterEvent("刷新混沌虚空窗口",刷新混沌虚空窗口);
         ObserverModuleManager.S.RegisterEvent("混沌虚空格子点击",混沌虚空格子点击);
     }
+    public void 刷新战斗丹药(object[] obj)
+    {
+        Set丹药();
+    }
+    public void Set丹药()
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
 
+        foreach (var item in PlayerData.S.战斗选择丹药Dic)
+        {
+            var 丹药item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/战斗丹药tem"),丹药content.transform).GetComponent<战斗丹药tem>();
+            丹药item.index = item.Key;
+            丹药item.SetItem();
+        }
+    }
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
         ObserverModuleManager.S.UnRegisterEvent("刷新混沌虚空窗口",刷新混沌虚空窗口);
         ObserverModuleManager.S.UnRegisterEvent("混沌虚空格子点击",混沌虚空格子点击);
     }
 
     private void OnEnable()
     {
+        Set丹药();
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
         int 最大页数 = Mathf.CeilToInt(PlayerData.S.混沌虚空最大层数 / 30f);
         Show关卡层数(最大页数);

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 凌霄宝殿窗口 : MonoBehaviour
 {
+    public GameObject 丹药content;
     public Image image;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
@@ -21,6 +22,7 @@ public class 凌霄宝殿窗口 : MonoBehaviour
     public GameObject 关卡列表GameObject;
     public Toggle 重复挑战Toggle;
 
+    
     public void 凌霄宝殿按钮点击(object[] obj)
     {
         主线关卡Type Type = (主线关卡Type)obj[0];
@@ -45,6 +47,7 @@ public class 凌霄宝殿窗口 : MonoBehaviour
 
     private void OnEnable()
     {
+        Set丹药();
         Show关卡列表();
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
 
@@ -54,11 +57,31 @@ public class 凌霄宝殿窗口 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新战斗丹药",刷新战斗丹药);
         ObserverModuleManager.S.UnRegisterEvent("凌霄宝殿按钮点击",凌霄宝殿按钮点击);
     }
 
+    public void 刷新战斗丹药(object[] obj)
+    {
+        Set丹药();
+    }
+    public void Set丹药()
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in PlayerData.S.战斗选择丹药Dic)
+        {
+            var 丹药item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/战斗丹药tem"),丹药content.transform).GetComponent<战斗丹药tem>();
+            丹药item.index = item.Key;
+            丹药item.SetItem();
+        }
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
         ObserverModuleManager.S.RegisterEvent("凌霄宝殿按钮点击",凌霄宝殿按钮点击);
         ExitButton.onClick.AddListener(() =>
         {

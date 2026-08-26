@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class 远古遗迹窗口 : MonoBehaviour
 {
+    public GameObject 丹药content;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
     public GameObject 敌人Content;
@@ -71,15 +72,35 @@ public class 远古遗迹窗口 : MonoBehaviour
     
     private void OnEnable()
     {
+        Set丹药();
         Show关卡列表();
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
 
         HeroWindowController.S.当前遗迹关卡Type = PlayerData.S.最大神物关卡;
         ObserverModuleManager.S.SendEvent("遗迹关卡按钮点击",HeroWindowController.S.当前遗迹关卡Type);
     }
+    public void 刷新战斗丹药(object[] obj)
+    {
+        Set丹药();
+    }
+    public void Set丹药()
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
 
+        foreach (var item in PlayerData.S.战斗选择丹药Dic)
+        {
+            var 丹药item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/战斗丹药tem"),丹药content.transform).GetComponent<战斗丹药tem>();
+            丹药item.index = item.Key;
+            丹药item.SetItem();
+        }
+    }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
         ObserverModuleManager.S.UnRegisterEvent("遗迹关卡按钮点击",遗迹关卡按钮点击);
     }
 
@@ -90,7 +111,8 @@ public class 远古遗迹窗口 : MonoBehaviour
         Show右panel(Type);
     }
     private void Awake()
-    {
+    {       
+        ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
         ObserverModuleManager.S.RegisterEvent("遗迹关卡按钮点击",遗迹关卡按钮点击);
         ExitButton.onClick.AddListener(() =>
         {
