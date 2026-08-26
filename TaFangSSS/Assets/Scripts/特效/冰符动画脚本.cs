@@ -159,6 +159,8 @@ public class 冰符动画脚本: MonoBehaviour
                             100f);
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
+                    QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+
                 }
                 if (女娲电辅助)
                 {
@@ -169,6 +171,8 @@ public class 冰符动画脚本: MonoBehaviour
                             100f);
                     }
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
+
                 }
 
                 if (瑶池冰辅助)

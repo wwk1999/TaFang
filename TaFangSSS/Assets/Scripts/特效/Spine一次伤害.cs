@@ -81,7 +81,7 @@ public class Spine一次伤害 : MonoBehaviour
                      功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
                      100f);
                }
-               QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+               QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
             }
             if (黑暗辅助)
             {
@@ -92,6 +92,7 @@ public class Spine一次伤害 : MonoBehaviour
                      100f);
                }
                damage *= (1+英雄星级属性.妲己效果/100f);
+               QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
             }
             if (女娲电辅助)
             {
@@ -102,6 +103,7 @@ public class Spine一次伤害 : MonoBehaviour
                      100f);
                }
                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+               QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
             }
 
             if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)

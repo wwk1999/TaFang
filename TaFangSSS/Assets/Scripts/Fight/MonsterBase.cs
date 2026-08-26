@@ -40,6 +40,8 @@ public class MonsterBase : MonoBehaviour
    private float CurrentAttackTime = 0;
    private float RealSpeed => GetRealSpeed();
    [NonSerialized] public float 瑶池冰辅助=0;
+   [NonSerialized] public bool 女娲电辅助;
+   [NonSerialized] public bool 妲己黑暗辅助;
    [NonSerialized] public float 龟丞相减速=0;
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
@@ -268,6 +270,18 @@ public class MonsterBase : MonoBehaviour
       属性config.领主总属性 属性 = new 属性config.领主总属性();
       float value = 属性.暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
+      if (瑶池冰辅助 > 0)
+      {
+         value += FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击率;
+      }
+      if (妲己黑暗辅助)
+      {
+         value += FightController.S.英雄法器属性Dic[HeroType.妲己].暴击率;
+      }
+      if (女娲电辅助)
+      {
+         value += FightController.S.英雄法器属性Dic[HeroType.女娲].暴击率;
+      }
       if (heroType == HeroType.通天)
       {
          value += 英雄星级属性.Get通天暴击率()*100;
@@ -297,6 +311,18 @@ public class MonsterBase : MonoBehaviour
       属性config.领主总属性 属性 = new 属性config.领主总属性();
       float value = 属性.暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
+      if (瑶池冰辅助 > 0)
+      {
+         value += FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击率;
+      }
+      if (妲己黑暗辅助)
+      {
+         value += FightController.S.英雄法器属性Dic[HeroType.妲己].暴击率;
+      }
+      if (女娲电辅助)
+      {
+         value += FightController.S.英雄法器属性Dic[HeroType.女娲].暴击率;
+      }
       if (heroType == HeroType.通天)
       {
          value += 英雄星级属性.Get通天暴击率()*100;
@@ -393,13 +419,37 @@ public class MonsterBase : MonoBehaviour
                最终Damage *= (属性config.总属性.暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
                最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
+               if (瑶池冰辅助 > 0)
+               {
+                  最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击伤害/100f);
+               }
+               if (妲己黑暗辅助)
+               {
+                  最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.妲己].暴击伤害/100f);
+               }
+               if (女娲电辅助)
+               {
+                  最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.女娲].暴击伤害/100f);
+               }
             }
          }
       }
       最终Damage *= (1f+PlayerData.S.轮回次数*属性config.总属性.轮回次数加伤);
       最终Damage *= 属性config.总属性.最终伤害增幅;
       最终Damage=计算功法伤害(最终Damage,heroType);
-      最终Damage=计算法器伤害(最终Damage,heroType);
+      最终Damage=计算法器伤害(最终Damage,heroType,heroType);
+      if (瑶池冰辅助 > 0)
+      {
+         最终Damage=计算法器伤害(最终Damage,heroType,HeroType.瑶池仙女);
+      }
+      if (妲己黑暗辅助)
+      {
+         最终Damage=计算法器伤害(最终Damage,heroType,HeroType.妲己);
+      }
+      if (女娲电辅助 )
+      {
+         最终Damage=计算法器伤害(最终Damage,heroType,HeroType.女娲);
+      }
       最终Damage = Get道纹伤害(最终Damage, heroType);
       if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
       {
@@ -455,21 +505,52 @@ public class MonsterBase : MonoBehaviour
       float 抗性 = 0;
       switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
       {
-         case YuanSuType.物理:
-            
-            抗性 = MonsterAttribute.物理抗性-FightController.S.英雄法器属性Dic[heroType].物理穿透/100f;
-            break;
-         case YuanSuType.电:
-            抗性 = MonsterAttribute.雷电抗性-FightController.S.英雄法器属性Dic[heroType].雷电穿透/100f;
-            break;
          case YuanSuType.冰:
-            抗性 = MonsterAttribute.冰霜抗性-FightController.S.英雄法器属性Dic[heroType].冰霜穿透/100f;
+            抗性=MonsterAttribute.冰霜抗性;
             break;
          case YuanSuType.火:
-            抗性 = MonsterAttribute.火焰抗性-FightController.S.英雄法器属性Dic[heroType].火焰穿透/100f;
+            抗性=MonsterAttribute.火焰抗性;
             break;
          case YuanSuType.黑暗:
-            抗性 = MonsterAttribute.黑暗抗性-FightController.S.英雄法器属性Dic[heroType].黑暗穿透/100f;
+            抗性=MonsterAttribute.黑暗抗性;
+            break;
+         case YuanSuType.物理:
+            抗性=MonsterAttribute.物理抗性;
+            break;
+         case YuanSuType.电:
+            抗性=MonsterAttribute.雷电抗性;
+            break;
+      }
+      抗性 = 计算法器抗性(抗性, heroType,heroType);
+      if (瑶池冰辅助 > 0)
+      {
+         抗性 = 计算法器抗性(抗性, heroType,HeroType.瑶池仙女);
+      }
+      if (妲己黑暗辅助)
+      {
+         抗性 = 计算法器抗性(抗性, heroType,HeroType.妲己);
+      }
+      if (女娲电辅助 )
+      {
+         抗性 = 计算法器抗性(抗性, heroType,HeroType.女娲);
+      }
+      switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
+      {
+         case YuanSuType.物理:
+            //怪物抗性是0-100
+            抗性 = MonsterAttribute.物理抗性/(1f+FightController.S.英雄法器属性Dic[heroType].物理穿透/100f);
+            break;
+         case YuanSuType.电:
+            抗性 = MonsterAttribute.雷电抗性/(1f+FightController.S.英雄法器属性Dic[heroType].雷电穿透/100f);
+            break;
+         case YuanSuType.冰:
+            抗性 = MonsterAttribute.冰霜抗性/(1f+FightController.S.英雄法器属性Dic[heroType].冰霜穿透/100f);
+            break;
+         case YuanSuType.火:
+            抗性 = MonsterAttribute.火焰抗性/(1f+FightController.S.英雄法器属性Dic[heroType].火焰穿透/100f);
+            break;
+         case YuanSuType.黑暗:
+            抗性 = MonsterAttribute.黑暗抗性/(1f+FightController.S.英雄法器属性Dic[heroType].黑暗穿透/100f);
             break;
       }
 
@@ -478,7 +559,7 @@ public class MonsterBase : MonoBehaviour
       {
          无视抗性 += 属性config.总属性.三味真火无视抗性百分比*100;
       }
-      最终Damage *= (100 - (抗性-无视抗性)) / 100;
+      最终Damage *= (100 - 抗性/(1+无视抗性)) / 100;
       //最终伤害结算
 
 
@@ -501,6 +582,31 @@ public class MonsterBase : MonoBehaviour
       {
          Die(heroType);
       }
+   }
+
+   public float 计算法器抗性(float 抗性,HeroType heroType,HeroType 辅助)
+   {
+      switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
+      {
+         case YuanSuType.物理:
+            //怪物抗性是0-100
+            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].物理穿透/100f);
+            break;
+         case YuanSuType.电:
+            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].雷电穿透/100f);
+            break;
+         case YuanSuType.冰:
+            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].冰霜穿透/100f);
+            break;
+         case YuanSuType.火:
+            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].火焰穿透/100f);
+            break;
+         case YuanSuType.黑暗:
+            抗性 /=(1f+FightController.S.英雄法器属性Dic[辅助].黑暗穿透/100f);
+            break;
+      }
+
+      return 抗性;
    }
 
    private void Update()
@@ -602,9 +708,9 @@ public class MonsterBase : MonoBehaviour
       damage *= (1 + 功法等级 * 每重奖励 / 100f);
       return damage;
    }
-   public float 计算法器伤害(float damage,HeroType  heroType)
+   public float 计算法器伤害(float damage,HeroType  heroType,HeroType  辅助)
    {
-      法器属性 法器属性 = FightController.S.英雄法器属性Dic[heroType];
+      法器属性 法器属性 = FightController.S.英雄法器属性Dic[辅助];
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       YuanSuType yuansu = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
       switch (monsterType)

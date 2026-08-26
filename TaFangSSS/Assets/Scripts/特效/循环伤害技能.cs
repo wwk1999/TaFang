@@ -119,9 +119,42 @@ public class 循环伤害技能 : MonoBehaviour
             var hit = FightController.S.GetPeng(Type);
             hit.transform.position = closestPoint;
             float realDamage = damage;
+            if (瑶池冰辅助)
+            {
+                QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+            }
+            if (女娲电辅助)
+            {
+                if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
+                {
+                    damage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
+                        功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
+                        100f);
+                }
+                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
+
+            }
             if (黑暗辅助)
             {
-                realDamage *= 1.2f;
+                if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
+                {
+                    damage *= (1 + PlayerData.S.HeroDataDic[HeroType.妲己].功法等级 *
+                        功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type]] /
+                        100f);
+                }
+                damage *= (1+英雄星级属性.妲己效果/100);
+                QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
+
+            }
+            if (瑶池冰辅助)
+            {
+                if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
+                {
+                    damage *= (1 + PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法等级 *
+                        功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
+                        100f);
+                }
             }
             if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
             {
@@ -130,10 +163,6 @@ public class 循环伤害技能 : MonoBehaviour
 
             QueueController.S.MonsterColliderDic[other].Hurt(realDamage, HeroType);
             hit.gameObject.SetActive(true);
-            if (瑶池冰辅助)
-            {
-                QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2; //持续2s
-            }
         }
     }
 }

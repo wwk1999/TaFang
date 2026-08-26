@@ -54,6 +54,7 @@ public class 孙悟空棒子 : MonoBehaviour
                      100f);
                }
                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+               QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
             }
          
             if (黑暗辅助)
@@ -65,6 +66,8 @@ public class 孙悟空棒子 : MonoBehaviour
                      100f);
                }
                damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
+               QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+
             }
 
             if (瑶池冰辅助)

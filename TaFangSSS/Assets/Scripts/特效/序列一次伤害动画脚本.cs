@@ -106,7 +106,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
             {
                 if (瑶池冰辅助)
                 {
-                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                    QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
                 }
 
                 if (type == 攻击特效Type.龟丞相技能)
@@ -127,6 +127,8 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                             100f);
                     }
                     damage *= (1+英雄星级属性.妲己效果/100);
+                    QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+
                 }
                 if (女娲电辅助)
                 {
@@ -137,6 +139,8 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                             100f);
                     }
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
+
                 }
 
                 if (瑶池冰辅助)
