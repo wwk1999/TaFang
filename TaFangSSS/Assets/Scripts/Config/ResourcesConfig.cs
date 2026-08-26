@@ -5198,20 +5198,7 @@ public static Sprite 英雄最终伤害彩;
                 case QualityType.荒品: return 丹方控制伤害彩;
                 default: return null;
             }
-
-        case 丹药Type.辅助伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: return 丹方辅助伤害白;
-                case QualityType.玄品: return 丹方辅助伤害绿;
-                case QualityType.地品: return 丹方辅助伤害蓝;
-                case QualityType.天品: return 丹方辅助伤害紫;
-                case QualityType.宇品: return 丹方辅助伤害橙;
-                case QualityType.宙品: return 丹方辅助伤害粉;
-                case QualityType.洪品: return 丹方辅助伤害红;
-                case QualityType.荒品: return 丹方辅助伤害彩;
-                default: return null;
-            }
+        
 
         case 丹药Type.最终伤害:
             switch (qualityType)
@@ -5503,20 +5490,7 @@ public static Sprite 英雄最终伤害彩;
                 case QualityType.荒品: return 控制伤害彩;
                 default: return null;
             }
-
-        case 丹药Type.辅助伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: return 辅助伤害白;
-                case QualityType.玄品: return 辅助伤害绿;
-                case QualityType.地品: return 辅助伤害蓝;
-                case QualityType.天品: return 辅助伤害紫;
-                case QualityType.宇品: return 辅助伤害橙;
-                case QualityType.宙品: return 辅助伤害粉;
-                case QualityType.洪品: return 辅助伤害红;
-                case QualityType.荒品: return 辅助伤害彩;
-                default: return null;
-            }
+            
 
         case 丹药Type.最终伤害:
             switch (qualityType)

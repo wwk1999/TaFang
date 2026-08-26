@@ -438,6 +438,7 @@ public class MonsterBase : MonoBehaviour
       最终Damage *= 属性config.总属性.最终伤害增幅;
       最终Damage=计算功法伤害(最终Damage,heroType);
       最终Damage=计算法器伤害(最终Damage,heroType,heroType);
+      最终Damage = 计算丹药伤害(最终Damage, heroType);
       if (瑶池冰辅助 > 0)
       {
          最终Damage=计算法器伤害(最终Damage,heroType,HeroType.瑶池仙女);
@@ -708,6 +709,49 @@ public class MonsterBase : MonoBehaviour
       damage *= (1 + 功法等级 * 每重奖励 / 100f);
       return damage;
    }
+
+   public float 计算丹药伤害(float damage, HeroType heroType)
+   {
+      ZhiYeType zhiYeType = HeroConfig.HeroZhiYeDic[heroType].zhiYeType;
+      YuanSuType yuanSuType=HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
+      switch (zhiYeType)
+      {
+         case ZhiYeType.战士:
+            damage *= (1f + FightController.S.战士伤害 / 100f);
+            break;
+         case ZhiYeType.射手:
+            damage *= (1f + FightController.S.射手伤害 / 100f);
+            break;
+         case ZhiYeType.法师:
+            damage *= (1f + FightController.S.法师伤害 / 100f);
+            break;
+         case ZhiYeType.控制:
+            damage *= (1f + FightController.S.控制伤害 / 100f);
+            break;
+      }
+
+      switch (yuanSuType)
+      {
+         case YuanSuType.冰:
+            damage *= (1f + FightController.S.冰霜伤害 / 100f);
+            break;
+         case YuanSuType.火:
+            damage *= (1f + FightController.S.火焰伤害 / 100f);
+            break;
+         case YuanSuType.黑暗:
+            damage *= (1f + FightController.S.黑暗伤害 / 100f);
+            break;
+         case YuanSuType.电:
+            damage *= (1f + FightController.S.雷电伤害 / 100f);
+            break;
+         case YuanSuType.物理:
+            damage *= (1f + FightController.S.物理伤害 / 100f);
+            break;
+      }
+
+      return damage;
+   }
+
    public float 计算法器伤害(float damage,HeroType  heroType,HeroType  辅助)
    {
       法器属性 法器属性 = FightController.S.英雄法器属性Dic[辅助];

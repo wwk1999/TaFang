@@ -11,6 +11,7 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public 丹药属性 战斗丹药属性 = new 丹药属性();
     [NonSerialized] public float 物理伤害 = 属性config.总属性.物理伤害增幅;
     [NonSerialized] public float 冰霜伤害 = 属性config.总属性.冰霜伤害增幅;
     [NonSerialized] public float 火焰伤害 = 属性config.总属性.火焰伤害增幅;
