@@ -18,6 +18,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 初始跟脚 = 1;
     public bool 是否首次进入游戏 = true;
     public bool 是否首次进入主页面 = true;
+    public bool 是否首次进入英雄界面 = true;
     public float Exp;
     public int 当前出战编队 = 1;
     public int 长生道体年数 = 0;
@@ -2984,7 +2985,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     };
     public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
     {
-        { 0, new List<HeroType>() { HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
+        { 0, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
         { 1, new List<HeroType>(){ HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
         { 2, new List<HeroType>(){ HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
         { 3, new List<HeroType>(){ HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},

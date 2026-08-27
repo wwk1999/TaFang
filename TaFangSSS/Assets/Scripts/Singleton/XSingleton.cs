@@ -19,6 +19,7 @@ public class XSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
             var type = typeof(T);
             if (!_instance) _instance = FindObjectOfType(type) as T;
+            if (_instance) return _instance;
             var singletonAtt = type.GetCustomAttribute<SingletonNameAttribute>();
             var nameSingleton = singletonAtt?.SingletonName ?? type.ToString();
             _instance = new GameObject(nameSingleton).AddComponent<T>();

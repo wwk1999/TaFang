@@ -12,6 +12,11 @@ using Image = UnityEngine.UI.Image;
 
 public class HeroWindow : MonoBehaviour
 {
+   public GameObject 对话框;
+   public TextMeshProUGUI 对话框Text;
+   public Button 引导Button;
+   public GameObject 引导小手;
+   public Transform 拖动trans;
    public 功法选择弹窗 功法选择弹窗;
    public 功法确认装备弹窗 功法确认装备弹窗;
    public Button ExitButton;
@@ -26,6 +31,7 @@ public class HeroWindow : MonoBehaviour
    public ScrollRect  ScrollView;
    public 英雄详情弹窗 英雄详情弹窗;
 
+   private int 引导count = 0;
    public void 交换英雄(object[] obj)
    {
       ResetHeroPanel();
@@ -37,6 +43,14 @@ public class HeroWindow : MonoBehaviour
          {
              HeroList[item].SetItem();
          }
+      }
+
+      if (PlayerData.S.是否首次进入英雄界面)
+      {
+         引导count++;
+         对话框Text.text = "已经出战成功啦,下面让我们进行第一场战斗吧！";
+         引导小手.gameObject.SetActive(false);
+         引导Button.gameObject.SetActive(true);
       }
       SetHeroListOrder();
    }
@@ -119,6 +133,22 @@ public class HeroWindow : MonoBehaviour
       {
          gameObject.SetActive(false);
       });
+      引导Button.onClick.AddListener(() =>
+      {
+         if (引导count == 0)
+         {
+             对话框.transform.localPosition = 拖动trans.localPosition;
+             对话框Text.text = "先长按一段时间,然后拖动英雄到备战栏上就出战成功了。";
+             引导小手.gameObject.SetActive(true);
+             引导Button.gameObject.SetActive(false);
+         }else if (引导count == 1)
+         {
+            对话框.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+            PlayerData.S.是否首次进入英雄界面 = false;
+         }
+        
+      });
       ObserverModuleManager.S.RegisterEvent("交换英雄",交换英雄);
    }
 
@@ -182,6 +212,13 @@ public class HeroWindow : MonoBehaviour
 
    private void OnEnable()
    {
+      if (PlayerData.S.是否首次进入英雄界面)
+      {
+         ExitButton.interactable = false;
+         对话框.gameObject.SetActive(true);
+         引导Button.gameObject.SetActive(true);
+      }
+      ExitButton.interactable = true;
       暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
       ShowHeroList();
       ResetHeroPanel();

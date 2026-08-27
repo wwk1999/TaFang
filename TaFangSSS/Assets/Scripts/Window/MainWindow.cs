@@ -11,6 +11,10 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public Canvas 父canvas;
+    public Transform 英雄Trans;
+    public Transform 英雄小手Trans;
+    public Canvas 英雄Canvas;
     public Transform 初始Trans;
     public Transform 修为Trans;
     public Transform 修为小手Trans;
@@ -237,10 +241,23 @@ public class MainWindow : MonoBehaviour
         {
             if (引导count == 0)
             {
+                引导count++;
+                修为Canvas.overrideSorting = true;
                 对话框.transform.localPosition = 修为Trans.localPosition;
-                对话框Text.text = "这里可以看到当前的境界和修为,修为随着时间缓慢增长。";
+                对话框Text.text = "这里可以看到当前的境界和修为,境界是一切的基础,修为随着时间缓慢增长,当修为满时就可以在储物袋界面进行突破啦。";
                 小手Animator.gameObject.SetActive(true);
                 小手Animator.gameObject.transform.localPosition=修为小手Trans.localPosition;
+            }
+            else if (引导count == 1)
+            {
+                引导count++;
+                修为Canvas.overrideSorting = false;
+                对话框.transform.localPosition = 英雄Trans.localPosition;
+                对话框Text.text = "接下来我们去英雄界面上场英雄吧";
+                小手Animator.gameObject.transform.localPosition=英雄小手Trans.localPosition;
+                英雄Canvas.overrideSorting = true;
+                英雄Canvas.GetComponent<GraphicRaycaster>().enabled = true;
+                父canvas.GetComponent<GraphicRaycaster>().enabled = false;
             }
         });
         mask.gameObject.SetActive(true);
@@ -371,6 +388,14 @@ public class MainWindow : MonoBehaviour
         });
         英雄按钮.onClick.AddListener(() =>
         {
+            if (PlayerData.S.是否首次进入主页面)
+            {
+                对话框.gameObject.SetActive(false);
+                小手Animator.gameObject.SetActive(false);
+                英雄Canvas.overrideSorting = false;
+                父canvas.GetComponent<GraphicRaycaster>().enabled = true;
+                PlayerData.S.是否首次进入主页面 = false;
+            }
             WindowController.S.英雄Window.gameObject.SetActive(true);
         });
         招募卷Debug.onClick.AddListener(() =>

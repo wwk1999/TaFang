@@ -17,6 +17,7 @@ public class WindowController : XSingleton<WindowController>
 
    private void Awake()
    {
+      base.Awake();
       Init();
    }
 
