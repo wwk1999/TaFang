@@ -52,6 +52,29 @@ public class StoreDefine : XSingleton<StoreController>
         public List<QualityType>造化丹药List = new List<QualityType>();
         public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         
+        
+        public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>()
+        {
+            // 修炼速度
+            {"修炼速度_黄品", 0},
+            {"修炼速度_玄品", 0},
+            {"修炼速度_地品", 0},
+            {"修炼速度_天品", 0},
+            {"修炼速度_宇品", 0},
+            {"修炼速度_宙品", 0},
+            {"修炼速度_洪品", 0},
+            {"修炼速度_荒品", 0},
+    
+            // 掉宝率
+            {"掉宝率_黄品", 0},
+            {"掉宝率_玄品", 0},
+            {"掉宝率_地品", 0},
+            {"掉宝率_天品", 0},
+            {"掉宝率_宇品", 0},
+            {"掉宝率_宙品", 0},
+            {"掉宝率_洪品", 0},
+            {"掉宝率_荒品", 0},
+        }; 
         public Dictionary<int, 丹药> 战斗选择丹药Dic = new Dictionary<int, 丹药>()
         {
             { 1, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
@@ -2738,7 +2761,7 @@ public class StoreDefine : XSingleton<StoreController>
             当前体质 =  runtime.当前体质;
             轮回次数 = runtime.轮回次数;
             战斗选择丹药Dic = runtime.战斗选择丹药Dic;
-
+            辅助丹药BuffDic = runtime.辅助丹药BuffDic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -2810,6 +2833,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.当前体质 = 当前体质;
             runtime.轮回次数 = 轮回次数;
             runtime.战斗选择丹药Dic = 战斗选择丹药Dic;
+            runtime.辅助丹药BuffDic = 辅助丹药BuffDic;
         }
     }
 }

@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public GameObject BuffContent;
     public 丹药选择弹窗 丹药选择弹窗;
     public Button 远古遗迹按钮;
     public 远古遗迹窗口 远古遗迹窗口;
@@ -111,6 +113,38 @@ public class MainWindow : MonoBehaviour
         WindowController.S.炼丹Window.gameObject.SetActive(false);
     }
 
+    public void SetBuff()
+    {
+        foreach (Transform item in BuffContent.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = 8; i >= 1; i--)
+        {
+            if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度, (QualityType)i) > 0)
+            {
+                var item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/BuffItem"), BuffContent.transform)
+                    .GetComponent<BuffItem>();
+                item.丹药type = 丹药Type.修炼速度;
+                item.QualityType = (QualityType)i;
+                item.SetItem();
+            }
+        }
+        
+        for (int i = 8; i >= 1; i--)
+        {
+            if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率, (QualityType)i) > 0)
+            {
+                var item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/BuffItem"), BuffContent.transform)
+                    .GetComponent<BuffItem>();
+                item.丹药type = 丹药Type.掉宝率;
+                item.QualityType = (QualityType)i;
+                item.SetItem();
+            }
+        }
+    }
+
     public void 显示主线关卡弹窗(object[] obj)
     {
         主线关卡Type 主线关卡Type = (主线关卡Type)obj[0];
@@ -129,6 +163,7 @@ public class MainWindow : MonoBehaviour
     }
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.UnRegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页面",刷新主页面);
         ObserverModuleManager.S.UnRegisterEvent("显示混沌虚空弹窗",显示混沌虚空弹窗 );
@@ -153,8 +188,14 @@ public class MainWindow : MonoBehaviour
         丹药选择弹窗.index = (int)obj[0];
         丹药选择弹窗.gameObject.SetActive(true);
     }
+
+    public void 刷新主页Buff(object[] obj)
+    {
+        SetBuff();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.RegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新主页面",刷新主页面);
         ObserverModuleManager.S.RegisterEvent("显示混沌虚空弹窗",显示混沌虚空弹窗 );
@@ -166,7 +207,7 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页不周山收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
-        
+        SetBuff();
         灵宝Debug.onClick.AddListener(() =>
         {
             for (int i = (int)JingJieType.练气; i <= (int)JingJieType.混元圣人; i++)

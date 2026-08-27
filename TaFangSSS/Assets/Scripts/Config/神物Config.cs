@@ -103,7 +103,7 @@ public class 神物Config
             }
         }
         float random=Random.Range(0f, 100f);
-        遗迹关卡胜利奖励.神物 = random < 神物掉落概率Dic[LevelConfig.当前神物Type];
+        遗迹关卡胜利奖励.神物 = random < 神物掉落概率Dic[LevelConfig.当前神物Type]*属性config.总掉宝率;
         return 遗迹关卡胜利奖励;
     }
 

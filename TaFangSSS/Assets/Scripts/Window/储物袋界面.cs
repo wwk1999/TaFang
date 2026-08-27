@@ -69,7 +69,7 @@ public class 储物袋界面 : MonoBehaviour
       体质.text = 体质Config.体质名Dic[PlayerData.S.当前体质];
       体质.colorGradientPreset = ResourcesConfig.Get品质TMP(体质Config.体质品质Dic[PlayerData.S.当前体质]);
       轮回按钮.gameObject.SetActive(PlayerData.S.当前轮回境界>=JingJieType.合体);
-      修炼速度count.text = 属性config.总修炼速度加成 + "%";
+      修炼速度count.text = 属性config.显示修炼速度 + "%";
       跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
       境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
    }

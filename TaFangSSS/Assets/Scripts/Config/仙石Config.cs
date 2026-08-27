@@ -223,7 +223,7 @@ public class 仙石Config
             if (数量random < count) break;
             掉落数量++;
         }
-
+        掉落数量 = (int)(掉落数量*属性config.总掉宝率);
         List<仙石> list = new List<仙石>();
         for (int i = 0; i < 掉落数量; i++)
         {

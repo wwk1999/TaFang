@@ -1640,6 +1640,7 @@ public class 法器Config
             掉落数量++;
         }
 
+        掉落数量 = (int)(掉落数量*属性config.总掉宝率);
         List<法器> list = new List<法器>();
         for (int i = 0; i < 掉落数量; i++)
         {

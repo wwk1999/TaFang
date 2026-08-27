@@ -30,6 +30,7 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
             PlayerData.S.Set丹药数量(丹药Type, QualityType,PlayerData.S.Get丹药数量(丹药Type, QualityType)-count);
             ObserverModuleManager.S.SendEvent("SendUIToast","服用成功");
             ObserverModuleManager.S.SendEvent("刷新背包");
+            ObserverModuleManager.S.SendEvent("刷新主页Buff");
             gameObject.SetActive(false);
         });
         maskButton.onClick.AddListener(() =>

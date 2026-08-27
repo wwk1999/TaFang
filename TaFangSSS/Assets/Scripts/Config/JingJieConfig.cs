@@ -125,7 +125,7 @@ public class JingJieConfig : MonoBehaviour
     public static float 每年基础修为 = 200f;
     public static float Get每秒增加修为()
     {
-        return MathF.Round(每年基础修为*(1f+属性config.总修炼速度加成/100f) / 每年秒数Dic[PlayerData.S.当前轮回境界], 1);
+        return MathF.Round(每年基础修为*(属性config.总修炼速度加成) / 每年秒数Dic[PlayerData.S.当前轮回境界], 1);
     }
 
     public static string Get大数值(float i)

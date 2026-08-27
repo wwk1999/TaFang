@@ -23,7 +23,7 @@ public class 丹药grid : MonoBehaviour
             var 丹药类型=丹药Config.丹药类型Dic[丹药Type];
             if (丹药类型 == 丹药类型.辅助丹药)
             {
-                ObserverModuleManager.S.SendEvent("服用辅助丹药",丹药Type,QualityType);
+                ObserverModuleManager.S.SendEvent("服用辅助丹药弹窗",丹药Type,QualityType);
             }
             if (丹药类型 == 丹药类型.根基丹药)
             {

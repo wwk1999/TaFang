@@ -6,6 +6,26 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite Buff修炼速度白;
+    public static Sprite Buff修炼速度绿;
+    public static Sprite Buff修炼速度蓝;
+    public static Sprite Buff修炼速度紫;
+    public static Sprite Buff修炼速度橙;
+    public static Sprite Buff修炼速度粉;
+    public static Sprite Buff修炼速度红;
+    public static Sprite Buff修炼速度彩;
+    
+    public static Sprite Buff掉宝率白;
+    public static Sprite Buff掉宝率绿;
+    public static Sprite Buff掉宝率蓝;
+    public static Sprite Buff掉宝率紫;
+    public static Sprite Buff掉宝率橙;
+    public static Sprite Buff掉宝率粉;
+    public static Sprite Buff掉宝率红;
+    public static Sprite Buff掉宝率彩;
+
+
+    
     public static Sprite 加号背景框1;
 
     //丹药
@@ -5651,8 +5671,78 @@ public static Sprite 英雄最终伤害彩;
     }
 }
 
+    public static Sprite GetBuffIcon(丹药Type type, QualityType qualityType)
+    {
+        switch (type)
+        {
+            case 丹药Type.修炼速度:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return Buff修炼速度白;
+                    case QualityType.玄品:
+                        return Buff修炼速度绿;
+                    case QualityType.地品:
+                        return Buff修炼速度蓝;
+                    case QualityType.天品:
+                        return Buff修炼速度紫;
+                    case QualityType.宇品:
+                        return Buff修炼速度橙;
+                    case QualityType.宙品:
+                        return Buff修炼速度粉;
+                    case QualityType.洪品:
+                        return Buff修炼速度红;
+                    case QualityType.荒品:
+                        return Buff修炼速度彩;
+                }
+                break;
+            
+            case 丹药Type.掉宝率:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return Buff掉宝率白;
+                    case QualityType.玄品:
+                        return Buff掉宝率绿;
+                    case QualityType.地品:
+                        return Buff掉宝率蓝;
+                    case QualityType.天品:
+                        return Buff掉宝率紫;
+                    case QualityType.宇品:
+                        return Buff掉宝率橙;
+                    case QualityType.宙品:
+                        return Buff掉宝率粉;
+                    case QualityType.洪品:
+                        return Buff掉宝率红;
+                    case QualityType.荒品:
+                        return Buff掉宝率彩;
+                }
+                break;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        Buff修炼速度白= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度白");
+        Buff修炼速度绿= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度绿");
+        Buff修炼速度蓝= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度蓝");
+        Buff修炼速度紫= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度紫");
+        Buff修炼速度橙= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度橙");
+        Buff修炼速度粉= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度粉");
+        Buff修炼速度红= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度红");
+        Buff修炼速度彩= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度彩");
+
+        Buff掉宝率白= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率白");
+        Buff掉宝率绿= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率绿");
+        Buff掉宝率蓝= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率蓝");
+        Buff掉宝率紫= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率紫");
+        Buff掉宝率橙= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率橙");
+        Buff掉宝率粉= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率粉");
+        Buff掉宝率红= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率红");
+        Buff掉宝率彩= Resources.Load<Sprite>("Sprite/BuffIcon/掉宝率彩");
+
+        
         加号背景框1= Resources.Load<Sprite>("Sprite/按钮/加号背景框");
         // 火焰伤害
 // 火焰伤害 - 火元丹

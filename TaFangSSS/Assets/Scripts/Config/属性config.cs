@@ -556,9 +556,41 @@ public class 属性config
      }
      public static float 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
-     public static float 总修炼速度加成 => PlayerData.S.关卡修炼速度加成 + 道宝Config.Get道宝总修炼速度();
+     public static float 显示修炼速度 => PlayerData.S.关卡修炼速度加成 + 道宝Config.Get道宝总修炼速度();
+     public static float 丹药修炼速度 => Get丹药修炼速度();
+
+     public static float 总修炼速度加成 => (1 + 显示修炼速度 / 100f) * (1f + 丹药修炼速度 / 100f);
      public static float 每年秒数 => Get每秒数();
 
+     public static float 丹药掉宝率 => Get丹药掉宝率();
+     
+     public static float 总掉宝率 => 1f+丹药掉宝率/100f;
+     
+     public static float Get丹药掉宝率()
+     {
+          float count = 0;
+          for (int i = 1; i <= 8; i++)
+          {
+               if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率, (QualityType)i) > 0)
+               {
+                    count += 丹药Config.Get丹药值(丹药Type.掉宝率, (QualityType)i);
+               }
+          }
+          return count;
+     }
+     public static float Get丹药修炼速度()
+     {
+          float count = 0;
+          for (int i = 1; i <= 8; i++)
+          {
+               if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度, (QualityType)i) > 0)
+               {
+                    count += 丹药Config.Get丹药值(丹药Type.修炼速度, (QualityType)i);
+               }
+          }
+
+          return count;
+     }
      public static float Get每秒数()
      {
           float value=JingJieConfig.每年秒数Dic[PlayerData.S.历史最高境界];

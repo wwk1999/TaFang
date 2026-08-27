@@ -1165,7 +1165,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
        {
            float prob = 灵物概率列表[index];
            float random = Random.Range(0, 100f);
-           if (random < prob)
+           if (random < prob*属性config.总掉宝率)
            {
                灵物item 灵物item = new 灵物item();
                灵物item.JingJieType = PlayerData.S.当前轮回境界;

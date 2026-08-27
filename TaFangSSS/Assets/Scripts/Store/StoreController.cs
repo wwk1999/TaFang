@@ -58,6 +58,18 @@ public class StoreController : XSingleton<StoreController>
         DontDestroyOnLoad(gameObject);
     }
     private float timer = 0;
+
+    public void 减少辅助丹药时间()
+    {
+        for (int i = 1; i <= 8; i++)
+        {
+            PlayerData.S.Set辅助丹药Buff(丹药Type.修炼速度,(QualityType)i,Math.Max(0,PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度,(QualityType)i)-1));
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            PlayerData.S.Set辅助丹药Buff(丹药Type.掉宝率,(QualityType)i,Math.Max(0,PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率,(QualityType)i)-1));
+        }
+    }
     private void Update()
     {
         timer+=Time.unscaledDeltaTime;
@@ -74,6 +86,8 @@ public class StoreController : XSingleton<StoreController>
         PlayerData.S.道龄S += Time.unscaledDeltaTime;
         if (PlayerData.S.道龄S >= 属性config.每年秒数)
         {
+            减少辅助丹药时间();
+            ObserverModuleManager.S.SendEvent("刷新主页Buff");
             PlayerData.S.道龄S = 0;
             PlayerData.S.道龄年++;
             PlayerData.S.剩余传道次数++;
