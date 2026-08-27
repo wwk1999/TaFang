@@ -31,7 +31,14 @@ public class 丹药信息弹窗 : MonoBehaviour
         switch (丹药显示Type)
         {
             case 丹药显示Type.背包:
-                tip.text = "(右键服用丹药)";
+                if (丹药Config.丹药类型Dic[丹药Type] == 丹药类型.战斗丹药)
+                {
+                    tip.text = "";
+                }
+                else
+                {
+                   tip.text = "(左键服用丹药)"; 
+                }
                 break;
             case 丹药显示Type.战斗弹窗:
                 tip.text = "(右键取消佩戴)";

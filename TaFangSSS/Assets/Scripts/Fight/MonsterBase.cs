@@ -401,6 +401,7 @@ public class MonsterBase : MonoBehaviour
 
       return damage;
    }
+   
    public void Hurt(float 原始Damage,HeroType heroType)
    {
       受击Animation.Play("怪物受击",0,0f);
@@ -409,6 +410,7 @@ public class MonsterBase : MonoBehaviour
       if (暴击)
       {
          最终Damage *= (属性config.总属性.暴击伤害/100f);
+         最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
          最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
          if (属性config.总属性.二次暴击 != 0)
@@ -417,6 +419,7 @@ public class MonsterBase : MonoBehaviour
             if (二次暴击)
             {
                最终Damage *= (属性config.总属性.暴击伤害/100f);
+               最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
                最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
                if (瑶池冰辅助 > 0)
@@ -437,6 +440,7 @@ public class MonsterBase : MonoBehaviour
       最终Damage *= (1f+PlayerData.S.轮回次数*属性config.总属性.轮回次数加伤);
       最终Damage *= 属性config.总属性.最终伤害增幅;
       最终Damage=计算功法伤害(最终Damage,heroType);
+      最终Damage = 计算根基丹药伤害(最终Damage, heroType);
       最终Damage=计算法器伤害(最终Damage,heroType,heroType);
       最终Damage = 计算丹药伤害(最终Damage, heroType);
       if (瑶池冰辅助 > 0)
@@ -698,6 +702,31 @@ public class MonsterBase : MonoBehaviour
                }
       }
       Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
+   }
+
+   public float 计算根基丹药伤害(float damage, HeroType heroType)
+   {
+      YuanSuType yuansu=HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
+      switch (yuansu)
+      {
+         case YuanSuType.冰:
+            damage *= (1f + FightController.S.英雄根基丹药属性Dic[heroType].冰霜伤害 / 100f);
+            break;
+         case YuanSuType.火:
+            damage *= (1f + FightController.S.英雄根基丹药属性Dic[heroType].火焰伤害 / 100f);
+            break;
+         case YuanSuType.黑暗:
+            damage *= (1f + FightController.S.英雄根基丹药属性Dic[heroType].黑暗伤害 / 100f);
+            break;
+         case YuanSuType.电:
+            damage *= (1f + FightController.S.英雄根基丹药属性Dic[heroType].雷电伤害 / 100f);
+            break;
+         case YuanSuType.物理:
+            damage *= (1f + FightController.S.英雄根基丹药属性Dic[heroType].物理伤害 / 100f);
+            break;
+      }
+      damage *= (1f + FightController.S.英雄根基丹药属性Dic[heroType].最终伤害 / 100f);
+      return damage;
    }
 
    public float 计算功法伤害(float damage,HeroType  heroType)

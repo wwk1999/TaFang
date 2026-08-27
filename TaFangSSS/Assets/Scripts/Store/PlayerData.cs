@@ -844,7 +844,6 @@ public class PlayerData : XSingleton<PlayerData>
         {
             return count;
         }
-    
         return 0;
     }
     

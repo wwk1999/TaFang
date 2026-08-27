@@ -188,7 +188,8 @@ public class Entrance : MonoBehaviour
 
    public void InitRenWu()
    {
-      int index = 1;
+      int index = 1;         
+      FightController.S.战斗丹药属性 = 丹药Config.Get战斗丹药属性();
       foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
       {
          if (item == HeroType.None)
@@ -196,7 +197,7 @@ public class Entrance : MonoBehaviour
             continue;
          }
 
-         FightController.S.战斗丹药属性 = 丹药Config.Get战斗丹药属性();
+         FightController.S.英雄根基丹药属性Dic[item] = 丹药Config.Get英雄根基丹药属性(item);
          FightController.S.英雄法器属性Dic[item] = 法器Config.Get英雄法器属性(item);
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;

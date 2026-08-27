@@ -11,6 +11,16 @@ public enum 丹药类型
     造化丹药,
 }
 
+public class 英雄根基丹药属性
+{
+    public float 火焰伤害;
+    public float 冰霜伤害;
+    public float 雷电伤害;
+    public float 黑暗伤害;
+    public float 物理伤害;
+    public float 最终伤害;
+    public float 暴击伤害;
+}
 public class 丹药属性
 {
     public float 火焰伤害;
@@ -155,6 +165,61 @@ public enum 灵药Type
 
 public class 丹药Config
 {
+    public static 英雄根基丹药属性 Get英雄根基丹药属性(HeroType heroType)
+    {
+        英雄根基丹药属性 英雄根基丹药属性 = new 英雄根基丹药属性();
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄冰霜伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.冰霜伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄冰霜伤害, (QualityType)i)*Get丹药值(丹药Type.英雄冰霜伤害, (QualityType)i);
+            }
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄火焰伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.火焰伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄火焰伤害, (QualityType)i)*Get丹药值(丹药Type.英雄火焰伤害, (QualityType)i);
+            }
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄雷电伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.雷电伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄雷电伤害, (QualityType)i)*Get丹药值(丹药Type.英雄雷电伤害, (QualityType)i);
+            }
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄物理伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.物理伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄物理伤害, (QualityType)i)*Get丹药值(丹药Type.英雄物理伤害, (QualityType)i);
+            }
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄黑暗伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.黑暗伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄黑暗伤害, (QualityType)i)*Get丹药值(丹药Type.英雄黑暗伤害, (QualityType)i);
+            }
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄最终伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.最终伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄最终伤害, (QualityType)i)*Get丹药值(丹药Type.英雄最终伤害, (QualityType)i);
+            }
+        }
+        for (int i = 1; i <= 8; i++)
+        {
+            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄暴击伤害, (QualityType)i) > 0)
+            {
+                英雄根基丹药属性.暴击伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄暴击伤害, (QualityType)i)*Get丹药值(丹药Type.英雄暴击伤害, (QualityType)i);
+            }
+        }
+
+        return 英雄根基丹药属性;
+    }
     public static 丹药属性 Get战斗丹药属性()
     {
         丹药属性 丹药属性 = new 丹药属性();
@@ -1089,7 +1154,7 @@ public class 丹药Config
 
         { 丹药Type.英雄最终伤害, "混元丹方" },
     };
-
+    
     public static Dictionary<丹药Type, List<灵药Type>> 丹方Dic = new Dictionary<丹药Type, List<灵药Type>>()
     {
         // 按顺序轮换，保证每种灵药出现的频率几乎相等（每种刚好被用到8~9次）
