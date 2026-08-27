@@ -34,6 +34,7 @@ public class 轮回确认弹窗 : MonoBehaviour
             PlayerData.S.当前轮回境界 = JingJieType.练气;
             PlayerData.S.Exp = 0;
             PlayerData.S.当前体质 = 体质Config.Get轮回体质();
+            PlayerData.S.长生道体年数 = 0;
             PlayerData.S.当前轮回造化丹药QualityType = QualityType.None;
             ObserverModuleManager.S.SendEvent("SendUIToast","轮回成功");
             ObserverModuleManager.S.SendEvent("刷新人物信息");

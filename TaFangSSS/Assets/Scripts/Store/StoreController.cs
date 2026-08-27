@@ -107,6 +107,10 @@ public class StoreController : XSingleton<StoreController>
                 ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);
             }
 
+            if (PlayerData.S.当前体质 == 体质Type.长生道体)
+            {
+                PlayerData.S.长生道体年数++;
+            }
             炼制丹药();
 
         }

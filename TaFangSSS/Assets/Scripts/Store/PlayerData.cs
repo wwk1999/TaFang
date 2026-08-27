@@ -18,6 +18,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 初始跟脚 = 1;
     public float Exp;
     public int 当前出战编队 = 1;
+    public int 长生道体年数 = 0;
     public 体质Type 当前体质 = 体质Type.凡体;
     public float 道龄S = 0;
     public int 道龄年;
@@ -40,7 +41,7 @@ public class PlayerData : XSingleton<PlayerData>
     public List<法器> 法器列表 = new List<法器>();
     public List<仙石> 仙石列表 = new List<仙石>();
     public int 炼丹等级 = 1;
-    public long 炼丹经验 = 0;
+    public float 炼丹经验 = 0;
     public 丹药Type 当前炼制丹药Type = 丹药Type.None;
     public QualityType 当前炼制丹药品质 = QualityType.None;
     public int 剩余炼制数量;

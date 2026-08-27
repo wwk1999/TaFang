@@ -184,12 +184,12 @@ public class 体质信息弹窗 : MonoBehaviour
             item.SetItem();
         }
 
-        if (体质属性.紫霄宫传道次数加成 != 0)
+        if (体质属性.功法每层效果 != 0)
         {
             var item = Instantiate(Resources.Load("Prefabs/Window/体质/体质属性item"), content.transform)
                 .GetComponent<体质属性item>();
-            item.name = "紫霄宫传道次数加成：";
-            item.count = 体质属性.紫霄宫传道次数加成;
+            item.name = "功法每层效果提升：";
+            item.count = 体质属性.功法每层效果;
             item.SetItem();
         }
 

@@ -20,6 +20,29 @@ public class 英雄根基丹药属性
     public float 物理伤害;
     public float 最终伤害;
     public float 暴击伤害;
+
+    // 英雄根基丹药属性 * float
+    public static 英雄根基丹药属性 operator *(英雄根基丹药属性 a, float scalar)
+    {
+        if (a == null) return null;
+
+        return new 英雄根基丹药属性
+        {
+            火焰伤害 = a.火焰伤害 * scalar,
+            冰霜伤害 = a.冰霜伤害 * scalar,
+            雷电伤害 = a.雷电伤害 * scalar,
+            黑暗伤害 = a.黑暗伤害 * scalar,
+            物理伤害 = a.物理伤害 * scalar,
+            最终伤害 = a.最终伤害 * scalar,
+            暴击伤害 = a.暴击伤害 * scalar
+        };
+    }
+
+    // float * 英雄根基丹药属性
+    public static 英雄根基丹药属性 operator *(float scalar, 英雄根基丹药属性 a)
+    {
+        return a * scalar;
+    }
 }
 public class 丹药属性
 {
@@ -75,6 +98,43 @@ public class 丹药属性
             英雄物理伤害 = a.英雄物理伤害 + b.英雄物理伤害,
             英雄最终伤害 = a.英雄最终伤害 + b.英雄最终伤害
         };
+    }
+
+    // 丹药属性 * float
+    public static 丹药属性 operator *(丹药属性 a, float scalar)
+    {
+        if (a == null) return null;
+
+        return new 丹药属性
+        {
+            火焰伤害 = a.火焰伤害 * scalar,
+            冰霜伤害 = a.冰霜伤害 * scalar,
+            雷电伤害 = a.雷电伤害 * scalar,
+            黑暗伤害 = a.黑暗伤害 * scalar,
+            物理伤害 = a.物理伤害 * scalar,
+            战士伤害 = a.战士伤害 * scalar,
+            法师伤害 = a.法师伤害 * scalar,
+            射手伤害 = a.射手伤害 * scalar,
+            控制伤害 = a.控制伤害 * scalar,
+            辅助伤害 = a.辅助伤害 * scalar,
+            最终伤害 = a.最终伤害 * scalar,
+            修炼速度 = a.修炼速度 * scalar,
+            掉宝率 = a.掉宝率 * scalar,
+            英雄暴击伤害 = a.英雄暴击伤害 * scalar,
+            加跟脚 = a.加跟脚 * scalar,
+            英雄火焰伤害 = a.英雄火焰伤害 * scalar,
+            英雄冰霜伤害 = a.英雄冰霜伤害 * scalar,
+            英雄雷电伤害 = a.英雄雷电伤害 * scalar,
+            英雄黑暗伤害 = a.英雄黑暗伤害 * scalar,
+            英雄物理伤害 = a.英雄物理伤害 * scalar,
+            英雄最终伤害 = a.英雄最终伤害 * scalar
+        };
+    }
+
+    // float * 丹药属性
+    public static 丹药属性 operator *(float scalar, 丹药属性 a)
+    {
+        return a * scalar;
     }
 }
 public enum 丹药Type
@@ -218,7 +278,7 @@ public class 丹药Config
             }
         }
 
-        return 英雄根基丹药属性;
+        return 英雄根基丹药属性*(1f+体质Config.当前体质总属性.丹药效果/100f);
     }
     public static 丹药属性 Get战斗丹药属性()
     {
@@ -238,7 +298,7 @@ public class 丹药Config
             丹药属性 丹药属性3 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType);
             丹药属性 += 丹药属性3;
         }
-        return 丹药属性;
+        return 丹药属性*(1f+体质Config.当前体质总属性.丹药效果/100f);
     }
     public static Dictionary<丹药类型, string> 丹药类型String = new Dictionary<丹药类型, string>()
     {
@@ -248,19 +308,19 @@ public class 丹药Config
         { 丹药类型.辅助丹药, "辅助丹药" },
     };
 
-    public static long Get炼制丹药经验(丹药Type type, QualityType qualityType)
+    public static float Get炼制丹药经验(丹药Type type, QualityType qualityType)
     {
         var 类型 = 丹药类型Dic[type];
         switch (类型)
         {
             case 丹药类型.战斗丹药:
-                return 战斗丹药经验Dic[qualityType];
+                return 战斗丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
             case 丹药类型.辅助丹药:
-                return 辅助丹药经验Dic[qualityType];
+                return 辅助丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
             case 丹药类型.根基丹药:
-                return 根基丹药经验Dic[qualityType];
+                return 根基丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
             case 丹药类型.造化丹药:
-                return 造化丹药经验Dic[qualityType];
+                return 造化丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
         }
 
         return 0;
@@ -462,7 +522,7 @@ public class 丹药Config
                 break;
         }
 
-        return 需要时间;
+        return 需要时间/(1f+体质Config.当前体质总属性.炼丹速度/100f);
     }
 
     public static List<灵药> Get炼制灵药(丹药Type type, QualityType qualityType)
@@ -996,7 +1056,7 @@ public class 丹药Config
             count += Get丹药值(丹药Type.加跟脚, item);
         }
 
-        return count;
+        return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
     }
 
     public static float Get丹药价格(丹药Type 丹药Type, QualityType qualityType)

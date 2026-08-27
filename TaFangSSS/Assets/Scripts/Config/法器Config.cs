@@ -303,6 +303,38 @@ public class 法器属性
             黑暗穿透 = a.黑暗穿透 + b.黑暗穿透,
         };
     }
+
+    // 法器属性 * float
+    public static 法器属性 operator *(法器属性 a, float scalar)
+    {
+        if (a == null) return null;
+
+        return new 法器属性
+        {
+            暴击率 = a.暴击率 * scalar,
+            暴击伤害 = a.暴击伤害 * scalar,
+            火焰伤害 = a.火焰伤害 * scalar,
+            雷电伤害 = a.雷电伤害 * scalar,
+            黑暗伤害 = a.黑暗伤害 * scalar,
+            冰霜伤害 = a.冰霜伤害 * scalar,
+            物理伤害 = a.物理伤害 * scalar,
+            最终伤害 = a.最终伤害 * scalar,
+            普通怪增伤 = a.普通怪增伤 * scalar,
+            精英怪增伤 = a.精英怪增伤 * scalar,
+            首领怪增伤 = a.首领怪增伤 * scalar,
+            火焰穿透 = a.火焰穿透 * scalar,
+            雷电穿透 = a.雷电穿透 * scalar,
+            物理穿透 = a.物理穿透 * scalar,
+            冰霜穿透 = a.冰霜穿透 * scalar,
+            黑暗穿透 = a.黑暗穿透 * scalar,
+        };
+    }
+
+    // float * 法器属性
+    public static 法器属性 operator *(float scalar, 法器属性 a)
+    {
+        return a * scalar;
+    }
 }
 public class 法器Config
 {
@@ -315,7 +347,7 @@ public class 法器Config
         法器属性 鞋子属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].鞋子);
         法器属性 武器属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].武器);
         法器属性 = 衣服属性 + 头盔属性 + 鞋子属性 + 武器属性;
-        return 法器属性;
+        return 法器属性*(1f+体质Config.当前体质总属性.法器效果加成);
     }
     public static 法器属性 Get法器属性(法器 法器)
     {

@@ -463,7 +463,7 @@ public class 属性config
     public float 二次暴击 => _神物.二次暴击;
     public float 轮回次数加伤 => _神物.轮回次数加伤;
     public float 轮回系数 => _神物.轮回系数;
-    public float 时间流速加快 => _神物.时间流速加快;
+    public float 时间流速加快 => _神物.时间流速加快+体质Config.当前体质总属性.时间流速加成/100f;
 
     private float 纯战士伤害增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅*(1+_神物.全职业增伤);
     private float 纯法师伤害增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅*(1+_神物.全职业增伤);
@@ -564,7 +564,7 @@ public class 属性config
 
      public static float 丹药掉宝率 => Get丹药掉宝率();
      
-     public static float 总掉宝率 => 1f+丹药掉宝率/100f;
+     public static float 总掉宝率 => (1f+丹药掉宝率/100f)*(1f+体质Config.当前体质总属性.掉宝率/100f);
      
      public static float Get丹药掉宝率()
      {
@@ -576,7 +576,7 @@ public class 属性config
                     count += 丹药Config.Get丹药值(丹药Type.掉宝率, (QualityType)i);
                }
           }
-          return count;
+          return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
      }
      public static float Get丹药修炼速度()
      {
@@ -589,7 +589,7 @@ public class 属性config
                }
           }
 
-          return count;
+          return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
      }
      public static float Get每秒数()
      {

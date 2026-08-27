@@ -106,7 +106,7 @@ public class 炼丹界面 : MonoBehaviour
         炼丹等级.text = "炼丹等级Lv" + PlayerData.S.炼丹等级 + ":";
         炼丹经验条.maxValue = 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
         炼丹经验条.value = PlayerData.S.炼丹经验;
-        当前经验.text=PlayerData.S.炼丹经验.ToString();
+        当前经验.text=PlayerData.S.炼丹经验.ToString("F0");
         最大经验.text=丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级].ToString();
         炼制进度条.maxValue = 1;
         炼制进度条.value = 0;

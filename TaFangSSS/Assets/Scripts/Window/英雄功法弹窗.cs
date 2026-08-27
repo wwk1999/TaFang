@@ -97,7 +97,7 @@ public class 英雄功法弹窗 : MonoBehaviour
             xx5.gameObject.SetActive(功法星级>=5);
             经验Slider.maxValue = 功法Config.Get功法升级经验(功法等级);
             经验Slider.value=PlayerData.S.HeroDataDic[HeroType].功法经验;
-            当前经验.text=PlayerData.S.HeroDataDic[HeroType].功法经验.ToString();
+            当前经验.text=PlayerData.S.HeroDataDic[HeroType].功法经验.ToString("F0");
             最大经验.text=功法Config.Get功法升级经验(功法等级).ToString();
             功法经验COunt.text=功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]].ToString();
             当前层数.text=功法等级.ToString();

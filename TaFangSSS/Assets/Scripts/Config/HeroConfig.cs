@@ -9,7 +9,7 @@ namespace Config
         public bool 派遣;
         public 功法Type 功法Type;
         public int 功法等级;
-        public int 功法经验;
+        public float 功法经验;
         public int 功法星级;
         public 法器 武器 = null;
         public 法器 衣服 = null;

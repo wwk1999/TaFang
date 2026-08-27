@@ -44,7 +44,9 @@ public class StoreDefine : XSingleton<StoreController>
         public List<法器> 法器列表 = new List<法器>();
         public List<仙石> 仙石列表 = new List<仙石>();
         public int 炼丹等级 = 1;
-        public long 炼丹经验 = 0;
+        public float 炼丹经验 = 0;
+        public int 长生道体年数 = 0;
+
         public 丹药Type 当前炼制丹药Type = 丹药Type.None;
         public int 剩余炼制数量;
         public float 当前炼制秒数;
@@ -2762,6 +2764,7 @@ public class StoreDefine : XSingleton<StoreController>
             轮回次数 = runtime.轮回次数;
             战斗选择丹药Dic = runtime.战斗选择丹药Dic;
             辅助丹药BuffDic = runtime.辅助丹药BuffDic;
+            长生道体年数 = runtime.长生道体年数;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -2834,6 +2837,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.轮回次数 = 轮回次数;
             runtime.战斗选择丹药Dic = 战斗选择丹药Dic;
             runtime.辅助丹药BuffDic = 辅助丹药BuffDic;
+            runtime.长生道体年数 = 长生道体年数;
         }
     }
 }

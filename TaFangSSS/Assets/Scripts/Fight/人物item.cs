@@ -50,7 +50,7 @@ public class 人物item : MonoBehaviour
     public float Get攻击间隔()
     {
         float value = 英雄星级属性.Get英雄Cd(heroType);
-       
+        value /= (1f + 体质Config.当前体质总属性.攻击速度 / 100f);
         value /= (1 + 属性config.总属性.英雄冷却缩减);
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.控制)
         {

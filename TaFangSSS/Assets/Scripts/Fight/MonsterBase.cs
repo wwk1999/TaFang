@@ -410,6 +410,7 @@ public class MonsterBase : MonoBehaviour
       if (暴击)
       {
          最终Damage *= (属性config.总属性.暴击伤害/100f);
+         最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
          最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
          最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
@@ -419,6 +420,7 @@ public class MonsterBase : MonoBehaviour
             if (二次暴击)
             {
                最终Damage *= (属性config.总属性.暴击伤害/100f);
+               最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
                最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
                最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
@@ -439,8 +441,12 @@ public class MonsterBase : MonoBehaviour
       }
       最终Damage *= (1f+PlayerData.S.轮回次数*属性config.总属性.轮回次数加伤);
       最终Damage *= 属性config.总属性.最终伤害增幅;
+      最终Damage *= (1f + 体质Config.当前体质总属性.每道年增加伤害 / 100f * PlayerData.S.长生道体年数);
       最终Damage=计算功法伤害(最终Damage,heroType);
+      最终Damage=计算轮回次数加伤害(最终Damage,heroType);
       最终Damage = 计算根基丹药伤害(最终Damage, heroType);
+      最终Damage = 计算体质伤害(最终Damage, heroType);
+      最终Damage = 计算体质辅助伤害(最终Damage, heroType);
       最终Damage=计算法器伤害(最终Damage,heroType,heroType);
       最终Damage = 计算丹药伤害(最终Damage, heroType);
       if (瑶池冰辅助 > 0)
@@ -729,13 +735,78 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
+   public float 计算体质伤害(float damage, HeroType heroType)
+   {
+      YuanSuType yuanSuType = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
+      ZhiYeType zhiYeType=HeroConfig.HeroZhiYeDic[heroType].zhiYeType;
+      damage*=(1f + 体质Config.当前体质总属性.最终伤害 / 100f);
+      switch (zhiYeType)
+      {
+         case ZhiYeType.战士:
+            damage *= (1f + 体质Config.当前体质总属性.战士伤害 / 100f);
+            break;
+         case ZhiYeType.射手:
+            damage *= (1f + 体质Config.当前体质总属性.射手伤害 / 100f);
+            break;
+         case ZhiYeType.法师:
+            damage *= (1f + 体质Config.当前体质总属性.法师伤害 / 100f);
+            break;
+         case ZhiYeType.控制:
+            damage *= (1f + 体质Config.当前体质总属性.控制伤害 / 100f);
+            break;
+      }
+      switch (yuanSuType)
+      {
+         case YuanSuType.冰:
+            damage *= (1f + 体质Config.当前体质总属性.冰霜伤害 / 100f);
+            break;
+         case YuanSuType.电:
+            damage *= (1f + 体质Config.当前体质总属性.雷电伤害 / 100f);
+            break;
+         case YuanSuType.火:
+            damage *= (1f + 体质Config.当前体质总属性.火焰伤害 / 100f);
+            break;
+         case YuanSuType.物理:
+            damage *= (1f + 体质Config.当前体质总属性.物理伤害 / 100f);
+            break;
+         case YuanSuType.黑暗:
+            damage *= (1f + 体质Config.当前体质总属性.黑暗伤害 / 100f);
+            break;
+      }
+
+      return damage;
+   }
+
+   public float 计算体质辅助伤害(float damage, HeroType heroType)
+   {
+      if (瑶池冰辅助 > 0)
+      {
+         damage *= (1f + 体质Config.当前体质总属性.辅助伤害 / 100f);
+      }
+      if (妲己黑暗辅助)
+      {
+         damage *= (1f + 体质Config.当前体质总属性.辅助伤害 / 100f);
+      }
+      if (女娲电辅助)
+      {
+         damage *= (1f + 体质Config.当前体质总属性.辅助伤害 / 100f);
+      }
+      return damage;
+   }
+
+   public float 计算轮回次数加伤害(float damage, HeroType heroType)
+   {
+      if(PlayerData.S.轮回次数==0)return  damage;
+      float value=damage*PlayerData.S.轮回次数*(1f+体质Config.当前体质总属性.轮回次数加伤害/100f);
+      return value;
+   }
    public float 计算功法伤害(float damage,HeroType  heroType)
    {
       if (PlayerData.S.HeroDataDic[heroType].功法Type == 功法Type.None) return damage;
       int 功法等级 = PlayerData.S.HeroDataDic[heroType].功法等级;
       float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[heroType].功法Type]];
 
-      damage *= (1 + 功法等级 * 每重奖励 / 100f);
+      damage *= (1 + 功法等级 * 每重奖励/ 100f*(1f+体质Config.当前体质总属性.功法每层效果/100f) );
       return damage;
    }
 
@@ -828,7 +899,7 @@ public class MonsterBase : MonoBehaviour
          if (item == HeroType.None) return;
          if (PlayerData.S.HeroDataDic[item].功法Type != 功法Type.None)
          {
-            PlayerData.S.HeroDataDic[item].功法经验++;
+            PlayerData.S.HeroDataDic[item].功法经验+=(1f+体质Config.当前体质总属性.功法经验加成/100f);
             if (PlayerData.S.HeroDataDic[item].功法经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].功法等级))
             {
                PlayerData.S.HeroDataDic[item].功法经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].功法等级);

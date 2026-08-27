@@ -87,7 +87,7 @@ public class JingJieConfig : MonoBehaviour
     };
 
     public static float  跟脚 => Get跟脚();
-    public static float 轮回系数 => 1+属性config.总属性.轮回系数*100f;
+    public static float 轮回系数 => 1+属性config.总属性.轮回系数*100f+体质Config.当前体质总属性.轮回系数;
     public static float  Get跟脚()
     {
         float value = PlayerData.S.初始跟脚;
