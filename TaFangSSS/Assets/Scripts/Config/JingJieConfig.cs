@@ -91,6 +91,7 @@ public class JingJieConfig : MonoBehaviour
     public static float  Get跟脚()
     {
         float value = PlayerData.S.初始跟脚;
+        value *= (1f + 丹药Config.Get造化丹药总值() / 100f);
         foreach (var item in PlayerData.S.当前轮回突破Dic)
         {
             if (item.Value != QualityType.None)

@@ -988,6 +988,17 @@ public class 丹药Config
         return 0;
     }
 
+    public static float Get造化丹药总值()
+    {
+        float count = 0;
+        foreach (var item in PlayerData.S.造化丹药List)
+        {
+            count += Get丹药值(丹药Type.加跟脚, item);
+        }
+
+        return count;
+    }
+
     public static float Get丹药价格(丹药Type 丹药Type, QualityType qualityType)
     {
         var 丹药类型 = 丹药类型Dic[丹药Type];
