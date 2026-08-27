@@ -146,6 +146,7 @@ public class HeroWindow : MonoBehaviour
             对话框.gameObject.SetActive(false);
             gameObject.SetActive(false);
             PlayerData.S.是否首次进入英雄界面 = false;
+            ObserverModuleManager.S.SendEvent("关卡新手引导");
          }
         
       });
@@ -212,13 +213,13 @@ public class HeroWindow : MonoBehaviour
 
    private void OnEnable()
    {
+      ExitButton.gameObject.SetActive(true);
       if (PlayerData.S.是否首次进入英雄界面)
       {
-         ExitButton.interactable = false;
+         ExitButton.gameObject.SetActive(false);
          对话框.gameObject.SetActive(true);
          引导Button.gameObject.SetActive(true);
       }
-      ExitButton.interactable = true;
       暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
       ShowHeroList();
       ResetHeroPanel();

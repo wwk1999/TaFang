@@ -11,6 +11,14 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public Button 主线关卡exitbuttton;
+    public Transform 挑战trans;
+    public Transform 挑战小手trans;
+    public Canvas 挑战Canvas;
+    
+    public Transform 关卡trans;
+    public Transform 关卡小手trans;
+    public Canvas 花果山Canvas;
     public Canvas 父canvas;
     public Transform 英雄Trans;
     public Transform 英雄小手Trans;
@@ -172,6 +180,19 @@ public class MainWindow : MonoBehaviour
 
     public void 显示主线关卡弹窗(object[] obj)
     {
+        if (PlayerData.S.是否首次进入关卡)
+        {
+            对话框Text.text = "在这里可以看到主线关卡的掉落和配置战斗丹药,接下来点击挑战按钮进入关卡吧。";
+            对话框.transform.localPosition=挑战trans.localPosition;
+            小手Animator.transform.localPosition=挑战小手trans.localPosition;
+            挑战Canvas.GetComponent<GraphicRaycaster>().enabled = true;
+            父canvas.GetComponent<GraphicRaycaster>().enabled = false;
+            花果山Canvas.overrideSorting = false;
+            花果山Canvas.GetComponent<GraphicRaycaster>().enabled = false;
+            挑战Canvas.overrideSorting = true;
+            主线关卡exitbuttton.gameObject.SetActive(false);
+            PlayerData.S.是否首次进入关卡 = false;
+        }
         主线关卡Type 主线关卡Type = (主线关卡Type)obj[0];
         主线关卡窗口.主线关卡Type = 主线关卡Type;
         主线关卡窗口.gameObject.SetActive(true);
@@ -188,6 +209,7 @@ public class MainWindow : MonoBehaviour
     }
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("关卡新手引导",关卡新手引导);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.UnRegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页面",刷新主页面);
@@ -218,8 +240,22 @@ public class MainWindow : MonoBehaviour
     {
         SetBuff();
     }
+
+    public void 关卡新手引导(object[] obj)
+    {
+        对话框.gameObject.SetActive(true);
+        引导mask.gameObject.SetActive(true);
+        小手Animator.gameObject.SetActive(true);
+        对话框Text.text = "让我们进入第一个主线关卡花果山进行战斗吧。";
+        对话框.transform.localPosition=关卡trans.localPosition;
+        小手Animator.transform.localPosition=关卡小手trans.localPosition;
+        父canvas.GetComponent<GraphicRaycaster>().enabled = false;
+        花果山Canvas.GetComponent<GraphicRaycaster>().enabled = true;
+        花果山Canvas.overrideSorting = true;
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("关卡新手引导",关卡新手引导);
         ObserverModuleManager.S.RegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.RegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新主页面",刷新主页面);

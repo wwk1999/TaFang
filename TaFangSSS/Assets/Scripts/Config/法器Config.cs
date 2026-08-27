@@ -354,6 +354,7 @@ public class 法器Config
         法器属性 法器属性 = new 法器属性();
         foreach (var item in 法器.list)
         {
+            if(item==null)continue;
             switch (item.法器附加属性Type)
             {
                 case 法器附加属性Type.暴击率:
