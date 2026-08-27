@@ -67,7 +67,14 @@ public class StartWindow : MonoBehaviour
       ObserverModuleManager.S.SendEvent("播放BGM",true);
       StartBtn.onClick.AddListener(() =>
          {
-            SceneManager.LoadScene("UIScene");
+            if (PlayerData.S.是否首次进入)
+            {
+               SceneManager.LoadScene("FirstScene");
+            }
+            else
+            {
+               SceneManager.LoadScene("UIScene");
+            }
          }
       );
       设置Btn.onClick.AddListener(() =>

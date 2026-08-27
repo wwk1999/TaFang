@@ -16,6 +16,7 @@ public class PlayerData : XSingleton<PlayerData>
     public JingJieType 当前轮回境界 = JingJieType.练气;
     public int 轮回次数 = 0;
     public float 初始跟脚 = 1;
+    public bool 是否首次进入 = true;
     public float Exp;
     public int 当前出战编队 = 1;
     public int 长生道体年数 = 0;

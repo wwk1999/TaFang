@@ -6,10 +6,12 @@ using System.Linq;
 using Config;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class StoreController : XSingleton<StoreController>
 {
     public StoreDefine.StoreData StoreData;
-    private string SavePath =>Path.Combine(Application.persistentDataPath, "TaFangStore.json");
+    private string SavePath =>Path.Combine(Application.persistentDataPath, "TaFangStoreShiWan1.json");
     private float StoreTime = 3;
     private float CurrentTime = 0;
     private float 增加修为时间 = 1;
@@ -101,7 +103,7 @@ public class StoreController : XSingleton<StoreController>
             ObserverModuleManager.S.SendEvent("刷新坊市剩余时间");
             ObserverModuleManager.S.SendEvent("刷新主页面");
             当前增加修为时间 = 0;
-            if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200)
+            if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200&&SceneManager.GetActiveScene().name!="StartScene"&&SceneManager.GetActiveScene().name!="FirstScene")
             {
                 PlayerData.S.Exp += JingJieConfig.每秒增加修为;
                 ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);
