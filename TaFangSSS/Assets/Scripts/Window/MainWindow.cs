@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Config;
+using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +11,16 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public Transform 初始Trans;
+    public Transform 修为Trans;
+    public Transform 修为小手Trans;
+    public Canvas 修为Canvas;
+    public Animator 小手Animator;
+    public GameObject 对话框;
+    public GameObject 引导mask;
+    public TextMeshProUGUI 对话框Text;
+    public Button 引导Button;
+    public Image mask;
     public GameObject BuffContent;
     public 丹药选择弹窗 丹药选择弹窗;
     public Button 远古遗迹按钮;
@@ -67,6 +79,15 @@ public class MainWindow : MonoBehaviour
     public GameObject 血海收获弹窗;
     public GameObject 不周山收获弹窗;
 
+    private int 引导count = 0;
+    public void 首次进入主页面引导()
+    {
+        对话框.transform.localPosition = 初始Trans.localPosition;
+        引导mask.gameObject.SetActive(true);
+        对话框.gameObject.SetActive(true);
+        对话框Text.text = "欢迎道友进入洪荒,共修大道。";
+        引导Button.gameObject.SetActive(true);
+    }
     public void Show主页()
     {
         var 通天塔list = PlayerData.S.获取通天塔所有道具();
@@ -208,6 +229,22 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
         SetBuff();
+        if (PlayerData.S.是否首次进入主页面)
+        {
+            首次进入主页面引导();
+        }
+        引导Button.onClick.AddListener(() =>
+        {
+            if (引导count == 0)
+            {
+                对话框.transform.localPosition = 修为Trans.localPosition;
+                对话框Text.text = "这里可以看到当前的境界和修为,修为随着时间缓慢增长。";
+                小手Animator.gameObject.SetActive(true);
+                小手Animator.gameObject.transform.localPosition=修为小手Trans.localPosition;
+            }
+        });
+        mask.gameObject.SetActive(true);
+        mask.DOFade(0, 1.3f);
         灵宝Debug.onClick.AddListener(() =>
         {
             for (int i = (int)JingJieType.练气; i <= (int)JingJieType.混元圣人; i++)

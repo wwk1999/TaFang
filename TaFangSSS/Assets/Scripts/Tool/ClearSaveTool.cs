@@ -8,7 +8,7 @@ using System.IO;
 public static class ClearSaveTool
 {
     // 存档路径（与你的 SavePath 保持一致）
-    private static string SavePath => Path.Combine(Application.persistentDataPath, "TaFangStore.json");
+    private static string SavePath => Path.Combine(Application.persistentDataPath, "TaFangStoreShiWan1.json");
 
     [MenuItem("Tools/清除存档")]
     private static void ClearSave()

@@ -33,11 +33,12 @@ public class 首次进入界面 : MonoBehaviour
             else
             {
                 已经输入名称 = true;
+                PlayerData.S.是否首次进入游戏 = false;
                 确认Button.gameObject.SetActive(false);
                 名称text.gameObject.SetActive(false);
                 输入.gameObject.SetActive(false);
                 PlayerData.S.Name = 输入.text;
-                对话text.text = $"{PlayerData.S.Name}道友,这就随我一起进入洪荒吧！";
+                对话text.text = $"{PlayerData.S.Name}道友,这就随我一起进入洪荒世界吧！";
             }
         });
         继续Button.onClick.AddListener(() =>

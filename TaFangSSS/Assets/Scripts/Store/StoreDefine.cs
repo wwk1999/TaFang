@@ -18,7 +18,7 @@ public class StoreDefine : XSingleton<StoreController>
         public JingJieType 历史最高境界 = JingJieType.练气;
         public JingJieType 当前轮回境界 = JingJieType.练气;
         public float Exp;
-        public bool 是否首次进入 = true;
+        public bool 是否首次进入游戏 = true;
 
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
@@ -26,6 +26,7 @@ public class StoreDefine : XSingleton<StoreController>
         public float 初始跟脚 = 1;
         public 体质Type 当前体质 = 体质Type.凡体;
         public int 轮回次数 = 0;
+        public bool 是否首次进入主页面 = true;
 
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;
@@ -2767,7 +2768,9 @@ public class StoreDefine : XSingleton<StoreController>
             战斗选择丹药Dic = runtime.战斗选择丹药Dic;
             辅助丹药BuffDic = runtime.辅助丹药BuffDic;
             长生道体年数 = runtime.长生道体年数;
-            是否首次进入 = runtime.是否首次进入;
+            是否首次进入游戏 = runtime.是否首次进入游戏;
+            是否首次进入主页面 = runtime.是否首次进入主页面;
+
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -2841,7 +2844,8 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.战斗选择丹药Dic = 战斗选择丹药Dic;
             runtime.辅助丹药BuffDic = 辅助丹药BuffDic;
             runtime.长生道体年数 = 长生道体年数;
-            runtime.是否首次进入 = 是否首次进入;
+            runtime.是否首次进入游戏 = 是否首次进入游戏;
+            runtime.是否首次进入主页面 = 是否首次进入主页面;
         }
     }
 }

@@ -67,7 +67,7 @@ public class StartWindow : MonoBehaviour
       ObserverModuleManager.S.SendEvent("播放BGM",true);
       StartBtn.onClick.AddListener(() =>
          {
-            if (PlayerData.S.是否首次进入)
+            if (PlayerData.S.是否首次进入游戏)
             {
                SceneManager.LoadScene("FirstScene");
             }
