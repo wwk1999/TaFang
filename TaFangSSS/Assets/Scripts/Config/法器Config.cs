@@ -352,6 +352,7 @@ public class 法器Config
     public static 法器属性 Get法器属性(法器 法器)
     {
         法器属性 法器属性 = new 法器属性();
+        if (法器 == null) return 法器属性;
         foreach (var item in 法器.list)
         {
             if(item==null)continue;

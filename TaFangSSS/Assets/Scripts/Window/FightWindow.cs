@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public GameObject 对话框;
+    public TextMeshProUGUI 对话框Text;
+    public Button 引导Button;
+    public GameObject 引导mask;
     public Canvas canvas;
     public Button 设置Button;
     public Button exitButton;
@@ -24,6 +28,7 @@ public class FightWindow : MonoBehaviour
     public TextMeshProUGUI 进度Text;
     public Animator 首领出现Animator;
 
+    private int 引导Count = 0;
     public void 首领出现(object[] obj)
     {
         首领出现Animator.gameObject.SetActive(true);
@@ -109,15 +114,41 @@ public class FightWindow : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.UnRegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.UnRegisterEvent("刷新关卡进度",刷新关卡进度);
     }
 
+    public void 通关新手引导(object[] obj)
+    {
+        对话框.gameObject.SetActive(true);
+        引导Button.gameObject.SetActive(true);
+        引导mask.gameObject.SetActive(true);
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.RegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.RegisterEvent("刷新关卡进度",刷新关卡进度);
         Set倍速Button();
+        引导Button.onClick.AddListener(() =>
+        {
+            if (引导Count == 0)
+            {
+                引导Count++;
+                对话框Text.text = "还有洞天秘境可以获得突破时需要的灵物，远古遗迹里可以获得效果强大的神物。";
+            }else if (引导Count == 1)
+            {
+                引导Count++;
+                对话框Text.text = "更多的功能会随着道友的境界提升而一步步解锁，后面就交给道友自己摸索啦，祝道友早日证道大罗！";
+            }
+            else if (引导Count == 2)
+            {
+                对话框.gameObject.SetActive(false);
+                引导Button.gameObject.SetActive(false);
+                引导mask.gameObject.SetActive(false);
+            }
+        });
         exitButton.onClick.AddListener(() =>
         {
             Time.timeScale = 0;

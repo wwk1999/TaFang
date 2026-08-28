@@ -45,6 +45,11 @@ public class 胜利弹窗 : MonoBehaviour
     {
         ObserverModuleManager.S.SendEvent("停止元始音效");
         ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+        if (PlayerData.S.是否首次通关关卡)
+        {
+            PlayerData.S.是否首次通关关卡 = false;
+            ObserverModuleManager.S.SendEvent("通关新手引导");
+        }
         重复挑战Time = 0;
         if (PlayerData.S.重复挑战 == false)
         {
