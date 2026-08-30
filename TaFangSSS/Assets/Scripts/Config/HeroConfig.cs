@@ -9,7 +9,7 @@ namespace Config
         public bool 派遣;
         public 功法Type 功法Type;
         public int 功法等级;
-        public float 功法经验;
+        public float  功法经验;
         public int 功法星级;
         public 法器 武器 = null;
         public 法器 衣服 = null;
@@ -825,7 +825,7 @@ namespace Config
             { HeroType.孙悟空, "如意金箍棒" }, // 战士·物理
             { HeroType.碧霄, "冰龙啸天" }, // 法师·冰
             { HeroType.琼霄, "暗影定身符" }, // 控制·黑暗
-
+    
             // ---- 上古神明 ----
             { HeroType.羲和, "烈日灼心阵" }, // 法师·火（日母）
             { HeroType.常羲, "月华冰封阵" }, // 控制·冰（月母）
