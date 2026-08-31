@@ -39,7 +39,8 @@ public class 神通配置弹窗 : MonoBehaviour
 
         foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队 - 1])
         {
-            var 神通item = Instantiate(Resources.Load("Prefabs/Window/神通配置英雄item"), 神通Content.transform)
+            if(item==HeroType.None) continue;
+            var 神通item = Instantiate(Resources.Load("Prefabs/Window/神通配置英雄item"), 英雄contnt.transform)
                 .GetComponent<神通配置英雄item>();
             神通item.HeroType = item;
             神通item.SetItem();

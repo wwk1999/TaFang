@@ -43,10 +43,24 @@ public class 人物item : MonoBehaviour
     public GameObject 喷火Obj;
     public 孙悟空棒子 棒子;
     private float 攻击间隔 => Get攻击间隔();
+    private float 神通冷却时间=>Get神通间隔();
+    private float 神通能量=>Get神通能量();
+    private bool 是否在神通=false;
+    private float 当前神通冷却时间 = 0;
     private bool 上场=false;
     private int 孙悟空下场次数 = 0;
     private int 盘古出拳次数 = 0;
-    
+
+    public float Get神通间隔()
+    {
+        float value = HeroConfig.英雄神通配置Dic[heroType].cd;
+        return value;
+    }
+    public float Get神通能量()
+    {
+        float value = HeroConfig.英雄神通配置Dic[heroType].能量;
+        return value;
+    }
     public float Get攻击间隔()
     {
         float value = 英雄星级属性.Get英雄Cd(heroType);
@@ -102,6 +116,7 @@ public class 人物item : MonoBehaviour
 
     private void Update()
     {
+        当前神通冷却时间+=Time.deltaTime;
         瑶池冰辅助-= Time.deltaTime;
         妲己黑暗辅助-= Time.deltaTime;
         女娲电辅助-= Time.deltaTime;
@@ -113,8 +128,21 @@ public class 人物item : MonoBehaviour
           CurrentAttackTime+= Time.deltaTime;  
         }
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
-        
-        if (monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!上场&&!FightController.S.战斗结束)
+        if (PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
+            FightController.S.当前英雄之间神通间隔时间 > FightController.S.英雄之间神通间隔时间 && 当前神通冷却时间 > 神通冷却时间 &&
+            FightController.S.当前神通能量 >= 神通能量)
+        {
+            FightController.S.当前神通index++;
+            if (FightController.S.当前神通index >= PlayerData.S.神通配置List.Count)
+            {
+                FightController.S.当前神通index = 0;
+            }
+            FightController.S.当前英雄之间神通间隔时间 = 0;
+            当前神通冷却时间 = 0;
+            FightController.S.当前神通能量 -= 神通能量;
+            是否在神通 = true;
+        }
+        else if (!是否在神通&&monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!上场&&!FightController.S.战斗结束)
         { 
             Vector2 targetPos = monsterBase.transform.position;
             CurrentAttackTime = 0;

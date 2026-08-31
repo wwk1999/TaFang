@@ -14,6 +14,7 @@ public class 神通配置item : MonoBehaviour
     [NonSerialized] public HeroType HeroType;
     public void SetItem()
     {
+        if (HeroType == HeroType.None) return;
         bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(HeroConfig.HeroQualityDic[HeroType]);
         icon.sprite=ResourcesConfig.GetHeroSprite(HeroType);
         name.text=HeroConfig.HeroNameDic[HeroType];

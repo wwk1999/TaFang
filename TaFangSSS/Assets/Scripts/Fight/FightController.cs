@@ -11,6 +11,10 @@ using Random = UnityEngine.Random;
 
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public int 当前神通index = 0;
+    [NonSerialized] public float 英雄之间神通间隔时间 = 1;
+    [NonSerialized] public float 当前英雄之间神通间隔时间 = 1;
+    [NonSerialized] public float 当前神通能量 = 属性config.总属性.神通最大值;
     [NonSerialized] public Dictionary<HeroType, 英雄根基丹药属性> 英雄根基丹药属性Dic = new Dictionary<HeroType, 英雄根基丹药属性>();
     [NonSerialized] public 丹药属性 战斗丹药属性 = new 丹药属性();
     [NonSerialized] public float 物理伤害 = 属性config.总属性.物理伤害增幅;
@@ -228,6 +232,18 @@ public class FightController : XSingleton<FightController>
             {
                 break;
             }
+        }
+    }
+
+    public void 人物神通(HeroType hero, Vector2 shotpos, Vector2 dir, Vector2 targetPos, float 瑶池冰辅助, float 黑暗辅助,
+        float 女娲电辅助, int count = 0)
+    {
+        float damage = HeroConfig.英雄神通配置Dic[hero].damage/100f * 属性config.总属性.总攻击力;
+        switch (hero)
+        {
+            case HeroType.丹童:
+                Shot普通魔法弹(攻击特效Type.丹童神通,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.丹童);
+                break;
         }
     }
 
@@ -609,6 +625,9 @@ public class FightController : XSingleton<FightController>
         普通魔法弹带peng 魔法弹 = null;
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
         {
+            case 攻击特效Type.丹童神通:
+                魔法弹 = QueueController.S.丹童神通Queue.Dequeue();
+                break;
             case 攻击特效Type.电魔法弹:
                 魔法弹 = QueueController.S.电魔法弹Queue.Dequeue();
                 break;
@@ -937,6 +956,7 @@ public class FightController : XSingleton<FightController>
     }
     private void Update()
     {
+        当前英雄之间神通间隔时间+=Time.deltaTime;
         当前伤害面板刷新时间+=Time.deltaTime;
         免疫护盾间隔时间 += Time.deltaTime;
         每段时间护盾间隔时间 += Time.deltaTime;
@@ -957,6 +977,8 @@ public class FightController : XSingleton<FightController>
         }
         if (每秒回血Time > 1)
         {
+            当前神通能量 += 属性config.总属性.神通能量恢复速度;
+            当前神通能量 = Math.Min(属性config.总属性.神通最大值, 当前神通能量);
             孙悟空每秒增加伤害Time++;
             每秒回血Time = 0;
             int 回血值 = (int)(城墙Config.每秒回血值/ 100f * 城墙Config.Get城墙最大生命值()) ;
