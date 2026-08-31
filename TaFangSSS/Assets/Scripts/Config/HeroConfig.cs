@@ -1099,14 +1099,14 @@ namespace Config
             {
                 HeroType.丹童, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.普通火魔法弹 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.普通火魔法弹,攻击特效Type.丹童神通 },
                     PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
                 }
             },
             {
                 HeroType.土地, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗魔法弹 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗魔法弹,攻击特效Type.土地神通 },
                     PengList = new List<PengType>() { PengType.黑暗魔法弹Peng }
                 }
             },
@@ -1114,7 +1114,7 @@ namespace Config
             {
                 HeroType.河伯, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰刺 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰刺,攻击特效Type.河伯神通 },
                     PengList = new List<PengType>()
                 }
             },
@@ -1129,63 +1129,63 @@ namespace Config
             {
                 HeroType.石敢当, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.石敢当锤子 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.石敢当锤子 ,攻击特效Type.石敢当神通},
                     PengList = new List<PengType>()
                 }
             },
             {
                 HeroType.玄女, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.玄女技能 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.玄女技能 ,攻击特效Type.玄女神通},
                     PengList = new List<PengType>()
                 }
             },
             {
                 HeroType.龟丞相, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.龟丞相技能 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.龟丞相技能 ,攻击特效Type.龟丞相神通},
                     PengList = new List<PengType>()
                 }
             },
             {
                 HeroType.太白金星, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.电魔法弹 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.电魔法弹 ,攻击特效Type.太白金星神通},
                     PengList = new List<PengType>() { PengType.电魔法弹Peng }
                 }
             },
             {
                 HeroType.多闻天王, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗花魔法弹 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗花魔法弹 ,攻击特效Type.多闻天王神通},
                     PengList = new List<PengType>() { PengType.黑暗花魔法弹Peng }
                 }
             },
             {
                 HeroType.雷震子, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.落雷 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.落雷 ,攻击特效Type.雷震子神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.月老, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火虎魔法弹 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火虎魔法弹 ,攻击特效Type.月老神通},
                     PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
                 }
             },
             {
                 HeroType.嫦娥, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.嫦娥技能 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.嫦娥技能 ,攻击特效Type.嫦娥神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.杨戬, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.电龙魔法弹 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.电龙魔法弹 ,攻击特效Type.杨戬神通},
                     PengList = new List<PengType>() { PengType.电龙魔法弹Peng }
                 }
             },
@@ -1199,70 +1199,70 @@ namespace Config
             {
                 HeroType.牛魔王, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.牛魔王技能 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.牛魔王技能 ,攻击特效Type.牛魔王神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.哪吒, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.喷火 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.喷火 ,攻击特效Type.哪吒神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.孙悟空, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.孙悟空棒子 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.孙悟空棒子 ,攻击特效Type.孙悟空神通},
                     PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
                 }
             },
             {
                 HeroType.碧霄, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰龙 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰龙 ,攻击特效Type.碧霄神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.琼霄, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗符 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗符 ,攻击特效Type.琼霄神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.后羿, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.物理箭 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.物理箭 ,攻击特效Type.后羿神通},
                     PengList = new List<PengType>() { PengType.物理箭Peng }
                 }
             },
             {
                 HeroType.常羲, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰符 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰符 ,攻击特效Type.常曦神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.羲和, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火符 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火符 ,攻击特效Type.羲和神通},
                     PengList = new List<PengType>() { }
                 }
             },
             {
                 HeroType.云霄, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰剑气 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰剑气 ,攻击特效Type.云霄神通},
                     PengList = new List<PengType>() { PengType.冰大魔法弹Peng }
                 }
             },
             {
                 HeroType.老子, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰旋风 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.冰旋风 ,攻击特效Type.老子神通},
                     PengList = new List<PengType>() { PengType.冰大魔法弹Peng }
                 }
             },
@@ -1270,7 +1270,7 @@ namespace Config
             {
                 HeroType.元始, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火球 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.火球 ,攻击特效Type.元始神通},
                     PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
                 }
             },
@@ -1278,7 +1278,7 @@ namespace Config
             {
                 HeroType.通天, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗剑气 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.黑暗剑气 ,攻击特效Type.通天神通},
                     PengList = new List<PengType>() { PengType.黑暗剑气Peng }
                 }
             },
@@ -1286,7 +1286,7 @@ namespace Config
             {
                 HeroType.盘古, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.盘古拳 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.盘古拳 ,攻击特效Type.盘古神通},
                     PengList = new List<PengType>() { }
                 }
             },
@@ -1294,7 +1294,7 @@ namespace Config
             {
                 HeroType.鸿钧, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.陨石 },
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.陨石 ,攻击特效Type.鸿钧神通},
                     PengList = new List<PengType>() { }
                 }
             },

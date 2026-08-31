@@ -53,7 +53,7 @@ public enum 攻击特效Type
     龟丞相神通,
     太白金星神通,
     多闻天王神通,
-    广目天王神通,
+    广木天王神通,
     雷震子神通,
     月老神通,
     嫦娥神通,
@@ -65,7 +65,7 @@ public enum 攻击特效Type
     碧霄神通,
     琼霄神通,
     羲和神通,
-    常羲神通,
+    常曦神通,
     后羿神通,
     云霄神通,
     女娲神通,
@@ -91,6 +91,7 @@ public enum PengType
     冰大魔法弹Peng,
     火虎魔法弹Peng,
     黑暗魔法弹Peng,
+    丹童神通Peng,
 }
 
 public class 特效Config

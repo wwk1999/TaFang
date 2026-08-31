@@ -60,12 +60,46 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized]public Queue<冰符>冰符Queue = new Queue<冰符>();
     [NonSerialized]public Queue<冰符>火符Queue = new Queue<冰符>();
     [NonSerialized]public Queue<冰符>盘古拳Queue = new Queue<冰符>();
-
-    
     [NonSerialized] public Queue<循环伤害技能> 冰旋风Queue = new Queue<循环伤害技能>();
     [NonSerialized] public Queue<Spine一次伤害> 陨石Queue = new Queue<Spine一次伤害>();
     [NonSerialized]public Dictionary<Collider2D,MonsterBase>MonsterColliderDic = new Dictionary<Collider2D,MonsterBase>();
 
+    
+    
+    
+    
+    
+    
+    [NonSerialized] public Queue<普通魔法弹带peng> 丹童神通Queue = new Queue<普通魔法弹带peng>();
+    [NonSerialized] public Queue<序列纯显示一次> 丹童神通PengQueue = new Queue<序列纯显示一次>();
+    [NonSerialized]public Queue<冰符>云霄神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<序列一次伤害技能>元始神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>哪吒神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<冰符>土地神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<序列一次伤害技能>多闻天王神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized] public Queue<普通魔法弹带peng> 太白金星神通Queue = new Queue<普通魔法弹带peng>();
+    [NonSerialized]public Queue<冰符>嫦娥神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<冰符>孙悟空神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<序列一次伤害技能>常曦神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>广木天王神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>月老神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>杨戬神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<冰符>河伯神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<序列一次伤害技能>牛魔王神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>玄女神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<冰符>琼霄神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<序列一次伤害技能>盘古神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>石敢当神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>碧霄神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>老子神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<冰符>羲和神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<冰符>通天神通Queue = new Queue<冰符>();
+    [NonSerialized]public Queue<序列一次伤害技能>雷震子神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<序列一次伤害技能>鸿钧神通Queue = new Queue<序列一次伤害技能>();
+    [NonSerialized]public Queue<冰符>龟丞相神通Queue = new Queue<冰符>();
+
+    
+    
     protected override void Awake()
     {
         Application.targetFrameRate = 30;
@@ -612,6 +646,265 @@ public class QueueController:XSingleton<QueueController>
                     冰刺.gameObject.SetActive(false);
                     冰刺Queue.Enqueue(冰刺);
                     break;
+                
+                
+                
+                
+                
+                case 攻击特效Type.丹童神通:
+                    if (丹童神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 丹童神通 = Instantiate(Resources.Load("Prefabs/特效/神通/丹童神通"),transform).GetComponent<普通魔法弹带peng>();
+                    丹童神通.gameObject.SetActive(false);
+                    丹童神通Queue.Enqueue(丹童神通);
+                    break;
+                
+                case 攻击特效Type.太白金星神通:
+                    if (太白金星神通Queue.Count > 6)
+                    {
+                        break;
+                    }
+                    var 太白金星神通 = Instantiate(Resources.Load("Prefabs/特效/神通/太白金星神通"),transform).GetComponent<普通魔法弹带peng>();
+                    太白金星神通.gameObject.SetActive(false);
+                    太白金星神通Queue.Enqueue(太白金星神通);
+                    break;
+                
+                case 攻击特效Type.云霄神通:
+                    if (云霄神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 云霄神通 = Instantiate(Resources.Load("Prefabs/特效/神通/云霄神通"),transform).GetComponent<冰符>();
+                    云霄神通.gameObject.SetActive(false);
+                    云霄神通Queue.Enqueue(云霄神通);
+                    break;
+                
+                case 攻击特效Type.土地神通:
+                    if (土地神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 土地神通 = Instantiate(Resources.Load("Prefabs/特效/神通/土地神通"),transform).GetComponent<冰符>();
+                    土地神通.gameObject.SetActive(false);
+                    土地神通Queue.Enqueue(土地神通);
+                    break;
+                case 攻击特效Type.孙悟空神通:
+                    if (孙悟空神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 孙悟空神通 = Instantiate(Resources.Load("Prefabs/特效/神通/孙悟空神通"),transform).GetComponent<冰符>();
+                    孙悟空神通.gameObject.SetActive(false);
+                    孙悟空神通Queue.Enqueue(孙悟空神通);
+                    break;
+                case 攻击特效Type.琼霄神通:
+                    if (琼霄神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 琼霄神通 = Instantiate(Resources.Load("Prefabs/特效/神通/琼霄神通"),transform).GetComponent<冰符>();
+                    琼霄神通.gameObject.SetActive(false);
+                    琼霄神通Queue.Enqueue(琼霄神通);
+                    break;
+                case 攻击特效Type.嫦娥神通:
+                    if (嫦娥神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 嫦娥神通 = Instantiate(Resources.Load("Prefabs/特效/神通/嫦娥神通"),transform).GetComponent<冰符>();
+                    嫦娥神通.gameObject.SetActive(false);
+                    嫦娥神通Queue.Enqueue(嫦娥神通);
+                    break;
+                case 攻击特效Type.羲和神通:
+                    if (羲和神通Queue.Count > 6)
+                    {
+                        break;
+                    }
+                    var 羲和神通 = Instantiate(Resources.Load("Prefabs/特效/神通/羲和神通"),transform).GetComponent<冰符>();
+                    羲和神通.gameObject.SetActive(false);
+                    羲和神通Queue.Enqueue(羲和神通);
+                    break;
+                case 攻击特效Type.通天神通:
+                    if (通天神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 通天神通 = Instantiate(Resources.Load("Prefabs/特效/神通/通天神通"),transform).GetComponent<冰符>();
+                    通天神通.gameObject.SetActive(false);
+                    通天神通Queue.Enqueue(通天神通);
+                    break;
+                case 攻击特效Type.河伯神通:
+                    if (河伯神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 河伯神通 = Instantiate(Resources.Load("Prefabs/特效/神通/河伯神通"),transform).GetComponent<冰符>();
+                    河伯神通.gameObject.SetActive(false);
+                    河伯神通Queue.Enqueue(河伯神通);
+                    break;
+                case 攻击特效Type.龟丞相神通:
+                    if (龟丞相神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 龟丞相神通 = Instantiate(Resources.Load("Prefabs/特效/神通/龟丞相神通"),transform).GetComponent<冰符>();
+                    龟丞相神通.gameObject.SetActive(false);
+                    龟丞相神通Queue.Enqueue(龟丞相神通);
+                    break;
+                
+                
+                case 攻击特效Type.元始神通:
+                    if (元始神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 元始神通 = Instantiate(Resources.Load("Prefabs/特效/神通/元始神通"),transform).GetComponent<序列一次伤害技能>();
+                    元始神通.gameObject.SetActive(false);
+                    元始神通Queue.Enqueue(元始神通);
+                    break;
+                
+                case 攻击特效Type.鸿钧神通:
+                    if (鸿钧神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 鸿钧神通 = Instantiate(Resources.Load("Prefabs/特效/神通/鸿钧神通"),transform).GetComponent<序列一次伤害技能>();
+                    鸿钧神通.gameObject.SetActive(false);
+                    鸿钧神通Queue.Enqueue(鸿钧神通);
+                    break;
+                
+                case 攻击特效Type.老子神通:
+                    if (老子神通Queue.Count > 6)
+                    {
+                        break;
+                    }
+                    var 老子神通 = Instantiate(Resources.Load("Prefabs/特效/神通/老子神通"),transform).GetComponent<序列一次伤害技能>();
+                    老子神通.gameObject.SetActive(false);
+                    老子神通Queue.Enqueue(老子神通);
+                    break;
+                
+                case 攻击特效Type.碧霄神通:
+                    if (碧霄神通Queue.Count > 30)
+                    {
+                        break;
+                    }
+                    var 碧霄神通 = Instantiate(Resources.Load("Prefabs/特效/神通/碧霄神通"),transform).GetComponent<序列一次伤害技能>();
+                    碧霄神通.gameObject.SetActive(false);
+                    碧霄神通Queue.Enqueue(碧霄神通);
+                    break;
+                
+                case 攻击特效Type.石敢当神通:
+                    if (石敢当神通Queue.Count > 6)
+                    {
+                        break;
+                    }
+                    var 石敢当神通 = Instantiate(Resources.Load("Prefabs/特效/神通/石敢当神通"),transform).GetComponent<序列一次伤害技能>();
+                    石敢当神通.gameObject.SetActive(false);
+                    石敢当神通Queue.Enqueue(石敢当神通);
+                    break;
+                
+                case 攻击特效Type.盘古神通:
+                    if (盘古神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 盘古神通 = Instantiate(Resources.Load("Prefabs/特效/神通/盘古神通"),transform).GetComponent<序列一次伤害技能>();
+                    盘古神通.gameObject.SetActive(false);
+                    盘古神通Queue.Enqueue(盘古神通);
+                    break;
+                
+                case 攻击特效Type.玄女神通:
+                    if (玄女神通Queue.Count > 30)
+                    {
+                        break;
+                    }
+                    var 玄女神通 = Instantiate(Resources.Load("Prefabs/特效/神通/玄女神通"),transform).GetComponent<序列一次伤害技能>();
+                    玄女神通.gameObject.SetActive(false);
+                    玄女神通Queue.Enqueue(玄女神通);
+                    break;
+                
+                case 攻击特效Type.牛魔王神通:
+                    if (牛魔王神通Queue.Count > 6)
+                    {
+                        break;
+                    }
+                    var 牛魔王神通 = Instantiate(Resources.Load("Prefabs/特效/神通/牛魔王神通"),transform).GetComponent<序列一次伤害技能>();
+                    牛魔王神通.gameObject.SetActive(false);
+                    牛魔王神通Queue.Enqueue(牛魔王神通);
+                    break;
+                
+                case 攻击特效Type.杨戬神通:
+                    if (杨戬神通Queue.Count > 6)
+                    {
+                        break;
+                    }
+                    var 杨戬神通 = Instantiate(Resources.Load("Prefabs/特效/神通/杨戬神通"),transform).GetComponent<序列一次伤害技能>();
+                    杨戬神通.gameObject.SetActive(false);
+                    杨戬神通Queue.Enqueue(杨戬神通);
+                    break;
+                case 攻击特效Type.月老神通:
+                    if (月老神通Queue.Count > 20)
+                    {
+                        break;
+                    }
+                    var 月老神通 = Instantiate(Resources.Load("Prefabs/特效/神通/月老神通"),transform).GetComponent<序列一次伤害技能>();
+                    月老神通.gameObject.SetActive(false);
+                    月老神通Queue.Enqueue(月老神通);
+                    break;
+                
+                case 攻击特效Type.常曦神通:
+                    if (常曦神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 常曦神通 = Instantiate(Resources.Load("Prefabs/特效/神通/常曦神通"),transform).GetComponent<序列一次伤害技能>();
+                    常曦神通.gameObject.SetActive(false);
+                    常曦神通Queue.Enqueue(常曦神通);
+                    break;
+                
+                case 攻击特效Type.广木天王神通:
+                    if (广木天王神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 广木天王神通 = Instantiate(Resources.Load("Prefabs/特效/神通/广木天王神通"),transform).GetComponent<序列一次伤害技能>();
+                    广木天王神通.gameObject.SetActive(false);
+                    广木天王神通Queue.Enqueue(广木天王神通);
+                    break;
+                
+                case 攻击特效Type.多闻天王神通:
+                    if (多闻天王神通Queue.Count > 2)
+                    {
+                        break;
+                    }
+                    var 多闻天王神通 = Instantiate(Resources.Load("Prefabs/特效/神通/多闻天王神通"),transform).GetComponent<序列一次伤害技能>();
+                    多闻天王神通.gameObject.SetActive(false);
+                    多闻天王神通Queue.Enqueue(多闻天王神通);
+                    break;
+                
+                case 攻击特效Type.哪吒神通:
+                    if (哪吒神通Queue.Count > 30)
+                    {
+                        break;
+                    }
+                    var 哪吒神通 = Instantiate(Resources.Load("Prefabs/特效/神通/哪吒神通"),transform).GetComponent<序列一次伤害技能>();
+                    哪吒神通.gameObject.SetActive(false);
+                    哪吒神通Queue.Enqueue(哪吒神通);
+                    break;
+                
+                case 攻击特效Type.雷震子神通:
+                    if (雷震子神通Queue.Count > 30)
+                    {
+                        break;
+                    }
+                    var 雷震子神通 = Instantiate(Resources.Load("Prefabs/特效/神通/雷震子神通"),transform).GetComponent<序列一次伤害技能>();
+                    雷震子神通.gameObject.SetActive(false);
+                    雷震子神通Queue.Enqueue(雷震子神通);
+                    break;
+                
+                
                 case 攻击特效Type.None:
                 default:
                     // None 或未知类型不处理，或可抛出异常
