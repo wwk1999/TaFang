@@ -141,6 +141,7 @@ public class 人物item : MonoBehaviour
             当前神通冷却时间 = 0;
             FightController.S.当前神通能量 -= 神通能量;
             是否在神通 = true;
+            释放神通();
         }
         else if (!是否在神通&&monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!上场&&!FightController.S.战斗结束)
         { 
@@ -191,6 +192,36 @@ public class 人物item : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void 释放神通()
+    {
+        MonsterBase monsterBase = FightController.S.GetAttackMonster();
+        Vector2 targetPos=monsterBase.transform.position;
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.AppendCallback(() =>
+        {
+            ObserverModuleManager.S.SendEvent("播放英雄神通",heroType);
+        });
+        mySequence.Append(transform.DOMove(new Vector3(transform.position.x+0.7f,transform.position.y,transform.position.z),0.15f));
+        mySequence.AppendCallback(() =>
+        {
+            
+            switch (heroType)
+            {
+                case HeroType.丹童:
+                    var dir=(targetPos-(Vector2)transform.position).normalized;
+                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助);
+                    mySequence.AppendInterval(0.5f);
+                    break;
+            }
+        });
+        mySequence.Append(transform.DOMove(原始Pos,0.15f));
+        mySequence.AppendCallback(() =>
+        {
+            是否在神通 = false;
+        });
+
     }
 
     IEnumerator 盘古拳(float waitTime, int count)

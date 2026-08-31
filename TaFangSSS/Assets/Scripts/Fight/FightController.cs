@@ -715,6 +715,7 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.冰大魔法弹:
                 return QueueController.S.冰大魔法弹PengQueue.Count > 0 ? QueueController.S.冰大魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.火虎魔法弹:
+            case 攻击特效Type.丹童神通:
                 return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.黑暗魔法弹:
                 return QueueController.S.黑暗魔法弹PengQueue.Count > 0 ? QueueController.S.黑暗魔法弹PengQueue.Dequeue() : null;
@@ -728,6 +729,9 @@ public class FightController : XSingleton<FightController>
     public void 普通魔法弹Hide(普通魔法弹带peng 普通魔法弹带peng, 攻击特效Type type, GameObject gameObject)
     {
         switch (type) {
+            case 攻击特效Type.丹童神通:
+                QueueController.S.丹童神通Queue.Enqueue(普通魔法弹带peng);
+                break;
             case 攻击特效Type.电魔法弹:
                 QueueController.S.电魔法弹Queue.Enqueue(普通魔法弹带peng);
                 break;
