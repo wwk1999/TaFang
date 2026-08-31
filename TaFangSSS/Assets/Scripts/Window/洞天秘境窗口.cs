@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class 洞天秘境窗口 : MonoBehaviour
 {
+    public Button 神通配置Button;
     public GameObject 丹药content;
 
     public Button exitButton;
@@ -32,6 +33,10 @@ public class 洞天秘境窗口 : MonoBehaviour
         {
             LevelConfig.当前关卡类型 = 关卡类型.洞天秘境;
             SceneManager.LoadScene("LoadScene");
+        });
+        神通配置Button.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("显示神通配置弹窗");
         });
         exitButton.onClick.AddListener(() =>
         {

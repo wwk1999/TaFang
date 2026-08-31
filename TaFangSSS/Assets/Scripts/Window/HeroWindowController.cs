@@ -79,4 +79,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 丹药Type 当前选择丹药Type;
     [NonSerialized] public QualityType 当前选择丹药QualityType;
 
+    
+    [NonSerialized] public HeroType 当前神通配置选择英雄;
+
 }

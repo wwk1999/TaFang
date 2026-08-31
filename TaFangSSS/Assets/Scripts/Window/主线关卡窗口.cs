@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 主线关卡窗口 : MonoBehaviour
 {
+   public Button 神通配置Button;
+
    public GameObject 丹药content;
    public Image image;
    public TextMeshProUGUI title;
@@ -34,7 +36,11 @@ public class 主线关卡窗口 : MonoBehaviour
       {
          ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
          PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
-      });     
+      });    
+      神通配置Button.onClick.AddListener(() =>
+      {
+         ObserverModuleManager.S.SendEvent("显示神通配置弹窗");
+      });
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);

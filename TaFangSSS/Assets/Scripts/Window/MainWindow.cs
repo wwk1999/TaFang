@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public 神通配置弹窗 神通配置弹窗;
     public Button 主线关卡exitbuttton;
     public Transform 挑战trans;
     public Transform 挑战小手trans;
@@ -209,6 +210,7 @@ public class MainWindow : MonoBehaviour
     }
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
         ObserverModuleManager.S.UnRegisterEvent("关卡新手引导",关卡新手引导);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.UnRegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
@@ -253,8 +255,14 @@ public class MainWindow : MonoBehaviour
         花果山Canvas.GetComponent<GraphicRaycaster>().enabled = true;
         花果山Canvas.overrideSorting = true;
     }
+
+    public void 显示神通配置弹窗(object[] obj)
+    {
+        神通配置弹窗.gameObject.SetActive(true);
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
         ObserverModuleManager.S.RegisterEvent("关卡新手引导",关卡新手引导);
         ObserverModuleManager.S.RegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.RegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);

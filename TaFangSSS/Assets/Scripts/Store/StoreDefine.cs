@@ -22,6 +22,7 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 是否首次进入英雄界面 = true;
         public bool 是否首次进入关卡 = true;
         public bool 是否首次通关关卡 = true;
+        public List<HeroType>神通配置List=new List<HeroType>();
 
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
@@ -2776,6 +2777,7 @@ public class StoreDefine : XSingleton<StoreController>
             是否首次进入英雄界面 = runtime.是否首次进入英雄界面;
             是否首次进入关卡 = runtime.是否首次进入关卡;
             是否首次通关关卡 = runtime.是否首次通关关卡;
+            神通配置List = runtime.神通配置List;
 
         }
 
@@ -2855,6 +2857,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.是否首次进入英雄界面 = 是否首次进入英雄界面;
             runtime.是否首次进入关卡 = 是否首次进入关卡;
             runtime.是否首次通关关卡 = 是否首次通关关卡;
+            runtime.神通配置List = 神通配置List;
         }
     }
 }

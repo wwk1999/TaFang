@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 凌霄宝殿窗口 : MonoBehaviour
 {
+    public Button 神通配置Button;
+
     public GameObject 丹药content;
     public Image image;
     public TextMeshProUGUI title;
@@ -86,6 +88,10 @@ public class 凌霄宝殿窗口 : MonoBehaviour
         ExitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        神通配置Button.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("显示神通配置弹窗");
         });
         重复挑战Toggle.onValueChanged.AddListener(delegate
         {
