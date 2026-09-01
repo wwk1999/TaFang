@@ -123,7 +123,7 @@ public class 人物item : MonoBehaviour
         }
     }
 
-    private Vector2 Get随机怪物位置()
+    public  Vector2 Get随机怪物位置()
     {
         if (攻击范围内怪物列表.Count == 0)
         {
@@ -151,6 +151,9 @@ public class 人物item : MonoBehaviour
                     break;
                 case 攻击特效Type.月老神通:
                     FightController.S.一次伤害技能(攻击特效Type.月老神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    break;
+                case 攻击特效Type.嫦娥神通:
+                    FightController.S.一次伤害技能(攻击特效Type.嫦娥神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
                     break;
             }
             yield return new WaitForSeconds(time);
@@ -268,6 +271,9 @@ public class 人物item : MonoBehaviour
             {
                 case HeroType.龟丞相:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    break;
+                case HeroType.嫦娥:
+                    StartCoroutine(多次释放神通(攻击特效Type.嫦娥神通,3,0.2f));
                     break;
                 case HeroType.玄女:
                     StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.1f));

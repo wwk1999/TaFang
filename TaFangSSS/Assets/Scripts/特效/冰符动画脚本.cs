@@ -27,6 +27,22 @@ public class 冰符动画脚本: MonoBehaviour
     [NonSerialized] public bool 女娲电辅助;
     [NonSerialized] public bool 瑶池神通;
 
+    public Vector2 Get随机怪物位置()
+    {
+        switch (Type)
+        {
+            case 攻击特效Type.嫦娥神通:
+                var 人物item = FightController.S.人物items[HeroType.嫦娥];
+                return 人物item.Get随机怪物位置();
+        }
+
+        return new Vector2(0, 0);
+    }
+
+    public void 改变到随机怪物位置()
+    {
+        obj.transform.position = Get随机怪物位置();
+    }
 
     public void Hide()
     {
