@@ -250,6 +250,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.河伯:
                 一次伤害技能(攻击特效Type.河伯神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
                 break;
+            case HeroType.龟丞相:
+                一次伤害技能(攻击特效Type.龟丞相神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
+                break;
         }
     }
 
@@ -670,6 +673,19 @@ public class FightController : XSingleton<FightController>
                 土地神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.土地].damage/100f;
                 土地神通.脚本.HeroType = HeroType.土地;
                 土地神通.gameObject.SetActive(true);
+                break;
+            
+            case 攻击特效Type.龟丞相神通:
+                var 龟丞相神通 = QueueController.S.龟丞相神通Queue.Dequeue();
+                龟丞相神通.transform.position = pos;
+                龟丞相神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                龟丞相神通.脚本.黑暗辅助 = 黑暗辅助;
+                龟丞相神通.脚本.女娲电辅助 = 女娲电辅助;
+                龟丞相神通.脚本.瑶池神通 = 女娲电辅助;
+
+                龟丞相神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.龟丞相].damage/100f;
+                龟丞相神通.脚本.HeroType = HeroType.龟丞相;
+                龟丞相神通.gameObject.SetActive(true);
                 break;
             
             case 攻击特效Type.河伯神通:

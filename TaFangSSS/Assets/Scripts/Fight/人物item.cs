@@ -260,6 +260,10 @@ public class 人物item : MonoBehaviour
             var dir=(targetPos-(Vector2)transform.position).normalized;
             switch (heroType)
             {
+                case HeroType.龟丞相:
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    mySequence.AppendInterval(0.5f);
+                    break;
                 case HeroType.玄女:
                     StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.1f));
                     mySequence.AppendInterval(0.5f);

@@ -10,7 +10,7 @@ public class 冰符 : MonoBehaviour
     public HeroType HeroType;
     private Vector2 原始scale=Vector2.one;
     public Animator anim;
-
+    public bool 是否神通 = false;
     private void OnEnable()
     {
         // 对象池复用时确保子对象(sprite)是激活状态，并强制动画从0帧重新播放
@@ -26,6 +26,7 @@ public class 冰符 : MonoBehaviour
             }
         }
         float 目标scale = 1;
+        if (是否神通) return;
         switch (HeroType)
         {
             case HeroType.常羲:
