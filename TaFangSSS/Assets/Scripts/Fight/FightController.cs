@@ -569,6 +569,18 @@ public class FightController : XSingleton<FightController>
                 玄女神通.脚本.HeroType = HeroType.玄女;
                 玄女神通.gameObject.SetActive(true);
                 break;
+            case 攻击特效Type.雷震子神通:
+                var 雷震子神通 = QueueController.S.雷震子神通Queue.Dequeue();
+                雷震子神通.transform.position = pos;
+                雷震子神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                雷震子神通.脚本.黑暗辅助 = 黑暗辅助;
+                雷震子神通.脚本.女娲电辅助 = 女娲电辅助;
+                雷震子神通.脚本.瑶池神通 = 瑶池神通;
+                雷震子神通.脚本.是否神通 = true;
+                雷震子神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.雷震子].damage/100f;
+                雷震子神通.脚本.HeroType = HeroType.雷震子;
+                雷震子神通.gameObject.SetActive(true);
+                break;
             case 攻击特效Type.嫦娥技能:
                 var 嫦娥技能 = QueueController.S.嫦娥技能Queue.Dequeue();
                 嫦娥技能.transform.position = pos;
