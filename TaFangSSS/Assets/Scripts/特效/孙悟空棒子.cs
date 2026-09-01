@@ -12,6 +12,8 @@ public class 孙悟空棒子 : MonoBehaviour
    public Animator Animator;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
+   [NonSerialized] public bool 妲己神通;
+
    private Vector2 原始scale = Vector2.one;
    [NonSerialized] public int 下场次数 = 0;
    [NonSerialized] public bool 女娲电辅助;
@@ -56,8 +58,11 @@ public class 孙悟空棒子 : MonoBehaviour
                      100f);
                }
                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-               QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
             }
+            QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+            QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+            QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
             if (瑶池神通)
             {
                var random = Random.Range(0, 100f);
@@ -75,8 +80,6 @@ public class 孙悟空棒子 : MonoBehaviour
                      100f);
                }
                damage *= (1f+英雄星级属性.孙悟空攻击数值/100f);
-               QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
-
             }
 
             if (瑶池冰辅助)

@@ -17,6 +17,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public HeroType HeroType;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 瑶池神通;
+   [NonSerialized] public bool 妲己神通;
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized]public bool 穿透=false;
    private Vector2 原始scale=Vector2.one;
@@ -79,9 +80,12 @@ public class 普通魔法弹带peng : MonoBehaviour
                   100f);
             }
             damage *= (1+英雄星级属性.妲己效果/100);
-            QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
 
          }
+         QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
+         QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
+         QueueController.S.MonsterColliderDic[other].妲己神通 = 妲己神通;
+
          if (女娲电辅助)
          {
             if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -91,8 +95,6 @@ public class 普通魔法弹带peng : MonoBehaviour
                   100f);
             }
             damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-            QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
-
          }
          if (瑶池冰辅助)
          {

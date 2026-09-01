@@ -22,6 +22,7 @@ public class 冰符动画脚本: MonoBehaviour
 
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public bool 妲己神通;
     [NonSerialized]public float damage;
     [NonSerialized]public HeroType HeroType;
     [NonSerialized] public bool 女娲电辅助;
@@ -156,6 +157,9 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -164,7 +168,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -232,9 +236,11 @@ public class 冰符动画脚本: MonoBehaviour
                             100f);
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
-                    QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
-
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -243,9 +249,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-                    QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
-
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -314,6 +318,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -322,7 +330,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -394,6 +402,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -402,7 +414,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -472,6 +484,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -480,7 +496,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -549,6 +565,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -557,7 +577,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -626,6 +646,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -634,7 +658,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -703,6 +727,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -711,7 +739,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -780,6 +808,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -788,7 +820,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)
@@ -858,6 +890,10 @@ public class 冰符动画脚本: MonoBehaviour
                     }
                     damage *= (1f+英雄星级属性.妲己效果/100f);
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -866,7 +902,7 @@ public class 冰符动画脚本: MonoBehaviour
                             功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
                             100f);
                     }
-                    damage*=(1+英雄星级属性.女娲辅助伤害/100f);
+                    damage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
                 }
 
                 if (瑶池冰辅助)

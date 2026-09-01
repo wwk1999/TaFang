@@ -12,6 +12,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     public Collider2D _collider2D;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public bool 妲己神通;
     [NonSerialized] public bool 瑶池神通;
     [NonSerialized] public float damage;
     [NonSerialized] public HeroType HeroType;
@@ -152,9 +153,12 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                             100f);
                     }
                     damage *= (1+英雄星级属性.妲己效果/100);
-                    QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
-
                 }
+                QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
+
+                QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
+                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
+
                 if (女娲电辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
@@ -164,8 +168,6 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                             100f);
                     }
                     damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-                    QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
-
                 }
 
                 if (瑶池冰辅助)

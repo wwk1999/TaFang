@@ -11,6 +11,7 @@ public class 石敢当锤子 : MonoBehaviour
    [NonSerialized] public float speed;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 黑暗辅助;
+   [NonSerialized] public bool 妲己神通;
    private Vector2 原始scale=Vector2.one;
    [NonSerialized] public bool 女娲电辅助;
    [NonSerialized] public bool 瑶池神通;
@@ -59,6 +60,10 @@ public class 石敢当锤子 : MonoBehaviour
             }
             QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
          }
+         QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
+         QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
+         QueueController.S.MonsterColliderDic[other].妲己神通 = 妲己神通;
+
          if (瑶池神通)
          {
             var random = Random.Range(0, 100f);
@@ -76,7 +81,6 @@ public class 石敢当锤子 : MonoBehaviour
                   100f);
             }
             damage *= (1+英雄星级属性.妲己效果/100f);
-            QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
 
          }
          if (女娲电辅助)
@@ -88,7 +92,6 @@ public class 石敢当锤子 : MonoBehaviour
                   100f);
             }
             damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-            QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
 
          }
          if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)

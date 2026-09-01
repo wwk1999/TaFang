@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
+    public GameObject 妲己神通;
+    [NonSerialized]public float 妲己神通time = 0;
     public GameObject 杨戬发射神通;
     public Animator 杨戬发射神通Animator;
     public 黑暗抓痕动画脚本 石敢当神通脚本;
@@ -145,7 +147,7 @@ public class 人物item : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             FightController.S.一次伤害技能(攻击特效Type.杨戬神通, Get随机怪物位置(), 瑶池冰辅助 > 0, 妲己黑暗辅助 > 0, 女娲电辅助 > 0,
-                        瑶池神通time > 0);
+                        瑶池神通time > 0,妲己神通time>0);
             yield return new WaitForSeconds(time);
         }
     }
@@ -157,16 +159,16 @@ public class 人物item : MonoBehaviour
             switch (type)
             {
                 case 攻击特效Type.玄女神通:
-                    FightController.S.一次伤害技能(攻击特效Type.玄女神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    FightController.S.一次伤害技能(攻击特效Type.玄女神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
                 case 攻击特效Type.雷震子神通:
-                    FightController.S.一次伤害技能(攻击特效Type.雷震子神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    FightController.S.一次伤害技能(攻击特效Type.雷震子神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
                 case 攻击特效Type.月老神通:
-                    FightController.S.一次伤害技能(攻击特效Type.月老神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    FightController.S.一次伤害技能(攻击特效Type.月老神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
                 case 攻击特效Type.嫦娥神通:
-                    FightController.S.一次伤害技能(攻击特效Type.嫦娥神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    FightController.S.一次伤害技能(攻击特效Type.嫦娥神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
             }
             yield return new WaitForSeconds(time);
@@ -179,6 +181,7 @@ public class 人物item : MonoBehaviour
 
     private void Update()
     {
+        妲己神通time-=Time.deltaTime;
         瑶池神通time-=Time.deltaTime;
         当前神通冷却时间+=Time.deltaTime;
         瑶池冰辅助-= Time.deltaTime;
@@ -188,6 +191,7 @@ public class 人物item : MonoBehaviour
         妲己黑暗辅助obj.SetActive(妲己黑暗辅助 > 0);
         女娲电辅助obj.SetActive(女娲电辅助 > 0);
         瑶池神通.gameObject.SetActive(瑶池神通time>0);
+        妲己神通.gameObject.SetActive(妲己神通time>0);
         if (!上场)
         {
           CurrentAttackTime+= Time.deltaTime;  
@@ -216,7 +220,7 @@ public class 人物item : MonoBehaviour
             {
                 Animator.Play("人物放大缩小",0,0f);
                 var dir=(targetPos-(Vector2)transform.position).normalized;
-                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
             }
             else if (攻击范围内怪物.Contains(monsterBase))
             {
@@ -253,7 +257,7 @@ public class 人物item : MonoBehaviour
                 {
                     Animator.Play("人物攻击",0,0f);
                     var dir=(targetPos-(Vector2)transform.position).normalized;
-                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                 }
             }
         }
@@ -288,7 +292,7 @@ public class 人物item : MonoBehaviour
                     StartCoroutine(杨戬神通(3,0.3f,1f));
                     break;
                 case HeroType.龟丞相:
-                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
                 case HeroType.嫦娥:
                     StartCoroutine(多次释放神通(攻击特效Type.嫦娥神通,3,0.2f));
@@ -303,22 +307,25 @@ public class 人物item : MonoBehaviour
                     StartCoroutine(多次释放神通(攻击特效Type.月老神通,5,0.1f));
                     break;
                 case HeroType.丹童:
-                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
                 case HeroType.太白金星:
-                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
                 case HeroType.土地:
-                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
                 case HeroType.河伯:
-                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
                 case HeroType.多闻天王:
-                    FightController.S.人物神通(heroType,transform.position,dir,new Vector3(transform.position.x+2.3f,transform.position.y,transform.position.z),瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    FightController.S.人物神通(heroType,transform.position,dir,new Vector3(transform.position.x+2.3f,transform.position.y,transform.position.z),瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
                 case HeroType.瑶池仙女:
                     FightController.S.瑶池冰神通();
+                    break;
+                case HeroType.妲己:
+                    FightController.S.妲己神通();
                     break;
             }
         });
@@ -409,6 +416,7 @@ public class 人物item : MonoBehaviour
                     黑暗抓痕.脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     黑暗抓痕.脚本.女娲电辅助 = 女娲电辅助>0;
                     黑暗抓痕.脚本.瑶池神通 = 瑶池神通time>0;
+                    黑暗抓痕.脚本.妲己神通 = 妲己神通time>0;
                     黑暗抓痕.脚本.是否神通 = false;
 
                     黑暗抓痕.gameObject.SetActive(true);
@@ -419,6 +427,8 @@ public class 人物item : MonoBehaviour
                     牛魔王脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     牛魔王脚本.女娲电辅助 = 女娲电辅助>0;
                     牛魔王脚本.瑶池神通 = 瑶池神通time>0;
+                    牛魔王脚本.妲己神通 = 妲己神通time>0;
+
                     牛魔王脚本.是否神通 = false;
 
                     牛魔王技能Obj.gameObject.SetActive(true);
@@ -429,6 +439,7 @@ public class 人物item : MonoBehaviour
                     石敢当神通脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     石敢当神通脚本.女娲电辅助 = 女娲电辅助>0;
                     石敢当神通脚本.瑶池神通 = 瑶池神通time>0;
+                    石敢当神通脚本.妲己神通 = 妲己神通time>0;
                     石敢当神通脚本.是否神通 = true;
 
                     石敢当神通Obj.gameObject.SetActive(true);
@@ -438,6 +449,7 @@ public class 人物item : MonoBehaviour
                     喷火.黑暗辅助 = 妲己黑暗辅助>0;
                     喷火.女娲电辅助 = 女娲电辅助>0;
                     喷火.瑶池神通 = 瑶池神通time>0;
+                    喷火.妲己神通 = 妲己神通time>0;
                     喷火.是否神通 = false;
 
                     喷火Obj.gameObject.SetActive(true);
@@ -449,6 +461,7 @@ public class 人物item : MonoBehaviour
                     棒子.下场次数 = 孙悟空下场次数;
                     棒子.瑶池冰辅助 = 瑶池冰辅助>0;
                     棒子.黑暗辅助 = 妲己黑暗辅助>0;
+                    棒子.妲己神通 = 妲己神通time>0;
                     棒子.女娲电辅助 = 女娲电辅助>0;
                     棒子.瑶池神通 = 瑶池神通time>0;
 
@@ -463,6 +476,7 @@ public class 人物item : MonoBehaviour
                             火球3.黑暗辅助 = 妲己黑暗辅助>0;
                             火球3.女娲电辅助 = 女娲电辅助>0;
                             火球3.瑶池神通 = 瑶池神通time>0;
+                            火球3.妲己神通 = 妲己神通time>0;
 
                             火球3.RotateSpeed = 300;
                             火球3.gameObject.SetActive(true);
@@ -472,6 +486,7 @@ public class 人物item : MonoBehaviour
                             火球4.黑暗辅助 = 妲己黑暗辅助>0;
                             火球4.女娲电辅助 = 女娲电辅助>0;
                             火球4.瑶池神通 = 瑶池神通time>0;
+                            火球4.妲己神通 = 妲己神通time>0;
 
                             火球4.RotateSpeed = 300;
                             火球4.gameObject.SetActive(true);
@@ -481,6 +496,7 @@ public class 人物item : MonoBehaviour
                             火球5.黑暗辅助 = 妲己黑暗辅助>0;
                             火球5.女娲电辅助 = 女娲电辅助>0;
                             火球5.瑶池神通 = 瑶池神通time>0;
+                            火球5.妲己神通 = 妲己神通time>0;
 
                             火球5.RotateSpeed = 300;
                             火球5.gameObject.SetActive(true);
@@ -490,6 +506,7 @@ public class 人物item : MonoBehaviour
                             火球6.黑暗辅助 = 妲己黑暗辅助>0;
                             火球6.女娲电辅助 = 女娲电辅助>0;
                             火球6.瑶池神通 = 瑶池神通time>0;
+                            火球6.妲己神通 = 妲己神通time>0;
 
                             火球6.RotateSpeed = 300;
                             火球6.gameObject.SetActive(true);
@@ -499,6 +516,7 @@ public class 人物item : MonoBehaviour
                             火球7.黑暗辅助 = 妲己黑暗辅助>0;
                             火球7.女娲电辅助 = 女娲电辅助>0;
                             火球7.瑶池神通 = 瑶池神通time>0;
+                            火球7.妲己神通 = 妲己神通time>0;
 
                             火球7.RotateSpeed = 300;
                             火球7.gameObject.SetActive(true);
@@ -508,6 +526,7 @@ public class 人物item : MonoBehaviour
                             火球8.黑暗辅助 = 妲己黑暗辅助>0;
                             火球8.女娲电辅助 = 女娲电辅助>0;
                             火球8.瑶池神通 = 瑶池神通time>0;
+                            火球8.妲己神通 = 妲己神通time>0;
 
                             火球8.RotateSpeed = 300;
                             火球8.gameObject.SetActive(true);
@@ -517,6 +536,7 @@ public class 人物item : MonoBehaviour
                             火球9.黑暗辅助 = 妲己黑暗辅助>0;
                             火球9.女娲电辅助 = 女娲电辅助>0;
                             火球9.瑶池神通 = 瑶池神通time>0;
+                            火球9.妲己神通 = 妲己神通time>0;
 
                             火球9.RotateSpeed = 300;
                             火球9.gameObject.SetActive(true);
@@ -529,6 +549,7 @@ public class 人物item : MonoBehaviour
                         火球10.黑暗辅助 = 妲己黑暗辅助>0;
                         火球10.女娲电辅助 = 女娲电辅助>0;
                         火球10.瑶池神通 = 瑶池神通time>0;
+                        火球10.妲己神通 = 妲己神通time>0;
 
                         火球10.RotateSpeed = 300;
                         火球10.gameObject.SetActive(true);

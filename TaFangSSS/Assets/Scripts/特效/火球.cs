@@ -13,6 +13,7 @@ public class 火球 : MonoBehaviour
 
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public bool 妲己神通;
     [NonSerialized] public bool 女娲电辅助;
     [NonSerialized] public bool 瑶池神通;
 
@@ -34,7 +35,6 @@ public class 火球 : MonoBehaviour
                         100f);
                 }
                 realDamage *= (1+英雄星级属性.妲己效果/100f);
-                QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
 
             }
             if (女娲电辅助)
@@ -46,7 +46,6 @@ public class 火球 : MonoBehaviour
                         100f);
                 }
                 realDamage*=(1+英雄星级属性.女娲辅助伤害/100f);
-                QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
 
             }
 
@@ -67,6 +66,10 @@ public class 火球 : MonoBehaviour
                     QueueController.S.MonsterColliderDic[other].冰冻time = 1;
                 }
             }
+            QueueController.S.MonsterColliderDic[other].妲己神通 = 妲己神通;
+            QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
+            QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
+
             if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
             {
                 realDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;

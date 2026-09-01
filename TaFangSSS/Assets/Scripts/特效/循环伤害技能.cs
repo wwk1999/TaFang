@@ -15,6 +15,7 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized] public HeroType HeroType;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public bool 妲己神通;
     [NonSerialized] public float 伤害间隔=0.2f;
     [NonSerialized] public float 当前伤害时间=0;
     [NonSerialized] public bool 女娲电辅助;
@@ -88,6 +89,10 @@ public class 循环伤害技能 : MonoBehaviour
                         100f);
                 }
             }
+            QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
+            QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
+            QueueController.S.MonsterColliderDic[other].妲己神通 = 妲己神通;
+
             if (瑶池神通)
             {
                 var random = Random.Range(0, 100f);

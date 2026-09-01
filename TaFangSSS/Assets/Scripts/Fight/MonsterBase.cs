@@ -42,6 +42,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 瑶池冰辅助=0;
    [NonSerialized] public bool 女娲电辅助;
    [NonSerialized] public bool 妲己黑暗辅助;
+   [NonSerialized] public bool 妲己神通;
    [NonSerialized] public float 龟丞相减速=0;
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
@@ -278,6 +279,11 @@ public class MonsterBase : MonoBehaviour
       {
          value += FightController.S.英雄法器属性Dic[HeroType.妲己].暴击率;
       }
+
+      if (妲己神通)
+      {
+         value += HeroConfig.英雄神通配置Dic[HeroType.妲己].damage;
+      }
       if (女娲电辅助)
       {
          value += FightController.S.英雄法器属性Dic[HeroType.女娲].暴击率;
@@ -410,6 +416,10 @@ public class MonsterBase : MonoBehaviour
       if (暴击)
       {
          最终Damage *= (属性config.总属性.暴击伤害/100f);
+         if (妲己神通)
+         {
+            最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
+         }
          最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
          最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
@@ -420,6 +430,10 @@ public class MonsterBase : MonoBehaviour
             if (二次暴击)
             {
                最终Damage *= (属性config.总属性.暴击伤害/100f);
+               if (妲己神通)
+               {
+                  最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
+               }
                最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
                最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
