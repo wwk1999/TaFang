@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static AudioClip 丹童神通配音;
+
+    
     public static Sprite 丹童神通横幅;
     public static Sprite 土地神通横幅;
     public static Sprite 河伯神通横幅;
@@ -5794,6 +5797,7 @@ public static Sprite 英雄最终伤害彩;
     }
     public static void Init()
     {
+        丹童神通配音= Resources.Load<AudioClip>("音效/神通配音/丹童");
         丹童神通横幅 = Resources.Load<Sprite>("Sprite/英雄神通横幅/丹童");
         土地神通横幅 = Resources.Load<Sprite>("Sprite/英雄神通横幅/土地");
         河伯神通横幅 = Resources.Load<Sprite>("Sprite/英雄神通横幅/河伯");

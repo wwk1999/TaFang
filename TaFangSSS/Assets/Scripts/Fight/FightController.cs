@@ -242,7 +242,10 @@ public class FightController : XSingleton<FightController>
         switch (hero)
         {
             case HeroType.丹童:
-                Shot普通魔法弹(攻击特效Type.丹童神通,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.丹童);
+                Shot普通魔法弹(攻击特效Type.丹童神通,shotpos,dir,damage,13,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.丹童);
+                break;
+            case HeroType.土地:
+                一次伤害技能(攻击特效Type.土地神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);           
                 break;
         }
     }
@@ -593,6 +596,18 @@ public class FightController : XSingleton<FightController>
                 火符.脚本.HeroType = HeroType.羲和;
                 火符.gameObject.SetActive(true);
                 break;
+            
+            case 攻击特效Type.土地神通:
+                var 土地神通 = QueueController.S.土地神通Queue.Dequeue();
+                土地神通.transform.position = pos;
+                土地神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                土地神通.脚本.黑暗辅助 = 黑暗辅助;
+                土地神通.脚本.女娲电辅助 = 女娲电辅助;
+
+                土地神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.土地].damage/100f;
+                土地神通.脚本.HeroType = HeroType.土地;
+                土地神通.gameObject.SetActive(true);
+                break;
         }
     }
 
@@ -715,12 +730,13 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.冰大魔法弹:
                 return QueueController.S.冰大魔法弹PengQueue.Count > 0 ? QueueController.S.冰大魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.火虎魔法弹:
-            case 攻击特效Type.丹童神通:
                 return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.黑暗魔法弹:
                 return QueueController.S.黑暗魔法弹PengQueue.Count > 0 ? QueueController.S.黑暗魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.普通火魔法弹:
                 return QueueController.S.火虎魔法弹PengQueue.Count > 0 ? QueueController.S.火虎魔法弹PengQueue.Dequeue() : null;
+            case 攻击特效Type.丹童神通:
+                return QueueController.S.丹童神通PengQueue.Count > 0 ? QueueController.S.丹童神通PengQueue.Dequeue() : null;
             default:
                 return null;
         }
@@ -786,6 +802,9 @@ public class FightController : XSingleton<FightController>
     {
         switch (type)
         {
+            case PengType.丹童神通Peng:
+                QueueController.S.丹童神通PengQueue.Enqueue(序列纯显示一次);
+                break;
             case PengType.电魔法弹Peng:
                 QueueController.S.电魔法弹PengQueue.Enqueue(序列纯显示一次);
                 break;

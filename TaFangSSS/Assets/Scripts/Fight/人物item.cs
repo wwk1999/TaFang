@@ -128,7 +128,7 @@ public class 人物item : MonoBehaviour
           CurrentAttackTime+= Time.deltaTime;  
         }
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
-        if (PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
+        if (!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
             FightController.S.当前英雄之间神通间隔时间 > FightController.S.英雄之间神通间隔时间 && 当前神通冷却时间 > 神通冷却时间 &&
             FightController.S.当前神通能量 >= 神通能量)
         {
@@ -201,17 +201,22 @@ public class 人物item : MonoBehaviour
         Sequence mySequence = DOTween.Sequence();
         mySequence.AppendCallback(() =>
         {
+            //ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.丹童神通配音);
             ObserverModuleManager.S.SendEvent("播放英雄神通",heroType);
         });
+        mySequence.AppendInterval(0.5f);
         mySequence.Append(transform.DOMove(new Vector3(transform.position.x+0.7f,transform.position.y,transform.position.z),0.15f));
         mySequence.AppendCallback(() =>
         {
-            
+            var dir=(targetPos-(Vector2)transform.position).normalized;
             switch (heroType)
             {
                 case HeroType.丹童:
-                    var dir=(targetPos-(Vector2)transform.position).normalized;
-                    FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助);
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助);
+                    mySequence.AppendInterval(0.5f);
+                    break;
+                case HeroType.土地:
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助);
                     mySequence.AppendInterval(0.5f);
                     break;
             }

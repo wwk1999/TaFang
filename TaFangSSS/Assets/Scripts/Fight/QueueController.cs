@@ -30,6 +30,7 @@ public class QueueController:XSingleton<QueueController>
     [NonSerialized] public Queue<序列纯显示一次> 冰大魔法弹PengQueue = new Queue<序列纯显示一次>();
     [NonSerialized] public Queue<序列纯显示一次> 火虎魔法弹PengQueue = new Queue<序列纯显示一次>();
     [NonSerialized] public Queue<序列纯显示一次> 黑暗魔法弹PengQueue = new Queue<序列纯显示一次>();
+    [NonSerialized] public Queue<序列纯显示一次> 丹童神通PengQueue = new Queue<序列纯显示一次>();
 
     
     [NonSerialized] public Queue<普通魔法弹带peng> 电魔法弹Queue = new Queue<普通魔法弹带peng>();
@@ -71,7 +72,6 @@ public class QueueController:XSingleton<QueueController>
     
     
     [NonSerialized] public Queue<普通魔法弹带peng> 丹童神通Queue = new Queue<普通魔法弹带peng>();
-    [NonSerialized] public Queue<序列纯显示一次> 丹童神通PengQueue = new Queue<序列纯显示一次>();
     [NonSerialized]public Queue<冰符>云霄神通Queue = new Queue<冰符>();
     [NonSerialized]public Queue<序列一次伤害技能>元始神通Queue = new Queue<序列一次伤害技能>();
     [NonSerialized]public Queue<序列一次伤害技能>哪吒神通Queue = new Queue<序列一次伤害技能>();
@@ -244,6 +244,16 @@ public class QueueController:XSingleton<QueueController>
                     var 黑暗魔法弹Peng = Instantiate(Resources.Load("Prefabs/特效/黑暗魔法弹Peng"),transform).GetComponent<序列纯显示一次>();
                     黑暗魔法弹Peng.gameObject.SetActive(false);
                     黑暗魔法弹PengQueue.Enqueue(黑暗魔法弹Peng);
+                    break;
+                
+                case PengType.丹童神通Peng:
+                    if (丹童神通PengQueue.Count > 100)
+                    {
+                        break;
+                    }
+                    var 丹童神通Peng = Instantiate(Resources.Load("Prefabs/特效/神通/丹童神通peng"),transform).GetComponent<序列纯显示一次>();
+                    丹童神通Peng.gameObject.SetActive(false);
+                    丹童神通PengQueue.Enqueue(丹童神通Peng);
                     break;
                 case PengType.None:
                 default:

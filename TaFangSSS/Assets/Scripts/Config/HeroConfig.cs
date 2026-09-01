@@ -1146,7 +1146,7 @@ namespace Config
                 HeroType.丹童, new HeroSkill()
                 {
                     攻击特效List = new List<攻击特效Type>() { 攻击特效Type.普通火魔法弹,攻击特效Type.丹童神通 },
-                    PengList = new List<PengType>() { PengType.火虎魔法弹Peng }
+                    PengList = new List<PengType>() { PengType.火虎魔法弹Peng,PengType.丹童神通Peng }
                 }
             },
             {

@@ -10,9 +10,13 @@ public class 横幅 : MonoBehaviour
     public void 播放神通横幅(object[] obj)
     {
         HeroType heroType=(HeroType)obj[0];
-        var item=Instantiate(Resources.Load("Prefabs/Fight/横幅item"),transform).GetComponent<横幅item>();
+        var prefab = Resources.Load("Prefabs/Fight/横幅item") as GameObject;
+        prefab.SetActive(false);
+        var item=Instantiate(prefab,transform).GetComponent<横幅item>();
         item.HeroType = heroType;
         item.transform.SetAsLastSibling();
+        prefab.SetActive(true);
+        item.gameObject.SetActive(true);
     }
 
     private void OnDestroy()

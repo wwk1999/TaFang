@@ -30,6 +30,37 @@ public class 冰符动画脚本: MonoBehaviour
     {
         switch (Type)
         {
+            case 攻击特效Type.土地神通:
+                QueueController.S.土地神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.云霄神通:
+                QueueController.S.云霄神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.嫦娥神通:
+                QueueController.S.嫦娥神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.孙悟空神通:
+                QueueController.S.孙悟空神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.河伯神通:
+                QueueController.S.河伯神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.琼霄神通:
+                QueueController.S.琼霄神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.羲和神通:
+                QueueController.S.羲和神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.通天神通:
+                QueueController.S.通天神通Queue.Enqueue(obj);
+                break;
+            case 攻击特效Type.龟丞相神通:
+                QueueController.S.龟丞相神通Queue.Enqueue(obj);
+                break;
+            
+            
+            
+            
             case 攻击特效Type.冰符:
                 QueueController.S.冰符Queue.Enqueue(obj);
                 break;

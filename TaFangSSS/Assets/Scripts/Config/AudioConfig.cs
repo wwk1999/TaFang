@@ -59,7 +59,9 @@ public enum 战斗音效Type
     
     // ============ 天道 / 终极 ============
     鸿钧,
-    盘古
+    盘古,
+    
+    丹童神通配音,
 }
 public class AudioConfig : MonoBehaviour
 {
@@ -70,6 +72,8 @@ public class AudioConfig : MonoBehaviour
         case 战斗音效Type.首领出现:
             return ResourcesConfig.首领出现;
         // ============ 通用战斗音效 ============
+        case 战斗音效Type.丹童神通配音:
+            return ResourcesConfig.丹童神通配音;
         case 战斗音效Type.丹童:
             return ResourcesConfig.丹童;
         case 战斗音效Type.瑶池:

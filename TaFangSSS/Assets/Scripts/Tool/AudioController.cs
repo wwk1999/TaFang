@@ -90,6 +90,13 @@ public class AudioController : MonoBehaviour
             StartCoroutine(Play首领出现音效());
             break;
         // ============ 通用战斗音效 ============
+        case 战斗音效Type.丹童神通配音:
+            audio.clip = AudioConfig.Get战斗音效Clip(战斗音效Type.丹童神通配音);
+            audio.volume = 1f * PlayerData.S.音效音量;
+            audio.pitch = 1f;
+            audio.time = 0f;
+            audio.Play();
+            break;
         case 战斗音效Type.丹童:
             audio.clip = AudioConfig.Get战斗音效Clip(战斗音效Type.丹童);
             audio.volume = 1f * PlayerData.S.音效音量;
