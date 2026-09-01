@@ -10,7 +10,7 @@ public class 序列一次伤害技能 : MonoBehaviour
     private Vector2 原始scale=Vector2.one;
     public HeroType heroType;
     public Animator anim;
-    
+    public bool 是否神通=false;
 
     private void OnEnable()
     {
@@ -28,6 +28,10 @@ public class 序列一次伤害技能 : MonoBehaviour
         }
         float 目标scale = 1;
         脚本.HeroType = heroType;
+        if (是否神通)
+        {
+            return;
+        }
         switch (heroType)
         {
             case HeroType.河伯:

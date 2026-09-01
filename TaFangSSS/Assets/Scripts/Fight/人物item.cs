@@ -29,6 +29,8 @@ public class 人物item : MonoBehaviour
     [NonSerialized]public HeroType heroType;
     private float CurrentAttackTime = 0;
     [NonSerialized] private HashSet<MonsterBase> 攻击范围内怪物=new HashSet<MonsterBase>();
+    [NonSerialized] private List<MonsterBase> 攻击范围内怪物列表 = new List<MonsterBase>();  // 新增
+
     [NonSerialized] public float 瑶池冰辅助;
     public GameObject 瑶池冰辅助obj;
     [NonSerialized] public Vector2 原始Pos;
@@ -90,28 +92,64 @@ public class 人物item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Monster")&&!上场)
+        if(other.CompareTag("Monster") && !上场)
         {
-            攻击范围内怪物.Add(QueueController.S.MonsterColliderDic[other]);
+            var monster = QueueController.S.MonsterColliderDic[other];
+            if (攻击范围内怪物.Add(monster))  // Add返回true表示新增
+            {
+                攻击范围内怪物列表.Add(monster);
+            }
         }
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        // 下场期间(上场=true)进入范围的怪物会被 OnTriggerEnter2D 漏掉
-        // 回到原位(上场=false)后用 Stay 把它们补登进列表，避免英雄只上场一次
         if (other.CompareTag("Monster") && !上场)
         {
-            攻击范围内怪物.Add(QueueController.S.MonsterColliderDic[other]);
+            var monster = QueueController.S.MonsterColliderDic[other];
+            if (攻击范围内怪物.Add(monster))
+            {
+                攻击范围内怪物列表.Add(monster);
+            }
         }
     }
 
     public void 怪物死亡(object[] obj)
     {
         MonsterBase monsterBase = obj[0] as MonsterBase;
-        攻击范围内怪物.Remove(monsterBase);
+        if (攻击范围内怪物.Remove(monsterBase))
+        {
+            攻击范围内怪物列表.Remove(monsterBase);
+        }
     }
 
+    private Vector2 Get随机怪物位置()
+    {
+        if (攻击范围内怪物列表.Count == 0)
+        {
+            float randomx = Random.Range(-3.5f,7.5f);
+            float randomy = Random.Range(-3.5f,3.5f);
+            return new Vector2(randomx, randomy);
+        }
+        
+    
+        int randomIndex = Random.Range(0, 攻击范围内怪物列表.Count);
+        return 攻击范围内怪物列表[randomIndex].transform.position;
+    }
+
+    public IEnumerator 多次释放神通(攻击特效Type type, int count, float time)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            switch (type)
+            {
+                case 攻击特效Type.玄女神通:
+                    FightController.S.一次伤害技能(攻击特效Type.玄女神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    break;
+            }
+            yield return new WaitForSeconds(time);
+        }
+    }
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("怪物死亡",怪物死亡);
@@ -135,7 +173,7 @@ public class 人物item : MonoBehaviour
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         if (!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
             FightController.S.当前英雄之间神通间隔时间 > FightController.S.英雄之间神通间隔时间 && 当前神通冷却时间 > 神通冷却时间 &&
-            FightController.S.当前神通能量 >= 神通能量)
+            FightController.S.当前神通能量 >= 神通能量&&攻击范围内怪物列表.Count>0)
         {
             FightController.S.当前神通index++;
             if (FightController.S.当前神通index >= PlayerData.S.神通配置List.Count)
@@ -222,6 +260,10 @@ public class 人物item : MonoBehaviour
             var dir=(targetPos-(Vector2)transform.position).normalized;
             switch (heroType)
             {
+                case HeroType.玄女:
+                    StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.1f));
+                    mySequence.AppendInterval(0.5f);
+                    break;
                 case HeroType.丹童:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
                     mySequence.AppendInterval(0.5f);

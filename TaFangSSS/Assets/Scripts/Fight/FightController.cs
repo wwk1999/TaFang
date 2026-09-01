@@ -531,6 +531,18 @@ public class FightController : XSingleton<FightController>
         
         switch (攻击特效Type)
         {
+            case 攻击特效Type.玄女神通:
+                var 玄女神通 = QueueController.S.玄女神通Queue.Dequeue();
+                玄女神通.transform.position = pos;
+                玄女神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                玄女神通.脚本.黑暗辅助 = 黑暗辅助;
+                玄女神通.脚本.女娲电辅助 = 女娲电辅助;
+                玄女神通.脚本.瑶池神通 = 瑶池神通;
+                玄女神通.脚本.是否神通 = true;
+                玄女神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.玄女].damage/100f;
+                玄女神通.脚本.HeroType = HeroType.玄女;
+                玄女神通.gameObject.SetActive(true);
+                break;
             case 攻击特效Type.嫦娥技能:
                 var 嫦娥技能 = QueueController.S.嫦娥技能Queue.Dequeue();
                 嫦娥技能.transform.position = pos;

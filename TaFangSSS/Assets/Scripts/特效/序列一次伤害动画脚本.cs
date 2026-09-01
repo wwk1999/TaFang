@@ -19,7 +19,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public bool 是否神通;
 
     
-    
+
     public void 播放碧霄音效()
     {
         if (FightController.S.关卡游戏时长 < 2) return;
@@ -66,6 +66,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         Obj.gameObject.SetActive(false);
         switch (type)
         {
+            case 攻击特效Type.玄女神通:
+                QueueController.S.玄女神通Queue.Enqueue(Obj);
+                break;
             case 攻击特效Type.嫦娥技能:
                 QueueController.S.嫦娥技能Queue.Enqueue(Obj);
                 break;
@@ -73,7 +76,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 QueueController.S.冰刺Queue.Enqueue(Obj);
                 break;
             case 攻击特效Type.玄女技能:
-                QueueController.S.冰刺Queue.Enqueue(Obj);
+                QueueController.S.玄女技能Queue.Enqueue(Obj);
                 break;
             case 攻击特效Type.龟丞相技能:
                 QueueController.S.龟丞相技能Queue.Enqueue(Obj);
