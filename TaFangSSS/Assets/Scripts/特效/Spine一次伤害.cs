@@ -5,7 +5,8 @@ using Config;
 using Spine;  
 using Spine.Unity;
 using UnityEngine;
- 
+using Random = UnityEngine.Random;
+
 public class Spine一次伤害 : MonoBehaviour
 {
    public string name;
@@ -19,6 +20,7 @@ public class Spine一次伤害 : MonoBehaviour
 
    private Vector2 原始scale=Vector2.one;
    [NonSerialized] public bool 女娲电辅助;
+   [NonSerialized] public bool 瑶池神通;
 
    
 
@@ -82,6 +84,14 @@ public class Spine一次伤害 : MonoBehaviour
                      100f);
                }
                QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+            }
+            if (瑶池神通)
+            {
+               var random = Random.Range(0, 100f);
+               if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+               {
+                  QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+               }
             }
             if (黑暗辅助)
             {

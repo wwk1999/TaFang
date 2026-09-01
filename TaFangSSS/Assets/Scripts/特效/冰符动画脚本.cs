@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 冰符动画脚本: MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class 冰符动画脚本: MonoBehaviour
     [NonSerialized]public float damage;
     [NonSerialized]public HeroType HeroType;
     [NonSerialized] public bool 女娲电辅助;
+    [NonSerialized] public bool 瑶池神通;
 
 
     public void Hide()
@@ -110,6 +112,14 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 if (Type==攻击特效Type.冰符)
                 {
                     QueueController.S.MonsterColliderDic[col].冰符 = 2;
@@ -178,6 +188,14 @@ public class 冰符动画脚本: MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
                 }
                 if (Type==攻击特效Type.冰符)
                 {
@@ -252,6 +270,14 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 if (Type==攻击特效Type.冰符)
                 {
                     QueueController.S.MonsterColliderDic[col].冰符 = 2;
@@ -324,6 +350,14 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 if (Type==攻击特效Type.冰符)
                 {
                     QueueController.S.MonsterColliderDic[col].冰符 = 2;
@@ -394,6 +428,14 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 if (Type==攻击特效Type.冰符)
                 {
                     QueueController.S.MonsterColliderDic[col].冰符 = 2;
@@ -462,6 +504,14 @@ public class 冰符动画脚本: MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
                 }
                 if (Type==攻击特效Type.冰符)
                 {
@@ -532,6 +582,14 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 if (Type==攻击特效Type.冰符)
                 {
                     QueueController.S.MonsterColliderDic[col].冰符 = 2;
@@ -600,6 +658,14 @@ public class 冰符动画脚本: MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
                 }
                 if (Type==攻击特效Type.冰符)
                 {
@@ -670,6 +736,14 @@ public class 冰符动画脚本: MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 if (Type==攻击特效Type.冰符)
                 {
                     QueueController.S.MonsterColliderDic[col].冰符 = 2;
@@ -739,6 +813,14 @@ public class 冰符动画脚本: MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
+                }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
                 }
                 if (Type==攻击特效Type.冰符)
                 {

@@ -10,6 +10,7 @@ public class 火球旋转parent : MonoBehaviour
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
     [NonSerialized] public bool 女娲电辅助;
+    [NonSerialized] public bool 瑶池神通;
 
     [NonSerialized] public float damage = 属性config.总属性.总攻击力*英雄星级属性.元始攻击数值/100f;
 
@@ -26,7 +27,7 @@ public class 火球旋转parent : MonoBehaviour
             item.黑暗辅助 = 黑暗辅助;
             item.瑶池冰辅助 = 瑶池冰辅助;
             item.女娲电辅助 = 女娲电辅助;
-
+            item.瑶池神通 = 瑶池神通;
             item.damage=damage;
         }
         Invoke(nameof(Hide), 英雄星级属性.元始持续时间);

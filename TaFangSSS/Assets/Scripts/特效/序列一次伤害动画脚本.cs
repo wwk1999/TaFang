@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 序列一次伤害动画脚本 : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     public Collider2D _collider2D;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
+    [NonSerialized] public bool 瑶池神通;
     [NonSerialized] public float damage;
     [NonSerialized] public HeroType HeroType;
-
     [NonSerialized] public bool 女娲电辅助;
     
     
@@ -107,6 +108,14 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+                }
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
                 }
 
                 if (type == 攻击特效Type.龟丞相技能)

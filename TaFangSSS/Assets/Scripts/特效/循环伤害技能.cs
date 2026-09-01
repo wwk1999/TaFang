@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 循环伤害技能 : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized] public float 伤害间隔=0.2f;
     [NonSerialized] public float 当前伤害时间=0;
     [NonSerialized] public bool 女娲电辅助;
+    [NonSerialized] public bool 瑶池神通;
 
     private float alltime=0;
     
@@ -84,6 +86,14 @@ public class 循环伤害技能 : MonoBehaviour
                     damage *= (1 + PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法等级 *
                         功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
                         100f);
+                }
+            }
+            if (瑶池神通)
+            {
+                var random = Random.Range(0, 100f);
+                if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+                {
+                    QueueController.S.MonsterColliderDic[other].冰冻time = 1;
                 }
             }
             if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)

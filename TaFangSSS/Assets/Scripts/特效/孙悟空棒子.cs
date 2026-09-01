@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 孙悟空棒子 : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class 孙悟空棒子 : MonoBehaviour
    private Vector2 原始scale = Vector2.one;
    [NonSerialized] public int 下场次数 = 0;
    [NonSerialized] public bool 女娲电辅助;
+   [NonSerialized] public bool 瑶池神通;
 
 
    private void OnEnable()
@@ -56,7 +58,14 @@ public class 孙悟空棒子 : MonoBehaviour
                damage*=(1+英雄星级属性.女娲辅助伤害/100f);
                QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
             }
-         
+            if (瑶池神通)
+            {
+               var random = Random.Range(0, 100f);
+               if (random < HeroConfig.英雄神通配置Dic[HeroType.孙悟空].damage)
+               {
+                  QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+               }
+            }
             if (黑暗辅助)
             {
                if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)

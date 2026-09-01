@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Config;
 using Spine.Unity;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 普通魔法弹带peng : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public float damage;
    [NonSerialized] public HeroType HeroType;
    [NonSerialized] public bool 瑶池冰辅助;
+   [NonSerialized] public bool 瑶池神通;
    [NonSerialized] public bool 黑暗辅助;
    [NonSerialized]public bool 穿透=false;
    private Vector2 原始scale=Vector2.one;
@@ -55,6 +57,14 @@ public class 普通魔法弹带peng : MonoBehaviour
          var hit = FightController.S.GetPeng(Type);
          hit.transform.position = closestPoint;
          float realDamage = damage;
+         if (瑶池神通)
+         {
+            var random = Random.Range(0, 100f);
+            if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
+            {
+               QueueController.S.MonsterColliderDic[other].冰冻time = 1;
+            }
+         }
          if (瑶池冰辅助)
          {
             QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;

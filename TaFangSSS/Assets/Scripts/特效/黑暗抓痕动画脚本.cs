@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 黑暗抓痕动画脚本 : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
     [NonSerialized] public bool 黑暗辅助;
     public HeroType heroType;
     [NonSerialized] public bool 女娲电辅助;
+    [NonSerialized] public bool 瑶池神通;
 
     public void 播放广木天王音效()
     {
@@ -51,7 +53,14 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
-
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[heroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 float damage = 属性config.总属性.总攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
                 if (黑暗辅助)
                 {
@@ -115,7 +124,14 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
                 }
-
+                if (瑶池神通)
+                {
+                    var random = Random.Range(0, 100f);
+                    if (random < HeroConfig.英雄神通配置Dic[heroType].damage)
+                    {
+                        QueueController.S.MonsterColliderDic[col].冰冻time = 1;
+                    }
+                }
                 float damage = 属性config.总属性.总攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
                 if (黑暗辅助)
                 {
