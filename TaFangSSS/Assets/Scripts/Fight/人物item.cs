@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
+    public 黑暗抓痕动画脚本 石敢当神通脚本;
+    public GameObject 石敢当神通Obj;
     public GameObject 瑶池神通;
     [NonSerialized]public float 瑶池神通time = 0;
     public Transform 盘古拳trans;
@@ -160,18 +162,18 @@ public class 人物item : MonoBehaviour
             {
                 if (heroType == HeroType.广目天王)//上场
                 {
-                    上场技能(攻击特效Type.黑暗抓痕, new Vector2(targetPos.x - 1f, targetPos.y), 0.5f, false);
+                    上场技能(攻击特效Type.黑暗抓痕, new Vector2(targetPos.x - 1f, targetPos.y), 0.5f, false,false);
                 }
                 else if(heroType == HeroType.牛魔王)//上场
                 {
-                    上场技能(攻击特效Type.牛魔王技能, new Vector2(targetPos.x + 0.5f, targetPos.y), 0.6f, true);
+                    上场技能(攻击特效Type.牛魔王技能, new Vector2(targetPos.x + 0.5f, targetPos.y), 0.6f, true,false);
                 }else if(heroType == HeroType.哪吒)//上场
                 {
-                    上场技能(攻击特效Type.喷火, new Vector2(targetPos.x - 1f, targetPos.y), 1f, false);
+                    上场技能(攻击特效Type.喷火, new Vector2(targetPos.x - 1f, targetPos.y), 1f, false,false);
                 }else if(heroType == HeroType.孙悟空)//上场
                 {
                     int count = 英雄星级属性.孙悟空次数;
-                    上场技能(攻击特效Type.孙悟空棒子, new Vector2(targetPos.x - 1f, targetPos.y), count*0.25f, false,count);
+                    上场技能(攻击特效Type.孙悟空棒子, new Vector2(targetPos.x - 1f, targetPos.y), count*0.25f, false,false,count);
                 }
                 else if(heroType == HeroType.元始)//上场
                 {
@@ -180,7 +182,7 @@ public class 人物item : MonoBehaviour
                     {
                         FightController.S.元始数量++;
                     }
-                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间, true,FightController.S.元始数量);
+                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间, true,false,FightController.S.元始数量);
                 }
                 else if(heroType == HeroType.盘古)//上场
                 {
@@ -201,6 +203,12 @@ public class 人物item : MonoBehaviour
     {
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         Vector2 targetPos=monsterBase.transform.position;
+        if (heroType == HeroType.石敢当)
+        {
+            ObserverModuleManager.S.SendEvent("播放英雄神通",heroType);
+            上场技能(攻击特效Type.石敢当神通, new Vector2(targetPos.x + 0.5f, targetPos.y), 0.6f, true,true);
+            return;
+        }
         Sequence mySequence = DOTween.Sequence();
         mySequence.AppendCallback(() =>
         {
@@ -281,10 +289,14 @@ public class 人物item : MonoBehaviour
         上场 = false;
     }
 
-    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小,int count=0)
+    public void 上场技能(攻击特效Type Type,Vector2 finalPos,float Time,bool 放大缩小,bool 是否神通,int count=0)
     {
         上场 = true;
         Sequence mySequence = DOTween.Sequence();
+        if (是否神通)
+        {
+           mySequence.AppendInterval(0.5f); 
+        }
         mySequence.Append(transform.DOMove(finalPos, 0.2f));
         mySequence.AppendCallback(() =>
         {
@@ -304,6 +316,7 @@ public class 人物item : MonoBehaviour
                     黑暗抓痕.脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     黑暗抓痕.脚本.女娲电辅助 = 女娲电辅助>0;
                     黑暗抓痕.脚本.瑶池神通 = 瑶池神通time>0;
+                    黑暗抓痕.脚本.是否神通 = false;
 
                     黑暗抓痕.gameObject.SetActive(true);
                     黑暗抓痕Animator.Play("187黑暗抓痕_Anim",0,0f);
@@ -313,15 +326,26 @@ public class 人物item : MonoBehaviour
                     牛魔王脚本.黑暗辅助 = 妲己黑暗辅助>0;
                     牛魔王脚本.女娲电辅助 = 女娲电辅助>0;
                     牛魔王脚本.瑶池神通 = 瑶池神通time>0;
+                    牛魔王脚本.是否神通 = false;
 
                     牛魔王技能Obj.gameObject.SetActive(true);
                     牛魔王技能Animator.Play("219牛魔王技能_Anim",0,0f);
+                    break;
+                case 攻击特效Type.石敢当神通:
+                    石敢当神通脚本.瑶池冰辅助 = 瑶池冰辅助>0;
+                    石敢当神通脚本.黑暗辅助 = 妲己黑暗辅助>0;
+                    石敢当神通脚本.女娲电辅助 = 女娲电辅助>0;
+                    石敢当神通脚本.瑶池神通 = 瑶池神通time>0;
+                    石敢当神通脚本.是否神通 = true;
+
+                    石敢当神通Obj.gameObject.SetActive(true);
                     break;
                 case 攻击特效Type.喷火:
                     喷火.瑶池冰辅助 = 瑶池冰辅助>0;
                     喷火.黑暗辅助 = 妲己黑暗辅助>0;
                     喷火.女娲电辅助 = 女娲电辅助>0;
                     喷火.瑶池神通 = 瑶池神通time>0;
+                    喷火.是否神通 = false;
 
                     喷火Obj.gameObject.SetActive(true);
                     ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.哪吒);

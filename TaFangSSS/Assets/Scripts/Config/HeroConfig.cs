@@ -1175,7 +1175,7 @@ namespace Config
             {
                 HeroType.石敢当, new HeroSkill()
                 {
-                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.石敢当锤子 ,攻击特效Type.石敢当神通},
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.石敢当锤子 },
                     PengList = new List<PengType>()
                 }
             },

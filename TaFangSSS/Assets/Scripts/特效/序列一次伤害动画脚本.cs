@@ -16,7 +16,8 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public float damage;
     [NonSerialized] public HeroType HeroType;
     [NonSerialized] public bool 女娲电辅助;
-    
+    [NonSerialized] public bool 是否神通;
+
     
     
     public void 播放碧霄音效()

@@ -15,6 +15,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
     public HeroType heroType;
     [NonSerialized] public bool 女娲电辅助;
     [NonSerialized] public bool 瑶池神通;
+    [NonSerialized] public bool 是否神通;
 
     public void 播放广木天王音效()
     {
@@ -61,7 +62,16 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
                         QueueController.S.MonsterColliderDic[col].冰冻time = 1;
                     }
                 }
-                float damage = 属性config.总属性.总攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
+
+                float damage = 0;
+                if (是否神通)
+                {
+                    damage = 属性config.总属性.总攻击力*HeroConfig.英雄神通配置Dic[heroType].damage/100f;
+                }
+                else
+                {
+                    damage = 属性config.总属性.总攻击力*英雄星级属性.Get英雄攻击数值(heroType)/100f;
+                }
                 if (黑暗辅助)
                 {
                     if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)

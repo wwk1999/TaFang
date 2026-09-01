@@ -21,6 +21,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized]public bool 穿透=false;
    private Vector2 原始scale=Vector2.one;
    [NonSerialized] public bool 女娲电辅助;
+   [NonSerialized] public bool 是否神通;
 
   
 
