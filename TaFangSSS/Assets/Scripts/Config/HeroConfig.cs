@@ -1197,7 +1197,7 @@ namespace Config
                 HeroType.太白金星, new HeroSkill()
                 {
                     攻击特效List = new List<攻击特效Type>() { 攻击特效Type.电魔法弹 ,攻击特效Type.太白金星神通},
-                    PengList = new List<PengType>() { PengType.电魔法弹Peng }
+                    PengList = new List<PengType>() { PengType.电魔法弹Peng,PengType.电龙魔法弹Peng }
                 }
             },
             {

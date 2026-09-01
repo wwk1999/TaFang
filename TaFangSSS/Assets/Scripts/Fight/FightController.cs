@@ -244,6 +244,14 @@ public class FightController : XSingleton<FightController>
             case HeroType.丹童:
                 Shot普通魔法弹(攻击特效Type.丹童神通,shotpos,dir,damage,13,瑶池冰辅助,黑暗辅助,true,女娲电辅助>0,HeroType.丹童,瑶池神通>0,true);
                 break;
+            case HeroType.太白金星:
+                Shot普通魔法弹(攻击特效Type.太白金星神通, shotpos, GetDirectionOffset(dir, 3, true), damage,
+                    10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,true);
+                Shot普通魔法弹(攻击特效Type.太白金星神通, shotpos, GetDirectionOffset(dir, 3, false), damage,
+                    10, 瑶池冰辅助, 黑暗辅助, true,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,true);
+                Shot普通魔法弹(攻击特效Type.太白金星神通, shotpos, dir, damage, 10, 瑶池冰辅助,
+                    黑暗辅助, true,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,true);               
+                break;
             case HeroType.土地:
                 一次伤害技能(攻击特效Type.土地神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
                 break;
@@ -736,6 +744,9 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.丹童神通:
                 魔法弹 = QueueController.S.丹童神通Queue.Dequeue();
                 break;
+            case 攻击特效Type.太白金星神通:
+                魔法弹 = QueueController.S.太白金星神通Queue.Dequeue();
+                break;
             case 攻击特效Type.电魔法弹:
                 魔法弹 = QueueController.S.电魔法弹Queue.Dequeue();
                 break;
@@ -819,6 +830,7 @@ public class FightController : XSingleton<FightController>
             case 攻击特效Type.冰爆气魔法弹:
                 return QueueController.S.冰爆气魔法弹PengQueue.Count > 0 ? QueueController.S.冰爆气魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.电龙魔法弹:
+            case 攻击特效Type.太白金星神通:
                 return QueueController.S.电龙魔法弹PengQueue.Count > 0 ? QueueController.S.电龙魔法弹PengQueue.Dequeue() : null;
             case 攻击特效Type.电爆气魔法弹:
                 return QueueController.S.电爆气魔法弹PengQueue.Count > 0 ? QueueController.S.电爆气魔法弹PengQueue.Dequeue() : null;
@@ -840,6 +852,9 @@ public class FightController : XSingleton<FightController>
     public void 普通魔法弹Hide(普通魔法弹带peng 普通魔法弹带peng, 攻击特效Type type, GameObject gameObject)
     {
         switch (type) {
+            case 攻击特效Type.太白金星神通:
+                QueueController.S.太白金星神通Queue.Enqueue(普通魔法弹带peng);
+                break;
             case 攻击特效Type.丹童神通:
                 QueueController.S.丹童神通Queue.Enqueue(普通魔法弹带peng);
                 break;

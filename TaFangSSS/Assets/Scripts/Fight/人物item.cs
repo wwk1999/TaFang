@@ -272,6 +272,10 @@ public class 人物item : MonoBehaviour
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
                     mySequence.AppendInterval(0.5f);
                     break;
+                case HeroType.太白金星:
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
+                    mySequence.AppendInterval(0.5f);
+                    break;
                 case HeroType.土地:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
                     mySequence.AppendInterval(0.5f);
