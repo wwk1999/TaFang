@@ -258,6 +258,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.河伯:
                 一次伤害技能(攻击特效Type.河伯神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
                 break;
+            case HeroType.多闻天王:
+                一次伤害技能(攻击特效Type.多闻天王神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
+                break;
             case HeroType.龟丞相:
                 一次伤害技能(攻击特效Type.龟丞相神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
                 break;
@@ -542,6 +545,18 @@ public class FightController : XSingleton<FightController>
         
         switch (攻击特效Type)
         {
+            case 攻击特效Type.多闻天王神通:
+                var 多闻天王神通 = QueueController.S.多闻天王神通Queue.Dequeue();
+                多闻天王神通.transform.position = pos;
+                多闻天王神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                多闻天王神通.脚本.黑暗辅助 = 黑暗辅助;
+                多闻天王神通.脚本.女娲电辅助 = 女娲电辅助;
+                多闻天王神通.脚本.瑶池神通 = 瑶池神通;
+                多闻天王神通.脚本.是否神通 = true;
+                多闻天王神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.多闻天王].damage/100f;
+                多闻天王神通.脚本.HeroType = HeroType.多闻天王;
+                多闻天王神通.gameObject.SetActive(true);
+                break;
             case 攻击特效Type.玄女神通:
                 var 玄女神通 = QueueController.S.玄女神通Queue.Dequeue();
                 玄女神通.transform.position = pos;
