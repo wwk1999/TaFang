@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
+    public GameObject 杨戬发射神通;
+    public Animator 杨戬发射神通Animator;
     public 黑暗抓痕动画脚本 石敢当神通脚本;
     public GameObject 石敢当神通Obj;
     public GameObject 瑶池神通;
@@ -135,6 +137,17 @@ public class 人物item : MonoBehaviour
     
         int randomIndex = Random.Range(0, 攻击范围内怪物列表.Count);
         return 攻击范围内怪物列表[randomIndex].transform.position;
+    }
+
+    public IEnumerator 杨戬神通( int count, float time, float 开始延迟)
+    {
+        yield return new WaitForSeconds(开始延迟);
+        for (int i = 0; i < count; i++)
+        {
+            FightController.S.一次伤害技能(攻击特效Type.杨戬神通, Get随机怪物位置(), 瑶池冰辅助 > 0, 妲己黑暗辅助 > 0, 女娲电辅助 > 0,
+                        瑶池神通time > 0);
+            yield return new WaitForSeconds(time);
+        }
     }
 
     public IEnumerator 多次释放神通(攻击特效Type type, int count, float time)
@@ -269,6 +282,11 @@ public class 人物item : MonoBehaviour
             var dir=(targetPos-(Vector2)transform.position).normalized;
             switch (heroType)
             {
+                case HeroType.杨戬:
+                    杨戬发射神通.gameObject.SetActive(true);
+                    杨戬发射神通Animator.Play("神通1_Anim",0,0);
+                    StartCoroutine(杨戬神通(3,0.3f,1f));
+                    break;
                 case HeroType.龟丞相:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
                     break;
@@ -304,7 +322,17 @@ public class 人物item : MonoBehaviour
                     break;
             }
         });
-        mySequence.AppendInterval(heroType == HeroType.多闻天王 ? 2.3f : 0.5f);
+        float time = 0.5f;
+        switch (heroType)
+        {
+            case HeroType.多闻天王:
+                time = 2.3f;
+                break;
+            case HeroType.杨戬:
+                time = 2.3f;
+                break;
+        }
+        mySequence.AppendInterval(time);
         mySequence.Append(transform.DOMove(原始Pos,0.15f));
         mySequence.AppendCallback(() =>
         {

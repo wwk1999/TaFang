@@ -277,7 +277,6 @@ GameObject:
   - component: {fileID: 9126484851925353072}
   - component: {fileID: 7027995697321004523}
   - component: {fileID: 1000088244402448443}
-  - component: {fileID: 372231598287117937}
   m_Layer: 9
   m_Name: sprite
   m_TagString: Untagged
@@ -373,23 +372,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &372231598287117937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7416061080103848904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04f59fa5e82f88341be310ef174f3478, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Type: 28
-  obj: {fileID: 1149524344863453120}
-  _collider2D1: {fileID: 4875352034831283999}
-  _collider2D2: {fileID: 2752222197559427546}
-  _collider2D3: {fileID: 6561197888395071124}
 --- !u!1 &7669921366083667656
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1839959218000674732}
   - component: {fileID: 7275354608538301672}
-  - component: {fileID: 1149524344863453120}
   m_Layer: 9
   m_Name: "\u6768\u622C\u795E\u901A1"
   m_TagString: Untagged
@@ -451,18 +432,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1149524344863453120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7669921366083667656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0a1e2fcadaa3244c98d88a232514b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "\u811A\u672C": {fileID: 372231598287117937}
-  HeroType: 22
-  anim: {fileID: 7027995697321004523}

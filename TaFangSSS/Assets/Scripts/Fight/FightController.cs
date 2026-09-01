@@ -572,6 +572,18 @@ public class FightController : XSingleton<FightController>
                 玄女神通.脚本.HeroType = HeroType.玄女;
                 玄女神通.gameObject.SetActive(true);
                 break;
+            case 攻击特效Type.杨戬神通:
+                var 杨戬神通 = QueueController.S.杨戬神通Queue.Dequeue();
+                杨戬神通.transform.position = pos;
+                杨戬神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                杨戬神通.脚本.黑暗辅助 = 黑暗辅助;
+                杨戬神通.脚本.女娲电辅助 = 女娲电辅助;
+                杨戬神通.脚本.瑶池神通 = 瑶池神通;
+                杨戬神通.脚本.是否神通 = true;
+                杨戬神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.杨戬].damage/100f;
+                杨戬神通.脚本.HeroType = HeroType.杨戬;
+                杨戬神通.gameObject.SetActive(true);
+                break;
             
             case 攻击特效Type.月老神通:
                 var 月老神通 = QueueController.S.月老神通Queue.Dequeue();
