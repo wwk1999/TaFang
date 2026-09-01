@@ -149,6 +149,9 @@ public class 人物item : MonoBehaviour
                 case 攻击特效Type.雷震子神通:
                     FightController.S.一次伤害技能(攻击特效Type.雷震子神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
                     break;
+                case 攻击特效Type.月老神通:
+                    FightController.S.一次伤害技能(攻击特效Type.月老神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0);           
+                    break;
             }
             yield return new WaitForSeconds(time);
         }
@@ -271,6 +274,9 @@ public class 人物item : MonoBehaviour
                     break;
                 case HeroType.雷震子:
                     StartCoroutine(多次释放神通(攻击特效Type.雷震子神通,5,0.1f));
+                    break;
+                case HeroType.月老:
+                    StartCoroutine(多次释放神通(攻击特效Type.月老神通,5,0.1f));
                     break;
                 case HeroType.丹童:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time);
