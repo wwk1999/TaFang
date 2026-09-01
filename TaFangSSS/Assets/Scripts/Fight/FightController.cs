@@ -275,7 +275,7 @@ public class FightController : XSingleton<FightController>
                 break;
             case HeroType.石敢当:
                 ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.石敢当);
-                石敢当技能(dir,shotpos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0);
+                石敢当技能(dir,shotpos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);
                 break;
             case HeroType.玄女:
                 一次伤害技能(攻击特效Type.玄女技能, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0);           
@@ -401,7 +401,7 @@ public class FightController : XSingleton<FightController>
         return rotation * dir;
     }
 
-    public void 石敢当技能(Vector2 dir,Vector2 shotpos,bool 瑶池冰辅助,bool 黑暗辅助,bool 女娲电辅助)
+    public void 石敢当技能(Vector2 dir,Vector2 shotpos,bool 瑶池冰辅助,bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通)
     {
         var item = QueueController.S.石敢当锤子Queue.Dequeue();
         item.dir = dir;
@@ -410,6 +410,8 @@ public class FightController : XSingleton<FightController>
         item.瑶池冰辅助 = 瑶池冰辅助;
         item.黑暗辅助 = 黑暗辅助;
         item.女娲电辅助 = 女娲电辅助;
+        item.瑶池神通 = 瑶池神通;
+
         item.gameObject.SetActive(true);
     }
     
@@ -430,7 +432,7 @@ public class FightController : XSingleton<FightController>
             randomValue = 人物items[randomKey];
         }
 
-        randomValue.瑶池神通time = 英雄星级属性.瑶池仙女持续时间;
+        randomValue.瑶池神通time = 英雄星级属性.瑶池仙女持续时间*2;
     }
     public void 瑶池冰辅助技能()
     {
@@ -752,6 +754,7 @@ public class FightController : XSingleton<FightController>
         魔法弹.瑶池冰辅助 = 瑶池冰辅助>0;
         魔法弹.黑暗辅助 = 黑暗辅助>0;
         魔法弹.女娲电辅助 = 女娲电辅助;
+        魔法弹.瑶池神通 = 瑶池神通;
         魔法弹.穿透 = 穿透;
         魔法弹.gameObject.SetActive(true);
     }

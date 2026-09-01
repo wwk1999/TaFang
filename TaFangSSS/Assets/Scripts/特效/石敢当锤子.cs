@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class 石敢当锤子 : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class 石敢当锤子 : MonoBehaviour
    [NonSerialized] public bool 黑暗辅助;
    private Vector2 原始scale=Vector2.one;
    [NonSerialized] public bool 女娲电辅助;
-   
+   [NonSerialized] public bool 瑶池神通;
+
 
    private void OnEnable()
    {
@@ -56,6 +58,14 @@ public class 石敢当锤子 : MonoBehaviour
                   100f);
             }
             QueueController.S.MonsterColliderDic[other].瑶池冰辅助 = 2;
+         }
+         if (瑶池神通)
+         {
+            var random = Random.Range(0, 100f);
+            if (random < HeroConfig.英雄神通配置Dic[HeroType.石敢当].damage)
+            {
+               QueueController.S.MonsterColliderDic[other].冰冻time = 1;
+            }
          }
          if (黑暗辅助)
          {

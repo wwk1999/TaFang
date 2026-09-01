@@ -13,7 +13,6 @@ public class 横幅item : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.LogError(HeroType);
         Icon.sprite = ResourcesConfig.Get英雄神通横幅(HeroType);
         Animator.Play("神通横幅",0,0);
         
