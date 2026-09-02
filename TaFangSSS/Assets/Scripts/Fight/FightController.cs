@@ -284,6 +284,12 @@ public class FightController : XSingleton<FightController>
             case HeroType.多闻天王:
                 一次伤害技能(攻击特效Type.多闻天王神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0,女娲神通>0);           
                 break;
+            case HeroType.盘古:
+                一次伤害技能(攻击特效Type.盘古神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0,女娲神通>0);           
+                break;
+            case HeroType.鸿钧:
+                一次伤害技能(攻击特效Type.鸿钧神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0,女娲神通>0);           
+                break;
             case HeroType.龟丞相:
                 一次伤害技能(攻击特效Type.龟丞相神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0,女娲神通>0);           
                 break;
@@ -623,6 +629,36 @@ public class FightController : XSingleton<FightController>
                 多闻天王神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.多闻天王].damage/100f;
                 多闻天王神通.脚本.HeroType = HeroType.多闻天王;
                 多闻天王神通.gameObject.SetActive(true);
+                break;
+            
+            case 攻击特效Type.盘古神通:
+                var 盘古神通 = QueueController.S.盘古神通Queue.Dequeue();
+                盘古神通.transform.position = pos;
+                盘古神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                盘古神通.脚本.黑暗辅助 = 黑暗辅助;
+                盘古神通.脚本.妲己神通 = 妲己神通;
+                盘古神通.脚本.女娲神通 = 女娲神通;
+                盘古神通.脚本.女娲电辅助 = 女娲电辅助;
+                盘古神通.脚本.瑶池神通 = 瑶池神通;
+                盘古神通.脚本.是否神通 = true;
+                盘古神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.盘古].damage/100f;
+                盘古神通.脚本.HeroType = HeroType.盘古;
+                盘古神通.gameObject.SetActive(true);
+                break;
+            
+            case 攻击特效Type.鸿钧神通:
+                var 鸿钧神通 = QueueController.S.鸿钧神通Queue.Dequeue();
+                鸿钧神通.transform.position = pos;
+                鸿钧神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                鸿钧神通.脚本.黑暗辅助 = 黑暗辅助;
+                鸿钧神通.脚本.妲己神通 = 妲己神通;
+                鸿钧神通.脚本.女娲神通 = 女娲神通;
+                鸿钧神通.脚本.女娲电辅助 = 女娲电辅助;
+                鸿钧神通.脚本.瑶池神通 = 瑶池神通;
+                鸿钧神通.脚本.是否神通 = true;
+                鸿钧神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.鸿钧].damage/100f;
+                鸿钧神通.脚本.HeroType = HeroType.鸿钧;
+                鸿钧神通.gameObject.SetActive(true);
                 break;
             
             case 攻击特效Type.元始神通:

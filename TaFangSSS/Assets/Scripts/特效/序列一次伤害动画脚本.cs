@@ -78,6 +78,12 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
             case 攻击特效Type.元始神通:
                 QueueController.S.元始神通Queue.Enqueue(Obj);
                 break;
+            case 攻击特效Type.盘古神通:
+                QueueController.S.盘古神通Queue.Enqueue(Obj);
+                break;
+            case 攻击特效Type.鸿钧神通:
+                QueueController.S.鸿钧神通Queue.Enqueue(Obj);
+                break;
             case 攻击特效Type.碧霄神通:
                 QueueController.S.碧霄神通Queue.Enqueue(Obj);
                 break;
