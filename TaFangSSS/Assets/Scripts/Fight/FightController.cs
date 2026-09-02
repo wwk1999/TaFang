@@ -256,6 +256,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.土地:
                 一次伤害技能(攻击特效Type.土地神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0);           
                 break;
+            case HeroType.常羲:
+                一次伤害技能(攻击特效Type.常曦神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0);           
+                break;
             case HeroType.河伯:
                 一次伤害技能(攻击特效Type.河伯神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0);           
                 break;
@@ -586,6 +589,21 @@ public class FightController : XSingleton<FightController>
                 多闻天王神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.多闻天王].damage/100f;
                 多闻天王神通.脚本.HeroType = HeroType.多闻天王;
                 多闻天王神通.gameObject.SetActive(true);
+                break;
+            
+            case 攻击特效Type.常曦神通:
+                var 常曦神通 = QueueController.S.常曦神通Queue.Dequeue();
+                常曦神通.transform.position = pos;
+                常曦神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                常曦神通.脚本.黑暗辅助 = 黑暗辅助;
+                常曦神通.脚本.妲己神通 = 妲己神通;
+
+                常曦神通.脚本.女娲电辅助 = 女娲电辅助;
+                常曦神通.脚本.瑶池神通 = 瑶池神通;
+                常曦神通.脚本.是否神通 = true;
+                常曦神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.常羲].damage/100f;
+                常曦神通.脚本.HeroType = HeroType.常羲;
+                常曦神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.玄女神通:
                 var 玄女神通 = QueueController.S.玄女神通Queue.Dequeue();

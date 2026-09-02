@@ -74,8 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "\u811A\u672C": {fileID: 3341378779658386107}
-  heroType: 0
+  heroType: 22
   anim: {fileID: 5765634056862521915}
+  "\u662F\u5426\u795E\u901A": 1
 --- !u!1 &2974501389325433345
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ Transform:
   m_GameObject: {fileID: 3579904810034205273}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.04, y: 0, z: 0}
+  m_LocalPosition: {x: 8.04, y: -0.23, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -287,7 +288,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2000
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 21300000, guid: b5b31f3c5c9e8894086ca25d4905009f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -313,4 +314,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Obj: {fileID: 5061619817493253260}
   type: 56
-  _collider2D: {fileID: 0}
+  _collider2D: {fileID: 4645468916176164594}

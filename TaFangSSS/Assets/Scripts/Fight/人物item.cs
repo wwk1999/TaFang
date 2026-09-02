@@ -365,6 +365,9 @@ public class 人物item : MonoBehaviour
                 case HeroType.多闻天王:
                     FightController.S.人物神通(heroType,transform.position,dir,new Vector3(transform.position.x+2.3f,transform.position.y,transform.position.z),瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
+                case HeroType.常羲:
+                    FightController.S.人物神通(heroType,transform.position,dir,new Vector3(transform.position.x,transform.position.y,transform.position.z),瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
+                    break;
                 case HeroType.瑶池仙女:
                     FightController.S.瑶池冰神通();
                     break;
