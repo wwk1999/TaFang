@@ -69,6 +69,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         Obj.gameObject.SetActive(false);
         switch (type)
         {
+            case 攻击特效Type.老子神通:
+                QueueController.S.老子神通Queue.Enqueue(Obj);
+                break;
             case 攻击特效Type.常曦神通:
                 QueueController.S.常曦神通Queue.Enqueue(Obj);
                 break;

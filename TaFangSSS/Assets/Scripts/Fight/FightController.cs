@@ -625,6 +625,21 @@ public class FightController : XSingleton<FightController>
                 多闻天王神通.gameObject.SetActive(true);
                 break;
             
+            case 攻击特效Type.老子神通:
+                var 老子神通 = QueueController.S.老子神通Queue.Dequeue();
+                老子神通.transform.position = pos;
+                老子神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                老子神通.脚本.黑暗辅助 = 黑暗辅助;
+                老子神通.脚本.妲己神通 = 妲己神通;
+                老子神通.脚本.女娲神通 = 女娲神通;
+                老子神通.脚本.女娲电辅助 = 女娲电辅助;
+                老子神通.脚本.瑶池神通 = 瑶池神通;
+                老子神通.脚本.是否神通 = true;
+                老子神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.老子].damage/100f;
+                老子神通.脚本.HeroType = HeroType.老子;
+                老子神通.gameObject.SetActive(true);
+                break;
+            
             case 攻击特效Type.常曦神通:
                 var 常曦神通 = QueueController.S.常曦神通Queue.Dequeue();
                 常曦神通.transform.position = pos;
