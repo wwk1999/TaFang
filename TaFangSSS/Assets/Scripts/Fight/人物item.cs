@@ -178,6 +178,12 @@ public class 人物item : MonoBehaviour
                 case 攻击特效Type.老子神通:
                     FightController.S.一次伤害技能(攻击特效Type.老子神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0,女娲神通time>0);           
                     break;
+                case 攻击特效Type.通天神通:
+                    FightController.S.一次伤害技能(攻击特效Type.通天神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0,女娲神通time>0);           
+                    break;
+                case 攻击特效Type.元始神通:
+                    FightController.S.一次伤害技能(攻击特效Type.元始神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0,女娲神通time>0);           
+                    break;
                 case 攻击特效Type.雷震子神通:
                     FightController.S.一次伤害技能(攻击特效Type.雷震子神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0,女娲神通time>0);           
                     break;
@@ -367,6 +373,12 @@ public class 人物item : MonoBehaviour
                     break;
                 case HeroType.老子:
                     StartCoroutine(多次释放神通(攻击特效Type.老子神通,1,0.25f));
+                    break;
+                case HeroType.通天:
+                    StartCoroutine(多次释放神通(攻击特效Type.通天神通,1,0.25f));
+                    break;
+                case HeroType.元始:
+                    StartCoroutine(多次释放神通(攻击特效Type.元始神通,1,0.25f));
                     break;
                 case HeroType.云霄:
                     StartCoroutine(多次释放神通(攻击特效Type.云霄神通,3,0.5f));

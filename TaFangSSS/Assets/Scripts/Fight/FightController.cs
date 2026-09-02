@@ -625,6 +625,21 @@ public class FightController : XSingleton<FightController>
                 多闻天王神通.gameObject.SetActive(true);
                 break;
             
+            case 攻击特效Type.元始神通:
+                var 元始神通 = QueueController.S.元始神通Queue.Dequeue();
+                元始神通.transform.position = pos;
+                元始神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                元始神通.脚本.黑暗辅助 = 黑暗辅助;
+                元始神通.脚本.妲己神通 = 妲己神通;
+                元始神通.脚本.女娲神通 = 女娲神通;
+                元始神通.脚本.女娲电辅助 = 女娲电辅助;
+                元始神通.脚本.瑶池神通 = 瑶池神通;
+                元始神通.脚本.是否神通 = true;
+                元始神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.元始].damage/100f;
+                元始神通.脚本.HeroType = HeroType.元始;
+                元始神通.gameObject.SetActive(true);
+                break;
+            
             case 攻击特效Type.老子神通:
                 var 老子神通 = QueueController.S.老子神通Queue.Dequeue();
                 老子神通.transform.position = pos;
@@ -873,6 +888,22 @@ public class FightController : XSingleton<FightController>
                 冰符.脚本.HeroType = HeroType.常羲;
                 冰符.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.常羲)/100f;
                 冰符.gameObject.SetActive(true);
+                break;
+            
+            case 攻击特效Type.通天神通:
+                var 通天神通 = QueueController.S.通天神通Queue.Dequeue();
+                通天神通.transform.position = pos;
+                通天神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                通天神通.脚本.黑暗辅助 = 黑暗辅助;
+                通天神通.脚本.妲己神通 = 妲己神通;
+                通天神通.脚本.女娲神通 = 女娲神通;
+
+                通天神通.脚本.女娲电辅助 = 女娲电辅助;
+                通天神通.脚本.瑶池神通 = 瑶池神通;
+
+                通天神通.脚本.HeroType = HeroType.通天;
+                通天神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.通天].damage/100f;
+                通天神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.火符:
                 var 火符 = QueueController.S.火符Queue.Dequeue();
