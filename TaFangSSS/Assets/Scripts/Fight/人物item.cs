@@ -140,7 +140,7 @@ public class 人物item : MonoBehaviour
     {
         if (攻击范围内怪物列表.Count == 0)
         {
-            float randomx = Random.Range(-3.5f,7.5f);
+            float randomx = Random.Range(-1f,7.5f);
             float randomy = Random.Range(-3.5f,3.5f);
             return new Vector2(randomx, randomy);
         }
@@ -184,6 +184,9 @@ public class 人物item : MonoBehaviour
                     break;
                 case 攻击特效Type.哪吒神通:
                     FightController.S.一次伤害技能(攻击特效Type.哪吒神通, Get随机位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
+                    break;
+                case 攻击特效Type.羲和神通:
+                    FightController.S.一次伤害技能(攻击特效Type.羲和神通, Get随机位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
                 case 攻击特效Type.嫦娥神通:
                     FightController.S.一次伤害技能(攻击特效Type.嫦娥神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
@@ -331,6 +334,9 @@ public class 人物item : MonoBehaviour
                     break;
                 case HeroType.碧霄:
                     StartCoroutine(多次释放神通(攻击特效Type.碧霄神通,13,0.12f));
+                    break;
+                case HeroType.羲和:
+                    StartCoroutine(多次释放神通(攻击特效Type.羲和神通,3,0.3f));
                     break;
                 case HeroType.琼霄:
                     StartCoroutine(多次释放神通(攻击特效Type.琼霄神通,1,0.12f));
