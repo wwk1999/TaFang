@@ -67,6 +67,9 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         Obj.gameObject.SetActive(false);
         switch (type)
         {
+            case 攻击特效Type.哪吒神通:
+                QueueController.S.哪吒神通Queue.Enqueue(Obj);
+                break;
             case 攻击特效Type.杨戬神通:
                 QueueController.S.杨戬神通Queue.Enqueue(Obj);
                 break;

@@ -130,6 +130,12 @@ public class 人物item : MonoBehaviour
         }
     }
 
+    public Vector2 Get随机位置()
+    {
+        float randomx = Random.Range(-3.5f,7.5f);
+        float randomy = Random.Range(-3.5f,3.5f);
+        return new Vector2(randomx, randomy);
+    }
     public  Vector2 Get随机怪物位置()
     {
         if (攻击范围内怪物列表.Count == 0)
@@ -170,6 +176,9 @@ public class 人物item : MonoBehaviour
                 case 攻击特效Type.月老神通:
                     FightController.S.一次伤害技能(攻击特效Type.月老神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
+                case 攻击特效Type.哪吒神通:
+                    FightController.S.一次伤害技能(攻击特效Type.哪吒神通, Get随机位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
+                    break;
                 case 攻击特效Type.嫦娥神通:
                     FightController.S.一次伤害技能(攻击特效Type.嫦娥神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
@@ -200,7 +209,7 @@ public class 人物item : MonoBehaviour
           CurrentAttackTime+= Time.deltaTime;  
         }
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
-        if (!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
+        if (!上场&&!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
             FightController.S.当前英雄之间神通间隔时间 > FightController.S.英雄之间神通间隔时间 && 当前神通冷却时间 > 神通冷却时间 &&
             FightController.S.当前神通能量 >= 神通能量&&攻击范围内怪物列表.Count>0)
         {
@@ -305,17 +314,23 @@ public class 人物item : MonoBehaviour
                 case HeroType.龟丞相:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
                     break;
+                case HeroType.孙悟空:
+                    FightController.S.人物神通(heroType,transform.position,dir,transform.position,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
+                    break;
                 case HeroType.嫦娥:
-                    StartCoroutine(多次释放神通(攻击特效Type.嫦娥神通,3,0.2f));
+                    StartCoroutine(多次释放神通(攻击特效Type.嫦娥神通,3,0.25f));
                     break;
                 case HeroType.玄女:
-                    StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.1f));
+                    StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.15f));
                     break;
                 case HeroType.雷震子:
-                    StartCoroutine(多次释放神通(攻击特效Type.雷震子神通,5,0.1f));
+                    StartCoroutine(多次释放神通(攻击特效Type.雷震子神通,5,0.15f));
                     break;
                 case HeroType.月老:
-                    StartCoroutine(多次释放神通(攻击特效Type.月老神通,5,0.1f));
+                    StartCoroutine(多次释放神通(攻击特效Type.月老神通,5,0.15f));
+                    break;
+                case HeroType.哪吒:
+                    StartCoroutine(多次释放神通(攻击特效Type.哪吒神通,6,0.15f));
                     break;
                 case HeroType.丹童:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);

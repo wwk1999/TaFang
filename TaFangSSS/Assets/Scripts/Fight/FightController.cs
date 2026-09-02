@@ -268,6 +268,9 @@ public class FightController : XSingleton<FightController>
             case HeroType.龟丞相:
                 一次伤害技能(攻击特效Type.龟丞相神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0);           
                 break;
+            case HeroType.孙悟空:
+                一次伤害技能(攻击特效Type.孙悟空神通, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0);           
+                break;
         }
     }
 
@@ -598,6 +601,20 @@ public class FightController : XSingleton<FightController>
                 玄女神通.脚本.HeroType = HeroType.玄女;
                 玄女神通.gameObject.SetActive(true);
                 break;
+            case 攻击特效Type.哪吒神通:
+                var 哪吒神通 = QueueController.S.哪吒神通Queue.Dequeue();
+                哪吒神通.transform.position = pos;
+                哪吒神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                哪吒神通.脚本.黑暗辅助 = 黑暗辅助;
+                哪吒神通.脚本.妲己神通 = 妲己神通;
+
+                哪吒神通.脚本.女娲电辅助 = 女娲电辅助;
+                哪吒神通.脚本.瑶池神通 = 瑶池神通;
+                哪吒神通.脚本.是否神通 = true;
+                哪吒神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.哪吒].damage/100f;
+                哪吒神通.脚本.HeroType = HeroType.哪吒;
+                哪吒神通.gameObject.SetActive(true);
+                break;
             case 攻击特效Type.杨戬神通:
                 var 杨戬神通 = QueueController.S.杨戬神通Queue.Dequeue();
                 杨戬神通.transform.position = pos;
@@ -786,6 +803,20 @@ public class FightController : XSingleton<FightController>
                 土地神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.土地].damage/100f;
                 土地神通.脚本.HeroType = HeroType.土地;
                 土地神通.gameObject.SetActive(true);
+                break;
+            
+            case 攻击特效Type.孙悟空神通:
+                var 孙悟空神通 = QueueController.S.孙悟空神通Queue.Dequeue();
+                孙悟空神通.transform.position = pos;
+                孙悟空神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                孙悟空神通.脚本.黑暗辅助 = 黑暗辅助;
+                孙悟空神通.脚本.女娲电辅助 = 女娲电辅助;
+                孙悟空神通.脚本.瑶池神通 = 女娲电辅助;
+                孙悟空神通.脚本.妲己神通 = 妲己神通;
+
+                孙悟空神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.孙悟空].damage/100f;
+                孙悟空神通.脚本.HeroType = HeroType.孙悟空;
+                孙悟空神通.gameObject.SetActive(true);
                 break;
             
             case 攻击特效Type.嫦娥神通:
