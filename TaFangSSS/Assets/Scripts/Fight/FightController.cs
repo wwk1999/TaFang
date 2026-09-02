@@ -601,6 +601,21 @@ public class FightController : XSingleton<FightController>
                 玄女神通.脚本.HeroType = HeroType.玄女;
                 玄女神通.gameObject.SetActive(true);
                 break;
+            
+            case 攻击特效Type.碧霄神通:
+                var 碧霄神通 = QueueController.S.碧霄神通Queue.Dequeue();
+                碧霄神通.transform.position = pos;
+                碧霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                碧霄神通.脚本.黑暗辅助 = 黑暗辅助;
+                碧霄神通.脚本.妲己神通 = 妲己神通;
+
+                碧霄神通.脚本.女娲电辅助 = 女娲电辅助;
+                碧霄神通.脚本.瑶池神通 = 瑶池神通;
+                碧霄神通.脚本.是否神通 = true;
+                碧霄神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.碧霄].damage/100f;
+                碧霄神通.脚本.HeroType = HeroType.碧霄;
+                碧霄神通.gameObject.SetActive(true);
+                break;
             case 攻击特效Type.哪吒神通:
                 var 哪吒神通 = QueueController.S.哪吒神通Queue.Dequeue();
                 哪吒神通.transform.position = pos;
