@@ -205,6 +205,10 @@ public class 冰符动画脚本: MonoBehaviour
         
             if (col.CompareTag("Monster"))
             {
+                if (Type == 攻击特效Type.琼霄神通)
+                {
+                    QueueController.S.MonsterColliderDic[col].黑暗符 = 1f;
+                }
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;
@@ -286,6 +290,10 @@ public class 冰符动画脚本: MonoBehaviour
         
             if (col.CompareTag("Monster"))
             {
+                if (Type == 攻击特效Type.琼霄神通)
+                {
+                    QueueController.S.MonsterColliderDic[col].黑暗符 = 1f;
+                }
                 if (瑶池冰辅助)
                 {
                     QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 2;

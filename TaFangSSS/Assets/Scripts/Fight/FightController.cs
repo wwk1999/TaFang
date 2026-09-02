@@ -820,6 +820,20 @@ public class FightController : XSingleton<FightController>
                 土地神通.gameObject.SetActive(true);
                 break;
             
+            case 攻击特效Type.琼霄神通:
+                var 琼霄神通 = QueueController.S.琼霄神通Queue.Dequeue();
+                琼霄神通.transform.position = pos;
+                琼霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                琼霄神通.脚本.黑暗辅助 = 黑暗辅助;
+                琼霄神通.脚本.女娲电辅助 = 女娲电辅助;
+                琼霄神通.脚本.瑶池神通 = 女娲电辅助;
+                琼霄神通.脚本.妲己神通 = 妲己神通;
+
+                琼霄神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.琼霄].damage/100f;
+                琼霄神通.脚本.HeroType = HeroType.琼霄;
+                琼霄神通.gameObject.SetActive(true);
+                break;
+            
             case 攻击特效Type.孙悟空神通:
                 var 孙悟空神通 = QueueController.S.孙悟空神通Queue.Dequeue();
                 孙悟空神通.transform.position = pos;
