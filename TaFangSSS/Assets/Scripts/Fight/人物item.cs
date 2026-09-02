@@ -194,6 +194,9 @@ public class 人物item : MonoBehaviour
                 case 攻击特效Type.嫦娥神通:
                     FightController.S.一次伤害技能(攻击特效Type.嫦娥神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
                     break;
+                case 攻击特效Type.云霄神通:
+                    FightController.S.一次伤害技能(攻击特效Type.云霄神通, Get随机怪物位置(),瑶池冰辅助>0,妲己黑暗辅助>0,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);           
+                    break;
             }
             yield return new WaitForSeconds(time);
         }
@@ -353,6 +356,9 @@ public class 人物item : MonoBehaviour
                     break;
                 case HeroType.嫦娥:
                     StartCoroutine(多次释放神通(攻击特效Type.嫦娥神通,3,0.25f));
+                    break;
+                case HeroType.云霄:
+                    StartCoroutine(多次释放神通(攻击特效Type.云霄神通,3,0.5f));
                     break;
                 case HeroType.玄女:
                     StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.15f));

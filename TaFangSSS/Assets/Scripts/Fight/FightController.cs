@@ -911,6 +911,20 @@ public class FightController : XSingleton<FightController>
                 嫦娥神通.gameObject.SetActive(true);
                 break;
             
+            case 攻击特效Type.云霄神通:
+                var 云霄神通 = QueueController.S.云霄神通Queue.Dequeue();
+                云霄神通.transform.position = pos;
+                云霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
+                云霄神通.脚本.黑暗辅助 = 黑暗辅助;
+                云霄神通.脚本.女娲电辅助 = 女娲电辅助;
+                云霄神通.脚本.瑶池神通 = 瑶池神通;
+                云霄神通.脚本.妲己神通 = 妲己神通;
+
+                云霄神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.云霄].damage/100f;
+                云霄神通.脚本.HeroType = HeroType.云霄;
+                云霄神通.gameObject.SetActive(true);
+                break;
+            
             case 攻击特效Type.龟丞相神通:
                 var 龟丞相神通 = QueueController.S.龟丞相神通Queue.Dequeue();
                 龟丞相神通.transform.position = pos;

@@ -35,6 +35,9 @@ public class 冰符动画脚本: MonoBehaviour
             case 攻击特效Type.嫦娥神通:
                 var 人物item = FightController.S.人物items[HeroType.嫦娥];
                 return 人物item.Get随机怪物位置();
+            case 攻击特效Type.云霄神通:
+                var 人物item1 = FightController.S.人物items[HeroType.云霄];
+                return 人物item1.Get随机怪物位置();
         }
 
         return new Vector2(0, 0);
