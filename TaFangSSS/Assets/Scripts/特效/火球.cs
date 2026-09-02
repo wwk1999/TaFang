@@ -14,6 +14,8 @@ public class 火球 : MonoBehaviour
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
     [NonSerialized] public bool 妲己神通;
+    [NonSerialized] public bool 女娲神通;
+
     [NonSerialized] public bool 女娲电辅助;
     [NonSerialized] public bool 瑶池神通;
 
@@ -66,6 +68,7 @@ public class 火球 : MonoBehaviour
                     QueueController.S.MonsterColliderDic[other].冰冻time = 1;
                 }
             }
+            QueueController.S.MonsterColliderDic[other].女娲神通 = 女娲神通;
             QueueController.S.MonsterColliderDic[other].妲己神通 = 妲己神通;
             QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
             QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
@@ -74,7 +77,7 @@ public class 火球 : MonoBehaviour
             {
                 realDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
             }
-            QueueController.S.MonsterColliderDic[other].Hurt(realDamage,HeroType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage,HeroType,Type);
             hit.gameObject.SetActive(true);
             
             if (瑶池冰辅助)

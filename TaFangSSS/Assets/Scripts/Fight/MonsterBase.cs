@@ -43,6 +43,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public bool 女娲电辅助;
    [NonSerialized] public bool 妲己黑暗辅助;
    [NonSerialized] public bool 妲己神通;
+   [NonSerialized] public bool 女娲神通;
    [NonSerialized] public float 龟丞相减速=0;
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
@@ -408,7 +409,7 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
    
-   public void Hurt(float 原始Damage,HeroType heroType)
+   public void Hurt(float 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
    {
       受击Animation.Play("怪物受击",0,0f);
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
@@ -452,6 +453,11 @@ public class MonsterBase : MonoBehaviour
                }
             }
          }
+      }
+
+      if (FightController.S.攻击特效是否神通(攻击特效)&&女娲神通)
+      {
+         最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.女娲].damage/100f);
       }
       最终Damage *= (1f+PlayerData.S.轮回次数*属性config.总属性.轮回次数加伤);
       最终Damage *= 属性config.总属性.最终伤害增幅;
@@ -648,7 +654,7 @@ public class MonsterBase : MonoBehaviour
       if (灼烧time > 0 && 灼烧当前时间 > 灼烧间隔)
       {
          灼烧当前时间 = 0;
-         Hurt(灼烧伤害,HeroType.羲和);
+         Hurt(灼烧伤害,HeroType.羲和,攻击特效Type.火符);
       }
       float 城墙最近距离 = 0;
       CurrentAttackTime+=Time.deltaTime;

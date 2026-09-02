@@ -16,6 +16,8 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
     [NonSerialized] public bool 妲己神通;
+    [NonSerialized] public bool 女娲神通;
+
     [NonSerialized] public float 伤害间隔=0.2f;
     [NonSerialized] public float 当前伤害时间=0;
     [NonSerialized] public bool 女娲电辅助;
@@ -92,6 +94,7 @@ public class 循环伤害技能 : MonoBehaviour
             QueueController.S.MonsterColliderDic[other].妲己黑暗辅助 = 黑暗辅助;
             QueueController.S.MonsterColliderDic[other].女娲电辅助 = 女娲电辅助;
             QueueController.S.MonsterColliderDic[other].妲己神通 = 妲己神通;
+            QueueController.S.MonsterColliderDic[other].女娲神通 = 女娲神通;
 
             if (瑶池神通)
             {
@@ -108,7 +111,7 @@ public class 循环伤害技能 : MonoBehaviour
 
             float scale = (transform.localScale.x - 1) / 0.01f * 属性config.总属性.老子体积增伤;
             damage *= (1 + scale);
-            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, HeroType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, HeroType,Type);
             hit.gameObject.SetActive(true);
             if (瑶池冰辅助)
             {
@@ -176,7 +179,7 @@ public class 循环伤害技能 : MonoBehaviour
                 damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
             }
 
-            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, HeroType);
+            QueueController.S.MonsterColliderDic[other].Hurt(realDamage, HeroType,Type);
             hit.gameObject.SetActive(true);
         }
     }
