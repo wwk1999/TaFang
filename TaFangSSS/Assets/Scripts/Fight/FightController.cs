@@ -226,6 +226,7 @@ public class FightController : XSingleton<FightController>
             {
                 yield return new WaitForSeconds(0.1f);
                 MonsterBase monsterBase = GetAttackMonster();
+                if(monsterBase==null)continue;
                 一次伤害技能(攻击特效Type.冰龙, monsterBase.transform.position,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0);           
             }
             else

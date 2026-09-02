@@ -8,6 +8,9 @@ using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
+    public Animator 牛魔王神通Animator;
+    public GameObject 牛魔王神通obj;
+    public 序列一次伤害动画脚本 牛魔王神通脚本;
     public GameObject 妲己神通;
     [NonSerialized]public float 妲己神通time = 0;
     public GameObject 杨戬发射神通;
@@ -266,11 +269,19 @@ public class 人物item : MonoBehaviour
     public void 释放神通()
     {
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
+        if(monsterBase==null)return;
         Vector2 targetPos=monsterBase.transform.position;
         if (heroType == HeroType.石敢当)
         {
             ObserverModuleManager.S.SendEvent("播放英雄神通",heroType);
             上场技能(攻击特效Type.石敢当神通, new Vector2(targetPos.x + 0.5f, targetPos.y), 0.6f, true,true);
+            return;
+        }
+
+        if (heroType == HeroType.牛魔王)
+        {
+            ObserverModuleManager.S.SendEvent("播放英雄神通",heroType);
+            StartCoroutine(牛魔王神通(  0.3f, 3));
             return;
         }
         Sequence mySequence = DOTween.Sequence();
@@ -347,6 +358,47 @@ public class 人物item : MonoBehaviour
         });
 
     }
+    
+    IEnumerator 牛魔王神通(float waitTime, int count)
+    {
+        上场 = true;
+        yield return  new WaitForSeconds(0.5f);
+        while (count > 0)
+        {
+            count--;
+            // 实时获取当前目标怪物位置
+            var monsterBase = FightController.S.GetAttackMonster();
+            if(monsterBase==null)continue;
+            Vector2 monstertrans = monsterBase.transform.position;
+            
+            Vector2 targetPos = new Vector2(monstertrans.x - 1f, monstertrans.y);
+
+            // 移动过去，并等待移动完成（0.2秒）
+            yield return transform.DOMove(targetPos, 0.2f).WaitForCompletion();
+
+            // 播放攻击动画
+            Animator.Play("人物放大缩小", 0, 0f);
+        
+            // 出拳逻辑1
+            牛魔王神通脚本.瑶池冰辅助 = 瑶池冰辅助 > 0;
+            牛魔王神通脚本.黑暗辅助 = 妲己黑暗辅助 > 0;
+            牛魔王神通脚本.女娲电辅助 = 女娲电辅助 > 0;
+            牛魔王神通脚本.瑶池神通 = 瑶池神通time > 0;
+            牛魔王神通脚本.妲己神通 = 妲己神通time > 0;
+
+            牛魔王神通脚本.HeroType = HeroType.牛魔王;
+            牛魔王神通脚本.damage = 属性config.总属性.总攻击力 * HeroConfig.英雄神通配置Dic[HeroType.牛魔王].damage / 100f;
+            牛魔王神通obj.gameObject.SetActive(true);
+            牛魔王神通Animator.Play("392牛魔王神通_Anim", 0, 0f);
+
+            // 等待攻击间隔
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        // 所有攻击结束后归位
+        yield return transform.DOMove(原始Pos, 0.2f).WaitForCompletion();
+        上场 = false;
+    }
 
     IEnumerator 盘古拳(float waitTime, int count)
     {
@@ -357,6 +409,7 @@ public class 人物item : MonoBehaviour
             count--;
             // 实时获取当前目标怪物位置
             var monsterBase = FightController.S.GetAttackMonster();
+            if(monsterBase==null)continue;
             Vector2 monstertrans = monsterBase.transform.position;
             if (!攻击范围内怪物.Contains(monsterBase))
             {
@@ -376,6 +429,8 @@ public class 人物item : MonoBehaviour
             盘古拳.脚本.瑶池冰辅助 = 瑶池冰辅助 > 0;
             盘古拳.脚本.黑暗辅助 = 妲己黑暗辅助 > 0;
             盘古拳.脚本.女娲电辅助 = 女娲电辅助 > 0;
+            盘古拳.脚本.瑶池神通 = 瑶池神通time>0;
+            盘古拳.脚本.妲己神通 = 妲己神通time>0;
             盘古拳.脚本.HeroType = HeroType.盘古;
             盘古拳.脚本.damage = 属性config.总属性.总攻击力 * 英雄星级属性.Get英雄攻击数值(HeroType.盘古)/100f*(1+盘古出拳次数*英雄星级属性.盘古出拳增加伤害/100f);
             盘古拳.gameObject.SetActive(true);
