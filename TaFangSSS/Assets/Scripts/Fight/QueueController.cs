@@ -557,7 +557,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗剑气Queue.Enqueue(黑暗剑气);
                     break;
                 case 攻击特效Type.物理箭:
-                    if (物理箭Queue.Count > 100)
+                    if (物理箭Queue.Count > 250)
                     {
                         break;
                     }

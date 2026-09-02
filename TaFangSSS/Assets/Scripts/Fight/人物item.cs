@@ -8,6 +8,9 @@ using Random = UnityEngine.Random;
 
 public class 人物item : MonoBehaviour
 {
+    public Transform 后羿神通trans;
+    public Animator 后羿神通Animator;
+    public GameObject 后羿神通obj;
     public Animator 牛魔王神通Animator;
     public GameObject 牛魔王神通obj;
     public 序列一次伤害动画脚本 牛魔王神通脚本;
@@ -198,13 +201,17 @@ public class 人物item : MonoBehaviour
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("怪物死亡",怪物死亡);
+        ObserverModuleManager.S.RegisterEvent("发射后羿神通",发射后羿神通);
     }
 
     private void Update()
     {
         妲己神通time-=Time.deltaTime;
         瑶池神通time-=Time.deltaTime;
-        当前神通冷却时间+=Time.deltaTime;
+        if (!是否在神通)
+        {
+         当前神通冷却时间+=Time.deltaTime;   
+        }
         瑶池冰辅助-= Time.deltaTime;
         妲己黑暗辅助-= Time.deltaTime;
         女娲电辅助-= Time.deltaTime;
@@ -284,10 +291,23 @@ public class 人物item : MonoBehaviour
         }
     }
 
+    public void 发射后羿神通(object[] obj)
+    {
+        if (heroType != HeroType.后羿) return;
+        MonsterBase monsterBase = FightController.S.GetAttackMonster();
+        if(monsterBase==null)return;
+        Vector2 targetPos=monsterBase.transform.position;
+        var dir=(targetPos-(Vector2)transform.position).normalized;
+
+        float damage = HeroConfig.英雄神通配置Dic[HeroType.后羿].damage/100f * 属性config.总属性.总攻击力;
+
+        FightController.S.后羿神通(后羿神通trans.transform.position,dir,damage,瑶池冰辅助,妲己黑暗辅助,女娲电辅助>0,瑶池神通time>0,妲己神通time>0);
+    }
     public void 释放神通()
     {
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         if(monsterBase==null)return;
+
         Vector2 targetPos=monsterBase.transform.position;
         if (heroType == HeroType.石敢当)
         {
@@ -319,6 +339,11 @@ public class 人物item : MonoBehaviour
                     杨戬发射神通.gameObject.SetActive(true);
                     杨戬发射神通Animator.Play("神通1_Anim",0,0);
                     StartCoroutine(杨戬神通(3,0.3f,1f));
+                    break;
+                case HeroType.后羿:
+                    后羿神通obj.gameObject.SetActive(true);
+                    后羿神通Animator.Play("后羿神通_Anim",0,0);
+                    
                     break;
                 case HeroType.龟丞相:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time);
@@ -385,6 +410,9 @@ public class 人物item : MonoBehaviour
             case HeroType.杨戬:
                 time = 2.3f;
                 break;
+            case HeroType.后羿:
+                time = 3f;
+                break;
         }
         mySequence.AppendInterval(time);
         mySequence.Append(transform.DOMove(原始Pos,0.15f));
@@ -394,7 +422,14 @@ public class 人物item : MonoBehaviour
         });
 
     }
-    
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("发射后羿神通",发射后羿神通);
+        ObserverModuleManager.S.UnRegisterEvent("怪物死亡",怪物死亡);
+
+    }
+
     IEnumerator 牛魔王神通(float waitTime, int count)
     {
         上场 = true;

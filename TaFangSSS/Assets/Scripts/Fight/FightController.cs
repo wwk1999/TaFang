@@ -191,6 +191,22 @@ public class FightController : XSingleton<FightController>
         }
     }
 
+    public void 后羿神通(Vector2 shotpos, Vector2 dir, float damage, float 瑶池冰辅助, float 黑暗辅助, bool 女娲电辅助, bool 瑶池神通,
+        bool 妲己神通)
+    {
+        ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.后羿);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, -10, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, -8, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, -6, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, -4, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, -2, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 10, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 8, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 6, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 4, true), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 2, false), damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,true);
+        Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, 15,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿, 瑶池神通,妲己神通,true);
+    }
     public void 后羿基础射击(HeroType hero,Vector2 shotpos,Vector2 dir,float damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通)
     {
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.后羿);
@@ -198,22 +214,22 @@ public class FightController : XSingleton<FightController>
         if (英雄星级属性.后羿攻击数量 == 2)
         {
             Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,3,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
         }
 
         if (英雄星级属性.后羿攻击数量 == 3)
         {
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, true), damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, false), damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
-            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿, 瑶池神通,瑶池神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, true), damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 3, false), damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, 10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿, 瑶池神通,妲己神通,false);
         }
                 
         if (英雄星级属性.后羿攻击数量 == 4)
         {
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
-            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,瑶池神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
+            Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,true,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,false);
         }
     }
 
@@ -816,7 +832,7 @@ public class FightController : XSingleton<FightController>
                 火符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 火符.脚本.黑暗辅助 = 黑暗辅助;
                 火符.脚本.女娲电辅助 = 女娲电辅助;
-                火符.脚本.瑶池神通 = 女娲电辅助;
+                火符.脚本.瑶池神通 = 瑶池神通;
                 火符.脚本.妲己神通 = 妲己神通;
 
                 火符.脚本.damage = damage * 英雄星级属性.Get英雄攻击数值(HeroType.羲和)/100f;
@@ -830,7 +846,7 @@ public class FightController : XSingleton<FightController>
                 土地神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 土地神通.脚本.黑暗辅助 = 黑暗辅助;
                 土地神通.脚本.女娲电辅助 = 女娲电辅助;
-                土地神通.脚本.瑶池神通 = 女娲电辅助;
+                土地神通.脚本.瑶池神通 = 瑶池神通;
                 土地神通.脚本.妲己神通 = 妲己神通;
 
                 土地神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.土地].damage/100f;
@@ -845,7 +861,7 @@ public class FightController : XSingleton<FightController>
                 羲和神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 羲和神通.脚本.黑暗辅助 = 黑暗辅助;
                 羲和神通.脚本.女娲电辅助 = 女娲电辅助;
-                羲和神通.脚本.瑶池神通 = 女娲电辅助;
+                羲和神通.脚本.瑶池神通 = 瑶池神通;
                 羲和神通.脚本.妲己神通 = 妲己神通;
 
                 羲和神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.羲和].damage/100f;
@@ -859,7 +875,7 @@ public class FightController : XSingleton<FightController>
                 琼霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 琼霄神通.脚本.黑暗辅助 = 黑暗辅助;
                 琼霄神通.脚本.女娲电辅助 = 女娲电辅助;
-                琼霄神通.脚本.瑶池神通 = 女娲电辅助;
+                琼霄神通.脚本.瑶池神通 = 瑶池神通;
                 琼霄神通.脚本.妲己神通 = 妲己神通;
 
                 琼霄神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.琼霄].damage/100f;
@@ -873,7 +889,7 @@ public class FightController : XSingleton<FightController>
                 孙悟空神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 孙悟空神通.脚本.黑暗辅助 = 黑暗辅助;
                 孙悟空神通.脚本.女娲电辅助 = 女娲电辅助;
-                孙悟空神通.脚本.瑶池神通 = 女娲电辅助;
+                孙悟空神通.脚本.瑶池神通 = 瑶池神通;
                 孙悟空神通.脚本.妲己神通 = 妲己神通;
 
                 孙悟空神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.孙悟空].damage/100f;
@@ -887,7 +903,7 @@ public class FightController : XSingleton<FightController>
                 嫦娥神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 嫦娥神通.脚本.黑暗辅助 = 黑暗辅助;
                 嫦娥神通.脚本.女娲电辅助 = 女娲电辅助;
-                嫦娥神通.脚本.瑶池神通 = 女娲电辅助;
+                嫦娥神通.脚本.瑶池神通 = 瑶池神通;
                 嫦娥神通.脚本.妲己神通 = 妲己神通;
 
                 嫦娥神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.嫦娥].damage/100f;
@@ -901,7 +917,7 @@ public class FightController : XSingleton<FightController>
                 龟丞相神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 龟丞相神通.脚本.黑暗辅助 = 黑暗辅助;
                 龟丞相神通.脚本.女娲电辅助 = 女娲电辅助;
-                龟丞相神通.脚本.瑶池神通 = 女娲电辅助;
+                龟丞相神通.脚本.瑶池神通 = 瑶池神通;
                 龟丞相神通.脚本.妲己神通 = 妲己神通;
 
                 龟丞相神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.龟丞相].damage/100f;
@@ -915,7 +931,7 @@ public class FightController : XSingleton<FightController>
                 河伯神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 河伯神通.脚本.黑暗辅助 = 黑暗辅助;
                 河伯神通.脚本.女娲电辅助 = 女娲电辅助;
-                河伯神通.脚本.瑶池神通 = 女娲电辅助;
+                河伯神通.脚本.瑶池神通 = 瑶池神通;
                 河伯神通.脚本.妲己神通 = 妲己神通;
 
                 河伯神通.脚本.damage = damage * HeroConfig.英雄神通配置Dic[HeroType.河伯].damage/100f;
