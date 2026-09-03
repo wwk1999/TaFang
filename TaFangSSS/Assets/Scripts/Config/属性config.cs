@@ -20,6 +20,12 @@ public class 属性config
                     value += 法则config.法则升级奖励Dic[item.Value] * PlayerData.S.英雄法则等级Dic[item.Key];
                }
           }
+          
+          foreach (var item in HeroConfig.HeroQualityDic)
+          {
+               
+               value += HeroConfig.神通升级奖励Dic[item.Value] * PlayerData.S.HeroDataDic[item.Key].神通等级;
+          }
 
           return value ;
      }
