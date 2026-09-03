@@ -53,6 +53,8 @@ public class MonsterBase : MonoBehaviour
    private Rigidbody2D _rb;
    private MonsterType _怪物类型;
    private float _怪物攻击距离;
+   private float _上次伤害数字时间;
+   private float 上次受击动画时间 = 0;
 
    public void Set灼烧伤害(float damage)
    {
@@ -423,8 +425,6 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
    
-   private float 上次受击动画时间 = 0;
-
    public void Hurt(float 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
    {
       // 高频字典查找全部缓存到本地变量（同一个 heroType 被查 7+ 次）
@@ -622,7 +622,11 @@ public class MonsterBase : MonoBehaviour
       最终Damage *= (100 - 抗性/(1+无视抗性)) / 100;
 
       FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
-      FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),yuanSu,伤害trans.position,is暴击:暴击);
+      if (Time.time - _上次伤害数字时间 > 0.1f)
+      {
+         _上次伤害数字时间 = Time.time;
+         FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),yuanSu,伤害trans.position,is暴击:暴击);
+      }
       float 受伤前血量 = CurrentHP;
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);

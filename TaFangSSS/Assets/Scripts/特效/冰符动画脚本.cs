@@ -206,7 +206,7 @@ public class 冰符动画脚本: MonoBehaviour
             // LayerMask 已保证只有 Monster 层，TryGetValue 兜底已死亡/未注册的碰撞体
             if (!monsterDic.TryGetValue(col, out var monster)) continue;
 
-            if (琼霄定身)
+            if (琼霄定身&&Type==攻击特效Type.琼霄神通)
             {
                 monster.黑暗符 = 1f;
             }
