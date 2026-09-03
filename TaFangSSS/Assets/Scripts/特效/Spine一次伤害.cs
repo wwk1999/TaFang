@@ -25,7 +25,20 @@ public class Spine一次伤害 : MonoBehaviour
    [NonSerialized] public bool 女娲电辅助;
    [NonSerialized] public bool 瑶池神通;
 
-   
+   // 碰撞查询复用缓冲：每个池化实例一份，首次使用时分配，之后零 GC
+   private readonly List<Collider2D> _resultsBuffer = new List<Collider2D>(128);
+   private static ContactFilter2D _monsterFilter;
+   private static bool _filterInited;
+
+   private static void InitFilter()
+   {
+      if (_filterInited) return;
+      _monsterFilter = new ContactFilter2D();
+      _monsterFilter.useTriggers = true;
+      int monsterLayer = LayerMask.NameToLayer("Monster");
+      _monsterFilter.SetLayerMask(new LayerMask { value = 1 << monsterLayer });
+      _filterInited = true;
+   }
 
 
    private void OnEnable()
@@ -63,72 +76,75 @@ public class Spine一次伤害 : MonoBehaviour
    
    public void CheckCollisionWithMonsters()
    {
-      // 检测所有重叠的碰撞体
-      List<Collider2D> results = new List<Collider2D>();
-      ContactFilter2D filter = new ContactFilter2D();
-      filter.NoFilter();
-      filter.useTriggers = true;
-    
-      _collider2D.OverlapCollider(filter, results);
-    
-      // 找出所有怪物并处理
-      foreach (Collider2D col in results)
+      if (_collider2D == null) return;
+      InitFilter();
+
+      _resultsBuffer.Clear();
+      _collider2D.OverlapCollider(_monsterFilter, _resultsBuffer);
+      if (_resultsBuffer.Count == 0) return;
+
+      // ---- 循环外：与具体怪物无关的伤害加成只算一次（不写回 damage 字段，避免多怪物滚雪球） ----
+      float finalDamage = damage;
+      var playerData = PlayerData.S;
+
+      if (瑶池冰辅助)
       {
-         if (col.gameObject == gameObject) continue;
-        
-         if (col.CompareTag("Monster"))
+         var 瑶池数据 = playerData.HeroDataDic[HeroType.瑶池仙女];
+         if (瑶池数据.功法Type != 功法Type.None)
          {
-            if (瑶池冰辅助)
-            {
-               if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
-               {
-                  damage *= (1 + PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法等级 *
-                     功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type]] /
-                     100f);
-               }
-               QueueController.S.MonsterColliderDic[col].瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
-            }
-            if (瑶池神通)
-            {
-               var random = Random.Range(0, 100f);
-               if (random < HeroConfig.英雄神通配置Dic[HeroType].damage)
-               {
-                  QueueController.S.MonsterColliderDic[col].冰冻time = 1;
-               }
-            }
-            if (黑暗辅助)
-            {
-               if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
-               {
-                  damage *= (1 + PlayerData.S.HeroDataDic[HeroType.妲己].功法等级 *
-                     功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type]] /
-                     100f);
-               }
-               damage *= (1+英雄星级属性.妲己效果/100f);
-            }
-            QueueController.S.MonsterColliderDic[col].女娲神通 = 女娲神通;
-            QueueController.S.MonsterColliderDic[col].妲己神通 = 妲己神通;
-            QueueController.S.MonsterColliderDic[col].女娲神通 = 女娲神通;
-
-            QueueController.S.MonsterColliderDic[col].妲己黑暗辅助 = 黑暗辅助;
-            if (女娲电辅助)
-            {
-               if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
-               {
-                  damage *= (1 + PlayerData.S.HeroDataDic[HeroType.女娲].功法等级 *
-                     功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type]] /
-                     100f);
-               }
-               damage*=(1+英雄星级属性.女娲辅助伤害/100f);
-            }
-            QueueController.S.MonsterColliderDic[col].女娲电辅助 = 女娲电辅助;
-
-            if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-            {
-               damage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-            }
-            QueueController.S.MonsterColliderDic[col].Hurt(damage,HeroType,type);
+            finalDamage *= (1 + 瑶池数据.功法等级 *
+               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[瑶池数据.功法Type]] / 100f);
          }
+      }
+      if (黑暗辅助)
+      {
+         var 妲己数据 = playerData.HeroDataDic[HeroType.妲己];
+         if (妲己数据.功法Type != 功法Type.None)
+         {
+            finalDamage *= (1 + 妲己数据.功法等级 *
+               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[妲己数据.功法Type]] / 100f);
+         }
+         finalDamage *= (1 + 英雄星级属性.妲己效果 / 100f);
+      }
+      if (女娲电辅助)
+      {
+         var 女娲数据 = playerData.HeroDataDic[HeroType.女娲];
+         if (女娲数据.功法Type != 功法Type.None)
+         {
+            finalDamage *= (1 + 女娲数据.功法等级 *
+               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[女娲数据.功法Type]] / 100f);
+         }
+         finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
+      }
+      if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
+      {
+         finalDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
+      }
+
+      float 冰冻概率 = 瑶池神通 ? HeroConfig.英雄神通配置Dic[HeroType].damage : 0f;
+      var monsterDic = QueueController.S.MonsterColliderDic;
+
+      foreach (Collider2D col in _resultsBuffer)
+      {
+         if (!monsterDic.TryGetValue(col, out var monster)) continue;
+
+         if (瑶池冰辅助)
+         {
+            monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+         }
+         if (瑶池神通)
+         {
+            if (Random.Range(0, 100f) < 冰冻概率)
+            {
+               monster.冰冻time = 1;
+            }
+         }
+         monster.女娲神通 = 女娲神通;
+         monster.妲己神通 = 妲己神通;
+         monster.妲己黑暗辅助 = 黑暗辅助;
+         monster.女娲电辅助 = 女娲电辅助;
+
+         monster.Hurt(finalDamage, HeroType, type);
       }
    }
 
