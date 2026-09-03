@@ -510,7 +510,7 @@ public class 属性config
     public float 伤害减免 => 1-(1-_道宝.伤害减免/100f)*(1-城墙Config.伤害减免/100f);
 
     public float 神通最大值 => 100;
-    public float 神通能量恢复速度 => 10;
+    public float 神通能量恢复速度 => 1;
     
     
     

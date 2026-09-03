@@ -621,7 +621,15 @@ public class MonsterBase : MonoBehaviour
       }
       最终Damage *= (100 - 抗性/(1+无视抗性)) / 100;
 
-      FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
+      FightController.S.当前英雄伤害Dic[heroType].总伤害 += 最终Damage;
+      if (FightController.S.攻击特效是否神通(攻击特效))
+      {
+         FightController.S.当前英雄伤害Dic[heroType].神通伤害 += 最终Damage;
+      }
+      else
+      {
+         FightController.S.当前英雄伤害Dic[heroType].技能伤害 += 最终Damage;
+      }
       if (Time.time - _上次伤害数字时间 > 0.1f)
       {
          _上次伤害数字时间 = Time.time;

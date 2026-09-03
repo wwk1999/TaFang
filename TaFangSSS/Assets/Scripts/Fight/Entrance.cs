@@ -216,7 +216,7 @@ public class Entrance : MonoBehaviour
        {
            if (item != HeroType.None)
            {
-               FightController.S.当前英雄伤害Dic[item] = 0;
+               FightController.S.当前英雄伤害Dic[item] = new 英雄伤害item();
                heroTypes.Add(item);
            }
        }

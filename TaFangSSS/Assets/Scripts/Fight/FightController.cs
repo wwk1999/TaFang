@@ -9,6 +9,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+public class 英雄伤害item
+{
+    public float 总伤害;
+    public float 神通伤害;
+    public float 技能伤害;
+}
 public class FightController : XSingleton<FightController>
 {
     [NonSerialized] public int 当前神通index = 0;
@@ -31,7 +37,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public Dictionary<HeroType, 法器属性> 英雄法器属性Dic = new Dictionary<HeroType, 法器属性>();
     //伤害面板
     [NonSerialized] public int 关卡游戏时长 = 0;
-    [NonSerialized]public Dictionary<HeroType,float>当前英雄伤害Dic = new Dictionary<HeroType, float>();
+    [NonSerialized]public Dictionary<HeroType,英雄伤害item>当前英雄伤害Dic = new Dictionary<HeroType, 英雄伤害item>();
     [NonSerialized]public float 伤害面板刷新间隔 = 0.5f;
     [NonSerialized]public float 当前伤害面板刷新时间 = 0f;
     
@@ -83,22 +89,22 @@ public class FightController : XSingleton<FightController>
         float 总伤害 = 0;
         foreach (var item in 当前英雄伤害Dic)
         {
-            总伤害+=item.Value;
+            总伤害+=item.Value.总伤害;
         }
 
         if (总伤害 != 0)
         {
             foreach (var item in 当前英雄伤害Dic)
             {
-                float 比例 = item.Value / 总伤害;
-                value.Add(new 伤害item(){heroType = item.Key,damage = item.Value,比例 = 比例});
+                float 比例 = item.Value.总伤害 / 总伤害;
+                value.Add(new 伤害item(){heroType = item.Key,damage = item.Value.总伤害,总比例 = 比例,神通比例 = item.Value.神通伤害/item.Value.总伤害,技能比例 = item.Value.技能伤害/item.Value.总伤害});
             }
         }
         else
         {
             foreach (var item in 当前英雄伤害Dic)
             {
-                value.Add(new 伤害item(){heroType = item.Key,damage = 0,比例 = 0});
+                value.Add(new 伤害item(){heroType = item.Key,damage = 0,总比例 = 0,技能比例 = 0,神通比例 = 0});
             }
         }
         

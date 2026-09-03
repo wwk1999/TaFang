@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public RectTransform 神通能量trans;
+    public TextMeshProUGUI 神通能量当前值;
+    public TextMeshProUGUI 神通能量最大值;
+    public Image 神通能量Image;
     public GameObject 对话框;
     public TextMeshProUGUI 对话框Text;
     public Button 引导Button;
@@ -125,12 +129,27 @@ public class FightWindow : MonoBehaviour
         引导Button.gameObject.SetActive(true);
         引导mask.gameObject.SetActive(true);
     }
+
+    public void Set神通进度条()
+    {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(神通能量trans);
+        神通能量当前值.text = FightController.S.当前神通能量.ToString();
+        神通能量最大值.text = 属性config.总属性.神通最大值.ToString();
+        神通能量Image.fillAmount = FightController.S.当前神通能量/属性config.总属性.神通最大值;
+    }
+
+    private void Update()
+    {
+        Set神通进度条();
+    }
+
     private void Awake()
     {
         ObserverModuleManager.S.RegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.RegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.RegisterEvent("刷新关卡进度",刷新关卡进度);
         Set倍速Button();
+        Set神通进度条();
         引导Button.onClick.AddListener(() =>
         {
             if (引导Count == 0)

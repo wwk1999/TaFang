@@ -1096,47 +1096,47 @@ namespace Config
 
             { HeroType.盘古, 1f },
             { HeroType.鸿钧, 3 },
-
         };
+        
         public static Dictionary<HeroType, 英雄神通配置Item> 英雄神通配置Dic = new Dictionary<HeroType, 英雄神通配置Item>()
         {
-            { HeroType.丹童, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.土地, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.河伯, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.瑶池仙女, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.丹童, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 100} },
+            { HeroType.土地, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 120} },
+            { HeroType.河伯, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 120} },
+            { HeroType.瑶池仙女, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 20} },
 
-            { HeroType.石敢当, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.玄女, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.龟丞相,new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.太白金星, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.石敢当, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 200} },
+            { HeroType.玄女, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 220} },
+            { HeroType.龟丞相,new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 250} },
+            { HeroType.太白金星, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 180} },
 
-            { HeroType.多闻天王, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.广目天王, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.雷震子, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.月老, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.多闻天王, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 250} },
+            { HeroType.广目天王, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 250} },
+            { HeroType.雷震子, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 300} },
+            { HeroType.月老, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 300} },
 
-            { HeroType.嫦娥, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.杨戬, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.妲己, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.牛魔王, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.嫦娥, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 350} },
+            { HeroType.杨戬, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 300} },
+            { HeroType.妲己, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 50} },
+            { HeroType.牛魔王, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 380} },
 
-            { HeroType.哪吒, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.孙悟空, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.碧霄, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.琼霄, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.哪吒, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 500} },
+            { HeroType.孙悟空, new 英雄神通配置Item(){cd = 12,能量 = 18,damage = 600} },
+            { HeroType.碧霄, new 英雄神通配置Item(){cd = 12,能量 = 18,damage = 500} },
+            { HeroType.琼霄, new 英雄神通配置Item(){cd = 12,能量 = 18,damage = 350} },
 
-            { HeroType.羲和, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.常羲, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.后羿, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.云霄, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.羲和, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 700} },
+            { HeroType.常羲, new 英雄神通配置Item(){cd = 20,能量 = 25,damage = 750} },
+            { HeroType.后羿, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 600} },
+            { HeroType.云霄, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 700} },
 
-            { HeroType.女娲, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.老子, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.通天, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.元始, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100}},
+            { HeroType.女娲, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 100} },
+            { HeroType.老子, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 1000} },
+            { HeroType.通天, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 1200} },
+            { HeroType.元始, new 英雄神通配置Item(){cd = 20,能量 = 25,damage = 1100}},
 
-            { HeroType.盘古, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
-            { HeroType.鸿钧, new 英雄神通配置Item(){cd = 5,能量 = 25,damage = 100} },
+            { HeroType.盘古, new 英雄神通配置Item(){cd = 25,能量 = 30,damage = 1800} },
+            { HeroType.鸿钧, new 英雄神通配置Item(){cd = 20,能量 = 20,damage = 1800} },
 
         };
 

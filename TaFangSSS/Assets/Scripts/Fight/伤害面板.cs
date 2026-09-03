@@ -10,7 +10,9 @@ public class 伤害item
 {
     public HeroType heroType;
     public float damage;
-    public float 比例;
+    public float 总比例;
+    public float 神通比例;
+    public float 技能比例;
 }
 public class 伤害面板 : MonoBehaviour
 {
@@ -33,7 +35,7 @@ public class 伤害面板 : MonoBehaviour
         {
             var item = Instantiate(Resources.Load("Prefabs/Fight/伤害item"), Content.transform).GetComponent<伤害面板item>();
             item.heroType = heroType;
-            item.比例 = 0;
+            item.总比例 = 0;
             item.damage = 0;
             item.SetItem();
             英雄伤害List.Add(item);
@@ -51,7 +53,9 @@ public class 伤害面板 : MonoBehaviour
                 if (英雄item.heroType == item.heroType)
                 {
                     英雄item.damage=item.damage;
-                    英雄item.比例=item.比例;
+                    英雄item.总比例=item.总比例;
+                    英雄item.神通比例=item.神通比例;
+                    英雄item.技能比例=item.技能比例;
                     英雄item.SetItem();
                     break;
                 }
