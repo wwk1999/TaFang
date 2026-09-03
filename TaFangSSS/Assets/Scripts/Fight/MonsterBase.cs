@@ -423,9 +423,25 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
    
+   private float 上次受击动画时间 = 0;
+
    public void Hurt(float 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
    {
-      受击Animation.Play("怪物受击",0,0f);
+      // 高频字典查找全部缓存到本地变量（同一个 heroType 被查 7+ 次）
+      var heroZhiYe = HeroConfig.HeroZhiYeDic[heroType];
+      var hero法器 = FightController.S.英雄法器属性Dic[heroType];
+      var hero根基丹药 = FightController.S.英雄根基丹药属性Dic[heroType];
+      var yuanSu = heroZhiYe.yuanSuType;
+      var zhiYe = heroZhiYe.zhiYeType;
+
+      // 受击动画节流：高频受击时只在 > 0.1s 间隔内播放，避免动画系统 hammered
+      float now = Time.time;
+      if (now - 上次受击动画时间 > 0.1f)
+      {
+         上次受击动画时间 = now;
+         受击Animation.Play("怪物受击",0,0f);
+      }
+
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
@@ -436,9 +452,9 @@ public class MonsterBase : MonoBehaviour
             最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
          }
          最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
-         最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
+         最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
-         最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
+         最终Damage*=(1+hero法器.暴击伤害/100f);
          if (属性config.总属性.二次暴击 != 0)
          {
             bool 二次暴击=二次暴击检测(heroType);
@@ -450,9 +466,9 @@ public class MonsterBase : MonoBehaviour
                   最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
                }
                最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
-               最终Damage *= (1f+FightController.S.英雄根基丹药属性Dic[heroType].暴击伤害/100f);
+               最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
-               最终Damage*=(1+FightController.S.英雄法器属性Dic[heroType].暴击伤害/100f);
+               最终Damage*=(1+hero法器.暴击伤害/100f);
                if (瑶池冰辅助 > 0)
                {
                   最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击伤害/100f);
@@ -496,12 +512,12 @@ public class MonsterBase : MonoBehaviour
          最终Damage=计算法器伤害(最终Damage,heroType,HeroType.女娲);
       }
       最终Damage = Get道纹伤害(最终Damage, heroType);
-      if (transform.position.x < -2 && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士)
+      if (transform.position.x < -2 && zhiYe == ZhiYeType.战士)
       {
          最终Damage *= 属性config.总属性.战士对靠近城墙敌人伤害增高;
       }
       
-      if (transform.position.x > 3.5f && HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.射手)
+      if (transform.position.x > 3.5f && zhiYe == ZhiYeType.射手)
       {
          最终Damage *= 属性config.总属性.射手对远距离敌人伤害增高;
       }
@@ -517,7 +533,7 @@ public class MonsterBase : MonoBehaviour
          最终Damage*=random;
       }
 
-      switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+      switch (_怪物类型)
       {
          case MonsterType.Normal:
             最终Damage *= 属性config.总属性.普通怪伤害增幅;
@@ -531,8 +547,8 @@ public class MonsterBase : MonoBehaviour
       }
       最终Damage *= (1 + 道宝Config.羁绊最终伤害 / 100f);
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
-      最终Damage = 元素伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].yuanSuType);
-      最终Damage = 职业伤害(最终Damage, HeroConfig.HeroZhiYeDic[heroType].zhiYeType);
+      最终Damage = 元素伤害(最终Damage, yuanSu);
+      最终Damage = 职业伤害(最终Damage, zhiYe);
       float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
       {
@@ -548,7 +564,7 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1 +  城墙Config.高血量增伤值/ 100f);
       }
       float 抗性 = 0;
-      switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
+      switch (yuanSu)
       {
          case YuanSuType.冰:
             抗性=MonsterAttribute.冰霜抗性;
@@ -579,23 +595,22 @@ public class MonsterBase : MonoBehaviour
       {
          抗性 = 计算法器抗性(抗性, heroType,HeroType.女娲);
       }
-      switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
+      switch (yuanSu)
       {
          case YuanSuType.物理:
-            //怪物抗性是0-100
-            抗性 = MonsterAttribute.物理抗性/(1f+FightController.S.英雄法器属性Dic[heroType].物理穿透/100f);
+            抗性 = MonsterAttribute.物理抗性/(1f+hero法器.物理穿透/100f);
             break;
          case YuanSuType.电:
-            抗性 = MonsterAttribute.雷电抗性/(1f+FightController.S.英雄法器属性Dic[heroType].雷电穿透/100f);
+            抗性 = MonsterAttribute.雷电抗性/(1f+hero法器.雷电穿透/100f);
             break;
          case YuanSuType.冰:
-            抗性 = MonsterAttribute.冰霜抗性/(1f+FightController.S.英雄法器属性Dic[heroType].冰霜穿透/100f);
+            抗性 = MonsterAttribute.冰霜抗性/(1f+hero法器.冰霜穿透/100f);
             break;
          case YuanSuType.火:
-            抗性 = MonsterAttribute.火焰抗性/(1f+FightController.S.英雄法器属性Dic[heroType].火焰穿透/100f);
+            抗性 = MonsterAttribute.火焰抗性/(1f+hero法器.火焰穿透/100f);
             break;
          case YuanSuType.黑暗:
-            抗性 = MonsterAttribute.黑暗抗性/(1f+FightController.S.英雄法器属性Dic[heroType].黑暗穿透/100f);
+            抗性 = MonsterAttribute.黑暗抗性/(1f+hero法器.黑暗穿透/100f);
             break;
       }
 
@@ -605,12 +620,9 @@ public class MonsterBase : MonoBehaviour
          无视抗性 += 属性config.总属性.三味真火无视抗性百分比*100;
       }
       最终Damage *= (100 - 抗性/(1+无视抗性)) / 100;
-      //最终伤害结算
-
-
 
       FightController.S.当前英雄伤害Dic[heroType] += 最终Damage;
-      FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),HeroConfig.HeroZhiYeDic[heroType].yuanSuType,伤害trans.position,is暴击:暴击);
+      FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),yuanSu,伤害trans.position,is暴击:暴击);
       float 受伤前血量 = CurrentHP;
       CurrentHP -= 最终Damage;
       MonsterSlider.gameObject.SetActive(true);
