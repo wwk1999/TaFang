@@ -24,13 +24,18 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized] public bool 瑶池神通;
 
     private float alltime=0;
+    private readonly HashSet<MonsterBase> 当前范围内怪物 = new HashSet<MonsterBase>();
+    private readonly List<MonsterBase> _伤害快照 = new List<MonsterBase>();
 
     private void OnEnable()
     {
         alltime = 0;
+        当前伤害时间 = 0;
+        当前范围内怪物.Clear();
         CancelInvoke();
         Invoke(nameof(Hide), DelayTime);
     }
+
     public void Hide()
     {
         switch (Type)
@@ -44,11 +49,58 @@ public class 循环伤害技能 : MonoBehaviour
 
     private void Update()
     {
-        alltime+=Time.deltaTime;
-        transform.position += (Vector3)MoveDirection * MoveSpeed*英雄星级属性.老子弹道速度 * Time.deltaTime;
+        alltime += Time.deltaTime;
+        transform.position += (Vector3)MoveDirection * MoveSpeed * 英雄星级属性.老子弹道速度 * Time.deltaTime;
         if (Type == 攻击特效Type.冰旋风)
         {
-            transform.localScale = new Vector3(1+alltime*英雄星级属性.老子增长速度/100f, 1+alltime*英雄星级属性.老子增长速度/100f, transform.localScale.y);
+            transform.localScale = new Vector3(1 + alltime * 英雄星级属性.老子增长速度 / 100f, 1 + alltime * 英雄星级属性.老子增长速度 / 100f, transform.localScale.y);
+        }
+
+        // 计时器只在 Update 里累加一次，避免多怪物时 N 倍速计时
+        if (当前范围内怪物.Count > 0)
+        {
+            当前伤害时间 += Time.deltaTime;
+            if (当前伤害时间 >= 伤害间隔)
+            {
+                当前伤害时间 = 0;
+                对范围内所有怪物循环伤害();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 对当前范围内所有怪物施加一次循环伤害（OnTriggerStay2D 改从 Update 批量触发）
+    /// </summary>
+    private void 对范围内所有怪物循环伤害()
+    {
+        if (当前范围内怪物.Count == 0) return;
+
+        float finalDamage = 计算辅助加成(damage);
+
+        // 用复用的 List 快照，避免每次伤害都 new List 产生 GC
+        _伤害快照.Clear();
+        _伤害快照.AddRange(当前范围内怪物);
+        foreach (var monster in _伤害快照)
+        {
+            if (monster == null || monster.isDead)
+            {
+                当前范围内怪物.Remove(monster);
+                continue;
+            }
+
+            Vector2 closestPoint = monster.Collider2D.ClosestPoint(transform.position);
+            var hit = FightController.S.GetPeng(Type);
+            hit.transform.position = closestPoint;
+
+            if (瑶池冰辅助)
+            {
+                monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+            }
+            monster.女娲电辅助 = 女娲电辅助;
+            monster.妲己黑暗辅助 = 黑暗辅助;
+
+            monster.Hurt(finalDamage, HeroType, Type);
+            hit.gameObject.SetActive(true);
         }
     }
 
@@ -101,6 +153,9 @@ public class 循环伤害技能 : MonoBehaviour
         if (!other.CompareTag("Monster")) return;
         if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
 
+        // 同一怪物的首次命中（进入范围时立即打一次），之后靠 Update 定时器循环伤害
+        if (当前范围内怪物.Add(monster) == false) return;
+
         Vector2 closestPoint = other.ClosestPoint(transform.position);
         var hit = FightController.S.GetPeng(Type);
         hit.transform.position = closestPoint;
@@ -131,32 +186,11 @@ public class 循环伤害技能 : MonoBehaviour
         hit.gameObject.SetActive(true);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        当前伤害时间+=Time.deltaTime;
-        if (当前伤害时间 < 伤害间隔)
-        {
-            return;
-        }
-        当前伤害时间 = 0;
-
         if (!other.CompareTag("Monster")) return;
         if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
 
-        Vector2 closestPoint = other.ClosestPoint(transform.position);
-        var hit = FightController.S.GetPeng(Type);
-        hit.transform.position = closestPoint;
-
-        float finalDamage = 计算辅助加成(damage);
-
-        if (瑶池冰辅助)
-        {
-            monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
-        }
-        monster.女娲电辅助 = 女娲电辅助;
-        monster.妲己黑暗辅助 = 黑暗辅助;
-
-        monster.Hurt(finalDamage, HeroType, Type);
-        hit.gameObject.SetActive(true);
+        当前范围内怪物.Remove(monster);
     }
 }

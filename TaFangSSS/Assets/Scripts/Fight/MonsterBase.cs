@@ -48,7 +48,11 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
    [NonSerialized] public float 冰符=0;
+   private DG.Tweening.Tweener 残影DOTween;
    private int 黑暗符次数 = 0;
+   private Rigidbody2D _rb;
+   private MonsterType _怪物类型;
+   private float _怪物攻击距离;
 
    public void Set灼烧伤害(float damage)
    {
@@ -90,11 +94,11 @@ public class MonsterBase : MonoBehaviour
          value*=(1-城墙Config.泥沼减速效果/100f);
       }
 
-      if (MonsterConfig.MonsterTypeDic[MonsterTypeName] == MonsterType.Elite)
+      if (_怪物类型 == MonsterType.Elite)
       {
          value /= 2.5f;
       }
-      if (MonsterConfig.MonsterTypeDic[MonsterTypeName] == MonsterType.Boss)
+      if (_怪物类型 == MonsterType.Boss)
       {
          value /= 5f;
       }
@@ -102,14 +106,10 @@ public class MonsterBase : MonoBehaviour
    }
    private void Awake()
    {
-      // 怪物预制体只有碰撞体、没有刚体，属于"静态碰撞体"；静态碰撞体每帧用 transform 移动，
-      // 物理世界就要反复把它从静态AABB树删除/重插，开销很大（隐藏的物理性能杀手）。
-      // 这里补一个 Kinematic 刚体：不受力、不被推、不参与物理解算，仅让碰撞体挂接到运动学体上、走廉价的移动路径。
-      // useFullKinematicContacts 必须开启：否则 Kinematic 与 Kinematic（子弹/特效/人物item）之间不产生接触，OnTriggerEnter2D 会失效。
-      Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
-      rb.bodyType = RigidbodyType2D.Kinematic;
-      rb.useFullKinematicContacts = true;
-      rb.gravityScale = 0;
+      _rb = gameObject.AddComponent<Rigidbody2D>();
+      _rb.bodyType = RigidbodyType2D.Kinematic;
+      _rb.useFullKinematicContacts = true;
+      _rb.gravityScale = 0;
    }
 
    private void OnEnable()
@@ -118,6 +118,10 @@ public class MonsterBase : MonoBehaviour
       {
          return;
       }
+
+      // 缓存只跟 MonsterTypeName 相关的一次性查询，避免 Update 每帧查 Dictionary
+      _怪物类型 = MonsterConfig.MonsterTypeDic[MonsterTypeName];
+      _怪物攻击距离 = FightConfig.怪物攻击距离Dic[_怪物类型];
 
       if (MonsterConfig.怪物翻转Dic[MonsterTypeName])
       {
@@ -281,8 +285,7 @@ public class MonsterBase : MonoBehaviour
    public bool 暴击检测(HeroType heroType)
    {
       float random = Random.Range(0, 100);
-      属性config.领主总属性 属性 = new 属性config.领主总属性();
-      float value = 属性.暴击率 * 100;
+      float value = 属性config.总属性.暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
       if (瑶池冰辅助 > 0)
       {
@@ -327,8 +330,7 @@ public class MonsterBase : MonoBehaviour
    public bool 二次暴击检测(HeroType heroType)
    {
       float random = Random.Range(0, 500);
-      属性config.领主总属性 属性 = new 属性config.领主总属性();
-      float value = 属性.暴击率 * 100;
+      float value = 属性config.总属性.暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
       if (瑶池冰辅助 > 0)
       {
@@ -617,9 +619,10 @@ public class MonsterBase : MonoBehaviour
       残影Slider.gameObject.SetActive(true);
       残影Slider.maxValue = MonsterAttribute.Hp;
       残影Slider.value = 受伤前血量;
-      DOTween.To(() => 残影Slider.value, 
-         x => 残影Slider.value = x, 
-         CurrentHP, 
+      if (残影DOTween != null && 残影DOTween.IsActive()) 残影DOTween.Kill();
+      残影DOTween = DOTween.To(() => 残影Slider.value,
+         x => 残影Slider.value = x,
+         CurrentHP,
          0.5f);
       if (CurrentHP <= 0)
       {
@@ -668,27 +671,16 @@ public class MonsterBase : MonoBehaviour
          灼烧当前时间 = 0;
          Hurt(灼烧伤害,HeroType.羲和,攻击特效Type.火符);
       }
-      float 城墙最近距离 = 0;
+      float 城墙最近距离 = _怪物攻击距离;
       CurrentAttackTime+=Time.deltaTime;
-      switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
-      {
-         case MonsterType.Normal:
-            城墙最近距离 = FightConfig.怪物攻击距离Dic[MonsterType.Normal];
-            break;
-         case MonsterType.Elite:
-            城墙最近距离 = FightConfig.怪物攻击距离Dic[MonsterType.Elite];
-            break;
-         case MonsterType.Boss:
-            城墙最近距离 = FightConfig.怪物攻击距离Dic[MonsterType.Boss];
-            break;
-      }
 
-      if (transform.position.x > 城墙最近距离)
+      if (_rb.position.x > 城墙最近距离)
       {
          if (黑暗符 <= 0&&冰冻time<0)
          {
             移动Animation.speed = 1;
-            transform.position=new Vector3(transform.position.x-RealSpeed*Time.deltaTime,transform.position.y,transform.position.z);
+            Vector3 pos = _rb.position;
+            _rb.MovePosition(new Vector2(pos.x-RealSpeed*Time.deltaTime, pos.y));
          }
          else
          {
@@ -1065,33 +1057,9 @@ public class MonsterBase : MonoBehaviour
             break;
       }
       FightController.S.当前怪物Set.Remove(this);
-      if (FightController.S.Monster分区Dic[1].Contains(this))
+      for (int i = 1; i <= 7; i++)
       {
-         FightController.S.Monster分区Dic[1].Remove(this);
-      }
-      if (FightController.S.Monster分区Dic[2].Contains(this))
-      {
-         FightController.S.Monster分区Dic[2].Remove(this);
-      }
-      if (FightController.S.Monster分区Dic[3].Contains(this))
-      {
-         FightController.S.Monster分区Dic[3].Remove(this);
-      }
-      if (FightController.S.Monster分区Dic[4].Contains(this))
-      {
-         FightController.S.Monster分区Dic[4].Remove(this);
-      }
-      if (FightController.S.Monster分区Dic[5].Contains(this))
-      {
-         FightController.S.Monster分区Dic[5].Remove(this);
-      }
-      if (FightController.S.Monster分区Dic[6].Contains(this))
-      {
-         FightController.S.Monster分区Dic[6].Remove(this);
-      }
-      if (FightController.S.Monster分区Dic[7].Contains(this))
-      {
-         FightController.S.Monster分区Dic[7].Remove(this);
+         FightController.S.Monster分区Dic[i].Remove(this);
       }
       gameObject.SetActive(false);
    }

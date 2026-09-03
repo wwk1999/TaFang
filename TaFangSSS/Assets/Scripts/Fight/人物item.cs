@@ -104,25 +104,25 @@ public class 人物item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Monster") && !上场)
+        if (上场) return;
+        if (!other.CompareTag("Monster")) return;
+        if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
+
+        if (攻击范围内怪物.Add(monster))  // Add返回true表示新增
         {
-            var monster = QueueController.S.MonsterColliderDic[other];
-            if (攻击范围内怪物.Add(monster))  // Add返回true表示新增
-            {
-                攻击范围内怪物列表.Add(monster);
-            }
+            攻击范围内怪物列表.Add(monster);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Monster") && !上场)
+        if (上场) return;
+        if (!other.CompareTag("Monster")) return;
+        if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
+
+        if (攻击范围内怪物.Remove(monster))
         {
-            var monster = QueueController.S.MonsterColliderDic[other];
-            if (攻击范围内怪物.Add(monster))
-            {
-                攻击范围内怪物列表.Add(monster);
-            }
+            攻击范围内怪物列表.Remove(monster);
         }
     }
 
