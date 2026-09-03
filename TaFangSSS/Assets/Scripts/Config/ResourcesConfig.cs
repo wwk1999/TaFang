@@ -9,6 +9,37 @@ public class ResourcesConfig : MonoBehaviour
     public static AudioClip 丹童神通配音;
 
     
+    public static Sprite 丹童神通icon;
+    public static Sprite 土地神通icon;
+    public static Sprite 河伯神通icon;
+    public static Sprite 瑶池仙女神通icon;
+    public static Sprite 石敢当神通icon;
+    public static Sprite 玄女神通icon;
+    public static Sprite 龟丞相神通icon;
+    public static Sprite 太白金星神通icon;
+    public static Sprite 多闻天王神通icon;
+    public static Sprite 广目天王神通icon;
+    public static Sprite 雷震子神通icon;
+    public static Sprite 月老神通icon;
+    public static Sprite 嫦娥神通icon;
+    public static Sprite 杨戬神通icon;
+    public static Sprite 妲己神通icon;
+    public static Sprite 牛魔王神通icon;
+    public static Sprite 哪吒神通icon;
+    public static Sprite 孙悟空神通icon;
+    public static Sprite 碧霄神通icon;
+    public static Sprite 琼霄神通icon;
+    public static Sprite 羲和神通icon;
+    public static Sprite 常羲神通icon;
+    public static Sprite 后羿神通icon;
+    public static Sprite 云霄神通icon;
+    public static Sprite 女娲神通icon;
+    public static Sprite 老子神通icon;
+    public static Sprite 通天神通icon;
+    public static Sprite 元始神通icon;
+    public static Sprite 鸿钧神通icon;
+    public static Sprite 盘古神通icon;
+    
     public static Sprite 丹童神通横幅;
     public static Sprite 土地神通横幅;
     public static Sprite 河伯神通横幅;
@@ -5795,8 +5826,81 @@ public static Sprite 英雄最终伤害彩;
             default: return null;
         }
     }
+    
+    
+    public static Sprite Get英雄神通icon(HeroType herotype)
+    {
+        switch (herotype)
+        {
+            case HeroType.丹童: return 丹童神通icon;
+            case HeroType.土地: return 土地神通icon;
+            case HeroType.河伯: return 河伯神通icon;
+            case HeroType.瑶池仙女: return 瑶池仙女神通icon;
+            case HeroType.石敢当: return 石敢当神通icon;
+            case HeroType.玄女: return 玄女神通icon;
+            case HeroType.龟丞相: return 龟丞相神通icon;
+            case HeroType.太白金星: return 太白金星神通icon;
+            case HeroType.多闻天王: return 多闻天王神通icon;
+            case HeroType.广目天王: return 广目天王神通icon;
+            case HeroType.雷震子: return 雷震子神通icon;
+            case HeroType.月老: return 月老神通icon;
+            case HeroType.嫦娥: return 嫦娥神通icon;
+            case HeroType.杨戬: return 杨戬神通icon;
+            case HeroType.妲己: return 妲己神通icon;
+            case HeroType.牛魔王: return 牛魔王神通icon;
+            case HeroType.哪吒: return 哪吒神通icon;
+            case HeroType.孙悟空: return 孙悟空神通icon;
+            case HeroType.碧霄: return 碧霄神通icon;
+            case HeroType.琼霄: return 琼霄神通icon;
+            case HeroType.羲和: return 羲和神通icon;
+            case HeroType.常羲: return 常羲神通icon;
+            case HeroType.后羿: return 后羿神通icon;
+            case HeroType.云霄: return 云霄神通icon;
+            case HeroType.女娲: return 女娲神通icon;
+            case HeroType.老子: return 老子神通icon;
+            case HeroType.通天: return 通天神通icon;
+            case HeroType.元始: return 元始神通icon;
+            case HeroType.鸿钧: return 鸿钧神通icon;
+            case HeroType.盘古: return 盘古神通icon;
+            case HeroType.None:
+            default: return null;
+        }
+    }
     public static void Init()
     {
+        丹童神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/丹童");
+        土地神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/土地");
+        河伯神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/河伯");
+        瑶池仙女神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/瑶池");
+        石敢当神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/石敢当");
+        玄女神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/玄女");
+        龟丞相神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/龟丞相");
+        太白金星神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/太白金星");
+        多闻天王神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/多闻天王");
+        广目天王神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/广目天王");
+        雷震子神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/雷震子");
+        月老神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/月老");
+        嫦娥神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/嫦娥");
+        杨戬神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/杨戬");
+        妲己神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/妲己");
+        牛魔王神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/牛魔王");
+        哪吒神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/哪吒");
+        孙悟空神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/孙悟空");
+        碧霄神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/碧霄");
+        琼霄神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/琼霄");
+        羲和神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/羲和");
+        常羲神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/常羲");
+        后羿神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/后羿");
+        云霄神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/云霄");
+        女娲神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/女娲");
+        老子神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/老子");
+        通天神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/通天");
+        元始神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/元始");
+        鸿钧神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/鸿钧");
+        盘古神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/盘古");        Buff修炼速度白= Resources.Load<Sprite>("Sprite/BuffIcon/修炼速度白");
+
+        
+        
         丹童神通配音= Resources.Load<AudioClip>("音效/神通配音/丹童");
         丹童神通横幅 = Resources.Load<Sprite>("Sprite/英雄神通横幅/丹童");
         土地神通横幅 = Resources.Load<Sprite>("Sprite/英雄神通横幅/土地");

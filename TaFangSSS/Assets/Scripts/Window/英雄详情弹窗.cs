@@ -7,6 +7,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum 显示类型
+{
+    None,
+    属性,
+    法则,
+    神通,
+}
 public class 英雄详情弹窗 : MonoBehaviour
 {
     public GameObject item1;
@@ -14,6 +21,9 @@ public class 英雄详情弹窗 : MonoBehaviour
     public GameObject 法则item;
     public Button 星级button;
     public Button 升级button;
+    public Button 神通升级button;
+    public Button 神通button;
+
     public Image 法则bg;
     public Image 法则icon;
     public TextMeshProUGUI 法则name;
@@ -29,6 +39,8 @@ public class 英雄详情弹窗 : MonoBehaviour
     public TextMeshProUGUI skillname;
     public Image skillicon;
     public TextMeshProUGUI Cdtext;
+    public TextMeshProUGUI 能量text;
+
     public TextMeshProUGUI skillinfo;
     public Image 元素icon;
     public TextMeshProUGUI 元素name;
@@ -49,30 +61,44 @@ public class 英雄详情弹窗 : MonoBehaviour
     public Button maskButton;
     [NonSerialized] public HeroType HeroType;
 
-    private bool Is法则 = false;
+    private 显示类型 显示类型 = 显示类型.属性;
     public void Set升星材料()
     {
-        if (Is法则)
+        if (显示类型!=显示类型.属性)
         {
             item1.gameObject.SetActive(false);
             item2.gameObject.SetActive(false);
             法则item.gameObject.SetActive(true);
-            升级button.gameObject.SetActive(true);
-            升星button.gameObject.SetActive(false);
-            星级button.gameObject.SetActive(true);
-            法则button.gameObject.SetActive(false);
             法则bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(HeroConfig.HeroQualityDic[HeroType]);
-            法则icon.sprite = ResourcesConfig.Get法则Sprite(HeroType);
-            法则name.text = 法则config.法则名Dic[HeroType];
-            法则当前值.text = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]].ToString();
-            法则需要值.text=法则config.法则升级材料Dic[PlayerData.S.英雄法则等级Dic[HeroType]].ToString();
-            法则button.gameObject.SetActive(HeroConfig.HeroQualityDic[HeroType]>=QualityType.宇品);
+            if (显示类型 == 显示类型.法则)
+            {           
+                神通升级button.gameObject.SetActive(false);
+                星级button.gameObject.SetActive(true);
+                法则button.gameObject.SetActive(false); 
+                升级button.gameObject.SetActive(true);
+                升星button.gameObject.SetActive(false);        
+                法则name.text = 法则config.法则名Dic[HeroType];
+                法则icon.sprite = ResourcesConfig.Get法则Sprite(HeroType);
+                法则当前值.text = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]].ToString();
+                法则需要值.text=法则config.法则升级材料Dic[PlayerData.S.英雄法则等级Dic[HeroType]].ToString();
+            }
+            else
+            {
+                神通升级button.gameObject.SetActive(true);
+                升级button.gameObject.SetActive(false);
+                升星button.gameObject.SetActive(false);  
+                法则name.text = HeroConfig.HeroNameDic[HeroType] + "元神";
+                法则icon.sprite = ResourcesConfig.Get品质元神Sprite(HeroConfig.HeroQualityDic[HeroType]);
+                法则当前值.text = PlayerData.S.HeroDataDic[HeroType].元神.ToString();
+                法则需要值.text="1";
+            }
         }
         else
         {
             法则item.gameObject.SetActive(false);
             item1.gameObject.SetActive(true);
             item2.gameObject.SetActive(true);
+            神通升级button.gameObject.SetActive(false);
             升级button.gameObject.SetActive(false);
             升星button.gameObject.SetActive(true);
             星级button.gameObject.SetActive(false);
@@ -120,14 +146,18 @@ public class 英雄详情弹窗 : MonoBehaviour
             Destroy(item.gameObject);
         }
         升星奖励.text = "升星奖励：暴击伤害增幅+" + HeroConfig.升星奖励Dic[HeroConfig.HeroQualityDic[HeroType]]+"%";
-        if (Is法则)
+        if (显示类型!=显示类型.属性)
         { 
-            升星奖励.text = "升级奖励：伤害增幅+" + 法则config.法则升级奖励Dic[HeroConfig.HeroQualityDic[HeroType]]+"%";
+            升星奖励.text = "升级奖励：暴击伤害增幅+" + HeroConfig.神通升级奖励Dic[HeroConfig.HeroQualityDic[HeroType]]+"%";
         }
         int xj = PlayerData.S.HeroDataDic[HeroType].Level - 1;
-        if (Is法则)
+        if (显示类型==显示类型.法则)
         {
             xj = PlayerData.S.英雄法则等级Dic[HeroType] / 5;
+        }
+        if (显示类型==显示类型.神通)
+        {
+            xj = PlayerData.S.HeroDataDic[HeroType].神通等级 / 5;
         }
         for (int i = 1; i <= 5; i++)
         {
@@ -136,8 +166,54 @@ public class 英雄详情弹窗 : MonoBehaviour
             item.锁 = xj < i;
             item.星级 = i;
             item.text = HeroConfig.英雄升星信息Dic[HeroType][i - 1];
-            item.Is法则 = Is法则;
-            if (Is法则)
+            item.Is法则 = 显示类型!=显示类型.属性;
+           
+            if (显示类型==显示类型.神通)
+            {
+                if (HeroType == HeroType.女娲 || HeroType == HeroType.瑶池仙女 || HeroType == HeroType.妲己)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            item.text = "神通效果 + <color=green>20%</color>";
+                            break;
+                        case 2:
+                            item.text = "神通效果 + <color=green>50%</color>";
+                            break;
+                        case 3:
+                            item.text = "神通效果 + <color=green>100%</color>";
+                            break;
+                        case 4:
+                            item.text = "神通所需能量 - <color=green>20%</color>";
+                            break;
+                        case 5:
+                            item.text = "神通冷却时间 - <color=green>20%</color>";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            item.text = "神通伤害 + <color=green>20%</color>";
+                            break;
+                        case 2:
+                            item.text = "神通伤害 + <color=green>50%</color>";
+                            break;
+                        case 3:
+                            item.text = "神通伤害 + <color=green>100%</color>";
+                            break;
+                        case 4:
+                            item.text = "神通所需能量 - <color=green>20%</color>";
+                            break;
+                        case 5:
+                            item.text = "神通冷却时间 - <color=green>20%</color>";
+                            break;
+                    }
+                }
+            }
+            if (显示类型 == 显示类型.法则)
             {
                 item.text = 法则config.法则升级info[HeroType][i - 1];
             }
@@ -147,12 +223,13 @@ public class 英雄详情弹窗 : MonoBehaviour
 
     public void SetHeroInfo()
     {
+        能量text.gameObject.SetActive(false);
         Cdtext.gameObject.SetActive(true);
         技能name.text = "技能";
         skillname.text = HeroConfig.SkillNameDic[HeroType];
         skillicon.sprite = ResourcesConfig.Get技能icon(HeroType);
         skillinfo.text=HeroConfig.HeroSkillInfoDic[HeroType];
-        if (Is法则)
+        if (显示类型==显示类型.法则)
         {
             Cdtext.gameObject.SetActive(false);
             技能name.text = "法则";
@@ -193,12 +270,22 @@ public class 英雄详情弹窗 : MonoBehaviour
                 break;
 
         }
+        if (显示类型==显示类型.神通)
+        {
+            能量text.gameObject.SetActive(true);
+            能量text.text="能量："+HeroConfig.英雄神通配置Dic[HeroType].能量;
+            Cdtext.gameObject.SetActive(true);
+            技能name.text = "神通";
+            skillname.text = HeroConfig.英雄神通配置Dic[HeroType].name;
+            skillicon.sprite = ResourcesConfig.Get英雄神通icon(HeroType);
+            skillinfo.text = HeroConfig.Hero神通InfoDic[HeroType];
+        }
     }
     private void OnEnable()
     {
         if (HeroType != HeroType.None)
         {
-            Is法则 = false;
+            显示类型 = 显示类型.属性;
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
@@ -210,7 +297,7 @@ public class 英雄详情弹窗 : MonoBehaviour
     {
         法则button.onClick.AddListener(() =>
         {
-            Is法则 = true;
+            显示类型 = 显示类型.法则;
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
@@ -219,12 +306,19 @@ public class 英雄详情弹窗 : MonoBehaviour
         });
         星级button.onClick.AddListener(() =>
         {
-            Is法则 = false;
+            显示类型 = 显示类型.属性;
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
             法则button.gameObject.SetActive(true);
             星级button.gameObject.SetActive(false);
+        });
+        神通button.onClick.AddListener(() =>
+        {
+            显示类型 = 显示类型.神通;
+            Set升星信息();
+            SetHeroInfo();
+            Set升星材料();
         });
         升级button.onClick.AddListener(() =>
         {
@@ -244,6 +338,31 @@ public class 英雄详情弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("法则升级");
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
                 ObserverModuleManager.S.SendEvent("SendUIToast","升级成功");
+                Set升星信息();
+                SetHeroInfo();
+                Set升星材料();
+            }
+        });
+        
+        
+        神通升级button.onClick.AddListener(() =>
+        {
+            int 需要值=1;
+            long 当前值 = PlayerData.S.HeroDataDic[HeroType].元神;
+            if (当前值 < 需要值)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
+                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
+                return;
+            }
+            else
+            {
+                PlayerData.S.HeroDataDic[HeroType].元神 -= 需要值;
+                PlayerData.S.HeroDataDic[HeroType].神通等级++;
+                ObserverModuleManager.S.SendEvent("法则升级");
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+                ObserverModuleManager.S.SendEvent("SendUIToast","神通升级成功");
                 Set升星信息();
                 SetHeroInfo();
                 Set升星材料();

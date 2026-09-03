@@ -259,12 +259,13 @@ public class 法则config
         },
     };
 
+    
     public static Dictionary<QualityType, float> 法则升级奖励Dic = new Dictionary<QualityType, float>()
     {
-        { QualityType.宇品 ,10f},
-        { QualityType.宙品 ,20f},
-        { QualityType.洪品 ,50f},
-        { QualityType.荒品 ,100f},
+        { QualityType.宇品 ,5f},
+        { QualityType.宙品 ,10f},
+        { QualityType.洪品 ,25f},
+        { QualityType.荒品 ,50f},
     };
 
     public static Dictionary<int, int> 法则升级材料Dic = new Dictionary<int, int>()

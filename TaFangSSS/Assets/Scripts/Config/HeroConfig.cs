@@ -4,6 +4,7 @@ namespace Config
 {
     public class HeroData
     {
+        public int 神通等级;
         public int Level;
         public int 元神;
         public bool 派遣;
@@ -102,6 +103,7 @@ namespace Config
         public float cd;
         public float 能量;
         public float damage;
+        public string name;
     }
     public class HeroConfig
     {
@@ -354,6 +356,17 @@ namespace Config
             return heroExp;
         }
 
+        public static Dictionary<QualityType, float> 神通升级奖励Dic = new Dictionary<QualityType, float>()
+        {
+            { QualityType.黄品, 0.5f },
+            { QualityType.玄品, 1f },
+            { QualityType.地品, 2f },
+            { QualityType.天品, 5f },
+            { QualityType.宇品, 10f },
+            { QualityType.宙品, 20f },
+            { QualityType.洪品, 50f },
+            { QualityType.荒品, 100f },
+        };
         public static Dictionary<QualityType, float> 升星奖励Dic = new Dictionary<QualityType, float>()
         {
             { QualityType.黄品, 1f },
@@ -1055,6 +1068,209 @@ namespace Config
                 Get元素string(YuanSuType.物理) + "伤害"
             },
         };
+         public static Dictionary<HeroType, 英雄神通配置Item> 英雄神通配置Dic = new Dictionary<HeroType, 英雄神通配置Item>()
+        {
+            { HeroType.丹童, new 英雄神通配置Item(){cd = 10,能量 = 10,damage = 100,name="焚天狮吼"} },
+            { HeroType.土地, new 英雄神通配置Item(){cd = 10,能量 = 10,damage = 120,name="无相暗影杀"} },
+            { HeroType.河伯, new 英雄神通配置Item(){cd = 10,能量 = 10,damage = 120,name="玄冥冰河落"} },
+            { HeroType.瑶池仙女, new 英雄神通配置Item(){cd = 10,能量 = 10,damage = 20,name="九天霜华阵"} },
+
+            { HeroType.石敢当, new 英雄神通配置Item(){cd = 12,能量 = 12,damage = 200,name="石破惊天"} },
+            { HeroType.玄女, new 英雄神通配置Item(){cd = 12,能量 = 12,damage = 220,name="金雷灭世劫"} },
+            { HeroType.龟丞相,new 英雄神通配置Item(){cd = 12,能量 = 12,damage = 250,name="极冰坠落"} },
+            { HeroType.太白金星, new 英雄神通配置Item(){cd = 12,能量 = 12,damage = 180,name="紫霄神雷矢"} },
+
+            { HeroType.多闻天王, new 英雄神通配置Item(){cd = 15,能量 = 15,damage = 250,name="寂灭魔冲"} },
+            { HeroType.广目天王, new 英雄神通配置Item(){cd = 15,能量 = 15,damage = 250,name="紫极魔斩"} },
+            { HeroType.雷震子, new 英雄神通配置Item(){cd = 12,能量 = 12,damage = 300,name="九霄雷落"} },
+            { HeroType.月老, new 英雄神通配置Item(){cd = 12,能量 = 12,damage = 300,name="天火燎原"} },
+
+            { HeroType.嫦娥, new 英雄神通配置Item(){cd = 15,能量 = 15,damage = 350,name="九天神雷引"} },
+            { HeroType.杨戬, new 英雄神通配置Item(){cd = 15,能量 = 15,damage = 300,name="九天雷引"} },
+            { HeroType.妲己, new 英雄神通配置Item(){cd = 15,能量 = 15,damage = 50,name="幽冥护佑"} },
+            { HeroType.牛魔王, new 英雄神通配置Item(){cd = 15,能量 = 15,damage = 380,name="裂天震罡"} },
+
+            { HeroType.哪吒, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 500,name="八荒炎灭"} },
+            { HeroType.孙悟空, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 600,name="齐天憾地棍"} },
+            { HeroType.碧霄, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 500,name="太阴冰轮阵"} },
+            { HeroType.琼霄, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 350,name="封天锁地"} },
+
+            { HeroType.羲和, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 700,name="九天炎符阵"} },
+            { HeroType.常羲, new 英雄神通配置Item(){cd = 25,能量 = 25,damage = 750,name="万里冰封"} },
+            { HeroType.后羿, new 英雄神通配置Item(){cd = 18,能量 = 18,damage = 600,name="诛天神矢"} },
+            { HeroType.云霄, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 700,name="太一寒光斩"} },
+
+            { HeroType.女娲, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 100,name="诸天净世阵"} },
+            { HeroType.老子, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 1000,name="太清玄冰域"} },
+            { HeroType.通天, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 1200,name="诛仙剑阵"} },
+            { HeroType.元始, new 英雄神通配置Item(){cd = 25,能量 = 25,damage = 1100,name="焚天九曜光"}},
+
+            { HeroType.盘古, new 英雄神通配置Item(){cd = 30,能量 = 30,damage = 1800,name="开天辟地"} },
+            { HeroType.鸿钧, new 英雄神通配置Item(){cd = 25,能量 = 20,damage = 1800,name="混沌灭世炎"} },
+
+        };
+        
+        public static Dictionary<HeroType, string> Hero神通InfoDic = new Dictionary<HeroType, string>()
+        {
+            {
+                HeroType.丹童,
+                "向怪物释放焚天狮吼，造成" + Get技能伤害string(英雄神通配置Dic[HeroType.丹童].damage, 1) + "的" + Get元素string(YuanSuType.火) +
+                "伤害"
+            },
+            {
+                HeroType.土地,
+                "向怪物召唤数条暗影蛇王，每段伤害造成" + Get技能伤害string(英雄神通配置Dic[HeroType.土地].damage, 1) + "的" +
+                Get元素string(YuanSuType.黑暗) + "伤害" 
+            },
+            {
+                HeroType.河伯,
+                "向怪物召唤数条冰晶冥蛇，每段伤害造成" + Get技能伤害string(英雄神通配置Dic[HeroType.河伯].damage, 1) + "的" +
+                Get元素string(YuanSuType.冰) + "伤害"
+            },
+            {
+                HeroType.瑶池仙女,
+                "给随机一位英雄释放玄冰阵，该英雄造成伤害时有" + Get技能伤害string(英雄神通配置Dic[HeroType.瑶池仙女].damage, 1) + "的概率冻结敌人" 
+            },
+
+            {
+                HeroType.石敢当,
+                "积攒力量冲向敌人，造成" + Get技能伤害string(英雄神通配置Dic[HeroType.石敢当].damage, 1) + "的" +
+                Get元素string(YuanSuType.物理) + "范围伤害"
+            },
+            {
+                HeroType.玄女,
+                "召唤数道灭世金雷，每道造成" + Get技能伤害string(英雄神通配置Dic[HeroType.玄女].damage, 1) + "的" +
+                Get元素string(YuanSuType.电) + "伤害"
+            },
+            {
+                HeroType.龟丞相,
+                "对怪物释放冰刺阵，每段伤害造成" + Get技能伤害string(英雄神通配置Dic[HeroType.龟丞相].damage, 1) + "的" +
+                Get元素string(YuanSuType.冰) + "伤害" 
+            },
+            {
+                HeroType.太白金星,
+                "向怪物发射3道紫霄神雷矢，穿透敌人并造成" + Get技能伤害string(英雄神通配置Dic[HeroType.太白金星].damage, 1) + "的" +
+                Get元素string(YuanSuType.电) + "伤害"
+            },
+
+            {
+                HeroType.广目天王,
+                "向怪物释放紫极魔斩，每段造成" + Get技能伤害string(英雄神通配置Dic[HeroType.广目天王].damage, 1) + "的" +
+                Get元素string(YuanSuType.黑暗) + "伤害"
+            },
+            {
+                HeroType.多闻天王,
+                "释放寂灭魔冲,每段造成" + Get技能伤害string(英雄神通配置Dic[HeroType.多闻天王].damage, 1) + "的" +
+                Get元素string(YuanSuType.黑暗) + "伤害"
+            },
+            {
+                HeroType.雷震子,
+                "召唤数道紫霄天雷,每道对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.雷震子].damage, 1) + "的" +
+                Get元素string(YuanSuType.电) + "伤害"
+            },
+            {
+                HeroType.月老,
+                "召唤数道天火,每道对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.月老].damage, 1) + "的" +
+                Get元素string(YuanSuType.火) + "伤害"
+            },
+
+            {
+                HeroType.嫦娥,
+                "召唤数道九霄神雷剑斩击4次,每次对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.嫦娥].damage, 1) + "的" +
+                Get元素string(YuanSuType.电) + "伤害"
+            },
+            {
+                HeroType.杨戬,
+                "召唤九天雷引,造成多段伤害，每段对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.杨戬].damage, 1) + "的" +
+                Get元素string(YuanSuType.电) + "伤害"
+            },
+            {
+                HeroType.妲己,
+                "对随机一名英雄施加幽冥护佑,提升该英雄" + Get技能伤害string(英雄神通配置Dic[HeroType.妲己].damage, 1) + "的暴击率和暴击伤害，持续" +
+                Get技能伤害string(5, 2)
+            },
+            {
+                HeroType.牛魔王,
+                "下场冲向怪物,释放3次裂天震罡,对命中敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.牛魔王].damage, 1) + "的" +
+                Get元素string(YuanSuType.物理) + "伤害"
+            },
+
+            {
+                HeroType.哪吒,
+                "召唤数道幽冥鬼火,对命中敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.哪吒].damage, 1) + "的" +
+                Get元素string(YuanSuType.火) + "伤害"
+            },
+            {
+                HeroType.孙悟空,
+                "挥动如意金箍棒释放全部力量,崩天裂地，造成" + Get技能伤害string(英雄神通配置Dic[HeroType.孙悟空].damage, 1) + "的" +
+                Get元素string(YuanSuType.物理) + "伤害"
+            },
+            {
+                HeroType.碧霄,
+                "向怪物释放数道太阴冰,对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.碧霄].damage, 1) + "的" +
+                Get元素string(YuanSuType.冰) + "伤害"
+            },
+            {
+                HeroType.琼霄,
+                "向怪物释放封天锁地阵,对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.琼霄].damage, 1) + "的" +
+                Get元素string(YuanSuType.黑暗) + "伤害,并定身敌人" + Get技能伤害string(1, 2)
+            },
+
+            {
+                HeroType.羲和,
+                "向怪物释放3道九天炎符阵,对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.羲和].damage, 1) + "的" +
+                Get元素string(YuanSuType.火) + "伤害"
+            },
+            {
+                HeroType.常羲,
+                "向怪物释放大范围绝对冰封,对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.羲和].damage, 1) + "的" +
+                Get元素string(YuanSuType.冰) + "伤害" 
+            },
+            {
+                HeroType.后羿,
+                "向怪物急速发射大量射日箭并穿透敌人,对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.后羿].damage, 1) + "的" +
+                Get元素string(YuanSuType.物理) + "伤害"
+            },
+            {
+                HeroType.云霄,
+                "向怪物释放3道太一剑斩击4次，对命中的敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.云霄].damage, 1) + "的" +
+                Get元素string(YuanSuType.冰) + "伤害"
+            },
+
+            {
+                HeroType.女娲,
+                "对所有英雄施加诸天净世阵，提高所有英雄" + Get技能伤害string(英雄神通配置Dic[HeroType.女娲].damage, 1) + "的神通伤害,持续" +
+                Get技能伤害string(5, 2)
+            },
+            {
+                HeroType.老子,
+                "向怪物释放太清玄冰域,对命中的敌人持续造成" + Get技能伤害string(英雄神通配置Dic[HeroType.老子].damage, 1) + "的" +
+                Get元素string(YuanSuType.冰) + "伤害" 
+            },
+            {
+                HeroType.元始,
+                "向怪物释放焚天九曜光,对命中的敌人持续造成" + Get技能伤害string(英雄神通配置Dic[HeroType.元始].damage, 1) + "的" +
+                Get元素string(YuanSuType.火) + "伤害"
+            },
+            {
+                HeroType.通天,
+                "向怪物释放诛仙剑阵,对命中敌人造成" + Get技能伤害string(英雄神通配置Dic[HeroType.通天].damage, 1) + "的" +
+                Get元素string(YuanSuType.黑暗) + "伤害"
+            },
+
+            {
+                HeroType.鸿钧,
+                "向怪物释放混沌灭世炎,对命中敌人持续造成" + Get技能伤害string(英雄神通配置Dic[HeroType.鸿钧].damage, 1) + "的" +
+                Get元素string(YuanSuType.火) + "伤害"
+            },
+            {
+                HeroType.盘古,
+                "向怪物释放开天辟地,对命中敌人持续造成" + Get技能伤害string(英雄神通配置Dic[HeroType.盘古].damage, 1) + "的" +
+                Get元素string(YuanSuType.物理) + "伤害"
+            },
+        };
+        
+        
         
 
         public static Dictionary<HeroType, float> HeroAttackTimeDic = new Dictionary<HeroType, float>()
@@ -1098,47 +1314,7 @@ namespace Config
             { HeroType.鸿钧, 3 },
         };
         
-        public static Dictionary<HeroType, 英雄神通配置Item> 英雄神通配置Dic = new Dictionary<HeroType, 英雄神通配置Item>()
-        {
-            { HeroType.丹童, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 100} },
-            { HeroType.土地, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 120} },
-            { HeroType.河伯, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 120} },
-            { HeroType.瑶池仙女, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 20} },
-
-            { HeroType.石敢当, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 200} },
-            { HeroType.玄女, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 220} },
-            { HeroType.龟丞相,new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 250} },
-            { HeroType.太白金星, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 180} },
-
-            { HeroType.多闻天王, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 250} },
-            { HeroType.广目天王, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 250} },
-            { HeroType.雷震子, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 300} },
-            { HeroType.月老, new 英雄神通配置Item(){cd = 10,能量 = 15,damage = 300} },
-
-            { HeroType.嫦娥, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 350} },
-            { HeroType.杨戬, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 300} },
-            { HeroType.妲己, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 50} },
-            { HeroType.牛魔王, new 英雄神通配置Item(){cd = 12,能量 = 15,damage = 380} },
-
-            { HeroType.哪吒, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 500} },
-            { HeroType.孙悟空, new 英雄神通配置Item(){cd = 12,能量 = 18,damage = 600} },
-            { HeroType.碧霄, new 英雄神通配置Item(){cd = 12,能量 = 18,damage = 500} },
-            { HeroType.琼霄, new 英雄神通配置Item(){cd = 12,能量 = 18,damage = 350} },
-
-            { HeroType.羲和, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 700} },
-            { HeroType.常羲, new 英雄神通配置Item(){cd = 20,能量 = 25,damage = 750} },
-            { HeroType.后羿, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 600} },
-            { HeroType.云霄, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 700} },
-
-            { HeroType.女娲, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 100} },
-            { HeroType.老子, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 1000} },
-            { HeroType.通天, new 英雄神通配置Item(){cd = 15,能量 = 20,damage = 1200} },
-            { HeroType.元始, new 英雄神通配置Item(){cd = 20,能量 = 25,damage = 1100}},
-
-            { HeroType.盘古, new 英雄神通配置Item(){cd = 25,能量 = 30,damage = 1800} },
-            { HeroType.鸿钧, new 英雄神通配置Item(){cd = 20,能量 = 20,damage = 1800} },
-
-        };
+       
 
         public static Dictionary<HeroType, HeroSkill> HeroSkillDic = new Dictionary<HeroType, HeroSkill>()
         {
