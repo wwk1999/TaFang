@@ -11,12 +11,21 @@ using UnityEngine.UI;
 
 public class MainWindow : MonoBehaviour
 {
+    public GameObject 神通配置新手mask;
+
+    public Canvas 退出神通Canvas;
+    public Transform 退出神通小手trans;
+    public Transform 添加神通trans;
+    public Transform 添加神通小手trans;
+    public Canvas 添加神通Canvas;
+    public Transform 神通配置小手trans;
+    public Canvas 神通配置Canvas;
+    public GameObject 主线关卡新手mask;
     public 神通配置弹窗 神通配置弹窗;
     public Button 主线关卡exitbuttton;
     public Transform 挑战trans;
     public Transform 挑战小手trans;
     public Canvas 挑战Canvas;
-    
     public Transform 关卡trans;
     public Transform 关卡小手trans;
     public Canvas 花果山Canvas;
@@ -181,22 +190,53 @@ public class MainWindow : MonoBehaviour
 
     public void 显示主线关卡弹窗(object[] obj)
     {
-        if (PlayerData.S.是否首次进入关卡)
-        {
-            对话框Text.text = "在这里可以看到主线关卡的掉落和配置战斗丹药,接下来点击挑战按钮进入关卡吧。";
-            对话框.transform.localPosition=挑战trans.localPosition;
-            小手Animator.transform.localPosition=挑战小手trans.localPosition;
-            挑战Canvas.GetComponent<GraphicRaycaster>().enabled = true;
-            父canvas.GetComponent<GraphicRaycaster>().enabled = false;
-            花果山Canvas.overrideSorting = false;
-            花果山Canvas.GetComponent<GraphicRaycaster>().enabled = false;
-            挑战Canvas.overrideSorting = true;
-            主线关卡exitbuttton.gameObject.SetActive(false);
-            PlayerData.S.是否首次进入关卡 = false;
-        }
         主线关卡Type 主线关卡Type = (主线关卡Type)obj[0];
         主线关卡窗口.主线关卡Type = 主线关卡Type;
         主线关卡窗口.gameObject.SetActive(true);
+        if (PlayerData.S.是否首次进入关卡)
+        {
+            主线关卡新手mask.gameObject.SetActive(true);
+            引导mask.SetActive(false);
+            对话框Text.text = "在这里可以看到关卡信息并进行丹药和神通的配置,让我们先配置一下英雄神通吧";
+            对话框.transform.localPosition=挑战trans.localPosition;
+            小手Animator.transform.localPosition=神通配置小手trans.localPosition;
+            神通配置Canvas.GetComponent<GraphicRaycaster>().enabled = true;
+            父canvas.GetComponent<GraphicRaycaster>().enabled = false;
+            花果山Canvas.overrideSorting = false;
+            花果山Canvas.GetComponent<GraphicRaycaster>().enabled = false;
+            神通配置Canvas.overrideSorting = true;
+            PlayerData.S.是否首次进入关卡 = false;
+        }
+    }
+    public void 新手引导神通配置(object[] obj)
+    {
+        主线关卡新手mask.gameObject.SetActive(false);
+        对话框Text.text = "每个英雄释放神通都需要较长的冷却和神通能量,在这里可以配置神通的释放顺序,点击添加按钮配置英雄神通吧。";
+        对话框.transform.localPosition=添加神通trans.localPosition;
+        小手Animator.transform.localPosition=添加神通小手trans.localPosition;
+        添加神通Canvas.GetComponent<GraphicRaycaster>().enabled = true;
+        父canvas.GetComponent<GraphicRaycaster>().enabled = false;
+        添加神通Canvas.overrideSorting = true;
+        神通配置新手mask.gameObject.SetActive(true);
+    }
+
+    public void 退出神通配置(object[] obj)
+    {
+        对话框.transform.localPosition=挑战trans.localPosition;
+        主线关卡新手mask.gameObject.SetActive(true);
+        对话框Text.text = "点击挑战按钮开始战斗吧！";
+        小手Animator.transform.localPosition=挑战小手trans.localPosition;
+        神通配置Canvas.overrideSorting = false;
+        挑战Canvas.overrideSorting = true;
+    }
+    public void 新手引导添加神通(object[] obj)
+    {
+        对话框Text.text = "现在我们退出去进行第一场战斗吧!";
+        小手Animator.transform.localPosition=退出神通小手trans.localPosition;
+        退出神通Canvas.GetComponent<GraphicRaycaster>().enabled = true;
+        添加神通Canvas.overrideSorting = false;
+        退出神通Canvas.overrideSorting = true;
+        神通配置新手mask.gameObject.SetActive(true);
     }
     
     public void 显示凌霄宝殿弹窗(object[] obj)
@@ -208,8 +248,13 @@ public class MainWindow : MonoBehaviour
     {
         混沌虚空窗口.gameObject.SetActive(true);
     }
+
+   
     private void OnDestroy()
     {        
+        ObserverModuleManager.S.UnRegisterEvent("退出神通配置",退出神通配置);
+        ObserverModuleManager.S.UnRegisterEvent("新手引导添加神通",新手引导添加神通);
+        ObserverModuleManager.S.UnRegisterEvent("新手引导神通配置",新手引导神通配置);
         ObserverModuleManager.S.UnRegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
         ObserverModuleManager.S.UnRegisterEvent("关卡新手引导",关卡新手引导);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页Buff",刷新主页Buff);
@@ -262,6 +307,9 @@ public class MainWindow : MonoBehaviour
     }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("退出神通配置",退出神通配置);
+        ObserverModuleManager.S.RegisterEvent("新手引导添加神通",新手引导添加神通);
+        ObserverModuleManager.S.RegisterEvent("新手引导神通配置",新手引导神通配置);
         ObserverModuleManager.S.RegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
         ObserverModuleManager.S.RegisterEvent("关卡新手引导",关卡新手引导);
         ObserverModuleManager.S.RegisterEvent("刷新主页Buff",刷新主页Buff);

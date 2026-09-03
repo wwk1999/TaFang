@@ -64,6 +64,8 @@ public class StartWindow : MonoBehaviour
       StoreController.S.LoadStoreData();
       QueueController.S.Init主页秘境itemQueue();
       ResourcesConfig.Init();
+      ObserverModuleManager.S.SendEvent("设置BGM音量");
+      ObserverModuleManager.S.SendEvent("设置音效音量");
       ObserverModuleManager.S.SendEvent("播放BGM",true);
       StartBtn.onClick.AddListener(() =>
          {

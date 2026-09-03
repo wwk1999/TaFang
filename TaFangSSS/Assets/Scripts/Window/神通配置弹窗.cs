@@ -48,9 +48,17 @@ public class 神通配置弹窗 : MonoBehaviour
     }
     private void OnEnable()
     {
-        HeroWindowController.S.当前神通配置选择英雄 = HeroType.None;
+        foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队 - 1])
+        {
+            if (item != HeroType.None)
+            {
+                HeroWindowController.S.当前神通配置选择英雄 = item;
+                break;
+            }
+        }
         刷新英雄列表();
         刷新神通列表();
+        ObserverModuleManager.S.SendEvent("神通配置item点击",HeroWindowController.S.当前神通配置选择英雄);
     }
 
     private void Start()
@@ -64,6 +72,10 @@ public class 神通配置弹窗 : MonoBehaviour
             }
             PlayerData.S.神通配置List.Add(HeroWindowController.S.当前神通配置选择英雄);
             刷新神通列表();
+            if (PlayerData.S.是否首次配置神通)
+            {
+                ObserverModuleManager.S.SendEvent("新手引导添加神通");
+            }
         });
         删除Button.onClick.AddListener(() =>
         {
@@ -80,6 +92,11 @@ public class 神通配置弹窗 : MonoBehaviour
         ExitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+            if (PlayerData.S.是否首次配置神通)
+            {
+                ObserverModuleManager.S.SendEvent("退出神通配置");
+                PlayerData.S.是否首次配置神通 = false;
+            }
         });
     }
 }

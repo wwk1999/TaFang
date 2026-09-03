@@ -38,7 +38,7 @@ public class 神通配置英雄item : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("神通配置item点击",神通配置item点击);
     }
 
-    private void Start()
+    private void Awake()
     {
         ObserverModuleManager.S.RegisterEvent("神通配置item点击",神通配置item点击);
         bg.onClick.AddListener(() =>

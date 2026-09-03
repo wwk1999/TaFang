@@ -40,6 +40,10 @@ public class 主线关卡窗口 : MonoBehaviour
       神通配置Button.onClick.AddListener(() =>
       {
          ObserverModuleManager.S.SendEvent("显示神通配置弹窗");
+         if (PlayerData.S.是否首次配置神通)
+         {
+            ObserverModuleManager.S.SendEvent("新手引导神通配置");
+         }
       });
       ExitButton.onClick.AddListener(() =>
       {

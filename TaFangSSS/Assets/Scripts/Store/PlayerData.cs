@@ -21,6 +21,7 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 是否首次进入英雄界面 = true;
     public bool 是否首次进入关卡 = true;
     public bool 是否首次通关关卡 = true;
+    public bool 是否首次配置神通 = true;
 
     public float Exp;
     public int 当前出战编队 = 1;

@@ -242,7 +242,7 @@ public class 人物item : MonoBehaviour
           CurrentAttackTime+= Time.deltaTime;  
         }
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
-        if (!上场&&!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
+        if (PlayerData.S.神通配置List.Count>0&&!上场&&!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
             FightController.S.当前英雄之间神通间隔时间 > FightController.S.英雄之间神通间隔时间 && 当前神通冷却时间 > 神通冷却时间 &&
             FightController.S.当前神通能量 >= 神通能量&&攻击范围内怪物列表.Count>0)
         {

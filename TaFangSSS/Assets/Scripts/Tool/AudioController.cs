@@ -460,17 +460,23 @@ public void 停止元始音效(object[] obj)
       if (BgAudioSource.isPlaying && BgAudioSource.clip != UIClip)
       {
          Sequence mySequence = DOTween.Sequence();
-         mySequence.Append(DOTween.To(()=>BgAudioSource.volume, 
-            x => BgAudioSource.volume = x, 
+         mySequence.Append(DOTween.To(()=>BgAudioSource.volume,
+            x => BgAudioSource.volume = x,
             0, 1f));
          mySequence.AppendCallback(() =>
          {
             BgAudioSource.clip = UIClip;
             BgAudioSource.Play();
          });
-         mySequence.Append(DOTween.To(()=>BgAudioSource.volume, 
-            x => BgAudioSource.volume = x, 
+         mySequence.Append(DOTween.To(()=>BgAudioSource.volume,
+            x => BgAudioSource.volume = x,
             PlayerData.S.BGM音量, 1f));
+      }
+      else if (!BgAudioSource.isPlaying)
+      {
+         BgAudioSource.clip = UIClip;
+         BgAudioSource.volume = PlayerData.S.BGM音量;
+         BgAudioSource.Play();
       }
    }
    
