@@ -100,6 +100,18 @@ public class MonsterBase : MonoBehaviour
       }
       return value;
    }
+   private void Awake()
+   {
+      // 怪物预制体只有碰撞体、没有刚体，属于"静态碰撞体"；静态碰撞体每帧用 transform 移动，
+      // 物理世界就要反复把它从静态AABB树删除/重插，开销很大（隐藏的物理性能杀手）。
+      // 这里补一个 Kinematic 刚体：不受力、不被推、不参与物理解算，仅让碰撞体挂接到运动学体上、走廉价的移动路径。
+      // useFullKinematicContacts 必须开启：否则 Kinematic 与 Kinematic（子弹/特效/人物item）之间不产生接触，OnTriggerEnter2D 会失效。
+      Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
+      rb.bodyType = RigidbodyType2D.Kinematic;
+      rb.useFullKinematicContacts = true;
+      rb.gravityScale = 0;
+   }
+
    private void OnEnable()
    {
       if (MonsterTypeName == MonsterTypeName.None)

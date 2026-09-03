@@ -9,6 +9,32 @@ public class QueueController:XSingleton<QueueController>
 {
     [NonSerialized] public Queue<主页秘境item> 主页秘境itemQueue = new Queue<主页秘境item>();
 
+    // 所有伤害数字共享同一个 World Space Canvas：1500 个数字同层合批为 1 个 draw call，
+    // 避免每个数字自带 Canvas 导致的独立批次与逐 Canvas 重建开销
+    private Transform _伤害数字CanvasRoot;
+    public Transform 伤害数字CanvasRoot
+    {
+        get
+        {
+            if (_伤害数字CanvasRoot == null)
+            {
+                var go = new GameObject("伤害数字Canvas");
+                go.layer = 5; // UI 层
+                var canvas = go.AddComponent<Canvas>();
+                canvas.renderMode = RenderMode.WorldSpace;
+                canvas.sortingOrder = 1000;
+                var rt = (RectTransform)go.transform;
+                rt.SetParent(transform, false);
+                rt.localPosition = Vector3.zero;
+                rt.localRotation = Quaternion.identity;
+                rt.localScale = Vector3.one;
+                rt.sizeDelta = new Vector2(100f, 100f);
+                _伤害数字CanvasRoot = rt;
+            }
+            return _伤害数字CanvasRoot;
+        }
+    }
+
     
     [NonSerialized] public Queue<伤害数字> 伤害数字Queue = new Queue<伤害数字>();
     [NonSerialized] public Queue<Spine纯显示一次> 普通怪死亡Queue = new Queue<Spine纯显示一次>();
@@ -330,7 +356,7 @@ public class QueueController:XSingleton<QueueController>
             {
                 break;
             }
-            var 伤害数字 = Instantiate(Resources.Load("Prefabs/Fight/伤害数字"), transform).GetComponent<伤害数字>();
+            var 伤害数字 = Instantiate(Resources.Load("Prefabs/Fight/伤害数字"), 伤害数字CanvasRoot).GetComponent<伤害数字>();
             伤害数字.gameObject.SetActive(false);
             伤害数字Queue.Enqueue(伤害数字);
             count++;
