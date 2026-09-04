@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum 道纹Type
 {
@@ -382,51 +383,95 @@ public class 道纹config
 
     public static Dictionary<道纹Type, List<float>> 道纹数值Dic = new Dictionary<道纹Type, List<float>>()
     {
-        { 道纹Type.增加百分比攻击力, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.增加战士伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加法师伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加控制伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加射手伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加小怪伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加物理伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加黑暗伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加冰霜伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加雷电伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加火焰伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.增加精英怪和首领伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.城墙低血增加伤害, new List<float>() { 15, 20, 30, 50, 80 } },
-        { 道纹Type.击杀精英怪城墙回血, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.城墙血量百分比, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.城墙免疫伤害, new List<float>() { 3, 5, 8, 12, 20 } },
-        { 道纹Type.城墙满血时加伤害, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.英雄暴击率, new List<float>() { 3, 5, 8, 12, 20 } },
+        { 道纹Type.增加百分比攻击力, new List<float>() { 10, 15, 20, 30, 50 } },
+        { 道纹Type.增加战士伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加法师伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加控制伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加射手伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加小怪伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加物理伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加黑暗伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加冰霜伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加雷电伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加火焰伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.增加精英怪和首领伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.城墙低血增加伤害, new List<float>() { 20, 30, 50, 80,130 } },
+        { 道纹Type.击杀精英怪城墙回血, new List<float>() { 10, 15, 20, 30, 50 } },
+        { 道纹Type.城墙血量百分比, new List<float>() { 15, 20, 30, 50, 80  } },
+        { 道纹Type.城墙免疫伤害, new List<float>() { 5, 10, 15, 20, 30 } },
+        { 道纹Type.城墙满血时加伤害, new List<float>() { 15, 20, 30, 50, 80  } },
+        { 道纹Type.英雄暴击率, new List<float>() { 5, 10, 15, 20, 30  } },
         { 道纹Type.伤害在范围内浮动, new List<float>() { 30, 40, 50, 70, 100 } },
-        { 道纹Type.无视抗性, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.战士对靠近城墙敌人伤害增高, new List<float>() { 15, 20, 30, 50, 80 } },
-        { 道纹Type.射手对远距离敌人伤害增高, new List<float>() { 15, 20, 30, 50, 80 } },
-        { 道纹Type.控制冷却缩减, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.法师暴击率, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.辅助被辅助英雄伤害增幅, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.无视抗性, new List<float>() { 10, 15, 20, 30, 50 } },
+        { 道纹Type.战士对靠近城墙敌人伤害增高, new List<float>() { 20, 30, 50, 80,130 } },
+        { 道纹Type.射手对远距离敌人伤害增高, new List<float>() { 20, 30, 50, 80,130 } },
+        { 道纹Type.控制冷却缩减, new List<float>() { 10, 15, 20, 30, 50 } },
+        { 道纹Type.法师暴击率, new List<float>() { 10, 15, 20, 30, 50 } },
+        { 道纹Type.辅助被辅助英雄伤害增幅, new List<float>() { 20, 30, 50, 80,130 } },
         
         
         
         
-        { 道纹Type.三味真火无视抗性百分比, new List<float>() { 15, 20, 30, 50, 80 } },
-        { 道纹Type.孙悟空每秒增加伤害, new List<float>() { 0.3f, 0.45f, 0.6f, 0.8f, 1 } },
+        { 道纹Type.三味真火无视抗性百分比, new List<float>() { 20, 30, 50, 80, 150 } },
+        { 道纹Type.孙悟空每秒增加伤害, new List<float>() { 0.3f, 0.45f, 0.6f, 0.8f, 1.2f } },
         { 道纹Type.碧霄冰龙有概率再次释放, new List<float>() { 10, 15, 20, 30, 50 } },
         { 道纹Type.琼霄定身衰减效果减少, new List<float>() { 10, 15, 20, 30, 50 } },
-        { 道纹Type.云霄最终伤害, new List<float>() { 15, 20, 30, 50, 80 } },
-        { 道纹Type.后羿距离越远伤害越高, new List<float>() { 2, 4, 6, 8, 12 } },
-        { 道纹Type.羲和灼烧伤害, new List<float>() { 15, 20, 30, 50, 80 } },
+        { 道纹Type.云霄最终伤害, new List<float>() { 20, 30, 50, 80, 150 } },
+        { 道纹Type.后羿距离越远伤害越高, new List<float>() { 3, 5, 8, 12, 20 } },
+        { 道纹Type.羲和灼烧伤害, new List<float>() { 20, 30, 50, 80, 150 } },
         { 道纹Type.常曦有概率冻结敌人, new List<float>() { 5, 10, 15, 20, 30 } },
         { 道纹Type.女娲增加被辅助冷却缩减, new List<float>() { 5, 10, 15, 20, 30 } },
-        { 道纹Type.通天每次暴击增加伤害, new List<float>() { 0.3f, 0.45f, 0.6f, 0.8f, 1 } },
-        { 道纹Type.老子旋风体积越大伤害越高, new List<float>() { 0.5f, 0.7f, 1f, 1.4f, 2 } },
+        { 道纹Type.通天每次暴击增加伤害, new List<float>() { 0.3f, 0.45f, 0.6f, 0.8f, 1.2f } },
+        { 道纹Type.老子旋风体积越大伤害越高, new List<float>() { 1f, 1.5f, 2f, 3f, 5 } },
         { 道纹Type.元始每次释放有概率增加火种数量, new List<float>() { 10, 15, 20, 30, 50 } },
         { 道纹Type.鸿钧每释放陨石增加伤害, new List<float>() { 1, 1.5f, 2, 3, 5 } },
         { 道纹Type.盘古每击杀敌人增加伤害, new List<float>() { 5, 10, 15, 20, 30 } }
     };
 
+    public static 道纹 Get关卡道纹掉落(JingJieType jingJieType)
+    {
+        float count = 0;
+        float random=Random.Range(0,100);
+        道纹 道纹 = new 道纹();
+        var list=道纹掉落概率Dic[jingJieType];
+        for (int i = 0; i < list.Count; i++)
+        {
+            count += list[i];
+            if (random < count)
+            {
+                道纹.quality = (QualityType)(i+1);
+                道纹.道纹Type=(道纹Type)Random.Range(1,Enum.GetValues(typeof(道纹Type)).Length);
+                return 道纹;
+            }
+        }
+
+        return null;
+    }
+    
+    public static Dictionary<JingJieType, List<float>> 道纹掉落概率Dic = new Dictionary<JingJieType, List<float>>()
+    {
+        { JingJieType.练气 , new List<float>(){0,0,0,0,0,0,0,0}},
+        { JingJieType.筑基 , new List<float>(){0,0,0,0,0,0,0,0}},
+        { JingJieType.金丹 , new List<float>(){0,0,0,0,0,0,0,0}},
+        { JingJieType.元婴 , new List<float>(){0,0,0,0,0,0,0,0}},
+        { JingJieType.化神 , new List<float>(){0,0,0,0,0,0,0,0}},
+        { JingJieType.合体 , new List<float>(){0,0,0,10,0,0,0,0}},
+        { JingJieType.大乘 , new List<float>(){0,0,0,20,0,0,0,0}},
+        { JingJieType.天仙 , new List<float>(){0,0,0,40,0,0,0,0}},
+        { JingJieType.玄仙 , new List<float>(){0,0,0,50,10,0,0,0}},
+        { JingJieType.金仙 , new List<float>(){0,0,0,70,20,0,0,0}},
+        { JingJieType.太乙金仙 , new List<float>(){0,00,00,70,30,0,0,0}},
+        { JingJieType.大罗金仙 , new List<float>(){0,0,0,40,40,7,0,0}},
+        { JingJieType.准圣 , new List<float>(){0,0,0,30,50,15,0,0}},
+        { JingJieType.圣人 , new List<float>(){0,0,0,15,60,25,0,0}},
+        { JingJieType.天道圣人 , new List<float>(){0,0,0,0,62,35,3,0}},
+        { JingJieType.大道圣人 , new List<float>(){0,0,0,0,42,50,8,0}},
+        { JingJieType.混元圣人 , new List<float>(){0,0,0,0,20,65,15,0}},
+        { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,4,70,25,1}},
+    };
+    
+    
+    
     public static Dictionary<道纹Type, string> 道纹名Dic = new Dictionary<道纹Type, string>()
     {
         { 道纹Type.增加百分比攻击力, "锋锐" },

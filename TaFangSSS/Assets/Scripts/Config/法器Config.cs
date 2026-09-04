@@ -1656,7 +1656,7 @@ public class 法器Config
         QualityType 掉落品质 = QualityType.黄品;
         float count = 0;
         float 品质random=Random.Range(0,100);
-        foreach (var item in 掉落数量概率List)
+        foreach (var item in 法器掉落概率Dic[jingJieType])
         {
             count += item;
             if (品质random < count) break;
