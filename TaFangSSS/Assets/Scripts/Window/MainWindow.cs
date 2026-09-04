@@ -307,6 +307,8 @@ public class MainWindow : MonoBehaviour
     }
     private void Start()
     {
+        神通配置新手mask.gameObject.SetActive(false);
+
         ObserverModuleManager.S.RegisterEvent("退出神通配置",退出神通配置);
         ObserverModuleManager.S.RegisterEvent("新手引导添加神通",新手引导添加神通);
         ObserverModuleManager.S.RegisterEvent("新手引导神通配置",新手引导神通配置);

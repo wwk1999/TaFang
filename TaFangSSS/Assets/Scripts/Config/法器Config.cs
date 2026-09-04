@@ -427,6 +427,7 @@ public class 法器Config
         float 仙石效果 = 仙石Config.Get法器仙石效果(法器);
         foreach (var 仙石 in 法器.仙石list)
         {
+            if(仙石.type==仙石Type.None)continue;
             foreach (var item in 仙石.list)
             {
                 switch (item.法器附加属性Type)
