@@ -338,6 +338,17 @@ public class 法器属性
 }
 public class 法器Config
 {
+    public static Dictionary<QualityType, float> 法器基础属性Dic = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 10 },
+        { QualityType.地品, 20 },
+        { QualityType.玄品, 30 },
+        { QualityType.天品, 50 },
+        { QualityType.宇品, 80 },
+        { QualityType.宙品, 120 },
+        { QualityType.洪品, 180 },
+        { QualityType.荒品, 300 },
+    };
 
     public static 法器属性 Get英雄法器属性(HeroType heroType)
     {
@@ -353,6 +364,7 @@ public class 法器Config
     {
         法器属性 法器属性 = new 法器属性();
         if (法器 == null) return 法器属性;
+        法器属性.最终伤害 += 法器基础属性Dic[法器品质Dic[法器.法器Type]];
         foreach (var item in 法器.list)
         {
             if(item==null)continue;

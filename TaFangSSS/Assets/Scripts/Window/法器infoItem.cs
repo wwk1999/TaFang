@@ -15,8 +15,11 @@ public class 法器infoItem : MonoBehaviour
     public TextMeshProUGUI desc;
     public TextMeshProUGUI 职业;
     public GameObject tip;
+    public TextMeshProUGUI 基础属性count;
+
     public void SetItem()
     {
+        基础属性count.text = 法器Config.法器基础属性Dic[法器Config.法器品质Dic[法器Type]]+"%";
         tip.gameObject.SetActive(法器Config.法器职业Dic[法器Type]==ZhiYeType.辅助);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器Type]);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);

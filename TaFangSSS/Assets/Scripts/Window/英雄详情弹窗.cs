@@ -23,6 +23,7 @@ public class 英雄详情弹窗 : MonoBehaviour
     public Button 升级button;
     public Button 神通升级button;
     public Button 神通button;
+    public Button 神通属性button;
 
     public Image 法则bg;
     public Image 法则icon;
@@ -286,6 +287,8 @@ public class 英雄详情弹窗 : MonoBehaviour
         if (HeroType != HeroType.None)
         {
             显示类型 = 显示类型.属性;
+            神通属性button.gameObject.SetActive(false);
+            神通button.gameObject.SetActive(true);
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
@@ -319,6 +322,17 @@ public class 英雄详情弹窗 : MonoBehaviour
             Set升星信息();
             SetHeroInfo();
             Set升星材料();
+            神通属性button.gameObject.SetActive(true);
+            神通button.gameObject.SetActive(false);
+        });
+        神通属性button.onClick.AddListener(() =>
+        {
+            显示类型 = 显示类型.属性;
+            Set升星信息();
+            SetHeroInfo();
+            Set升星材料();
+            神通属性button.gameObject.SetActive(false);
+            神通button.gameObject.SetActive(true);
         });
         升级button.onClick.AddListener(() =>
         {
