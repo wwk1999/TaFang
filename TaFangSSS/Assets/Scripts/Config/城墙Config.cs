@@ -1017,28 +1017,28 @@ public class 城墙Config
     {
         if (PlayerData.S.城墙等级 < 10)
         {
-            return 200;
+            return 300;
         }else if (PlayerData.S.城墙等级 < 20)
         {
-            return 500;
+            return 1000;
         }else if (PlayerData.S.城墙等级 < 30)
         {
-            return 2000;
+            return 3000;
         }else if (PlayerData.S.城墙等级 < 40)
         {
-            return 5000;
+            return 12000;
         }else if (PlayerData.S.城墙等级 < 50)
         {
-            return 20000;
+            return 50000;
         }else if (PlayerData.S.城墙等级 < 60)
         {
-            return 50000;
+            return 200000;
         }else if (PlayerData.S.城墙等级 < 70)
         {
-            return 200000;
+            return 1000000;
         }else
         {
-            return 500000;
+            return 5000000;
         }
     }
 

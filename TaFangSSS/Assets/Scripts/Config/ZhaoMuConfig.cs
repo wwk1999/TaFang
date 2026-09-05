@@ -88,9 +88,8 @@ namespace Config
                     JingJieType.金丹,
                     new List<ZhaoMuItem>()
                     {
-                        new ZhaoMuItem() { type = QualityType.黄品, count = 50 },
-                        new ZhaoMuItem() { type = QualityType.玄品, count = 40 },
-                        new ZhaoMuItem() { type = QualityType.地品, count = 10 }
+                        new ZhaoMuItem() { type = QualityType.黄品, count = 40 },
+                        new ZhaoMuItem() { type = QualityType.玄品, count = 60 },
                     }
                 },
 
@@ -287,8 +286,7 @@ namespace Config
                     {
                         new ZhaoMuItem() { type = QualityType.黄品, count = 25 },
                         new ZhaoMuItem() { type = QualityType.玄品, count = 50 },
-                        new ZhaoMuItem() { type = QualityType.地品, count = 20 },
-                        new ZhaoMuItem() { type = QualityType.天品, count = 5 }
+                        new ZhaoMuItem() { type = QualityType.地品, count = 25 },
                     }
                 },
 
@@ -298,8 +296,7 @@ namespace Config
                     {
                         new ZhaoMuItem() { type = QualityType.黄品, count = 20 },
                         new ZhaoMuItem() { type = QualityType.玄品, count = 45 },
-                        new ZhaoMuItem() { type = QualityType.地品, count = 25 },
-                        new ZhaoMuItem() { type = QualityType.天品, count = 10 }
+                        new ZhaoMuItem() { type = QualityType.地品, count = 40 },
                     }
                 },
 

@@ -120,17 +120,17 @@ public class 灵物突破Config
         {
             new 洞天怪物Item() { JingJieType = JingJieType.元婴, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 8000, Attack = 400, Defense = 150, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.元婴, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 80000, Attack = 800, Defense = 300, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.元婴, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 800000, Attack = 2000, Defense = 500, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
@@ -533,7 +533,7 @@ public class 灵物突破Config
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.黄品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.灵魂 },
                 new LevelDiaoLuo() { minCount = 200, maxCount = 300, PropType = PropType.功德 },
             }
         },
@@ -541,56 +541,56 @@ public class 灵物突破Config
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.玄品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 500, maxCount = 700, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 300, maxCount = 400, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.地品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 700, maxCount = 1000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 400, maxCount = 600, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.天品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 1000, maxCount = 1500, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 600, maxCount = 1000, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.宇品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 1500, maxCount = 3000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 1000, maxCount = 1500, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.宙品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 20000, maxCount = 50000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 1500, maxCount = 2000, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.洪品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 50000, maxCount = 100000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 2000, maxCount = 3000, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.荒品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 100000, maxCount = 200000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 20000, maxCount = 50000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.功德 },
             }
         },
 
@@ -599,64 +599,64 @@ public class 灵物突破Config
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.黄品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 500, maxCount = 800, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.玄品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 800, maxCount = 1200, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 500, maxCount = 800, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.地品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 1200, maxCount = 2000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 800, maxCount = 1200, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.天品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 20000, maxCount = 50000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 2000, maxCount = 3000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 1200, maxCount = 1600, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.宇品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 50000, maxCount = 100000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 1600, maxCount = 2000, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.宙品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 100000, maxCount = 200000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 20000, maxCount = 50000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 2000, maxCount = 3000, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.洪品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 200000, maxCount = 500000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 50000, maxCount = 100000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.功德 },
             }
         },
         {
             new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.荒品 },
             new List<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { minCount = 500000, maxCount = 1000000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 100000, maxCount = 200000, PropType = PropType.功德 },
+                new LevelDiaoLuo() { minCount = 20000, maxCount = 30000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { minCount = 5000, maxCount = 8000, PropType = PropType.功德 },
             }
         },
 
