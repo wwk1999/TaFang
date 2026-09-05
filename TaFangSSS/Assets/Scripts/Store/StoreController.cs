@@ -24,7 +24,12 @@ public class StoreController : XSingleton<StoreController>
         {
             StoreData = data ?? StoreData ?? new StoreDefine.StoreData();
             StoreData.Player.CopyFromRuntime(PlayerData.S);
-            var json = JsonConvert.SerializeObject(StoreData, Newtonsoft.Json.Formatting.None);
+            var settings = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                Formatting = Newtonsoft.Json.Formatting.None
+            };
+            var json = JsonConvert.SerializeObject(StoreData, settings);
 
             File.WriteAllText(SavePath, json);
 
@@ -51,7 +56,11 @@ public class StoreController : XSingleton<StoreController>
     {
         var path = SavePath;
         var json = File.ReadAllText(path);
-        StoreData = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json);
+        var settings = new JsonSerializerSettings
+        {
+            PreserveReferencesHandling = PreserveReferencesHandling.Objects
+        };
+        StoreData = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json, settings);
         return StoreData;
     }
 
@@ -440,7 +449,11 @@ public class StoreController : XSingleton<StoreController>
         try
         {
             var json = File.ReadAllText(path);
-            StoreData = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json);
+            var loadSettings = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            };
+            StoreData = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json, loadSettings);
             StoreData.Player.ApplyToRuntime(PlayerData.S);
         }
         catch (Exception e)

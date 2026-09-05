@@ -22,7 +22,7 @@ public class 英雄法器itemImage : MonoBehaviour,IPointerClickHandler,IPointer
     // 鼠标是否在当前Image内
     private bool isHovering = false;
     public 英雄法器item 英雄法器item;
-    
+
      private void Start()
     {
         targetCanvas = GetComponentInParent<Canvas>();
@@ -53,25 +53,34 @@ public class 英雄法器itemImage : MonoBehaviour,IPointerClickHandler,IPointer
             {
                 return;
             }
+            var heroType = 英雄法器item.HeroType;
             switch (英雄法器item.法器类型)
             {
                 case 法器类型.头盔:
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].头盔.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].头盔 = null;
+                    PlayerData.S.HeroDataDic[heroType].头盔.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[heroType].头盔 = null;
                     break;
                 case 法器类型.武器:
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器 = null;                   
+                    PlayerData.S.HeroDataDic[heroType].武器.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[heroType].武器 = null;
                     break;
                 case 法器类型.鞋子:
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子 = null;                     
+                    PlayerData.S.HeroDataDic[heroType].鞋子.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[heroType].鞋子 = null;
                     break;
                 case 法器类型.衣服:
-                    //PlayerData.S.法器列表[]
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服 = null;                     
+                    PlayerData.S.HeroDataDic[heroType].衣服.HeroType = HeroType.None;
+                    PlayerData.S.HeroDataDic[heroType].衣服 = null;
                     break;
+            }
+            // JSON反序列化后法器列表与英雄槽位可能不是同一引用，需同步法器列表中的HeroType
+            foreach (var f in PlayerData.S.法器列表)
+            {
+                if (f.法器Type == item.法器Type && f.HeroType == heroType)
+                {
+                    f.HeroType = HeroType.None;
+                    break;
+                }
             }
             ObserverModuleManager.S.SendEvent("法器装备刷新");
         }

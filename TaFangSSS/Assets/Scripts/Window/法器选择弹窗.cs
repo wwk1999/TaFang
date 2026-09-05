@@ -67,22 +67,38 @@ public class 法器选择弹窗 : MonoBehaviour
                 {
                     case 法器类型.头盔:
                         if(PlayerData.S.HeroDataDic[HeroType].头盔!=null)
-                            PlayerData.S.HeroDataDic[HeroType].头盔.HeroType = HeroType.None;
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[HeroType].头盔;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, HeroType);
+                        }
                         PlayerData.S.HeroDataDic[HeroType].头盔 = 当前选择法器;
                         break;
                     case 法器类型.衣服:
                         if(PlayerData.S.HeroDataDic[HeroType].衣服!=null)
-                            PlayerData.S.HeroDataDic[HeroType].衣服.HeroType = HeroType.None;
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[HeroType].衣服;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, HeroType);
+                        }
                         PlayerData.S.HeroDataDic[HeroType].衣服 = 当前选择法器;
                         break;
                     case 法器类型.鞋子:
                         if(PlayerData.S.HeroDataDic[HeroType].鞋子!=null)
-                            PlayerData.S.HeroDataDic[HeroType].鞋子.HeroType = HeroType.None;
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[HeroType].鞋子;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, HeroType);
+                        }
                         PlayerData.S.HeroDataDic[HeroType].鞋子 = 当前选择法器;
                         break;
                     case 法器类型.武器:
                         if(PlayerData.S.HeroDataDic[HeroType].武器!=null)
-                            PlayerData.S.HeroDataDic[HeroType].武器.HeroType = HeroType.None;
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[HeroType].武器;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, HeroType);
+                        }
                         PlayerData.S.HeroDataDic[HeroType].武器 = 当前选择法器;
                         break;
                 }
@@ -91,5 +107,20 @@ public class 法器选择弹窗 : MonoBehaviour
                 gameObject.SetActive(false);
             }
         );
+    }
+
+    /// <summary>
+    /// JSON反序列化后法器列表与英雄槽位可能不是同一引用，需同步法器列表中的HeroType
+    /// </summary>
+    private void Sync法器列表(法器 旧法器, HeroType heroType)
+    {
+        foreach (var f in PlayerData.S.法器列表)
+        {
+            if (f.法器Type == 旧法器.法器Type && f.HeroType == heroType)
+            {
+                f.HeroType = HeroType.None;
+                break;
+            }
+        }
     }
 }
