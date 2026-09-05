@@ -341,8 +341,8 @@ public class 法器Config
     public static Dictionary<QualityType, float> 法器基础属性Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 10 },
-        { QualityType.地品, 20 },
-        { QualityType.玄品, 30 },
+        { QualityType.玄品, 20 },
+        { QualityType.地品, 30 },
         { QualityType.天品, 50 },
         { QualityType.宇品, 80 },
         { QualityType.宙品, 120 },

@@ -365,6 +365,9 @@ public class 人物item : MonoBehaviour
                 case HeroType.龟丞相:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time,女娲神通time);
                     break;
+                case HeroType.广目天王:
+                    FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time,女娲神通time);
+                    break;
                 case HeroType.孙悟空:
                     FightController.S.人物神通(heroType,transform.position,dir,transform.position,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time,女娲神通time);
                     break;

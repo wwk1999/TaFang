@@ -1384,6 +1384,13 @@ namespace Config
                 }
             },
             {
+                HeroType.广目天王, new HeroSkill()
+                {
+                    攻击特效List = new List<攻击特效Type>() { 攻击特效Type.广木天王神通 },
+                    PengList = new List<PengType>() { PengType.黑暗花魔法弹Peng }
+                }
+            },
+            {
                 HeroType.雷震子, new HeroSkill()
                 {
                     攻击特效List = new List<攻击特效Type>() { 攻击特效Type.落雷 ,攻击特效Type.雷震子神通},
