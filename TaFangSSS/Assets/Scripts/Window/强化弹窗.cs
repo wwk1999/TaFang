@@ -84,11 +84,13 @@ public class 强化弹窗 : MonoBehaviour
          return;
       }
 
+      int index = 0;
       PlayerData.S.PropListDic[PropType.灵魂] -= lingqi;
       PlayerData.S.PropListDic[PropType.洗练石] -= cailiao;
+      QualityType equipQualityType=EquipConfig.GetEquipQuality(equipType);
       foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
       {
-         if (!item1.IsSuo)
+         if (!item1.IsSuo&&equipQualityType>=(QualityType)(index+2))
          {
             词条Item citiao = EquipConfig.Get词条(EquipConfig.GetEquipQuality(equipType));
             {
@@ -96,6 +98,7 @@ public class 强化弹窗 : MonoBehaviour
                item1.附加属性Type = citiao.附加属性Type;
                item1.count = citiao.count;
             }
+            index++;
          }
       }
       ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
