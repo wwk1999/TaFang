@@ -35,7 +35,7 @@ public class 仙石重铸panel : MonoBehaviour
 
         页数.text = 页数num.ToString();
         GameObject prefab = Resources.Load("Prefabs/Window/炼器/仙石重铸Item") as GameObject;
-        for (int i = 48 * (页数num - 1); i < Math.Min(页数num * 48, PlayerData.S.法器列表.Count); i++)
+        for (int i = 48 * (页数num - 1); i < Math.Min(页数num * 48, PlayerData.S.仙石列表.Count); i++)
         {
             var 仙石item = Instantiate(prefab, Content.transform)
                 .GetComponent<仙石重铸Item>();

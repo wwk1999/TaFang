@@ -56,10 +56,19 @@ public class 强化弹窗 : MonoBehaviour
          ObserverModuleManager.S.SendEvent("SendUIToast","玄品之上才可以洗练");
          return;
       }
+
+      int 锁count = 0;
+      foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
+      {
+         if (item1.IsSuo )
+         {
+            锁count++;
+         }
+      }
       int level=PlayerData.S.EquipLevelDic[equipType];
       var item = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(level)];
-      int cailiao = item.材料数量;
-      int lingqi = item.灵气数量;
+      int cailiao = item.材料数量*(锁count+1);
+      int lingqi = item.灵气数量*(锁count+1);
       if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
       {
          ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
@@ -85,6 +94,7 @@ public class 强化弹窗 : MonoBehaviour
             {
                item1.QualityType = citiao.QualityType;
                item1.附加属性Type = citiao.附加属性Type;
+               item1.count = citiao.count;
             }
          }
       }
@@ -264,8 +274,21 @@ public class 强化弹窗 : MonoBehaviour
       Set属性Panel();
       Set材料();
    }
+
+   public void 刷新材料(object[] obj)
+   {
+      Set材料();
+   }
+
+   private void OnDestroy()
+   {
+      ObserverModuleManager.S.UnRegisterEvent("刷新材料",刷新材料);
+      ObserverModuleManager.S.UnRegisterEvent("强化装备Item点击",强化装备Item点击);
+   }
+
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新材料",刷新材料);
       ObserverModuleManager.S.RegisterEvent("强化装备Item点击",强化装备Item点击);
       ObserverModuleManager.S.SendEvent("强化弹窗装备点击",equipType);
       概率Button.onClick.AddListener(() =>
@@ -302,6 +325,7 @@ public class 强化弹窗 : MonoBehaviour
       材料洗练Button.onClick.AddListener(() =>
       {
          洗练();
+         Set材料();
       });
    }
 
@@ -362,6 +386,14 @@ public class 强化弹窗 : MonoBehaviour
       }
       else
       {
+         int 锁count = 0;
+         foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
+         {
+            if (item1.IsSuo )
+            {
+               锁count++;
+            }
+         }
          概率Button.gameObject.SetActive(true);
          材料Name.text = PropConfig.PropNameDic[PropType.洗练石];
          材料强化Button.gameObject.SetActive(false);
@@ -369,8 +401,9 @@ public class 强化弹窗 : MonoBehaviour
          材料bg.sprite = ResourcesConfig.道具背景框橙;
          材料image.sprite = ResourcesConfig.洗练石;
          当前数量.text = PlayerData.S.PropListDic[PropType.洗练石].ToString();
-         强化需要数量.text = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].材料数量.ToString();
-         需要灵魂Count.text=EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量.ToString();
+         
+         强化需要数量.text = (EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].材料数量*(锁count+1)).ToString();
+         需要灵魂Count.text=(EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量*(锁count+1)).ToString();
       }
    }
 

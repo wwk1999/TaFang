@@ -18,8 +18,8 @@ public class Entrance : MonoBehaviour
 
    public void Set血条()
    {
-       当前血量.text=FightController.S.城墙当前生命值.ToString(); 
-       最大血量.text= 城墙Config.Get城墙最大生命值().ToString();
+       当前血量.text=PlayerData.S.格式化数字(FightController.S.城墙当前生命值); 
+       最大血量.text= PlayerData.S.格式化数字(城墙Config.Get城墙最大生命值());
        血条Slider.maxValue = 城墙Config.Get城墙最大生命值();
        血条Slider.value = FightController.S.城墙当前生命值;
        护盾.offsetMin = new Vector2(FightController.S.Get护盾Left(),护盾.offsetMin.y);

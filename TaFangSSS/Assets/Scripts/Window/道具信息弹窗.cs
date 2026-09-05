@@ -51,7 +51,6 @@ public class 道具信息弹窗 : MonoBehaviour
          case 道具信息Type.辅助经验值:
          case 道具信息Type.鞋子锻造石:
          case 道具信息Type.项链锻造石:
-         case 道具信息Type.高级招募卷:
             HashSet<LevelDiaoLuo> list=LevelConfig.LevelDiaoLuoDic[主线关卡Type];
             if (主线关卡Type == 主线关卡Type.混沌虚空)
             {
@@ -70,7 +69,9 @@ public class 道具信息弹窗 : MonoBehaviour
             }
 
             break;
-
+         case 道具信息Type.高级招募卷:
+            数量.text = "掉落数量:0-1";
+            break;
          case 道具信息Type.道宝紫:
          case 道具信息Type.道宝橙:
          case 道具信息Type.道宝粉:

@@ -2523,86 +2523,86 @@ public class StoreDefine : XSingleton<StoreController>
         };
 
         public Dictionary<EquipType, List<附加属性>> 装备附加属性Dic = new Dictionary<EquipType, List<附加属性>>()
+    {
         {
+            EquipType.头盔,
+            new List<附加属性>()
             {
-                EquipType.头盔,
-                new List<附加属性>()
-                {
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                }
-            },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+            }
+        },
+        {
+            EquipType.护手,
+            new List<附加属性>()
             {
-                EquipType.护手,
-                new List<附加属性>()
-                {
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                }
-            },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+            }
+        },
+        {
+            EquipType.衣服,
+            new List<附加属性>()
             {
-                EquipType.衣服,
-                new List<附加属性>()
-                {
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                }
-            },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+            }
+        },
+        {
+            EquipType.鞋子,
+            new List<附加属性>()
             {
-                EquipType.鞋子,
-                new List<附加属性>()
-                {
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                }
-            },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+            }
+        },
+        {
+            EquipType.项链,
+            new List<附加属性>()
             {
-                EquipType.项链,
-                new List<附加属性>()
-                {
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                }
-            },
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+            }
+        },
+        {
+            EquipType.戒指,
+            new List<附加属性>()
             {
-                EquipType.戒指,
-                new List<附加属性>()
-                {
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                    new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None, IsSuo = false },
-                }
-            },
-        };
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+                new 附加属性() { 附加属性Type = 附加属性Type.None, QualityType = QualityType.None ,count = 0,IsSuo = false},
+            }
+        },
+    };
 
         public Dictionary<EquipType, int> EquipLevelDic = new Dictionary<EquipType, int>()
         {

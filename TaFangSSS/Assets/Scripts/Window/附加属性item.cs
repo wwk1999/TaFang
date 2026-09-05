@@ -25,6 +25,7 @@ public class 附加属性item : MonoBehaviour
          bool issuo = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].IsSuo;
          PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].IsSuo=!issuo;
          SetItem();
+         ObserverModuleManager.S.SendEvent("刷新材料");
       });
    }
 
@@ -42,7 +43,7 @@ public class 附加属性item : MonoBehaviour
          QualityType QualityType= PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].QualityType;
          bg.sprite = ResourcesConfig.Get标签背景(QualityType);
          labeltext.text=PropConfig.QualityNameDic[QualityType];
-         info.text = EquipConfig.附加属性NameDic[附加属性Type] + "+" + EquipConfig.附加属性数值Dic[附加属性Type][(int)(QualityType-2)].Count+"%";
+         info.text = EquipConfig.附加属性NameDic[附加属性Type] + "+" + PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].count.ToString("F1")+"%";
          if (IsQiangHua)
          {
             Suo.gameObject.SetActive(false);

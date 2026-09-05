@@ -13,7 +13,7 @@ public class 镶嵌仙石item : MonoBehaviour,IPointerExitHandler,IPointerEnterH
    public Image icon;
    public TextMeshProUGUI name;
    private Vector3 MousePos;
-   private float 按压需要时间 = 0.1f;
+   private float 按压需要时间 = 0.05f;
    private float 按压当前时间 = 0;
    private bool Is进入=false;
    private bool IsSend=false;

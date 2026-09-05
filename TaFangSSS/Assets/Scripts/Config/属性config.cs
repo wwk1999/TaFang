@@ -568,10 +568,10 @@ public class 属性config
      }
      public static float 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
-     public static float 显示修炼速度 => (1f+PlayerData.S.关卡修炼速度加成/100f) * (1f+道宝Config.Get道宝总修炼速度()/100f)-1;
+     public static float 显示修炼速度 => ((1f+PlayerData.S.关卡修炼速度加成/100f) * (1f+道宝Config.Get道宝总修炼速度()/100f)-1)*100f;
      public static float 丹药修炼速度 => Get丹药修炼速度();
 
-     public static float 总修炼速度加成 => (1 + 显示修炼速度) * (1f + 丹药修炼速度 / 100f)*体质Config.体质修炼速度Dic[体质Config.体质品质Dic[PlayerData.S.当前体质]];
+     public static float 总修炼速度加成 => (1 + 显示修炼速度/100f) * (1f + 丹药修炼速度 / 100f)*体质Config.体质修炼速度Dic[体质Config.体质品质Dic[PlayerData.S.当前体质]];
      public static float 每年秒数 => Get每秒数();
 
      public static float 丹药掉宝率 => Get丹药掉宝率();

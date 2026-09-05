@@ -1705,11 +1705,11 @@ public class 法器Config
         {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.黄品},new minmax(){min = 3,max = 5}},
         
         
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
         
         {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.地品},new minmax(){min = 10,max = 20}},
         {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.地品},new minmax(){min = 10,max = 20}},
@@ -1757,11 +1757,11 @@ public class 法器Config
         {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.黄品},new minmax(){min = 3,max = 5}},
         
         
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.玄品},new minmax(){min = 10,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
+        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
         
         {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.地品},new minmax(){min = 10,max = 20}},
         {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.地品},new minmax(){min = 10,max = 20}},
