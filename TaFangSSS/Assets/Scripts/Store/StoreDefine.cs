@@ -28,7 +28,7 @@ public class StoreDefine : XSingleton<StoreController>
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
         public int 道龄年;
-        public float 初始跟脚 = 1;
+        public float 初始跟脚 = 30000;
         public 体质Type 当前体质 = 体质Type.凡体;
         public int 轮回次数 = 0;
         public bool 是否首次进入主页面 = true;

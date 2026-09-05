@@ -46,6 +46,7 @@ public class 突破确认弹窗 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("突破成功");
             ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
             ObserverModuleManager.S.SendEvent("Hide突破弹窗");
+            gameObject.SetActive(false);
         });
     }
 }

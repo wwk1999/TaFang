@@ -29,7 +29,11 @@ public class 轮回确认弹窗 : MonoBehaviour
             gameObject.SetActive(false);
         });
         确认Button.onClick.AddListener(() =>
-        {            
+        {
+            for (int i = 1; i < Enum.GetValues(typeof(JingJieType)).Length-1; i++)
+            {
+                PlayerData.S.当前轮回突破Dic[(JingJieType)i] = QualityType.None;
+            }
             PlayerData.S.初始跟脚 += JingJieConfig.跟脚 * JingJieConfig.轮回系数 / 100f;
             PlayerData.S.当前轮回境界 = JingJieType.练气;
             PlayerData.S.Exp = 0;

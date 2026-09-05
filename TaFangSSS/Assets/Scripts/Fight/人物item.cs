@@ -507,6 +507,7 @@ public class 人物item : MonoBehaviour
         // 所有攻击结束后归位
         yield return transform.DOMove(原始Pos, 0.2f).WaitForCompletion();
         上场 = false;
+        是否在神通=false;
     }
 
     IEnumerator 盘古拳(float waitTime, int count)
@@ -751,6 +752,7 @@ public class 人物item : MonoBehaviour
         mySequence.AppendCallback(() =>
         {
             上场 = false;
+            是否在神通 = false;
         });
     }
 

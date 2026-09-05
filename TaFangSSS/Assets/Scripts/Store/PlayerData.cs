@@ -15,7 +15,7 @@ public class PlayerData : XSingleton<PlayerData>
     public JingJieType 历史最高境界 = JingJieType.练气;
     public JingJieType 当前轮回境界 = JingJieType.练气;
     public int 轮回次数 = 0;
-    public float 初始跟脚 = 1;
+    public float 初始跟脚 = 30000;
     public bool 是否首次进入游戏 = true;
     public bool 是否首次进入主页面 = true;
     public bool 是否首次进入英雄界面 = true;

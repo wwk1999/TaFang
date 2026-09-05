@@ -224,6 +224,7 @@ public class MainWindow : MonoBehaviour
     {
         对话框.transform.localPosition=挑战trans.localPosition;
         主线关卡新手mask.gameObject.SetActive(true);
+        神通配置新手mask.gameObject.SetActive(false);
         对话框Text.text = "点击挑战按钮开始战斗吧！";
         小手Animator.transform.localPosition=挑战小手trans.localPosition;
         神通配置Canvas.overrideSorting = false;
@@ -303,6 +304,8 @@ public class MainWindow : MonoBehaviour
 
     public void 显示神通配置弹窗(object[] obj)
     {
+        //打开弹窗时按引导标志同步mask状态，避免上次引导残留的activeSelf=true导致非引导时mask跟着显示
+        神通配置新手mask.gameObject.SetActive(PlayerData.S.是否首次配置神通);
         神通配置弹窗.gameObject.SetActive(true);
     }
     private void Start()

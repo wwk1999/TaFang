@@ -432,6 +432,10 @@ public class 体质Config
         {
             list = new List<float>(){0,0,0,20,80};
         }
+        else
+        {
+            list = new List<float>(){0,0,0,0,100};
+        }
 
         var random = Random.Range(0, 100f);
         float count = 0;
