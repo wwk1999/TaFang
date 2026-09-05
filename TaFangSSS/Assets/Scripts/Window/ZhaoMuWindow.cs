@@ -144,7 +144,6 @@ public class ZhaoMuWindow : MonoBehaviour
             ObserverModuleManager.S.SendEvent("SendUIToast","招募卷数量不足");
             return;
          }
-         PlayerData.S.PropListDic[PropType.招募卷]--;
          招募成功弹窗.IsGaoJi = false;
          if (!PlayerData.S.是否招募十次)
          {
@@ -153,6 +152,7 @@ public class ZhaoMuWindow : MonoBehaviour
             招募成功弹窗.Item1Type = propType;
             招募成功弹窗.gameObject.SetActive(true);
             PlayerData.S.招募积分++;
+            PlayerData.S.PropListDic[PropType.招募卷]--;
          }
          else
          {

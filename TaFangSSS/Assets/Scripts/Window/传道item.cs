@@ -31,9 +31,11 @@ public class 传道item : MonoBehaviour
                     return;
                 }
                 功法Type type=功法Config.传道(qualityType);
-                ObserverModuleManager.S.SendEvent("SendUIToast",功法Config.功法名Dic[type],功法Config.功法TypeQualityDic[type],1);
+                ZhiYeType zhiye=功法Config.功法职业Dic[type];
+                ObserverModuleManager.S.SendEvent("SendUIToast",HeroConfig.Get职业Name(zhiye)+"·"+功法Config.功法名Dic[type],功法Config.功法TypeQualityDic[type],1);
                 PlayerData.S.功法数量Dic[type]++;
                 PlayerData.S.剩余传道次数--;
+                PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType];
                 ObserverModuleManager.S.SendEvent("刷新主页面");
                 ObserverModuleManager.S.SendEvent("刷新传道界面");
             }

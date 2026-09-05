@@ -124,19 +124,19 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 200;
+                            heroExp.Exp = 300;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 300;
+                            heroExp.Exp = 600;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 400;
+                            heroExp.Exp = 1000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 500;
+                            heroExp.Exp = 1500;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -150,23 +150,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 200;
+                            heroExp.Exp = 300;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 400;
+                            heroExp.Exp = 900;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 600;
+                            heroExp.Exp = 1800;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 800;
+                            heroExp.Exp = 3000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 1000;
+                            heroExp.Exp = 5000;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -180,23 +180,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 300;
+                            heroExp.Exp = 1000;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 600;
+                            heroExp.Exp = 3000;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 900;
+                            heroExp.Exp = 6000;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 1200;
+                            heroExp.Exp = 10000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 1500;
+                            heroExp.Exp = 15000;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -210,23 +210,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 500;
+                            heroExp.Exp = 2000;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 1000;
+                            heroExp.Exp = 6000;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 1500;
+                            heroExp.Exp = 15000;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 2000;
+                            heroExp.Exp = 30000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 2500;
+                            heroExp.Exp = 100000;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -240,23 +240,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 800;
+                            heroExp.Exp = 5000;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 1600;
+                            heroExp.Exp = 15000;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 2400;
+                            heroExp.Exp = 40000;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 3200;
+                            heroExp.Exp = 100000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 4000;
+                            heroExp.Exp = 300000;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -270,23 +270,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 1200;
+                            heroExp.Exp = 10000;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 2400;
+                            heroExp.Exp = 30000;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 3600;
+                            heroExp.Exp = 100000;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 4800;
+                            heroExp.Exp = 300000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 6000;
+                            heroExp.Exp = 1000000;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -300,23 +300,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 1800;
+                            heroExp.Exp = 30000;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 3600;
+                            heroExp.Exp = 100000;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 5400;
+                            heroExp.Exp = 300000;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 7200;
+                            heroExp.Exp = 1000000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 9000;
+                            heroExp.Exp = 5000000;
                             heroExp.元神 = 5;
                             break;
                     }
@@ -330,23 +330,23 @@ namespace Config
                             heroExp.元神 = 1;
                             break;
                         case 0:
-                            heroExp.Exp = 3000;
+                            heroExp.Exp = 100000;
                             heroExp.元神 = 1;
                             break;
                         case 1:
-                            heroExp.Exp = 6000;
+                            heroExp.Exp = 500000;
                             heroExp.元神 = 2;
                             break;
                         case 2:
-                            heroExp.Exp = 9000;
+                            heroExp.Exp = 2000000;
                             heroExp.元神 = 3;
                             break;
                         case 3:
-                            heroExp.Exp = 12000;
+                            heroExp.Exp = 10000000;
                             heroExp.元神 = 4;
                             break;
                         case 4:
-                            heroExp.Exp = 15000;
+                            heroExp.Exp = 50000000;
                             heroExp.元神 = 5;
                             break;
                     }

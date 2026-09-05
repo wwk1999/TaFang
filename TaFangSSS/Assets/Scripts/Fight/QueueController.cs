@@ -22,7 +22,7 @@ public class QueueController:XSingleton<QueueController>
                 go.layer = 5; // UI 层
                 var canvas = go.AddComponent<Canvas>();
                 canvas.renderMode = RenderMode.WorldSpace;
-                canvas.sortingOrder = 1000;
+                canvas.sortingOrder = 10000;
                 var rt = (RectTransform)go.transform;
                 rt.SetParent(transform, false);
                 rt.localPosition = Vector3.zero;

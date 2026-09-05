@@ -18,7 +18,7 @@ public class 英雄伤害item
 public class FightController : XSingleton<FightController>
 {
     [NonSerialized] public int 当前神通index = 0;
-    [NonSerialized] public float 英雄之间神通间隔时间 = 1;
+    [NonSerialized] public float 英雄之间神通间隔时间 = 2;
     [NonSerialized] public float 当前英雄之间神通间隔时间 = 1;
     [NonSerialized] public float 当前神通能量 = 属性config.总属性.神通最大值;
     [NonSerialized] public Dictionary<HeroType, 英雄根基丹药属性> 英雄根基丹药属性Dic = new Dictionary<HeroType, 英雄根基丹药属性>();

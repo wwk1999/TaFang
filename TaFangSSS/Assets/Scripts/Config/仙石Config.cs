@@ -44,7 +44,7 @@ public class 仙石Config
     //掉落0-4件
     public static List<float> 仙石掉落数量概率List = new List<float>()
     {
-        10, 40, 30, 15, 5
+        30, 50, 15, 4, 1
     };
     public static Dictionary<QualityType, int> 仙石重铸消耗Dic = new Dictionary<QualityType, int>()
     {

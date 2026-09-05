@@ -61,13 +61,17 @@ public class 英雄法器itemImage : MonoBehaviour,IPointerClickHandler,IPointer
                     break;
                 case 法器类型.武器:
                     PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器 = null;                    break;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].武器 = null;                   
+                    break;
                 case 法器类型.鞋子:
                     PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子 = null;                      break;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].鞋子 = null;                     
+                    break;
                 case 法器类型.衣服:
+                    //PlayerData.S.法器列表[]
                     PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服.HeroType = HeroType.None;
-                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服 = null;                      break;
+                    PlayerData.S.HeroDataDic[英雄法器item.HeroType].衣服 = null;                     
+                    break;
             }
             ObserverModuleManager.S.SendEvent("法器装备刷新");
         }

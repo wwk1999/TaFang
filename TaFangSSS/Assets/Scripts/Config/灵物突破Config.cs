@@ -103,17 +103,17 @@ public class 灵物突破Config
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金丹, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 800, Attack = 80, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金丹, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 8000, Attack = 160, Defense = 80, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金丹, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 80000, Attack = 400, Defense = 150, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 

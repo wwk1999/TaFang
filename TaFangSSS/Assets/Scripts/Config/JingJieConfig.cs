@@ -126,7 +126,7 @@ public class JingJieConfig : MonoBehaviour
     public static float 每年基础修为 = 200f;
     public static float Get每秒增加修为()
     {
-        return MathF.Round(每年基础修为*(属性config.总修炼速度加成) / 每年秒数Dic[PlayerData.S.当前轮回境界], 1);
+        return MathF.Round(每年基础修为*(属性config.总修炼速度加成) / 属性config.每年秒数, 1);
     }
 
     public static string Get大数值(float i)
@@ -146,14 +146,14 @@ public class JingJieConfig : MonoBehaviour
     {
         { JingJieType.练气,0.5f},
         { JingJieType.筑基,1},
-        { JingJieType.金丹,2},
-        { JingJieType.元婴,5},
-        { JingJieType.化神,15},
-        { JingJieType.合体,50},
-        { JingJieType.大乘,150},
-        { JingJieType.天仙,500},
-        { JingJieType.玄仙,1500},
-        { JingJieType.金仙,5000},
+        { JingJieType.金丹,3},
+        { JingJieType.元婴,10},
+        { JingJieType.化神,30},
+        { JingJieType.合体,100},
+        { JingJieType.大乘,500},
+        { JingJieType.天仙,3000},
+        { JingJieType.玄仙,12000},
+        { JingJieType.金仙,50000},
         { JingJieType.太乙金仙,200},
         { JingJieType.大罗金仙,300},
         { JingJieType.准圣,500},

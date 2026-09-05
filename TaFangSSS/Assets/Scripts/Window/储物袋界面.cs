@@ -70,7 +70,14 @@ public class 储物袋界面 : MonoBehaviour
       体质.colorGradientPreset = ResourcesConfig.Get品质TMP(体质Config.体质品质Dic[PlayerData.S.当前体质]);
       轮回按钮.gameObject.SetActive(PlayerData.S.当前轮回境界>=JingJieType.合体);
       修炼速度count.text = 属性config.显示修炼速度 + "%";
-      跟脚.text = PlayerData.S.格式化数字(MathF.Round(JingJieConfig.跟脚,2)).ToString();
+      if (JingJieConfig.跟脚 > 10000)
+      {
+         跟脚.text = PlayerData.S.格式化数字(MathF.Round(JingJieConfig.跟脚,2)).ToString();
+      }
+      else
+      {
+         跟脚.text = MathF.Round(JingJieConfig.跟脚,2).ToString();
+      }
       境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
    }
    public void 突破成功(object[] obj)

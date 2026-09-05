@@ -24,6 +24,12 @@ public class 招募商店兑换弹窗 : MonoBehaviour
 
    public void DuiHuan()
    {
+      if (PlayerData.S.招募积分 < ZhaoMuConfig.招募商店价格Dic[Type])
+      {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+         ObserverModuleManager.S.SendEvent("SendUIToast","招募积分不足");
+         return;
+      }
       ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
 
       PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[Type]].元神+=count;
