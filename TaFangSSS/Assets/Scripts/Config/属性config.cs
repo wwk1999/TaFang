@@ -237,7 +237,7 @@ public class 属性config
                }
           }
 
-          if (_神物.元素我为人人 != 0)
+          if (_神物.元素人人为我 != 0)
           {
                switch (最大元素)
                {
@@ -404,7 +404,7 @@ public class 属性config
                }
           }
 
-          if (_神物.元素我为人人 != 0)
+          if (_神物.职业人人为我 != 0)
           {
                switch (最大职业)
                {
@@ -513,7 +513,7 @@ public class 属性config
     public float 射手对远距离敌人伤害增高 => _道纹.射手对远距离敌人伤害增高;
     public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
     public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害);
-    public float 伤害减免 => 1-(1-_道宝.伤害减免/100f)*(1-城墙Config.伤害减免/100f);
+    public float 伤害减免 => 1-(1-_道宝.伤害减免)*(1-城墙Config.伤害减免/100f);
 
     public float 神通最大值 => 100;
     public float 神通能量恢复速度 => 1;
@@ -548,7 +548,7 @@ public class 属性config
           装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.戒指]]/100f ;
           装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.鞋子]]/100f ;
           装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.项链]]/100f ;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.戒指]]/100f ;
+          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.衣服]]/100f ;
           return 装备基础属性 * 装备属性增幅;
      }
 

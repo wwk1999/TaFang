@@ -70,7 +70,8 @@ public class MonsterBase : MonoBehaviour
    }
    public void Set黑暗符(float time)
    {
-      float scale = 0.1f * 黑暗符次数*(1-属性config.总属性.琼霄定身衰减减少/100f);
+      // 琼霄定身衰减减少已是0~1比率（Get道纹数值内部已/100），不能再除100
+      float scale = 0.1f * 黑暗符次数*(1-属性config.总属性.琼霄定身衰减减少);
       黑暗符 = time * (1-scale);
       黑暗符次数++;
    }
@@ -545,7 +546,6 @@ public class MonsterBase : MonoBehaviour
             最终Damage *= 属性config.总属性.首领伤害增幅;
             break;
       }
-      最终Damage *= (1 + 道宝Config.羁绊最终伤害 / 100f);
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
       最终Damage = 元素伤害(最终Damage, yuanSu);
       最终Damage = 职业伤害(最终Damage, zhiYe);
@@ -595,31 +595,16 @@ public class MonsterBase : MonoBehaviour
       {
          抗性 = 计算法器抗性(抗性, heroType,HeroType.女娲);
       }
-      switch (yuanSu)
-      {
-         case YuanSuType.物理:
-            抗性 = MonsterAttribute.物理抗性/(1f+hero法器.物理穿透/100f);
-            break;
-         case YuanSuType.电:
-            抗性 = MonsterAttribute.雷电抗性/(1f+hero法器.雷电穿透/100f);
-            break;
-         case YuanSuType.冰:
-            抗性 = MonsterAttribute.冰霜抗性/(1f+hero法器.冰霜穿透/100f);
-            break;
-         case YuanSuType.火:
-            抗性 = MonsterAttribute.火焰抗性/(1f+hero法器.火焰穿透/100f);
-            break;
-         case YuanSuType.黑暗:
-            抗性 = MonsterAttribute.黑暗抗性/(1f+hero法器.黑暗穿透/100f);
-            break;
-      }
+      // 注意：抗性已由上面的 计算法器抗性（主英雄+瑶池/妲己/女娲辅助）逐步折减，
+      // 不能再从 MonsterAttribute 原始值重新赋值，否则辅助英雄的穿透会被丢弃
 
       float 无视抗性 = 属性config.总属性.无视抗性 * 100;
       if (heroType == HeroType.哪吒)
       {
          无视抗性 += 属性config.总属性.三味真火无视抗性百分比*100;
       }
-      最终Damage *= (100 - 抗性/(1+无视抗性)) / 100;
+      // 无视抗性为百分值（与法器穿透口径一致），需 /100f，否则10%无视会变成抗性/11
+      最终Damage *= (100 - 抗性/(1f+无视抗性/100f)) / 100;
 
       FightController.S.当前英雄伤害Dic[heroType].总伤害 += 最终Damage;
       if (FightController.S.攻击特效是否神通(攻击特效))
