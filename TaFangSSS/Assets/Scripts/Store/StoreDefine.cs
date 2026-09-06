@@ -2754,8 +2754,13 @@ public class StoreDefine : XSingleton<StoreController>
             突破灵物Dic = runtime.突破灵物Dic;
             法器列表 = runtime.法器列表;
             仙石列表 = runtime.仙石列表;
-            最大神物关卡 = runtime.最大神物关卡;  
+            最大神物关卡 = runtime.最大神物关卡;
             神物获得Dic = runtime.神物获得Dic;
+            坊市物品列表 = runtime.坊市物品列表;
+            坊市刷新次数 = runtime.坊市刷新次数;
+            丹方Dic = runtime.丹方Dic;
+            丹药Dic = runtime.丹药Dic;
+            丹方解锁Dic = runtime.丹方解锁Dic;
             炼丹等级 = runtime.炼丹等级;
             炼丹经验 = runtime.炼丹经验;
             当前炼制丹药Type = runtime.当前炼制丹药Type;

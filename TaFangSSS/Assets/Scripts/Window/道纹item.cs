@@ -44,6 +44,10 @@ public class 道纹item : MonoBehaviour, IDropHandler
          else
          {
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+            if (道纹Type != 道纹Type.None)
+            {
+               PlayerData.S.Set道纹数量(道纹Type,道纹QualityType,PlayerData.S.Get道纹数量(道纹Type,道纹QualityType)+1);
+            }
             道纹Type = HeroWindowController.S.道纹Type;
             道纹QualityType=HeroWindowController.S.道纹QualityType;
             SetItem();
@@ -71,6 +75,7 @@ public class 道纹item : MonoBehaviour, IDropHandler
                   PlayerData.S.装备道纹List[equipType][4].quality = HeroWindowController.S.道纹QualityType;
                   break;
             }
+            ObserverModuleManager.S.SendEvent("刷新背包");
          }
       }
    }
