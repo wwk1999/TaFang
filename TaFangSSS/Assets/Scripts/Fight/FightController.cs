@@ -23,6 +23,18 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public float 当前神通能量 = 属性config.总属性.神通最大值;
     [NonSerialized] public Dictionary<HeroType, 英雄根基丹药属性> 英雄根基丹药属性Dic = new Dictionary<HeroType, 英雄根基丹药属性>();
     [NonSerialized] public 丹药属性 战斗丹药属性 = new 丹药属性();
+    [NonSerialized] public float 丹药物理伤害 = 0;
+    [NonSerialized] public float 丹药冰霜伤害 = 0;
+    [NonSerialized] public float 丹药火焰伤害 = 0;
+    [NonSerialized] public float 丹药雷电伤害 = 0;
+    [NonSerialized] public float 丹药黑暗伤害 =0;
+    [NonSerialized] public float 丹药最终伤害 = 0;
+    [NonSerialized] public float 丹药射手伤害 = 0;
+    [NonSerialized] public float 丹药战士伤害 = 0;
+    [NonSerialized] public float 丹药控制伤害 = 0;
+    [NonSerialized] public float 丹药法师伤害 = 0;
+    
+    
     [NonSerialized] public float 物理伤害 = 属性config.总属性.物理伤害增幅;
     [NonSerialized] public float 冰霜伤害 = 属性config.总属性.冰霜伤害增幅;
     [NonSerialized] public float 火焰伤害 = 属性config.总属性.火焰伤害增幅;

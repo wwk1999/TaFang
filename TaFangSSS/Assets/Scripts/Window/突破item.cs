@@ -35,7 +35,7 @@ public class 突破item : MonoBehaviour
         {
             if (PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界, quality) <= 0)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
+                ObserverModuleManager.S.SendEvent("SendUIToast","灵物不足,可在洞天秘境获得灵物");
                 return;
             }
 

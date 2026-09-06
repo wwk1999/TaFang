@@ -12,6 +12,7 @@ public class StartWindow : MonoBehaviour
    public Button StartBtn;
    public Button 设置Btn;
    public Button 退出Btn;
+   public Button 加入愿望单Button;
    public Canvas canvas;
 
    // 在引擎初始化完成、Splash 显示之前直接读存档设置分辨率，
@@ -67,6 +68,10 @@ public class StartWindow : MonoBehaviour
       ObserverModuleManager.S.SendEvent("设置BGM音量");
       ObserverModuleManager.S.SendEvent("设置音效音量");
       ObserverModuleManager.S.SendEvent("播放BGM",true);
+      加入愿望单Button.onClick.AddListener(() =>
+      {
+         Application.OpenURL("https://store.steampowered.com/app/5074040/");
+      });
       StartBtn.onClick.AddListener(() =>
          {
             if (PlayerData.S.是否首次进入游戏)

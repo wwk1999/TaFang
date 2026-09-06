@@ -30,16 +30,19 @@ public class 轮回确认弹窗 : MonoBehaviour
         });
         确认Button.onClick.AddListener(() =>
         {
-            for (int i = 1; i < Enum.GetValues(typeof(JingJieType)).Length-1; i++)
+            float 轮回前跟脚 = JingJieConfig.跟脚;
+            PlayerData.S.当前体质 = 体质Config.Get轮回体质();
+            PlayerData.S.初始跟脚 += 轮回前跟脚 * JingJieConfig.轮回系数 / 100f;
+            for (int i = 1; i < Enum.GetValues(typeof(JingJieType)).Length; i++)
             {
                 PlayerData.S.当前轮回突破Dic[(JingJieType)i] = QualityType.None;
             }
-            PlayerData.S.初始跟脚 += JingJieConfig.跟脚 * JingJieConfig.轮回系数 / 100f;
             PlayerData.S.当前轮回境界 = JingJieType.练气;
             PlayerData.S.Exp = 0;
-            PlayerData.S.当前体质 = 体质Config.Get轮回体质();
             PlayerData.S.长生道体年数 = 0;
             PlayerData.S.当前轮回造化丹药QualityType = QualityType.None;
+            PlayerData.S.轮回次数++;
+            StoreController.S.SaveStoreData();
             ObserverModuleManager.S.SendEvent("SendUIToast","轮回成功");
             ObserverModuleManager.S.SendEvent("刷新人物信息");
             gameObject.SetActive(false);

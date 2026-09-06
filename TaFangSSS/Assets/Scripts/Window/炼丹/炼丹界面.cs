@@ -176,6 +176,11 @@ public class 炼丹界面 : MonoBehaviour
 
     public void 炼制刷新(object[] obj)
     {
+        炼丹等级.text = "炼丹等级Lv" + PlayerData.S.炼丹等级 + ":";
+        炼丹经验条.maxValue = 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
+        炼丹经验条.value = PlayerData.S.炼丹经验;
+        当前经验.text=PlayerData.S.炼丹经验.ToString("F0");
+        最大经验.text=丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级].ToString();
         float 需要时间 = 丹药Config.Get炼制丹药需要时间(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
         炼制进度条.maxValue = 需要时间;
         炼制进度条.value = PlayerData.S.当前炼制秒数;

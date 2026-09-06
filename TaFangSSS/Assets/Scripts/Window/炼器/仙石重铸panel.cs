@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -138,6 +139,11 @@ public class 仙石重铸panel : MonoBehaviour
 
     public void 重铸()
     {
+        if (PlayerData.S.PropListDic[PropType.仙石精华] < 仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality])
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","仙石精华不足,可分解仙石获取");
+            return;
+        }
         仙石Type type=(仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);
         HeroWindowController.S.重铸后仙石Type = type;
         List<法器附加属性值> list = 仙石Config.Get仙石附加属性(HeroWindowController.S.重铸panel当前仙石.quality);
@@ -152,6 +158,8 @@ public class 仙石重铸panel : MonoBehaviour
 
     public void 重铸仙石点击(object[] obj)
     {
+        HeroWindowController.S.仙石重铸后词条 = null;
+        HeroWindowController.S.重铸后仙石Type=仙石Type.None;
         HeroWindowController.S.重铸panel当前仙石 = obj[0] as 仙石;
         Show右Panel();
         foreach (Transform item in Content.transform)

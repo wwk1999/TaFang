@@ -35,12 +35,12 @@ public class 突破确认弹窗 : MonoBehaviour
             long need = JingJieConfig.突破材料Dic[PlayerData.S.当前轮回境界][(int)(QualityType-1)];
             PlayerData.S.PropListDic[PropType.功德] -= need;
             PlayerData.S.当前轮回突破Dic[PlayerData.S.当前轮回境界] = QualityType;
+            PlayerData.S.Set灵物数量(PlayerData.S.当前轮回境界,QualityType,PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界,QualityType)-1);
             PlayerData.S.当前轮回境界++;
             if (PlayerData.S.当前轮回境界 > PlayerData.S.历史最高境界)
             {
                 PlayerData.S.历史最高境界 = PlayerData.S.当前轮回境界;
             }
-            PlayerData.S.Set灵物数量(PlayerData.S.当前轮回境界,QualityType,PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界,QualityType)-1);
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             ObserverModuleManager.S.SendEvent("突破成功");

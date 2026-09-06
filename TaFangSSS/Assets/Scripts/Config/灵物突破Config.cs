@@ -170,18 +170,15 @@ public class 灵物突破Config
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大乘, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 5000000, Attack = 2500, Defense = 1200, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大乘, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 50000000, Attack = 4000, Defense = 2000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大乘, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 500000000, Attack = 10000, Defense = 4000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
 
 
@@ -367,9 +364,9 @@ public class 灵物突破Config
         { QualityType.地品, 10 },
         { QualityType.天品, 50 },
         { QualityType.宇品, 300 },
-        { QualityType.宙品, 3000 },
-        { QualityType.洪品, 80000 },
-        { QualityType.荒品, 3000000 },
+        { QualityType.宙品, 2000 },
+        { QualityType.洪品, 10000 },
+        { QualityType.荒品, 100000 },
     };
 
     public static Dictionary<JingJieType, string> 突破灵物名Dic = new Dictionary<JingJieType, string>()

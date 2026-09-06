@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public GameObject 丹药content;
     public RectTransform 神通能量trans;
     public TextMeshProUGUI 神通能量当前值;
     public TextMeshProUGUI 神通能量最大值;
@@ -116,8 +118,24 @@ public class FightWindow : MonoBehaviour
         进度Text.text = (int)(count * 100f) + "%";
     }
 
+    public void Set丹药区域(object[] obj)
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = 1; i <= 3; i++)
+        {
+            var 丹药item = Instantiate(Resources.Load("Prefabs/Window/战斗界面丹药tem"), 丹药content.transform).GetComponent<战斗界面丹药tem>();
+            丹药item.index = i;
+            丹药item.SetItem();
+        }
+    }
+
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("设置丹药区域",Set丹药区域);
         ObserverModuleManager.S.UnRegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.UnRegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.UnRegisterEvent("刷新关卡进度",刷新关卡进度);
@@ -145,6 +163,7 @@ public class FightWindow : MonoBehaviour
 
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("设置丹药区域",Set丹药区域);
         ObserverModuleManager.S.RegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.RegisterEvent("首领出现",首领出现);
         ObserverModuleManager.S.RegisterEvent("刷新关卡进度",刷新关卡进度);

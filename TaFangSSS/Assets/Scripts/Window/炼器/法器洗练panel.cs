@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -104,7 +105,12 @@ public class 法器洗练panel : MonoBehaviour
 
     public void 洗练法器点击(object[] obj)
     {
+        if (HeroWindowController.S.洗练后词条 != null)
+        {
+            HeroWindowController.S.洗练后词条.Clear();
+        }
         HeroWindowController.S.洗练panel当前法器 = obj[0] as 法器;
+        
         Show右Panel();
         foreach (Transform item in Content.transform)
         {
@@ -116,6 +122,12 @@ public class 法器洗练panel : MonoBehaviour
 
     public void 洗练()
     {
+        if (PlayerData.S.PropListDic[PropType.法器粉尘] <
+            法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]])
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","法器粉尘数量不足,可分解法器获取");
+            return;
+        }
         int count = HeroWindowController.S.洗练panel当前法器.list.Count;
         List<法器附加属性值> list = new List<法器附加属性值>();
         for (int i = 0; i < count; i++)
@@ -140,11 +152,20 @@ public class 法器洗练panel : MonoBehaviour
             list.Add(item);
         }
         HeroWindowController.S.洗练后词条 = list;
+        PlayerData.S.PropListDic[PropType.法器粉尘] -=
+            法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]];
     }
 
     public void 保留()
     {
-        ObserverModuleManager.S.SendEvent("显示洗练保留确认弹窗");
+        if (HeroWindowController.S.洗练后词条!=null)
+        {
+            ObserverModuleManager.S.SendEvent("显示洗练保留确认弹窗");
+        }
+        else
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","请先洗练词条");
+        }
     }
 
     public void 刷新洗练Panel(object[] obj)

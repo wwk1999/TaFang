@@ -555,16 +555,8 @@ public class 属性config
      public static float Get境界攻击力()
      {
           float 基础攻击 = JingJieConfig.JingJieAttributeDic[PlayerData.S.当前轮回境界];
-          float 跟脚 = 1f;
-          foreach (var item in PlayerData.S.当前轮回突破Dic)
-          {
-               if (item.Value != QualityType.None)
-               {
-                    跟脚 *= JingJieConfig.突破跟脚Dic[item.Value];
-               }
-          }
 
-          return 基础攻击 * 跟脚;
+          return 基础攻击 * JingJieConfig.Get跟脚();
      }
      public static float 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();

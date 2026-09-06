@@ -851,37 +851,38 @@ public class MonsterBase : MonoBehaviour
       switch (zhiYeType)
       {
          case ZhiYeType.战士:
-            damage *= (1f + FightController.S.战士伤害 / 100f);
+            damage *= (1f + FightController.S.丹药战士伤害 / 100f);
             break;
          case ZhiYeType.射手:
-            damage *= (1f + FightController.S.射手伤害 / 100f);
+            damage *= (1f + FightController.S.丹药射手伤害 / 100f);
             break;
          case ZhiYeType.法师:
-            damage *= (1f + FightController.S.法师伤害 / 100f);
+            damage *= (1f + FightController.S.丹药法师伤害 / 100f);
             break;
          case ZhiYeType.控制:
-            damage *= (1f + FightController.S.控制伤害 / 100f);
+            damage *= (1f + FightController.S.丹药控制伤害 / 100f);
             break;
       }
 
       switch (yuanSuType)
       {
          case YuanSuType.冰:
-            damage *= (1f + FightController.S.冰霜伤害 / 100f);
+            damage *= (1f + FightController.S.丹药冰霜伤害 / 100f);
             break;
          case YuanSuType.火:
-            damage *= (1f + FightController.S.火焰伤害 / 100f);
+            damage *= (1f + FightController.S.丹药火焰伤害 / 100f);
             break;
          case YuanSuType.黑暗:
-            damage *= (1f + FightController.S.黑暗伤害 / 100f);
+            damage *= (1f + FightController.S.丹药黑暗伤害 / 100f);
             break;
          case YuanSuType.电:
-            damage *= (1f + FightController.S.雷电伤害 / 100f);
+            damage *= (1f + FightController.S.丹药雷电伤害 / 100f);
             break;
          case YuanSuType.物理:
-            damage *= (1f + FightController.S.物理伤害 / 100f);
+            damage *= (1f + FightController.S.丹药物理伤害 / 100f);
             break;
       }
+      damage *= (1f + FightController.S.丹药最终伤害 / 100f);
 
       return damage;
    }

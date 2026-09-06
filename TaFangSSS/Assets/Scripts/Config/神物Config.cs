@@ -313,34 +313,28 @@ public class 神物Config
     {
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.最终伤害, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.最终伤害, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 120, Attack = 15, Defense = 12, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3000000, Attack = 1500, Defense = 800, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.最终伤害, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 300, Attack = 35, Defense = 25, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 30000000, Attack = 4000, Defense = 1500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
         },
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.冷却缩减, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 55, Attack = 7, Defense = 4, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3000000, Attack = 2000, Defense = 1000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.冷却缩减, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 130, Attack = 16, Defense = 10, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 30000000, Attack = 3000, Defense = 1500, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.冷却缩减, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 320, Attack = 38, Defense = 22, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 300000000, Attack = 8000, Defense = 3000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
 
         {

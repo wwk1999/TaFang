@@ -541,23 +541,35 @@ public class MainWindow : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             WindowController.S.储物袋Window.gameObject.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            WindowController.S.道宝Window.gameObject.SetActive(true);
+            WindowController.S.炼器Window.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            WindowController.S.炼丹Window.gameObject.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
+            坊市窗口.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            WindowController.S.道宝Window.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
             WindowController.S.英雄Window.gameObject.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             WindowController.S.招募Window.gameObject.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             WindowController.S.城墙Window.gameObject.SetActive(true);
         }
