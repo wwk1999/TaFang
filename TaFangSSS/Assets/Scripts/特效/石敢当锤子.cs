@@ -51,15 +51,9 @@ public class 石敢当锤子 : MonoBehaviour
       if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
 
       float finalDamage = 属性config.总属性.总攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
-      var playerData = PlayerData.S;
+      // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
       if (瑶池冰辅助)
       {
-         var 瑶池数据 = playerData.HeroDataDic[HeroType.瑶池仙女];
-         if (瑶池数据.功法Type != 功法Type.None)
-         {
-            finalDamage *= (1 + 瑶池数据.功法等级 *
-               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[瑶池数据.功法Type]] / 100f);
-         }
          monster.瑶池冰辅助 = 2;
       }
       monster.妲己黑暗辅助 = 黑暗辅助;
@@ -76,22 +70,10 @@ public class 石敢当锤子 : MonoBehaviour
       }
       if (黑暗辅助)
       {
-         var 妲己数据 = playerData.HeroDataDic[HeroType.妲己];
-         if (妲己数据.功法Type != 功法Type.None)
-         {
-            finalDamage *= (1 + 妲己数据.功法等级 *
-               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[妲己数据.功法Type]] / 100f);
-         }
          finalDamage *= (1 + 英雄星级属性.妲己效果 / 100f);
       }
       if (女娲电辅助)
       {
-         var 女娲数据 = playerData.HeroDataDic[HeroType.女娲];
-         if (女娲数据.功法Type != 功法Type.None)
-         {
-            finalDamage *= (1 + 女娲数据.功法等级 *
-               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[女娲数据.功法Type]] / 100f);
-         }
          finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
       }
       if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)

@@ -56,36 +56,14 @@ public class 孙悟空棒子 : MonoBehaviour
       float finalDamage = 属性config.总属性.总攻击力 * 英雄星级属性.孙悟空攻击数值 / 100f;
       finalDamage *= (1 + 下场次数 * 英雄星级属性.孙悟空每次下场伤害 / 100f);
 
-      var playerData = PlayerData.S;
+      // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
       if (女娲电辅助)
       {
-         var 女娲数据 = playerData.HeroDataDic[HeroType.女娲];
-         if (女娲数据.功法Type != 功法Type.None)
-         {
-            finalDamage *= (1 + 女娲数据.功法等级 *
-               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[女娲数据.功法Type]] / 100f);
-         }
          finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
       }
       if (黑暗辅助)
       {
-         var 妲己数据 = playerData.HeroDataDic[HeroType.妲己];
-         if (妲己数据.功法Type != 功法Type.None)
-         {
-            finalDamage *= (1 + 妲己数据.功法等级 *
-               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[妲己数据.功法Type]] / 100f);
-         }
-         // 原代码这里误用了 孙悟空攻击数值，应为妲己辅助效果
          finalDamage *= (1f + 英雄星级属性.妲己效果 / 100f);
-      }
-      if (瑶池冰辅助)
-      {
-         var 瑶池数据 = playerData.HeroDataDic[HeroType.瑶池仙女];
-         if (瑶池数据.功法Type != 功法Type.None)
-         {
-            finalDamage *= (1 + 瑶池数据.功法等级 *
-               功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[瑶池数据.功法Type]] / 100f);
-         }
       }
       if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
       {
@@ -108,6 +86,11 @@ public class 孙悟空棒子 : MonoBehaviour
          monster.女娲神通 = 女娲神通;
          monster.妲己黑暗辅助 = 黑暗辅助;
          monster.女娲电辅助 = 女娲电辅助;
+         // 原代码漏传瑶池辅助标志：补齐后瑶池辅助功法加成才会在Hurt中生效
+         if (瑶池冰辅助)
+         {
+            monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+         }
          if (瑶池神通)
          {
             if (Random.Range(0, 100f) < 冰冻概率)

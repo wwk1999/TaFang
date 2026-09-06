@@ -835,13 +835,32 @@ public class MonsterBase : MonoBehaviour
    }
    public float 计算功法伤害(float damage,HeroType  heroType)
    {
-      if (PlayerData.S.HeroDataDic[heroType].功法Type == 功法Type.None) return damage;
-      int 功法等级 = PlayerData.S.HeroDataDic[heroType].功法等级;
-      float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[heroType].功法Type]];
-      int 功法星级 = PlayerData.S.HeroDataDic[heroType].功法星级;
-
-      damage *= (1 + 功法等级 * 每重奖励/ 100f*(1f+体质Config.当前体质总属性.功法每层效果/100f)*(1f+功法星级*0.2f) );
-      return damage;
+      // 所有功法最终伤害加成统一求和后只乘一次：
+      // 主英雄自身功法 + 瑶池/妲己/女娲的辅助功法（按怪物身上的辅助标志），
+      // 不再让每个辅助各乘一个(1+加成)，避免多辅助数值乘算爆炸
+      float 功法伤害加成 = 0f;
+      var heroData = PlayerData.S.HeroDataDic[heroType];
+      if (heroData.功法Type != 功法Type.None)
+      {
+         float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[heroData.功法Type]];
+         功法伤害加成 += heroData.功法等级 * 每重奖励 / 100f
+            * (1f + 体质Config.当前体质总属性.功法每层效果 / 100f)
+            * (1f + heroData.功法星级 * 0.2f);
+      }
+      // 辅助英雄功法加成（与主英雄功法相加，多个辅助一起加）
+      if (瑶池冰辅助 > 0)
+      {
+         功法伤害加成 += 功法Config.Get辅助功法伤害加成(HeroType.瑶池仙女);
+      }
+      if (妲己黑暗辅助)
+      {
+         功法伤害加成 += 功法Config.Get辅助功法伤害加成(HeroType.妲己);
+      }
+      if (女娲电辅助)
+      {
+         功法伤害加成 += 功法Config.Get辅助功法伤害加成(HeroType.女娲);
+      }
+      return damage * (1f + 功法伤害加成);
    }
 
    public float 计算丹药伤害(float damage, HeroType heroType)

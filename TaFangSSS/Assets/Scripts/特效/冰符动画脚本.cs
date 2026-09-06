@@ -157,36 +157,15 @@ public class 冰符动画脚本: MonoBehaviour
         // ---- 循环外：所有与具体怪物无关的伤害加成只算一次 ----
         // 注意：不能写回 damage 字段，否则同一次施法的多个碰撞事件、多只怪物之间会滚雪球累乘
         float finalDamage = damage;
-        var playerData = PlayerData.S;
+        // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
 
         if (黑暗辅助)
         {
-            var 妲己数据 = playerData.HeroDataDic[HeroType.妲己];
-            if (妲己数据.功法Type != 功法Type.None)
-            {
-                finalDamage *= (1 + 妲己数据.功法等级 *
-                    功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[妲己数据.功法Type]] / 100f);
-            }
             finalDamage *= (1f + 英雄星级属性.妲己效果 / 100f);
         }
         if (女娲电辅助)
         {
-            var 女娲数据 = playerData.HeroDataDic[HeroType.女娲];
-            if (女娲数据.功法Type != 功法Type.None)
-            {
-                finalDamage *= (1 + 女娲数据.功法等级 *
-                    功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[女娲数据.功法Type]] / 100f);
-            }
             finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
-        }
-        if (瑶池冰辅助)
-        {
-            var 瑶池数据 = playerData.HeroDataDic[HeroType.瑶池仙女];
-            if (瑶池数据.功法Type != 功法Type.None)
-            {
-                finalDamage *= (1 + 瑶池数据.功法等级 *
-                    功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[瑶池数据.功法Type]] / 100f);
-            }
         }
         if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
         {

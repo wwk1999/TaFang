@@ -421,6 +421,16 @@ public class 功法Config
         { QualityType.洪品, 50 },
         { QualityType.荒品, 100 },
     };
+
+    // 辅助英雄功法给被辅助英雄的最终伤害加成（比率，如0.15=15%）
+    // 未装备功法返回0；多个辅助的加成在 MonsterBase.计算功法伤害 中与主英雄功法相加后统一乘一次
+    public static float Get辅助功法伤害加成(HeroType 辅助英雄)
+    {
+        var 数据 = PlayerData.S.HeroDataDic[辅助英雄];
+        if (数据.功法Type == 功法Type.None) return 0f;
+        float 每重奖励 = 辅助功法升级奖励Dic[功法TypeQualityDic[数据.功法Type]];
+        return 数据.功法等级 * 每重奖励 / 100f;
+    }
     public static Dictionary<功法Type, 功法属性Item> 功法属性Dic = new Dictionary<功法Type, 功法属性Item>()
     {
         { 功法Type.战士白, new 功法属性Item() { 功法属性Type = 功法属性Type.攻击距离, count = 0.5f } },
