@@ -40,9 +40,9 @@ public class 突破确认弹窗 : MonoBehaviour
             {
                 PlayerData.S.历史最高境界 = PlayerData.S.当前轮回境界;
             }
+            PlayerData.S.Set灵物数量(PlayerData.S.当前轮回境界,QualityType,PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界,QualityType)-1);
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-
             ObserverModuleManager.S.SendEvent("突破成功");
             ObserverModuleManager.S.SendEvent("SendUIToast","突破成功");
             ObserverModuleManager.S.SendEvent("Hide突破弹窗");

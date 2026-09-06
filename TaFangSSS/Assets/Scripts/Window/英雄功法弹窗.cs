@@ -113,8 +113,8 @@ public class 英雄功法弹窗 : MonoBehaviour
             ZhiYeType zhiYeType = 功法Config.功法职业Dic[功法Type];
             float 最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]];
             float 辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]];
-            float 总最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级;
-            float 总辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级;
+            float 总最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级*(1f+0.2f*功法星级);
+            float 总辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级*(1f+0.2f*功法星级);
             if (zhiYeType == ZhiYeType.辅助)
             {
                 当前加成.text=$"被辅助英雄伤害+<color=green>{总辅助值}%</color>";

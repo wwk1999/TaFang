@@ -41,24 +41,24 @@ namespace Config
             { PropType.牛魔王元神, 100 },
 
             // 宇品价格 = 80
-            { PropType.哪吒元神, 500 },
-            { PropType.孙悟空元神, 500 },
-            { PropType.碧霄元神, 500 },
-            { PropType.琼霄元神, 500 },
+            { PropType.哪吒元神, 300 },
+            { PropType.孙悟空元神, 300 },
+            { PropType.碧霄元神, 300 },
+            { PropType.琼霄元神, 300 },
 
             // 宙品价格 = 160
-            { PropType.羲和元神, 2000 },
-            { PropType.常羲元神, 2000 },
-            { PropType.后羿元神, 2000 },
-            { PropType.云霄元神, 2000 },
+            { PropType.羲和元神, 1000 },
+            { PropType.常羲元神, 1000 },
+            { PropType.后羿元神, 1000 },
+            { PropType.云霄元神, 1000 },
 
             // 洪品价格 = 320
-            { PropType.女娲元神, 5000 },
-            { PropType.老子元神, 5000 },
-            { PropType.通天元神, 5000 },
-            { PropType.元始元神, 5000 },
-            { PropType.盘古元神, 10000 },
-            { PropType.鸿钧元神, 10000 },
+            { PropType.女娲元神, 2000 },
+            { PropType.老子元神, 2000 },
+            { PropType.通天元神, 2000 },
+            { PropType.元始元神, 2000 },
+            { PropType.盘古元神, 5000 },
+            { PropType.鸿钧元神, 5000 },
         };
         
         public static Dictionary<JingJieType, List<ZhaoMuItem>> ZhaoMuGaiLvNormalDic =

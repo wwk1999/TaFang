@@ -838,8 +838,9 @@ public class MonsterBase : MonoBehaviour
       if (PlayerData.S.HeroDataDic[heroType].功法Type == 功法Type.None) return damage;
       int 功法等级 = PlayerData.S.HeroDataDic[heroType].功法等级;
       float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[PlayerData.S.HeroDataDic[heroType].功法Type]];
+      int 功法星级 = PlayerData.S.HeroDataDic[heroType].功法星级;
 
-      damage *= (1 + 功法等级 * 每重奖励/ 100f*(1f+体质Config.当前体质总属性.功法每层效果/100f) );
+      damage *= (1 + 功法等级 * 每重奖励/ 100f*(1f+体质Config.当前体质总属性.功法每层效果/100f)*(1f+功法星级*0.2f) );
       return damage;
    }
 

@@ -41,7 +41,7 @@ public class 坊市item : MonoBehaviour
                 var 价格 = 坊市Config.法器价格Dic[法器Config.法器品质Dic[法器Type]];
                 if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                 {
-                    ObserverModuleManager.S.SendEvent("SendUIToast","灵石不足");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","灵气不足");
                     return;
                 }
 

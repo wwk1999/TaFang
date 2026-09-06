@@ -212,6 +212,7 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.玄品);
          PlayerData.S.装备附加属性Dic[equipType][0].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][0].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][0].count = item1.count;
          ObserverModuleManager.S.SendEvent("刷新装备");
       }
       if (PlayerData.S.EquipLevelDic[equipType] == 21)
@@ -219,6 +220,8 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.地品);
          PlayerData.S.装备附加属性Dic[equipType][1].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][1].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][1].count = item1.count;
+
          ObserverModuleManager.S.SendEvent("刷新装备");
 
       }
@@ -227,6 +230,8 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.天品);
          PlayerData.S.装备附加属性Dic[equipType][2].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][2].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][2].count = item1.count;
+
          ObserverModuleManager.S.SendEvent("刷新装备");
 
       }
@@ -235,6 +240,8 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.宇品);
          PlayerData.S.装备附加属性Dic[equipType][3].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][3].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][3].count = item1.count;
+
          ObserverModuleManager.S.SendEvent("刷新装备");
 
       }
@@ -243,6 +250,8 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.宙品);
          PlayerData.S.装备附加属性Dic[equipType][4].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][4].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][4].count = item1.count;
+
          ObserverModuleManager.S.SendEvent("刷新装备");
 
       }
@@ -251,6 +260,8 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.洪品);
          PlayerData.S.装备附加属性Dic[equipType][5].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][5].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][5].count = item1.count;
+
          ObserverModuleManager.S.SendEvent("刷新装备");
 
       }
@@ -259,6 +270,8 @@ public class 强化弹窗 : MonoBehaviour
          词条Item item1 = EquipConfig.Get词条(QualityType.荒品);
          PlayerData.S.装备附加属性Dic[equipType][6].QualityType = item1.QualityType;
          PlayerData.S.装备附加属性Dic[equipType][6].附加属性Type = item1.附加属性Type;
+         PlayerData.S.装备附加属性Dic[equipType][6].count = item1.count;
+
          ObserverModuleManager.S.SendEvent("刷新装备");
 
       }

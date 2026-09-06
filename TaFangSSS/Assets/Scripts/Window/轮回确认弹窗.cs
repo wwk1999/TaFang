@@ -15,7 +15,7 @@ public class 轮回确认弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
-        text.text = $"是否确认轮回,轮回后将重置修为和体质,同时保留<color=green>{JingJieConfig.轮回系数}%</color>当前跟脚作为轮回后的初始跟脚";
+        text.text = $"是否确认轮回,轮回后将重置修为和体质,轮回时跟脚越高,越容易获得高等级体质,同时永久保留<color=green>{JingJieConfig.轮回系数}%</color>当前跟脚作为轮回后的初始跟脚";
     }
 
     private void Start()

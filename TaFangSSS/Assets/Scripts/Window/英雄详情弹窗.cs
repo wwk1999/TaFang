@@ -105,10 +105,6 @@ public class 英雄详情弹窗 : MonoBehaviour
             星级button.gameObject.SetActive(false);
             法则button.gameObject.SetActive(true);
         }
-        if (HeroConfig.HeroQualityDic[HeroType] < QualityType.宇品)
-        {
-            法则button.gameObject.SetActive(false);
-        }
         经验值name.text=HeroConfig.Get职业Name(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType)+"经验值";
         经验值bg.sprite = ResourcesConfig.道具背景框蓝;
         经验值icon.sprite = ResourcesConfig.Get职业经验值Sprite(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType);
@@ -300,6 +296,11 @@ public class 英雄详情弹窗 : MonoBehaviour
     {
         法则button.onClick.AddListener(() =>
         {
+            if (HeroConfig.HeroQualityDic[HeroType] < QualityType.宇品)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","宇品以上英雄解锁");
+                return;
+            }
             显示类型 = 显示类型.法则;
             Set升星信息();
             SetHeroInfo();
