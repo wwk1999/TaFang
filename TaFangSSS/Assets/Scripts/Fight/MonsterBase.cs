@@ -498,20 +498,10 @@ public class MonsterBase : MonoBehaviour
       最终Damage = 计算根基丹药伤害(最终Damage, heroType);
       最终Damage = 计算体质伤害(最终Damage, heroType);
       最终Damage = 计算体质辅助伤害(最终Damage, heroType);
-      最终Damage=计算法器伤害(最终Damage,heroType,heroType);
+      // 主英雄法器+在场辅助法器聚合成一份（字段相加），伤害只乘一次、穿透只除一次，不再连乘
+      法器属性 聚合法器 = 获取聚合法器属性(heroType);
+      最终Damage=计算法器伤害(最终Damage,heroType,聚合法器);
       最终Damage = 计算丹药伤害(最终Damage, heroType);
-      if (瑶池冰辅助 > 0)
-      {
-         最终Damage=计算法器伤害(最终Damage,heroType,HeroType.瑶池仙女);
-      }
-      if (妲己黑暗辅助)
-      {
-         最终Damage=计算法器伤害(最终Damage,heroType,HeroType.妲己);
-      }
-      if (女娲电辅助 )
-      {
-         最终Damage=计算法器伤害(最终Damage,heroType,HeroType.女娲);
-      }
       最终Damage = Get道纹伤害(最终Damage, heroType);
       if (transform.position.x < -2 && zhiYe == ZhiYeType.战士)
       {
@@ -582,21 +572,8 @@ public class MonsterBase : MonoBehaviour
             抗性=MonsterAttribute.雷电抗性;
             break;
       }
-      抗性 = 计算法器抗性(抗性, heroType,heroType);
-      if (瑶池冰辅助 > 0)
-      {
-         抗性 = 计算法器抗性(抗性, heroType,HeroType.瑶池仙女);
-      }
-      if (妲己黑暗辅助)
-      {
-         抗性 = 计算法器抗性(抗性, heroType,HeroType.妲己);
-      }
-      if (女娲电辅助 )
-      {
-         抗性 = 计算法器抗性(抗性, heroType,HeroType.女娲);
-      }
-      // 注意：抗性已由上面的 计算法器抗性（主英雄+瑶池/妲己/女娲辅助）逐步折减，
-      // 不能再从 MonsterAttribute 原始值重新赋值，否则辅助英雄的穿透会被丢弃
+      // 穿透已按主英雄+在场辅助相加聚合，抗性只折减一次，不能再从 MonsterAttribute 原始值重新赋值
+      抗性 = 计算法器抗性(抗性, heroType, 聚合法器);
 
       float 无视抗性 = 属性config.总属性.无视抗性 * 100;
       if (heroType == HeroType.哪吒)
@@ -639,25 +616,25 @@ public class MonsterBase : MonoBehaviour
       }
    }
 
-   public float 计算法器抗性(float 抗性,HeroType heroType,HeroType 辅助)
+   public float 计算法器抗性(float 抗性,HeroType heroType,法器属性 法器属性)
    {
       switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
       {
          case YuanSuType.物理:
-            //怪物抗性是0-100
-            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].物理穿透/100f);
+            //怪物抗性是0-100；穿透已按自身+辅助相加聚合，只除一次
+            抗性 /= (1f+法器属性.物理穿透/100f);
             break;
          case YuanSuType.电:
-            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].雷电穿透/100f);
+            抗性 /= (1f+法器属性.雷电穿透/100f);
             break;
          case YuanSuType.冰:
-            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].冰霜穿透/100f);
+            抗性 /= (1f+法器属性.冰霜穿透/100f);
             break;
          case YuanSuType.火:
-            抗性 /= (1f+FightController.S.英雄法器属性Dic[辅助].火焰穿透/100f);
+            抗性 /= (1f+法器属性.火焰穿透/100f);
             break;
          case YuanSuType.黑暗:
-            抗性 /=(1f+FightController.S.英雄法器属性Dic[辅助].黑暗穿透/100f);
+            抗性 /=(1f+法器属性.黑暗穿透/100f);
             break;
       }
 
@@ -906,9 +883,41 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
-   public float 计算法器伤害(float damage,HeroType  heroType,HeroType  辅助)
+   // 聚合法器属性：主英雄自身法器 + 在场辅助（瑶池/妲己/女娲）法器，字段全部相加。
+   // 伤害和穿透都基于这一份聚合值各乘/除一次，避免每个辅助各乘一个(1+x)导致数值连乘爆炸
+   private 法器属性 获取聚合法器属性(HeroType heroType)
    {
-      法器属性 法器属性 = FightController.S.英雄法器属性Dic[辅助];
+      var dic = FightController.S.英雄法器属性Dic;
+      法器属性 聚合 = new 法器属性();
+      void 累加(HeroType h)
+      {
+         if (!dic.TryGetValue(h, out var f) || f == null) return;
+         聚合.暴击率 += f.暴击率;
+         聚合.暴击伤害 += f.暴击伤害;
+         聚合.火焰伤害 += f.火焰伤害;
+         聚合.雷电伤害 += f.雷电伤害;
+         聚合.黑暗伤害 += f.黑暗伤害;
+         聚合.冰霜伤害 += f.冰霜伤害;
+         聚合.物理伤害 += f.物理伤害;
+         聚合.最终伤害 += f.最终伤害;
+         聚合.普通怪增伤 += f.普通怪增伤;
+         聚合.精英怪增伤 += f.精英怪增伤;
+         聚合.首领怪增伤 += f.首领怪增伤;
+         聚合.火焰穿透 += f.火焰穿透;
+         聚合.雷电穿透 += f.雷电穿透;
+         聚合.物理穿透 += f.物理穿透;
+         聚合.冰霜穿透 += f.冰霜穿透;
+         聚合.黑暗穿透 += f.黑暗穿透;
+      }
+      累加(heroType);
+      if (瑶池冰辅助 > 0) 累加(HeroType.瑶池仙女);
+      if (妲己黑暗辅助) 累加(HeroType.妲己);
+      if (女娲电辅助) 累加(HeroType.女娲);
+      return 聚合;
+   }
+
+   public float 计算法器伤害(float damage,HeroType  heroType,法器属性 法器属性)
+   {
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       YuanSuType yuansu = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
       switch (monsterType)
