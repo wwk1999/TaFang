@@ -1944,8 +1944,17 @@ public class StoreDefine : XSingleton<StoreController>
     { "混元圣人_宙品", 0 },
     { "混元圣人_洪品", 0 },
     { "混元圣人_荒品", 0 },
+
+    { "鸿蒙_黄品", 0 },
+    { "鸿蒙_玄品", 0 },
+    { "鸿蒙_地品", 0 },
+    { "鸿蒙_天品", 0 },
+    { "鸿蒙_宇品", 0 },
+    { "鸿蒙_宙品", 0 },
+    { "鸿蒙_洪品", 0 },
+    { "鸿蒙_荒品", 0 },
 };
-        
+
         public Dictionary<功法Type, int> 功法数量Dic = new Dictionary<功法Type, int>()
         {
             // 战士系列

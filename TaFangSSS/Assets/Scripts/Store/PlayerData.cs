@@ -1808,7 +1808,8 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     public int Get灵物数量(JingJieType jingJieType, QualityType qualityType)
     {
         string value = JingJieConfig.JingJieNameDic[jingJieType]+"_"+PropConfig.QualityNameDic[qualityType];
-        return 突破灵物Dic[value];
+        // 缺键返回0：老存档（新增境界/品质后反序列化的旧字典）或未初始化的境界不应抛异常中断结算
+        return 突破灵物Dic.TryGetValue(value, out int count) ? count : 0;
     }
 
     public void Set灵物数量(JingJieType jingJieType, QualityType qualityType, int count)
@@ -2090,6 +2091,15 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     { "混元圣人_宙品", 0 },
     { "混元圣人_洪品", 0 },
     { "混元圣人_荒品", 0 },
+
+    { "鸿蒙_黄品", 0 },
+    { "鸿蒙_玄品", 0 },
+    { "鸿蒙_地品", 0 },
+    { "鸿蒙_天品", 0 },
+    { "鸿蒙_宇品", 0 },
+    { "鸿蒙_宙品", 0 },
+    { "鸿蒙_洪品", 0 },
+    { "鸿蒙_荒品", 0 },
 };
     
     public Dictionary<功法Type, int> 功法数量Dic = new Dictionary<功法Type, int>()

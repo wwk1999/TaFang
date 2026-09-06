@@ -81,7 +81,8 @@ public class 属性config
      
      public  static float Get神物数值(神物Type type)
      {
-          if (PlayerData.S.神物获得Dic[type])
+          // TryGetValue：老存档反序列化的字典可能缺少新版本新增的神物键，索引器会抛异常
+          if (PlayerData.S.神物获得Dic.TryGetValue(type, out bool 已获得) && 已获得)
           {
                return 神物Config.神物数值Dic[type]/100f;
           }

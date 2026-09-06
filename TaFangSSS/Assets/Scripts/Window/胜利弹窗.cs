@@ -60,18 +60,26 @@ public class 胜利弹窗 : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+        // try/finally：结算里任何一步（奖励UI实例化、字典缺键等）抛异常时，
+        // 已发放到内存的奖励也必须落盘，否则玩家看完奖励退出却回档
+        try
         {
-            主线关卡结算();
+            if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+            {
+                主线关卡结算();
+            }
+            else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+            {
+                洞天关卡结算();
+            }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+            {
+                遗迹关卡结算();
+            }
         }
-        else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+        finally
         {
-            洞天关卡结算();
-        }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
-        {
-            遗迹关卡结算();
+            StoreController.S.SaveStoreData();
         }
-        StoreController.S.SaveStoreData();
     }
 
     public void 洞天关卡结算()
@@ -113,7 +121,9 @@ public class 胜利弹窗 : MonoBehaviour
         遗迹关卡胜利奖励 value = 神物Config.Get遗迹关卡奖励();
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
-        if (value.神物&&PlayerData.S.神物获得Dic[LevelConfig.当前神物Type] == false)
+        // TryGetValue：老存档的神物获得Dic可能缺少新神物键，缺失视为未获得
+        bool 已获得神物 = PlayerData.S.神物获得Dic.TryGetValue(LevelConfig.当前神物Type, out var got) && got;
+        if (value.神物 && !已获得神物)
         {
             PlayerData.S.神物获得Dic[LevelConfig.当前神物Type] = true;
             var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
