@@ -600,6 +600,6 @@ public class 属性config
      {
           float value=JingJieConfig.每年秒数Dic[PlayerData.S.历史最高境界];
           value /= (1f + 总属性.时间流速加快);
-          return value/10f;
+          return value;
      }
 }

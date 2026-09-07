@@ -184,18 +184,15 @@ public class 灵物突破Config
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 300000000, Attack = 10000, Defense = 4000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3000000000, Attack = 20000, Defense = 8000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 30000000000, Attack = 40000, Defense = 15000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
         },
 
 

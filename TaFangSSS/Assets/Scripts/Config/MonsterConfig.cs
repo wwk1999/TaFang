@@ -1441,29 +1441,29 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
   // 瑶池仙境 (第17关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 10384, Attack = 1038, Defense = 519, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 300000000, Attack = 10000, Defense = 4000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 103840, Attack = 2076, Defense = 1038, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 3000000000, Attack = 20000, Defense = 8000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 1038400, Attack = 5190, Defense = 2595, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 30000000000, Attack = 40000, Defense = 15000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
 
   // 斩妖台 (第18关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 14537, Attack = 1454, Defense = 727, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 1000000000, Attack = 12000, Defense = 5000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 145370, Attack = 2908, Defense = 1454, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 10000000000, Attack = 25000, Defense = 10000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 1453700, Attack = 7270, Defense = 3635, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 10000000000, Attack = 50000, Defense = 20000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
 
   // 御马监 (第19关)
