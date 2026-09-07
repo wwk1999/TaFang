@@ -95,11 +95,11 @@ public class 神物Config
         {
             if (item.PropType == PropType.功德)
             {
-                遗迹关卡胜利奖励.功德=LongRandom.Range(item.minCount, item.maxCount);
+                遗迹关卡胜利奖励.功德=(long)Random.Range(item.minCount, item.maxCount);
             }
             if (item.PropType == PropType.灵魂)
             {
-                遗迹关卡胜利奖励.灵魂=LongRandom.Range(item.minCount, item.maxCount);
+                遗迹关卡胜利奖励.灵魂=(long)Random.Range(item.minCount, item.maxCount);
             }
         }
         float random=Random.Range(0f, 100f);

@@ -1158,8 +1158,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
        var list = 灵物突破Config.洞天普通掉落Dic[item];
        洞天关卡胜利奖励 value = new 洞天关卡胜利奖励();
        List<灵物item> 灵物list = new List<灵物item>();
-       value.灵魂=LongRandom.Range(list[0].minCount,list[0].maxCount);
-       value.功德=LongRandom.Range(list[1].minCount,list[1].maxCount);
+       value.灵魂=(long)Random.Range(list[0].minCount,list[0].maxCount);
+       value.功德=(long)Random.Range(list[1].minCount,list[1].maxCount);
        var 灵物概率列表 = 灵物突破Config.灵物掉落概率Dic[当前洞天QualityType];
        for (int index = 0; index < 灵物概率列表.Count; index++)
        {
@@ -1190,7 +1190,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                min = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).min;
                max = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).max;
            }
-           long random=LongRandom.Range(min,max);
+           long random=(long)Random.Range(min,max);
            switch (item.PropType)
            {
                case PropType.灵魂:
