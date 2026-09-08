@@ -20,7 +20,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public int 当前神通index = 0;
     [NonSerialized] public float 英雄之间神通间隔时间 = 2;
     [NonSerialized] public float 当前英雄之间神通间隔时间 = 1;
-    [NonSerialized] public float 当前神通能量 = 属性config.总属性.神通最大值;
+    [NonSerialized] public float 当前神通能量;
     [NonSerialized] public Dictionary<HeroType, 英雄根基丹药属性> 英雄根基丹药属性Dic = new Dictionary<HeroType, 英雄根基丹药属性>();
     [NonSerialized] public 丹药属性 战斗丹药属性 = new 丹药属性();
     [NonSerialized] public float 丹药物理伤害 = 0;
@@ -35,16 +35,16 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public float 丹药法师伤害 = 0;
     
     
-    [NonSerialized] public float 物理伤害 = 属性config.总属性.物理伤害增幅;
-    [NonSerialized] public float 冰霜伤害 = 属性config.总属性.冰霜伤害增幅;
-    [NonSerialized] public float 火焰伤害 = 属性config.总属性.火焰伤害增幅;
-    [NonSerialized] public float 雷电伤害 = 属性config.总属性.雷电伤害增幅;
-    [NonSerialized] public float 黑暗伤害 = 属性config.总属性.黑暗伤害增幅;
+    [NonSerialized] public float 物理伤害;
+    [NonSerialized] public float 冰霜伤害;
+    [NonSerialized] public float 火焰伤害;
+    [NonSerialized] public float 雷电伤害;
+    [NonSerialized] public float 黑暗伤害;
     
-    [NonSerialized] public float 射手伤害 = 属性config.总属性.射手增幅;
-    [NonSerialized] public float 战士伤害 = 属性config.总属性.战士增幅;
-    [NonSerialized] public float 控制伤害 = 属性config.总属性.控制增幅;
-    [NonSerialized] public float 法师伤害 = 属性config.总属性.法师增幅;
+    [NonSerialized] public float 射手伤害;
+    [NonSerialized] public float 战士伤害;
+    [NonSerialized] public float 控制伤害;
+    [NonSerialized] public float 法师伤害;
 
     [NonSerialized] public Dictionary<HeroType, 法器属性> 英雄法器属性Dic = new Dictionary<HeroType, 法器属性>();
     //伤害面板
@@ -56,22 +56,22 @@ public class FightController : XSingleton<FightController>
     //法则
     [NonSerialized]public int 孙悟空每秒增加伤害Time = 0;
     [NonSerialized]public int 通天暴击次数 = 0;
-    [NonSerialized]public int 元始数量 = 英雄星级属性.元始攻击数量;
+    [NonSerialized]public int 元始数量;
     [NonSerialized]public int 鸿钧陨石次数 = 0;
     [NonSerialized]public int 盘古击杀次数 = 0;
 
     
     
     [NonSerialized]public float 免疫护盾间隔时间 = 0;
-    [NonSerialized]public int 免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
+    [NonSerialized]public int 免疫护盾次数;
     [NonSerialized]public float 每段时间护盾间隔时间 = 0;
-    [NonSerialized]public float 城墙护盾值 = 城墙Config.开局护盾值/100f*城墙Config.Get城墙最大生命值();
+    [NonSerialized]public float 城墙护盾值;
     [NonSerialized] public float 当前冰冻间隔 = 0;
-    [NonSerialized] public int 涅槃次数 = 城墙Config.涅槃次数;
+    [NonSerialized] public int 涅槃次数;
     [NonSerialized] public float 城墙无敌Time = 0;
     [NonSerialized] public float 每秒回血Time = 0;
     [NonSerialized] public float 无敌间隔Time = 0;
-    [NonSerialized] public float 城墙当前生命值 =城墙Config.Get城墙最大生命值();
+    [NonSerialized] public float 城墙当前生命值;
     [NonSerialized] public HashSet<MonsterBase>当前怪物Set = new HashSet<MonsterBase>();
     [NonSerialized] public float CreateMonsterTime = 1f;
     [NonSerialized] public float 当前创建普通怪物时间 = 0;
@@ -1476,6 +1476,24 @@ public class FightController : XSingleton<FightController>
 
     protected override void Awake()
     {
+        base.Awake();
+        // 字段初始化器里不能调单例/Config(构造函数阶段禁止 FindObjectOfType),挪到 Awake
+        当前神通能量 = 属性config.总属性.神通最大值;
+        物理伤害 = 属性config.总属性.物理伤害增幅;
+        冰霜伤害 = 属性config.总属性.冰霜伤害增幅;
+        火焰伤害 = 属性config.总属性.火焰伤害增幅;
+        雷电伤害 = 属性config.总属性.雷电伤害增幅;
+        黑暗伤害 = 属性config.总属性.黑暗伤害增幅;
+        射手伤害 = 属性config.总属性.射手增幅;
+        战士伤害 = 属性config.总属性.战士增幅;
+        控制伤害 = 属性config.总属性.控制增幅;
+        法师伤害 = 属性config.总属性.法师增幅;
+        元始数量 = 英雄星级属性.元始攻击数量;
+        免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
+        城墙护盾值 = 城墙Config.开局护盾值 / 100f * 城墙Config.Get城墙最大生命值();
+        涅槃次数 = 城墙Config.涅槃次数;
+        城墙当前生命值 = 城墙Config.Get城墙最大生命值();
+
         ObserverModuleManager.S.RegisterEvent("刷新主页面",游戏时长);
     }
 

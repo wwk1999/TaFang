@@ -209,7 +209,7 @@ public class FightWindow : MonoBehaviour
             if (PlayerData.S.历史最高境界 < JingJieType.金丹)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
-                ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
+                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
                 return;
             }
             if (PlayerData.S.关卡倍速 == 1.5f) return;
@@ -222,7 +222,7 @@ public class FightWindow : MonoBehaviour
             if (PlayerData.S.历史最高境界 < JingJieType.化神)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
-                ObserverModuleManager.S.SendEvent("SendUIToast","天仙境界解锁");
+                ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
                 return;
             }
             if (PlayerData.S.关卡倍速 == 2) return;

@@ -14,7 +14,7 @@ public class 火球旋转parent : MonoBehaviour
     [NonSerialized] public bool 妲己神通;
     [NonSerialized] public bool 女娲神通;
 
-    [NonSerialized] public float damage = 属性config.总属性.总攻击力*英雄星级属性.元始攻击数值/100f;
+    [NonSerialized] public float damage;
 
     public void Hide()
     {
@@ -24,6 +24,8 @@ public class 火球旋转parent : MonoBehaviour
     {
         CancelInvoke();
         transform.localScale = new Vector3(英雄星级属性.元始体积, 英雄星级属性.元始体积, 1);
+        // damage 不能在字段初始化器里算(构造函数阶段不允许 FindObjectOfType),挪到 OnEnable
+        damage = 属性config.总属性.总攻击力 * 英雄星级属性.元始攻击数值 / 100f;
         foreach (var item in 火球list)
         {
             item.黑暗辅助 = 黑暗辅助;
