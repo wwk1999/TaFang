@@ -623,7 +623,7 @@ public class 功法Config
         foreach (var item in list)
         {
             count += item;
-            if (random <= count)
+            if (random < count)
             {
                 break;
             }
