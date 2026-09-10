@@ -33,6 +33,340 @@ public class StoreDefine : XSingleton<StoreController>
         public int 轮回次数 = 0;
         public bool 是否首次进入主页面 = true;
 
+        
+        public Dictionary<HeroType, List<List<int>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<int>>>()
+{
+    {
+        HeroType.丹童,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.土地,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.河伯,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.瑶池仙女,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.石敢当,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.玄女,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.龟丞相,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.太白金星,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.多闻天王,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.广目天王,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.雷震子,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.月老,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.嫦娥,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.杨戬,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.妲己,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.牛魔王,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.哪吒,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.孙悟空,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.碧霄,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.琼霄,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.羲和,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.常羲,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.后羿,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.云霄,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.女娲,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.老子,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.通天,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.元始,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.鸿钧,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+    {
+        HeroType.盘古,
+        new List<List<int>>()
+        {
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+            new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0 },
+        }
+    },
+};
         public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
         public int 混沌虚空最大层数 = 1;
         public int 城墙等级 = 1;
@@ -2794,6 +3128,8 @@ public class StoreDefine : XSingleton<StoreController>
             是否首次通关关卡 = runtime.是否首次通关关卡;
             神通配置List = runtime.神通配置List;
             是否首次配置神通 = runtime.是否首次配置神通;
+            英雄技能树Dic = runtime.英雄技能树Dic;
+
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -2874,7 +3210,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.是否首次通关关卡 = 是否首次通关关卡;
             runtime.神通配置List = 神通配置List;
             runtime.是否首次配置神通 = 是否首次配置神通;
-
+            runtime.英雄技能树Dic = 英雄技能树Dic;
         }
     }
 }
