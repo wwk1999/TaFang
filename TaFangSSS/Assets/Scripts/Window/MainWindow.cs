@@ -471,7 +471,7 @@ public class MainWindow : MonoBehaviour
         });
         经验值Debug.onClick.AddListener(() =>
         {
-            PlayerData.S.PropListDic[PropType.功德] += 999999;
+            PlayerData.S.PropListDic[PropType.功德] += 99999999999;
             PlayerData.S.历史最高境界++;
             if (PlayerData.S.历史最高境界 > JingJieType.混元圣人)
             {
@@ -497,6 +497,8 @@ public class MainWindow : MonoBehaviour
         });
         招募卷Debug.onClick.AddListener(() =>
         {
+            PlayerData.S.剩余传道次数 += 100;
+
             PlayerData.S.PropListDic[PropType.高级招募卷] += 100;
             PlayerData.S.PropListDic[PropType.招募卷] += 100;
             PlayerData.S.PropListDic[PropType.灵魂] += 10000000;

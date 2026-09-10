@@ -13,19 +13,21 @@ public enum 技能Type{
     瑶池减速效果,
     瑶池持续时间,
     龟丞相减速,
-    射手箭矢数量,
     
     妲己效果,
     妲己持续时间,
     孙悟空挥棒次数,
     琼霄控制时长,
+    
     羲和灼烧伤害,
     常羲减速,
+    
     女娲效果,
     女娲持续时间,
     
     元始火种个数,
     火种旋转速度,
+    元始下场时间,
     玄冰风弹道速度减少,
     玄冰风每秒增长速度增加,
     无极天火数量,
@@ -41,24 +43,27 @@ public enum 技能Type{
     
     //神通
     神通冷却时间,
-    神通伤害,
+    神通伤害1,
+    神通伤害2,
+
     神通能量,
     
     //辅助
     被辅助英雄伤害,
     被辅助英雄暴击率,
     被辅助英雄暴击伤害,
-    被辅助英雄神通伤害,
-    
-
     
     //新增
-    技能伤害,
+    技能伤害1,
+    技能伤害2,
     射手分裂,
     射手穿透,
     
-    战士下场次数,
-    
+    物理伤害,
+    雷电伤害,
+    黑暗伤害,
+    火焰伤害,
+    冰霜伤害,
     
     火焰灼烧伤害,
     火焰灼烧时间,
@@ -93,7 +98,6 @@ public enum 技能Type{
     
     暴击率,
     暴击伤害,
-    元素伤害,
     普通怪增伤,
     精英怪增伤,
     首领怪增伤,
@@ -163,7 +167,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -226,7 +230,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰霜伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -289,7 +293,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -417,7 +421,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲怪物百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -441,7 +445,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -482,7 +486,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰霜伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰减速, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -506,7 +510,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -546,7 +550,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.雷电伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态概率, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -570,7 +574,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -611,7 +615,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.雷电伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态概率, 是否有前置 = true, 最大等级 = 10, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -635,7 +639,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -666,7 +670,7 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.射手穿透, 是否有前置 = false, 最大等级 = 2, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -676,7 +680,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -700,8 +704,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -729,8 +733,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -740,7 +744,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -764,8 +768,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -795,7 +799,7 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = false, 最大等级 = 2, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -805,7 +809,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.雷电伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态概率, 是否有前置 = true, 最大等级 = 10, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -829,8 +833,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -861,7 +865,7 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.射手穿透, 是否有前置 = false, 最大等级 = 2, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -871,7 +875,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
@@ -895,8 +899,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -927,8 +931,8 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -937,7 +941,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.雷电伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态概率, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
@@ -961,8 +965,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -992,8 +996,8 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.射手穿透, 是否有前置 = false, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1002,7 +1006,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.雷电伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态概率, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.易电状态伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
@@ -1026,8 +1030,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1093,8 +1097,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1126,8 +1130,8 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1136,7 +1140,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲怪物百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲领主攻击百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
@@ -1160,8 +1164,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1191,9 +1195,9 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.孙悟空挥棒次数, 是否有前置 = false, 最大等级 = 1, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1203,7 +1207,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲怪物百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲领主攻击百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
@@ -1227,8 +1231,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1258,8 +1262,8 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.哪吒神通数量, 是否有前置 = false, 最大等级 = 3, count = 1 },
 
@@ -1271,7 +1275,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 3, count = 5 },
@@ -1295,10 +1299,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
                     new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },                   
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1329,7 +1333,7 @@ public class 英雄技能树Config
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.碧霄神通数量, 是否有前置 = false, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1340,10 +1344,10 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰霜伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰减速, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰概率冰冻, 是否有前置 = true, 最大等级 = 3, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 0.3f },
                     new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1364,10 +1368,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1396,9 +1400,9 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.琼霄控制时长, 是否有前置 = false, 最大等级 = 3, count = 0.3f },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1408,7 +1412,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记增加引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
@@ -1432,10 +1436,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1462,9 +1466,9 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.羲和神通数量, 是否有前置 = true, 最大等级 = 2, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1473,7 +1477,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
@@ -1497,10 +1501,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1529,9 +1533,9 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1540,10 +1544,10 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰霜伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰减速, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰概率冰冻, 是否有前置 = true, 最大等级 = 3, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 0.3f },
                     new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1564,10 +1568,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1599,7 +1603,7 @@ public class 英雄技能树Config
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.射手穿透, 是否有前置 = false, 最大等级 = 4, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.射手分裂, 是否有前置 = false, 最大等级 = 1, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1608,7 +1612,7 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲怪物百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理碎甲领主攻击百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
@@ -1632,10 +1636,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1666,9 +1670,9 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.效果范围, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1677,10 +1681,10 @@ public class 英雄技能树Config
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰霜伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰减速, 是否有前置 = true, 最大等级 = 3, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.冰概率冰冻, 是否有前置 = true, 最大等级 = 3, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 0.3f },
                     new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1701,10 +1705,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1734,7 +1738,7 @@ public class 英雄技能树Config
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.女娲持续时间, 是否有前置 = false, 最大等级 = 3, count = 0.5f },
                     new 英雄技能item() { 技能Type = 技能Type.女娲效果, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = false, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.女娲神通效果, 是否有前置 = true, 最大等级 = 5, count = 5 },
@@ -1767,10 +1771,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1793,30 +1797,30 @@ public class 英雄技能树Config
                     new 英雄技能item() { 技能Type = 技能Type.普通怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.精英怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.首领怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
-                    new 英雄技能item() { 技能Type = 技能Type.技能伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害1, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                 },
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.元始火种个数, 是否有前置 = false, 最大等级 = 3, count = 0.5f },
+                    new 英雄技能item() { 技能Type = 技能Type.元始火种个数, 是否有前置 = false, 最大等级 = 3, count = 1f },
                     new 英雄技能item() { 技能Type = 技能Type.火种旋转速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.神通伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.元始下场时间, 是否有前置 = false, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.女娲神通效果, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                 },
                 
                 new List<英雄技能item>()
                 {
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.被辅助元素伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                 },
                 new List<英雄技能item>()
@@ -1834,13 +1838,282 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
                     new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+            }
+        },
+           
+           
+           
+           
+           {
+            HeroType.通天,
+            new List<List<英雄技能item>>()
+            {
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击率, 是否有前置 = true, 最大等级 = 3, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.普通怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.精英怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.首领怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害1, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.射手穿透, 是否有前置 = false, 最大等级 = 5, count = 1f },
+                    new 英雄技能item() { 技能Type = 技能Type.射手分裂, 是否有前置 = true, 最大等级 = 1, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记增加引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记增加引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+            }
+        },
+           
+           
+           
+           
+           
+           {
+            HeroType.老子,
+            new List<List<英雄技能item>>()
+            {
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击率, 是否有前置 = true, 最大等级 = 3, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.普通怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.精英怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.首领怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害1, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.玄冰风弹道速度减少, 是否有前置 = true, 最大等级 = 3, count = 5f },
+                    new 英雄技能item() { 技能Type = 技能Type.玄冰风每秒增长速度增加, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.冰霜伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰减速, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰概率冰冻, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻时间, 是否有前置 = true, 最大等级 = 3, count = 0.3f },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.冰冻增伤, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.洪品] },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
+                },
+            }
+        },
+           
+           
+           
+           
+           {
+            HeroType.鸿钧,
+            new List<List<英雄技能item>>()
+            {
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击率, 是否有前置 = true, 最大等级 = 3, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.普通怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.精英怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.首领怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害1, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害1, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.无极天火数量, 是否有前置 = true, 最大等级 = 1, count = 1f },
+                    new 英雄技能item() { 技能Type = 技能Type.无极天火数量, 是否有前置 = true, 最大等级 = 1, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.无极天火数量, 是否有前置 = true, 最大等级 = 1, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率红变彩, 是否有前置 = true, 最大等级 = 5, count = 1 },
+                },
+            }
+        },
+           
+           
+           
+           
+           {
+            HeroType.盘古,
+            new List<List<英雄技能item>>()
+            {
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击率, 是否有前置 = true, 最大等级 = 3, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.暴击伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.普通怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.精英怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.首领怪增伤, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.技能伤害1, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害1, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.技能冷却缩减, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.混沌开天拳出拳数量增加, 是否有前置 = true, 最大等级 = 1, count = 1f },
+                    new 英雄技能item() { 技能Type = 技能Type.混沌开天拳出拳数量增加, 是否有前置 = true, 最大等级 = 1, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.混沌开天拳出拳数量增加, 是否有前置 = true, 最大等级 = 1, count = 1 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通冷却时间, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通能量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.神通伤害2, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.物理伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理碎甲怪物百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理碎甲领主攻击百分比, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                    new 英雄技能item() { 技能Type = 技能Type.物理无抗性加伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
+                },
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = false, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                    new 英雄技能item() { 技能Type = 技能Type.增加所有英雄伤害, 是否有前置 = true, 最大等级 = 5, count = 增加所有英雄伤害Dic[QualityType.荒品] },
+                },
+                
+                new List<英雄技能item>()
+                {
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = false, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率紫变橙, 是否有前置 = true, 最大等级 = 5, count = 4 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率橙变粉, 是否有前置 = true, 最大等级 = 5, count = 3 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率粉变红, 是否有前置 = true, 最大等级 = 5, count = 2 },
+                    new 英雄技能item() { 技能Type = 技能Type.寻宝速度, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率提升数量, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.概率红变彩, 是否有前置 = true, 最大等级 = 5, count = 1 },
                 },
             }
         },
