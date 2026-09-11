@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 圆环暗;
+    public static Sprite 圆环亮;
+
+    
     public static Sprite 英雄伤害;
     public static Sprite 技能冷却缩减;
     public static Sprite 击退距离;
@@ -6074,6 +6078,10 @@ public class ResourcesConfig : MonoBehaviour
 
     public static void Init()
     {
+        圆环暗=Resources.Load<Sprite>("Sprite/技能树图标/圆环暗");
+        圆环亮=Resources.Load<Sprite>("Sprite/技能树图标/圆环亮");
+
+        
         英雄伤害 = Resources.Load<Sprite>("Sprite/技能树图标/英雄伤害");
         技能冷却缩减 = Resources.Load<Sprite>("Sprite/技能树图标/技能冷却缩减");
         击退距离 = Resources.Load<Sprite>("Sprite/技能树图标/击退距离");

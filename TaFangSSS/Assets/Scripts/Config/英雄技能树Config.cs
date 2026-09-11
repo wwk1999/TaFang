@@ -128,6 +128,27 @@ public class 英雄技能树Config
         { QualityType.洪品 ,18},
         { QualityType.荒品 ,30},
     };
+
+    public static 技能Type Get英雄技能Type(HeroType heroType, int 行, int 列)
+    {
+        // 1. 判断英雄是否存在
+        if (!英雄技能树Dic.TryGetValue(heroType, out var 技能树))
+        {
+            return 技能Type.None;
+        }
+
+        // 2. 判断列是否越界
+        if (列 < 0 || 列 >= 技能树.Count)
+        {
+            return 技能Type.None;
+        }
+
+        var 当前行 = 技能树[行-1];
+        
+
+        // 4. 返回对应技能节点的技能Type
+        return 当前行[列-1].技能Type;
+    }
     public static Dictionary<HeroType, List<List<英雄技能item>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<英雄技能item>>>()
     {
         {
