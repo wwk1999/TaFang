@@ -115,6 +115,15 @@ public class 英雄技能item
     public int 最大等级;
 }
 
+public enum 英雄境界Type
+{
+    None,
+    寻道,
+    悟道,
+    入道,
+    证道,
+}
+
 public class 英雄技能树Config
 {
     public static Dictionary<QualityType, float> 增加所有英雄伤害Dic = new Dictionary<QualityType, float>()
@@ -128,7 +137,6 @@ public class 英雄技能树Config
         { QualityType.洪品 ,18},
         { QualityType.荒品 ,30},
     };
-
     public static 技能Type Get英雄技能Type(HeroType heroType, int 行, int 列)
     {
         // 1. 判断英雄是否存在
@@ -138,7 +146,7 @@ public class 英雄技能树Config
         }
 
         // 2. 判断列是否越界
-        if (列 < 0 || 列 >= 技能树.Count)
+        if (列 < 0 || 列 > 8)
         {
             return 技能Type.None;
         }
@@ -2131,4 +2139,39 @@ public class 英雄技能树Config
             }
         },
     };
+
+    public static string Get英雄境界String(英雄境界Type type)
+    {
+        switch (type)
+        {
+            case 英雄境界Type.入道:
+                return "入道";
+            case 英雄境界Type.悟道:
+                return "悟道";
+            case 英雄境界Type.证道:
+                return "证道";
+            case 英雄境界Type.寻道:
+                return "寻道";
+        }
+
+        return "";
+    }
+    
+    public static 英雄境界Type Get英雄境界Type(int count)
+    {
+        if (count <= 10)
+        {
+            return 英雄境界Type.寻道;
+        }else if (count <= 20)
+        {
+            return 英雄境界Type.悟道;
+        }else if (count <= 30)
+        {
+            return 英雄境界Type.入道;
+        }else if (count <= 40)
+        {
+            return 英雄境界Type.证道;
+        }
+        return 英雄境界Type.None;
+    }
 }

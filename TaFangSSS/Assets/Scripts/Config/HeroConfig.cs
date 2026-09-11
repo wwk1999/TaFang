@@ -12,6 +12,7 @@ namespace Config
         public int 功法等级;
         public float  功法经验;
         public int 功法星级;
+        public int 境界;
         public 法器 武器 = null;
         public 法器 衣服 = null;
         public 法器 头盔 = null;

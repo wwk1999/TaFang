@@ -32,6 +32,38 @@ public class 英雄详情界面 : MonoBehaviour
     private HeroType 当前heroType=HeroType.丹童;
     private 英雄详情界面显示类型 显示类型 = 英雄详情界面显示类型.境界;
 
+
+    private void Start()
+    {
+        境界Button.onClick.AddListener(() =>
+        {
+            if (显示类型 != 英雄详情界面显示类型.境界)
+            {
+                显示类型 = 英雄详情界面显示类型.境界;
+                设置Button();
+                Show技能面板();
+            }
+        });
+    }
+
+    public void Show英雄列表()
+    {
+        foreach (Transform item in 英雄列表content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in HeroConfig.HeroNameDic)
+        {
+            if (PlayerData.S.HeroDataDic[item.Key].Level > 0)
+            {
+               var 英雄列表item = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情列表Item"), 英雄列表content.transform)
+                               .GetComponent<英雄详情列表Item>();
+                英雄列表item.HeroType = item.Key;
+                英雄列表item.SetItem(); 
+            }
+        }
+    }
+
     public void 设置Button()
     {
         switch (显示类型)
@@ -75,22 +107,25 @@ public class 英雄详情界面 : MonoBehaviour
 
     private void OnEnable()
     {
+        Show英雄列表();
         刷新界面();
     }
 
     public void Show技能面板()
     {
+        // 先清空旧的，再创建新的。注意：Instantiate 必须放在 foreach 外面，
+        // 否则遍历过程中不断往 技能Content 加子物体，会形成无限循环导致界面卡死
         foreach (Transform item in 技能Content.transform)
         {
             Destroy(item.gameObject);
-            for (int i = 1; i <= 5; i++)
-            {
-                var 技能树行item = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树行item"), 技能Content.transform)
-                    .GetComponent<技能树行item>();
-                技能树行item.行 = i;
-                技能树行item.HeroType = 当前heroType;
-                技能树行item.SetItem();
-            }
+        }
+        for (int i = 1; i <= 5; i++)
+        {
+            var 技能树行item = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树行item"), 技能Content.transform)
+                .GetComponent<技能树行item>();
+            技能树行item.行 = i;
+            技能树行item.HeroType = 当前heroType;
+            技能树行item.SetItem();
         }
     }
 }

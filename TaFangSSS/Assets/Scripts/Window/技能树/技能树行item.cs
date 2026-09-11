@@ -31,71 +31,52 @@ public class 技能树行item : MonoBehaviour
     public void SetItem()
     {
         var list=英雄技能树Config.英雄技能树Dic[HeroType][行-1];
-        箭头1.gameObject.SetActive(list[1].是否有前置);
-        箭头2.gameObject.SetActive(list[2].是否有前置);
-        箭头3.gameObject.SetActive(list[3].是否有前置);
-        箭头4.gameObject.SetActive(list[4].是否有前置);
-        箭头5.gameObject.SetActive(list[5].是否有前置);
-        箭头6.gameObject.SetActive(list[6].是否有前置);
-        箭头7.gameObject.SetActive(list[7].是否有前置);
-        var 技能item1 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item1.HeroType = HeroType;
-        技能item1.行 = 行;
-        技能item1.列 = 1;
-        技能item1.SetItem();
+        箭头1.gameObject.SetActive(list[1].是否有前置&&list[1].技能Type!=技能Type.None);
+        箭头2.gameObject.SetActive(list[2].是否有前置&&list[2].技能Type!=技能Type.None);
+        箭头3.gameObject.SetActive(list[3].是否有前置&&list[3].技能Type!=技能Type.None);
+        箭头4.gameObject.SetActive(list[4].是否有前置&&list[4].技能Type!=技能Type.None);
+        箭头5.gameObject.SetActive(list[5].是否有前置&&list[5].技能Type!=技能Type.None);
+        箭头6.gameObject.SetActive(list[6].是否有前置&&list[6].技能Type!=技能Type.None);
+        箭头7.gameObject.SetActive(list[7].是否有前置&&list[7].技能Type!=技能Type.None);
+        技能1.行 = 行;
+        技能1.列 = 1;
+        技能1.HeroType=HeroType;
+        技能1.SetItem();
         
-        var 技能item2 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item2.HeroType = HeroType;
-        技能item2.行 = 行;
-        技能item2.列 = 2;
-        技能item2.SetItem();
+        技能2.行 = 行;
+        技能2.列 = 2;
+        技能2.HeroType=HeroType;
+        技能2.SetItem();
         
-        var 技能item3 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item3.HeroType = HeroType;
-        技能item3.行 = 行;
-        技能item3.列 = 3;
-        技能item3.SetItem();
+        技能3.行 = 行;
+        技能3.列 = 3;
+        技能3.HeroType=HeroType;
+        技能3.SetItem();
         
-        var 技能item4 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item4.HeroType = HeroType;
-        技能item4.行 = 行;
-        技能item4.列 = 4;
-        技能item4.SetItem();
+        技能4.行 = 行;
+        技能4.列 = 4;
+        技能4.HeroType=HeroType;
+        技能4.SetItem();
         
-        var 技能item5 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item5.HeroType = HeroType;
-        技能item5.行 = 行;
-        技能item5.列 = 5;
-        技能item5.SetItem();
+        技能5.行 = 行;
+        技能5.列 = 5;
+        技能5.HeroType=HeroType;
+        技能5.SetItem();
         
-        var 技能item6 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item6.HeroType = HeroType;
-        技能item6.行 = 行;
-        技能item6.列 = 6;
-        技能item6.SetItem();
+        技能6.行 = 行;
+        技能6.列 = 6;
+        技能6.HeroType=HeroType;
+        技能6.SetItem();
         
-        var 技能item7 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item7.HeroType = HeroType;
-        技能item7.行 = 行;
-        技能item7.列 = 7;
-        技能item7.SetItem();
+        技能7.行 = 行;
+        技能7.列 = 7;
+        技能7.HeroType=HeroType;
+        技能7.SetItem();
         
-        var 技能item8 = Instantiate(Resources.Load("Prefabs/Window/技能树/技能树item"), content.transform)
-            .GetComponent<技能树item>();
-        技能item8.HeroType = HeroType;
-        技能item8.行 = 行;
-        技能item8.列 = 8;
-        技能item8.SetItem();
-        
-        
-        
+        技能8.行 = 行;
+        技能8.列 = 8;
+        技能8.HeroType=HeroType;
+        技能8.SetItem();
         
     }
 

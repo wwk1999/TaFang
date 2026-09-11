@@ -20,7 +20,7 @@ public class 技能树item : MonoBehaviour
     [NonSerialized] public int 列;
     public void SetItem()
     {
-        if (HeroType == HeroType.None)
+        if (HeroType == HeroType.None||英雄技能树Config.英雄技能树Dic[HeroType][行 - 1][列 - 1].技能Type==技能Type.None)
         {
             content.SetActive(false);
             return;

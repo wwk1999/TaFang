@@ -6,6 +6,14 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 英雄背景框白;
+    public static Sprite 英雄背景框绿;
+    public static Sprite 英雄背景框蓝;
+    public static Sprite 英雄背景框紫;
+    public static Sprite 英雄背景框橙;
+    public static Sprite 英雄背景框彩;
+
+    
     public static Sprite 圆环暗;
     public static Sprite 圆环亮;
 
@@ -6076,8 +6084,42 @@ public class ResourcesConfig : MonoBehaviour
         }
     }
 
+    public static Sprite Get英雄背景框(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 英雄背景框白;
+            case QualityType.玄品:
+                return 英雄背景框绿;
+            case QualityType.地品:
+                return 英雄背景框蓝;
+            case QualityType.天品:
+                return 英雄背景框紫;
+            case QualityType.宇品:
+                return 英雄背景框橙;
+            case QualityType.宙品:
+                return 英雄背景框粉;
+            case QualityType.洪品:
+                return 英雄背景框红;
+            case QualityType.荒品:
+                return 英雄背景框彩;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        英雄背景框白=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框白");
+        英雄背景框绿=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框绿");
+        英雄背景框蓝=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框蓝");
+        英雄背景框紫=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框紫");
+        英雄背景框橙=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框橙");
+        英雄背景框粉=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框粉");
+        英雄背景框洪=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框洪");
+        英雄背景框荒=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框荒");
+
+        
         圆环暗=Resources.Load<Sprite>("Sprite/技能树图标/圆环暗");
         圆环亮=Resources.Load<Sprite>("Sprite/技能树图标/圆环亮");
 
