@@ -3008,7 +3008,7 @@ public class StoreDefine : XSingleton<StoreController>
 
         };
 
-        public Dictionary<PropType, long> PropListDic = new Dictionary<PropType, long>()
+        public Dictionary<PropType, float> PropListDic = new Dictionary<PropType, float>()
         {
             { PropType.全职业经验值, 0 },
             { PropType.功德, 0 },

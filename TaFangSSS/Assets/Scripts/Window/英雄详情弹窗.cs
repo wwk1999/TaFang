@@ -338,7 +338,7 @@ public class 英雄详情弹窗 : MonoBehaviour
         升级button.onClick.AddListener(() =>
         {
             int 需要值=法则config.法则升级材料Dic[PlayerData.S.英雄法则等级Dic[HeroType]];
-            long 当前值 = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]];
+            float 当前值 = PlayerData.S.PropListDic[法则config.法则TypeDic[HeroType]];
             if (当前值 < 需要值)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);

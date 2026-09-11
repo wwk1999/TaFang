@@ -10,7 +10,9 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 英雄背景框绿;
     public static Sprite 英雄背景框蓝;
     public static Sprite 英雄背景框紫;
+    public static Sprite 英雄背景框粉;
     public static Sprite 英雄背景框橙;
+    public static Sprite 英雄背景框红;
     public static Sprite 英雄背景框彩;
 
     
@@ -6110,14 +6112,14 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
-        英雄背景框白=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框白");
-        英雄背景框绿=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框绿");
-        英雄背景框蓝=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框蓝");
-        英雄背景框紫=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框紫");
-        英雄背景框橙=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框橙");
-        英雄背景框粉=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框粉");
-        英雄背景框洪=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框洪");
-        英雄背景框荒=Resources.Load<Sprite>("Sprite/英雄背景框/英雄背景框荒");
+        英雄背景框白=Resources.Load<Sprite>("Sprite/英雄背景框/白");
+        英雄背景框绿=Resources.Load<Sprite>("Sprite/英雄背景框/绿");
+        英雄背景框蓝=Resources.Load<Sprite>("Sprite/英雄背景框/蓝");
+        英雄背景框紫=Resources.Load<Sprite>("Sprite/英雄背景框/紫");
+        英雄背景框橙=Resources.Load<Sprite>("Sprite/英雄背景框/橙");
+        英雄背景框粉=Resources.Load<Sprite>("Sprite/英雄背景框/粉");
+        英雄背景框红=Resources.Load<Sprite>("Sprite/英雄背景框/红");
+        英雄背景框彩=Resources.Load<Sprite>("Sprite/英雄背景框/彩");
 
         
         圆环暗=Resources.Load<Sprite>("Sprite/技能树图标/圆环暗");

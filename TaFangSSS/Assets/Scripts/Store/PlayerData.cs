@@ -3386,7 +3386,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
 
     };
 
-    public Dictionary<PropType, long> PropListDic = new Dictionary<PropType, long>()
+    public Dictionary<PropType, float> PropListDic = new Dictionary<PropType, float>()
     {
         { PropType.全职业经验值, 0 },
         { PropType.功德, 0 },

@@ -126,6 +126,18 @@ public enum 英雄境界Type
 
 public class 英雄技能树Config
 {
+    
+    public static Dictionary<QualityType, float> 英雄最高境界Dic = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品 ,5},
+        { QualityType.玄品 ,10},
+        { QualityType.地品 ,15},
+        { QualityType.天品 ,20},
+        { QualityType.宇品 ,25},
+        { QualityType.宙品 ,30},
+        { QualityType.洪品 ,35},
+        { QualityType.荒品 ,40},
+    };
     public static Dictionary<QualityType, float> 增加所有英雄伤害Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品 ,1},

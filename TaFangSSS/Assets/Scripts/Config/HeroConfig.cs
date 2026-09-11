@@ -4,6 +4,7 @@ namespace Config
 {
     public class HeroData
     {
+        public int 技能点;
         public int 神通等级;
         public int Level;
         public int 元神;
@@ -107,8 +108,23 @@ namespace Config
         public float damage;
         public string name;
     }
+    
+    
     public class HeroConfig
     {
+
+        public static Dictionary<QualityType, int> 英雄提升境界经验值Dic = new Dictionary<QualityType, int>()
+        {
+            { QualityType.黄品 ,200},
+            { QualityType.玄品 ,500},
+            { QualityType.地品 ,1500},
+            { QualityType.天品 ,6000},
+            { QualityType.宇品 ,30000},
+            { QualityType.宙品 ,200000},
+            { QualityType.洪品 ,1200000},
+            { QualityType.荒品 ,10000000},
+
+        };
         public static HeroExp Get升星材料(QualityType qualityType, int xj)
         {
             HeroExp heroExp = new HeroExp();

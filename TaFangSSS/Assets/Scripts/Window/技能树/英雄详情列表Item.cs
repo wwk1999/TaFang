@@ -16,6 +16,15 @@ public class 英雄详情列表Item : MonoBehaviour
     public TextMeshProUGUI 境界;
 
     [NonSerialized] public HeroType HeroType;
+
+    private void Start()
+    {
+        bg.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("英雄详情英雄点击",HeroType);
+        });
+    }
+
     public void SetItem()
     {
         bg.image.sprite=ResourcesConfig.Get英雄背景框(HeroConfig.HeroQualityDic[HeroType]);
