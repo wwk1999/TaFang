@@ -17,6 +17,21 @@ public enum 英雄详情界面显示类型
 }
 public class 英雄详情界面 : MonoBehaviour
 {
+    //法器
+    public GameObject 当前法器Content;
+    public Button 武器Button;
+    public Button 衣服Button;
+    public Button 鞋子Button;
+    public Button 头盔Button;
+    public GameObject 装备背包Content;
+    public Button 左Button;
+    public Button 右Button;
+    public TextMeshProUGUI Num;
+    public Button 装备Button;
+    public GameObject 排序Content;
+    
+    
+    
     public GameObject 功法Panel;
     public GameObject 境界Panel;
     public GameObject 法器Panel;
@@ -41,6 +56,8 @@ public class 英雄详情界面 : MonoBehaviour
     public TextMeshProUGUI 元神;
     public TextMeshProUGUI 技能点;
     public GameObject 技能Content;
+    
+    
     //功法
     public GameObject 功法详情content;
     public Image bg;
@@ -70,6 +87,57 @@ public class 英雄详情界面 : MonoBehaviour
     private HeroType 当前heroType=HeroType.丹童;
     private 英雄详情界面显示类型 显示类型 = 英雄详情界面显示类型.境界;
 
+    private 法器类型 当前法器类型 = 法器类型.武器;
+    private 附加属性Type 当前排序附加属性Type;
+    private int 法器背包当前页数=1;
+
+    public void Show当前法器()
+    {
+        foreach (Transform item in 当前法器Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        var 武器 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
+            .GetComponent<英雄详情当前装备item>();
+        武器.法器 = PlayerData.S.HeroDataDic[当前heroType].武器;
+        武器.SetItem();
+        
+        var 衣服 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
+            .GetComponent<英雄详情当前装备item>();
+        衣服.法器 = PlayerData.S.HeroDataDic[当前heroType].衣服;
+        衣服.SetItem();
+        
+        var 鞋子 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
+            .GetComponent<英雄详情当前装备item>();
+        鞋子.法器 = PlayerData.S.HeroDataDic[当前heroType].鞋子;
+        鞋子.SetItem();
+        
+        
+        var 头盔 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
+            .GetComponent<英雄详情当前装备item>();
+        头盔.法器 = PlayerData.S.HeroDataDic[当前heroType].头盔;
+        头盔.SetItem();
+        
+    }
+
+    public void Show法器背包()
+    {
+        foreach (Transform item in 装备背包Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        var list = HeroWindowController.S.Get排序法器(当前法器类型, 当前排序附加属性Type);
+        for (int i = 20*(法器背包当前页数-1); i < 20*法器背包当前页数; i++)
+        {
+            if (i >= list.Count) break;
+            var 装备 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情装备背包item"), 装备背包Content.transform)
+                .GetComponent<英雄详情装备背包item>();
+            装备.法器 = list[i];
+            装备.已装备 = list[i].HeroType == 当前heroType;
+            装备.SetItem();
+        }
+    }
     
     public void 刷新功法详情()
     {
@@ -206,11 +274,106 @@ public class 英雄详情界面 : MonoBehaviour
     {
         刷新界面();
     }
+
+    public void Show法器()
+    {
+        Show当前法器();
+        Show法器背包();
+    }
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新英雄详情界面",刷新英雄详情界面);
         ObserverModuleManager.S.RegisterEvent("刷新技能面板",刷新技能面板);
         ObserverModuleManager.S.RegisterEvent("英雄详情英雄点击",英雄详情英雄点击);
+        
+        武器Button.onClick.AddListener(() =>
+        {
+            if (当前法器类型 != 法器类型.武器)
+            {
+               当前法器类型 = 法器类型.武器;
+                Show法器背包(); 
+            }
+        });
+        
+        鞋子Button.onClick.AddListener(() =>
+        {
+            if (当前法器类型 != 法器类型.鞋子)
+            {
+                当前法器类型 = 法器类型.鞋子;
+                Show法器背包(); 
+            }
+        });
+        
+        头盔Button.onClick.AddListener(() =>
+        {
+            if (当前法器类型 != 法器类型.头盔)
+            {
+                当前法器类型 = 法器类型.头盔;
+                Show法器背包(); 
+            }
+        });
+        
+        衣服Button.onClick.AddListener(() =>
+        {
+            if (当前法器类型 != 法器类型.衣服)
+            {
+                当前法器类型 = 法器类型.衣服;
+                Show法器背包(); 
+            }
+        });
+        装备Button.onClick.AddListener(() =>
+        {
+            if (HeroWindowController.S.英雄详情界面当前选择法器== null)
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","请选择装备法器");
+                    return;
+                }
+
+            法器类型 法器类型 = 法器Config.法器类型Dic[HeroWindowController.S.英雄详情界面当前选择法器.法器Type];
+                switch (法器类型)
+                {
+                    case 法器类型.头盔:
+                        if(PlayerData.S.HeroDataDic[当前heroType].头盔!=null)
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[当前heroType].头盔;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, 当前heroType);
+                        }
+                        PlayerData.S.HeroDataDic[当前heroType].头盔 = HeroWindowController.S.英雄详情界面当前选择法器;
+                        break;
+                    case 法器类型.衣服:
+                        if(PlayerData.S.HeroDataDic[当前heroType].衣服!=null)
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[当前heroType].衣服;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, 当前heroType);
+                        }
+                        PlayerData.S.HeroDataDic[当前heroType].衣服 = HeroWindowController.S.英雄详情界面当前选择法器;
+                        break;
+                    case 法器类型.鞋子:
+                        if(PlayerData.S.HeroDataDic[当前heroType].鞋子!=null)
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[当前heroType].鞋子;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, 当前heroType);
+                        }
+                        PlayerData.S.HeroDataDic[当前heroType].鞋子 = HeroWindowController.S.英雄详情界面当前选择法器;
+                        break;
+                    case 法器类型.武器:
+                        if(PlayerData.S.HeroDataDic[当前heroType].武器!=null)
+                        {
+                            var 旧法器 = PlayerData.S.HeroDataDic[当前heroType].武器;
+                            旧法器.HeroType = HeroType.None;
+                            Sync法器列表(旧法器, 当前heroType);
+                        }
+                        PlayerData.S.HeroDataDic[当前heroType].武器 = HeroWindowController.S.英雄详情界面当前选择法器;
+                        break;
+                }
+                HeroWindowController.S.英雄详情界面当前选择法器.HeroType=当前heroType;
+                Show当前法器();
+                Show法器背包();
+        });
+        
         升星Button.onClick.AddListener(() =>
         {
             int 功法星级 = PlayerData.S.HeroDataDic[当前heroType].功法星级;
@@ -333,6 +496,17 @@ public class 英雄详情界面 : MonoBehaviour
         });
     }
 
+    public void Sync法器列表(法器 旧法器, HeroType heroType)
+    {
+        foreach (var f in PlayerData.S.法器列表)
+        {
+            if (f.法器Type == 旧法器.法器Type && f.HeroType == heroType)
+            {
+                f.HeroType = HeroType.None;
+                break;
+            }
+        }
+    }
     public void Show英雄列表()
     {
         foreach (Transform item in 英雄列表content.transform)
@@ -397,6 +571,12 @@ public class 英雄详情界面 : MonoBehaviour
                 法器Panel.SetActive(false);
                 境界Panel.SetActive(false);
                 Show功法();
+                break;
+            case 英雄详情界面显示类型.法器:
+                功法Panel.SetActive(false);
+                法器Panel.SetActive(true);
+                境界Panel.SetActive(false);
+                Show法器();
                 break;
         }
     }

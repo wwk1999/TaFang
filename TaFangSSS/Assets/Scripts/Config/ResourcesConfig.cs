@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 装备背景框;
+
     public static Sprite 标签亮;
     public static Sprite 标签暗;
 
@@ -6115,6 +6117,7 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        装备背景框=Resources.Load<Sprite>("Sprite/技能树图标/装备背景框");
         标签亮=Resources.Load<Sprite>("Sprite/技能树图标/标签亮");
         标签暗=Resources.Load<Sprite>("Sprite/技能树图标/标签暗");
 

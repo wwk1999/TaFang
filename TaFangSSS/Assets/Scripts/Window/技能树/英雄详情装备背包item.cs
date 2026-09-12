@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,13 @@ public class 英雄详情装备背包item : MonoBehaviour
     public Button bg;
     public Image icon;
     public GameObject gou;
+    public GameObject 已装备icon;
     [NonSerialized] public 法器 法器;
+    [NonSerialized] public bool 已装备;
 
     public void SetItem()
     {
+        已装备icon.SetActive(已装备);
         gou.SetActive(false);
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
