@@ -82,4 +82,20 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     
     [NonSerialized] public HeroType 当前神通配置选择英雄;
 
+    [NonSerialized] public 法器 英雄详情界面当前选择法器;
+    [NonSerialized] public 附加属性Type 当前选择排序类型;
+
+    public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type)
+    {
+        List<法器> list = new List<法器>();
+        foreach (var item in PlayerData.S.法器列表)
+        {
+            if (法器Config.法器类型Dic[item.法器Type] == 法器类型)
+            {
+                list.Add(item);
+            }
+        }
+        
+    }
+
 }

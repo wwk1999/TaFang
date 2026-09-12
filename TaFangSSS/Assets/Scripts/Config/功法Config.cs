@@ -74,12 +74,12 @@ public class 功法Config
     {
         { QualityType.黄品 ,100},
         { QualityType.玄品 ,200},
-        { QualityType.地品 ,400},
-        { QualityType.天品 ,1000},
-        { QualityType.宇品 ,2000},
-        { QualityType.宙品 ,4000},
-        { QualityType.洪品 ,8000},
-        { QualityType.荒品 ,20000},
+        { QualityType.地品 ,500},
+        { QualityType.天品 ,2000},
+        { QualityType.宇品 ,6000},
+        { QualityType.宙品 ,20000},
+        { QualityType.洪品 ,100000},
+        { QualityType.荒品 ,1000000},
     };
 
     public static int Get功法升级经验(int level)
@@ -334,7 +334,8 @@ public class 功法Config
 
         功法属性Item item = 功法属性Dic[type];
         float value = item.count;
-
+        Color c = new Color(1/255f, 95/255f, 0f); // 橙色
+        string hex = ColorUtility.ToHtmlStringRGB(c);
         switch (type)
         {
             // 战士系列 - 攻击距离
@@ -346,7 +347,7 @@ public class 功法Config
             case 功法Type.战士红:
             case 功法Type.战士橙:
             case 功法Type.战士彩:
-                return $"战士攻击距离+<color=green>{value}</color>";
+                return $"战士攻击距离+<color=#{hex}>{value}</color>";
 
             // 法师系列 - 暴击伤害
             case 功法Type.法师白:
@@ -357,7 +358,8 @@ public class 功法Config
             case 功法Type.法师红:
             case 功法Type.法师橙:
             case 功法Type.法师彩:
-                return $"法师暴击伤害+<color=green>{value}%</color>";
+                
+                return $"法师暴击伤害+<color=#{hex}>{value}%</color>";
 
             // 辅助系列 - 辅助效果
             case 功法Type.辅助白:
@@ -368,7 +370,7 @@ public class 功法Config
             case 功法Type.辅助红:
             case 功法Type.辅助橙:
             case 功法Type.辅助彩:
-                return $"辅助效果+<color=green>{value}%</color>";
+                return $"辅助效果+<color=#{hex}>{value}%</color>";
 
             // 控制系列 - 控制效果
             case 功法Type.控制白:
@@ -379,7 +381,7 @@ public class 功法Config
             case 功法Type.控制红:
             case 功法Type.控制橙:
             case 功法Type.控制彩:
-                return $"控制效果+<color=green>{value}%</color>";
+                return $"控制效果+<color=#{hex}>{value}%</color>";
 
             // 射手系列 - 冷却缩减
             case 功法Type.射手白:
@@ -390,7 +392,7 @@ public class 功法Config
             case 功法Type.射手红:
             case 功法Type.射手橙:
             case 功法Type.射手彩:
-                return $"射手冷却缩减+<color=green>{value}%</color>";
+                return $"射手冷却缩减+<color=#{hex}>{value}%</color>";
 
             default:
                 return "";

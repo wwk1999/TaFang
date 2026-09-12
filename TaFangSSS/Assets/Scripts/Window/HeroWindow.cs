@@ -12,6 +12,7 @@ using Image = UnityEngine.UI.Image;
 
 public class HeroWindow : MonoBehaviour
 {
+   public 功法装备弹窗 功法装备弹窗;
    public GameObject 对话框;
    public TextMeshProUGUI 对话框Text;
    public Button 引导Button;
@@ -95,6 +96,7 @@ public class HeroWindow : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("显示装备功法弹窗",显示装备功法弹窗);
       ObserverModuleManager.S.UnRegisterEvent("刷新英雄卡片功法",升星刷新);
       ObserverModuleManager.S.UnRegisterEvent("显示功法选择弹窗",显示功法选择弹窗);
       ObserverModuleManager.S.UnRegisterEvent("显示英雄功法确认弹窗",显示英雄功法确认弹窗);
@@ -119,9 +121,15 @@ public class HeroWindow : MonoBehaviour
       功法选择弹窗.HeroType = (HeroType)obj[0];
       功法选择弹窗.gameObject.SetActive(true);
    }
-   
+
+   public void 显示装备功法弹窗(object[] obj)
+   {
+      功法装备弹窗.heroType = (HeroType)obj[0];
+      功法装备弹窗.gameObject.SetActive(true);
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("显示装备功法弹窗",显示装备功法弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新英雄卡片功法",升星刷新);
       ObserverModuleManager.S.RegisterEvent("显示功法选择弹窗",显示功法选择弹窗);
       ObserverModuleManager.S.RegisterEvent("显示英雄功法确认弹窗",显示英雄功法确认弹窗);

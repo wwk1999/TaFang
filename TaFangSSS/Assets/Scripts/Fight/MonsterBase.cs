@@ -643,6 +643,9 @@ public class MonsterBase : MonoBehaviour
 
    private void Update()
    {
+      // 已死亡的怪物不再移动/攻击城墙/跳灼烧：万一 Die() 回收前还有残余帧，
+      // 也不能让死怪走到城墙根卡住全局攻击目标
+      if (isDead) return;
       灼烧time-=Time.deltaTime;
       灼烧当前时间+=Time.deltaTime;
       冰冻time-=Time.deltaTime;
@@ -1016,6 +1019,12 @@ public class MonsterBase : MonoBehaviour
          return;
       }
       isDead = true;
+      // 死亡奖励/事件/特效全部放进 try：其中任何一步抛异常（字典缺键/事件监听者报错/对象池为空），
+      // 都不能阻止 finally 的回收。否则死怪留在场上和分区1里，会被 GetAttackMonster 一直当作全局目标返回，
+      // 而它继续走到城墙根后已离开所有英雄的攻击范围 → 战斗英雄 Contains 判定集体失败、停攻停神通
+      //（辅助英雄不检查目标是否在自身范围内，所以仍在放技能，正是“只有辅助还在放”的现象）
+      try
+      {
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
       增加功法经验();
       if (heroType == HeroType.盘古)
@@ -1070,36 +1079,67 @@ public class MonsterBase : MonoBehaviour
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       switch (monsterType)
       {
-         case MonsterType.Normal:
-            var 普通怪死亡 = QueueController.S.普通怪死亡Queue.Dequeue();
-            普通怪死亡.gameObject.transform.position = transform.position;
-            普通怪死亡.order=(int)(transform.position.y * -100);
-            普通怪死亡.gameObject.SetActive(true);
-            QueueController.S.普通怪Queue.Enqueue(this as 普通怪);
-            break;
          case MonsterType.Elite:
             FightController.S.城墙当前生命值 += 属性config.总属性.击杀精英怪城墙回血 * 城墙Config.Get城墙最大生命值();
             FightController.S.城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), FightController.S.城墙当前生命值);
             ObserverModuleManager.S.SendEvent("设置护盾");
-            var 精英怪死亡 = QueueController.S.精英怪死亡Queue.Dequeue();
-            精英怪死亡.gameObject.transform.position = transform.position;
-            精英怪死亡.order=(int)(transform.position.y * -100);
-            精英怪死亡.gameObject.SetActive(true);
-            QueueController.S.精英怪Queue.Enqueue(this as 精英怪);
+            break;
+      }
+      // 死亡特效只是表现层：AOE 同帧多杀时特效池可能暂时耗尽（普通50/精英5/首领5），
+      // 空队列 Dequeue 会抛 InvalidOperationException，池空时跳过特效即可
+      switch (monsterType)
+      {
+         case MonsterType.Normal:
+            if (QueueController.S.普通怪死亡Queue.Count > 0)
+            {
+               var 普通怪死亡 = QueueController.S.普通怪死亡Queue.Dequeue();
+               普通怪死亡.gameObject.transform.position = transform.position;
+               普通怪死亡.order=(int)(transform.position.y * -100);
+               普通怪死亡.gameObject.SetActive(true);
+            }
+            break;
+         case MonsterType.Elite:
+            if (QueueController.S.精英怪死亡Queue.Count > 0)
+            {
+               var 精英怪死亡 = QueueController.S.精英怪死亡Queue.Dequeue();
+               精英怪死亡.gameObject.transform.position = transform.position;
+               精英怪死亡.order=(int)(transform.position.y * -100);
+               精英怪死亡.gameObject.SetActive(true);
+            }
             break;
          case MonsterType.Boss:
-            var 首领怪死亡 = QueueController.S.首领怪死亡Queue.Dequeue();
-            首领怪死亡.gameObject.transform.position = transform.position;
-            首领怪死亡.order=(int)(transform.position.y * -100);
-            首领怪死亡.gameObject.SetActive(true);
-            QueueController.S.首领怪Queue.Enqueue(this as 首领怪);
+            if (QueueController.S.首领怪死亡Queue.Count > 0)
+            {
+               var 首领怪死亡 = QueueController.S.首领怪死亡Queue.Dequeue();
+               首领怪死亡.gameObject.transform.position = transform.position;
+               首领怪死亡.order=(int)(transform.position.y * -100);
+               首领怪死亡.gameObject.SetActive(true);
+            }
             break;
       }
-      FightController.S.当前怪物Set.Remove(this);
-      for (int i = 1; i <= 7; i++)
-      {
-         FightController.S.Monster分区Dic[i].Remove(this);
       }
-      gameObject.SetActive(false);
+      finally
+      {
+         // 关键回收：回池 + 退出场集合/分区 + 隐藏。无论 try 里哪一步抛异常都必须执行，
+         // 否则死怪留在分区1会被 GetAttackMonster 一直选中，战斗英雄集体停攻
+         switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+         {
+            case MonsterType.Normal:
+               QueueController.S.普通怪Queue.Enqueue(this as 普通怪);
+               break;
+            case MonsterType.Elite:
+               QueueController.S.精英怪Queue.Enqueue(this as 精英怪);
+               break;
+            case MonsterType.Boss:
+               QueueController.S.首领怪Queue.Enqueue(this as 首领怪);
+               break;
+         }
+         FightController.S.当前怪物Set.Remove(this);
+         for (int i = 1; i <= 7; i++)
+         {
+            FightController.S.Monster分区Dic[i].Remove(this);
+         }
+         gameObject.SetActive(false);
+      }
    }
 }

@@ -161,33 +161,16 @@ public class FightController : XSingleton<FightController>
 
     public MonsterBase GetAttackMonster()
     {
-        if (Monster分区Dic[1].Count > 0)
+        for (int i = 1; i <= 7; i++)
         {
-            return Monster分区Dic[1].First();
-        }
-        if (Monster分区Dic[2].Count > 0)
-        {
-            return Monster分区Dic[2].First();
-        }
-        if (Monster分区Dic[3].Count > 0)
-        {
-            return Monster分区Dic[3].First();
-        }
-        if (Monster分区Dic[4].Count > 0)
-        {
-            return Monster分区Dic[4].First();
-        }
-        if (Monster分区Dic[5].Count > 0)
-        {
-            return Monster分区Dic[5].First();
-        }
-        if (Monster分区Dic[6].Count > 0)
-        {
-            return Monster分区Dic[6].First();
-        }
-        if (Monster分区Dic[7].Count > 0)
-        {
-            return Monster分区Dic[7].First();
+            var set = Monster分区Dic[i];
+            // 清理死亡/已销毁残留：死怪若因 Die() 异常未退场，不能让它一直占着全局目标，
+            // 否则所有战斗英雄因“目标不在自身攻击范围”集体停攻
+            set.RemoveWhere(m => m == null || m.isDead);
+            if (set.Count > 0)
+            {
+                return set.First();
+            }
         }
 
         return null;
