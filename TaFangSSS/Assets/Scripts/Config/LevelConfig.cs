@@ -64,8 +64,8 @@ public class LevelDiaoLuo
 
 public class minmax
 {
-    public long min;
-    public long max;
+    public float min;
+    public float max;
 }
 
 public class SmallLevelInfo
@@ -1186,8 +1186,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
        普通关卡胜利奖励 value = new 普通关卡胜利奖励();
        foreach (var item in list)
        {
-           long min = item.minCount;
-           long max = item.maxCount;
+           float min = item.minCount;
+           float max = item.maxCount;
            if (当前主线关卡Type == 主线关卡Type.混沌虚空)
            {
                min = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).min;
