@@ -35,7 +35,7 @@ public class 装备排序item : MonoBehaviour
         icon.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前排序附加属性Type = 附加属性Type;
-            ObserverModuleManager.S.SendEvent("装备排序点击");
+            ObserverModuleManager.S.SendEvent("装备排序点击",附加属性Type);
         });
     }
 }

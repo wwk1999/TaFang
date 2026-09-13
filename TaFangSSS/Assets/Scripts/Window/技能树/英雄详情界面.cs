@@ -311,7 +311,18 @@ public class 英雄详情界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("刷新英雄详情界面",刷新英雄详情界面);
         ObserverModuleManager.S.RegisterEvent("刷新技能面板",刷新技能面板);
         ObserverModuleManager.S.RegisterEvent("英雄详情英雄点击",英雄详情英雄点击);
-        
+        左Button.onClick.AddListener(() =>
+        {
+            if (法器背包当前页数 > 1)
+            {
+                法器背包当前页数--;
+                Show法器背包();
+            }
+        });
+        右Button.onClick.AddListener(() =>
+        {
+            
+        });
         武器Button.onClick.AddListener(() =>
         {
             武器Button.image.sprite = ResourcesConfig.标签亮;
