@@ -84,17 +84,19 @@ public class HeroWindowController:XSingleton<HeroWindowController>
 
     [NonSerialized] public 法器 英雄详情界面当前选择法器;
     [NonSerialized] public 附加属性Type 当前选择排序类型;
+    [NonSerialized] public 附加属性Type 当前排序附加属性Type;
 
     //法器的基础属性包含在最终伤害里
-    public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type)
+    public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type, ZhiYeType zhiYeType)
     {
         List<法器> list = new List<法器>();
         foreach (var item in PlayerData.S.法器列表)
         {
-            if (法器Config.法器类型Dic[item.法器Type] == 法器类型)
-            {
-                list.Add(item);
-            }
+            if (item == null) continue;
+            // 必须部位（武器/衣服/头盔/鞋子）和职业都匹配；用 TryGetValue 防止脏数据/新法器漏配导致整个列表报错
+            if (!法器Config.法器类型Dic.TryGetValue(item.法器Type, out var 部位) || 部位 != 法器类型) continue;
+            if (!法器Config.法器职业Dic.TryGetValue(item.法器Type, out var 职业) || 职业 != zhiYeType) continue;
+            list.Add(item);
         }
 
         法器附加属性Type 对应法器属性 = 映射到法器附加属性Type(附加属性Type);

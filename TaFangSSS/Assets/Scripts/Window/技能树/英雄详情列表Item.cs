@@ -21,6 +21,7 @@ public class 英雄详情列表Item : MonoBehaviour
     {
         bg.onClick.AddListener(() =>
         {
+            HeroWindowController.S.英雄详情界面当前选择法器 = null;
             ObserverModuleManager.S.SendEvent("英雄详情英雄点击",HeroType);
         });
     }

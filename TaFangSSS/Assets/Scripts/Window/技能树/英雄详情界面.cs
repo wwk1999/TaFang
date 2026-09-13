@@ -88,7 +88,6 @@ public class 英雄详情界面 : MonoBehaviour
     private 英雄详情界面显示类型 显示类型 = 英雄详情界面显示类型.境界;
 
     private 法器类型 当前法器类型 = 法器类型.武器;
-    private 附加属性Type 当前排序附加属性Type;
     private int 法器背包当前页数=1;
 
     public void Show当前法器()
@@ -121,14 +120,33 @@ public class 英雄详情界面 : MonoBehaviour
         
     }
 
+    public void Show排序()
+    {
+        foreach (Transform item in 排序Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (var item in EquipConfig.附加属性NameDic)
+        {
+            var 排序item = Instantiate(Resources.Load("Prefabs/Window/技能树/装备排序item"), 排序Content.transform)
+                .GetComponent<装备排序item>();
+            排序item.附加属性Type = item.Key;
+            排序item.SetItem();
+        }
+        ObserverModuleManager.S.SendEvent("装备排序点击",HeroWindowController.S.当前排序附加属性Type);
+    }
     public void Show法器背包()
     {
         foreach (Transform item in 装备背包Content.transform)
         {
             Destroy(item.gameObject);
         }
-        var list = HeroWindowController.S.Get排序法器(当前法器类型, 当前排序附加属性Type);
-        for (int i = 20*(法器背包当前页数-1); i < 20*法器背包当前页数; i++)
+        ZhiYeType 当前职业 = HeroConfig.HeroZhiYeDic[当前heroType].zhiYeType;
+        var list = HeroWindowController.S.Get排序法器(当前法器类型, HeroWindowController.S.当前排序附加属性Type, 当前职业);
+        int 总页数 = Mathf.Max(1, Mathf.CeilToInt(list.Count / 20f));
+        if (法器背包当前页数 > 总页数) 法器背包当前页数 = 总页数;
+        int start = 20 * (法器背包当前页数 - 1);
+        for (int i = start; i < start + 20; i++)
         {
             if (i >= list.Count) break;
             var 装备 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情装备背包item"), 装备背包Content.transform)
@@ -260,6 +278,7 @@ public class 英雄详情界面 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("装备排序点击",装备排序点击);
         ObserverModuleManager.S.UnRegisterEvent("刷新英雄详情界面",刷新英雄详情界面);
         ObserverModuleManager.S.UnRegisterEvent("刷新技能面板",刷新技能面板);
         ObserverModuleManager.S.UnRegisterEvent("英雄详情英雄点击",英雄详情英雄点击);
@@ -279,15 +298,27 @@ public class 英雄详情界面 : MonoBehaviour
     {
         Show当前法器();
         Show法器背包();
+        Show排序();
     }
-    private void Start()
+
+    public void 装备排序点击(object[] obj)
     {
+        Show法器背包();
+    }
+    private void Awake()
+    {
+        ObserverModuleManager.S.RegisterEvent("装备排序点击",装备排序点击);
         ObserverModuleManager.S.RegisterEvent("刷新英雄详情界面",刷新英雄详情界面);
         ObserverModuleManager.S.RegisterEvent("刷新技能面板",刷新技能面板);
         ObserverModuleManager.S.RegisterEvent("英雄详情英雄点击",英雄详情英雄点击);
         
         武器Button.onClick.AddListener(() =>
         {
+            武器Button.image.sprite = ResourcesConfig.标签亮;
+            衣服Button.image.sprite = ResourcesConfig.标签暗;
+            鞋子Button.image.sprite = ResourcesConfig.标签暗;
+            头盔Button.image.sprite = ResourcesConfig.标签暗;
+            HeroWindowController.S.英雄详情界面当前选择法器 = null;
             if (当前法器类型 != 法器类型.武器)
             {
                当前法器类型 = 法器类型.武器;
@@ -297,6 +328,11 @@ public class 英雄详情界面 : MonoBehaviour
         
         鞋子Button.onClick.AddListener(() =>
         {
+            武器Button.image.sprite = ResourcesConfig.标签暗;
+            衣服Button.image.sprite = ResourcesConfig.标签暗;
+            鞋子Button.image.sprite = ResourcesConfig.标签亮;
+            头盔Button.image.sprite = ResourcesConfig.标签暗;
+            HeroWindowController.S.英雄详情界面当前选择法器 = null;
             if (当前法器类型 != 法器类型.鞋子)
             {
                 当前法器类型 = 法器类型.鞋子;
@@ -306,6 +342,11 @@ public class 英雄详情界面 : MonoBehaviour
         
         头盔Button.onClick.AddListener(() =>
         {
+            武器Button.image.sprite = ResourcesConfig.标签暗;
+            衣服Button.image.sprite = ResourcesConfig.标签暗;
+            鞋子Button.image.sprite = ResourcesConfig.标签暗;
+            头盔Button.image.sprite = ResourcesConfig.标签亮;
+            HeroWindowController.S.英雄详情界面当前选择法器 = null;
             if (当前法器类型 != 法器类型.头盔)
             {
                 当前法器类型 = 法器类型.头盔;
@@ -315,6 +356,11 @@ public class 英雄详情界面 : MonoBehaviour
         
         衣服Button.onClick.AddListener(() =>
         {
+            HeroWindowController.S.英雄详情界面当前选择法器 = null;
+            武器Button.image.sprite = ResourcesConfig.标签暗;
+            衣服Button.image.sprite = ResourcesConfig.标签亮;
+            鞋子Button.image.sprite = ResourcesConfig.标签暗;
+            头盔Button.image.sprite = ResourcesConfig.标签暗;
             if (当前法器类型 != 法器类型.衣服)
             {
                 当前法器类型 = 法器类型.衣服;

@@ -64,6 +64,50 @@
 
  public class EquipConfig
  {
+     
+
+     public static string Get排序String(附加属性Type type)
+     {
+         switch (type)
+         {
+             case 附加属性Type.None:
+                 return "无排序";
+             case 附加属性Type.最终伤害:
+                 return "按最终伤害排序";
+             case 附加属性Type.装备基础属性增幅:
+                 return "按装备增幅排序";
+             case 附加属性Type.射手伤害增幅:
+                 return "按射手增幅排序";
+             case 附加属性Type.法师伤害增幅:
+                 return "按法师增幅排序";
+             case 附加属性Type.控制伤害增幅:
+                 return "按控制增幅排序";
+             case 附加属性Type.战士伤害增幅:
+                 return "按战士增幅排序";
+             case 附加属性Type.普通怪伤害增幅:
+                 return "按普通怪增幅排序";
+             case 附加属性Type.精英怪伤害增幅:
+                 return "按精英怪增幅排序";
+             case 附加属性Type.首领伤害增幅:
+                 return "按首领增幅排序";
+             case 附加属性Type.暴击率:
+                 return "按暴击率排序";
+             case 附加属性Type.物理伤害:
+                 return "按物理伤害排序";
+             case 附加属性Type.火焰伤害:
+                 return "按火焰伤害排序";
+             case 附加属性Type.冰霜伤害:
+                 return "按冰霜伤害排序";
+             case 附加属性Type.雷电伤害:
+                 return "按雷电伤害排序";
+             case 附加属性Type.黑暗伤害:
+                 return "按黑暗伤害排序";
+             case 附加属性Type.城墙血量:
+                 return "按城墙血量排序";
+             default:
+                 return "未知排序";
+         }
+     }
      public static 词条Item Get词条(QualityType qualityType)
      {
          List<float> list = 强化词条概率Dic[qualityType];
