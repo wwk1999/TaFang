@@ -135,6 +135,16 @@ public class 英雄详情界面 : MonoBehaviour
         }
         ObserverModuleManager.S.SendEvent("装备排序点击",HeroWindowController.S.当前排序附加属性Type);
     }
+    /// <summary>
+    /// 当前条件下背包总页数：综合当前英雄职业、当前法器部位、法器数量（每页20个，至少1页）
+    /// </summary>
+    private int Get法器背包总页数()
+    {
+        ZhiYeType 当前职业 = HeroConfig.HeroZhiYeDic[当前heroType].zhiYeType;
+        var list = HeroWindowController.S.Get排序法器(当前法器类型, HeroWindowController.S.当前排序附加属性Type, 当前职业);
+        return Mathf.Max(1, Mathf.CeilToInt(list.Count / 20f));
+    }
+
     public void Show法器背包()
     {
         foreach (Transform item in 装备背包Content.transform)
@@ -145,6 +155,7 @@ public class 英雄详情界面 : MonoBehaviour
         var list = HeroWindowController.S.Get排序法器(当前法器类型, HeroWindowController.S.当前排序附加属性Type, 当前职业);
         int 总页数 = Mathf.Max(1, Mathf.CeilToInt(list.Count / 20f));
         if (法器背包当前页数 > 总页数) 法器背包当前页数 = 总页数;
+        Num.text = $"{法器背包当前页数}/{总页数}";
         int start = 20 * (法器背包当前页数 - 1);
         for (int i = start; i < start + 20; i++)
         {
@@ -273,6 +284,7 @@ public class 英雄详情界面 : MonoBehaviour
     {
         HeroType heroType = (HeroType)obj[0];
         当前heroType = heroType;
+        法器背包当前页数 = 1;
         刷新界面();
     }
 
@@ -321,10 +333,16 @@ public class 英雄详情界面 : MonoBehaviour
         });
         右Button.onClick.AddListener(() =>
         {
-            
+            // 总页数已综合考虑：当前英雄职业 + 当前法器部位 + 过滤后的法器数量（每页20个）
+            if (法器背包当前页数 < Get法器背包总页数())
+            {
+                法器背包当前页数++;
+                Show法器背包();
+            }
         });
         武器Button.onClick.AddListener(() =>
         {
+            法器背包当前页数 = 1;
             武器Button.image.sprite = ResourcesConfig.标签亮;
             衣服Button.image.sprite = ResourcesConfig.标签暗;
             鞋子Button.image.sprite = ResourcesConfig.标签暗;
@@ -339,6 +357,7 @@ public class 英雄详情界面 : MonoBehaviour
         
         鞋子Button.onClick.AddListener(() =>
         {
+            法器背包当前页数 = 1;
             武器Button.image.sprite = ResourcesConfig.标签暗;
             衣服Button.image.sprite = ResourcesConfig.标签暗;
             鞋子Button.image.sprite = ResourcesConfig.标签亮;
@@ -353,6 +372,7 @@ public class 英雄详情界面 : MonoBehaviour
         
         头盔Button.onClick.AddListener(() =>
         {
+            法器背包当前页数 = 1;
             武器Button.image.sprite = ResourcesConfig.标签暗;
             衣服Button.image.sprite = ResourcesConfig.标签暗;
             鞋子Button.image.sprite = ResourcesConfig.标签暗;
@@ -367,6 +387,7 @@ public class 英雄详情界面 : MonoBehaviour
         
         衣服Button.onClick.AddListener(() =>
         {
+            法器背包当前页数 = 1;
             HeroWindowController.S.英雄详情界面当前选择法器 = null;
             武器Button.image.sprite = ResourcesConfig.标签暗;
             衣服Button.image.sprite = ResourcesConfig.标签亮;
