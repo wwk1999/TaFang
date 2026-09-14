@@ -6,6 +6,38 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 丹童头像;
+    public static Sprite 土地头像;
+    public static Sprite 河伯头像;
+    public static Sprite 瑶池仙女头像;
+    public static Sprite 石敢当头像;
+    public static Sprite 玄女头像;
+    public static Sprite 龟丞相头像;
+    public static Sprite 太白金星头像;
+    public static Sprite 多闻天王头像;
+    public static Sprite 广目天王头像;
+    public static Sprite 雷震子头像;
+    public static Sprite 月老头像;
+    public static Sprite 嫦娥头像;
+    public static Sprite 杨戬头像;
+    public static Sprite 妲己头像;
+    public static Sprite 牛魔王头像;
+    public static Sprite 哪吒头像;
+    public static Sprite 孙悟空头像;
+    public static Sprite 碧霄头像;
+    public static Sprite 琼霄头像;
+    public static Sprite 羲和头像;
+    public static Sprite 常羲头像;
+    public static Sprite 后羿头像;
+    public static Sprite 云霄头像;
+    public static Sprite 女娲头像;
+    public static Sprite 老子头像;
+    public static Sprite 通天头像;
+    public static Sprite 元始头像;
+    public static Sprite 鸿钧头像;
+    public static Sprite 盘古头像;
+    
+    
     public static Sprite 编队界面英雄背景框白;
     public static Sprite 编队界面英雄背景框绿;
     public static Sprite 编队界面英雄背景框蓝;
@@ -2577,88 +2609,88 @@ public class ResourcesConfig : MonoBehaviour
         {
             // 白色（黄品）
             case HeroType.丹童:
-                return DanTong;
+                return 丹童头像;
 
             case HeroType.土地:
-                return TuDi;
+                return 土地头像;
             case HeroType.河伯:
-                return HeBo;
+                return 河伯头像;
             case HeroType.瑶池仙女:
-                return YaoChiXianNv;
+                return 瑶池仙女头像;
 
 
             // 绿色（玄品）
             case HeroType.石敢当:
-                return ShiGanDang;
+                return 石敢当头像;
             case HeroType.玄女:
-                return XuanNv;
+                return 玄女头像;
             case HeroType.龟丞相:
-                return GuiChengXiang;
+                return 龟丞相头像;
             case HeroType.太白金星:
-                return TaiBaiJinXing;
+                return 太白金星头像;
 
 
             // 蓝色（地品）
             case HeroType.多闻天王:
-                return DuoWenTianWang;
+                return 多闻天王头像;
 
             case HeroType.广目天王:
-                return GuangMuTianWang;
+                return 广目天王头像;
 
             case HeroType.雷震子:
-                return LeiZhengZi;
+                return 雷震子头像;
             case HeroType.月老:
-                return YueLao;
+                return 月老头像;
 
             // 紫色（天品）
             case HeroType.嫦娥:
-                return ChangE;
+                return 嫦娥头像;
 
             case HeroType.杨戬:
-                return YangJian;
+                return 杨戬头像;
             case HeroType.妲己:
-                return DanJi;
+                return 妲己头像;
             case HeroType.牛魔王:
-                return NiuMoWang;
+                return 牛魔王头像;
 
             // 橙色（宇品）
             case HeroType.哪吒:
-                return NeZha;
+                return 哪吒头像;
             case HeroType.孙悟空:
-                return SunWuKong;
+                return 孙悟空头像;
 
             case HeroType.碧霄:
-                return BiXiao;
+                return 碧霄头像;
             case HeroType.琼霄:
-                return QiongXiao;
+                return 琼霄头像;
 
             // 粉色（宙品）
 
             case HeroType.羲和:
-                return XiHe;
+                return 羲和头像;
             case HeroType.常羲:
-                return ChangXi;
+                return 常羲头像;
             case HeroType.后羿:
-                return HouYi;
+                return 后羿头像;
             case HeroType.云霄:
-                return YunXiao;
+                return 云霄头像;
 
             // 红色（洪品）
             case HeroType.女娲:
-                return NvWa;
+                return 女娲头像;
 
 
             // 彩色（荒品）
             case HeroType.老子:
-                return LaoZi;
+                return 老子头像;
             case HeroType.通天:
-                return TongTian;
+                return 通天头像;
             case HeroType.元始:
-                return YuanShi;
+                return 元始头像;
             case HeroType.鸿钧:
-                return 鸿钧;
+                return 鸿钧头像;
             case HeroType.盘古:
-                return 盘古;
+                return 盘古头像;
 
             default:
                 return null;
@@ -6146,6 +6178,8 @@ public class ResourcesConfig : MonoBehaviour
             case QualityType.荒品:
                 return 编队界面英雄背景框彩;
         }
+
+        return null;
     }
     public static void Init()
     {
@@ -6273,6 +6307,38 @@ public class ResourcesConfig : MonoBehaviour
         被辅助英雄技能伤害 = Resources.Load<Sprite>("Sprite/技能树图标/被辅助英雄技能伤害");
         女娲神通效果 = Resources.Load<Sprite>("Sprite/技能树图标/女娲神通效果");
 
+        丹童头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/丹童");
+        土地头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/土地");
+        河伯头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/河伯");
+        瑶池仙女头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/瑶池仙女");
+        石敢当头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/石敢当");
+        玄女头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/玄女");
+        龟丞相头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/龟丞相");
+        太白金星头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/太白金星");
+        多闻天王头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/多闻天王");
+        广目天王头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/广木天王");
+        雷震子头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/雷震子");
+        月老头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/月老");
+        嫦娥头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/嫦娥");
+        杨戬头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/杨戬");
+        妲己头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/妲己");
+        牛魔王头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/牛魔王");
+        哪吒头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/哪吒");
+        孙悟空头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/孙悟空");
+        碧霄头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/碧霄");
+        琼霄头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/琼霄");
+        羲和头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/羲和");
+        常羲头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/常羲");
+        后羿头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/后羿");
+        云霄头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/云霄");
+        女娲头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/女娲");
+        老子头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/老子");
+        通天头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/通天");
+        元始头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/元始");
+        鸿钧头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/鸿钧");
+        盘古头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/盘古");
+        
+        
         丹童神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/丹童");
         土地神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/土地");
         河伯神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/河伯");
