@@ -6,6 +6,40 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 丹童平台;
+    public static Sprite 土地平台;
+    public static Sprite 河伯平台;
+    public static Sprite 瑶池仙女平台;
+    public static Sprite 石敢当平台;
+    public static Sprite 玄女平台;
+    public static Sprite 龟丞相平台;
+    public static Sprite 太白金星平台;
+    public static Sprite 多闻天王平台;
+    public static Sprite 广目天王平台;
+    public static Sprite 雷震子平台;
+    public static Sprite 月老平台;
+    public static Sprite 嫦娥平台;
+    public static Sprite 杨戬平台;
+    public static Sprite 妲己平台;
+    public static Sprite 牛魔王平台;
+    public static Sprite 哪吒平台;
+    public static Sprite 孙悟空平台;
+    public static Sprite 碧霄平台;
+    public static Sprite 琼霄平台;
+    public static Sprite 羲和平台;
+    public static Sprite 常羲平台;
+    public static Sprite 后羿平台;
+    public static Sprite 云霄平台;
+    public static Sprite 女娲平台;
+    public static Sprite 老子平台;
+    public static Sprite 通天平台;
+    public static Sprite 元始平台;
+    public static Sprite 鸿钧平台;
+    public static Sprite 盘古平台;
+    
+    
+    
+    
     public static Sprite 丹童头像;
     public static Sprite 土地头像;
     public static Sprite 河伯头像;
@@ -6181,6 +6215,46 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+
+    public static Sprite Get英雄平台Sprite(HeroType herotype)
+    {
+        switch (herotype)
+        {
+            case HeroType.丹童: return 丹童平台;
+            case HeroType.土地: return 土地平台;
+            case HeroType.河伯: return 河伯平台;
+            case HeroType.瑶池仙女: return 瑶池仙女平台;
+            case HeroType.石敢当: return 石敢当平台;
+            case HeroType.玄女: return 玄女平台;
+            case HeroType.龟丞相: return 龟丞相平台;
+            case HeroType.太白金星: return 太白金星平台;
+            case HeroType.多闻天王: return 多闻天王平台;
+            case HeroType.广目天王: return 广目天王平台;
+            case HeroType.雷震子: return 雷震子平台;
+            case HeroType.月老: return 月老平台;
+            case HeroType.嫦娥: return 嫦娥平台;
+            case HeroType.杨戬: return 杨戬平台;
+            case HeroType.妲己: return 妲己平台;
+            case HeroType.牛魔王: return 牛魔王平台;
+            case HeroType.哪吒: return 哪吒平台;
+            case HeroType.孙悟空: return 孙悟空平台;
+            case HeroType.碧霄: return 碧霄平台;
+            case HeroType.琼霄: return 琼霄平台;
+            case HeroType.羲和: return 羲和平台;
+            case HeroType.常羲: return 常羲平台;
+            case HeroType.后羿: return 后羿平台;
+            case HeroType.云霄: return 云霄平台;
+            case HeroType.女娲: return 女娲平台;
+            case HeroType.老子: return 老子平台;
+            case HeroType.通天: return 通天平台;
+            case HeroType.元始: return 元始平台;
+            case HeroType.鸿钧: return 鸿钧平台;
+            case HeroType.盘古: return 盘古平台;
+            case HeroType.None:
+            default: return null;
+        }
+    }
     public static void Init()
     {
         编队界面英雄背景框白=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/白");
@@ -6307,6 +6381,39 @@ public class ResourcesConfig : MonoBehaviour
         被辅助英雄技能伤害 = Resources.Load<Sprite>("Sprite/技能树图标/被辅助英雄技能伤害");
         女娲神通效果 = Resources.Load<Sprite>("Sprite/技能树图标/女娲神通效果");
 
+        丹童平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/丹童");
+        土地平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/土地");
+        河伯平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/河伯");
+        瑶池仙女平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/瑶池仙女");
+        石敢当平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/石敢当");
+        玄女平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/玄女");
+        龟丞相平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/龟丞相");
+        太白金星平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/太白金星");
+        多闻天王平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/多闻天王");
+        广目天王平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/广木天王");
+        雷震子平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/雷震子");
+        月老平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/月老");
+        嫦娥平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/嫦娥");
+        杨戬平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/杨戬");
+        妲己平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/妲己");
+        牛魔王平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/牛魔王");
+        哪吒平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/哪吒");
+        孙悟空平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/孙悟空");
+        碧霄平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/碧霄");
+        琼霄平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/琼霄");
+        羲和平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/羲和");
+        常羲平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/常羲");
+        后羿平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/后羿");
+        云霄平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/云霄");
+        女娲平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/女娲");
+        老子平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/老子");
+        通天平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/通天");
+        元始平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/元始");
+        鸿钧平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/鸿钧");
+        盘古平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/盘古");
+        
+        
+        
         丹童头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/丹童");
         土地头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/土地");
         河伯头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/河伯");

@@ -14,6 +14,7 @@ public class HeroItem : MonoBehaviour
    public GameObject 锁;
    public Image image;
    public TextMeshProUGUI tip;
+   public TextMeshProUGUI Name;
 
    private void Update()
    {
@@ -41,16 +42,19 @@ public class HeroItem : MonoBehaviour
       image.gameObject.SetActive(!IsSuo);
       if (HeroType == HeroType.None)
       {
+         Name.gameObject.SetActive(false);
          image.color=new Color32(255, 255, 255, 0);
       }
       else
       {
+         Name.text = HeroConfig.HeroNameDic[HeroType];
+         Name.gameObject.SetActive(true);
          image.color=new Color32(255, 255, 255, 255);
       }
       if (!IsSuo)
       {
          tip.gameObject.SetActive(false);
-         image.sprite=ResourcesConfig.GetHeroSprite(HeroType);
+         image.sprite=ResourcesConfig.Get英雄平台Sprite(HeroType);
       }
       else
       {

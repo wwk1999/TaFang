@@ -174,7 +174,7 @@ public class HeroWindow : MonoBehaviour
             out localPoint
          );
          鼠标Image.gameObject.SetActive(true);
-         鼠标Image.sprite = ResourcesConfig.GetHeroSprite(HeroWindowController.S.DragHero);
+         鼠标Image.sprite = ResourcesConfig.Get英雄平台Sprite(HeroWindowController.S.DragHero);
          鼠标Image.rectTransform.localPosition = localPoint;
       }
       else
