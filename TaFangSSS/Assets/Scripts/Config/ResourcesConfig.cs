@@ -6,6 +6,15 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 编队界面英雄背景框白;
+    public static Sprite 编队界面英雄背景框绿;
+    public static Sprite 编队界面英雄背景框蓝;
+    public static Sprite 编队界面英雄背景框紫;
+    public static Sprite 编队界面英雄背景框橙;
+    public static Sprite 编队界面英雄背景框粉;
+    public static Sprite 编队界面英雄背景框红;
+    public static Sprite 编队界面英雄背景框彩;
+
     public static Sprite 装备背景框;
 
     public static Sprite 标签亮;
@@ -6115,8 +6124,41 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get编队界面英雄背景框(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 编队界面英雄背景框白;
+            case QualityType.玄品:
+                return 编队界面英雄背景框绿;
+            case QualityType.地品:
+                return 编队界面英雄背景框蓝;
+            case QualityType.天品:
+                return 编队界面英雄背景框紫;
+            case QualityType.宇品:
+                return 编队界面英雄背景框橙;
+            case QualityType.宙品:
+                return 编队界面英雄背景框粉;
+            case QualityType.洪品:
+                return 编队界面英雄背景框红;
+            case QualityType.荒品:
+                return 编队界面英雄背景框彩;
+        }
+    }
     public static void Init()
     {
+        编队界面英雄背景框白=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/白");
+        编队界面英雄背景框绿=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/绿");
+        编队界面英雄背景框蓝=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/蓝");
+        编队界面英雄背景框紫=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/紫");
+        编队界面英雄背景框橙=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/橙");
+        编队界面英雄背景框粉=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/粉");
+        编队界面英雄背景框红=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/红");
+        编队界面英雄背景框彩=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/彩");
+
+        
         装备背景框=Resources.Load<Sprite>("Sprite/技能树图标/装备背景框");
         标签亮=Resources.Load<Sprite>("Sprite/技能树图标/标签亮");
         标签暗=Resources.Load<Sprite>("Sprite/技能树图标/标签暗");
