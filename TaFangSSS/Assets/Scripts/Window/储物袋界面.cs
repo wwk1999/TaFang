@@ -409,7 +409,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 48f);
+      return Mathf.CeilToInt(count / 54f);
    }
    
    public void Show丹药()
@@ -435,7 +435,7 @@ public class 储物袋界面 : MonoBehaviour
          {
             if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i) > 0)
             {
-               if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+               if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
                {
                   var baggrid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/丹药Grid"), BagContent.transform)
                      .GetComponent<丹药grid>();
@@ -472,7 +472,7 @@ public class 储物袋界面 : MonoBehaviour
          {
             if (PlayerData.S.Get灵药数量(item.Key, (QualityType)i) > 0)
             {
-               if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+               if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
                {
                   var baggrid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/灵药Grid"), BagContent.transform)
                      .GetComponent<灵药grid>();
@@ -508,7 +508,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.荒品)>0)
          {
-            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -523,7 +523,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.洪品)>0)
          {
-            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -538,7 +538,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.宙品)>0)
          {
-            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -553,7 +553,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.宇品)>0)
          {
-            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            if (count >= (页数Num - 1) * 54&& count <= 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -568,7 +568,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.天品)>0)
          {
-            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -627,7 +627,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 48f);
+      return Mathf.CeilToInt(count / 54);
    }
    
    public int Get丹药最大页数()
@@ -643,7 +643,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 48f);
+      return Mathf.CeilToInt(count / 54);
    }
 
    public int Get功法最大页数()
@@ -656,7 +656,7 @@ public class 储物袋界面 : MonoBehaviour
             count++;
          }
       }
-      return Mathf.CeilToInt(count / 48f);
+      return Mathf.CeilToInt(count / 54);
    }
    public void Show功法()
    {
@@ -680,7 +680,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (item.Value > 0)
          {
-            if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/功法Grid"), BagContent.transform).GetComponent<功法Grid>();
                baggrid.功法Type = item.Key;
@@ -732,8 +732,8 @@ public class 储物袋界面 : MonoBehaviour
 
       itemList.Sort((a, b) => b.quality.CompareTo(a.quality));
 
-      int startIndex = (页数Num - 1) * 48;
-      int endIndex = Mathf.Min(页数Num * 48, itemList.Count);
+      int startIndex = (页数Num - 1) * 54;
+      int endIndex = Mathf.Min(页数Num * 54, itemList.Count);
       for (int i = startIndex; i < endIndex; i++)
       {
          var entry = itemList[i];
@@ -765,7 +765,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 48f);
+      return Mathf.CeilToInt(count / 54);
    }
    public void Show灵物()
    {
@@ -792,7 +792,7 @@ public class 储物袋界面 : MonoBehaviour
             {
                if (PlayerData.S.Get灵物数量((JingJieType)i, (QualityType)j) > 0)
                {
-                  if (count >= (页数Num - 1) * 48 && count <= 页数Num * 48)
+                  if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
                   {
                      var 灵物grid=Instantiate(Resources.Load("Prefabs/Window/灵物Grid"), BagContent.transform).GetComponent<灵物Grid>();
                      灵物grid.JingJieType = (JingJieType)i;
@@ -810,13 +810,13 @@ public class 储物袋界面 : MonoBehaviour
    {
       int count = 0;
       
-      return Mathf.CeilToInt(PlayerData.S.仙石列表.Count / 48f);
+      return Mathf.CeilToInt(PlayerData.S.仙石列表.Count / 54);
    }
    public int Get法器最大页数()
    {
       int count = 0;
       
-      return Mathf.CeilToInt(PlayerData.S.法器列表.Count / 48f);
+      return Mathf.CeilToInt(PlayerData.S.法器列表.Count / 54);
    }
    public void Show仙石()
    {
@@ -835,7 +835,7 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-      for (int i = 48 * (页数Num - 1); i < Math.Min(页数Num * 48, PlayerData.S.仙石列表.Count); i++)
+      for (int i = 54 * (页数Num - 1); i < Math.Min(页数Num * 54, PlayerData.S.仙石列表.Count); i++)
       {
          var 仙石item = Instantiate(Resources.Load("Prefabs/Window/仙石Grid"), BagContent.transform).GetComponent<仙石Grid>();
          仙石item.仙石 = PlayerData.S.仙石列表[i];
@@ -860,7 +860,7 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-      for (int i = 48 * (页数Num - 1); i < Math.Min(页数Num * 48, PlayerData.S.法器列表.Count); i++)
+      for (int i = 54 * (页数Num - 1); i < Math.Min(页数Num * 54, PlayerData.S.法器列表.Count); i++)
       {
          var 法器item = Instantiate(Resources.Load("Prefabs/Window/法器Grid"), BagContent.transform).GetComponent<法器Grid>();
          法器item.法器 = PlayerData.S.法器列表[i];
