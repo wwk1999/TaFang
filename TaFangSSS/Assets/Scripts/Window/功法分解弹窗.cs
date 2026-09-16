@@ -94,6 +94,6 @@ public class 功法分解弹窗 : MonoBehaviour
         icon.sprite = ResourcesConfig.Get功法Sprite(功法Type);
         name.text = 功法Config.功法名Dic[功法Type];
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(功法Config.功法TypeQualityDic[功法Type]);
-        职业.text = "职业："+功法Config.功法职业Dic[功法Type];
+        职业.text = 功法Config.功法职业Dic[功法Type].ToString();
     }
 }
