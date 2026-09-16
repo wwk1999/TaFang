@@ -42,6 +42,7 @@ public class 附加属性item : MonoBehaviour
          附加属性Type 附加属性Type = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].附加属性Type;
          QualityType QualityType= PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].QualityType;
          bg.sprite = ResourcesConfig.Get标签背景(QualityType);
+         labeltext.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
          labeltext.text=PropConfig.QualityNameDic[QualityType];
          info.text = EquipConfig.附加属性NameDic[附加属性Type] + "+" + PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].count.ToString("F1")+"%";
          if (IsQiangHua)
