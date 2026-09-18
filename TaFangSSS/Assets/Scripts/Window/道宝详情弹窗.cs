@@ -15,6 +15,9 @@ public class 道宝详情弹窗 : MonoBehaviour
     public TextMeshProUGUI info;
     public Image image;
     public Image 艺术字;
+    public Image bg;
+    public TextMeshProUGUI 品质;
+
     public TextMeshProUGUI 当前效果;
     public TextMeshProUGUI 升级奖励;
 
@@ -46,5 +49,7 @@ public class 道宝详情弹窗 : MonoBehaviour
         艺术字.sprite = ResourcesConfig.Get艺术字(qualityType);
         当前效果.text = 道宝Config.单件升级奖励Dic[(int)qualityType - 4] * PlayerData.S.道宝LevelDic[道宝Type] + "%";
         升级奖励.text = "升级奖励：" + 道宝Config.单件升级奖励Dic[(int)qualityType - 4] + "%修炼速度";
+        bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(qualityType);
+        品质.text=PropConfig.QualityNameDic[qualityType];
     }
 }

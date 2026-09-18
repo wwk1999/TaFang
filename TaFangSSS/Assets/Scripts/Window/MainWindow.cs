@@ -9,10 +9,27 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum 主页地图Type
+{
+    None,
+    东胜神州,
+    南蟾部洲,
+    西牛贺州,
+    北俱芦洲,
+    天庭,
+}
 public class MainWindow : MonoBehaviour
 {
-    public GameObject 神通配置新手mask;
+    public RectTransform 地图布局RectTransform;
+    public Button 左翻页Button;
+    public Button 右翻页Button;
+    public HorizontalLayoutGroup 地图布局;   // 挂 HorizontalLayoutGroup 的那个「地图」
+    public float 动画时长 = 0.05f;
+    private Tween 翻页Tween;    
+    private 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
+    private float 当前Left;   // 用一个 float 跟踪，避免 int 取整导致跳变
 
+    public GameObject 神通配置新手mask;
     public Canvas 退出神通Canvas;
     public Transform 退出神通小手trans;
     public Transform 添加神通trans;
@@ -308,6 +325,33 @@ public class MainWindow : MonoBehaviour
         神通配置新手mask.gameObject.SetActive(PlayerData.S.是否首次配置神通);
         神通配置弹窗.gameObject.SetActive(true);
     }
+    private void 翻页(主页地图Type 主页地图Type)
+    {
+        if (主页地图Type < 主页地图Type.东胜神州 || 主页地图Type > 主页地图Type.天庭) return;
+        翻页Tween?.Kill();
+        PlayerData.S.主页地图Type = 主页地图Type;
+        float 目标 = Math.Min(0,-1920*((int)主页地图Type-1));
+
+        翻页Tween = DOTween.To(
+            () => 当前Left,
+            x =>
+            {
+                当前Left = x;
+
+                var p = new RectOffset(
+                    Mathf.RoundToInt(x),
+                    地图布局.padding.right,
+                    地图布局.padding.top,
+                    地图布局.padding.bottom);
+                地图布局.padding = p;
+
+                // 关键：每一帧立即强制重排
+                LayoutRebuilder.ForceRebuildLayoutImmediate(地图布局RectTransform);
+            },
+            目标,
+            动画时长
+        ).SetEase(Ease.OutCubic).SetUpdate(true);
+    }
     private void Start()
     {
         神通配置新手mask.gameObject.SetActive(false);
@@ -334,6 +378,10 @@ public class MainWindow : MonoBehaviour
         {
             首次进入主页面引导();
         }
+        地图布局.padding.left=Math.Min(0,(-1920*((int)PlayerData.S.主页地图Type-2)));
+        右翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type+1));
+        左翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type-1));
+        
         引导Button.onClick.AddListener(() =>
         {
             if (引导count == 0)

@@ -761,7 +761,7 @@ public class 人物item : MonoBehaviour
 
     public void SetItem()
     {
-        image.sprite = ResourcesConfig.GetHeroSprite(heroType);
+        image.sprite = ResourcesConfig.Get英雄平台Sprite(heroType);
         float scale = HeroConfig.攻击范围Dic[HeroConfig.HeroZhiYeDic[heroType].zhiYeType];
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士 &&
             PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)

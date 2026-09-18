@@ -13,6 +13,7 @@ public class StoreDefine : XSingleton<StoreController>
     public class PlayData
     {
         public 神物Type 最大神物关卡 = 神物Type.最终伤害;
+        public 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
 
         public string Name = "修仙者";
         public JingJieType 历史最高境界 = JingJieType.练气;
@@ -3129,6 +3130,7 @@ public class StoreDefine : XSingleton<StoreController>
             神通配置List = runtime.神通配置List;
             是否首次配置神通 = runtime.是否首次配置神通;
             英雄技能树Dic = runtime.英雄技能树Dic;
+            主页地图Type = runtime.主页地图Type;
 
         }
 
@@ -3211,6 +3213,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.神通配置List = 神通配置List;
             runtime.是否首次配置神通 = 是否首次配置神通;
             runtime.英雄技能树Dic = 英雄技能树Dic;
+            runtime.主页地图Type = 主页地图Type;
         }
     }
 }

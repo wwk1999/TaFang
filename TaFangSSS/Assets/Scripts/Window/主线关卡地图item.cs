@@ -9,11 +9,13 @@ public class 主线关卡地图item : MonoBehaviour
 {
     public Button image;
     public GameObject 标签;
+
     public TextMeshProUGUI name;
     public 主线关卡Type 主线关卡Type;
 
     private void Start()
     {
+        image.image.alphaHitTestMinimumThreshold = 0.1f;
         image.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.主线关卡;

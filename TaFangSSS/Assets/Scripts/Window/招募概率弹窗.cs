@@ -19,7 +19,6 @@ public class 招募概率弹窗 : MonoBehaviour
    [NonSerialized]public JingJieType JingJieType=JingJieType.练气;
 
    public Button maskButton;
-   public Button exitButton;
 
    private void OnEnable()
    {
@@ -29,10 +28,6 @@ public class 招募概率弹窗 : MonoBehaviour
 
    private void Start()
    {
-      exitButton.onClick.AddListener(() =>
-      {
-         gameObject.SetActive(false);
-      });
       maskButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);
