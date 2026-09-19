@@ -327,9 +327,35 @@ public class MainWindow : MonoBehaviour
         神通配置新手mask.gameObject.SetActive(PlayerData.S.是否首次配置神通);
         神通配置弹窗.gameObject.SetActive(true);
     }
+
+    public 主页地图Type 最大主页地图Type()
+    {
+        if (PlayerData.S.最大主线关卡 >= 主线关卡Type.南天门)
+        {
+            return 主页地图Type.天庭;
+        }
+        if (PlayerData.S.最大主线关卡 >= 主线关卡Type.狮驼岭)
+        {
+            return 主页地图Type.北俱芦洲;
+        }
+        if (PlayerData.S.最大主线关卡 >= 主线关卡Type.平顶山)
+        {
+            return 主页地图Type.西牛贺州;
+        }
+        if (PlayerData.S.最大主线关卡 >= 主线关卡Type.傲来国)
+        {
+            return 主页地图Type.南蟾部洲;
+        }
+        return 主页地图Type.东胜神州;
+    }
     private void 翻页(主页地图Type 主页地图Type)
     {
         if (主页地图Type < 主页地图Type.东胜神州 || 主页地图Type > 主页地图Type.天庭) return;
+        if (主页地图Type > 最大主页地图Type())
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","未解锁");
+            return;
+        }
         翻页Tween?.Kill();
         PlayerData.S.主页地图Type = 主页地图Type;
         float 目标 = Math.Min(0,-1920*((int)主页地图Type-1));
@@ -394,7 +420,8 @@ public class MainWindow : MonoBehaviour
         {
             首次进入主页面引导();
         }
-        地图布局.padding.left=Math.Min(0,(-1920*((int)PlayerData.S.主页地图Type-2)));
+        地图布局.padding.left=Math.Min(0,(-1920*((int)PlayerData.S.主页地图Type-1)));
+        当前Left=Math.Min(0,(-1920*((int)PlayerData.S.主页地图Type-1)));
         右翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type+1));
         左翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type-1));
         

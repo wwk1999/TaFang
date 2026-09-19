@@ -132,7 +132,7 @@ public class LevelConfig : MonoBehaviour
         { 秘境type.世界树, 主线关卡Type.火焰山 },
         { 秘境type.远古遗迹, 主线关卡Type.流沙河 },
         { 秘境type.符文之地, 主线关卡Type.东海龙宫 },
-        { 秘境type.三十三重天, 主线关卡Type.昊天殿 },
+        { 秘境type.三十三重天, 主线关卡Type.登天路 },
     };
     public static Dictionary<主线关卡Type, int> 主线关卡通关奖励Dic = new Dictionary<主线关卡Type, int>()
     {
