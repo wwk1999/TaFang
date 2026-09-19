@@ -407,7 +407,7 @@ public enum MonsterTypeName
   金戈兽,
   
   幻梦蝶,
-  沉睡兽,
+  幻梦虫,
   幻梦妖,
   幻梦兽,
   
@@ -913,7 +913,7 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
   { MonsterTypeName.金戈兽, false },
 
   { MonsterTypeName.幻梦蝶, false },
-  { MonsterTypeName.沉睡兽, false },
+  { MonsterTypeName.幻梦虫, false },
   { MonsterTypeName.幻梦妖, false },
   { MonsterTypeName.幻梦兽, false },
 
@@ -1355,7 +1355,7 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
 { MonsterTypeName.金戈兽, Monster特性Type.普通怪 },
 
 { MonsterTypeName.幻梦蝶, Monster特性Type.普通怪 },
-{ MonsterTypeName.沉睡兽, Monster特性Type.普通怪 },
+{ MonsterTypeName.幻梦虫, Monster特性Type.普通怪 },
 { MonsterTypeName.幻梦妖, Monster特性Type.普通怪 },
 { MonsterTypeName.幻梦兽, Monster特性Type.普通怪 },
 
@@ -2266,7 +2266,7 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
 { MonsterTypeName.金戈兽, MonsterType.Boss },
 
 { MonsterTypeName.幻梦蝶, MonsterType.Normal },
-{ MonsterTypeName.沉睡兽, MonsterType.Normal },
+{ MonsterTypeName.幻梦虫, MonsterType.Normal },
 { MonsterTypeName.幻梦妖, MonsterType.Elite },
 { MonsterTypeName.幻梦兽, MonsterType.Boss },
 

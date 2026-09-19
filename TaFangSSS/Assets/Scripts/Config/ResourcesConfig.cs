@@ -3156,6 +3156,56 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.终末湮灭虫: return 终末湮灭虫;
             case MonsterTypeName.命运编织者: return 命运编织者;
             case MonsterTypeName.混沌道尊: return 混沌道尊;
+            
+            case MonsterTypeName.藤蔓猴: return 藤蔓猴;
+            case MonsterTypeName.木灵蝶: return 木灵蝶;
+            case MonsterTypeName.千年树妖: return 千年树妖;
+            case MonsterTypeName.青木蛟: return 青木蛟;
+
+            case MonsterTypeName.火岩虫: return 火岩虫;
+            case MonsterTypeName.熔岩火蜥: return 熔岩火蜥;
+            case MonsterTypeName.炎髓魔猿: return 炎髓魔猿;
+            case MonsterTypeName.火山兽: return 火山兽;
+
+            case MonsterTypeName.黑风貂: return 黑风貂;
+            case MonsterTypeName.浮空水母: return 浮空水母;
+            case MonsterTypeName.黑风双煞: return 黑风双煞;
+            case MonsterTypeName.黑风老妖: return 黑风老妖;
+
+            case MonsterTypeName.水形怪: return 水形怪;
+            case MonsterTypeName.深渊鮟鱇: return 深渊鮟鱇;
+            case MonsterTypeName.玄水毒蛟: return 玄水毒蛟;
+            case MonsterTypeName.玄水兽: return 玄水兽;
+
+            case MonsterTypeName.雷纹蛛: return 雷纹蛛;
+            case MonsterTypeName.雷灵球: return 雷灵球;
+            case MonsterTypeName.紫雷夔牛: return 紫雷夔牛;
+            case MonsterTypeName.紫雷兽: return 紫雷兽;
+
+            case MonsterTypeName.白骨兵: return 白骨兵;
+            case MonsterTypeName.噬魂鸦: return 噬魂鸦;
+            case MonsterTypeName.白骨将: return 白骨将;
+            case MonsterTypeName.白骨兽: return 白骨兽;
+
+            case MonsterTypeName.金甲傀: return 金甲傀;
+            case MonsterTypeName.戈刃灵: return 戈刃灵;
+            case MonsterTypeName.金戈将: return 金戈将;
+            case MonsterTypeName.金戈兽: return 金戈兽;
+
+            case MonsterTypeName.幻梦蝶: return 幻梦蝶;
+            case MonsterTypeName.沉睡兽: return 沉睡兽;
+            case MonsterTypeName.幻梦妖: return 幻梦妖;
+            case MonsterTypeName.幻梦兽: return 幻梦兽;
+
+            case MonsterTypeName.混沌虫: return 混沌虫;
+            case MonsterTypeName.吞噬兽: return 吞噬兽;
+            case MonsterTypeName.混沌魔将: return 混沌魔将;
+            case MonsterTypeName.混沌兽王: return 混沌兽王;
+
+            case MonsterTypeName.天道卫: return 天道卫;
+            case MonsterTypeName.造化灵: return 造化灵;
+            case MonsterTypeName.天道将: return 天道将;
+            case MonsterTypeName.天道兽: return 天道兽;
             default:
                 return null;
         }
@@ -7644,6 +7694,58 @@ public class ResourcesConfig : MonoBehaviour
         终末湮灭虫 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/终末湮灭虫");
         命运编织者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/命运编织者");
         混沌道尊 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/混沌道尊");
+
+藤蔓猴 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/藤蔓猴");
+木灵蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/木灵蝶");
+千年树妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/千年树妖");
+青木蛟 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/青木蛟");
+
+火岩虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/火岩虫");
+熔岩火蜥 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/熔岩火蜥");
+炎髓魔猿 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/炎髓魔猿");
+火山兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/火山兽");
+
+黑风貂 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风貂");
+浮空水母 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/浮空水母");
+黑风双煞 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风双煞");
+黑风老妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风老妖");
+
+水形怪 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/水形怪");
+深渊鮟鱇 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/深渊鮟鱇");
+玄水毒蛟 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/玄水毒蛟");
+玄水兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/玄水兽");
+
+雷纹蛛 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/雷纹蛛");
+雷灵球 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/雷灵球");
+紫雷夔牛 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/紫雷夔牛");
+紫雷兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/紫雷兽");
+
+白骨兵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨兵");
+噬魂鸦 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/噬魂鸦");
+白骨将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨将");
+白骨兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨兽");
+
+金甲傀 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金甲傀");
+戈刃灵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/戈刃灵");
+金戈将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈将");
+金戈兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈兽");
+
+幻梦蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦蝶");
+沉睡兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/沉睡兽");
+幻梦妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦妖");
+幻梦兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦兽");
+
+混沌虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌虫");
+吞噬兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/吞噬兽");
+混沌魔将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌魔将");
+混沌兽王 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌兽王");
+
+天道卫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道卫");
+造化灵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/造化灵");
+天道将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道将");
+天道兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道兽");
+
+
 
         筑基白 = Resources.Load<Sprite>("Sprite/突破灵物/筑基白");
         筑基绿 = Resources.Load<Sprite>("Sprite/突破灵物/筑基绿");
