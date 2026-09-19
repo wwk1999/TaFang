@@ -101,6 +101,18 @@ public class 普通关卡胜利奖励
     public long 洗练石;
 }
 
+public enum 秘境type
+{
+    None,
+    洞天福地,
+    通天塔,
+    紫霄宫,
+    九幽血海,
+    世界树,
+    远古遗迹,
+    符文之地,
+    三十三重天,
+}
 public class LevelConfig : MonoBehaviour
 {
     public static 关卡类型 当前关卡类型 = 关卡类型.主线关卡;
@@ -110,6 +122,18 @@ public class LevelConfig : MonoBehaviour
 
     public static bool Is混沌虚空=false;
     public static int 战斗混沌虚空层数 = 1;
+
+    public static Dictionary<秘境type, 主线关卡Type> 秘境解锁Dic = new Dictionary<秘境type, 主线关卡Type>()
+    {
+        { 秘境type.洞天福地, 主线关卡Type.花果山 },
+        { 秘境type.紫霄宫, 主线关卡Type.水帘洞 },
+        { 秘境type.通天塔, 主线关卡Type.五行山 },
+        { 秘境type.九幽血海, 主线关卡Type.女儿国 },
+        { 秘境type.世界树, 主线关卡Type.火焰山 },
+        { 秘境type.远古遗迹, 主线关卡Type.流沙河 },
+        { 秘境type.符文之地, 主线关卡Type.东海龙宫 },
+        { 秘境type.三十三重天, 主线关卡Type.昊天殿 },
+    };
     public static Dictionary<主线关卡Type, int> 主线关卡通关奖励Dic = new Dictionary<主线关卡Type, int>()
     {
         { 主线关卡Type.花果山, 5 },
