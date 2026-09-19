@@ -125,8 +125,8 @@ public class LevelConfig : MonoBehaviour
 
     public static Dictionary<秘境type, 主线关卡Type> 秘境解锁Dic = new Dictionary<秘境type, 主线关卡Type>()
     {
-        { 秘境type.洞天福地, 主线关卡Type.花果山 },
-        { 秘境type.紫霄宫, 主线关卡Type.水帘洞 },
+        { 秘境type.洞天福地, 主线关卡Type.水帘洞 },
+        { 秘境type.紫霄宫, 主线关卡Type.蓬莱仙岛 },
         { 秘境type.通天塔, 主线关卡Type.五行山 },
         { 秘境type.九幽血海, 主线关卡Type.女儿国 },
         { 秘境type.世界树, 主线关卡Type.火焰山 },

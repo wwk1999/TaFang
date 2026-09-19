@@ -20,6 +20,7 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    
     public RectTransform 地图布局RectTransform;
     public Button 左翻页Button;
     public Button 右翻页Button;
@@ -108,7 +109,8 @@ public class MainWindow : MonoBehaviour
     
     public 不周山窗口 不周山窗口;
     public Button 不周山;
-
+    public Button 符文之地按钮;
+    public Button 三十三重天按钮;
     public Button 主线关卡Debug;
     public Button 城墙Debug;
     public Button 灵宝Debug;
@@ -352,10 +354,24 @@ public class MainWindow : MonoBehaviour
             动画时长
         ).SetEase(Ease.OutCubic).SetUpdate(true);
     }
+
+    public void 设置秘境点击像素()
+    {
+        洞天秘境按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        通天塔.image.alphaHitTestMinimumThreshold = 0.1f;
+        世界树.image.alphaHitTestMinimumThreshold = 0.1f;
+        血海.image.alphaHitTestMinimumThreshold = 0.1f;
+        洞天秘境按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        紫霄宫传道Button.image.alphaHitTestMinimumThreshold = 0.1f;
+        符文之地按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        三十三重天按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        远古遗迹按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        
+    }
     private void Start()
     {
         神通配置新手mask.gameObject.SetActive(false);
-
+        设置秘境点击像素();
         ObserverModuleManager.S.RegisterEvent("退出神通配置",退出神通配置);
         ObserverModuleManager.S.RegisterEvent("新手引导添加神通",新手引导添加神通);
         ObserverModuleManager.S.RegisterEvent("新手引导神通配置",新手引导神通配置);
@@ -423,10 +439,24 @@ public class MainWindow : MonoBehaviour
         });
         远古遗迹按钮.onClick.AddListener(() =>
         {
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.远古遗迹];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
+                return;
+            }
             远古遗迹窗口.gameObject.SetActive(true);
         });
         洞天秘境按钮.onClick.AddListener(() =>
         {
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.洞天福地];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
+                return;
+            }
             洞天秘境窗口.gameObject.SetActive(true);
         });
         设置按钮.onClick.AddListener(() =>
@@ -436,19 +466,34 @@ public class MainWindow : MonoBehaviour
         });
         紫霄宫传道Button.onClick.AddListener(() =>
         {
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.紫霄宫];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
+                return;
+            }
             紫霄宫传道窗口.gameObject.SetActive(true);
         });
         通天塔.onClick.AddListener(() =>
         {
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.通天塔];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
+                return;
+            }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.通天塔;
             通天塔窗口.gameObject.SetActive(true);
         });
         世界树.onClick.AddListener(() =>
         {
-            if (PlayerData.S.历史最高境界 < 世界树Config.世界树关卡Dic[1].jingJieType)
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.世界树];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
-                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.血海;
@@ -456,10 +501,11 @@ public class MainWindow : MonoBehaviour
         });
         血海.onClick.AddListener(() =>
         {
-            if (PlayerData.S.历史最高境界 < 血海Config.血海关卡Dic[1].jingJieType)
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.九幽血海];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
-                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.世界树;
