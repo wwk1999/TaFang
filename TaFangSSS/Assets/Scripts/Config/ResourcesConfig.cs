@@ -1310,7 +1310,57 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 命运编织者;
     public static Sprite 混沌道尊;
 
+    
+    //符文之地
+    public static Sprite 藤蔓猴;
+    public static Sprite 木灵蝶;
+    public static Sprite 千年树妖;
+    public static Sprite 青木蛟;
 
+    public static Sprite 火岩虫;
+    public static Sprite 熔岩火蜥;
+    public static Sprite 炎髓魔猿;
+    public static Sprite 火山兽;
+
+    public static Sprite 黑风貂;
+    public static Sprite 浮空水母;
+    public static Sprite 黑风双煞;
+    public static Sprite 黑风老妖;
+
+    public static Sprite 水形怪;
+    public static Sprite 深渊鮟鱇;
+    public static Sprite 玄水毒蛟;
+    public static Sprite 玄水兽;
+
+    public static Sprite 雷纹蛛;
+    public static Sprite 雷灵球;
+    public static Sprite 紫雷夔牛;
+    public static Sprite 紫雷兽;
+
+    public static Sprite 白骨兵;
+    public static Sprite 噬魂鸦;
+    public static Sprite 白骨将;
+    public static Sprite 白骨兽;
+
+    public static Sprite 金甲傀;
+    public static Sprite 戈刃灵;
+    public static Sprite 金戈将;
+    public static Sprite 金戈兽;
+
+    public static Sprite 幻梦蝶;
+    public static Sprite 沉睡兽;
+    public static Sprite 幻梦妖;
+    public static Sprite 幻梦兽;
+
+    public static Sprite 混沌虫;
+    public static Sprite 吞噬兽;
+    public static Sprite 混沌魔将;
+    public static Sprite 混沌兽王;
+
+    public static Sprite 天道卫;
+    public static Sprite 造化灵;
+    public static Sprite 天道将;
+    public static Sprite 天道兽;
 
     public static Sprite 练气白;
     public static Sprite 练气绿;

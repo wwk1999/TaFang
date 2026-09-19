@@ -363,7 +363,63 @@ public enum MonsterTypeName
   因果裁决者,
   终末湮灭虫,
   命运编织者,
-  混沌道尊
+  混沌道尊,
+  
+  
+  
+  //符文之地
+  
+  藤蔓猴,
+  木灵蝶,
+  千年树妖,
+  青木蛟,
+
+ 
+  火岩虫,
+  熔岩火蜥,
+  炎髓魔猿,
+  火山兽,
+
+  
+  黑风貂,
+  浮空水母,
+  黑风双煞,
+  黑风老妖,
+  
+  水形怪,
+  深渊鮟鱇,
+  玄水毒蛟,
+  玄水兽,
+  
+  雷纹蛛,
+  雷灵球,
+  紫雷夔牛,
+  紫雷兽,
+  
+  白骨兵,
+  噬魂鸦,
+  白骨将,
+  白骨兽,
+  
+  金甲傀,
+  戈刃灵,
+  金戈将,
+  金戈兽,
+  
+  幻梦蝶,
+  沉睡兽,
+  幻梦妖,
+  幻梦兽,
+  
+  混沌虫,
+  吞噬兽,
+  混沌魔将,
+  混沌兽王,
+  
+  天道卫,
+  造化灵,
+  天道将,
+  天道兽,
 }
 
 
@@ -817,6 +873,59 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
 { MonsterTypeName.命运编织者, false },
 { MonsterTypeName.混沌道尊, false },
 
+
+
+//符文之地
+
+  { MonsterTypeName.藤蔓猴, false },
+  { MonsterTypeName.木灵蝶, false },
+  { MonsterTypeName.千年树妖, false },
+  { MonsterTypeName.青木蛟, false },
+
+  { MonsterTypeName.火岩虫, false },
+  { MonsterTypeName.熔岩火蜥, false },
+  { MonsterTypeName.炎髓魔猿, false },
+  { MonsterTypeName.火山兽, false },
+
+  { MonsterTypeName.黑风貂, false },
+  { MonsterTypeName.浮空水母, false },
+  { MonsterTypeName.黑风双煞, false },
+  { MonsterTypeName.黑风老妖, false },
+
+  { MonsterTypeName.水形怪, false },
+  { MonsterTypeName.深渊鮟鱇, false },
+  { MonsterTypeName.玄水毒蛟, false },
+  { MonsterTypeName.玄水兽, false },
+
+  { MonsterTypeName.雷纹蛛, false },
+  { MonsterTypeName.雷灵球, false },
+  { MonsterTypeName.紫雷夔牛, false },
+  { MonsterTypeName.紫雷兽, false },
+
+  { MonsterTypeName.白骨兵, false },
+  { MonsterTypeName.噬魂鸦, false },
+  { MonsterTypeName.白骨将, false },
+  { MonsterTypeName.白骨兽, false },
+
+  { MonsterTypeName.金甲傀, false },
+  { MonsterTypeName.戈刃灵, false },
+  { MonsterTypeName.金戈将, false },
+  { MonsterTypeName.金戈兽, false },
+
+  { MonsterTypeName.幻梦蝶, false },
+  { MonsterTypeName.沉睡兽, false },
+  { MonsterTypeName.幻梦妖, false },
+  { MonsterTypeName.幻梦兽, false },
+
+  { MonsterTypeName.混沌虫, false },
+  { MonsterTypeName.吞噬兽, false },
+  { MonsterTypeName.混沌魔将, false },
+  { MonsterTypeName.混沌兽王, false },
+
+  { MonsterTypeName.天道卫, false },
+  { MonsterTypeName.造化灵, false },
+  { MonsterTypeName.天道将, false },
+  { MonsterTypeName.天道兽, false },
 };
   
   
@@ -1207,6 +1316,58 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
 { MonsterTypeName.命运编织者, Monster特性Type.普通怪 },
 { MonsterTypeName.混沌道尊, Monster特性Type.普通怪 },
 
+
+//符文之地
+
+{ MonsterTypeName.藤蔓猴, Monster特性Type.普通怪 },
+{ MonsterTypeName.木灵蝶, Monster特性Type.普通怪 },
+{ MonsterTypeName.千年树妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.青木蛟, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.火岩虫, Monster特性Type.普通怪 },
+{ MonsterTypeName.熔岩火蜥, Monster特性Type.普通怪 },
+{ MonsterTypeName.炎髓魔猿, Monster特性Type.普通怪 },
+{ MonsterTypeName.火山兽, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.黑风貂, Monster特性Type.普通怪 },
+{ MonsterTypeName.浮空水母, Monster特性Type.普通怪 },
+{ MonsterTypeName.黑风双煞, Monster特性Type.普通怪 },
+{ MonsterTypeName.黑风老妖, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.水形怪, Monster特性Type.普通怪 },
+{ MonsterTypeName.深渊鮟鱇, Monster特性Type.普通怪 },
+{ MonsterTypeName.玄水毒蛟, Monster特性Type.普通怪 },
+{ MonsterTypeName.玄水兽, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.雷纹蛛, Monster特性Type.普通怪 },
+{ MonsterTypeName.雷灵球, Monster特性Type.普通怪 },
+{ MonsterTypeName.紫雷夔牛, Monster特性Type.普通怪 },
+{ MonsterTypeName.紫雷兽, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.白骨兵, Monster特性Type.普通怪 },
+{ MonsterTypeName.噬魂鸦, Monster特性Type.普通怪 },
+{ MonsterTypeName.白骨将, Monster特性Type.普通怪 },
+{ MonsterTypeName.白骨兽, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.金甲傀, Monster特性Type.普通怪 },
+{ MonsterTypeName.戈刃灵, Monster特性Type.普通怪 },
+{ MonsterTypeName.金戈将, Monster特性Type.普通怪 },
+{ MonsterTypeName.金戈兽, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.幻梦蝶, Monster特性Type.普通怪 },
+{ MonsterTypeName.沉睡兽, Monster特性Type.普通怪 },
+{ MonsterTypeName.幻梦妖, Monster特性Type.普通怪 },
+{ MonsterTypeName.幻梦兽, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.混沌虫, Monster特性Type.普通怪 },
+{ MonsterTypeName.吞噬兽, Monster特性Type.普通怪 },
+{ MonsterTypeName.混沌魔将, Monster特性Type.普通怪 },
+{ MonsterTypeName.混沌兽王, Monster特性Type.普通怪 },
+
+{ MonsterTypeName.天道卫, Monster特性Type.普通怪 },
+{ MonsterTypeName.造化灵, Monster特性Type.普通怪 },
+{ MonsterTypeName.天道将, Monster特性Type.普通怪 },
+{ MonsterTypeName.天道兽, Monster特性Type.普通怪 },
 };
 
 public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡怪物属性Dic = new Dictionary<主线关卡怪物Item, MonsterAttribute>()
@@ -2066,5 +2227,57 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
 { MonsterTypeName.命运编织者, MonsterType.Elite },
 { MonsterTypeName.混沌道尊, MonsterType.Boss },
 
+
+//符文之地
+
+{ MonsterTypeName.藤蔓猴, MonsterType.Normal },
+{ MonsterTypeName.木灵蝶, MonsterType.Normal },
+{ MonsterTypeName.千年树妖, MonsterType.Elite },
+{ MonsterTypeName.青木蛟, MonsterType.Boss },
+
+{ MonsterTypeName.火岩虫, MonsterType.Normal },
+{ MonsterTypeName.熔岩火蜥, MonsterType.Normal },
+{ MonsterTypeName.炎髓魔猿, MonsterType.Elite },
+{ MonsterTypeName.火山兽, MonsterType.Boss },
+
+{ MonsterTypeName.黑风貂, MonsterType.Normal },
+{ MonsterTypeName.浮空水母, MonsterType.Normal },
+{ MonsterTypeName.黑风双煞, MonsterType.Elite },
+{ MonsterTypeName.黑风老妖, MonsterType.Boss },
+
+{ MonsterTypeName.水形怪, MonsterType.Normal },
+{ MonsterTypeName.深渊鮟鱇, MonsterType.Normal },
+{ MonsterTypeName.玄水毒蛟, MonsterType.Elite },
+{ MonsterTypeName.玄水兽, MonsterType.Boss },
+
+{ MonsterTypeName.雷纹蛛, MonsterType.Normal },
+{ MonsterTypeName.雷灵球, MonsterType.Normal },
+{ MonsterTypeName.紫雷夔牛, MonsterType.Elite },
+{ MonsterTypeName.紫雷兽, MonsterType.Boss },
+
+{ MonsterTypeName.白骨兵, MonsterType.Normal },
+{ MonsterTypeName.噬魂鸦, MonsterType.Normal },
+{ MonsterTypeName.白骨将, MonsterType.Elite },
+{ MonsterTypeName.白骨兽, MonsterType.Boss },
+
+{ MonsterTypeName.金甲傀, MonsterType.Normal },
+{ MonsterTypeName.戈刃灵, MonsterType.Normal },
+{ MonsterTypeName.金戈将, MonsterType.Elite },
+{ MonsterTypeName.金戈兽, MonsterType.Boss },
+
+{ MonsterTypeName.幻梦蝶, MonsterType.Normal },
+{ MonsterTypeName.沉睡兽, MonsterType.Normal },
+{ MonsterTypeName.幻梦妖, MonsterType.Elite },
+{ MonsterTypeName.幻梦兽, MonsterType.Boss },
+
+{ MonsterTypeName.混沌虫, MonsterType.Normal },
+{ MonsterTypeName.吞噬兽, MonsterType.Normal },
+{ MonsterTypeName.混沌魔将, MonsterType.Elite },
+{ MonsterTypeName.混沌兽王, MonsterType.Boss },
+
+{ MonsterTypeName.天道卫, MonsterType.Normal },
+{ MonsterTypeName.造化灵, MonsterType.Normal },
+{ MonsterTypeName.天道将, MonsterType.Elite },
+{ MonsterTypeName.天道兽, MonsterType.Boss },
         };
 }
