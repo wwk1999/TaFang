@@ -59,6 +59,31 @@ public enum 符文Type
     //低品质英雄增伤,
 }
 
+public class 符文
+{
+    public 符文Type type;
+    public QualityType quality;
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        符文 other = (符文)obj;
+        return type == other.type && quality == other.quality;
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            int hash = 17;
+            hash = hash * 23 + type.GetHashCode();
+            hash = hash * 23 + quality.GetHashCode();
+            return hash;
+        }
+    }
+}
 public class 符文Config
 {
     public static Dictionary<符文品质Type, QualityType> 符文品质对应Quality = new Dictionary<符文品质Type, QualityType>()
