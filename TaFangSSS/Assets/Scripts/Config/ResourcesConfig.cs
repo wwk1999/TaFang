@@ -1348,7 +1348,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 金戈兽;
 
     public static Sprite 幻梦蝶;
-    public static Sprite 沉睡兽;
+    public static Sprite 幻梦虫;
     public static Sprite 幻梦妖;
     public static Sprite 幻梦兽;
 
@@ -3193,7 +3193,7 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.金戈兽: return 金戈兽;
 
             case MonsterTypeName.幻梦蝶: return 幻梦蝶;
-            case MonsterTypeName.沉睡兽: return 沉睡兽;
+            case MonsterTypeName.幻梦虫: return 幻梦虫;
             case MonsterTypeName.幻梦妖: return 幻梦妖;
             case MonsterTypeName.幻梦兽: return 幻梦兽;
 
@@ -7731,7 +7731,7 @@ public class ResourcesConfig : MonoBehaviour
 金戈兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈兽");
 
 幻梦蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦蝶");
-沉睡兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/沉睡兽");
+幻梦虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦虫");
 幻梦妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦妖");
 幻梦兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦兽");
 
@@ -8658,31 +8658,31 @@ public class ResourcesConfig : MonoBehaviour
 
 
         // 关卡图片
-        花果山 = Resources.Load<Sprite>("Sprite/地图icon/花果山");
-        水帘洞 = Resources.Load<Sprite>("Sprite/地图icon/水帘洞");
-        傲来国 = Resources.Load<Sprite>("Sprite/地图icon/傲来国");
-        东海龙宫 = Resources.Load<Sprite>("Sprite/地图icon/东海龙宫");
-        蓬莱仙岛 = Resources.Load<Sprite>("Sprite/地图icon/蓬莱仙岛");
-        五行山 = Resources.Load<Sprite>("Sprite/地图icon/五行山");
-        高老庄 = Resources.Load<Sprite>("Sprite/地图icon/高老庄");
-        平顶山 = Resources.Load<Sprite>("Sprite/地图icon/平顶山");
-        女儿国 = Resources.Load<Sprite>("Sprite/地图icon/女儿国");
-        火焰山 = Resources.Load<Sprite>("Sprite/地图icon/火焰山");
-        狮驼岭 = Resources.Load<Sprite>("Sprite/地图icon/狮驼岭");
-        小雷音寺 = Resources.Load<Sprite>("Sprite/地图icon/小雷音寺");
-        流沙河 = Resources.Load<Sprite>("Sprite/地图icon/流沙河");
-        芭蕉洞 = Resources.Load<Sprite>("Sprite/地图icon/芭蕉洞");
-        冥府 = Resources.Load<Sprite>("Sprite/地图icon/冥府");
+        花果山 = Resources.Load<Sprite>("Sprite/新地图icon/花果山");
+        水帘洞 = Resources.Load<Sprite>("Sprite/新地图icon/水帘洞");
+        傲来国 = Resources.Load<Sprite>("Sprite/新地图icon/傲来国");
+        东海龙宫 = Resources.Load<Sprite>("Sprite/新地图icon/通天河");
+        蓬莱仙岛 = Resources.Load<Sprite>("Sprite/新地图icon/蓬莱仙岛");
+        五行山 = Resources.Load<Sprite>("Sprite/新地图icon/五行山");
+        高老庄 = Resources.Load<Sprite>("Sprite/新地图icon/高老庄");
+        平顶山 = Resources.Load<Sprite>("Sprite/新地图icon/平顶山");
+        女儿国 = Resources.Load<Sprite>("Sprite/新地图icon/女儿国");
+        火焰山 = Resources.Load<Sprite>("Sprite/新地图icon/火焰山");
+        狮驼岭 = Resources.Load<Sprite>("Sprite/新地图icon/狮驼岭");
+        小雷音寺 = Resources.Load<Sprite>("Sprite/新地图icon/小雷音寺");
+        流沙河 = Resources.Load<Sprite>("Sprite/新地图icon/流沙河");
+        芭蕉洞 = Resources.Load<Sprite>("Sprite/新地图icon/芭蕉洞");
+        冥府 = Resources.Load<Sprite>("Sprite/新地图icon/冥府");
 
 // ==================== 天庭篇（凌霄宝殿十大关 · 第16~23关）====================
-        南天门 = Resources.Load<Sprite>("Sprite/地图icon/南天门");
-        瑶池仙境 = Resources.Load<Sprite>("Sprite/地图icon/瑶池仙境");
-        斩妖台 = Resources.Load<Sprite>("Sprite/地图icon/斩妖台");
-        御马监 = Resources.Load<Sprite>("Sprite/地图icon/御马监");
-        蟠桃园 = Resources.Load<Sprite>("Sprite/地图icon/蟠桃园");
-        兜率宫 = Resources.Load<Sprite>("Sprite/地图icon/兜率宫");
-        紫微宫 = Resources.Load<Sprite>("Sprite/地图icon/紫微宫");
-        昊天殿 = Resources.Load<Sprite>("Sprite/地图icon/昊天殿");
+        南天门 = Resources.Load<Sprite>("Sprite/新地图icon/南天门");
+        瑶池仙境 = Resources.Load<Sprite>("Sprite/新地图icon/瑶池仙境");
+        斩妖台 = Resources.Load<Sprite>("Sprite/新地图icon/斩妖台");
+        御马监 = Resources.Load<Sprite>("Sprite/新地图icon/御马监");
+        蟠桃园 = Resources.Load<Sprite>("Sprite/新地图icon/蟠桃园");
+        兜率宫 = Resources.Load<Sprite>("Sprite/新地图icon/兜率宫");
+        紫微宫 = Resources.Load<Sprite>("Sprite/新地图icon/紫微宫");
+        昊天殿 = Resources.Load<Sprite>("Sprite/新地图icon/昊天殿");
 
 // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~32关）====================
         登天路 = Resources.Load<Sprite>("Sprite/地图icon/登天路");
