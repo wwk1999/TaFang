@@ -85,8 +85,11 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public HeroType 当前神通配置选择英雄;
 
     [NonSerialized] public 法器 英雄详情界面当前选择法器;
-    [NonSerialized] public 附加属性Type 当前选择排序类型;
     [NonSerialized] public 附加属性Type 当前排序附加属性Type;
+
+    [NonSerialized] public 法器 当前符文附魔法器;
+    [NonSerialized] public 符文 当前符文附魔符文;
+
 
     //法器的基础属性包含在最终伤害里
     public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type, ZhiYeType zhiYeType)

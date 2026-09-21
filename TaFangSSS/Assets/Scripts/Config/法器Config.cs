@@ -257,6 +257,7 @@ public class 法器
     public List<法器附加属性值> list=new List<法器附加属性值>();
     public List<仙石> 仙石list=new List<仙石>();
     public HeroType HeroType=HeroType.None;
+    public 符文 符文 = new 符文();
 }
 
 public class 法器属性
