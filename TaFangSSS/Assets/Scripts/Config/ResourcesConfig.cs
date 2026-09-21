@@ -6838,18 +6838,6 @@ public class ResourcesConfig : MonoBehaviour
 
                 break;
 
-            case 符文Type.死亡后留下火焰:
-                switch (品质Type)
-                {
-                    case 符文品质Type.灵文: return 死亡后留下火焰_灵文;
-                    case 符文品质Type.仙文: return 死亡后留下火焰_仙文;
-                    case 符文品质Type.帝文: return 死亡后留下火焰_帝文;
-                    case 符文品质Type.圣文: return 死亡后留下火焰_圣文;
-                    case 符文品质Type.道文: return 死亡后留下火焰_道文;
-                }
-
-                break;
-
             case 符文Type.每层黑暗印记加伤:
                 switch (品质Type)
                 {

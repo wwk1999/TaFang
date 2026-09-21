@@ -163,7 +163,24 @@ public class 胜利弹窗 : MonoBehaviour
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
         foreach (var item in value.符文list)
         {
-            PlayerData.S.Set符文数量(item.type,符文Config.Quality对应符文品质[item.quality],1+PlayerData.S.Get符文数量(item.type,符文Config.Quality对应符文品质[item.quality]));
+            switch (item.quality)
+            {
+                case QualityType.地品:
+                    PlayerData.S.符文灵文List.Add(item);
+                    break;
+                case QualityType.宇品:
+                    PlayerData.S.符文仙文List.Add(item);
+                    break;
+                case QualityType.宙品:
+                    PlayerData.S.符文帝文List.Add(item);
+                    break;
+                case QualityType.洪品:
+                    PlayerData.S.符文圣文List.Add(item);
+                    break;
+                case QualityType.荒品:
+                    PlayerData.S.符文道文List.Add(item);
+                    break;
+            }
             var 符文=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
             符文.符文Type =item.type;
             符文.符文QualityType = item.quality;
