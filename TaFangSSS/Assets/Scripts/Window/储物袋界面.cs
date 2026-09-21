@@ -42,6 +42,7 @@ public class 储物袋界面 : MonoBehaviour
    public Button 神物Btn;
    public Button 灵药Btn;
    public Button 丹药Btn;
+   public Button 符文Btn;
 
    public TextMeshProUGUI  Name;
    public TextMeshProUGUI  跟脚;
@@ -300,6 +301,13 @@ public class 储物袋界面 : MonoBehaviour
                   刷新背包();
                }
                break;
+            case 10:
+               if (页数Num < Get符文最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
          }
       });
       属性Btn.onClick.AddListener(() =>
@@ -367,9 +375,16 @@ public class 储物袋界面 : MonoBehaviour
          页数Num = 1;
          刷新背包();
       });
+      
       丹药Btn.onClick.AddListener(() =>
       {
          显示类型 = 9;
+         页数Num = 1;
+         刷新背包();
+      });
+      符文Btn.onClick.AddListener(() =>
+      {
+         显示类型 = 10;
          页数Num = 1;
          刷新背包();
       });
@@ -423,6 +438,7 @@ public class 储物袋界面 : MonoBehaviour
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮亮;
       foreach (Transform item in BagContent.transform)
       {
@@ -461,6 +477,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮亮;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -497,6 +515,7 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
 
       foreach (Transform item in BagContent.transform)
       {
@@ -612,6 +631,9 @@ public class 储物袋界面 : MonoBehaviour
          case 9:
             Show丹药();
             break;
+         case 10:
+            Show符文();
+            break;
       }
    }
    public int Get灵药最大页数()
@@ -670,6 +692,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -702,6 +726,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -779,6 +805,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -806,6 +834,59 @@ public class 储物袋界面 : MonoBehaviour
       
    }
    
+   
+   
+   public int Get符文最大页数()
+   {
+      int count = PlayerData.S.符文道文List.Count + PlayerData.S.符文圣文List.Count
+         + PlayerData.S.符文帝文List.Count + PlayerData.S.符文仙文List.Count
+         + PlayerData.S.符文灵文List.Count;
+      return Mathf.CeilToInt(count / 54f);
+   }
+   public void Show符文()
+   {
+      分解Btn.gameObject.SetActive(false);
+      材料Btn.image.sprite = ResourcesConfig.按钮暗;
+      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
+      功法Btn.image.sprite = ResourcesConfig.按钮暗;
+      灵物Btn.image.sprite = ResourcesConfig.按钮暗;
+      法器Btn.image.sprite = ResourcesConfig.按钮暗;
+      仙石Btn.image.sprite = ResourcesConfig.按钮暗;
+      神物Btn.image.sprite = ResourcesConfig.按钮暗;
+      灵药Btn.image.sprite = ResourcesConfig.按钮暗;
+      丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮亮;
+
+      foreach (Transform item in BagContent.transform)
+      {
+         Destroy(item.gameObject);
+      }
+
+      // 品质从高到低依次显示：道文 → 圣文 → 帝文 → 仙文 → 灵文
+      List<List<符文>> 符文Lists = new List<List<符文>>()
+      {
+         PlayerData.S.符文道文List,
+         PlayerData.S.符文圣文List,
+         PlayerData.S.符文帝文List,
+         PlayerData.S.符文仙文List,
+         PlayerData.S.符文灵文List,
+      };
+      int count = 0;
+      foreach (var list in 符文Lists)
+      {
+         foreach (var 符文item in list)
+         {
+            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
+            {
+               var 符文grid = Instantiate(Resources.Load("Prefabs/Window/符文之地/符文Grid"), BagContent.transform).GetComponent<符文Grid>();
+               符文grid.符文 = 符文item;
+               符文grid.SetItem();
+            }
+            count++;
+         }
+      }
+   }
+   
    public int Get仙石最大页数()
    {
       int count = 0;
@@ -830,6 +911,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -855,6 +938,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
@@ -881,6 +966,8 @@ public class 储物袋界面 : MonoBehaviour
       神物Btn.image.sprite = ResourcesConfig.按钮亮;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
       丹药Btn.image.sprite = ResourcesConfig.按钮暗;
+      符文Btn.image.sprite = ResourcesConfig.按钮暗;
+
       foreach (Transform item in BagContent.transform)
       {
          Destroy(item.gameObject);
