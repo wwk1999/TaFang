@@ -74,6 +74,9 @@ public class 胜利弹窗 : MonoBehaviour
             }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
             {
                 遗迹关卡结算();
+            }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+            {
+                符文之地结算();
             }
         }
         finally
@@ -130,6 +133,37 @@ public class 胜利弹窗 : MonoBehaviour
             item.神物Type = LevelConfig.当前神物Type;
             item.SetItem();
             PlayerData.S.最大神物关卡++;
+        }
+        
+        if (value.灵魂 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.灵魂;
+            item.count = value.灵魂;
+            item.SetItem();
+        }
+        if (value.功德 > 0)
+        {
+            var item=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            item.Type = PropType.功德;
+            item.count = value.功德;
+            item.SetItem();
+        }
+    }
+    
+    
+    public void 符文之地结算()
+    {
+        符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
+        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
+        PlayerData.S.PropListDic[PropType.功德] += value.功德;
+        foreach (var item in value.符文list)
+        {
+            PlayerData.S.Set符文数量(item.type,符文Config.Quality对应符文品质[item.quality],1+PlayerData.S.Get符文数量(item.type,符文Config.Quality对应符文品质[item.quality]));
+            var 符文=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
+            符文.符文Type =item.type;
+            符文.符文QualityType = item.quality;
+            符文.SetItem();
         }
         
         if (value.灵魂 > 0)

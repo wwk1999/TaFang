@@ -55,9 +55,33 @@ public class 符文之地关卡怪物Item
         return !(a == b);
     }
 }
-
+public class 符文之地关卡胜利奖励
+{
+    public long 灵魂;
+    public long 功德;
+    public List<符文> 符文list;
+}
 public class 符文之地Config
 {
+
+    public static 符文之地关卡胜利奖励 Get符文之地奖励()
+    {
+        符文之地关卡胜利奖励 符文之地关卡胜利奖励 = new 符文之地关卡胜利奖励();
+        符文之地关卡胜利奖励.符文list = Get符文之地掉落(LevelConfig.当前符文之地Type);
+        var list = 符文之地掉落Dic[LevelConfig.当前符文之地Type];
+        foreach (var item in list)
+        {
+            if (item.PropType == PropType.功德)
+            {
+                符文之地关卡胜利奖励.功德=(long)Random.Range(item.minCount, item.maxCount);
+            }
+            if (item.PropType == PropType.灵魂)
+            {
+                符文之地关卡胜利奖励.灵魂=(long)Random.Range(item.minCount, item.maxCount);
+            }
+        }
+        return 符文之地关卡胜利奖励;
+    }
     public static Dictionary<符文之地Type, List<MonsterTypeName>> 符文之地怪物列表 =
         new Dictionary<符文之地Type, List<MonsterTypeName>>()
         {
@@ -225,7 +249,7 @@ public class 符文之地Config
         { 符文之地Type.天道台, new List<float>(){0,0,100,30,2} },
     };
 
-    public List<符文> Get符文之地掉落(符文之地Type type)
+    public static List<符文> Get符文之地掉落(符文之地Type type)
     {
         List<float> list=符文之地掉落概率Dic[type];
         List<符文> 符文列表 = new List<符文>();

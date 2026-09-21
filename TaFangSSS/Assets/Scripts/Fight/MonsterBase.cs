@@ -48,7 +48,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 黑暗符=0;
    [NonSerialized]public bool isDead=false;
    [NonSerialized] public float 冰符=0;
-   private DG.Tweening.Tweener 残影DOTween;
+   private Tweener 残影DOTween;
    private int 黑暗符次数 = 0;
    private Rigidbody2D _rb;
    private MonsterType _怪物类型;
@@ -170,6 +170,9 @@ public class MonsterBase : MonoBehaviour
       if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
       {
          MonsterAttribute = Get遗迹怪物属性(monsterType);
+      }if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+      {
+         MonsterAttribute = Get符文之地怪物属性(monsterType);
       }
       Monster特性Type monster特性Type=MonsterConfig.怪物特性Dic[MonsterTypeName];
       basespeed = MonsterConfig.怪物速度Dic[monster特性Type];
@@ -178,6 +181,23 @@ public class MonsterBase : MonoBehaviour
    public MonsterAttribute Get遗迹怪物属性(MonsterType monsterType)
    {
       MonsterAttribute 基础属性 = 神物Config.遗迹关卡怪物属性Dic[new 遗迹关卡怪物Item(){神物Type = LevelConfig.当前神物Type,MonsterType = monsterType}];
+      MonsterAttribute 怪物属性 = new MonsterAttribute()
+      {
+         Hp = 基础属性.Hp,
+         Attack = 基础属性.Attack,
+         Defense = 基础属性.Defense,
+         物理抗性 = 基础属性.物理抗性,
+         冰霜抗性 = 基础属性.冰霜抗性,
+         火焰抗性 = 基础属性.火焰抗性,
+         黑暗抗性 = 基础属性.黑暗抗性,
+         雷电抗性 = 基础属性.雷电抗性,
+      };
+      return 怪物属性;
+   }
+   
+   public MonsterAttribute Get符文之地怪物属性(MonsterType monsterType)
+   {
+      MonsterAttribute 基础属性 = 符文之地Config.符文之地关卡怪物属性Dic[new 符文之地关卡怪物Item(){符文之地Type = LevelConfig.当前符文之地Type,MonsterType = monsterType}];
       MonsterAttribute 怪物属性 = new MonsterAttribute()
       {
          Hp = 基础属性.Hp,
@@ -1005,7 +1025,7 @@ public class MonsterBase : MonoBehaviour
          {
             总数量 = 小怪数量+ 精英怪数量+1;
          }
-      }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+      }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹||LevelConfig.当前关卡类型 == 关卡类型.符文之地)
       {
          总数量 = 小怪数量+ 精英怪数量+1;
       }
@@ -1019,10 +1039,6 @@ public class MonsterBase : MonoBehaviour
          return;
       }
       isDead = true;
-      // 死亡奖励/事件/特效全部放进 try：其中任何一步抛异常（字典缺键/事件监听者报错/对象池为空），
-      // 都不能阻止 finally 的回收。否则死怪留在场上和分区1里，会被 GetAttackMonster 一直当作全局目标返回，
-      // 而它继续走到城墙根后已离开所有英雄的攻击范围 → 战斗英雄 Contains 判定集体失败、停攻停神通
-      //（辅助英雄不检查目标是否在自身范围内，所以仍在放技能，正是“只有辅助还在放”的现象）
       try
       {
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
@@ -1054,6 +1070,10 @@ public class MonsterBase : MonoBehaviour
       {
          小怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
          精英怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].EliteMonsterCount;
+      }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+      {
+         小怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
+         精英怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].EliteMonsterCount;
       }
       if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == 小怪数量/2)
       {

@@ -877,53 +877,53 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
 
 //符文之地
 
-  { MonsterTypeName.藤蔓猴, false },
-  { MonsterTypeName.木灵蝶, false },
+  { MonsterTypeName.藤蔓猴, true },
+  { MonsterTypeName.木灵蝶, true },
   { MonsterTypeName.千年树妖, false },
   { MonsterTypeName.青木蛟, false },
 
-  { MonsterTypeName.火岩虫, false },
-  { MonsterTypeName.熔岩火蜥, false },
+  { MonsterTypeName.火岩虫, true },
+  { MonsterTypeName.熔岩火蜥, true },
   { MonsterTypeName.炎髓魔猿, false },
   { MonsterTypeName.火山兽, false },
 
-  { MonsterTypeName.黑风貂, false },
-  { MonsterTypeName.浮空水母, false },
+  { MonsterTypeName.黑风貂, true },
+  { MonsterTypeName.浮空水母, true },
   { MonsterTypeName.黑风双煞, false },
   { MonsterTypeName.黑风老妖, false },
 
-  { MonsterTypeName.水形怪, false },
-  { MonsterTypeName.深渊鮟鱇, false },
+  { MonsterTypeName.水形怪, true },
+  { MonsterTypeName.深渊鮟鱇, true },
   { MonsterTypeName.玄水毒蛟, false },
   { MonsterTypeName.玄水兽, false },
 
-  { MonsterTypeName.雷纹蛛, false },
-  { MonsterTypeName.雷灵球, false },
+  { MonsterTypeName.雷纹蛛, true },
+  { MonsterTypeName.雷灵球, true },
   { MonsterTypeName.紫雷夔牛, false },
   { MonsterTypeName.紫雷兽, false },
 
-  { MonsterTypeName.白骨兵, false },
-  { MonsterTypeName.噬魂鸦, false },
+  { MonsterTypeName.白骨兵, true },
+  { MonsterTypeName.噬魂鸦, true },
   { MonsterTypeName.白骨将, false },
   { MonsterTypeName.白骨兽, false },
 
-  { MonsterTypeName.金甲傀, false },
-  { MonsterTypeName.戈刃灵, false },
+  { MonsterTypeName.金甲傀, true },
+  { MonsterTypeName.戈刃灵, true },
   { MonsterTypeName.金戈将, false },
   { MonsterTypeName.金戈兽, false },
 
-  { MonsterTypeName.幻梦蝶, false },
-  { MonsterTypeName.幻梦虫, false },
+  { MonsterTypeName.幻梦蝶, true },
+  { MonsterTypeName.幻梦虫, true },
   { MonsterTypeName.幻梦妖, false },
   { MonsterTypeName.幻梦兽, false },
 
-  { MonsterTypeName.混沌虫, false },
-  { MonsterTypeName.吞噬兽, false },
+  { MonsterTypeName.混沌虫, true },
+  { MonsterTypeName.吞噬兽, true },
   { MonsterTypeName.混沌魔将, false },
   { MonsterTypeName.混沌兽王, false },
 
-  { MonsterTypeName.天道卫, false },
-  { MonsterTypeName.造化灵, false },
+  { MonsterTypeName.天道卫, true },
+  { MonsterTypeName.造化灵, true },
   { MonsterTypeName.天道将, false },
   { MonsterTypeName.天道兽, false },
 };

@@ -1386,6 +1386,9 @@ public class FightController : XSingleton<FightController>
         }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {
             list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
+        }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+        {
+            list = 符文之地Config.符文之地怪物列表[LevelConfig.当前符文之地Type];
         }
         int random=Random.Range(0,2);
         monster.MonsterTypeName = list[random];
@@ -1419,7 +1422,10 @@ public class FightController : XSingleton<FightController>
         }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {
             list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
-        }          
+        }  else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+        {
+            list = 符文之地Config.符文之地怪物列表[LevelConfig.当前符文之地Type];
+        }         
         monster.MonsterTypeName = list[2];
         monster.gameObject.SetActive(true);
     }
@@ -1452,7 +1458,10 @@ public class FightController : XSingleton<FightController>
         }   else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
         {
             list = 神物Config.遗迹怪物列表[LevelConfig.当前神物Type];
-        }       
+        }      else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+        {
+            list = 符文之地Config.符文之地怪物列表[LevelConfig.当前符文之地Type];
+        }      
         monster.MonsterTypeName = list[3];
         monster.gameObject.SetActive(true);
     }
@@ -1592,6 +1601,10 @@ public class FightController : XSingleton<FightController>
         {
             普通怪物Time = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].CreateNormalMonsterTime;
             普通怪物最大数量=神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
+        }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+        {
+            普通怪物Time = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].CreateNormalMonsterTime;
+            普通怪物最大数量=符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
         }
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量&&SceneManager.GetActiveScene().name=="FightScene")
         {

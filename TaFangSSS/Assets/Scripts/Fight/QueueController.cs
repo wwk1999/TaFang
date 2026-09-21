@@ -329,6 +329,10 @@ public class QueueController:XSingleton<QueueController>
          {
              普通怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
              精英怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].EliteMonsterCount;
+         }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+         {
+             普通怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
+             精英怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].EliteMonsterCount;
          }
 
 

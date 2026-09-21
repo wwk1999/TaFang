@@ -54,7 +54,7 @@ public enum 符文Type
     
     每有一个异常状态增伤,
     没有异常状态增伤,
-    
+    清除异常状态增伤,//每一个加伤
     //高品质英雄增伤,
     //低品质英雄增伤,
 }
@@ -93,6 +93,15 @@ public class 符文Config
         { 符文品质Type.帝文, QualityType.宙品 },
         { 符文品质Type.圣文, QualityType.洪品 },
         { 符文品质Type.道文, QualityType.荒品 },
+    };
+    
+    public static Dictionary<QualityType,符文品质Type> Quality对应符文品质 = new Dictionary<QualityType,符文品质Type>()
+    {
+        {  QualityType.地品,符文品质Type.灵文 },
+        {  QualityType.宇品,符文品质Type.仙文 },
+        { QualityType.宙品,符文品质Type.帝文 },
+        {  QualityType.洪品,符文品质Type.圣文 },
+        {  QualityType.荒品,符文品质Type.道文 },
     };
 
     public static Dictionary<符文Type, string> 符文名Dic = new Dictionary<符文Type, string>()
@@ -137,7 +146,7 @@ public class 符文Config
 
         { 符文Type.每有一个异常状态增伤, "万厄" },
         { 符文Type.没有异常状态增伤, "无垢" },
-
+        { 符文Type.清除异常状态增伤, "清道" },
     };
 
     public static Dictionary<符文Type, List<minmax>> 符文配置Dic = new Dictionary<符文Type, List<minmax>>()
@@ -400,6 +409,14 @@ public class 符文Config
         },
         {
             符文Type.没有异常状态增伤, new List<minmax>()
+            {
+                new minmax() { min = 16f, max = 24f }, new minmax() { min = 24f, max = 36f },
+                new minmax() { min = 40f, max = 60f }, new minmax() { min = 64f, max = 96f },
+                new minmax() { min = 120f, max = 180f }
+            }
+        },
+        {
+            符文Type.清除异常状态增伤, new List<minmax>()
             {
                 new minmax() { min = 16f, max = 24f }, new minmax() { min = 24f, max = 36f },
                 new minmax() { min = 40f, max = 60f }, new minmax() { min = 64f, max = 96f },

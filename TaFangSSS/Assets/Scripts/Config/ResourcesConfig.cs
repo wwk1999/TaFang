@@ -6,6 +6,205 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    //符文
+    public static Sprite 击杀怪物获得神通能量_灵文;
+    public static Sprite 击杀怪物获得神通能量_仙文;
+    public static Sprite 击杀怪物获得神通能量_帝文;
+    public static Sprite 击杀怪物获得神通能量_圣文;
+    public static Sprite 击杀怪物获得神通能量_道文;
+
+    public static Sprite 击杀怪物减少神通冷却_灵文;
+    public static Sprite 击杀怪物减少神通冷却_仙文;
+    public static Sprite 击杀怪物减少神通冷却_帝文;
+    public static Sprite 击杀怪物减少神通冷却_圣文;
+    public static Sprite 击杀怪物减少神通冷却_道文;
+
+    public static Sprite 技能伤害减少神通伤害增加_灵文;
+    public static Sprite 技能伤害减少神通伤害增加_仙文;
+    public static Sprite 技能伤害减少神通伤害增加_帝文;
+    public static Sprite 技能伤害减少神通伤害增加_圣文;
+    public static Sprite 技能伤害减少神通伤害增加_道文;
+
+    public static Sprite 技能伤害增加不能释放神通_灵文;
+    public static Sprite 技能伤害增加不能释放神通_仙文;
+    public static Sprite 技能伤害增加不能释放神通_帝文;
+    public static Sprite 技能伤害增加不能释放神通_圣文;
+    public static Sprite 技能伤害增加不能释放神通_道文;
+
+    public static Sprite 献祭自身加强相邻英雄_灵文;
+    public static Sprite 献祭自身加强相邻英雄_仙文;
+    public static Sprite 献祭自身加强相邻英雄_帝文;
+    public static Sprite 献祭自身加强相邻英雄_圣文;
+    public static Sprite 献祭自身加强相邻英雄_道文;
+
+    public static Sprite 火同气连枝_灵文;
+    public static Sprite 火同气连枝_仙文;
+    public static Sprite 火同气连枝_帝文;
+    public static Sprite 火同气连枝_圣文;
+    public static Sprite 火同气连枝_道文;
+
+    public static Sprite 冰同气连枝_灵文;
+    public static Sprite 冰同气连枝_仙文;
+    public static Sprite 冰同气连枝_帝文;
+    public static Sprite 冰同气连枝_圣文;
+    public static Sprite 冰同气连枝_道文;
+
+    public static Sprite 黑暗同气连枝_灵文;
+    public static Sprite 黑暗同气连枝_仙文;
+    public static Sprite 黑暗同气连枝_帝文;
+    public static Sprite 黑暗同气连枝_圣文;
+    public static Sprite 黑暗同气连枝_道文;
+
+    public static Sprite 雷电同气连枝_灵文;
+    public static Sprite 雷电同气连枝_仙文;
+    public static Sprite 雷电同气连枝_帝文;
+    public static Sprite 雷电同气连枝_圣文;
+    public static Sprite 雷电同气连枝_道文;
+
+    public static Sprite 物理同气连枝_灵文;
+    public static Sprite 物理同气连枝_仙文;
+    public static Sprite 物理同气连枝_帝文;
+    public static Sprite 物理同气连枝_圣文;
+    public static Sprite 物理同气连枝_道文;
+
+    public static Sprite 战士同气连枝_灵文;
+    public static Sprite 战士同气连枝_仙文;
+    public static Sprite 战士同气连枝_帝文;
+    public static Sprite 战士同气连枝_圣文;
+    public static Sprite 战士同气连枝_道文;
+
+    public static Sprite 射手同气连枝_灵文;
+    public static Sprite 射手同气连枝_仙文;
+    public static Sprite 射手同气连枝_帝文;
+    public static Sprite 射手同气连枝_圣文;
+    public static Sprite 射手同气连枝_道文;
+
+    public static Sprite 控制同气连枝_灵文;
+    public static Sprite 控制同气连枝_仙文;
+    public static Sprite 控制同气连枝_帝文;
+    public static Sprite 控制同气连枝_圣文;
+    public static Sprite 控制同气连枝_道文;
+
+    public static Sprite 法师同气连枝_灵文;
+    public static Sprite 法师同气连枝_仙文;
+    public static Sprite 法师同气连枝_帝文;
+    public static Sprite 法师同气连枝_圣文;
+    public static Sprite 法师同气连枝_道文;
+
+    public static Sprite 辅助同气连枝_灵文;
+    public static Sprite 辅助同气连枝_仙文;
+    public static Sprite 辅助同气连枝_帝文;
+    public static Sprite 辅助同气连枝_圣文;
+    public static Sprite 辅助同气连枝_道文;
+
+    public static Sprite 辅助印记增伤_灵文;
+    public static Sprite 辅助印记增伤_仙文;
+    public static Sprite 辅助印记增伤_帝文;
+    public static Sprite 辅助印记增伤_圣文;
+    public static Sprite 辅助印记增伤_道文;
+
+    public static Sprite 元素每有一个不同增伤_灵文;
+    public static Sprite 元素每有一个不同增伤_仙文;
+    public static Sprite 元素每有一个不同增伤_帝文;
+    public static Sprite 元素每有一个不同增伤_圣文;
+    public static Sprite 元素每有一个不同增伤_道文;
+
+    public static Sprite 职业每有一个不同增伤_灵文;
+    public static Sprite 职业每有一个不同增伤_仙文;
+    public static Sprite 职业每有一个不同增伤_帝文;
+    public static Sprite 职业每有一个不同增伤_圣文;
+    public static Sprite 职业每有一个不同增伤_道文;
+
+    public static Sprite 对怪物的第一次伤害增加_灵文;
+    public static Sprite 对怪物的第一次伤害增加_仙文;
+    public static Sprite 对怪物的第一次伤害增加_帝文;
+    public static Sprite 对怪物的第一次伤害增加_圣文;
+    public static Sprite 对怪物的第一次伤害增加_道文;
+
+    public static Sprite 对怪物攻击次数越多越加伤害_灵文;
+    public static Sprite 对怪物攻击次数越多越加伤害_仙文;
+    public static Sprite 对怪物攻击次数越多越加伤害_帝文;
+    public static Sprite 对怪物攻击次数越多越加伤害_圣文;
+    public static Sprite 对怪物攻击次数越多越加伤害_道文;
+
+    public static Sprite 加强碎甲效果_灵文;
+    public static Sprite 加强碎甲效果_仙文;
+    public static Sprite 加强碎甲效果_帝文;
+    public static Sprite 加强碎甲效果_圣文;
+    public static Sprite 加强碎甲效果_道文;
+
+    public static Sprite 碎甲为0时加伤害_灵文;
+    public static Sprite 碎甲为0时加伤害_仙文;
+    public static Sprite 碎甲为0时加伤害_帝文;
+    public static Sprite 碎甲为0时加伤害_圣文;
+    public static Sprite 碎甲为0时加伤害_道文;
+
+    public static Sprite 每层火焰灼烧加伤_灵文;
+    public static Sprite 每层火焰灼烧加伤_仙文;
+    public static Sprite 每层火焰灼烧加伤_帝文;
+    public static Sprite 每层火焰灼烧加伤_圣文;
+    public static Sprite 每层火焰灼烧加伤_道文;
+
+    public static Sprite 死亡后留下火焰_灵文;
+    public static Sprite 死亡后留下火焰_仙文;
+    public static Sprite 死亡后留下火焰_帝文;
+    public static Sprite 死亡后留下火焰_圣文;
+    public static Sprite 死亡后留下火焰_道文;
+
+    public static Sprite 每层黑暗印记加伤_灵文;
+    public static Sprite 每层黑暗印记加伤_仙文;
+    public static Sprite 每层黑暗印记加伤_帝文;
+    public static Sprite 每层黑暗印记加伤_圣文;
+    public static Sprite 每层黑暗印记加伤_道文;
+
+    public static Sprite 引爆时造成范围爆炸_灵文;
+    public static Sprite 引爆时造成范围爆炸_仙文;
+    public static Sprite 引爆时造成范围爆炸_帝文;
+    public static Sprite 引爆时造成范围爆炸_圣文;
+    public static Sprite 引爆时造成范围爆炸_道文;
+
+    public static Sprite 雷属性打易电状态加伤害_灵文;
+    public static Sprite 雷属性打易电状态加伤害_仙文;
+    public static Sprite 雷属性打易电状态加伤害_帝文;
+    public static Sprite 雷属性打易电状态加伤害_圣文;
+    public static Sprite 雷属性打易电状态加伤害_道文;
+
+    public static Sprite 增强易电效果_灵文;
+    public static Sprite 增强易电效果_仙文;
+    public static Sprite 增强易电效果_帝文;
+    public static Sprite 增强易电效果_圣文;
+    public static Sprite 增强易电效果_道文;
+
+    public static Sprite 取消冰冻每冰冻概率增伤_灵文;
+    public static Sprite 取消冰冻每冰冻概率增伤_仙文;
+    public static Sprite 取消冰冻每冰冻概率增伤_帝文;
+    public static Sprite 取消冰冻每冰冻概率增伤_圣文;
+    public static Sprite 取消冰冻每冰冻概率增伤_道文;
+
+    public static Sprite 冰减速效果_灵文;
+    public static Sprite 冰减速效果_仙文;
+    public static Sprite 冰减速效果_帝文;
+    public static Sprite 冰减速效果_圣文;
+    public static Sprite 冰减速效果_道文;
+
+    public static Sprite 每有一个异常状态增伤_灵文;
+    public static Sprite 每有一个异常状态增伤_仙文;
+    public static Sprite 每有一个异常状态增伤_帝文;
+    public static Sprite 每有一个异常状态增伤_圣文;
+    public static Sprite 每有一个异常状态增伤_道文;
+
+    public static Sprite 没有异常状态增伤_灵文;
+    public static Sprite 没有异常状态增伤_仙文;
+    public static Sprite 没有异常状态增伤_帝文;
+    public static Sprite 没有异常状态增伤_圣文;
+    public static Sprite 没有异常状态增伤_道文;
+
+    public static Sprite 清除异常状态增伤_灵文;
+    public static Sprite 清除异常状态增伤_仙文;
+    public static Sprite 清除异常状态增伤_帝文;
+    public static Sprite 清除异常状态增伤_圣文;
+    public static Sprite 清除异常状态增伤_道文;
+
     public static Sprite 丹童平台;
     public static Sprite 土地平台;
     public static Sprite 河伯平台;
@@ -36,10 +235,10 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 元始平台;
     public static Sprite 鸿钧平台;
     public static Sprite 盘古平台;
-    
-    
-    
-    
+
+
+
+
     public static Sprite 丹童头像;
     public static Sprite 土地头像;
     public static Sprite 河伯头像;
@@ -70,8 +269,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 元始头像;
     public static Sprite 鸿钧头像;
     public static Sprite 盘古头像;
-    
-    
+
+
     public static Sprite 编队界面英雄背景框白;
     public static Sprite 编队界面英雄背景框绿;
     public static Sprite 编队界面英雄背景框蓝;
@@ -95,11 +294,11 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 英雄背景框红;
     public static Sprite 英雄背景框彩;
 
-    
+
     public static Sprite 圆环暗;
     public static Sprite 圆环亮;
 
-    
+
     public static Sprite 英雄伤害;
     public static Sprite 技能冷却缩减;
     public static Sprite 击退距离;
@@ -1310,7 +1509,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 命运编织者;
     public static Sprite 混沌道尊;
 
-    
+
     //符文之地
     public static Sprite 藤蔓猴;
     public static Sprite 木灵蝶;
@@ -3156,7 +3355,7 @@ public class ResourcesConfig : MonoBehaviour
             case MonsterTypeName.终末湮灭虫: return 终末湮灭虫;
             case MonsterTypeName.命运编织者: return 命运编织者;
             case MonsterTypeName.混沌道尊: return 混沌道尊;
-            
+
             case MonsterTypeName.藤蔓猴: return 藤蔓猴;
             case MonsterTypeName.木灵蝶: return 木灵蝶;
             case MonsterTypeName.千年树妖: return 千年树妖;
@@ -6355,36 +6554,644 @@ public class ResourcesConfig : MonoBehaviour
             default: return null;
         }
     }
+
+    public static Sprite Get符文Sprite(符文Type type, 符文品质Type 品质Type)
+    {
+        if (type == 符文Type.None || 品质Type == 符文品质Type.None)
+            return null;
+
+        switch (type)
+        {
+            case 符文Type.击杀怪物获得神通能量:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 击杀怪物获得神通能量_灵文;
+                    case 符文品质Type.仙文: return 击杀怪物获得神通能量_仙文;
+                    case 符文品质Type.帝文: return 击杀怪物获得神通能量_帝文;
+                    case 符文品质Type.圣文: return 击杀怪物获得神通能量_圣文;
+                    case 符文品质Type.道文: return 击杀怪物获得神通能量_道文;
+                }
+
+                break;
+
+            case 符文Type.击杀怪物减少神通冷却:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 击杀怪物减少神通冷却_灵文;
+                    case 符文品质Type.仙文: return 击杀怪物减少神通冷却_仙文;
+                    case 符文品质Type.帝文: return 击杀怪物减少神通冷却_帝文;
+                    case 符文品质Type.圣文: return 击杀怪物减少神通冷却_圣文;
+                    case 符文品质Type.道文: return 击杀怪物减少神通冷却_道文;
+                }
+
+                break;
+
+            case 符文Type.技能伤害减少神通伤害增加:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 技能伤害减少神通伤害增加_灵文;
+                    case 符文品质Type.仙文: return 技能伤害减少神通伤害增加_仙文;
+                    case 符文品质Type.帝文: return 技能伤害减少神通伤害增加_帝文;
+                    case 符文品质Type.圣文: return 技能伤害减少神通伤害增加_圣文;
+                    case 符文品质Type.道文: return 技能伤害减少神通伤害增加_道文;
+                }
+
+                break;
+
+            case 符文Type.技能伤害增加不能释放神通:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 技能伤害增加不能释放神通_灵文;
+                    case 符文品质Type.仙文: return 技能伤害增加不能释放神通_仙文;
+                    case 符文品质Type.帝文: return 技能伤害增加不能释放神通_帝文;
+                    case 符文品质Type.圣文: return 技能伤害增加不能释放神通_圣文;
+                    case 符文品质Type.道文: return 技能伤害增加不能释放神通_道文;
+                }
+
+                break;
+
+            case 符文Type.献祭自身加强相邻英雄:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 献祭自身加强相邻英雄_灵文;
+                    case 符文品质Type.仙文: return 献祭自身加强相邻英雄_仙文;
+                    case 符文品质Type.帝文: return 献祭自身加强相邻英雄_帝文;
+                    case 符文品质Type.圣文: return 献祭自身加强相邻英雄_圣文;
+                    case 符文品质Type.道文: return 献祭自身加强相邻英雄_道文;
+                }
+
+                break;
+
+            case 符文Type.火同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 火同气连枝_灵文;
+                    case 符文品质Type.仙文: return 火同气连枝_仙文;
+                    case 符文品质Type.帝文: return 火同气连枝_帝文;
+                    case 符文品质Type.圣文: return 火同气连枝_圣文;
+                    case 符文品质Type.道文: return 火同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.冰同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 冰同气连枝_灵文;
+                    case 符文品质Type.仙文: return 冰同气连枝_仙文;
+                    case 符文品质Type.帝文: return 冰同气连枝_帝文;
+                    case 符文品质Type.圣文: return 冰同气连枝_圣文;
+                    case 符文品质Type.道文: return 冰同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.黑暗同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 黑暗同气连枝_灵文;
+                    case 符文品质Type.仙文: return 黑暗同气连枝_仙文;
+                    case 符文品质Type.帝文: return 黑暗同气连枝_帝文;
+                    case 符文品质Type.圣文: return 黑暗同气连枝_圣文;
+                    case 符文品质Type.道文: return 黑暗同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.雷电同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 雷电同气连枝_灵文;
+                    case 符文品质Type.仙文: return 雷电同气连枝_仙文;
+                    case 符文品质Type.帝文: return 雷电同气连枝_帝文;
+                    case 符文品质Type.圣文: return 雷电同气连枝_圣文;
+                    case 符文品质Type.道文: return 雷电同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.物理同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 物理同气连枝_灵文;
+                    case 符文品质Type.仙文: return 物理同气连枝_仙文;
+                    case 符文品质Type.帝文: return 物理同气连枝_帝文;
+                    case 符文品质Type.圣文: return 物理同气连枝_圣文;
+                    case 符文品质Type.道文: return 物理同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.战士同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 战士同气连枝_灵文;
+                    case 符文品质Type.仙文: return 战士同气连枝_仙文;
+                    case 符文品质Type.帝文: return 战士同气连枝_帝文;
+                    case 符文品质Type.圣文: return 战士同气连枝_圣文;
+                    case 符文品质Type.道文: return 战士同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.射手同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 射手同气连枝_灵文;
+                    case 符文品质Type.仙文: return 射手同气连枝_仙文;
+                    case 符文品质Type.帝文: return 射手同气连枝_帝文;
+                    case 符文品质Type.圣文: return 射手同气连枝_圣文;
+                    case 符文品质Type.道文: return 射手同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.控制同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 控制同气连枝_灵文;
+                    case 符文品质Type.仙文: return 控制同气连枝_仙文;
+                    case 符文品质Type.帝文: return 控制同气连枝_帝文;
+                    case 符文品质Type.圣文: return 控制同气连枝_圣文;
+                    case 符文品质Type.道文: return 控制同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.法师同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 法师同气连枝_灵文;
+                    case 符文品质Type.仙文: return 法师同气连枝_仙文;
+                    case 符文品质Type.帝文: return 法师同气连枝_帝文;
+                    case 符文品质Type.圣文: return 法师同气连枝_圣文;
+                    case 符文品质Type.道文: return 法师同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.辅助同气连枝:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 辅助同气连枝_灵文;
+                    case 符文品质Type.仙文: return 辅助同气连枝_仙文;
+                    case 符文品质Type.帝文: return 辅助同气连枝_帝文;
+                    case 符文品质Type.圣文: return 辅助同气连枝_圣文;
+                    case 符文品质Type.道文: return 辅助同气连枝_道文;
+                }
+
+                break;
+
+            case 符文Type.辅助印记增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 辅助印记增伤_灵文;
+                    case 符文品质Type.仙文: return 辅助印记增伤_仙文;
+                    case 符文品质Type.帝文: return 辅助印记增伤_帝文;
+                    case 符文品质Type.圣文: return 辅助印记增伤_圣文;
+                    case 符文品质Type.道文: return 辅助印记增伤_道文;
+                }
+
+                break;
+
+            case 符文Type.元素每有一个不同增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 元素每有一个不同增伤_灵文;
+                    case 符文品质Type.仙文: return 元素每有一个不同增伤_仙文;
+                    case 符文品质Type.帝文: return 元素每有一个不同增伤_帝文;
+                    case 符文品质Type.圣文: return 元素每有一个不同增伤_圣文;
+                    case 符文品质Type.道文: return 元素每有一个不同增伤_道文;
+                }
+
+                break;
+
+            case 符文Type.职业每有一个不同增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 职业每有一个不同增伤_灵文;
+                    case 符文品质Type.仙文: return 职业每有一个不同增伤_仙文;
+                    case 符文品质Type.帝文: return 职业每有一个不同增伤_帝文;
+                    case 符文品质Type.圣文: return 职业每有一个不同增伤_圣文;
+                    case 符文品质Type.道文: return 职业每有一个不同增伤_道文;
+                }
+
+                break;
+
+            case 符文Type.对怪物的第一次伤害增加:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 对怪物的第一次伤害增加_灵文;
+                    case 符文品质Type.仙文: return 对怪物的第一次伤害增加_仙文;
+                    case 符文品质Type.帝文: return 对怪物的第一次伤害增加_帝文;
+                    case 符文品质Type.圣文: return 对怪物的第一次伤害增加_圣文;
+                    case 符文品质Type.道文: return 对怪物的第一次伤害增加_道文;
+                }
+
+                break;
+
+            case 符文Type.对怪物攻击次数越多越加伤害:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 对怪物攻击次数越多越加伤害_灵文;
+                    case 符文品质Type.仙文: return 对怪物攻击次数越多越加伤害_仙文;
+                    case 符文品质Type.帝文: return 对怪物攻击次数越多越加伤害_帝文;
+                    case 符文品质Type.圣文: return 对怪物攻击次数越多越加伤害_圣文;
+                    case 符文品质Type.道文: return 对怪物攻击次数越多越加伤害_道文;
+                }
+
+                break;
+
+            case 符文Type.加强碎甲效果:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 加强碎甲效果_灵文;
+                    case 符文品质Type.仙文: return 加强碎甲效果_仙文;
+                    case 符文品质Type.帝文: return 加强碎甲效果_帝文;
+                    case 符文品质Type.圣文: return 加强碎甲效果_圣文;
+                    case 符文品质Type.道文: return 加强碎甲效果_道文;
+                }
+
+                break;
+
+            case 符文Type.碎甲为0时加伤害:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 碎甲为0时加伤害_灵文;
+                    case 符文品质Type.仙文: return 碎甲为0时加伤害_仙文;
+                    case 符文品质Type.帝文: return 碎甲为0时加伤害_帝文;
+                    case 符文品质Type.圣文: return 碎甲为0时加伤害_圣文;
+                    case 符文品质Type.道文: return 碎甲为0时加伤害_道文;
+                }
+
+                break;
+
+            case 符文Type.每层火焰灼烧加伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 每层火焰灼烧加伤_灵文;
+                    case 符文品质Type.仙文: return 每层火焰灼烧加伤_仙文;
+                    case 符文品质Type.帝文: return 每层火焰灼烧加伤_帝文;
+                    case 符文品质Type.圣文: return 每层火焰灼烧加伤_圣文;
+                    case 符文品质Type.道文: return 每层火焰灼烧加伤_道文;
+                }
+
+                break;
+
+            case 符文Type.死亡后留下火焰:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 死亡后留下火焰_灵文;
+                    case 符文品质Type.仙文: return 死亡后留下火焰_仙文;
+                    case 符文品质Type.帝文: return 死亡后留下火焰_帝文;
+                    case 符文品质Type.圣文: return 死亡后留下火焰_圣文;
+                    case 符文品质Type.道文: return 死亡后留下火焰_道文;
+                }
+
+                break;
+
+            case 符文Type.每层黑暗印记加伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 每层黑暗印记加伤_灵文;
+                    case 符文品质Type.仙文: return 每层黑暗印记加伤_仙文;
+                    case 符文品质Type.帝文: return 每层黑暗印记加伤_帝文;
+                    case 符文品质Type.圣文: return 每层黑暗印记加伤_圣文;
+                    case 符文品质Type.道文: return 每层黑暗印记加伤_道文;
+                }
+
+                break;
+
+            case 符文Type.引爆时造成范围爆炸:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 引爆时造成范围爆炸_灵文;
+                    case 符文品质Type.仙文: return 引爆时造成范围爆炸_仙文;
+                    case 符文品质Type.帝文: return 引爆时造成范围爆炸_帝文;
+                    case 符文品质Type.圣文: return 引爆时造成范围爆炸_圣文;
+                    case 符文品质Type.道文: return 引爆时造成范围爆炸_道文;
+                }
+
+                break;
+
+            case 符文Type.雷属性打易电状态加伤害:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 雷属性打易电状态加伤害_灵文;
+                    case 符文品质Type.仙文: return 雷属性打易电状态加伤害_仙文;
+                    case 符文品质Type.帝文: return 雷属性打易电状态加伤害_帝文;
+                    case 符文品质Type.圣文: return 雷属性打易电状态加伤害_圣文;
+                    case 符文品质Type.道文: return 雷属性打易电状态加伤害_道文;
+                }
+
+                break;
+
+            case 符文Type.增强易电效果:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 增强易电效果_灵文;
+                    case 符文品质Type.仙文: return 增强易电效果_仙文;
+                    case 符文品质Type.帝文: return 增强易电效果_帝文;
+                    case 符文品质Type.圣文: return 增强易电效果_圣文;
+                    case 符文品质Type.道文: return 增强易电效果_道文;
+                }
+
+                break;
+
+            case 符文Type.取消冰冻每冰冻概率增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 取消冰冻每冰冻概率增伤_灵文;
+                    case 符文品质Type.仙文: return 取消冰冻每冰冻概率增伤_仙文;
+                    case 符文品质Type.帝文: return 取消冰冻每冰冻概率增伤_帝文;
+                    case 符文品质Type.圣文: return 取消冰冻每冰冻概率增伤_圣文;
+                    case 符文品质Type.道文: return 取消冰冻每冰冻概率增伤_道文;
+                }
+
+                break;
+
+            case 符文Type.冰减速效果:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 冰减速效果_灵文;
+                    case 符文品质Type.仙文: return 冰减速效果_仙文;
+                    case 符文品质Type.帝文: return 冰减速效果_帝文;
+                    case 符文品质Type.圣文: return 冰减速效果_圣文;
+                    case 符文品质Type.道文: return 冰减速效果_道文;
+                }
+
+                break;
+
+            case 符文Type.每有一个异常状态增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 每有一个异常状态增伤_灵文;
+                    case 符文品质Type.仙文: return 每有一个异常状态增伤_仙文;
+                    case 符文品质Type.帝文: return 每有一个异常状态增伤_帝文;
+                    case 符文品质Type.圣文: return 每有一个异常状态增伤_圣文;
+                    case 符文品质Type.道文: return 每有一个异常状态增伤_道文;
+                }
+
+                break;
+
+            case 符文Type.没有异常状态增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 没有异常状态增伤_灵文;
+                    case 符文品质Type.仙文: return 没有异常状态增伤_仙文;
+                    case 符文品质Type.帝文: return 没有异常状态增伤_帝文;
+                    case 符文品质Type.圣文: return 没有异常状态增伤_圣文;
+                    case 符文品质Type.道文: return 没有异常状态增伤_道文;
+                }
+
+                break;
+
+            case 符文Type.清除异常状态增伤:
+                switch (品质Type)
+                {
+                    case 符文品质Type.灵文: return 清除异常状态增伤_灵文;
+                    case 符文品质Type.仙文: return 清除异常状态增伤_仙文;
+                    case 符文品质Type.帝文: return 清除异常状态增伤_帝文;
+                    case 符文品质Type.圣文: return 清除异常状态增伤_圣文;
+                    case 符文品质Type.道文: return 清除异常状态增伤_道文;
+                }
+
+                break;
+        }
+
+        return null;
+    }
+
     public static void Init()
     {
-        编队界面英雄背景框白=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/白");
-        编队界面英雄背景框绿=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/绿");
-        编队界面英雄背景框蓝=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/蓝");
-        编队界面英雄背景框紫=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/紫");
-        编队界面英雄背景框橙=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/橙");
-        编队界面英雄背景框粉=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/粉");
-        编队界面英雄背景框红=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/红");
-        编队界面英雄背景框彩=Resources.Load<Sprite>("Sprite/编队界面英雄背景框/彩");
+        击杀怪物获得神通能量_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        击杀怪物获得神通能量_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        击杀怪物获得神通能量_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        击杀怪物获得神通能量_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        击杀怪物获得神通能量_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
 
-        
-        装备背景框=Resources.Load<Sprite>("Sprite/技能树图标/装备背景框");
-        标签亮=Resources.Load<Sprite>("Sprite/技能树图标/标签亮");
-        标签暗=Resources.Load<Sprite>("Sprite/技能树图标/标签暗");
+        击杀怪物减少神通冷却_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        击杀怪物减少神通冷却_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        击杀怪物减少神通冷却_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        击杀怪物减少神通冷却_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        击杀怪物减少神通冷却_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
 
-        英雄背景框白=Resources.Load<Sprite>("Sprite/英雄背景框/白");
-        英雄背景框绿=Resources.Load<Sprite>("Sprite/英雄背景框/绿");
-        英雄背景框蓝=Resources.Load<Sprite>("Sprite/英雄背景框/蓝");
-        英雄背景框紫=Resources.Load<Sprite>("Sprite/英雄背景框/紫");
-        英雄背景框橙=Resources.Load<Sprite>("Sprite/英雄背景框/橙");
-        英雄背景框粉=Resources.Load<Sprite>("Sprite/英雄背景框/粉");
-        英雄背景框红=Resources.Load<Sprite>("Sprite/英雄背景框/红");
-        英雄背景框彩=Resources.Load<Sprite>("Sprite/英雄背景框/彩");
+        技能伤害减少神通伤害增加_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        技能伤害减少神通伤害增加_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        技能伤害减少神通伤害增加_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        技能伤害减少神通伤害增加_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        技能伤害减少神通伤害增加_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
 
-        
-        圆环暗=Resources.Load<Sprite>("Sprite/技能树图标/圆环暗");
-        圆环亮=Resources.Load<Sprite>("Sprite/技能树图标/圆环亮");
+        技能伤害增加不能释放神通_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        技能伤害增加不能释放神通_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        技能伤害增加不能释放神通_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        技能伤害增加不能释放神通_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        技能伤害增加不能释放神通_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
 
-        
+        献祭自身加强相邻英雄_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        献祭自身加强相邻英雄_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        献祭自身加强相邻英雄_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        献祭自身加强相邻英雄_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        献祭自身加强相邻英雄_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        火同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        火同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        火同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        火同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        火同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        冰同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        冰同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        冰同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        冰同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        冰同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        黑暗同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        黑暗同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        黑暗同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        黑暗同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        黑暗同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        雷电同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        雷电同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        雷电同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        雷电同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        雷电同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        物理同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        物理同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        物理同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        物理同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        物理同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        战士同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        战士同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        战士同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        战士同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        战士同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        射手同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        射手同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        射手同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        射手同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        射手同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        控制同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        控制同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        控制同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        控制同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        控制同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        法师同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        法师同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        法师同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        法师同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        法师同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        辅助同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        辅助同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        辅助同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        辅助同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        辅助同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        辅助印记增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        辅助印记增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        辅助印记增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        辅助印记增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        辅助印记增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        元素每有一个不同增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        元素每有一个不同增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        元素每有一个不同增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        元素每有一个不同增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        元素每有一个不同增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        职业每有一个不同增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        职业每有一个不同增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        职业每有一个不同增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        职业每有一个不同增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        职业每有一个不同增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        对怪物的第一次伤害增加_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        对怪物的第一次伤害增加_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        对怪物的第一次伤害增加_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        对怪物的第一次伤害增加_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        对怪物的第一次伤害增加_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        对怪物攻击次数越多越加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        对怪物攻击次数越多越加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        对怪物攻击次数越多越加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        对怪物攻击次数越多越加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        对怪物攻击次数越多越加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        加强碎甲效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        加强碎甲效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        加强碎甲效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        加强碎甲效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        加强碎甲效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        碎甲为0时加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        碎甲为0时加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        碎甲为0时加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        碎甲为0时加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        碎甲为0时加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        每层火焰灼烧加伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        每层火焰灼烧加伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        每层火焰灼烧加伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        每层火焰灼烧加伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        每层火焰灼烧加伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        死亡后留下火焰_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        死亡后留下火焰_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        死亡后留下火焰_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        死亡后留下火焰_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        死亡后留下火焰_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        每层黑暗印记加伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        每层黑暗印记加伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        每层黑暗印记加伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        每层黑暗印记加伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        每层黑暗印记加伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        引爆时造成范围爆炸_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        引爆时造成范围爆炸_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        引爆时造成范围爆炸_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        引爆时造成范围爆炸_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        引爆时造成范围爆炸_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        雷属性打易电状态加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        雷属性打易电状态加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        雷属性打易电状态加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        雷属性打易电状态加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        雷属性打易电状态加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        增强易电效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        增强易电效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        增强易电效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        增强易电效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        增强易电效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        取消冰冻每冰冻概率增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        取消冰冻每冰冻概率增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        取消冰冻每冰冻概率增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        取消冰冻每冰冻概率增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        取消冰冻每冰冻概率增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        冰减速效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        冰减速效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        冰减速效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        冰减速效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        冰减速效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        每有一个异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        每有一个异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        每有一个异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        每有一个异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        每有一个异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        没有异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        没有异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        没有异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        没有异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        没有异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+        清除异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
+        清除异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
+        清除异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
+        清除异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
+        清除异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+
+
+
+        编队界面英雄背景框白 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/白");
+        编队界面英雄背景框绿 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/绿");
+        编队界面英雄背景框蓝 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/蓝");
+        编队界面英雄背景框紫 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/紫");
+        编队界面英雄背景框橙 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/橙");
+        编队界面英雄背景框粉 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/粉");
+        编队界面英雄背景框红 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/红");
+        编队界面英雄背景框彩 = Resources.Load<Sprite>("Sprite/编队界面英雄背景框/彩");
+
+
+        装备背景框 = Resources.Load<Sprite>("Sprite/技能树图标/装备背景框");
+        标签亮 = Resources.Load<Sprite>("Sprite/技能树图标/标签亮");
+        标签暗 = Resources.Load<Sprite>("Sprite/技能树图标/标签暗");
+
+        英雄背景框白 = Resources.Load<Sprite>("Sprite/英雄背景框/白");
+        英雄背景框绿 = Resources.Load<Sprite>("Sprite/英雄背景框/绿");
+        英雄背景框蓝 = Resources.Load<Sprite>("Sprite/英雄背景框/蓝");
+        英雄背景框紫 = Resources.Load<Sprite>("Sprite/英雄背景框/紫");
+        英雄背景框橙 = Resources.Load<Sprite>("Sprite/英雄背景框/橙");
+        英雄背景框粉 = Resources.Load<Sprite>("Sprite/英雄背景框/粉");
+        英雄背景框红 = Resources.Load<Sprite>("Sprite/英雄背景框/红");
+        英雄背景框彩 = Resources.Load<Sprite>("Sprite/英雄背景框/彩");
+
+
+        圆环暗 = Resources.Load<Sprite>("Sprite/技能树图标/圆环暗");
+        圆环亮 = Resources.Load<Sprite>("Sprite/技能树图标/圆环亮");
+
+
         英雄伤害 = Resources.Load<Sprite>("Sprite/技能树图标/英雄伤害");
         技能冷却缩减 = Resources.Load<Sprite>("Sprite/技能树图标/技能冷却缩减");
         击退距离 = Resources.Load<Sprite>("Sprite/技能树图标/击退距离");
@@ -6511,9 +7318,9 @@ public class ResourcesConfig : MonoBehaviour
         元始平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/元始");
         鸿钧平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/鸿钧");
         盘古平台 = Resources.Load<Sprite>("Sprite/RenWu/平台/盘古");
-        
-        
-        
+
+
+
         丹童头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/丹童");
         土地头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/土地");
         河伯头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/河伯");
@@ -6544,8 +7351,8 @@ public class ResourcesConfig : MonoBehaviour
         元始头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/元始");
         鸿钧头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/鸿钧");
         盘古头像 = Resources.Load<Sprite>("Sprite/RenWu/头像/盘古");
-        
-        
+
+
         丹童神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/丹童");
         土地神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/土地");
         河伯神通icon = Resources.Load<Sprite>("Sprite/英雄神通icon/河伯");
@@ -7695,55 +8502,55 @@ public class ResourcesConfig : MonoBehaviour
         命运编织者 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/命运编织者");
         混沌道尊 = Resources.Load<Sprite>("Sprite/遗迹怪物icon/混沌道尊");
 
-藤蔓猴 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/藤蔓猴");
-木灵蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/木灵蝶");
-千年树妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/千年树妖");
-青木蛟 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/青木蛟");
+        藤蔓猴 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/藤蔓猴");
+        木灵蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/木灵蝶");
+        千年树妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/千年树妖");
+        青木蛟 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/青木蛟");
 
-火岩虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/火岩虫");
-熔岩火蜥 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/熔岩火蜥");
-炎髓魔猿 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/炎髓魔猿");
-火山兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/火山兽");
+        火岩虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/火岩虫");
+        熔岩火蜥 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/熔岩火蜥");
+        炎髓魔猿 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/炎髓魔猿");
+        火山兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/火山兽");
 
-黑风貂 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风貂");
-浮空水母 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/浮空水母");
-黑风双煞 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风双煞");
-黑风老妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风老妖");
+        黑风貂 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风貂");
+        浮空水母 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/浮空水母");
+        黑风双煞 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风双煞");
+        黑风老妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/黑风老妖");
 
-水形怪 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/水形怪");
-深渊鮟鱇 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/深渊鮟鱇");
-玄水毒蛟 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/玄水毒蛟");
-玄水兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/玄水兽");
+        水形怪 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/水形怪");
+        深渊鮟鱇 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/深渊鮟鱇");
+        玄水毒蛟 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/玄水毒蛟");
+        玄水兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/玄水兽");
 
-雷纹蛛 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/雷纹蛛");
-雷灵球 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/雷灵球");
-紫雷夔牛 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/紫雷夔牛");
-紫雷兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/紫雷兽");
+        雷纹蛛 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/雷纹蛛");
+        雷灵球 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/雷灵球");
+        紫雷夔牛 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/紫雷夔牛");
+        紫雷兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/紫雷兽");
 
-白骨兵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨兵");
-噬魂鸦 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/噬魂鸦");
-白骨将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨将");
-白骨兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨兽");
+        白骨兵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨兵");
+        噬魂鸦 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/噬魂鸦");
+        白骨将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨将");
+        白骨兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/白骨兽");
 
-金甲傀 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金甲傀");
-戈刃灵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/戈刃灵");
-金戈将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈将");
-金戈兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈兽");
+        金甲傀 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金甲傀");
+        戈刃灵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/戈刃灵");
+        金戈将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈将");
+        金戈兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/金戈兽");
 
-幻梦蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦蝶");
-幻梦虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦虫");
-幻梦妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦妖");
-幻梦兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦兽");
+        幻梦蝶 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦蝶");
+        幻梦虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦虫");
+        幻梦妖 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦妖");
+        幻梦兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/幻梦兽");
 
-混沌虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌虫");
-吞噬兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/吞噬兽");
-混沌魔将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌魔将");
-混沌兽王 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌兽王");
+        混沌虫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌虫");
+        吞噬兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/吞噬兽");
+        混沌魔将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌魔将");
+        混沌兽王 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/混沌兽王");
 
-天道卫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道卫");
-造化灵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/造化灵");
-天道将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道将");
-天道兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道兽");
+        天道卫 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道卫");
+        造化灵 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/造化灵");
+        天道将 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道将");
+        天道兽 = Resources.Load<Sprite>("Sprite/符文之地怪物icon/天道兽");
 
 
 
