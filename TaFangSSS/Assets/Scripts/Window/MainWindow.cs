@@ -67,7 +67,8 @@ public class MainWindow : MonoBehaviour
     public 远古遗迹窗口 远古遗迹窗口;
     public Button 洞天秘境按钮;
     public 洞天秘境窗口 洞天秘境窗口;
-
+    public Button 符文之地按钮;
+    public 符文之地窗口 符文之地窗口;
     public Button 设置按钮;
     public Canvas canvas;
     public 紫霄宫传道窗口 紫霄宫传道窗口;
@@ -109,7 +110,6 @@ public class MainWindow : MonoBehaviour
     
     public 不周山窗口 不周山窗口;
     public Button 不周山;
-    public Button 符文之地按钮;
     public Button 三十三重天按钮;
     public Button 主线关卡Debug;
     public Button 城墙Debug;
@@ -486,6 +486,20 @@ public class MainWindow : MonoBehaviour
             }
             洞天秘境窗口.gameObject.SetActive(true);
         });
+        
+        符文之地按钮.onClick.AddListener(() =>
+        {
+            主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.符文之地];
+            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            {
+                ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+                ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
+                return;
+            }
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.符文之地;
+            符文之地窗口.gameObject.SetActive(true);
+        });
+        
         设置按钮.onClick.AddListener(() =>
         {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;

@@ -13,6 +13,7 @@ public enum 当前显示关卡类型
     世界树,
     通天塔,
     血海,
+    符文之地,
 }
 public class HeroWindowController:XSingleton<HeroWindowController>
 {
@@ -33,6 +34,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 主线关卡Type 当前主线关卡Type;
     [NonSerialized] public 主线关卡Type 当前凌霄宝殿Type;
     [NonSerialized] public 主线关卡Type 当前三十三重天Type;
+    [NonSerialized] public 符文之地Type 当前符文之地Type;
 
     [NonSerialized] public int 显示混沌虚空层数 = 0; 
 

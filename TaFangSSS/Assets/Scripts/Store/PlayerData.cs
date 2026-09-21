@@ -11,6 +11,7 @@ public class PlayerData : XSingleton<PlayerData>
         DontDestroyOnLoad(gameObject);
     }
 
+    public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;
     public 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
     public string Name = "修仙者";
     public JingJieType 历史最高境界 = JingJieType.练气;

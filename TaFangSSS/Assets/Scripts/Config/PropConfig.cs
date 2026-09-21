@@ -146,6 +146,7 @@ namespace Config
         
         法器粉尘,
         仙石精华,
+        
     }
 
     public enum QualityType

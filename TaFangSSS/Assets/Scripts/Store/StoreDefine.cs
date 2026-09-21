@@ -12,6 +12,8 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;
+
         public 神物Type 最大神物关卡 = 神物Type.最终伤害;
         public 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
 
@@ -3131,7 +3133,7 @@ public class StoreDefine : XSingleton<StoreController>
             是否首次配置神通 = runtime.是否首次配置神通;
             英雄技能树Dic = runtime.英雄技能树Dic;
             主页地图Type = runtime.主页地图Type;
-
+            符文之地最大关卡 = runtime.符文之地最大关卡;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3214,6 +3216,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.是否首次配置神通 = 是否首次配置神通;
             runtime.英雄技能树Dic = 英雄技能树Dic;
             runtime.主页地图Type = 主页地图Type;
+            runtime.符文之地最大关卡 = 符文之地最大关卡;
         }
     }
 }
