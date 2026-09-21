@@ -154,6 +154,10 @@ public class 胜利弹窗 : MonoBehaviour
     
     public void 符文之地结算()
     {
+        if (LevelConfig.当前符文之地Type == PlayerData.S.符文之地最大关卡)
+        {
+            PlayerData.S.符文之地最大关卡++;
+        }
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.功德] += value.功德;
