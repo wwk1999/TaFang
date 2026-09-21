@@ -10,9 +10,12 @@ public class 炼器界面 : MonoBehaviour
     public Button 仙石镶嵌Button;
     public Button 法器洗练Button;
     public Button 仙石重铸Button;
+    public Button 符文附魔Button;
     public GameObject 仙石镶嵌Panel;
     public GameObject 法器洗练Panel;
     public GameObject 仙石重铸Panel;
+    public GameObject 符文附魔Panel;
+
     private int 显示类型 = 1;
 
     public void Set按钮()
@@ -23,16 +26,25 @@ public class 炼器界面 : MonoBehaviour
                 仙石镶嵌Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 法器洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 break;
             case 2:
                 仙石镶嵌Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 法器洗练Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 break;
             case 3:
                 仙石镶嵌Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 法器洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮亮;
+                符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                break;
+            case 4:
+                仙石镶嵌Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文附魔Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 break;
         }
     }
@@ -62,6 +74,11 @@ public class 炼器界面 : MonoBehaviour
             显示类型 = 3;
             Show();
         });
+        符文附魔Button.onClick.AddListener(() =>
+        {
+            显示类型 = 4;
+            Show();
+        });
     }
 
     public void Show()
@@ -73,16 +90,25 @@ public class 炼器界面 : MonoBehaviour
                 仙石镶嵌Panel.SetActive(true);
                 法器洗练Panel.SetActive(false);
                 仙石重铸Panel.SetActive(false);
+                符文附魔Panel.SetActive(false);
                 break;
             case 2:
                 仙石镶嵌Panel.SetActive(false);
                 法器洗练Panel.SetActive(true);
                 仙石重铸Panel.SetActive(false);
+                符文附魔Panel.SetActive(false);
                 break;
             case 3:
                 仙石镶嵌Panel.SetActive(false);
                 法器洗练Panel.SetActive(false);
                 仙石重铸Panel.SetActive(true);
+                符文附魔Panel.SetActive(false);
+                break;
+            case 4:
+                仙石镶嵌Panel.SetActive(false);
+                法器洗练Panel.SetActive(false);
+                仙石重铸Panel.SetActive(false);
+                符文附魔Panel.SetActive(true);
                 break;
         }
     }
