@@ -249,6 +249,40 @@ public class 符文之地Config
         { 符文之地Type.天道台, new List<float>(){0,0,100,30,2} },
     };
 
+    public static 符文 Get品质符文(符文品质Type 符文品质Type)
+    {
+        符文 符文 = new 符文();
+        符文.quality = 符文Config.符文品质对应Quality[符文品质Type];
+        符文.type = (符文Type)Random.Range(1, Enum.GetValues(typeof(符文Type)).Length);
+        float min = 0;
+        float max = 0;
+        switch (符文.quality)
+        {
+            case QualityType.地品:
+                min = 符文Config.符文配置Dic[符文.type][0].min;
+                max = 符文Config.符文配置Dic[符文.type][0].max;
+                break;
+            case QualityType.宇品:
+                min = 符文Config.符文配置Dic[符文.type][1].min;
+                max = 符文Config.符文配置Dic[符文.type][1].max;
+                break;
+            case QualityType.宙品:
+                min = 符文Config.符文配置Dic[符文.type][2].min;
+                max = 符文Config.符文配置Dic[符文.type][2].max;
+                break;
+            case QualityType.洪品:
+                min = 符文Config.符文配置Dic[符文.type][3].min;
+                max = 符文Config.符文配置Dic[符文.type][3].max;
+                break;
+            case QualityType.荒品:
+                min = 符文Config.符文配置Dic[符文.type][4].min;
+                max = 符文Config.符文配置Dic[符文.type][4].max;
+                break;
+        }
+        符文.count=Random.Range(min, max);
+        return 符文;
+    }
+
     public static List<符文> Get符文之地掉落(符文之地Type type)
     {
         List<float> list=符文之地掉落概率Dic[type];

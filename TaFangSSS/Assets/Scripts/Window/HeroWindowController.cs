@@ -90,6 +90,12 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 法器 当前符文附魔法器;
     [NonSerialized] public 符文 当前符文附魔符文;
 
+    [NonSerialized] public 符文 符文熔炼选择1=new 符文();
+    [NonSerialized] public 符文 符文熔炼选择2=new 符文();
+    [NonSerialized] public 符文 符文熔炼选择3=new 符文();
+    [NonSerialized] public 符文 符文熔炼选择4=new 符文();
+
+    [NonSerialized] public 符文 熔炼后符文=new 符文();
 
     //法器的基础属性包含在最终伤害里
     public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type, ZhiYeType zhiYeType)

@@ -632,6 +632,11 @@ public class MainWindow : MonoBehaviour
         });
         招募卷Debug.onClick.AddListener(() =>
         {
+            for (int i = 0; i < 100; i++)
+            {
+                符文 符文 = 符文之地Config.Get品质符文(符文品质Type.仙文);
+                PlayerData.S.符文仙文List.Add(符文);
+            }
             PlayerData.S.剩余传道次数 += 100;
 
             PlayerData.S.PropListDic[PropType.高级招募卷] += 100;

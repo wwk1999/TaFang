@@ -63,26 +63,6 @@ public class 符文
     public 符文Type type;
     public QualityType quality;
     public float count;
-
-    public override bool Equals(object obj)
-    {
-        if (obj == null || GetType() != obj.GetType())
-            return false;
-
-        符文 other = (符文)obj;
-        return type == other.type && quality == other.quality;
-    }
-
-    public override int GetHashCode()
-    {
-        unchecked
-        {
-            int hash = 17;
-            hash = hash * 23 + type.GetHashCode();
-            hash = hash * 23 + quality.GetHashCode();
-            return hash;
-        }
-    }
 }
 public class 符文Config
 {
