@@ -3234,7 +3234,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.符文道文List = 符文道文List;
             runtime.符文圣文List = 符文圣文List;
             runtime.符文帝文List = 符文帝文List;
-            runtime.符文道文List = 符文道文List;
+            runtime.符文灵文List = 符文灵文List;
 
         }
     }

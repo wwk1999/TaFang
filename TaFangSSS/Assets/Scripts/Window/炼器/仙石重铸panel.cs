@@ -95,6 +95,7 @@ public class 仙石重铸panel : MonoBehaviour
         重铸确认保留弹窗.gameObject.SetActive(false);
         HeroWindowController.S.重铸panel当前仙石 = null;
         HeroWindowController.S.重铸后仙石Type = 仙石Type.None;
+        页数num = 1;
         Show();
     }
 

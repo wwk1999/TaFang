@@ -35,6 +35,8 @@ public class 符文附魔panel : MonoBehaviour
     {
         HeroWindowController.S.当前符文附魔法器 = null;
         HeroWindowController.S.当前符文附魔符文=null;
+        页数num = 1;
+        显示法器 = true;
         Show();
     }
     
@@ -121,7 +123,20 @@ public class 符文附魔panel : MonoBehaviour
                 Show();
             }
         });
-        
+        附魔Button.onClick.AddListener(() =>
+        {
+            if (HeroWindowController.S.当前符文附魔法器 == null)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","请选择附魔法器");
+                return;
+            }
+            if (HeroWindowController.S.当前符文附魔符文 == null)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","请选择附魔符文");
+                return;
+            }
+            符文确认附魔弹窗.gameObject.SetActive(true);
+        });
         法器Button.onClick.AddListener(() =>
         {
             if (显示法器 == false)
@@ -182,6 +197,8 @@ public class 符文附魔panel : MonoBehaviour
             艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.法器品质Dic[HeroWindowController.S.当前符文附魔法器.法器Type]);
             Icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.当前符文附魔法器.法器Type);
             name.text = 法器Config.法器名Dic[HeroWindowController.S.当前符文附魔法器.法器Type];
+            name.colorGradientPreset =
+                ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[HeroWindowController.S.当前符文附魔法器.法器Type]);
         }
     }
     

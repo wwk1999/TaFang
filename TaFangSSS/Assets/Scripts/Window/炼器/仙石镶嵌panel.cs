@@ -38,6 +38,8 @@ public class 仙石镶嵌panel : MonoBehaviour
     {
         HeroWindowController.S.仙石镶嵌panel当前法器 = null;
         HeroWindowController.S.仙石=null;
+        页数num = 1;
+        显示法器 = true;
         仙石Image.gameObject.SetActive(false);
         Show();
     }

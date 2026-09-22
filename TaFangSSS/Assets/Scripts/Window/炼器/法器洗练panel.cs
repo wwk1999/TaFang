@@ -93,6 +93,7 @@ public class 法器洗练panel : MonoBehaviour
     {
         洗练确认保留弹窗.gameObject.SetActive(false);
         HeroWindowController.S.洗练panel当前法器 = null;
+        页数num = 1;
         Show();
     }
 
