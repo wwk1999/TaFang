@@ -995,7 +995,7 @@ namespace Config
             },
             {
                 HeroType.杨戬,
-                "向怪物释放天眼破并穿透敌人,对命中的敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.杨戬][0], 1) + "的" +
+                "向怪物释放天眼破并穿透一个敌人,对命中的敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.杨戬][0], 1) + "的" +
                 Get元素string(YuanSuType.电) + "伤害"
             },
             {
@@ -1045,7 +1045,7 @@ namespace Config
             },
             {
                 HeroType.后羿,
-                "向怪物发射2支射日箭并穿透敌人,对命中的敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.后羿][0], 1) + "的" +
+                "向怪物发射2支射日箭并穿透一个敌人,对命中的敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.后羿][0], 1) + "的" +
                 Get元素string(YuanSuType.物理) + "伤害"
             },
             {
@@ -1071,7 +1071,7 @@ namespace Config
             },
             {
                 HeroType.通天,
-                "向怪物释放2道戮仙暗矢,对命中敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.通天][0], 1) + "的" +
+                "向怪物释放2道戮仙暗矢并穿透2个敌人,对命中敌人造成" + Get技能伤害string(HeroSkillDamageDic[HeroType.通天][0], 1) + "的" +
                 Get元素string(YuanSuType.黑暗) + "伤害"
             },
 
@@ -1321,7 +1321,7 @@ namespace Config
             { HeroType.羲和, 3 },
             { HeroType.常羲, 3 },
             { HeroType.后羿, 1.5f },
-            { HeroType.云霄, 1.5f },
+            { HeroType.云霄, 3f },
 
             { HeroType.女娲, 6 },
             { HeroType.老子, 3 },

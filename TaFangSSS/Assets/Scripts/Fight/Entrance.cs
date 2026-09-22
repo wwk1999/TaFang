@@ -232,9 +232,42 @@ public class Entrance : MonoBehaviour
             continue;
          }
 
+         
          FightController.S.英雄根基丹药属性Dic[item] = 丹药Config.Get英雄根基丹药属性(item);
          FightController.S.英雄法器属性Dic[item] = 法器Config.Get英雄法器属性(item);
          FightController.S.英雄技能树属性[item] = 英雄技能树Config.Get英雄技能树属性(item);
+         if (item == HeroType.丹童)
+         {
+             FightController.S.丹童分裂数量 = FightController.S.Get丹童穿透数量();
+         }
+         if (item == HeroType.太白金星)
+         {
+             FightController.S.太白金星分裂数量 = FightController.S.Get太白金星穿透数量();
+         }
+         if (item == HeroType.月老)
+         {
+             FightController.S.月老分裂数量 = FightController.S.Get月老穿透数量();
+         }
+         if (item == HeroType.多闻天王)
+         {
+             FightController.S.多闻天王分裂数量 = FightController.S.Get多闻天王穿透数量();
+         }
+         if (item == HeroType.杨戬)
+         {
+             FightController.S.杨戬分裂数量 = FightController.S.Get杨戬穿透数量();
+         }
+         if (item == HeroType.后羿)
+         {
+             FightController.S.后羿分裂数量 = FightController.S.Get后羿穿透数量();
+         }
+         if (item == HeroType.云霄)
+         {
+             FightController.S.云霄分裂数量 = FightController.S.Get云霄穿透数量();
+         }
+         if (item == HeroType.通天)
+         {
+             FightController.S.通天分裂数量 = FightController.S.Get通天穿透数量();
+         }
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;
          renwu.SetItem();

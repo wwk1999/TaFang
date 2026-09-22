@@ -21,7 +21,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    [NonSerialized] public bool 女娲神通;
 
    [NonSerialized] public bool 黑暗辅助;
-   [NonSerialized]public bool 穿透=false;
+   [NonSerialized]public int 穿透=0;
    private Vector2 原始scale=Vector2.one;
    [NonSerialized] public bool 女娲电辅助;
    [NonSerialized] public bool 是否神通;
@@ -99,11 +99,11 @@ public class 普通魔法弹带peng : MonoBehaviour
 
       monster.Hurt(finalDamage, HeroType, Type);
       hit.gameObject.SetActive(true);
-      if (!穿透)
+      if (穿透<=0)
       {
          transform.localScale = Vector2.zero;
       }
-
+      穿透--;
       if (Type == 攻击特效Type.黑暗魔法弹)
       {
          monster.transform.position = new Vector3(monster.transform.position.x + 英雄星级属性.土地击退距离*(1f+FightController.S.英雄技能树属性[HeroType.土地].击退距离/100f), monster.transform.position.y, monster.transform.position.z);
