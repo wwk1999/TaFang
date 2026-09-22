@@ -35,7 +35,7 @@ public class 普通魔法弹带peng : MonoBehaviour
       transform.localScale = Vector2.one;
       if (Type == 攻击特效Type.冰剑气)
       {
-         transform.localScale = new Vector3(原始scale.x * 英雄星级属性.云霄效果范围, 原始scale.y * 英雄星级属性.云霄效果范围, 1);
+         transform.localScale = new Vector3(原始scale.x * 英雄星级属性.云霄效果范围*(1f+FightController.S.英雄技能树属性[HeroType.云霄].效果范围/100f), 原始scale.y * 英雄星级属性.云霄效果范围*(1f+FightController.S.英雄技能树属性[HeroType.云霄].效果范围/100f), 1);
       }
       float angle = Mathf.Atan2(MoveDirection.y, MoveDirection.x) * Mathf.Rad2Deg;
       parent.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -88,7 +88,7 @@ public class 普通魔法弹带peng : MonoBehaviour
       }
       if (瑶池冰辅助)
       {
-         monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+         monster.瑶池冰辅助 = 2f;
       }
       monster.妲己黑暗辅助 = 黑暗辅助;
       monster.女娲电辅助 = 女娲电辅助;
@@ -104,7 +104,7 @@ public class 普通魔法弹带peng : MonoBehaviour
 
       if (Type == 攻击特效Type.黑暗魔法弹)
       {
-         monster.transform.position = new Vector3(monster.transform.position.x + 英雄星级属性.土地击退距离, monster.transform.position.y, monster.transform.position.z);
+         monster.transform.position = new Vector3(monster.transform.position.x + 英雄星级属性.土地击退距离*(1f+FightController.S.英雄技能树属性[HeroType.土地].击退距离/100f), monster.transform.position.y, monster.transform.position.z);
       }
    }
 }

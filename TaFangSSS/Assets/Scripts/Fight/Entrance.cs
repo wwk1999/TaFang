@@ -234,6 +234,7 @@ public class Entrance : MonoBehaviour
 
          FightController.S.英雄根基丹药属性Dic[item] = 丹药Config.Get英雄根基丹药属性(item);
          FightController.S.英雄法器属性Dic[item] = 法器Config.Get英雄法器属性(item);
+         FightController.S.英雄技能树属性[item] = 英雄技能树Config.Get英雄技能树属性(item);
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;
          renwu.SetItem();

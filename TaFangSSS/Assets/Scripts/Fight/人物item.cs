@@ -81,6 +81,7 @@ public class 人物item : MonoBehaviour
     public float Get攻击间隔()
     {
         float value = 英雄星级属性.Get英雄Cd(heroType);
+        value /= (1f + FightController.S.英雄技能树属性[heroType].技能冷却缩减 / 100f);
         value /= (1f + 体质Config.当前体质总属性.攻击速度 / 100f);
         value /= (1 + 属性config.总属性.英雄冷却缩减);
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.控制)
@@ -604,6 +605,8 @@ public class 人物item : MonoBehaviour
                     牛魔王脚本.是否神通 = false;
 
                     牛魔王技能Obj.gameObject.SetActive(true);
+                    牛魔王技能Obj.transform.localScale = new Vector3(1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f,
+                        1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f, 1);
                     牛魔王技能Animator.Play("219牛魔王技能_Anim",0,0f);
                     break;
                 case 攻击特效Type.石敢当神通:

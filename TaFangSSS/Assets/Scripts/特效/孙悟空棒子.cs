@@ -89,7 +89,7 @@ public class 孙悟空棒子 : MonoBehaviour
          // 原代码漏传瑶池辅助标志：补齐后瑶池辅助功法加成才会在Hurt中生效
          if (瑶池冰辅助)
          {
-            monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+            monster.瑶池冰辅助 = 2f;
          }
          if (瑶池神通)
          {

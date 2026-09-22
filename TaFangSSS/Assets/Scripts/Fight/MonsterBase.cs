@@ -82,6 +82,7 @@ public class MonsterBase : MonoBehaviour
       if (瑶池冰辅助 > 0)
       {
          value *= (1-英雄星级属性.瑶池仙女减速效果/100f);
+         value*=(1f-FightController.S.英雄技能树属性[HeroType.瑶池仙女].瑶池减速效果/100f);
       }
       if (冰符 > 0)
       {
@@ -90,6 +91,8 @@ public class MonsterBase : MonoBehaviour
       if (龟丞相减速 > 0)
       {
          value *= (1-英雄星级属性.龟丞相减速效果/100f);
+         value*=(1f-FightController.S.英雄技能树属性[HeroType.龟丞相].龟丞相减速/100f);
+
       }
 
       if (transform.position.x < 城墙Config.泥沼减速距离)
@@ -445,6 +448,15 @@ public class MonsterBase : MonoBehaviour
 
       return damage;
    }
+
+   public float 计算技能树伤害(float damage, HeroType heroType)
+   {
+      技能树属性 技能树属性 = FightController.S.英雄技能树属性[heroType];
+      damage*=(1+技能树属性.英雄伤害/100f);
+      
+      return damage;
+   }
+
    
    public void Hurt(float 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
    {

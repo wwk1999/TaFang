@@ -185,7 +185,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
 
             if (瑶池冰辅助)
             {
-                monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+                monster.瑶池冰辅助 = 2f;
             }
             if (瑶池神通)
             {

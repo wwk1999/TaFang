@@ -94,7 +94,7 @@ public class 循环伤害技能 : MonoBehaviour
 
             if (瑶池冰辅助)
             {
-                monster.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+                monster.瑶池冰辅助 = 2f;
             }
             monster.女娲电辅助 = 女娲电辅助;
             monster.妲己黑暗辅助 = 黑暗辅助;

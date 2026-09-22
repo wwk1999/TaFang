@@ -17,6 +17,7 @@ public class 英雄伤害item
 }
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public Dictionary<HeroType, 技能树属性> 英雄技能树属性 = new Dictionary<HeroType, 技能树属性>();
     [NonSerialized] public int 当前神通index = 0;
     [NonSerialized] public float 英雄之间神通间隔时间 = 2;
     [NonSerialized] public float 当前英雄之间神通间隔时间 = 1;
@@ -504,7 +505,7 @@ public class FightController : XSingleton<FightController>
             randomValue = 人物items[randomKey];
         }
 
-        randomValue.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间;
+        randomValue.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间*(1f+英雄技能树属性[HeroType.瑶池仙女].瑶池持续时间/100f);
     }
     public void 女娲电辅助技能()
     {

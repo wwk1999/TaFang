@@ -107,7 +107,6 @@ public enum 技能Type{
     女娲神通效果,
 }
 
-
 public class 技能树属性
 {
         public float 英雄伤害;
@@ -2290,4 +2289,108 @@ public class 英雄技能树Config
         }
         return 英雄境界Type.None;
     }
+    
+    
+    public static 技能树属性 Get英雄技能树属性(HeroType heroType)
+{
+    技能树属性 属性 = new 技能树属性();
+    // 老存档或未配置的英雄直接返回全 0 属性
+    if (!PlayerData.S.英雄技能树Dic.TryGetValue(heroType, out var 等级表) || 等级表 == null) return 属性;
+    if (!英雄技能树Config.英雄技能树Dic.TryGetValue(heroType, out var 配置表) || 配置表 == null) return 属性;
+
+    // 遍历 5 行 × 8 列，按 技能Type 把 count×当前等级 累加到对应字段
+    // 注意：技能伤害1/2、神通伤害1/2 都累加到 技能伤害/神通伤害（按需求"1和2的总和"）
+    int 行数 = Math.Min(等级表.Count, 配置表.Count);
+    for (int i = 0; i < 行数; i++)
+    {
+        if (等级表[i] == null || 配置表[i] == null) continue;
+        int 列数 = Math.Min(等级表[i].Count, 配置表[i].Count);
+        for (int j = 0; j < 列数; j++)
+        {
+            int 当前等级 = 等级表[i][j];
+            if (当前等级 <= 0) continue;
+            var item = 配置表[i][j];
+            if (item == null || item.技能Type == 技能Type.None) continue;
+            float 加成 = item.count * 当前等级;
+            switch (item.技能Type)
+            {
+                case 技能Type.英雄伤害: 属性.英雄伤害 += 加成; break;
+                case 技能Type.技能冷却缩减: 属性.技能冷却缩减 += 加成; break;
+                case 技能Type.击退距离: 属性.击退距离 += 加成; break;
+                case 技能Type.效果范围: 属性.效果范围 += 加成; break;
+                case 技能Type.瑶池减速效果: 属性.瑶池减速效果 += 加成; break;
+                case 技能Type.瑶池持续时间: 属性.瑶池持续时间 += 加成; break;
+                case 技能Type.龟丞相减速: 属性.龟丞相减速 += 加成; break;
+                case 技能Type.妲己效果: 属性.妲己效果 += 加成; break;
+                case 技能Type.妲己持续时间: 属性.妲己持续时间 += 加成; break;
+                case 技能Type.孙悟空挥棒次数: 属性.孙悟空挥棒次数 += 加成; break;
+                case 技能Type.琼霄控制时长: 属性.琼霄控制时长 += 加成; break;
+                case 技能Type.女娲效果: 属性.女娲效果 += 加成; break;
+                case 技能Type.女娲持续时间: 属性.女娲持续时间 += 加成; break;
+                case 技能Type.元始火种个数: 属性.元始火种个数 += 加成; break;
+                case 技能Type.火种旋转速度: 属性.火种旋转速度 += 加成; break;
+                case 技能Type.元始下场时间: 属性.元始下场时间 += 加成; break;
+                case 技能Type.玄冰风弹道速度减少: 属性.玄冰风弹道速度减少 += 加成; break;
+                case 技能Type.玄冰风每秒增长速度增加: 属性.玄冰风每秒增长速度增加 += 加成; break;
+                case 技能Type.无极天火数量: 属性.无极天火数量 += 加成; break;
+                case 技能Type.混沌开天拳出拳数量增加: 属性.混沌开天拳出拳数量增加 += 加成; break;
+                case 技能Type.神通冷却时间: 属性.神通冷却时间 += 加成; break;
+                case 技能Type.神通伤害1: 属性.神通伤害 += 加成; break;
+                case 技能Type.神通伤害2: 属性.神通伤害 += 加成; break;
+                case 技能Type.神通能量: 属性.神通能量 += 加成; break;
+                case 技能Type.被辅助英雄伤害: 属性.被辅助英雄伤害 += 加成; break;
+                case 技能Type.被辅助英雄暴击率: 属性.被辅助英雄暴击率 += 加成; break;
+                case 技能Type.被辅助英雄暴击伤害: 属性.被辅助英雄暴击伤害 += 加成; break;
+                case 技能Type.技能伤害1: 属性.技能伤害 += 加成; break;
+                case 技能Type.技能伤害2: 属性.技能伤害 += 加成; break;
+                case 技能Type.射手分裂: 属性.射手分裂 += 加成; break;
+                case 技能Type.射手穿透: 属性.射手穿透 += 加成; break;
+                case 技能Type.物理伤害: 属性.物理伤害 += 加成; break;
+                case 技能Type.雷电伤害: 属性.雷电伤害 += 加成; break;
+                case 技能Type.黑暗伤害: 属性.黑暗伤害 += 加成; break;
+                case 技能Type.火焰伤害: 属性.火焰伤害 += 加成; break;
+                case 技能Type.冰霜伤害: 属性.冰霜伤害 += 加成; break;
+                case 技能Type.火焰灼烧伤害: 属性.火焰灼烧伤害 += 加成; break;
+                case 技能Type.火焰灼烧时间: 属性.火焰灼烧时间 += 加成; break;
+                case 技能Type.火焰灼烧最大层数: 属性.火焰灼烧最大层数 += 加成; break;
+                case 技能Type.冰减速: 属性.冰减速 += 加成; break;
+                case 技能Type.冰概率冰冻: 属性.冰概率冰冻 += 加成; break;
+                case 技能Type.冰冻时间: 属性.冰冻时间 += 加成; break;
+                case 技能Type.冰冻增伤: 属性.冰冻增伤 += 加成; break;
+                case 技能Type.易电状态概率: 属性.易电状态概率 += 加成; break;
+                case 技能Type.易电状态时间: 属性.易电状态时间 += 加成; break;
+                case 技能Type.易电状态伤害: 属性.易电状态伤害 += 加成; break;
+                case 技能Type.黑暗印记储存伤害: 属性.黑暗印记储存伤害 += 加成; break;
+                case 技能Type.黑暗印记减少引爆层数: 属性.黑暗印记减少引爆层数 += 加成; break;
+                case 技能Type.黑暗印记增加引爆层数: 属性.黑暗印记增加引爆层数 += 加成; break;
+                case 技能Type.物理碎甲怪物百分比: 属性.物理碎甲怪物百分比 += 加成; break;
+                case 技能Type.物理碎甲领主攻击百分比: 属性.物理碎甲领主攻击百分比 += 加成; break;
+                case 技能Type.物理无抗性加伤害: 属性.物理无抗性加伤害 += 加成; break;
+                case 技能Type.增加所有英雄伤害: 属性.增加所有英雄伤害 += 加成; break;
+                case 技能Type.寻宝速度: 属性.寻宝速度 += 加成; break;
+                case 技能Type.概率紫变橙: 属性.概率紫变橙 += 加成; break;
+                case 技能Type.概率橙变粉: 属性.概率橙变粉 += 加成; break;
+                case 技能Type.概率粉变红: 属性.概率粉变红 += 加成; break;
+                case 技能Type.概率红变彩: 属性.概率红变彩 += 加成; break;
+                case 技能Type.概率提升数量: 属性.概率提升数量 += 加成; break;
+                case 技能Type.暴击率: 属性.暴击率 += 加成; break;
+                case 技能Type.暴击伤害: 属性.暴击伤害 += 加成; break;
+                case 技能Type.普通怪增伤: 属性.普通怪增伤 += 加成; break;
+                case 技能Type.精英怪增伤: 属性.精英怪增伤 += 加成; break;
+                case 技能Type.首领怪增伤: 属性.首领怪增伤 += 加成; break;
+                case 技能Type.石敢当锤子速度: 属性.石敢当锤子速度 += 加成; break;
+                case 技能Type.被辅助英雄普通怪伤害: 属性.被辅助英雄普通怪伤害 += 加成; break;
+                case 技能Type.被辅助英雄精英怪伤害: 属性.被辅助英雄精英怪伤害 += 加成; break;
+                case 技能Type.被辅助英雄首领怪伤害: 属性.被辅助英雄首领怪伤害 += 加成; break;
+                case 技能Type.被辅助元素伤害: 属性.被辅助元素伤害 += 加成; break;
+                case 技能Type.哪吒神通数量: 属性.哪吒神通数量 += 加成; break;
+                case 技能Type.碧霄神通数量: 属性.碧霄神通数量 += 加成; break;
+                case 技能Type.羲和神通数量: 属性.羲和神通数量 += 加成; break;
+                case 技能Type.被辅助英雄技能伤害: 属性.被辅助英雄技能伤害 += 加成; break;
+                case 技能Type.女娲神通效果: 属性.女娲神通效果 += 加成; break;
+            }
+        }
+    }
+    return 属性;
+}
 }
