@@ -84,7 +84,7 @@ public class 英雄详情界面 : MonoBehaviour
     
 
     
-    private HeroType 当前heroType=HeroType.丹童;
+    [NonSerialized]public HeroType 当前heroType=HeroType.丹童;
     private 英雄详情界面显示类型 显示类型 = 英雄详情界面显示类型.境界;
 
     private 法器类型 当前法器类型 = 法器类型.武器;

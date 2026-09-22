@@ -31,7 +31,7 @@ public class HeroWindow : MonoBehaviour
    public RectTransform canvasRectTransform;
    public ScrollRect  ScrollView;
    public 英雄详情弹窗 英雄详情弹窗;
-
+   public 英雄详情界面 英雄详情界面;
    private int 引导count = 0;
    public void 交换英雄(object[] obj)
    {
@@ -80,6 +80,11 @@ public class HeroWindow : MonoBehaviour
       }
    }
 
+   public void 显示英雄详情界面(object[] obj)
+   {
+      英雄详情界面.当前heroType = (HeroType)obj[0];
+      英雄详情界面.gameObject.SetActive(true);
+   }
    public void 英雄详情弹窗Show(object[] obj)
    {
       HeroType heroType = (HeroType)obj[0];
@@ -96,6 +101,7 @@ public class HeroWindow : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("英雄详情界面",显示英雄详情界面);
       ObserverModuleManager.S.UnRegisterEvent("显示装备功法弹窗",显示装备功法弹窗);
       ObserverModuleManager.S.UnRegisterEvent("刷新英雄卡片功法",升星刷新);
       ObserverModuleManager.S.UnRegisterEvent("显示功法选择弹窗",显示功法选择弹窗);
@@ -129,6 +135,7 @@ public class HeroWindow : MonoBehaviour
    }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("英雄详情界面",显示英雄详情界面);
       ObserverModuleManager.S.RegisterEvent("显示装备功法弹窗",显示装备功法弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新英雄卡片功法",升星刷新);
       ObserverModuleManager.S.RegisterEvent("显示功法选择弹窗",显示功法选择弹窗);

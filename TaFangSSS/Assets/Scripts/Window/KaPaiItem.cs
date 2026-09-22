@@ -83,7 +83,7 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
    {
       bg.onClick.AddListener(() =>
       {
-         ObserverModuleManager.S.SendEvent("英雄详情弹窗",heroType);
+         ObserverModuleManager.S.SendEvent("英雄详情界面",heroType);
       });
       合成mask.onClick.AddListener(() =>
       {
