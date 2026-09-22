@@ -107,6 +107,110 @@ public enum 技能Type{
     女娲神通效果,
 }
 
+
+public class 技能树属性
+{
+        public float 英雄伤害;
+        public float 技能冷却缩减;
+        public float 击退距离;
+        public float 效果范围;
+        public float 瑶池减速效果;
+        public float 瑶池持续时间;
+        public float 龟丞相减速;
+    
+        public float 妲己效果;
+        public float 妲己持续时间;
+        public float 孙悟空挥棒次数;
+        public float 琼霄控制时长;
+    
+    
+        public float 女娲效果;
+        public float 女娲持续时间;
+    
+        public float 元始火种个数;
+        public float 火种旋转速度;
+        public float 元始下场时间;
+        public float 玄冰风弹道速度减少;
+        public float 玄冰风每秒增长速度增加;
+        public float 无极天火数量;
+        public float 混沌开天拳出拳数量增加;
+    
+    
+        //神通
+        public float 神通冷却时间;
+        public float 神通伤害;
+    
+
+        public float 神通能量;
+    
+        //辅助
+        public float 被辅助英雄伤害;
+        public float 被辅助英雄暴击率;
+
+        public float 被辅助英雄暴击伤害;
+    
+        public float 技能伤害;
+    
+        public float 射手分裂;
+        public float 射手穿透;
+    
+        public float 物理伤害;
+        public float 雷电伤害;
+        public float 黑暗伤害;
+        public float 火焰伤害;
+        public float 冰霜伤害;
+    
+        public float 火焰灼烧伤害;
+        public float 火焰灼烧时间;
+        public float 火焰灼烧最大层数;
+    
+        public float 冰减速;
+        public float 冰概率冰冻;
+        public float 冰冻时间;
+        public float 冰冻增伤;
+    
+        public float 易电状态概率;
+        public float 易电状态时间;
+        public float 易电状态伤害;
+    
+    
+        public float 黑暗印记储存伤害;
+        public float 黑暗印记减少引爆层数;
+        public float 黑暗印记增加引爆层数;
+
+        public float 物理碎甲怪物百分比;
+        public float 物理碎甲领主攻击百分比;
+        public float 物理无抗性加伤害;
+    
+        public float 增加所有英雄伤害;
+    
+        public float 寻宝速度;
+        public float 概率紫变橙;
+        public float 概率橙变粉;
+        public float 概率粉变红;
+        public float 概率红变彩;
+        public float 概率提升数量;  
+    
+        public float 暴击率;
+        public float 暴击伤害;
+        public float 普通怪增伤;
+        public float 精英怪增伤;
+        public float 首领怪增伤;
+        public float 石敢当锤子速度;
+    
+        public float 被辅助英雄普通怪伤害;
+        public float 被辅助英雄精英怪伤害;
+        public float 被辅助英雄首领怪伤害;
+        public float 被辅助元素伤害;
+    
+        public float 哪吒神通数量;
+        public float 碧霄神通数量;
+        public float 羲和神通数量;
+    
+        public float 被辅助英雄技能伤害;
+        public float 女娲神通效果;
+}
+
 public class 英雄技能item
 {
     public 技能Type 技能Type;
@@ -714,7 +818,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -778,7 +882,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1446,10 +1550,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记增加引爆层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1915,10 +2019,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.黑暗伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记增加引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.黑暗印记储存伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记减少引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.黑暗印记增加引爆层数, 是否有前置 = false, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
