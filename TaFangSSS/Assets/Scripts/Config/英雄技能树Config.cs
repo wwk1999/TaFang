@@ -150,7 +150,7 @@ public class 技能树属性
         public float 火焰伤害;
         public float 冰霜伤害;
     
-        public float 火焰灼烧伤害;
+        public float 火焰灼烧伤害;//默认灼烧2s
         public float 火焰灼烧时间;
         public float 火焰灼烧最大层数;
         public float 冰减速;
@@ -999,7 +999,7 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 2, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1399,9 +1399,9 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 3, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 3, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1601,10 +1601,10 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
@@ -1938,12 +1938,12 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.None, 是否有前置 = true, 最大等级 = 1, count = 8 },
                 },
                 new List<英雄技能item>()
@@ -2140,12 +2140,12 @@ public class 英雄技能树Config
                 new List<英雄技能item>()
                 {
                     new 英雄技能item() { 技能Type = 技能Type.火焰伤害, 是否有前置 = false, 最大等级 = 5, count = 5 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧时间, 是否有前置 = true, 最大等级 = 3, count = 1 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
-                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 5 },
+                    new 英雄技能item() { 技能Type = 技能Type.火焰灼烧伤害, 是否有前置 = true, 最大等级 = 5, count = 10 },
                     new 英雄技能item() { 技能Type = 技能Type.火焰灼烧最大层数, 是否有前置 = true, 最大等级 = 3, count = 1 },
                 },
                 new List<英雄技能item>()

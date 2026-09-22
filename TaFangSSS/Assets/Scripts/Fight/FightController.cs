@@ -34,6 +34,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public int 云霄分裂数量 = 0 ;
     [NonSerialized] public int 通天分裂数量 = 0 ;
     [NonSerialized] public int 后羿分裂数量 = 0 ;
+    
 
     [NonSerialized] public Dictionary<HeroType, 技能树属性> 英雄技能树属性 = new Dictionary<HeroType, 技能树属性>();
     [NonSerialized] public int 当前神通index = 0;

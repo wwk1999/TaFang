@@ -9,6 +9,14 @@ using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 using DG.Tweening;
+
+public class 灼烧
+{
+   public float 灼烧Time;
+   public float 灼烧伤害;
+   public float 灼烧当前时间;
+   public int 灼烧层数;
+}
 public class MonsterBase : MonoBehaviour
 {
    public GameObject 图片;
@@ -21,6 +29,14 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float 灼烧当前时间 = 0;
    [NonSerialized]public float 冰冻time = 0;
 
+   [NonSerialized] public Dictionary<HeroType, 灼烧> 英雄灼烧状态 = new Dictionary<HeroType, 灼烧>()
+   {
+      { HeroType.月老, new 灼烧() },
+      { HeroType.哪吒, new 灼烧() },
+      { HeroType.羲和, new 灼烧() },
+      { HeroType.元始, new 灼烧() },
+      { HeroType.鸿钧, new 灼烧() },
+   };
    public SpriteRenderer bg;
    public Canvas HpCanvas;
    public SpriteRenderer image;
@@ -123,6 +139,14 @@ public class MonsterBase : MonoBehaviour
       if (MonsterTypeName == MonsterTypeName.None)
       {
          return;
+      }
+
+      foreach (var item in 英雄灼烧状态)
+      {
+         item.Value.灼烧伤害 = 0;
+         item.Value.灼烧层数 = 0;
+         item.Value.灼烧当前时间 = 0;
+         item.Value.灼烧Time = 0;
       }
 
       // 缓存只跟 MonsterTypeName 相关的一次性查询，避免 Update 每帧查 Dictionary
@@ -475,9 +499,11 @@ public class MonsterBase : MonoBehaviour
 
    public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
    {
+      YuanSuType yuansu = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
       bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
       技能树属性 技能树属性 = FightController.S.英雄技能树属性[heroType];
       damage*=(1+技能树属性.英雄伤害/100f);
+      
       if (是否神通)
       {
          damage *= (1f + FightController.S.英雄技能树属性[heroType].神通伤害 / 100f);
@@ -487,6 +513,24 @@ public class MonsterBase : MonoBehaviour
          damage *= (1f + FightController.S.英雄技能树属性[heroType].技能伤害 / 100f);
       }
 
+      switch (yuansu)
+      {
+         case YuanSuType.冰:
+            damage *= (1f + FightController.S.英雄技能树属性[heroType].冰霜伤害 / 100f);
+            break;
+         case YuanSuType.物理:
+            damage *= (1f + FightController.S.英雄技能树属性[heroType].物理伤害 / 100f);
+            break;
+         case YuanSuType.电:
+            damage *= (1f + FightController.S.英雄技能树属性[heroType].雷电伤害 / 100f);
+            break;
+         case YuanSuType.黑暗:
+            damage *= (1f + FightController.S.英雄技能树属性[heroType].黑暗伤害 / 100f);
+            break;
+         case YuanSuType.火:
+            damage *= (1f + FightController.S.英雄技能树属性[heroType].火焰伤害 / 100f);
+            break;
+      }
       float 被辅助伤害 = 1;
       if (瑶池冰辅助 > 0)
       {
@@ -505,6 +549,7 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
+   
    
    public void Hurt(float 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
    {
@@ -678,7 +723,7 @@ public class MonsterBase : MonoBehaviour
       }
       // 无视抗性为百分值（与法器穿透口径一致），需 /100f，否则10%无视会变成抗性/11
       最终Damage *= (100 - 抗性/(1f+无视抗性/100f)) / 100;
-
+      英雄灼烧( 最终Damage,heroType);
       FightController.S.当前英雄伤害Dic[heroType].总伤害 += 最终Damage;
       if (FightController.S.攻击特效是否神通(攻击特效))
       {
@@ -712,6 +757,62 @@ public class MonsterBase : MonoBehaviour
       }
    }
 
+   public void 英雄灼烧(float 最终Damage,HeroType  heroType)
+   {
+      if (heroType == HeroType.月老)
+      {
+         if (英雄灼烧状态[HeroType.月老].灼烧层数 < FightController.S.英雄技能树属性[HeroType.月老].火焰灼烧最大层数 + 1)
+         {
+            英雄灼烧状态[HeroType.月老].灼烧伤害 += 最终Damage*FightController.S.英雄技能树属性[HeroType.月老].火焰灼烧伤害/100f;
+            英雄灼烧状态[HeroType.月老].灼烧Time = 2 + FightController.S.英雄技能树属性[HeroType.月老].火焰灼烧时间;
+            英雄灼烧状态[HeroType.月老].灼烧层数++;
+         }
+      }
+      
+      if (heroType == HeroType.哪吒)
+      {
+         if (英雄灼烧状态[HeroType.哪吒].灼烧层数 < FightController.S.英雄技能树属性[HeroType.哪吒].火焰灼烧最大层数 + 1)
+         {
+            英雄灼烧状态[HeroType.哪吒].灼烧伤害 += 最终Damage*FightController.S.英雄技能树属性[HeroType.哪吒].火焰灼烧伤害/100f;
+            英雄灼烧状态[HeroType.哪吒].灼烧Time = 2 + FightController.S.英雄技能树属性[HeroType.哪吒].火焰灼烧时间;
+            英雄灼烧状态[HeroType.哪吒].灼烧层数++;
+         }
+      }
+      
+      if (heroType == HeroType.羲和)
+      {
+         if (英雄灼烧状态[HeroType.羲和].灼烧层数 < FightController.S.英雄技能树属性[HeroType.羲和].火焰灼烧最大层数 + 1)
+         {
+            英雄灼烧状态[HeroType.羲和].灼烧伤害 += 最终Damage*FightController.S.英雄技能树属性[HeroType.羲和].火焰灼烧伤害/100f;
+            英雄灼烧状态[HeroType.羲和].灼烧Time = 2 + FightController.S.英雄技能树属性[HeroType.羲和].火焰灼烧时间;
+            英雄灼烧状态[HeroType.羲和].灼烧层数++;
+
+         }
+      }
+      
+      
+      if (heroType == HeroType.元始)
+      {
+         if (英雄灼烧状态[HeroType.元始].灼烧层数 < FightController.S.英雄技能树属性[HeroType.元始].火焰灼烧最大层数 + 1)
+         {
+            英雄灼烧状态[HeroType.元始].灼烧伤害 += 最终Damage*FightController.S.英雄技能树属性[HeroType.元始].火焰灼烧伤害/100f;
+            英雄灼烧状态[HeroType.元始].灼烧Time = 2 + FightController.S.英雄技能树属性[HeroType.元始].火焰灼烧时间;
+            英雄灼烧状态[HeroType.元始].灼烧层数++;
+
+         }
+      }
+      
+      
+      if (heroType == HeroType.鸿钧)
+      {
+         if (英雄灼烧状态[HeroType.鸿钧].灼烧层数 < FightController.S.英雄技能树属性[HeroType.鸿钧].火焰灼烧最大层数 + 1)
+         {
+            英雄灼烧状态[HeroType.鸿钧].灼烧伤害 += 最终Damage*FightController.S.英雄技能树属性[HeroType.鸿钧].火焰灼烧伤害/100f;
+            英雄灼烧状态[HeroType.鸿钧].灼烧Time = 2 + FightController.S.英雄技能树属性[HeroType.鸿钧].火焰灼烧时间;
+            英雄灼烧状态[HeroType.鸿钧].灼烧层数++;
+         }
+      }
+   }
    public float 计算法器抗性(float 抗性,HeroType heroType,法器属性 法器属性)
    {
       switch (HeroConfig.HeroZhiYeDic[heroType].yuanSuType)
@@ -742,6 +843,33 @@ public class MonsterBase : MonoBehaviour
       // 已死亡的怪物不再移动/攻击城墙/跳灼烧：万一 Die() 回收前还有残余帧，
       // 也不能让死怪走到城墙根卡住全局攻击目标
       if (isDead) return;
+      foreach (var item in 英雄灼烧状态)
+      {
+         item.Value.灼烧当前时间+=Time.deltaTime;
+         if (item.Value.灼烧伤害>0&&item.Value.灼烧当前时间 > 0 && item.Value.灼烧当前时间 > 灼烧间隔)
+         {
+            item.Value.灼烧当前时间 = 0;
+            FightController.S.当前英雄伤害Dic[item.Key].技能伤害 += item.Value.灼烧伤害;
+            FightController.S.Show伤害数字(PlayerData.S.格式化数字(item.Value.灼烧伤害),YuanSuType.火,伤害trans.position,is暴击:false);
+            float 受伤前血量 = CurrentHP;
+            CurrentHP -= item.Value.灼烧伤害;
+            MonsterSlider.gameObject.SetActive(true);
+            MonsterSlider.maxValue = MonsterAttribute.Hp;
+            MonsterSlider.value = CurrentHP;
+            残影Slider.gameObject.SetActive(true);
+            残影Slider.maxValue = MonsterAttribute.Hp;
+            残影Slider.value = 受伤前血量;
+            if (残影DOTween != null && 残影DOTween.IsActive()) 残影DOTween.Kill();
+            残影DOTween = DOTween.To(() => 残影Slider.value,
+               x => 残影Slider.value = x,
+               CurrentHP,
+               0.5f);
+            if (CurrentHP <= 0)
+            {
+               Die(item.Key);
+            }
+         }
+      }
       灼烧time-=Time.deltaTime;
       灼烧当前时间+=Time.deltaTime;
       冰冻time-=Time.deltaTime;
