@@ -162,6 +162,8 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         if (黑暗辅助)
         {
             finalDamage *= (1 + 英雄星级属性.妲己效果 / 100f);
+            finalDamage *= (1 + FightController.S.英雄技能树属性[HeroType.妲己].妲己效果 / 100f);
+
         }
         if (女娲电辅助)
         {
@@ -200,7 +202,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
             }
             if (是黑暗符)
             {
-                monster.Set黑暗符(英雄星级属性.琼霄定身时长);
+                monster.Set黑暗符(英雄星级属性.琼霄定身时长*(1f+FightController.S.英雄技能树属性[HeroType.琼霄].琼霄控制时长/100f));
             }
 
             monster.妲己神通 = 妲己神通;

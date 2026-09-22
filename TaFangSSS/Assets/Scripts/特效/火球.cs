@@ -34,6 +34,8 @@ public class 火球 : MonoBehaviour
         if (黑暗辅助)
         {
             realDamage *= (1 + 英雄星级属性.妲己效果 / 100f);
+            realDamage *= (1 + FightController.S.英雄技能树属性[HeroType.妲己].妲己效果 / 100f);
+
         }
         if (女娲电辅助)
         {

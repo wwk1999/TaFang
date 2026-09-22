@@ -74,6 +74,8 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
         if (黑暗辅助)
         {
             damage *= (1 + 英雄星级属性.妲己效果 / 100f);
+            damage *= (1 + FightController.S.英雄技能树属性[HeroType.妲己].妲己效果 / 100f);
+
         }
         if (女娲电辅助)
         {

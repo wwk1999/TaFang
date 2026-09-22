@@ -71,11 +71,14 @@ public class 人物item : MonoBehaviour
     public float Get神通间隔()
     {
         float value = HeroConfig.英雄神通配置Dic[heroType].cd;
+        value/=(1f-FightController.S.英雄技能树属性[heroType].神通冷却时间/100f);
         return value;
     }
     public float Get神通能量()
     {
         float value = HeroConfig.英雄神通配置Dic[heroType].能量;
+        value/=(1f-FightController.S.英雄技能树属性[heroType].神通能量/100f);
+
         return value;
     }
     public float Get攻击间隔()
@@ -91,7 +94,7 @@ public class 人物item : MonoBehaviour
         if (女娲电辅助 > 0)
         {
             float 原始星级效果 = 英雄星级属性.女娲效果;
-            value /= (1f+原始星级效果);
+            value /= (1f+原始星级效果*(1f+FightController.S.英雄技能树属性[HeroType.女娲].女娲效果/100f));
             value /= (1f + 属性config.总属性.女娲辅助冷却缩减);//道文
         }
 
@@ -282,7 +285,7 @@ public class 人物item : MonoBehaviour
                     上场技能(攻击特效Type.喷火, new Vector2(targetPos.x - 1f, targetPos.y), 1f, false,false);
                 }else if(heroType == HeroType.孙悟空)//上场
                 {
-                    int count = 英雄星级属性.孙悟空次数;
+                    int count = 英雄星级属性.孙悟空次数+(int)FightController.S.英雄技能树属性[HeroType.孙悟空].孙悟空挥棒次数;
                     上场技能(攻击特效Type.孙悟空棒子, new Vector2(targetPos.x - 1f, targetPos.y), count*0.25f, false,false,count);
                 }
                 else if(heroType == HeroType.元始)//上场
@@ -292,11 +295,11 @@ public class 人物item : MonoBehaviour
                     {
                         FightController.S.元始数量++;
                     }
-                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间, true,false,FightController.S.元始数量);
+                    上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间*(1f+FightController.S.英雄技能树属性[HeroType.元始].元始下场时间/100f), true,false,FightController.S.元始数量);
                 }
                 else if(heroType == HeroType.盘古)//上场
                 {
-                    int count = 英雄星级属性.盘古攻击数量;
+                    int count = 英雄星级属性.盘古攻击数量+(int)FightController.S.英雄技能树属性[HeroType.盘古].混沌开天拳出拳数量增加;
                     StartCoroutine(盘古拳(  0.4f, count));
                 }
                 else

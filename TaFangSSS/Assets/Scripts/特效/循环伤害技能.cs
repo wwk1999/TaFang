@@ -50,10 +50,10 @@ public class 循环伤害技能 : MonoBehaviour
     private void Update()
     {
         alltime += Time.deltaTime;
-        transform.position += (Vector3)MoveDirection * MoveSpeed * 英雄星级属性.老子弹道速度 * Time.deltaTime;
+        transform.position += (Vector3)MoveDirection * MoveSpeed * 英雄星级属性.老子弹道速度*(1f-FightController.S.英雄技能树属性[HeroType.老子].玄冰风弹道速度减少/100f) * Time.deltaTime;
         if (Type == 攻击特效Type.冰旋风)
         {
-            transform.localScale = new Vector3(1 + alltime * 英雄星级属性.老子增长速度 / 100f, 1 + alltime * 英雄星级属性.老子增长速度 / 100f, transform.localScale.y);
+            transform.localScale = new Vector3(1 + alltime * 英雄星级属性.老子增长速度*(1f+FightController.S.英雄技能树属性[HeroType.老子].玄冰风每秒增长速度增加/100f) / 100f, 1 + alltime * 英雄星级属性.老子增长速度*(1f+FightController.S.英雄技能树属性[HeroType.老子].玄冰风每秒增长速度增加/100f) / 100f, transform.localScale.y);
         }
 
         // 计时器只在 Update 里累加一次，避免多怪物时 N 倍速计时
@@ -115,6 +115,8 @@ public class 循环伤害技能 : MonoBehaviour
         if (黑暗辅助)
         {
             finalDamage *= (1 + 英雄星级属性.妲己效果 / 100f);
+            finalDamage *= (1 + FightController.S.英雄技能树属性[HeroType.妲己].妲己效果 / 100f);
+
         }
         if (女娲电辅助)
         {

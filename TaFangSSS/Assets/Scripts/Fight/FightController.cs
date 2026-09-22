@@ -427,7 +427,7 @@ public class FightController : XSingleton<FightController>
                 }
                 break;
             case HeroType.鸿钧:
-                int count1 =  英雄星级属性.鸿钧攻击数量;
+                int count1 =  英雄星级属性.鸿钧攻击数量+(int)英雄技能树属性[HeroType.鸿钧].无极天火数量;
                 StartCoroutine(Spine一次伤害技能(攻击特效Type.陨石, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通time>0,count1));           
                 break;
         }
@@ -524,7 +524,7 @@ public class FightController : XSingleton<FightController>
         {
             if (item.Key != HeroType.女娲)
             {
-                item.Value.女娲神通time = 5f;
+                item.Value.女娲神通time = 5f*(1f+英雄技能树属性[HeroType.女娲].女娲持续时间/100f);
             }
         }
     }
@@ -550,7 +550,7 @@ public class FightController : XSingleton<FightController>
             randomValue = 人物items[randomKey];
         }
 
-        randomValue.妲己黑暗辅助 = 英雄星级属性.妲己持续时间;
+        randomValue.妲己黑暗辅助 = 英雄星级属性.妲己持续时间*(1f+英雄技能树属性[HeroType.妲己].妲己持续时间/100f);
     }
     
     public void 妲己神通()
@@ -1481,7 +1481,7 @@ public class FightController : XSingleton<FightController>
         战士伤害 = 属性config.总属性.战士增幅;
         控制伤害 = 属性config.总属性.控制增幅;
         法师伤害 = 属性config.总属性.法师增幅;
-        元始数量 = 英雄星级属性.元始攻击数量;
+        元始数量 = 英雄星级属性.元始攻击数量+(int)英雄技能树属性[HeroType.元始].元始火种个数;
         免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
         城墙护盾值 = 城墙Config.开局护盾值 / 100f * 城墙Config.Get城墙最大生命值();
         涅槃次数 = 城墙Config.涅槃次数;

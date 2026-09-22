@@ -39,8 +39,8 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float basespeed;
    private float CurrentAttackTime = 0;
    private float RealSpeed => GetRealSpeed();
-   [NonSerialized] public float 瑶池冰辅助=0;
-   [NonSerialized] public bool 女娲电辅助;
+   [NonSerialized] public float 瑶池冰辅助=0;//这里有bug，判断技能树的被辅助英雄的时候，没有被瑶池辅助的英雄的伤害也会被计算，因为不是实时更新
+   [NonSerialized] public bool 女娲电辅助;//每次攻击怪物的时候都会先改变这些辅助状态，然后再计算
    [NonSerialized] public bool 妲己黑暗辅助;
    [NonSerialized] public bool 妲己神通;
    [NonSerialized] public bool 女娲神通;
@@ -339,6 +339,18 @@ public class MonsterBase : MonoBehaviour
       {
          value += 属性config.总属性.法师暴击率*100;
       }
+      if (瑶池冰辅助 > 0)
+      {
+         value += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击率 ;
+      }
+      if (妲己黑暗辅助||妲己神通)
+      {
+         value += FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄暴击率 ;
+      }
+      if (女娲电辅助||女娲神通)
+      {
+         value += FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄暴击率 ;
+      }
       if (random <= value)
       {
          if (heroType == HeroType.通天)
@@ -378,6 +390,18 @@ public class MonsterBase : MonoBehaviour
       if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.法师)
       {
          value += 属性config.总属性.法师暴击率*100;
+      }
+      if (瑶池冰辅助 > 0)
+      {
+         value += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击率 ;
+      }
+      if (妲己黑暗辅助||妲己神通)
+      {
+         value += FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄暴击率 ;
+      }
+      if (女娲电辅助||女娲神通)
+      {
+         value += FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄暴击率 ;
       }
       if (random <= value)
       {
@@ -449,11 +473,35 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
-   public float 计算技能树伤害(float damage, HeroType heroType)
+   public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
    {
+      bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
       技能树属性 技能树属性 = FightController.S.英雄技能树属性[heroType];
       damage*=(1+技能树属性.英雄伤害/100f);
-      
+      if (是否神通)
+      {
+         damage *= (1f + FightController.S.英雄技能树属性[heroType].神通伤害 / 100f);
+      }
+      else
+      {
+         damage *= (1f + FightController.S.英雄技能树属性[heroType].技能伤害 / 100f);
+      }
+
+      float 被辅助伤害 = 1;
+      if (瑶池冰辅助 > 0)
+      {
+         被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄伤害 / 100f);
+      }
+      if (妲己黑暗辅助||妲己神通)
+      {
+         被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄伤害 / 100f);
+      }
+      if (女娲电辅助||女娲神通)
+      {
+         被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄伤害 / 100f);
+      }
+
+      damage *= 被辅助伤害;
       return damage;
    }
 
@@ -488,6 +536,21 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
          最终Damage*=(1+hero法器.暴击伤害/100f);
+         float 被辅助暴击伤害 = 1;
+         if (瑶池冰辅助 > 0)
+         {
+            被辅助暴击伤害 += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击伤害/100f ;
+         }
+         if (妲己黑暗辅助||妲己神通)
+         {
+            被辅助暴击伤害 += FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄暴击伤害 / 100f;
+         }
+         if (女娲电辅助||女娲神通)
+         {
+            被辅助暴击伤害 += FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄暴击伤害 / 100f;
+         }
+
+         最终Damage *= 被辅助暴击伤害;
          if (属性config.总属性.二次暴击 != 0)
          {
             bool 二次暴击=二次暴击检测(heroType);
@@ -498,6 +561,7 @@ public class MonsterBase : MonoBehaviour
                {
                   最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
                }
+               最终Damage *= 被辅助暴击伤害;
                最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
                最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);

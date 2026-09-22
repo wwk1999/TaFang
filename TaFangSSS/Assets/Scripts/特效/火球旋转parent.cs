@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 
 public class 火球旋转parent : MonoBehaviour
@@ -37,11 +38,11 @@ public class 火球旋转parent : MonoBehaviour
 
             item.damage=damage;
         }
-        Invoke(nameof(Hide), 英雄星级属性.元始持续时间);
+        Invoke(nameof(Hide), 英雄星级属性.元始持续时间*(1f+FightController.S.英雄技能树属性[HeroType.元始].元始下场时间/100f));
     }
 
     private void Update()
     {
-        transform.Rotate(0, 0, RotateSpeed * Time.deltaTime*英雄星级属性.元始转速);
+        transform.Rotate(0, 0, RotateSpeed * Time.deltaTime*英雄星级属性.元始转速*(1f+FightController.S.英雄技能树属性[HeroType.元始].火种旋转速度/100f));
     }
 }

@@ -121,8 +121,6 @@ public class 技能树属性
         public float 妲己持续时间;
         public float 孙悟空挥棒次数;
         public float 琼霄控制时长;
-    
-    
         public float 女娲效果;
         public float 女娲持续时间;
     
@@ -138,21 +136,14 @@ public class 技能树属性
         //神通
         public float 神通冷却时间;
         public float 神通伤害;
-    
-
         public float 神通能量;
-    
-        //辅助
         public float 被辅助英雄伤害;
         public float 被辅助英雄暴击率;
-
         public float 被辅助英雄暴击伤害;
     
         public float 技能伤害;
-    
         public float 射手分裂;
         public float 射手穿透;
-    
         public float 物理伤害;
         public float 雷电伤害;
         public float 黑暗伤害;
@@ -162,7 +153,6 @@ public class 技能树属性
         public float 火焰灼烧伤害;
         public float 火焰灼烧时间;
         public float 火焰灼烧最大层数;
-    
         public float 冰减速;
         public float 冰概率冰冻;
         public float 冰冻时间;
@@ -171,8 +161,6 @@ public class 技能树属性
         public float 易电状态概率;
         public float 易电状态时间;
         public float 易电状态伤害;
-    
-    
         public float 黑暗印记储存伤害;
         public float 黑暗印记减少引爆层数;
         public float 黑暗印记增加引爆层数;
@@ -180,7 +168,6 @@ public class 技能树属性
         public float 物理碎甲怪物百分比;
         public float 物理碎甲领主攻击百分比;
         public float 物理无抗性加伤害;
-    
         public float 增加所有英雄伤害;
     
         public float 寻宝速度;

@@ -162,6 +162,8 @@ public class 冰符动画脚本: MonoBehaviour
         if (黑暗辅助)
         {
             finalDamage *= (1f + 英雄星级属性.妲己效果 / 100f);
+            finalDamage *= (1 + FightController.S.英雄技能树属性[HeroType.妲己].妲己效果 / 100f);
+
         }
         if (女娲电辅助)
         {
