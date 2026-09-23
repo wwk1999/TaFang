@@ -17,6 +17,7 @@ public class 英雄伤害item
 }
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public Dictionary<HeroType, 符文属性> 英雄符文属性 = new Dictionary<HeroType, 符文属性>();
     [NonSerialized] public float 领主暴击率 = 0;
     [NonSerialized] public float 领主总攻击力 = 0 ;
     [NonSerialized] public float 技能树总所有英雄伤害 = 0;
@@ -26,7 +27,6 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public int 多闻天王穿透数量 = 0 ;
     [NonSerialized] public int 太白金星穿透数量 = 0 ;
     [NonSerialized] public int 杨戬穿透数量 = 0 ;
-    [NonSerialized] public int 云霄穿透数量 = 0 ;
     [NonSerialized] public int 通天穿透数量 = 0 ;
     [NonSerialized] public int 后羿穿透数量 = 0 ;
     
@@ -35,6 +35,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public int 多闻天王分裂数量 = 0 ;
     [NonSerialized] public int 太白金星分裂数量 = 0 ;
     [NonSerialized] public int 杨戬分裂数量 = 0 ;
+    [NonSerialized] public int 云霄穿透数量 = 0 ;
     [NonSerialized] public int 云霄分裂数量 = 0 ;
     [NonSerialized] public int 通天分裂数量 = 0 ;
     [NonSerialized] public int 后羿分裂数量 = 0 ;

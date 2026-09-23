@@ -216,8 +216,18 @@ public class 人物item : MonoBehaviour
             yield return new WaitForSeconds(time);
         }
     }
+
+    public void 符文减少神通冷却(object[] obj)
+    {
+        HeroType heroType1=(HeroType)obj[0];
+        if (heroType1 == heroType)
+        {
+            当前神通冷却时间 += 神通冷却时间 * (FightController.S.英雄符文属性[heroType].击杀怪物减少神通冷却 / 100f);
+        }
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("符文减少神通冷却",符文减少神通冷却);
         ObserverModuleManager.S.RegisterEvent("怪物死亡",怪物死亡);
         ObserverModuleManager.S.RegisterEvent("发射后羿神通",发射后羿神通);
     }
@@ -248,7 +258,7 @@ public class 人物item : MonoBehaviour
         MonsterBase monsterBase = FightController.S.GetAttackMonster();
         if (PlayerData.S.神通配置List.Count>0&&!上场&&!FightController.S.战斗结束&&PlayerData.S.神通配置List[FightController.S.当前神通index] == heroType &&
             FightController.S.当前英雄之间神通间隔时间 > FightController.S.英雄之间神通间隔时间 && 当前神通冷却时间 > 神通冷却时间 &&
-            FightController.S.当前神通能量 >= 神通能量&&攻击范围内怪物列表.Count>0)
+            FightController.S.当前神通能量 >= 神通能量&&攻击范围内怪物列表.Count>0&&FightController.S.英雄符文属性[heroType].技能伤害增加不能释放神通==0)
         {
             FightController.S.当前神通index++;
             if (FightController.S.当前神通index >= PlayerData.S.神通配置List.Count)
@@ -470,6 +480,7 @@ public class 人物item : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("符文减少神通冷却",符文减少神通冷却);
         ObserverModuleManager.S.UnRegisterEvent("发射后羿神通",发射后羿神通);
         ObserverModuleManager.S.UnRegisterEvent("怪物死亡",怪物死亡);
 

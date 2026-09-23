@@ -370,7 +370,7 @@ public class QueueController:XSingleton<QueueController>
             }
         }
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 150; i++)
         {
             if (普通怪死亡Queue.Count > 50)
             {

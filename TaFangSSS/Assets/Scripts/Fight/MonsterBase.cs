@@ -529,6 +529,30 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
+   public float 计算符文伤害(float damage, HeroType heroType, 攻击特效Type 攻击特效)
+   {
+      bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
+      if (FightController.S.英雄符文属性[heroType].技能伤害减少神通伤害增加 > 0)
+      {
+         if (是否神通)
+         {
+            damage*=(1f+FightController.S.英雄符文属性[heroType].技能伤害减少神通伤害增加/100f);
+         }
+         else
+         {
+            damage /= 2;
+         }
+      }
+
+      if (FightController.S.英雄符文属性[heroType].技能伤害增加不能释放神通 > 0)
+      {
+         if (!是否神通)
+         {
+            damage*=(1f+FightController.S.英雄符文属性[heroType].技能伤害增加不能释放神通/100f);
+         }
+      }
+      retre
+   }
    public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
    {
       YuanSuType yuansu = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
@@ -702,6 +726,7 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].冰冻增伤/100f);
       }
       最终Damage *= (1f+易电伤害/100f);
+      最终Damage=计算技能树伤害(最终Damage,heroType,攻击特效);
 
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
@@ -716,7 +741,6 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
          最终Damage*=(1+hero法器.暴击伤害/100f);
-         最终Damage=计算技能树伤害(最终Damage,heroType,攻击特效);
          float 被辅助暴击伤害 = 1;
          if (瑶池冰辅助 > 0)
          {
@@ -1438,7 +1462,9 @@ public class MonsterBase : MonoBehaviour
       }
       isDead = true;
       try
-      {
+      { 
+         FightController.S.当前神通能量 += FightController.S.英雄符文属性[heroType].击杀怪物获得神通能量;
+         ObserverModuleManager.S.SendEvent("符文减少神通冷却",heroType);
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
       增加功法经验();
       if (heroType == HeroType.盘古)
