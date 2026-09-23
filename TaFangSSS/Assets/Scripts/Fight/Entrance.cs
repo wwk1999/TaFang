@@ -227,6 +227,12 @@ public class Entrance : MonoBehaviour
 
       foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
       {
+          if (FightController.S.英雄符文属性[item].献祭自身加强相邻英雄 > 0)
+          {
+              FightController.S.献祭英雄列表.Add(new 献祭属性(){index = index,count = FightController.S.英雄符文属性[item].献祭自身加强相邻英雄});
+              index++;
+              continue;
+          }
          if (item == HeroType.None)
          {
              index++;
@@ -295,11 +301,26 @@ public class Entrance : MonoBehaviour
          FightController.S.领主暴击率 = 属性config.总属性.暴击率 * 100;
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;
+         renwu.index=index;
          renwu.SetItem();
          renwu.transform.localPosition = FightConfig.人物位置Dic[index];
          renwu.原始Pos = renwu.transform.position;
          FightController.S.人物items[item] = renwu;
+         FightController.S.出战英雄编号[item] = index;
          index++;
+      }
+
+      for (int i = 1; i <= 5; i++)
+      {
+          float value = 0;
+          foreach (var item in FightController.S.献祭英雄列表)
+          {
+              if (item.index == i - 1 || item.index == i + 1)
+              {
+                  value += item.count;
+              }
+          }
+          FightController.S.献祭英雄增加伤害[i]=value;
       }
    }
 

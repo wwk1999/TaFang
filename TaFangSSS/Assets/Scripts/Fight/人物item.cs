@@ -39,6 +39,8 @@ public class 人物item : MonoBehaviour
     public Animator Animator;
     public GameObject 攻击范围Tri;
     [NonSerialized]public HeroType heroType;
+    [NonSerialized]public int index;
+
     private float CurrentAttackTime = 0;
     [NonSerialized] private HashSet<MonsterBase> 攻击范围内怪物=new HashSet<MonsterBase>();
     [NonSerialized] private List<MonsterBase> 攻击范围内怪物列表 = new List<MonsterBase>();  // 新增

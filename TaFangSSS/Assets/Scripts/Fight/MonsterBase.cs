@@ -551,6 +551,7 @@ public class MonsterBase : MonoBehaviour
             damage*=(1f+FightController.S.英雄符文属性[heroType].技能伤害增加不能释放神通/100f);
          }
       }
+      damage*=(1f+FightController.S.献祭英雄增加伤害[FightController.S.出战英雄编号[heroType]]/100f);
 
       return damage;
    }

@@ -15,8 +15,17 @@ public class 英雄伤害item
     public float 神通伤害;
     public float 技能伤害;
 }
+
+public class 献祭属性
+{
+    public int index;
+    public float count;
+}
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public Dictionary<HeroType,int>出战英雄编号=new Dictionary<HeroType,int>();
+    [NonSerialized] public Dictionary<int,float>献祭英雄增加伤害=new Dictionary<int,float>();
+    [NonSerialized] public List<献祭属性>献祭英雄列表=new List<献祭属性>();
     [NonSerialized] public Dictionary<HeroType, 符文属性> 英雄符文属性 = new Dictionary<HeroType, 符文属性>();
     [NonSerialized] public float 领主暴击率 = 0;
     [NonSerialized] public float 领主总攻击力 = 0 ;
