@@ -32,6 +32,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float 易电伤害 = 0;
    [NonSerialized]public float 黑暗印记层数 = 0;
    [NonSerialized]public float 黑暗印记伤害 = 0;
+   [NonSerialized]public float 怪物真实护甲 = 0;
 
 
    [NonSerialized] public Dictionary<HeroType, 灼烧> 英雄灼烧状态 = new Dictionary<HeroType, 灼烧>()
@@ -189,6 +190,21 @@ public class MonsterBase : MonoBehaviour
       残影Slider.gameObject.SetActive(false);
       CurrentHP = MonsterAttribute.Hp;
       image.sprite = ResourcesConfig.GetMonsterSprite(MonsterTypeName);
+      foreach (var item in 英雄灼烧状态)
+      {
+         item.Value.灼烧Time = 0;
+         item.Value.灼烧伤害 = 0;
+         item.Value.灼烧层数 = 0;
+      }
+
+      冰冻time = 0;
+      冰元素减速 = 0;
+      冰元素减速时间 = 0;
+      易电伤害 = 0;
+      易电time = 0;
+      黑暗印记伤害 = 0;
+      黑暗印记层数 = 0;
+      怪物真实护甲 = MonsterAttribute.Defense;
    }
 
    public void InitAttribute()
@@ -606,9 +622,23 @@ public class MonsterBase : MonoBehaviour
          }
       }
 
-      
+      if (FightController.S.英雄技能树属性[heroType].物理碎甲怪物百分比 > 0)
+      {
+         怪物真实护甲 -= MonsterAttribute.Defense * FightController.S.英雄技能树属性[heroType].物理碎甲怪物百分比 / 100f;
+         怪物真实护甲 = Math.Max(0, 怪物真实护甲);
+      }
+      if (FightController.S.英雄技能树属性[heroType].物理碎甲领主攻击百分比 > 0)
+      {
+         怪物真实护甲 -= FightController.S.领主总攻击力 * FightController.S.英雄技能树属性[heroType].物理碎甲领主攻击百分比 / 100f;
+         怪物真实护甲 = Math.Max(0, 怪物真实护甲);
+      }
 
-      float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
+      float 最终Damage = Math.Max(原始Damage - 怪物真实护甲,0);
+      最终Damage *= (1f + FightController.S.技能树总所有英雄伤害 / 100f);
+      if (怪物真实护甲 == 0)
+      {
+         最终Damage *= (1f + FightController.S.英雄技能树属性[heroType].物理无抗性加伤害 / 100f);
+      }
       if (冰冻time > 0)
       {
          最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].冰冻增伤/100f);

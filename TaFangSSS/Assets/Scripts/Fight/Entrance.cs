@@ -283,6 +283,12 @@ public class Entrance : MonoBehaviour
          {
              FightController.S.元始数量 = 英雄星级属性.元始攻击数量+(int)FightController.S.英雄技能树属性[HeroType.元始].元始火种个数;
          }
+
+         FightController.S.领主总攻击力 = 属性config.总属性.总攻击力;
+         foreach (var item1 in HeroConfig.HeroNameDic)
+         {
+             FightController.S.技能树总所有英雄伤害+=FightController.S.英雄技能树属性[item1.Key].增加所有英雄伤害;
+         }
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;
          renwu.SetItem();
