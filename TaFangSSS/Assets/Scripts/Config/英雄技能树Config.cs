@@ -158,7 +158,7 @@ public class 技能树属性
         public float 冰冻时间;//冰冻时间默认1s
         public float 冰冻增伤;
     
-        public float 易电状态概率;
+        public float 易电状态概率;//易电状态默认加30%伤害
         public float 易电状态时间;
         public float 易电状态伤害;
         public float 黑暗印记储存伤害;

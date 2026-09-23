@@ -28,6 +28,9 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float 灼烧间隔 = 1;
    [NonSerialized]public float 灼烧当前时间 = 0;
    [NonSerialized]public float 冰冻time = 0;
+   [NonSerialized]public float 易电time = 0;
+   [NonSerialized]public float 易电伤害 = 0;
+
 
    [NonSerialized] public Dictionary<HeroType, 灼烧> 英雄灼烧状态 = new Dictionary<HeroType, 灼烧>()
    {
@@ -590,12 +593,26 @@ public class MonsterBase : MonoBehaviour
          }
       }
       
+      //易电
+      if (FightController.S.英雄技能树属性[heroType].易电状态概率 > 0&&FightController.S.英雄技能树属性[heroType].易电状态伤害+30 > 易电伤害)
+      {
+         float random=Random.Range(0,100);
+         if (random < FightController.S.英雄技能树属性[heroType].易电状态概率)
+         {
+            易电伤害 = FightController.S.英雄技能树属性[heroType].易电状态伤害 + 30;
+            易电time=FightController.S.英雄技能树属性[heroType].易电状态时间 + 2;
+         }
+      }
+
+      
 
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
       if (冰冻time > 0)
       {
          最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].冰冻增伤/100f);
       }
+      最终Damage *= (1f+易电伤害/100f);
+
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
       {
@@ -913,10 +930,15 @@ public class MonsterBase : MonoBehaviour
       灼烧time-=Time.deltaTime;
       灼烧当前时间+=Time.deltaTime;
       冰冻time-=Time.deltaTime;
+      易电time-=Time.deltaTime;
       冰符-=Time.deltaTime;
       瑶池冰辅助-=Time.deltaTime;
       龟丞相减速-=Time.deltaTime;
       黑暗符-=Time.deltaTime;
+      if (易电time <= 0)
+      {
+         易电伤害 = 0;
+      }
       灼烧obj.gameObject.SetActive(灼烧time>0||英雄灼烧状态[HeroType.哪吒].灼烧Time>0||英雄灼烧状态[HeroType.羲和].灼烧Time>0||英雄灼烧状态[HeroType.月老].灼烧Time>0||英雄灼烧状态[HeroType.元始].灼烧Time>0||英雄灼烧状态[HeroType.鸿钧].灼烧Time>0);
       冰块.gameObject.SetActive(冰冻time>0);
       if (灼烧time > 0 && 灼烧当前时间 > 灼烧间隔)
