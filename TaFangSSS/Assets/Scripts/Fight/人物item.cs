@@ -394,10 +394,10 @@ public class 人物item : MonoBehaviour
                     StartCoroutine(多次释放神通(攻击特效Type.玄女神通,5,0.15f));
                     break;
                 case HeroType.碧霄:
-                    StartCoroutine(多次释放神通(攻击特效Type.碧霄神通,13,0.12f));
+                    StartCoroutine(多次释放神通(攻击特效Type.碧霄神通,13+(int)FightController.S.英雄技能树属性[heroType].碧霄神通数量,0.12f));
                     break;
                 case HeroType.羲和:
-                    StartCoroutine(多次释放神通(攻击特效Type.羲和神通,3,0.3f));
+                    StartCoroutine(多次释放神通(攻击特效Type.羲和神通,3+(int)FightController.S.英雄技能树属性[heroType].羲和神通数量,0.3f));
                     break;
                 case HeroType.琼霄:
                     StartCoroutine(多次释放神通(攻击特效Type.琼霄神通,1,0.12f));
@@ -409,7 +409,7 @@ public class 人物item : MonoBehaviour
                     StartCoroutine(多次释放神通(攻击特效Type.月老神通,5,0.15f));
                     break;
                 case HeroType.哪吒:
-                    StartCoroutine(多次释放神通(攻击特效Type.哪吒神通,6,0.15f));
+                    StartCoroutine(多次释放神通(攻击特效Type.哪吒神通,6+(int)FightController.S.英雄技能树属性[heroType].哪吒神通数量,0.15f));
                     break;
                 case HeroType.丹童:
                     FightController.S.人物神通(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time,女娲神通time);

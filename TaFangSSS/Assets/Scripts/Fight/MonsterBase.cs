@@ -566,17 +566,67 @@ public class MonsterBase : MonoBehaviour
       float 被辅助伤害 = 1;
       if (瑶池冰辅助 > 0)
       {
+         switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+         {
+            case MonsterType.Normal:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄普通怪伤害 / 100f);
+               break;
+            case MonsterType.Elite:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄精英怪伤害 / 100f);
+               break;
+            case MonsterType.Boss:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄首领怪伤害 / 100f);
+               break;
+         }
+
+         if (!是否神通)
+         {
+            被辅助伤害 += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄技能伤害 / 100f;
+         }
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄伤害 / 100f);
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助元素伤害 / 100f);
       }
       if (妲己黑暗辅助||妲己神通)
       {
+         
+         switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+         {
+            case MonsterType.Normal:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄普通怪伤害 / 100f);
+               break;
+            case MonsterType.Elite:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄精英怪伤害 / 100f);
+               break;
+            case MonsterType.Boss:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄首领怪伤害 / 100f);
+               break;
+         }
+         if (!是否神通)
+         {
+            被辅助伤害 += FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄技能伤害 / 100f;
+         }
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄伤害 / 100f);
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助元素伤害 / 100f);
 
       }
       if (女娲电辅助||女娲神通)
       {
+         switch (MonsterConfig.MonsterTypeDic[MonsterTypeName])
+         {
+            case MonsterType.Normal:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄普通怪伤害 / 100f);
+               break;
+            case MonsterType.Elite:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄精英怪伤害 / 100f);
+               break;
+            case MonsterType.Boss:
+               被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄首领怪伤害 / 100f);
+               break;
+         }
+         if (!是否神通)
+         {
+            被辅助伤害 += FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄技能伤害 / 100f;
+         }
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄伤害 / 100f);
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助元素伤害 / 100f);
       }
@@ -716,7 +766,7 @@ public class MonsterBase : MonoBehaviour
 
       if (FightController.S.攻击特效是否神通(攻击特效)&&女娲神通)
       {
-         最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.女娲].damage/100f);
+         最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.女娲].damage/100f*(1f+FightController.S.英雄技能树属性[HeroType.女娲].女娲神通效果/100f));
       }
       最终Damage *= (1f+PlayerData.S.轮回次数*属性config.总属性.轮回次数加伤);
       最终Damage *= 属性config.总属性.最终伤害增幅;

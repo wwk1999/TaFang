@@ -739,7 +739,7 @@ public class FightController : XSingleton<FightController>
     {
         var item = QueueController.S.石敢当锤子Queue.Dequeue();
         item.dir = dir;
-        item.speed = 12;
+        item.speed = 12*(1f+英雄技能树属性[HeroType.石敢当].石敢当锤子速度/100f);
         item.transform.position = shotpos;
         item.瑶池冰辅助 = 瑶池冰辅助;
         item.黑暗辅助 = 黑暗辅助;
