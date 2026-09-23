@@ -58,6 +58,50 @@ public enum 符文Type
     //低品质英雄增伤,
 }
 
+public class 符文属性
+{
+    public float 击杀怪物获得神通能量;
+    public float 击杀怪物减少神通冷却;
+    public float 技能伤害减少神通伤害增加;
+    public float 技能伤害增加不能释放神通;
+    
+    public float 献祭自身加强相邻英雄;
+    public float 火同气连枝;
+    public float 冰同气连枝;
+    public float 黑暗同气连枝;
+    public float 雷电同气连枝;
+    public float 物理同气连枝;
+    public float 战士同气连枝;
+    public float 射手同气连枝;
+    public float 控制同气连枝;
+    public float 法师同气连枝;
+    public float 辅助同气连枝;
+    public float 辅助印记增伤;
+    
+    public float 元素每有一个不同增伤;
+    public float 职业每有一个不同增伤;
+    
+    public float 对怪物的第一次伤害增加;
+    public float 对怪物攻击次数越多越加伤害;
+    public float 加强碎甲效果;
+    public float 碎甲为0时加伤害;
+    
+    public float 每层火焰灼烧加伤;
+    
+    public float  每层黑暗印记加伤;
+    public float 引爆时造成范围爆炸;
+    
+    public float 雷属性打易电状态加伤害;
+    public float 增强易电效果;
+    
+    public float 取消冰冻每冰冻概率增伤;
+    public float 冰减速效果;
+    
+    public float 每有一个异常状态增伤;
+    public float 没有异常状态增伤;
+    public float 清除异常状态增伤;
+}
+
 public class 符文
 {
     public 符文Type type;
@@ -83,6 +127,11 @@ public class 符文Config
         {  QualityType.洪品,符文品质Type.圣文 },
         {  QualityType.荒品,符文品质Type.道文 },
     };
+
+    public static 符文属性 Get英雄符文属性(HeroType heroType, 符文Type type)
+    {
+        
+    }
 
     public static Dictionary<符文Type, string> 符文名Dic = new Dictionary<符文Type, string>()
     {
