@@ -23,6 +23,8 @@ public class 献祭属性
 }
 public class FightController : XSingleton<FightController>
 {
+    public int 不同职业个数 = 0;
+    public int 不同元素个数 = 0;
     [NonSerialized] public Dictionary<ZhiYeType, int> 出战职业个数 = new Dictionary<ZhiYeType, int>
     {
         {ZhiYeType.射手,0},
@@ -38,6 +40,7 @@ public class FightController : XSingleton<FightController>
         {YuanSuType.物理,0},
     };
 
+    [NonSerialized] public Dictionary<HeroType, int> 英雄辅助印记数量 = new Dictionary<HeroType, int>();
     [NonSerialized] public Dictionary<HeroType,int>出战英雄编号=new Dictionary<HeroType,int>();
     [NonSerialized] public Dictionary<int,float>献祭英雄增加伤害=new Dictionary<int,float>();
     [NonSerialized] public List<献祭属性>献祭英雄列表=new List<献祭属性>();
@@ -795,7 +798,16 @@ public class FightController : XSingleton<FightController>
         }
 
         randomValue.瑶池神通time = 英雄星级属性.瑶池仙女持续时间*2;
-        randomValue.辅助印记个数++;
+        
+        HeroType heroType = randomValue.heroType;
+        if (英雄辅助印记数量.TryGetValue(heroType, out int count))
+        {
+            英雄辅助印记数量[heroType] = count + 1;
+        }
+        else
+        {
+            英雄辅助印记数量[heroType] = 1;  // 首次出现，从 1 开始
+        }    
     }
     public void 瑶池冰辅助技能()
     {
@@ -813,7 +825,15 @@ public class FightController : XSingleton<FightController>
             randomKey = keysArray[random];
             randomValue = 人物items[randomKey];
         }
-        randomValue.辅助印记个数++;
+        HeroType heroType = randomValue.heroType;
+        if (英雄辅助印记数量.TryGetValue(heroType, out int count))
+        {
+            英雄辅助印记数量[heroType] = count + 1;
+        }
+        else
+        {
+            英雄辅助印记数量[heroType] = 1;  // 首次出现，从 1 开始
+        }    
         randomValue.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间*(1f+英雄技能树属性[HeroType.瑶池仙女].瑶池持续时间/100f);
     }
     public void 女娲电辅助技能()
@@ -823,8 +843,15 @@ public class FightController : XSingleton<FightController>
             if (item.Key != HeroType.女娲)
             {
                 item.Value.女娲电辅助 = 英雄星级属性.女娲持续时间;
-                item.Value.辅助印记个数++;
-            }
+                HeroType heroType = item.Value.heroType;
+                if (英雄辅助印记数量.TryGetValue(heroType, out int count))
+                {
+                    英雄辅助印记数量[heroType] = count + 1;
+                }
+                else
+                {
+                    英雄辅助印记数量[heroType] = 1;  // 首次出现，从 1 开始
+                }                }
         }
     }
     
@@ -834,7 +861,15 @@ public class FightController : XSingleton<FightController>
         {
             if (item.Key != HeroType.女娲)
             {
-                item.Value.辅助印记个数++;
+                HeroType heroType = item.Value.heroType;
+                if (英雄辅助印记数量.TryGetValue(heroType, out int count))
+                {
+                    英雄辅助印记数量[heroType] = count + 1;
+                }
+                else
+                {
+                    英雄辅助印记数量[heroType] = 1;  // 首次出现，从 1 开始
+                }    
                 item.Value.女娲神通time = 5f*(1f+英雄技能树属性[HeroType.女娲].女娲持续时间/100f);
             }
         }
@@ -860,7 +895,15 @@ public class FightController : XSingleton<FightController>
             randomKey = keysArray[random];
             randomValue = 人物items[randomKey];
         }
-        randomValue.辅助印记个数++;
+        HeroType heroType = randomValue.heroType;
+        if (英雄辅助印记数量.TryGetValue(heroType, out int count))
+        {
+            英雄辅助印记数量[heroType] = count + 1;
+        }
+        else
+        {
+            英雄辅助印记数量[heroType] = 1;  // 首次出现，从 1 开始
+        }    
         randomValue.妲己黑暗辅助 = 英雄星级属性.妲己持续时间*(1f+英雄技能树属性[HeroType.妲己].妲己持续时间/100f);
     }
     
@@ -881,7 +924,15 @@ public class FightController : XSingleton<FightController>
             randomValue = 人物items[randomKey];
         }
         randomValue.妲己神通time = 英雄星级属性.妲己持续时间;
-        randomValue.辅助印记个数++;
+        HeroType heroType = randomValue.heroType;
+        if (英雄辅助印记数量.TryGetValue(heroType, out int count))
+        {
+            英雄辅助印记数量[heroType] = count + 1;
+        }
+        else
+        {
+            英雄辅助印记数量[heroType] = 1;  // 首次出现，从 1 开始
+        }
     }
 
     public IEnumerator Spine一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos, bool 瑶池冰辅助, bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,int count=0)

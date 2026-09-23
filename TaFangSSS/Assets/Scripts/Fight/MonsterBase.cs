@@ -591,6 +591,9 @@ public class MonsterBase : MonoBehaviour
          }
       }
       damage*=(1f+FightController.S.献祭英雄增加伤害[FightController.S.出战英雄编号[heroType]]/100f);
+      damage*=(1f+FightController.S.英雄辅助印记数量[heroType]*FightController.S.英雄符文属性[heroType].辅助印记增伤/100f);
+      damage*=(1f+FightController.S.英雄符文属性[heroType].元素每有一个不同增伤*FightController.S.不同元素个数/100f);
+      damage*=(1f+FightController.S.英雄符文属性[heroType].职业每有一个不同增伤*FightController.S.不同职业个数/100f);
 
       return damage;
    }
