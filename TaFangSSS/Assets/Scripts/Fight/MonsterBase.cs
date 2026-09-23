@@ -363,7 +363,7 @@ public class MonsterBase : MonoBehaviour
    public bool 暴击检测(HeroType heroType)
    {
       float random = Random.Range(0, 100);
-      float value = 属性config.总属性.暴击率 * 100;
+      float value = FightController.S.领主暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
       if (瑶池冰辅助 > 0)
       {
@@ -391,6 +391,8 @@ public class MonsterBase : MonoBehaviour
       {
          value += 属性config.总属性.法师暴击率*100;
       }
+
+      value += FightController.S.英雄技能树属性[heroType].暴击率;
       if (瑶池冰辅助 > 0)
       {
          value += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击率 ;
@@ -420,12 +422,14 @@ public class MonsterBase : MonoBehaviour
    public bool 二次暴击检测(HeroType heroType)
    {
       float random = Random.Range(0, 500);
-      float value = 属性config.总属性.暴击率 * 100;
+      float value = FightController.S.领主暴击率 * 100;
       value += FightController.S.英雄法器属性Dic[heroType].暴击率;
       if (瑶池冰辅助 > 0)
       {
          value += FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击率;
       }
+      value += FightController.S.英雄技能树属性[heroType].暴击率;
+
       if (妲己黑暗辅助)
       {
          value += FightController.S.英雄法器属性Dic[HeroType.妲己].暴击率;
@@ -563,14 +567,18 @@ public class MonsterBase : MonoBehaviour
       if (瑶池冰辅助 > 0)
       {
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄伤害 / 100f);
+         被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助元素伤害 / 100f);
       }
       if (妲己黑暗辅助||妲己神通)
       {
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄伤害 / 100f);
+         被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.妲己].被辅助元素伤害 / 100f);
+
       }
       if (女娲电辅助||女娲神通)
       {
          被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄伤害 / 100f);
+         被辅助伤害 += (FightController.S.英雄技能树属性[HeroType.女娲].被辅助元素伤害 / 100f);
       }
 
       damage *= 被辅助伤害;
@@ -653,6 +661,7 @@ public class MonsterBase : MonoBehaviour
          {
             最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
          }
+         最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].暴击伤害/100f);
          最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
          最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
@@ -684,6 +693,7 @@ public class MonsterBase : MonoBehaviour
                   最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
                }
                最终Damage *= 被辅助暴击伤害;
+               最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].暴击伤害/100f);
                最终Damage *= (1f+体质Config.当前体质总属性.暴击伤害/100f);
                最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
                最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
@@ -746,12 +756,15 @@ public class MonsterBase : MonoBehaviour
       {
          case MonsterType.Normal:
             最终Damage *= 属性config.总属性.普通怪伤害增幅;
+            最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].普通怪增伤/100f);
             break;
          case MonsterType.Elite:
             最终Damage *= 属性config.总属性.精英怪伤害增幅;
+            最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].精英怪增伤/100f);
             break;
          case MonsterType.Boss:
             最终Damage *= 属性config.总属性.首领伤害增幅;
+            最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].首领怪增伤/100f);
             break;
       }
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);

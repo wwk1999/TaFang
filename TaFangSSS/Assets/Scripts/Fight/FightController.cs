@@ -17,6 +17,7 @@ public class 英雄伤害item
 }
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public float 领主暴击率 = 0;
     [NonSerialized] public float 领主总攻击力 = 0 ;
     [NonSerialized] public float 技能树总所有英雄伤害 = 0;
 
