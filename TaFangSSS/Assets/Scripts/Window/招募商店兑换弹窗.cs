@@ -20,7 +20,7 @@ public class 招募商店兑换弹窗 : MonoBehaviour
    [NonSerialized] public PropType Type;
    public Button mask;
    private int count = 1;
-   public Button exitbutton;
+   public TextMeshProUGUI 职业;
 
    public void DuiHuan()
    {
@@ -41,10 +41,7 @@ public class 招募商店兑换弹窗 : MonoBehaviour
    }
    private void Start()
    {
-      exitbutton.onClick.AddListener(() =>
-      {
-         gameObject.SetActive(false);
-      });
+     
       Jia.onClick.AddListener(() =>
       {
          count++;
@@ -69,6 +66,7 @@ public class 招募商店兑换弹窗 : MonoBehaviour
 
    public void SetItem()
    {
+      职业.text=HeroConfig.Get职业Name(HeroConfig.HeroZhiYeDic[PropConfig.PropToHeroDic[Type]].zhiYeType);
       Name.text=HeroConfig.HeroNameDic[PropConfig.PropToHeroDic[Type]];
       Description.text=HeroConfig.HeroDescDic[PropConfig.PropToHeroDic[Type]];
       image.sprite = ResourcesConfig.GetHeroSprite(PropConfig.PropToHeroDic[Type]);

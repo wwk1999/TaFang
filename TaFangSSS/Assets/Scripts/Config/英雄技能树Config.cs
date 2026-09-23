@@ -155,7 +155,7 @@ public class 技能树属性
         public float 火焰灼烧最大层数;
         public float 冰减速;
         public float 冰概率冰冻;
-        public float 冰冻时间;
+        public float 冰冻时间;//冰冻时间默认1s
         public float 冰冻增伤;
     
         public float 易电状态概率;

@@ -72,6 +72,8 @@ public class MonsterBase : MonoBehaviour
    private float _上次伤害数字时间;
    private float 上次受击动画时间 = 0;
 
+   [NonSerialized] public float 冰元素减速 = 0;//多次减速取最大值
+   [NonSerialized] public float 冰元素减速时间 = 0;
    public void Set灼烧伤害(float damage)
    {
       damage *= 属性config.总属性.羲和灼烧伤害;
@@ -99,6 +101,11 @@ public class MonsterBase : MonoBehaviour
       {
          value *= (1-英雄星级属性.瑶池仙女减速效果/100f);
          value*=(1f-FightController.S.英雄技能树属性[HeroType.瑶池仙女].瑶池减速效果/100f);
+      }
+
+      if (冰元素减速 > 0)
+      {
+         value *= (1-冰元素减速/100f);
       }
       if (冰符 > 0)
       {
@@ -568,7 +575,27 @@ public class MonsterBase : MonoBehaviour
          受击Animation.Play("怪物受击",0,0f);
       }
 
+      //冰元素减速冰冻
+      if (FightController.S.英雄技能树属性[heroType].冰减速 > 冰元素减速)
+      {
+         冰元素减速 = FightController.S.英雄技能树属性[heroType].冰减速;
+         冰元素减速时间 = 2;
+      }
+      if (FightController.S.英雄技能树属性[heroType].冰概率冰冻 > 0)
+      {
+         float random=Random.Range(0,100);
+         if (random < FightController.S.英雄技能树属性[heroType].冰概率冰冻)
+         {
+            冰冻time = 1f + FightController.S.英雄技能树属性[heroType].冰冻时间;
+         }
+      }
+      
+
       float 最终Damage = Math.Max(原始Damage - MonsterAttribute.Defense,0);
+      if (冰冻time > 0)
+      {
+         最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].冰冻增伤/100f);
+      }
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
       {
@@ -581,6 +608,7 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
          最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
          最终Damage*=(1+hero法器.暴击伤害/100f);
+         最终Damage=计算技能树伤害(最终Damage,heroType,攻击特效);
          float 被辅助暴击伤害 = 1;
          if (瑶池冰辅助 > 0)
          {
@@ -846,9 +874,16 @@ public class MonsterBase : MonoBehaviour
       foreach (var item in 英雄灼烧状态)
       {
          item.Value.灼烧当前时间+=Time.deltaTime;
-         if (item.Value.灼烧伤害>0&&item.Value.灼烧当前时间 > 0 && item.Value.灼烧当前时间 > 灼烧间隔)
+         item.Value.灼烧Time -= Time.deltaTime;
+         if (item.Value.灼烧Time <= 0)
+         {
+            item.Value.灼烧伤害 = 0;
+            item.Value.灼烧层数 = 0;
+         }
+         if (item.Value.灼烧伤害>0&&item.Value.灼烧当前时间 > 0 && item.Value.灼烧当前时间 > 灼烧间隔&&item.Value.灼烧Time>0)
          {
             item.Value.灼烧当前时间 = 0;
+            FightController.S.当前英雄伤害Dic[item.Key].总伤害 += item.Value.灼烧伤害;
             FightController.S.当前英雄伤害Dic[item.Key].技能伤害 += item.Value.灼烧伤害;
             FightController.S.Show伤害数字(PlayerData.S.格式化数字(item.Value.灼烧伤害),YuanSuType.火,伤害trans.position,is暴击:false);
             float 受伤前血量 = CurrentHP;
@@ -870,6 +905,11 @@ public class MonsterBase : MonoBehaviour
             }
          }
       }
+      冰元素减速时间-=Time.deltaTime;
+      if (冰元素减速时间 <= 0)
+      {
+         冰元素减速 = 0;
+      }
       灼烧time-=Time.deltaTime;
       灼烧当前时间+=Time.deltaTime;
       冰冻time-=Time.deltaTime;
@@ -877,7 +917,7 @@ public class MonsterBase : MonoBehaviour
       瑶池冰辅助-=Time.deltaTime;
       龟丞相减速-=Time.deltaTime;
       黑暗符-=Time.deltaTime;
-      灼烧obj.gameObject.SetActive(灼烧time>0);
+      灼烧obj.gameObject.SetActive(灼烧time>0||英雄灼烧状态[HeroType.哪吒].灼烧Time>0||英雄灼烧状态[HeroType.羲和].灼烧Time>0||英雄灼烧状态[HeroType.月老].灼烧Time>0||英雄灼烧状态[HeroType.元始].灼烧Time>0||英雄灼烧状态[HeroType.鸿钧].灼烧Time>0);
       冰块.gameObject.SetActive(冰冻time>0);
       if (灼烧time > 0 && 灼烧当前时间 > 灼烧间隔)
       {

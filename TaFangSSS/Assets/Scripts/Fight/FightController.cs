@@ -1760,7 +1760,6 @@ public class FightController : XSingleton<FightController>
         战士伤害 = 属性config.总属性.战士增幅;
         控制伤害 = 属性config.总属性.控制增幅;
         法师伤害 = 属性config.总属性.法师增幅;
-        元始数量 = 英雄星级属性.元始攻击数量+(int)英雄技能树属性[HeroType.元始].元始火种个数;
         免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
         城墙护盾值 = 城墙Config.开局护盾值 / 100f * 城墙Config.Get城墙最大生命值();
         涅槃次数 = 城墙Config.涅槃次数;

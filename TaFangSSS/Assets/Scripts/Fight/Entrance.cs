@@ -278,6 +278,11 @@ public class Entrance : MonoBehaviour
              FightController.S.通天穿透数量 = FightController.S.Get通天穿透数量();
              FightController.S.通天分裂数量 = FightController.S.Get通天分裂数量();
          }
+
+         if (item == HeroType.元始)
+         {
+             FightController.S.元始数量 = 英雄星级属性.元始攻击数量+(int)FightController.S.英雄技能树属性[HeroType.元始].元始火种个数;
+         }
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;
          renwu.SetItem();
