@@ -229,6 +229,7 @@ public class Entrance : MonoBehaviour
       {
          if (item == HeroType.None)
          {
+             index++;
             continue;
          }
 
@@ -287,7 +288,7 @@ public class Entrance : MonoBehaviour
          FightController.S.领主总攻击力 = 属性config.总属性.总攻击力;
          foreach (var item1 in HeroConfig.HeroNameDic)
          {
-             FightController.S.技能树总所有英雄伤害+=FightController.S.英雄技能树属性[item1.Key].增加所有英雄伤害;
+             FightController.S.技能树总所有英雄伤害+=英雄技能树Config.Get英雄技能树属性(item1.Key).增加所有英雄伤害;
          }
 
          FightController.S.英雄符文属性[item] = 符文Config.Get英雄符文属性(item);

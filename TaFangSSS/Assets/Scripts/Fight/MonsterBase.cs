@@ -551,7 +551,8 @@ public class MonsterBase : MonoBehaviour
             damage*=(1f+FightController.S.英雄符文属性[heroType].技能伤害增加不能释放神通/100f);
          }
       }
-      retre
+
+      return damage;
    }
    public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
    {
