@@ -30,6 +30,8 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float 冰冻time = 0;
    [NonSerialized]public float 易电time = 0;
    [NonSerialized]public float 易电伤害 = 0;
+   [NonSerialized]public float 黑暗印记层数 = 0;
+   [NonSerialized]public float 黑暗印记伤害 = 0;
 
 
    [NonSerialized] public Dictionary<HeroType, 灼烧> 英雄灼烧状态 = new Dictionary<HeroType, 灼烧>()
@@ -768,6 +770,43 @@ public class MonsterBase : MonoBehaviour
       }
       // 无视抗性为百分值（与法器穿透口径一致），需 /100f，否则10%无视会变成抗性/11
       最终Damage *= (100 - 抗性/(1f+无视抗性/100f)) / 100;
+      
+      //黑暗印记
+      if (FightController.S.英雄技能树属性[heroType].黑暗印记储存伤害 > 0)
+      {
+         int 黑暗层数 = 5 + (int)FightController.S.英雄技能树属性[heroType].黑暗印记增加引爆层数 - (int)FightController.S.英雄技能树属性[heroType].黑暗印记减少引爆层数;
+         if (黑暗印记层数 >= 黑暗层数)
+         {
+            黑暗印记层数 = 0;
+            FightController.S.当前英雄伤害Dic[heroType].总伤害 += 黑暗印记伤害;
+            FightController.S.当前英雄伤害Dic[heroType].技能伤害 += 黑暗印记伤害;
+            FightController.S.Show伤害数字(PlayerData.S.格式化数字(黑暗印记伤害),YuanSuType.黑暗,伤害trans.position,is暴击:false);
+            float 受伤前血量1 = CurrentHP;
+            CurrentHP -= 黑暗印记伤害;
+            MonsterSlider.gameObject.SetActive(true);
+            MonsterSlider.maxValue = MonsterAttribute.Hp;
+            MonsterSlider.value = CurrentHP;
+            残影Slider.gameObject.SetActive(true);
+            残影Slider.maxValue = MonsterAttribute.Hp;
+            残影Slider.value = 受伤前血量1;
+            if (残影DOTween != null && 残影DOTween.IsActive()) 残影DOTween.Kill();
+            残影DOTween = DOTween.To(() => 残影Slider.value,
+               x => 残影Slider.value = x,
+               CurrentHP,
+               0.5f);
+            if (CurrentHP <= 0)
+            {
+               Die(heroType);
+            }
+            黑暗印记伤害 = 0;
+         }
+         else
+         {
+            黑暗印记层数++;
+            黑暗印记伤害 += 最终Damage * FightController.S.英雄技能树属性[heroType].黑暗印记储存伤害 / 100f;
+         }
+      }
+      
       英雄灼烧( 最终Damage,heroType);
       FightController.S.当前英雄伤害Dic[heroType].总伤害 += 最终Damage;
       if (FightController.S.攻击特效是否神通(攻击特效))

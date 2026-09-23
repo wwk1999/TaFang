@@ -161,7 +161,7 @@ public class 技能树属性
         public float 易电状态概率;//易电状态默认加30%伤害
         public float 易电状态时间;
         public float 易电状态伤害;
-        public float 黑暗印记储存伤害;
+        public float 黑暗印记储存伤害;//黑暗印记默认5层
         public float 黑暗印记减少引爆层数;
         public float 黑暗印记增加引爆层数;
 
