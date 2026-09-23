@@ -118,10 +118,15 @@ public class 通天塔窗口 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("SendUIToast","请选择英雄派遣");
             return;
          }
+         float 技能树寻宝速度加成 = 0;
+         foreach (var item in PlayerData.S.通天塔英雄派遣Dic[HeroWindowController.S.当前通天塔层数])
+         {
+            技能树寻宝速度加成 += 英雄技能树Config.Get英雄技能树属性(item).寻宝速度;
+         }
 
          PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].寻宝 = true;
          PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time =
-            通天塔Config.通天塔关卡Dic[HeroWindowController.S.当前通天塔层数].需要年数 * 属性config.每年秒数;
+            通天塔Config.通天塔关卡Dic[HeroWindowController.S.当前通天塔层数].需要年数 * 属性config.每年秒数/(1f+技能树寻宝速度加成/100f);
          寻宝按钮.interactable = false;
          Show关卡列表();
          ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");

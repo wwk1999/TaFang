@@ -239,6 +239,17 @@ public class 通天塔Config
     public static List<城墙道具Type> Get通天塔掉落(int 层数)
     {
         int count = 通天塔关卡Dic[层数].掉落数量;
+        float 提升数量概率 = 0;
+        foreach (var heroType in PlayerData.S.通天塔英雄派遣Dic[层数])
+        {
+            提升数量概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率提升数量;
+        }
+
+        float 数量random = Random.Range(0, 100);
+        if (数量random < 提升数量概率)
+        {
+            count++;
+        }
         List<城墙道具Type> list = new List<城墙道具Type>();
         for (int i = 0; i < count; i++)
         {
@@ -254,7 +265,53 @@ public class 通天塔Config
                     break;
                 }
             }
-            list.Add(Get随机城墙道具Type(quality));
+
+            float 紫变橙概率 = 0;
+            float 橙变粉概率 = 0;
+            float 粉变红概率 = 0;
+            float 红变彩概率 = 0;
+            foreach (var heroType in PlayerData.S.通天塔英雄派遣Dic[层数])
+            {
+                紫变橙概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率紫变橙;
+                橙变粉概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率橙变粉;
+                粉变红概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率粉变红;
+                红变彩概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率红变彩;
+            }
+
+            switch (quality)
+            {
+                case QualityType.天品:
+                    float 天品random=Random.Range(0, 100f);
+                    if (天品random < 紫变橙概率)
+                    {
+                        quality++;
+                    }
+                    break;
+                case QualityType.宇品:
+                    float 宇品random=Random.Range(0, 100f);
+                    if (宇品random < 橙变粉概率)
+                    {
+                        quality++;
+                    }
+                    break;
+                case QualityType.宙品:
+                    float 宙品random=Random.Range(0, 100f);
+                    if (宙品random < 粉变红概率)
+                    {
+                        quality++;
+                    }
+                    break;
+                case QualityType.洪品:
+                    float 洪品random=Random.Range(0, 100f);
+                    if (洪品random < 红变彩概率)
+                    {
+                        quality++;
+                    }
+                    break;
+            }
+            var 品质list=城墙Config.城墙道具列表Dic[道宝Config.QualityTo道宝Quality[quality]];
+            int random1=Random.Range(0, list.Count);
+            list.Add(品质list[random1]);
         }
 
         return list;

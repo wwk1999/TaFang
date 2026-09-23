@@ -270,6 +270,17 @@ public class 血海Config
     public static List<灵药> Get血海掉落(int 层数)
     {
         int count = 血海关卡Dic[层数].掉落数量;
+        float 提升数量概率 = 0;
+        foreach (var heroType in PlayerData.S.血海英雄派遣Dic[层数])
+        {
+            提升数量概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率提升数量;
+        }
+
+        float 数量random = Random.Range(0, 100);
+        if (数量random < 提升数量概率)
+        {
+            count++;
+        }
         List<灵药> list = new List<灵药>();
         for (int i = 0; i < count; i++)
         {
@@ -285,7 +296,54 @@ public class 血海Config
                     break;
                 }
             }
-            list.Add(Get随机灵药Type(quality));
+            float 紫变橙概率 = 0;
+            float 橙变粉概率 = 0;
+            float 粉变红概率 = 0;
+            float 红变彩概率 = 0;
+            foreach (var heroType in PlayerData.S.血海英雄派遣Dic[层数])
+            {
+                紫变橙概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率紫变橙;
+                橙变粉概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率橙变粉;
+                粉变红概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率粉变红;
+                红变彩概率 += 英雄技能树Config.Get英雄技能树属性(heroType).概率红变彩;
+            }
+
+            switch (quality)
+            {
+                case QualityType.天品:
+                    float 天品random=Random.Range(0, 100f);
+                    if (天品random < 紫变橙概率)
+                    {
+                        quality++;
+                    }
+                    break;
+                case QualityType.宇品:
+                    float 宇品random=Random.Range(0, 100f);
+                    if (宇品random < 橙变粉概率)
+                    {
+                        quality++;
+                    }
+                    break;
+                case QualityType.宙品:
+                    float 宙品random=Random.Range(0, 100f);
+                    if (宙品random < 粉变红概率)
+                    {
+                        quality++;
+                    }
+                    break;
+                case QualityType.洪品:
+                    float 洪品random=Random.Range(0, 100f);
+                    if (洪品random < 红变彩概率)
+                    {
+                        quality++;
+                    }
+                    break;
+            }
+            int 灵药random=Random.Range(0, 丹药Config.灵药名Dic.Count)+1;
+            灵药 灵药item = new 灵药();
+            灵药item.QualityType = quality;
+            灵药item.灵药Type = (灵药Type)灵药random;
+            list.Add(灵药item);
         }
 
         return list;
