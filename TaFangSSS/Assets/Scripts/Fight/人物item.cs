@@ -61,6 +61,7 @@ public class 人物item : MonoBehaviour
     public Animator 喷火Animator;
     public GameObject 喷火Obj;
     public 孙悟空棒子 棒子;
+    [NonSerialized] public int 辅助印记个数 = 0;
     private float 攻击间隔 => Get攻击间隔();
     private float 神通冷却时间=>Get神通间隔();
     private float 神通能量=>Get神通能量();

@@ -23,6 +23,21 @@ public class 献祭属性
 }
 public class FightController : XSingleton<FightController>
 {
+    [NonSerialized] public Dictionary<ZhiYeType, int> 出战职业个数 = new Dictionary<ZhiYeType, int>
+    {
+        {ZhiYeType.射手,0},
+        {ZhiYeType.战士,0},{ZhiYeType.控制,0},{ZhiYeType.法师,0},{ZhiYeType.辅助,0},
+    };
+
+    [NonSerialized] public Dictionary<YuanSuType, int> 出战元素个数 = new Dictionary<YuanSuType, int>
+    {
+        {YuanSuType.冰,0},
+        {YuanSuType.黑暗,0},
+        {YuanSuType.火,0},
+        {YuanSuType.电,0},
+        {YuanSuType.物理,0},
+    };
+
     [NonSerialized] public Dictionary<HeroType,int>出战英雄编号=new Dictionary<HeroType,int>();
     [NonSerialized] public Dictionary<int,float>献祭英雄增加伤害=new Dictionary<int,float>();
     [NonSerialized] public List<献祭属性>献祭英雄列表=new List<献祭属性>();
@@ -780,6 +795,7 @@ public class FightController : XSingleton<FightController>
         }
 
         randomValue.瑶池神通time = 英雄星级属性.瑶池仙女持续时间*2;
+        randomValue.辅助印记个数++;
     }
     public void 瑶池冰辅助技能()
     {
@@ -797,7 +813,7 @@ public class FightController : XSingleton<FightController>
             randomKey = keysArray[random];
             randomValue = 人物items[randomKey];
         }
-
+        randomValue.辅助印记个数++;
         randomValue.瑶池冰辅助 = 英雄星级属性.瑶池仙女持续时间*(1f+英雄技能树属性[HeroType.瑶池仙女].瑶池持续时间/100f);
     }
     public void 女娲电辅助技能()
@@ -807,6 +823,7 @@ public class FightController : XSingleton<FightController>
             if (item.Key != HeroType.女娲)
             {
                 item.Value.女娲电辅助 = 英雄星级属性.女娲持续时间;
+                item.Value.辅助印记个数++;
             }
         }
     }
@@ -817,6 +834,7 @@ public class FightController : XSingleton<FightController>
         {
             if (item.Key != HeroType.女娲)
             {
+                item.Value.辅助印记个数++;
                 item.Value.女娲神通time = 5f*(1f+英雄技能树属性[HeroType.女娲].女娲持续时间/100f);
             }
         }
@@ -842,7 +860,7 @@ public class FightController : XSingleton<FightController>
             randomKey = keysArray[random];
             randomValue = 人物items[randomKey];
         }
-
+        randomValue.辅助印记个数++;
         randomValue.妲己黑暗辅助 = 英雄星级属性.妲己持续时间*(1f+英雄技能树属性[HeroType.妲己].妲己持续时间/100f);
     }
     
@@ -863,6 +881,7 @@ public class FightController : XSingleton<FightController>
             randomValue = 人物items[randomKey];
         }
         randomValue.妲己神通time = 英雄星级属性.妲己持续时间;
+        randomValue.辅助印记个数++;
     }
 
     public IEnumerator Spine一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos, bool 瑶池冰辅助, bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,int count=0)

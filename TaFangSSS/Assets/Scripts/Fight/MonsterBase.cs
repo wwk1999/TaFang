@@ -532,6 +532,45 @@ public class MonsterBase : MonoBehaviour
    public float 计算符文伤害(float damage, HeroType heroType, 攻击特效Type 攻击特效)
    {
       bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
+      YuanSuType yuansu = HeroConfig.HeroZhiYeDic[heroType].yuanSuType;
+      ZhiYeType zhiye = HeroConfig.HeroZhiYeDic[heroType].zhiYeType;
+
+      switch (yuansu)
+      {
+         case YuanSuType.冰:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].冰同气连枝 * FightController.S.出战元素个数[YuanSuType.冰] / 100f);
+            break;
+         case YuanSuType.黑暗:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].黑暗同气连枝 * FightController.S.出战元素个数[YuanSuType.黑暗] / 100f);
+            break;
+         case YuanSuType.火:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].火同气连枝 * FightController.S.出战元素个数[YuanSuType.火] / 100f);
+            break;
+         case YuanSuType.电:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].雷电同气连枝 * FightController.S.出战元素个数[YuanSuType.电] / 100f);
+            break;
+         case YuanSuType.物理:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].物理同气连枝 * FightController.S.出战元素个数[YuanSuType.物理] / 100f);
+            break;
+      }
+
+      switch (zhiye)
+      {
+         case ZhiYeType.射手:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].射手同气连枝 * FightController.S.出战职业个数[ZhiYeType.射手] / 100f);
+            break;
+         case ZhiYeType.控制:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].控制同气连枝 * FightController.S.出战职业个数[ZhiYeType.控制] / 100f);
+            break;
+         case ZhiYeType.法师:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].法师同气连枝 * FightController.S.出战职业个数[ZhiYeType.法师] / 100f);
+            break;
+         case ZhiYeType.战士:
+            damage *= (1f + FightController.S.英雄符文属性[heroType].战士同气连枝 * FightController.S.出战职业个数[ZhiYeType.战士] / 100f);
+            break;
+      }
+      damage *= (1f + FightController.S.英雄符文属性[heroType].辅助同气连枝 * FightController.S.出战职业个数[ZhiYeType.辅助] / 100f);
+
       if (FightController.S.英雄符文属性[heroType].技能伤害减少神通伤害增加 > 0)
       {
          if (是否神通)

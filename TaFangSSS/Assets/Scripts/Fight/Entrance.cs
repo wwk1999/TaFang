@@ -307,6 +307,43 @@ public class Entrance : MonoBehaviour
          renwu.原始Pos = renwu.transform.position;
          FightController.S.人物items[item] = renwu;
          FightController.S.出战英雄编号[item] = index;
+         switch (HeroConfig.HeroZhiYeDic[item].yuanSuType)
+         {
+             case YuanSuType.冰:
+                 FightController.S.出战元素个数[YuanSuType.冰]++;
+                 break;
+             case YuanSuType.黑暗:
+                 FightController.S.出战元素个数[YuanSuType.黑暗]++;
+                 break;
+             case YuanSuType.火:
+                 FightController.S.出战元素个数[YuanSuType.火]++;
+                 break;
+             case YuanSuType.物理:
+                 FightController.S.出战元素个数[YuanSuType.物理]++;
+                 break;
+             case YuanSuType.电:
+                 FightController.S.出战元素个数[YuanSuType.电]++;
+                 break;
+         }
+
+         switch (HeroConfig.HeroZhiYeDic[item].zhiYeType)
+         {
+             case ZhiYeType.射手:
+                 FightController.S.出战职业个数[ZhiYeType.射手]++;
+                 break;
+             case ZhiYeType.战士:
+                 FightController.S.出战职业个数[ZhiYeType.战士]++;
+                 break;
+             case ZhiYeType.控制:
+                 FightController.S.出战职业个数[ZhiYeType.控制]++;
+                 break;
+             case ZhiYeType.法师:
+                 FightController.S.出战职业个数[ZhiYeType.法师]++;
+                 break;
+             case ZhiYeType.辅助:
+                 FightController.S.出战职业个数[ZhiYeType.辅助]++;
+                 break;
+         }
          index++;
       }
 
