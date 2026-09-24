@@ -234,91 +234,23 @@ public class 英雄星级属性
     public static int Get鸿钧攻击数量()
     {
         int value = 4;
-        int xj = PlayerData.S.HeroDataDic[HeroType.鸿钧].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1;
-        }
-        if (xj >= 5)
-        {
-            value += 2;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.鸿钧]/5;
-        if (法则星级 >= 1)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 1;
-        }
-
         return value;
     }
     public static float Get鸿钧攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.鸿钧][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.鸿钧].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.20f;
-        }
         return value;
     }
 
     public static float Get鸿钧Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.鸿钧];
-        int xj = PlayerData.S.HeroDataDic[HeroType.鸿钧].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.25f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.鸿钧]/5;
-        if (法则星级 >= 1)
-        {
-            value /= 1.05f;
-        }
-        if (法则星级 >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (法则星级 >= 3)
-        {
-            value /= 1.15f;
-        }
-        if (法则星级 >= 4)
-        {
-            value /= 1.2f;
-        }
-        if (法则星级 >= 5)
-        {
-            value /= 1.25f;
-        }
-
         return value;
     }
     
     public static float Get鸿钧效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.鸿钧].Level - 1;
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
 
@@ -326,89 +258,25 @@ public class 英雄星级属性
     public static float Get盘古出拳增加伤害()
     {
         float value = 0;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.盘古]/5;
-        if (法则星级 >= 1)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 1.25f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 1.5f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 1.75f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 2f;
-        }
         return value;
     }
     
     public static int Get盘古攻击数量()
     {
         int value = 2;
-        int xj = PlayerData.S.HeroDataDic[HeroType.盘古].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1;
-        }
-        if (xj >= 5)
-        {
-            value += 2;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.盘古]/5;
-        if (法则星级 >= 1)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 1;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 1;
-        }
-
         return value;
     }
     public static float Get盘古攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.盘古][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.盘古].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.20f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.25f;
-        }
+      
         return value;
     }
 
     public static float Get盘古Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.盘古];
-        int xj = PlayerData.S.HeroDataDic[HeroType.盘古].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.2f;
-        }
+        
         return value;
     }
     
@@ -416,63 +284,20 @@ public class 英雄星级属性
     public static float Get元始持续时间()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.元始][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.元始].Level - 1;
-        if (xj >= 2)
-        {
-            value += 1f;
-        }
+        
         return value;
     }
 
     public static float Get元始体积()
     {
         float value = 1f;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.元始]/5;
-        if (法则星级 >= 1)
-        {
-            value += 0.05f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 0.1f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 0.15f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 0.2f;
-        }
+     
 
         return value;
     }
     public static float Get元始转速()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.元始].Level - 1;
-        if (xj >= 5)
-        {
-            value += 0.25f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.元始]/5;
-        if (法则星级 >= 1)
-        {
-            value += 0.05f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 0.1f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 0.15f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 0.2f;
-        }
-        
         return value;
     }
     
@@ -486,31 +311,13 @@ public class 英雄星级属性
     public static int Get元始攻击数量()
     {
         int value = 3;
-        int xj = PlayerData.S.HeroDataDic[HeroType.元始].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.元始]/5;
-        if (法则星级 >= 5)
-        {
-            value += 1;
-        }
         return value;
     }
     
     public static float Get元始攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.元始][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.元始].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
+       
         return value;
     }
     
@@ -520,89 +327,24 @@ public class 英雄星级属性
     public static float Get通天攻击数量()
     {
         float value = 2;
-        int xj = PlayerData.S.HeroDataDic[HeroType.通天].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1f;
-        }
-        if (xj >= 5)
-        {
-            value += 1f;
-        }
-
         return value;
     }
 
     public static float Get通天暴击率()
     {
         float value = 0;
-        int level = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
-        if (level >= 1)
-        {
-            value += 0.03f;
-        }
-        if (level >= 2)
-        {
-            value += 0.06f;
-        }
-        if (level >= 3)
-        {
-            value += 0.09f;
-        }
-        if (level >= 4)
-        {
-            value += 0.12f;
-        }
-        if (level >= 5)
-        {
-            value += 0.15f;
-        }
         return value;
     }
     public static float Get通天攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.通天][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.通天].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
+       
         return value;
     }
     
     public static float Get通天Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.通天];
-        int xj = PlayerData.S.HeroDataDic[HeroType.通天].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.2f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.通天]/5;
-        if (法则星级 >= 1)
-        {
-            value /= 1.05f;
-        }
-        if (法则星级 >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (法则星级 >= 3)
-        {
-            value /= 1.15f;
-        }
-        if (法则星级 >= 4)
-        {
-            value /= 1.2f;
-        }
-        if (法则星级 >= 5)
-        {
-            value /= 1.25f;
-        }
         return value;
     }
     
@@ -613,227 +355,68 @@ public class 英雄星级属性
     public static float Get老子弹道速度()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.老子].Level - 1;
-        if (xj >= 3)
-        {
-            value *= 0.8f;
-        }
         return value;
     }
     
     public static float Get老子增长速度()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.老子][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.老子].Level - 1;
-        if (xj >= 5)
-        {
-            value += 5f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.老子]/5;
-        if (法则星级 >= 1)
-        {
-            value += 1f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 2f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 3f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 4f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 5f;
-        }
         return value;
     }
     public static float Get老子Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.老子];
-        int xj = PlayerData.S.HeroDataDic[HeroType.老子].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     public static float Get老子攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.老子][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.老子].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.25f;
-        }
+       
         return value;
     }
 
     public static float Get女娲辅助伤害()
     {
         float value = 0;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.女娲]/5;
-        if (法则星级 >= 1)
-        {
-            value += 3f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 6f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 9f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 12f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 15f;
-        }
-
         return value;
     }
     public static float Get女娲冷却缩减效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.女娲][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.女娲].Level - 1;
-        if (xj >= 1)
-        {
-            value += 5f;
-        }
-        if (xj >= 3)
-        {
-            value += 10f;
-        }
-
-        if (PlayerData.S.HeroDataDic[HeroType.女娲].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.女娲].功法Type].count / 100f);
-        }
         return value/100f;
     }
     public static float Get女娲持续时间()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.女娲][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.女娲].Level - 1;
-        if (xj >= 5)
-        {
-            value += 1f;
-        }
         return value;
     }
     public static float Get女娲Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.女娲];
-        int xj = PlayerData.S.HeroDataDic[HeroType.女娲].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.15f;
-        }
+       
         return value;
     }
     
     public static float Get云霄效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.云霄].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
+      
         return value;
     }
     public static float Get云霄Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.云霄];
-        int xj = PlayerData.S.HeroDataDic[HeroType.云霄].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
-        
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.云霄]/5;
-        if (法则星级 >= 1)
-        {
-            value /= 1.05f;
-        }
-        if (法则星级 >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (法则星级 >= 3)
-        {
-            value /= 1.15f;
-        }
-        if (法则星级 >= 4)
-        {
-            value /= 1.2f;
-        }
-        if (法则星级 >= 5)
-        {
-            value /= 1.25f;
-        }
         return value;
     }
     public static float Get云霄攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.云霄][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.云霄].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
         return value;
     }
 
     public static float Get后羿连射概率()
     {
         float value = 0;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.后羿]/5;
-        if (法则星级 >= 1)
-        {
-            value += 3f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 6f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 9f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 12f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 15f;
-        }
-
         return value;
     }
 
@@ -841,41 +424,17 @@ public class 英雄星级属性
     public static float Get后羿攻击数量()
     {
         float value = 2;
-        int xj = PlayerData.S.HeroDataDic[HeroType.后羿].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1f;
-        }
-        if (xj >= 5)
-        {
-            value += 1f;
-        }
-
         return value;
     }
     public static float Get后羿攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.后羿][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.后羿].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
 
     public static float Get后羿Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.后羿];
-        int xj = PlayerData.S.HeroDataDic[HeroType.后羿].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
         return value;
     }
     
@@ -883,145 +442,51 @@ public class 英雄星级属性
     public static float Get常曦减速效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.常羲][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.常羲].Level - 1;
-        if (xj >= 5)
-        {
-            value += 15f;
-        }
-        
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.常羲]/5;
-        if (法则星级 >= 1)
-        {
-            value += 3;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 6f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 9f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 12f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 15f;
-        }
-        if (PlayerData.S.HeroDataDic[HeroType.常羲].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.常羲].功法Type].count / 100f);
-        }
         return value;
     }
     
     public static float Get常曦效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.常羲].Level - 1;
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+       
         return value;
     }
     public static float Get常曦Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.常羲];
-        int xj = PlayerData.S.HeroDataDic[HeroType.常羲].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
         return value;
     }
     public static float Get常曦攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.常羲][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.常羲].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
 
     public static float Get羲和灼烧叠加伤害()
     {
         float value = 0;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.羲和]/5;
-        if (法则星级 >= 1)
-        {
-            value += 10;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 15f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 20f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 25f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 30f;
-        }
         return value;
     }
     
     public static float Get羲和灼烧伤害()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.羲和][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.羲和].Level - 1;
-        if (xj >= 5)
-        {
-            value += 100f;
-        }
         return value;
     }
     
     public static float Get羲和效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.羲和].Level - 1;
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
         return value;
     }
     public static float Get羲和Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.羲和];
-        int xj = PlayerData.S.HeroDataDic[HeroType.羲和].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
         return value;
     }
     public static float Get羲和攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.羲和][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.羲和].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
     
@@ -1031,71 +496,25 @@ public class 英雄星级属性
     public static float Get琼霄琼霄定身时长()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.琼霄][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.琼霄].Level - 1;
-        if (xj >= 5)
-        {
-            value += 0.5f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.琼霄]/5;
-        if (法则星级 >= 1)
-        {
-            value += 0.1f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 0.2f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 0.3f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 0.4f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 0.5f;
-        }
-        if (PlayerData.S.HeroDataDic[HeroType.琼霄].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.琼霄].功法Type].count / 100f);
-        }
         return value;
     }
     
     public static float Get琼霄效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.琼霄].Level - 1;
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+       
         return value;
     }
     public static float Get琼霄Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.琼霄];
-        int xj = PlayerData.S.HeroDataDic[HeroType.琼霄].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
+       
         return value;
     }
     public static float Get琼霄攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.琼霄][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.琼霄].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value *= 1.2f;
-        }
+       
         return value;
     }
     
@@ -1106,137 +525,50 @@ public class 英雄星级属性
     public static float Get碧霄效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.碧霄].Level - 1;
-        if (xj >= 5)
-        {
-            value += 0.2f;
-        }
-
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.碧霄]/5;
-        if (法则星级 >= 1)
-        {
-            value += 0.05f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 0.15f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 0.25f;
-        }
+       
         return value;
     }
     public static float Get碧霄Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.碧霄];
-        int xj = PlayerData.S.HeroDataDic[HeroType.碧霄].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.碧霄]/5;
-        if (法则星级 >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (法则星级 >= 4)
-        {
-            value /= 1.2f;
-        }
-       
         return value;
     }
     public static float Get碧霄攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.碧霄][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.碧霄].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+       
         return value;
     }
 
     public static float Get孙悟空每次下场伤害()
     {
         float value = 0;
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.孙悟空]/5;
-        if (法则星级 >= 1)
-        {
-            value += 1f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 1.25f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 1.5f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 1.75f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 2f;
-        }
-
+       
         return value;
     }
 
     public static int Get孙悟空次数()
     {
         int value = 2;
-        int xj = PlayerData.S.HeroDataDic[HeroType.孙悟空].Level - 1;
-        if (xj >= 4)
-        {
-            value += 1;
-        }
-
+       
         return value;
     }
     public static float Get孙悟空效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.孙悟空].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
+       
         return value;
     }
     public static float Get孙悟空Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.孙悟空];
-        int xj = PlayerData.S.HeroDataDic[HeroType.孙悟空].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
+       
         return value;
     }
     public static float Get孙悟空攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.孙悟空][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.孙悟空].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+       
         return value;
     }
     
@@ -1244,153 +576,51 @@ public class 英雄星级属性
     public static float Get哪吒效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.哪吒].Level - 1;
-        if (xj >= 5)
-        {
-            value += 0.2f;
-        }
-        int 法则星级 = PlayerData.S.英雄法则等级Dic[HeroType.哪吒] / 5;
-        if (法则星级 >= 1)
-        {
-            value += 0.05f;
-        }
-        if (法则星级 >= 2)
-        {
-            value += 0.10f;
-        }
-        if (法则星级 >= 3)
-        {
-            value += 0.15f;
-        }
-        if (法则星级 >= 4)
-        {
-            value += 0.2f;
-        }
-        if (法则星级 >= 5)
-        {
-            value += 0.25f;
-        }
         return value;
     }
     public static float Get哪吒Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.哪吒];
-        int xj = PlayerData.S.HeroDataDic[HeroType.哪吒].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
+       
         return value;
     }
     public static float Get哪吒攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.哪吒][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.哪吒].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
         return value;
     }
 
     public static float Get牛魔王效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.牛魔王].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
-
         return value;
     }
     
     public static float Get牛魔王攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.牛魔王][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.牛魔王].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 5)
-        {
-            value *= 0.75f;
-        }
         return value;
     }
 
     public static float Get牛魔王Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.牛魔王];
-        int xj = PlayerData.S.HeroDataDic[HeroType.牛魔王].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     
     public static float Get妲己效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.妲己][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.妲己].Level - 1;
-        if (xj >= 1)
-        {
-            value += 5f;
-        }
-        if (xj >= 5)
-        {
-            value += 10f;
-        }
-        if (PlayerData.S.HeroDataDic[HeroType.妲己].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.妲己].功法Type].count / 100f);
-        }
         return value;
     }
     public static float Get妲己持续时间()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.妲己][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.妲己].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1f;
-        }
         return value;
     }
     public static float Get妲己Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.妲己];
-        int xj = PlayerData.S.HeroDataDic[HeroType.妲己].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
     
@@ -1398,45 +628,17 @@ public class 英雄星级属性
     public static float Get杨戬攻击数量()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.杨戬].Level - 1;
-        if (xj >= 5)
-        {
-            value += 1f;
-        }
-
         return value;
     }
     public static float Get杨戬攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.杨戬][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.杨戬].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 5)
-        {
-            value *= 0.7f;
-        }
         return value;
     }
 
     public static float Get杨戬Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.杨戬];
-        int xj = PlayerData.S.HeroDataDic[HeroType.杨戬].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     
@@ -1445,39 +647,16 @@ public class 英雄星级属性
     public static float Get嫦娥效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.嫦娥].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
     public static float Get嫦娥Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.嫦娥];
-        int xj = PlayerData.S.HeroDataDic[HeroType.嫦娥].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     public static float Get嫦娥攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.嫦娥][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.嫦娥].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
         return value;
     }
     
@@ -1485,73 +664,28 @@ public class 英雄星级属性
     public static float Get月老攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.月老][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.月老].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 5)
-        {
-            value *= 1.25f;
-        }
         return value;
     }
 
     public static float Get月老Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.月老];
-        int xj = PlayerData.S.HeroDataDic[HeroType.月老].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     
     public static float Get雷震子效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.雷震子].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
     public static float Get雷震子Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.雷震子];
-        int xj = PlayerData.S.HeroDataDic[HeroType.雷震子].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     public static float Get雷震子攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.雷震子][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.雷震子].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
         return value;
     }
     
@@ -1559,39 +693,16 @@ public class 英雄星级属性
     public static float Get广目天王效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.广目天王].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
     public static float Get广目天王Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.广目天王];
-        int xj = PlayerData.S.HeroDataDic[HeroType.广目天王].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.15f;
-        }
         return value;
     }
     public static float Get广目天王攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.广目天王][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.广目天王].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
         return value;
     }
     
@@ -1600,34 +711,12 @@ public class 英雄星级属性
     public static float Get多闻天王攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.多闻天王][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.多闻天王].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
 
     public static float Get多闻天王Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.多闻天王];
-        int xj = PlayerData.S.HeroDataDic[HeroType.多闻天王].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.15f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
         return value;
     }
     
@@ -1635,34 +724,12 @@ public class 英雄星级属性
     public static float Get太白金星攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.太白金星][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.太白金星].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
         return value;
     }
 
     public static float Get太白金星Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.太白金星];
-        int xj = PlayerData.S.HeroDataDic[HeroType.太白金星].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.15f;
-        }
         return value;
     }
     
@@ -1670,121 +737,56 @@ public class 英雄星级属性
     public static float Get龟丞相Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.龟丞相];
-        int xj = PlayerData.S.HeroDataDic[HeroType.龟丞相].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.15f;
-        }
         return value;
     }
     public static float Get龟丞相攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.龟丞相][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.龟丞相].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
+      
         return value;
     }
     public static float Get龟丞相减速效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.龟丞相][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.龟丞相].Level - 1;
-        if (xj >= 3)
-        {
-            value += 5;
-        }
-        if (xj >= 5)
-        {
-            value += 10;
-        }
-        if (PlayerData.S.HeroDataDic[HeroType.龟丞相].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.龟丞相].功法Type].count / 100f);
-        }
+       
         return value;
     }
     
     public static float Get玄女效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.玄女].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
+       
         return value;
     }
     public static float Get玄女Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.玄女];
-        int xj = PlayerData.S.HeroDataDic[HeroType.玄女].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.15f;
-        }
+        
         return value;
     }
     public static float Get玄女攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.玄女][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.玄女].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+       
         return value;
     }
     
     public static float Get石敢当效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.石敢当].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.2f;
-        }
+       
         return value;
     }
     public static float Get石敢当Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.石敢当];
-        int xj = PlayerData.S.HeroDataDic[HeroType.石敢当].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.15f;
-        }
+       
         return value;
     }
     public static float Get石敢当攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.石敢当][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.石敢当].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+        
         return value;
     }
     
@@ -1792,156 +794,68 @@ public class 英雄星级属性
     public static float Get瑶池仙女减速效果()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.瑶池仙女][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.瑶池仙女].Level - 1;
-        if (xj >= 1)
-        {
-            value += 5f;
-        }
-        if (xj >= 4)
-        {
-            value += 10f;
-        }
-        if (PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.瑶池仙女].功法Type].count / 100f);
-        }
+       
         return value;
     }
     public static float Get瑶池仙女持续时间()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.瑶池仙女][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.瑶池仙女].Level - 1;
-        if (xj >= 3)
-        {
-            value += 1f;
-        }
+        
         return value;
     }
     public static float Get瑶池仙女Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.瑶池仙女];
-        int xj = PlayerData.S.HeroDataDic[HeroType.瑶池仙女].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 5)
-        {
-            value /= 1.2f;
-        }
+        
         return value;
     }
     public static float Get河伯效果范围()
     {
         float value = 1;
-        int xj = PlayerData.S.HeroDataDic[HeroType.河伯].Level - 1;
-        if (xj >= 5)
-        {
-            value *= 1.25f;
-        }
+        
         return value;
     }
     public static float Get河伯Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.河伯];
-        int xj = PlayerData.S.HeroDataDic[HeroType.河伯].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
+        
         return value;
     }
     public static float Get河伯攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.河伯][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.河伯].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+        
         return value;
     }
     public static float Get土地击退距离()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.土地][1];
-        int xj = PlayerData.S.HeroDataDic[HeroType.土地].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 5)
-        {
-            value *= 1.25f;
-        }
-        if (PlayerData.S.HeroDataDic[HeroType.土地].功法Type != 功法Type.None)
-        {
-            value *= (1f + 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[HeroType.土地].功法Type].count / 100f);
-        }
+       
         return value;
     }
     public static float Get土地Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.土地];
-        int xj = PlayerData.S.HeroDataDic[HeroType.土地].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
+        
         return value;
     }
     public static float Get土地攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.土地][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.土地].Level - 1;
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
+       
         return value;
     }
     public static float Get丹童攻击数值()
     {
         float value = HeroConfig.HeroSkillDamageDic[HeroType.丹童][0];
-        int xj = PlayerData.S.HeroDataDic[HeroType.丹童].Level - 1;
-        if (xj >= 1)
-        {
-            value *= 1.1f;
-        }
-        if (xj >= 3)
-        {
-            value *= 1.15f;
-        }
-        if (xj >= 5)
-        {
-            value *= 1.25f;
-        }
+       
         return value;
     }
 
     public static float Get丹童Cd()
     {
         float value = HeroConfig.HeroAttackTimeDic[HeroType.丹童];
-        int xj = PlayerData.S.HeroDataDic[HeroType.丹童].Level - 1;
-        if (xj >= 2)
-        {
-            value /= 1.1f;
-        }
-        if (xj >= 4)
-        {
-            value /= 1.2f;
-        }
+       
         return value;
     }
 }
