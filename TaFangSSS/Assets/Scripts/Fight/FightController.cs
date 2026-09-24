@@ -21,6 +21,19 @@ public class 献祭属性
     public int index;
     public float count;
 }
+
+// 英雄战斗静态数据缓存：职业/技能树/符文/法器/根基丹药在整场战斗中不变，
+// Hurt 一次命中原本要重复索引这些 Dictionary 几十次，改为开战懒加载一次引用
+public class 英雄战斗缓存
+{
+    public HeroType heroType;
+    public HeroZhiYeYuanSu 职业;
+    public 技能树属性 技能树;
+    public 符文属性 符文;
+    public 法器属性 法器;
+    public 英雄根基丹药属性 根基丹药;
+}
+
 public class FightController : XSingleton<FightController>
 {
     public int 不同职业个数 = 0;
@@ -45,6 +58,10 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public Dictionary<int,float>献祭英雄增加伤害=new Dictionary<int,float>();
     [NonSerialized] public List<献祭属性>献祭英雄列表=new List<献祭属性>();
     [NonSerialized] public Dictionary<HeroType, 符文属性> 英雄符文属性 = new Dictionary<HeroType, 符文属性>();
+    // 战斗内不变量缓存：城墙最大生命值（原每次受击都要遍历两份字典计算）、当前体质总属性、英雄静态数据
+    [NonSerialized] public float 缓存城墙最大生命值;
+    [NonSerialized] public 体质总属性 缓存体质总属性;
+    [NonSerialized] public Dictionary<HeroType, 英雄战斗缓存> 英雄战斗缓存Dic = new Dictionary<HeroType, 英雄战斗缓存>();
     [NonSerialized] public float 领主暴击率 = 0;
     [NonSerialized] public float 领主总攻击力 = 0 ;
     [NonSerialized] public float 技能树总所有英雄伤害 = 0;
@@ -177,8 +194,8 @@ public class FightController : XSingleton<FightController>
 
     public float Get护盾Left()
     {
-        float 血量value = 城墙当前生命值 / 城墙Config.Get城墙最大生命值();
-        float 护盾比例=城墙护盾值/城墙Config.Get城墙最大生命值();
+        float 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
+        float 护盾比例=城墙护盾值/缓存城墙最大生命值;
         if (护盾比例 >= 1)
         {
             return 0;
@@ -195,8 +212,8 @@ public class FightController : XSingleton<FightController>
     
     public float Get护盾Right()
     {
-        float 血量value = 城墙当前生命值 / 城墙Config.Get城墙最大生命值();
-        float 护盾比例=城墙护盾值/城墙Config.Get城墙最大生命值();
+        float 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
+        float 护盾比例=城墙护盾值/缓存城墙最大生命值;
         if (护盾比例 >= 1)
         {
             return 0;
@@ -211,17 +228,29 @@ public class FightController : XSingleton<FightController>
         }
     }
 
+    // 分区残留清理每帧最多一次（原本每个英雄每帧各扫 7 个分区，9 个英雄 = 63 次/帧）
+    private int _分区清理帧 = -1;
+
     public MonsterBase GetAttackMonster()
     {
+        if (_分区清理帧 != Time.frameCount)
+        {
+            _分区清理帧 = Time.frameCount;
+            for (int i = 1; i <= 7; i++)
+            {
+                var set = Monster分区Dic[i];
+                // 清理死亡/已销毁残留：死怪若因 Die() 异常未退场，不能让它一直占着全局目标，
+                // 否则所有战斗英雄因“目标不在自身攻击范围”集体停攻
+                set.RemoveWhere(m => m == null || m.isDead);
+            }
+        }
         for (int i = 1; i <= 7; i++)
         {
             var set = Monster分区Dic[i];
-            // 清理死亡/已销毁残留：死怪若因 Die() 异常未退场，不能让它一直占着全局目标，
-            // 否则所有战斗英雄因“目标不在自身攻击范围”集体停攻
-            set.RemoveWhere(m => m == null || m.isDead);
-            if (set.Count > 0)
+            // foreach 取首个元素走 HashSet 结构体枚举器，避免 LINQ First() 的装箱分配
+            foreach (var m in set)
             {
-                return set.First();
+                return m;
             }
         }
 
@@ -961,6 +990,12 @@ public class FightController : XSingleton<FightController>
                      {
                          randompos.y = -5+Random.Range(0, 1f);
                      }
+                     // 对象池耗尽时跳过这一颗（纯表现），不能抛异常中断整段施法协程
+                     if (QueueController.S.陨石Queue.Count == 0)
+                     {
+                         yield return  new WaitForSeconds(0.1f/(count/5f));
+                         continue;
+                     }
                      var 陨石 = QueueController.S.陨石Queue.Dequeue();
                      陨石.transform.position = randompos;
                      陨石.瑶池冰辅助 = 瑶池冰辅助;
@@ -1561,6 +1596,25 @@ public class FightController : XSingleton<FightController>
         魔法弹.穿透 = 穿透;
         魔法弹.gameObject.SetActive(true);
     }
+    // 英雄静态战斗数据懒加载缓存：字典在 Entrance 出战初始化时已全部填好，战斗内不变
+    public 英雄战斗缓存 Get英雄战斗缓存(HeroType heroType)
+    {
+        if (!英雄战斗缓存Dic.TryGetValue(heroType, out var ctx))
+        {
+            ctx = new 英雄战斗缓存
+            {
+                heroType = heroType,
+                职业 = HeroConfig.HeroZhiYeDic[heroType],
+                技能树 = 英雄技能树属性[heroType],
+                符文 = 英雄符文属性[heroType],
+                法器 = 英雄法器属性Dic[heroType],
+                根基丹药 = 英雄根基丹药属性Dic[heroType],
+            };
+            英雄战斗缓存Dic[heroType] = ctx;
+        }
+        return ctx;
+    }
+
     public 序列纯显示一次 GetPeng(攻击特效Type type)
     {
         switch (type)
@@ -1845,9 +1899,12 @@ public class FightController : XSingleton<FightController>
         控制伤害 = 属性config.总属性.控制增幅;
         法师伤害 = 属性config.总属性.法师增幅;
         免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
-        城墙护盾值 = 城墙Config.开局护盾值 / 100f * 城墙Config.Get城墙最大生命值();
+        // 城墙最大生命值/体质属性整场战斗不变，缓存一次供 Hurt 热路径直接读
+        缓存城墙最大生命值 = 城墙Config.Get城墙最大生命值();
+        缓存体质总属性 = 体质Config.当前体质总属性;
+        城墙护盾值 = 城墙Config.开局护盾值 / 100f * 缓存城墙最大生命值;
         涅槃次数 = 城墙Config.涅槃次数;
-        城墙当前生命值 = 城墙Config.Get城墙最大生命值();
+        城墙当前生命值 = 缓存城墙最大生命值;
 
         ObserverModuleManager.S.RegisterEvent("刷新主页面",游戏时长);
     }
@@ -1896,8 +1953,8 @@ public class FightController : XSingleton<FightController>
             当前神通能量 = Math.Min(属性config.总属性.神通最大值, 当前神通能量);
             孙悟空每秒增加伤害Time++;
             每秒回血Time = 0;
-            int 回血值 = (int)(城墙Config.每秒回血值/ 100f * 城墙Config.Get城墙最大生命值()) ;
-            int value = (int)(城墙Config.Get城墙最大生命值() - 城墙当前生命值);
+            int 回血值 = (int)(城墙Config.每秒回血值/ 100f * 缓存城墙最大生命值) ;
+            int value = (int)(缓存城墙最大生命值 - 城墙当前生命值);
             if (value == 0)
             {
                 return;
@@ -1916,14 +1973,14 @@ public class FightController : XSingleton<FightController>
             {
                 Show伤害数字(PlayerData.S.格式化数字(真实回血值),YuanSuType.None,new Vector2(-5,0),true);
                 城墙当前生命值 += 真实回血值;
-                城墙当前生命值 = Math.Min(城墙Config.Get城墙最大生命值(), 城墙当前生命值);
+                城墙当前生命值 = Math.Min(缓存城墙最大生命值, 城墙当前生命值);
                 ObserverModuleManager.S.SendEvent("设置护盾");
             }
         }
         if (每段时间护盾间隔时间 > 城墙Config.护盾间隔时间)
         {
             每段时间护盾间隔时间 = 0;
-            城墙护盾值 += (int)(城墙Config.Get城墙最大生命值() * 城墙Config.每段时间护盾值 / 100f);
+            城墙护盾值 += (int)(缓存城墙最大生命值 * 城墙Config.每段时间护盾值 / 100f);
             ObserverModuleManager.S.SendEvent("设置护盾");
         }
         if (无敌间隔Time > 城墙Config.无敌间隔时间)
@@ -1977,8 +2034,21 @@ public class FightController : XSingleton<FightController>
         }
     }
 
+    // 伤害数字池保护：池空直接跳过（纯表现，不影响伤害），每帧总量封顶防止 AOE 同帧打爆对象池
+    private int _伤害数字帧标记 = -1;
+    private int _伤害数字本帧数量;
+    private const int _每帧伤害数字上限 = 40;
+
     public void Show伤害数字(string 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false,bool is暴击=false)
     {
+        if (QueueController.S.伤害数字Queue.Count == 0) return;
+        if (_伤害数字帧标记 != Time.frameCount)
+        {
+            _伤害数字帧标记 = Time.frameCount;
+            _伤害数字本帧数量 = 0;
+        }
+        if (_伤害数字本帧数量 >= _每帧伤害数字上限) return;
+        _伤害数字本帧数量++;
         var item=QueueController.S.伤害数字Queue.Dequeue();
         item.text = 最终伤害;
         item.is回血 = is回血;

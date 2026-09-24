@@ -90,7 +90,8 @@ public class 循环伤害技能 : MonoBehaviour
 
             Vector2 closestPoint = monster.Collider2D.ClosestPoint(transform.position);
             var hit = FightController.S.GetPeng(Type);
-            hit.transform.position = closestPoint;
+            // 命中火花对象池耗尽时仅跳过表现，伤害照常结算
+            if (hit != null) hit.transform.position = closestPoint;
 
             if (瑶池冰辅助)
             {
@@ -100,7 +101,7 @@ public class 循环伤害技能 : MonoBehaviour
             monster.妲己黑暗辅助 = 黑暗辅助;
 
             monster.Hurt(finalDamage, HeroType, Type);
-            hit.gameObject.SetActive(true);
+            if (hit != null) hit.gameObject.SetActive(true);
         }
     }
 
@@ -139,7 +140,8 @@ public class 循环伤害技能 : MonoBehaviour
 
         Vector2 closestPoint = other.ClosestPoint(transform.position);
         var hit = FightController.S.GetPeng(Type);
-        hit.transform.position = closestPoint;
+        // 命中火花对象池耗尽时仅跳过表现，伤害照常结算
+        if (hit != null) hit.transform.position = closestPoint;
 
         float finalDamage = 计算辅助加成(damage);
         // 老子冰旋风体积增伤
@@ -164,7 +166,7 @@ public class 循环伤害技能 : MonoBehaviour
         }
 
         monster.Hurt(finalDamage, HeroType, Type);
-        hit.gameObject.SetActive(true);
+        if (hit != null) hit.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)

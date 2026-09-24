@@ -553,7 +553,12 @@ public class 人物item : MonoBehaviour
             // 播放攻击动画
             Animator.Play("人物攻击", 0, 0f);
         
-            // 出拳逻辑
+            // 出拳逻辑：对象池耗尽时跳过这一拳（纯表现），不能抛异常导致协程中断、上场标志永远不复位
+            if (QueueController.S.盘古拳Queue.Count == 0)
+            {
+                yield return new WaitForSeconds(waitTime);
+                continue;
+            }
             var 盘古拳 = QueueController.S.盘古拳Queue.Dequeue();
             盘古拳.transform.position = 盘古拳trans.position; // 确保 盘古拳trans 正确
             盘古拳.脚本.瑶池冰辅助 = 瑶池冰辅助 > 0;

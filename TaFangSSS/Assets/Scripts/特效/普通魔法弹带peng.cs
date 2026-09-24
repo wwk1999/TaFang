@@ -60,7 +60,8 @@ public class 普通魔法弹带peng : MonoBehaviour
       // 获取两个碰撞器之间的最近点（世界坐标）
       Vector2 closestPoint = other.ClosestPoint(transform.position);
       var hit = FightController.S.GetPeng(Type);
-      hit.transform.position = closestPoint;
+      // 命中火花对象池耗尽时仅跳过表现，伤害照常结算
+      if (hit != null) hit.transform.position = closestPoint;
 
       // ---- 辅助加成全部算在局部变量上，不写回 damage 字段（避免穿透弹多怪物滚雪球） ----
       float finalDamage = damage;
@@ -98,7 +99,7 @@ public class 普通魔法弹带peng : MonoBehaviour
       monster.女娲神通 = 女娲神通;
 
       monster.Hurt(finalDamage, HeroType, Type);
-      hit.gameObject.SetActive(true);
+      if (hit != null) hit.gameObject.SetActive(true);
       if (穿透<=0)
       {
          transform.localScale = Vector2.zero;

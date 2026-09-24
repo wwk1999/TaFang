@@ -27,7 +27,8 @@ public class 火球 : MonoBehaviour
         // 获取两个碰撞器之间的最近点（世界坐标）
         Vector2 closestPoint = other.ClosestPoint(transform.position);
         var hit = FightController.S.GetPeng(Type);
-        hit.transform.position = closestPoint;
+        // 命中火花对象池耗尽时仅跳过表现，伤害照常结算
+        if (hit != null) hit.transform.position = closestPoint;
 
         float realDamage = damage;
         // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
@@ -63,6 +64,6 @@ public class 火球 : MonoBehaviour
             realDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
         }
         monster.Hurt(realDamage, HeroType, Type);
-        hit.gameObject.SetActive(true);
+        if (hit != null) hit.gameObject.SetActive(true);
     }
 }

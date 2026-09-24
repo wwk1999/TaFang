@@ -79,10 +79,13 @@ public class 孙悟空棒子 : MonoBehaviour
       {
          if (!monsterDic.TryGetValue(col, out var monster)) continue;
 
-         // 命中特效每只怪一个
+         // 命中特效每只怪一个；对象池耗尽时仅跳过表现，伤害照常结算
          var hit = FightController.S.GetPeng(攻击特效Type.孙悟空棒子);
-         hit.transform.position = col.transform.position;
-         hit.gameObject.SetActive(true);
+         if (hit != null)
+         {
+            hit.transform.position = col.transform.position;
+            hit.gameObject.SetActive(true);
+         }
 
          monster.妲己神通 = 妲己神通;
          monster.女娲神通 = 女娲神通;
