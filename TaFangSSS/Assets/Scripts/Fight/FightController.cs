@@ -877,7 +877,7 @@ public class FightController : XSingleton<FightController>
 
     public bool 攻击特效是否神通(攻击特效Type type)
     {
-        return type > 攻击特效Type.陨石;
+        return type > 攻击特效Type.黑暗印记爆炸;
     }
     public void 妲己黑暗辅助技能()
     {

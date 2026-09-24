@@ -33,6 +33,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float 黑暗印记层数 = 0;
    [NonSerialized]public float 黑暗印记伤害 = 0;
    [NonSerialized]public float 怪物真实护甲 = 0;
+   [NonSerialized]public Dictionary<HeroType,int>英雄攻击次数=new Dictionary<HeroType,int>();
 
 
    [NonSerialized] public Dictionary<HeroType, 灼烧> 英雄灼烧状态 = new Dictionary<HeroType, 灼烧>()
@@ -161,7 +162,7 @@ public class MonsterBase : MonoBehaviour
          item.Value.灼烧当前时间 = 0;
          item.Value.灼烧Time = 0;
       }
-
+      英雄攻击次数.Clear();
       // 缓存只跟 MonsterTypeName 相关的一次性查询，避免 Update 每帧查 Dictionary
       _怪物类型 = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       _怪物攻击距离 = FightConfig.怪物攻击距离Dic[_怪物类型];
@@ -590,11 +591,32 @@ public class MonsterBase : MonoBehaviour
             damage*=(1f+FightController.S.英雄符文属性[heroType].技能伤害增加不能释放神通/100f);
          }
       }
+
+      if (英雄攻击次数[heroType] == 1)
+      {
+         damage*=(1f+FightController.S.英雄符文属性[heroType].对怪物的第一次伤害增加/100f);
+      }
+      damage*=(1f+FightController.S.英雄符文属性[heroType].对怪物攻击次数越多越加伤害*英雄攻击次数[heroType]/100f);
       damage*=(1f+FightController.S.献祭英雄增加伤害[FightController.S.出战英雄编号[heroType]]/100f);
       damage*=(1f+FightController.S.英雄辅助印记数量[heroType]*FightController.S.英雄符文属性[heroType].辅助印记增伤/100f);
       damage*=(1f+FightController.S.英雄符文属性[heroType].元素每有一个不同增伤*FightController.S.不同元素个数/100f);
       damage*=(1f+FightController.S.英雄符文属性[heroType].职业每有一个不同增伤*FightController.S.不同职业个数/100f);
 
+      if (怪物真实护甲 == 0)
+      {
+         damage*=(1f+FightController.S.英雄符文属性[heroType].碎甲为0时加伤害/100f);
+      }
+
+      if (英雄灼烧状态.ContainsKey(heroType))
+      {
+         damage*=(1f+FightController.S.英雄符文属性[heroType].每层火焰灼烧加伤*英雄灼烧状态[heroType].灼烧层数/100f);
+      }
+      damage*=(1f+FightController.S.英雄符文属性[heroType].每层黑暗印记加伤*黑暗印记层数/100f);
+
+      if (yuansu == YuanSuType.电 && 易电time > 0)
+      {
+         damage*=(1f+FightController.S.英雄符文属性[heroType].雷属性打易电状态加伤害/100f);
+      }
       return damage;
    }
    public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
@@ -713,6 +735,14 @@ public class MonsterBase : MonoBehaviour
       var hero根基丹药 = FightController.S.英雄根基丹药属性Dic[heroType];
       var yuanSu = heroZhiYe.yuanSuType;
       var zhiYe = heroZhiYe.zhiYeType;
+      if (英雄攻击次数.ContainsKey(heroType))
+      {
+         英雄攻击次数[heroType]++;
+      }
+      else
+      {
+         英雄攻击次数[heroType] = 1;
+      }
 
       // 受击动画节流：高频受击时只在 > 0.1s 间隔内播放，避免动画系统 hammered
       float now = Time.time;
@@ -750,12 +780,12 @@ public class MonsterBase : MonoBehaviour
 
       if (FightController.S.英雄技能树属性[heroType].物理碎甲怪物百分比 > 0)
       {
-         怪物真实护甲 -= MonsterAttribute.Defense * FightController.S.英雄技能树属性[heroType].物理碎甲怪物百分比 / 100f;
+         怪物真实护甲 -= MonsterAttribute.Defense * FightController.S.英雄技能树属性[heroType].物理碎甲怪物百分比*(1f+FightController.S.英雄符文属性[heroType].加强碎甲效果/100f) / 100f;
          怪物真实护甲 = Math.Max(0, 怪物真实护甲);
       }
       if (FightController.S.英雄技能树属性[heroType].物理碎甲领主攻击百分比 > 0)
       {
-         怪物真实护甲 -= FightController.S.领主总攻击力 * FightController.S.英雄技能树属性[heroType].物理碎甲领主攻击百分比 / 100f;
+         怪物真实护甲 -= FightController.S.领主总攻击力 * FightController.S.英雄技能树属性[heroType].物理碎甲领主攻击百分比*(1f+FightController.S.英雄符文属性[heroType].加强碎甲效果/100f) / 100f;
          怪物真实护甲 = Math.Max(0, 怪物真实护甲);
       }
 
@@ -769,7 +799,7 @@ public class MonsterBase : MonoBehaviour
       {
          最终Damage *= (1f+FightController.S.英雄技能树属性[heroType].冰冻增伤/100f);
       }
-      最终Damage *= (1f+易电伤害/100f);
+      最终Damage *= (1f+易电伤害*(1f+FightController.S.英雄符文属性[heroType].增强易电效果/100f)/100f);
       最终Damage=计算技能树伤害(最终Damage,heroType,攻击特效);
 
       bool 暴击 = 暴击检测(heroType);

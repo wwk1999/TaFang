@@ -35,7 +35,8 @@ public class QueueController:XSingleton<QueueController>
         }
     }
 
-    
+    [NonSerialized] public Queue<黑暗印记爆炸> 黑暗印记爆炸Queue = new Queue<黑暗印记爆炸>();
+
     [NonSerialized] public Queue<伤害数字> 伤害数字Queue = new Queue<伤害数字>();
     [NonSerialized] public Queue<Spine纯显示一次> 普通怪死亡Queue = new Queue<Spine纯显示一次>();
     [NonSerialized] public Queue<Spine纯显示一次> 精英怪死亡Queue = new Queue<Spine纯显示一次>();
@@ -440,6 +441,19 @@ public class QueueController:XSingleton<QueueController>
         int count = 0;
         for (int i = 0; i < 100; i++)
         {
+              if (黑暗印记爆炸Queue.Count > 100)
+                {
+                    break;
+                }
+                var 黑暗印记爆炸 = Instantiate(Resources.Load("Prefabs/特效/黑暗印记爆炸"), 伤害数字CanvasRoot).GetComponent<黑暗印记爆炸>();
+                黑暗印记爆炸.gameObject.SetActive(false);
+                黑暗印记爆炸Queue.Enqueue(黑暗印记爆炸);
+                count++;
+                if (count % fream == 0)
+                {
+                    yield return null;
+                }
+            
             switch (type)
             {
                 case 攻击特效Type.陨石:
