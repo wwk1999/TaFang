@@ -33,6 +33,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float 黑暗印记层数 = 0;
    [NonSerialized]public float 黑暗印记伤害 = 0;
    [NonSerialized]public float 怪物真实护甲 = 0;
+   
    [NonSerialized]public Dictionary<HeroType,int>英雄攻击次数=new Dictionary<HeroType,int>();
 
 
@@ -61,6 +62,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public float CurrentHP;
    [NonSerialized] public float basespeed;
    private float CurrentAttackTime = 0;
+   private int 异常状态个数 = 0;
    private float RealSpeed => GetRealSpeed();
    [NonSerialized] public float 瑶池冰辅助=0;//这里有bug，判断技能树的被辅助英雄的时候，没有被瑶池辅助的英雄的伤害也会被计算，因为不是实时更新
    [NonSerialized] public bool 女娲电辅助;//每次攻击怪物的时候都会先改变这些辅助状态，然后再计算
@@ -620,6 +622,15 @@ public class MonsterBase : MonoBehaviour
       {
          damage*=(1f+FightController.S.英雄符文属性[heroType].雷属性打易电状态加伤害/100f);
       }
+      damage*=(1f+FightController.S.英雄符文属性[heroType].每有一个异常状态增伤*异常状态个数/100f);
+      damage*=(1f+FightController.S.英雄符文属性[heroType].清除异常状态增伤/100f);
+
+      if (异常状态个数 == 0)
+      {
+         damage*=(1f+FightController.S.英雄符文属性[heroType].没有异常状态增伤/100f);
+      }
+      damage *= (1f + FightController.S.英雄符文属性[heroType].取消冰冻每冰冻概率增伤 * FightController.S.英雄技能树属性[heroType].冰概率冰冻 /
+         100f);
       return damage;
    }
    public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
@@ -756,12 +767,12 @@ public class MonsterBase : MonoBehaviour
       }
 
       //冰元素减速冰冻
-      if (FightController.S.英雄技能树属性[heroType].冰减速 > 冰元素减速)
+      if (FightController.S.英雄技能树属性[heroType].冰减速*(1f+FightController.S.英雄符文属性[heroType].冰减速效果/100f) > 冰元素减速)
       {
-         冰元素减速 = FightController.S.英雄技能树属性[heroType].冰减速;
+         冰元素减速 = FightController.S.英雄技能树属性[heroType].冰减速*(1f+FightController.S.英雄符文属性[heroType].冰减速效果/100f);
          冰元素减速时间 = 2;
       }
-      if (FightController.S.英雄技能树属性[heroType].冰概率冰冻 > 0)
+      if (FightController.S.英雄技能树属性[heroType].冰概率冰冻 > 0&&FightController.S.英雄符文属性[heroType].取消冰冻每冰冻概率增伤==0)
       {
          float random=Random.Range(0,100);
          if (random < FightController.S.英雄技能树属性[heroType].冰概率冰冻)
@@ -965,6 +976,12 @@ public class MonsterBase : MonoBehaviour
       }
       // 无视抗性为百分值（与法器穿透口径一致），需 /100f，否则10%无视会变成抗性/11
       最终Damage *= (100 - 抗性/(1f+无视抗性/100f)) / 100;
+
+      if (FightController.S.英雄符文属性[heroType].清除异常状态增伤 > 0)
+      {
+         清除异常();
+      }
+      
       
       //黑暗印记
       if (FightController.S.英雄技能树属性[heroType].黑暗印记储存伤害 > 0)
@@ -1126,11 +1143,64 @@ public class MonsterBase : MonoBehaviour
       return 抗性;
    }
 
+   public void 更新异常个数()
+   {
+      int count = 0;
+      foreach (var item in 英雄灼烧状态)
+      {
+         if (item.Value.灼烧Time > 0)
+         {
+            count++;
+            break;
+         }
+      }
+
+      if (冰元素减速时间 > 0)
+      {
+         count++;
+      }
+
+      if (易电time > 0)
+      {
+         count++;
+      }
+
+      if (冰冻time > 0)
+      {
+         count++;
+      }
+
+      if (黑暗印记层数 == 0)
+      {
+         count++;
+      }
+
+      异常状态个数 = count;
+   }
+   
+   public void 清除异常()
+   {
+      int count = 0;
+      foreach (var item in 英雄灼烧状态)
+      {
+         item.Value.灼烧Time = 0;
+         item.Value.灼烧层数 = 0;
+         item.Value.灼烧伤害 = 0;
+      }
+     冰元素减速时间 = 0;
+      易电time = 0;
+      冰冻time= 0;
+      黑暗印记层数 = 0;
+      黑暗印记伤害 = 0;
+      异常状态个数 = 0;
+   }
+
    private void Update()
    {
       // 已死亡的怪物不再移动/攻击城墙/跳灼烧：万一 Die() 回收前还有残余帧，
       // 也不能让死怪走到城墙根卡住全局攻击目标
       if (isDead) return;
+      更新异常个数();
       foreach (var item in 英雄灼烧状态)
       {
          item.Value.灼烧当前时间+=Time.deltaTime;
