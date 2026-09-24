@@ -14,6 +14,8 @@ public class 按钮交互 : MonoBehaviour,IPointerDownHandler,IPointerEnterHandl
 
     public GameObject 标签暗;
     public GameObject 标签亮;
+    public GameObject 选中icon;
+
     public void OnPointerDown(PointerEventData eventData)
     {
         ObserverModuleManager.S.SendEvent("播放音效",音效Type.按钮点击);
@@ -27,6 +29,11 @@ public class 按钮交互 : MonoBehaviour,IPointerDownHandler,IPointerEnterHandl
         if (进入图片 != null)
         {
             GetComponent<Image>().sprite = 进入图片;
+        }
+
+        if (选中icon != null)
+        {
+            选中icon.gameObject.SetActive(true);
         }
 
         if (标签暗 != null&&标签亮 != null)
@@ -43,6 +50,10 @@ public class 按钮交互 : MonoBehaviour,IPointerDownHandler,IPointerEnterHandl
         if (离开图片 != null)
         {
             GetComponent<Image>().sprite = 离开图片;
+        }
+        if (选中icon != null)
+        {
+            选中icon.gameObject.SetActive(false);
         }
         if (标签暗 != null&&标签亮 != null)
         {
