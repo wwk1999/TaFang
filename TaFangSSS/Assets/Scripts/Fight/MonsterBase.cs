@@ -598,7 +598,10 @@ public class MonsterBase : MonoBehaviour
       }
       damage*=(1f+FightController.S.英雄符文属性[heroType].对怪物攻击次数越多越加伤害*英雄攻击次数[heroType]/100f);
       damage*=(1f+FightController.S.献祭英雄增加伤害[FightController.S.出战英雄编号[heroType]]/100f);
-      damage*=(1f+FightController.S.英雄辅助印记数量[heroType]*FightController.S.英雄符文属性[heroType].辅助印记增伤/100f);
+      if (FightController.S.英雄辅助印记数量.ContainsKey(heroType))
+      {
+         damage*=(1f+FightController.S.英雄辅助印记数量[heroType]*FightController.S.英雄符文属性[heroType].辅助印记增伤/100f);
+      }
       damage*=(1f+FightController.S.英雄符文属性[heroType].元素每有一个不同增伤*FightController.S.不同元素个数/100f);
       damage*=(1f+FightController.S.英雄符文属性[heroType].职业每有一个不同增伤*FightController.S.不同职业个数/100f);
 
@@ -801,6 +804,7 @@ public class MonsterBase : MonoBehaviour
       }
       最终Damage *= (1f+易电伤害*(1f+FightController.S.英雄符文属性[heroType].增强易电效果/100f)/100f);
       最终Damage=计算技能树伤害(最终Damage,heroType,攻击特效);
+      最终Damage=计算符文伤害(最终Damage,heroType,攻击特效);
 
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
@@ -988,6 +992,15 @@ public class MonsterBase : MonoBehaviour
             if (CurrentHP <= 0)
             {
                Die(heroType);
+            }
+
+            if (FightController.S.英雄符文属性[heroType].引爆时造成范围爆炸 > 0)
+            {
+               var 黑暗印记爆炸 = QueueController.S.黑暗印记爆炸Queue.Dequeue();
+               黑暗印记爆炸.transform.position = transform.position;
+               黑暗印记爆炸.damage = 黑暗印记伤害*(1f+FightController.S.英雄符文属性[heroType].引爆时造成范围爆炸/100f);
+               黑暗印记爆炸.HeroType = heroType;
+               黑暗印记爆炸.gameObject.SetActive(true);
             }
             黑暗印记伤害 = 0;
          }

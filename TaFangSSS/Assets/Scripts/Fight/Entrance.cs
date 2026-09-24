@@ -223,6 +223,10 @@ public class Entrance : MonoBehaviour
       FightController.S.丹药射手伤害 = FightController.S.战斗丹药属性.射手伤害;
       FightController.S.丹药最终伤害 = FightController.S.战斗丹药属性.最终伤害;
 
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+      {
+          FightController.S.英雄符文属性[item] = 符文Config.Get英雄符文属性(item);
+      }
 
 
       foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
@@ -297,7 +301,6 @@ public class Entrance : MonoBehaviour
              FightController.S.技能树总所有英雄伤害+=英雄技能树Config.Get英雄技能树属性(item1.Key).增加所有英雄伤害;
          }
 
-         FightController.S.英雄符文属性[item] = 符文Config.Get英雄符文属性(item);
          FightController.S.领主暴击率 = 属性config.总属性.暴击率 * 100;
          var renwu = Instantiate(Resources.Load("Prefabs/Fight/人物Item"),人物Parent.transform).GetComponent<人物item>();
          renwu.heroType = item;
