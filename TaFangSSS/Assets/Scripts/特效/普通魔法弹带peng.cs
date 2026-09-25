@@ -33,7 +33,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    {
       CancelInvoke();
       transform.localScale = Vector2.one;
-      if (Type == 攻击特效Type.冰剑气)
+      if (Type == 攻击特效Type.冰剑气&&FightController.S.英雄技能树属性.ContainsKey(HeroType.云霄))
       {
          transform.localScale = new Vector3(原始scale.x * 英雄星级属性.云霄效果范围*(1f+FightController.S.英雄技能树属性[HeroType.云霄].效果范围/100f), 原始scale.y * 英雄星级属性.云霄效果范围*(1f+FightController.S.英雄技能树属性[HeroType.云霄].效果范围/100f), 1);
       }

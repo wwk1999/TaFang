@@ -36,7 +36,18 @@ public class StoreDefine : XSingleton<StoreController>
         public int 轮回次数 = 0;
         public bool 是否首次进入主页面 = true;
 
-        
+        public Dictionary<建筑Type, int> 道场建筑等级Dic = new Dictionary<建筑Type, int>()
+        {
+            { 建筑Type.功德碑 ,0},
+            { 建筑Type.炼丹室 ,0},
+            { 建筑Type.炼器室 ,0},
+            { 建筑Type.领主府 ,0},
+            { 建筑Type.矿场 ,0},
+            { 建筑Type.地脉 ,0},
+            { 建筑Type.玄铁洞 ,0},
+            { 建筑Type.坊市 ,0},
+            { 建筑Type.聚贤阁 ,0},
+        };
         
         public List<符文> 符文道文List = new List<符文>();
         public List<符文> 符文圣文List = new List<符文>();
@@ -3147,6 +3158,7 @@ public class StoreDefine : XSingleton<StoreController>
             符文圣文List = runtime.符文圣文List;
             符文帝文List = runtime.符文帝文List;
             符文道文List = runtime.符文道文List;
+            道场建筑等级Dic = runtime.道场建筑等级Dic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3235,7 +3247,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.符文圣文List = 符文圣文List;
             runtime.符文帝文List = 符文帝文List;
             runtime.符文灵文List = 符文灵文List;
-
+            runtime.道场建筑等级Dic = 道场建筑等级Dic;
         }
     }
 }

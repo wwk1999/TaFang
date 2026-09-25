@@ -31,13 +31,18 @@ public class 冰符 : MonoBehaviour
         {
             case HeroType.常羲:
                 目标scale = 英雄星级属性.常曦效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[HeroType.常羲].效果范围 / 100f);
+                if (FightController.S.英雄技能树属性.ContainsKey(HeroType.常羲))
+                {
+                    目标scale *= (1f + FightController.S.英雄技能树属性[HeroType.常羲].效果范围 / 100f);
+                }
 
                 break;
             case HeroType.羲和:
                 目标scale = 英雄星级属性.羲和效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[HeroType.羲和].效果范围 / 100f);
-
+                if (FightController.S.英雄技能树属性.ContainsKey(HeroType.羲和))
+                {
+                    目标scale *= (1f + FightController.S.英雄技能树属性[HeroType.羲和].效果范围 / 100f);
+                }
                 break;
         }
 

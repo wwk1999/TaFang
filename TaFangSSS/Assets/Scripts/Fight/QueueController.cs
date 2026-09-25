@@ -441,10 +441,8 @@ public class QueueController:XSingleton<QueueController>
         int count = 0;
         for (int i = 0; i < 100; i++)
         {
-              if (黑暗印记爆炸Queue.Count > 100)
-                {
-                    break;
-                }
+            if (黑暗印记爆炸Queue.Count <= 100)
+            {
                 var 黑暗印记爆炸 = Instantiate(Resources.Load("Prefabs/特效/黑暗印记爆炸"), 伤害数字CanvasRoot).GetComponent<黑暗印记爆炸>();
                 黑暗印记爆炸.gameObject.SetActive(false);
                 黑暗印记爆炸Queue.Enqueue(黑暗印记爆炸);
@@ -453,7 +451,8 @@ public class QueueController:XSingleton<QueueController>
                 {
                     yield return null;
                 }
-            
+            }
+
             switch (type)
             {
                 case 攻击特效Type.陨石:
