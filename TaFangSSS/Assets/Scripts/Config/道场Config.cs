@@ -78,6 +78,10 @@ public class 坊市配置
 }
 public class 道场Config
 {
+    public static List<string> 女供奉名List = new List<string>()
+    {
+        "苏清璃",
+    };
     public static Dictionary<int, 聚贤阁配置> 聚贤阁配置 = new Dictionary<int, 聚贤阁配置>()
     {
         {1,new 聚贤阁配置(){等级=1,普通招募概率 = new List<float>(){80,20,0,0,0,0,0,0},高级招募概率 = new List<float>(){0,0,80,20,0,0,0,0},升级需要灵气 = 0,升级需要玄铁 = 1000,升级需要玉髓 = 1000,升级需要矿石 = 1000}},
