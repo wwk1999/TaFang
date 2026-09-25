@@ -2,10 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 女供奉1;
+    public static Sprite 女供奉2;
+    public static Sprite 女供奉3;
+    public static Sprite 女供奉4;
+    public static Sprite 女供奉5;
+    public static Sprite 女供奉6;
+    public static Sprite 女供奉7;
+    public static Sprite 女供奉8;
+    public static Sprite 女供奉9;
+    public static Sprite 女供奉10;
+
+    public static Sprite 女供奉11;
+    public static Sprite 女供奉12;
+    public static Sprite 女供奉13;
+    public static Sprite 女供奉14;
+    public static Sprite 女供奉15;
+    public static Sprite 女供奉16;
+    public static Sprite 女供奉17;
+    public static Sprite 女供奉18;
+    public static Sprite 女供奉19;
+    public static Sprite 女供奉20;
+    
+    public static Sprite 女供奉21;
+    public static Sprite 女供奉22;
+    public static Sprite 女供奉23;
+    public static Sprite 女供奉24;
+    public static Sprite 女供奉25;
+    public static Sprite 女供奉26;
+    public static Sprite 女供奉27;
+    public static Sprite 女供奉28;
+    public static Sprite 女供奉29;
+    public static Sprite 女供奉30;
     //符文
     public static Sprite 击杀怪物获得神通能量_灵文;
     public static Sprite 击杀怪物获得神通能量_仙文;
@@ -6950,8 +6983,112 @@ public class ResourcesConfig : MonoBehaviour
         return null;
     }
 
+    public static Sprite Get女供奉Sprite()
+    {
+        int random = Random.Range(1, 31);
+        switch (random)
+        {
+            case 1:
+                return 女供奉1;
+            case 2:
+                return 女供奉2;
+            case 3:
+                return 女供奉3;
+            case 4:
+                return 女供奉4;
+            case 5:
+                return 女供奉5;
+            case 6:
+                return 女供奉6;
+            case 7:
+                return 女供奉7;
+            case 8:
+                return 女供奉8;
+            case 9:
+                return 女供奉9;
+            case 10:
+                return 女供奉10;
+            case 11:
+                return 女供奉11;
+            case 12:
+                return 女供奉12;
+            case 13:
+                return 女供奉13;
+            case 14:
+                return 女供奉14;
+            case 15:
+                return 女供奉15;
+            case 16:
+                return 女供奉16;
+            case 17:
+                return 女供奉17;
+            case 18:
+                return 女供奉18;
+            case 19:
+                return 女供奉19;
+            case 20:
+                return 女供奉20;
+            case 21:
+                return 女供奉21;
+            case 22:
+                return 女供奉22;
+            case 23:
+                return 女供奉23;
+            case 24:
+                return 女供奉24;
+            case 25:
+                return 女供奉25;
+            case 26:
+                return 女供奉26;
+            case 27:
+                return 女供奉27;
+            case 28:
+                return 女供奉28;
+            case 29:
+                return 女供奉29;
+            case 30:
+                return 女供奉30;
+            default:
+                return 女供奉1;
+        }
+    }
+
     public static void Init()
     {
+        女供奉1=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/1");
+        女供奉2=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/2");
+        女供奉3=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/3");
+        女供奉4=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/4");
+        女供奉5=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/5");
+        女供奉6=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/6");
+        女供奉7=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/7");
+        女供奉8=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/8");
+        女供奉9=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/9");
+        女供奉10=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/10");
+        
+        女供奉1=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/11");
+        女供奉2=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/12");
+        女供奉3=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/13");
+        女供奉4=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/14");
+        女供奉5=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/15");
+        女供奉6=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/16");
+        女供奉7=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/17");
+        女供奉8=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/18");
+        女供奉9=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/19");
+        女供奉10=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/20");
+        
+        女供奉21=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/21");
+        女供奉22=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/22");
+        女供奉23=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/23");
+        女供奉24=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/24");
+        女供奉25=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/25");
+        女供奉26=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/26");
+        女供奉27=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/27");
+        女供奉28=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/28");
+        女供奉29=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/29");
+        女供奉30=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/30");
+
+        
         击杀怪物获得神通能量_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
         击杀怪物获得神通能量_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
         击杀怪物获得神通能量_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];

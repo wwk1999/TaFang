@@ -24,6 +24,7 @@ public enum 供奉Type
     圣,
     道,
 }
+
 public class 建筑配置
 {
     public int 等级;
