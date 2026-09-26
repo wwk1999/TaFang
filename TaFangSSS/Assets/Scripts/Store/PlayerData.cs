@@ -18,12 +18,12 @@ public class PlayerData : XSingleton<PlayerData>
     public JingJieType 当前轮回境界 = JingJieType.练气;
     public int 轮回次数 = 0;
     public float 初始跟脚 = 1;
-    public bool 是否首次进入游戏 = true;
-    public bool 是否首次进入主页面 = true;
-    public bool 是否首次进入英雄界面 = true;
-    public bool 是否首次进入关卡 = true;
-    public bool 是否首次通关关卡 = true;
-    public bool 是否首次配置神通 = true;
+    public bool 是否首次进入游戏 = false;
+    public bool 是否首次进入主页面 = false;
+    public bool 是否首次进入英雄界面 = false;
+    public bool 是否首次进入关卡 = false;
+    public bool 是否首次通关关卡 = false;
+    public bool 是否首次配置神通 = false;
 
     public float Exp;
     public int 当前出战编队 = 1;

@@ -118,6 +118,9 @@ public class 供奉
 {
     public 供奉品质Type 供奉品质Type;
     public string name;
+    // 头像只存id，Sprite为运行时资源，不可序列化（Sprite.bounds.center.normalized 会导致 Newtonsoft 自引用循环）
+    public int 头像id;
+    [Newtonsoft.Json.JsonIgnore]
     public Sprite 供奉头像;
     public float 矿;
     public float 铁;
@@ -127,7 +130,7 @@ public class 供奉
     public float 器;
     public float 丹;
     public float 坊;
-    public List<供奉特性> 特性list;
+    public List<供奉特性> 特性list=new List<供奉特性>();
 }
 public class 道场Config
 {
@@ -314,7 +317,8 @@ public class 道场Config
         供奉 供奉 = new 供奉();
         供奉.供奉品质Type = type;
         供奉.name = 女供奉名List[Random.Range(0, 女供奉名List.Count)];
-        供奉.供奉头像 = ResourcesConfig.Get女供奉Sprite();
+        供奉.头像id = Random.Range(1, 31);
+        供奉.供奉头像 = ResourcesConfig.Get女供奉Sprite(供奉.头像id);
         供奉.矿 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
         供奉.器 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
         供奉.铁 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
@@ -340,6 +344,18 @@ public class 道场Config
         供奉特性.供奉品质Type = type;
         供奉特性.供奉特性Type = (供奉特性Type)Random.Range(0, Enum.GetValues(typeof(供奉特性Type)).Length);
         return 供奉特性;
+    }
+
+    /// <summary>
+    /// 读档后按 头像id 还原 Sprite；老存档无id（=0）时随机补一个
+    /// </summary>
+    public static void 还原供奉头像(供奉 供奉)
+    {
+        if (供奉.头像id <= 0)
+        {
+            供奉.头像id = Random.Range(1, 31);
+        }
+        供奉.供奉头像 = ResourcesConfig.Get女供奉Sprite(供奉.头像id);
     }
     public static Dictionary<int, 领主府配置> 领主府配置 = new Dictionary<int, 领主府配置>()
     {

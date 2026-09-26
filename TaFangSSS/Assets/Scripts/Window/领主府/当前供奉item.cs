@@ -23,6 +23,14 @@ public class 当前供奉item : MonoBehaviour
         icon.sprite = 供奉.供奉头像;
         name.text = 供奉.name;
         品质bg.sprite = ResourcesConfig.Get供奉品质标签(供奉.供奉品质Type);
+        foreach (Transform item in 数值Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 特性Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
         var 矿 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
             .GetComponent<供奉数值item>();
         矿.建筑Type = 建筑Type.矿场;
@@ -71,15 +79,18 @@ public class 当前供奉item : MonoBehaviour
         坊.count = 供奉.坊;
         坊.SetItem();
 
-        foreach (var item in 供奉.特性list)
+        if (供奉.特性list != null)
         {
-            var 特性=Instantiate(Resources.Load("Prefabs/Window/领主府/特性item"), 特性Content.transform)
-                .GetComponent<特性item>();
-            特性.供奉品质Type = item.供奉品质Type;
-            特性.供奉特性Type = item.供奉特性Type;
-            特性.SetItem();
+            foreach (var item in 供奉.特性list)
+            {
+                var 特性 = Instantiate(Resources.Load("Prefabs/Window/领主府/特性item"), 特性Content.transform)
+                    .GetComponent<特性item>();
+                特性.供奉品质Type = item.供奉品质Type;
+                特性.供奉特性Type = item.供奉特性Type;
+                特性.SetItem();
+            }
         }
-        
+
         switch (供奉.供奉品质Type)
         {
             case 供奉品质Type.凡:

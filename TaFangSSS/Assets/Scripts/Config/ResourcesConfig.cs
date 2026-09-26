@@ -7019,8 +7019,12 @@ public class ResourcesConfig : MonoBehaviour
 
     public static Sprite Get女供奉Sprite()
     {
-        int random = Random.Range(1, 31);
-        switch (random)
+        return Get女供奉Sprite(Random.Range(1, 31));
+    }
+
+    public static Sprite Get女供奉Sprite(int id)
+    {
+        switch (id)
         {
             case 1:
                 return 女供奉1;

@@ -47,12 +47,12 @@ public class 领主府 : MonoBehaviour
 
    private void OnDestroy()
    {
-      ObserverModuleManager.S.UnRegisterEvent("刷新城主府",刷新城主府);
+      ObserverModuleManager.S.UnRegisterEvent("刷新领主府",刷新城主府);
    }
 
    private void Start()
    {
-      ObserverModuleManager.S.RegisterEvent("刷新城主府",刷新城主府);
+      ObserverModuleManager.S.RegisterEvent("刷新领主府",刷新城主府);
       退出按钮.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);

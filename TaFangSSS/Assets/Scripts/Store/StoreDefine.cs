@@ -21,12 +21,12 @@ public class StoreDefine : XSingleton<StoreController>
         public JingJieType 历史最高境界 = JingJieType.练气;
         public JingJieType 当前轮回境界 = JingJieType.练气;
         public float Exp;
-        public bool 是否首次进入游戏 = true;
-        public bool 是否首次进入英雄界面 = true;
-        public bool 是否首次进入关卡 = true;
-        public bool 是否首次通关关卡 = true;
+        public bool 是否首次进入游戏 = false;
+        public bool 是否首次进入英雄界面 = false;
+        public bool 是否首次进入关卡 = false;
+        public bool 是否首次通关关卡 = false;
         public List<HeroType>神通配置List=new List<HeroType>();
-        public bool 是否首次配置神通 = true;
+        public bool 是否首次配置神通 = false;
 
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
@@ -3281,6 +3281,10 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.当前供奉列表 = 当前供奉列表;
             runtime.供奉申请列表 = 供奉申请列表;
             runtime.供奉保留列表 = 供奉保留列表;
+            // Sprite不参与序列化，读档后按头像id还原运行时头像
+            foreach (var 供奉 in 当前供奉列表) 道场Config.还原供奉头像(供奉);
+            foreach (var 供奉 in 供奉申请列表) 道场Config.还原供奉头像(供奉);
+            foreach (var 供奉 in 供奉保留列表) 道场Config.还原供奉头像(供奉);
             runtime.建筑等级Dic = 建筑等级Dic;
             runtime.自动拒绝凡品供奉 = 自动拒绝凡品供奉;
             runtime.自动拒绝灵品供奉 = 自动拒绝灵品供奉;
