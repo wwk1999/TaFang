@@ -35,6 +35,28 @@ public class StoreDefine : XSingleton<StoreController>
         public 体质Type 当前体质 = 体质Type.凡体;
         public int 轮回次数 = 0;
         public bool 是否首次进入主页面 = true;
+        
+        
+        public List<供奉> 当前供奉列表=new List<供奉>();
+        public List<供奉> 供奉申请列表=new List<供奉>();
+        public List<供奉> 供奉保留列表=new List<供奉>();
+        
+        public bool 自动拒绝凡品供奉=false;
+        public bool 自动拒绝灵品供奉=false;
+        public bool 自动拒绝仙品供奉=false;
+        public bool 自动拒绝圣品供奉=false;
+        public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
+        {
+            { 建筑Type.矿场, 1 },
+            { 建筑Type.地脉, 1 },
+            { 建筑Type.功德碑, 1 },
+            { 建筑Type.玄铁洞, 1 },
+            { 建筑Type.炼丹室, 1 },
+            { 建筑Type.炼器室, 1 },
+            { 建筑Type.聚贤阁, 1 },
+            { 建筑Type.坊市, 0 },
+            { 建筑Type.领主府, 1 },
+        };
 
         public Dictionary<建筑Type, int> 道场建筑等级Dic = new Dictionary<建筑Type, int>()
         {
@@ -3159,6 +3181,14 @@ public class StoreDefine : XSingleton<StoreController>
             符文帝文List = runtime.符文帝文List;
             符文道文List = runtime.符文道文List;
             道场建筑等级Dic = runtime.道场建筑等级Dic;
+            当前供奉列表 = runtime.当前供奉列表;
+            供奉申请列表 = runtime.供奉申请列表;
+            供奉保留列表 = runtime.供奉保留列表;
+            建筑等级Dic = runtime.建筑等级Dic;
+            自动拒绝凡品供奉 = runtime.自动拒绝凡品供奉;
+            自动拒绝灵品供奉 = runtime.自动拒绝灵品供奉;
+            自动拒绝仙品供奉 = runtime.自动拒绝仙品供奉;
+            自动拒绝圣品供奉 = runtime.自动拒绝圣品供奉;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3248,6 +3278,15 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.符文帝文List = 符文帝文List;
             runtime.符文灵文List = 符文灵文List;
             runtime.道场建筑等级Dic = 道场建筑等级Dic;
+            runtime.当前供奉列表 = 当前供奉列表;
+            runtime.供奉申请列表 = 供奉申请列表;
+            runtime.供奉保留列表 = 供奉保留列表;
+            runtime.建筑等级Dic = 建筑等级Dic;
+            runtime.自动拒绝凡品供奉 = 自动拒绝凡品供奉;
+            runtime.自动拒绝灵品供奉 = 自动拒绝灵品供奉;
+            runtime.自动拒绝仙品供奉 = 自动拒绝仙品供奉;
+            runtime.自动拒绝圣品供奉 = 自动拒绝圣品供奉;
+
         }
     }
 }

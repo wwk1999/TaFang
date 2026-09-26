@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum 建筑Type
 {
@@ -16,7 +19,7 @@ public enum 建筑Type
 }
 
 
-public enum 供奉Type
+public enum 供奉品质Type
 {
     None,
     凡,
@@ -41,6 +44,9 @@ public class 领主府配置
     public int 等级;
     public List<float> 招募概率列表;
     public int 供奉个数;
+    public int 供奉保留个数;
+    public int 供奉申请个数;
+    public int 每道年供奉申请个数;
     public float 升级需要灵气;
     public float 升级需要矿石;
     public float 升级需要玄铁;
@@ -99,6 +105,29 @@ public enum 供奉特性Type
     获得玄铁概率获得玉髓,
     获得玉髓概率获得玄铁,
     获得玉髓概率获得矿石,
+    坊市刷新概率不消耗次数,
+}
+
+public class 供奉特性
+{
+    public 供奉特性Type 供奉特性Type;
+    public 供奉品质Type 供奉品质Type;
+}
+
+public class 供奉
+{
+    public 供奉品质Type 供奉品质Type;
+    public string name;
+    public Sprite 供奉头像;
+    public float 矿;
+    public float 铁;
+    public float 玉;
+    public float 德;
+    public float 贤;
+    public float 器;
+    public float 丹;
+    public float 坊;
+    public List<供奉特性> 特性list;
 }
 public class 道场Config
 {
@@ -121,10 +150,30 @@ public class 道场Config
         { 供奉特性Type.获得玄铁概率获得玉髓 ,new List<float>(){3,6,10,18,35} },
         { 供奉特性Type.获得玉髓概率获得玄铁 ,new List<float>(){3,6,10,18,35} },
         { 供奉特性Type.获得玉髓概率获得矿石 ,new List<float>(){3,6,10,18,35} },
+        { 供奉特性Type.坊市刷新概率不消耗次数 ,new List<float>(){3,6,10,18,35} },
+
     };
 
     public static Dictionary<供奉特性Type, string> 供奉特性名Dic = new Dictionary<供奉特性Type, string>()
     {
+        { 供奉特性Type.采矿速度, "点石成金" },
+        { 供奉特性Type.采铁速度, "玄铁生光" },
+        { 供奉特性Type.地脉产玉髓速度, "地涌泉髓" },
+        { 供奉特性Type.功德产出速度, "德被十方" },
+        { 供奉特性Type.概率获得两个高级招募卷, "慧眼识珠" },
+        { 供奉特性Type.概率增加炼丹数量, "一炉双丹" },
+        { 供奉特性Type.增加炼丹速度, "炉火纯青" },
+        { 供奉特性Type.增加炼丹经验, "丹成悟玄" },
+        { 供奉特性Type.增加炼器速度, "欧冶铸锋" },
+        { 供奉特性Type.增加法器分解粉尘, "返璞凝尘" },
+        { 供奉特性Type.坊市价格减少, "广结善缘" },
+        { 供奉特性Type.获得矿石概率获得玄铁, "璞里藏锋" },
+        { 供奉特性Type.获得矿石概率获得玉髓, "石中孕玉" },
+        { 供奉特性Type.获得玄铁概率获得矿石, "黑金怀璞" },
+        { 供奉特性Type.获得玄铁概率获得玉髓, "寒铁生髓" },
+        { 供奉特性Type.获得玉髓概率获得玄铁, "琼浆淬锋" },
+        { 供奉特性Type.获得玉髓概率获得矿石, "玉液凝璞" },
+        { 供奉特性Type.坊市刷新概率不消耗次数, "坊市门票" },
 
     };
     public static string Get领主数值string(建筑Type 建筑type)
@@ -216,19 +265,94 @@ public class 道场Config
         {9,new 坊市配置(){等级=9,概率 = new List<float>(){80,20,0,0,15,70,15,0},升级需要灵气 = 0,升级需要玄铁 = 3000000000,升级需要玉髓 = 0,升级需要矿石 = 3000000000}},
         {10,new 坊市配置(){等级=10,概率 = new List<float>(){0,0,0,0,0,79,20,1},升级需要灵气 = 0,升级需要玄铁 = 15000000000,升级需要玉髓 = 0,升级需要矿石 = 15000000000}},
     };
-    
+
+    public static Dictionary<供奉品质Type, minmax> 供奉数值范围 = new Dictionary<供奉品质Type, minmax>()
+    {
+        { 供奉品质Type.凡, new minmax() { min = 3, max = 8 } },
+        { 供奉品质Type.灵, new minmax() { min = 5, max = 15 } },
+        { 供奉品质Type.仙, new minmax() { min = 10, max = 30 } },
+        { 供奉品质Type.圣, new minmax() { min = 20, max = 50 } },
+        { 供奉品质Type.道, new minmax() { min = 40, max = 100 } },
+    };
+
+    public static Dictionary<供奉品质Type, float> 供奉特性概率 = new Dictionary<供奉品质Type, float>()
+    {
+        { 供奉品质Type.凡, 2 },
+        { 供奉品质Type.灵, 4 },
+        { 供奉品质Type.仙, 8 },
+        { 供奉品质Type.圣, 16 },
+        { 供奉品质Type.道, 30 },
+    };
+
+    public static List<供奉> Get每道年供奉申请列表()
+    {
+        List<供奉> list = new List<供奉>();
+        List<float> 品质概率list = 领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].招募概率列表;
+        for (int i = 0; i<领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].每道年供奉申请个数; i++)
+        {
+            float random = Random.Range(0, 100f);
+            float count = 0;
+            int index = 0;
+            foreach (var item in 品质概率list)
+            {
+                count += item;
+                if (random <= count)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            供奉品质Type 供奉品质Type = (供奉品质Type)(index + 1);
+            list.Add(Get品质供奉(供奉品质Type));
+        }
+
+        return list;
+    }
+    public static 供奉 Get品质供奉(供奉品质Type type)
+    {
+        供奉 供奉 = new 供奉();
+        供奉.供奉品质Type = type;
+        供奉.name = 女供奉名List[Random.Range(0, 女供奉名List.Count)];
+        供奉.供奉头像 = ResourcesConfig.Get女供奉Sprite();
+        供奉.矿 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.器 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.铁 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.玉 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.贤 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.德 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.丹 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        供奉.坊 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
+        for (int i = 0; i < 4; i++)
+        {
+            float random = Random.Range(0, 100);
+            if (random < 供奉特性概率[type])
+            {
+                供奉.特性list.Add(Get品质供奉特性(type));
+            }
+        }
+        return 供奉;
+    }
+
+    public static 供奉特性 Get品质供奉特性(供奉品质Type type)
+    {
+        供奉特性 供奉特性 = new 供奉特性();
+        供奉特性.供奉品质Type = type;
+        供奉特性.供奉特性Type = (供奉特性Type)Random.Range(0, Enum.GetValues(typeof(供奉特性Type)).Length);
+        return 供奉特性;
+    }
     public static Dictionary<int, 领主府配置> 领主府配置 = new Dictionary<int, 领主府配置>()
     {
-        {1,new 领主府配置(){等级=1,招募概率列表 = new List<float>(){80,20,0,0,0},供奉个数 = 1,升级需要灵气 = 2000,升级需要玄铁 = 1000,升级需要玉髓 = 1000,升级需要矿石 = 1000}},
-        {2,new 领主府配置(){等级=2,招募概率列表 = new List<float>(){50,50,0,0,0},供奉个数 = 2,升级需要灵气 = 10000,升级需要玄铁 = 8000,升级需要玉髓 = 8000,升级需要矿石 = 8000}},
-        {3,new 领主府配置(){等级=3,招募概率列表 = new List<float>(){15,70,15,0,0},供奉个数 = 3,升级需要灵气 = 40000,升级需要玄铁 = 50000,升级需要玉髓 = 50000,升级需要矿石 = 50000}},
-        {4,new 领主府配置(){等级=4,招募概率列表 = new List<float>(){0,70,30,0,0},供奉个数 = 4,升级需要灵气 = 200000,升级需要玄铁 = 500000,升级需要玉髓 = 500000,升级需要矿石 = 500000}},
-        {5,new 领主府配置(){等级=5,招募概率列表 = new List<float>(){0,50,50,0,0},供奉个数 = 5,升级需要灵气 = 800000,升级需要玄铁 = 3000000,升级需要玉髓 = 3000000,升级需要矿石 = 3000000}},
-        {6,new 领主府配置(){等级=6,招募概率列表 = new List<float>(){0,20,70,10,0},供奉个数 = 6,升级需要灵气 = 2000000,升级需要玄铁 = 20000000,升级需要玉髓 = 20000000,升级需要矿石 = 20000000}},
-        {7,new 领主府配置(){等级=7,招募概率列表 = new List<float>(){0,0,80,20,0},供奉个数 = 7,升级需要灵气 = 5000000,升级需要玄铁 = 100000000,升级需要玉髓 = 100000000,升级需要矿石 = 100000000}},
-        {8,new 领主府配置(){等级=8,招募概率列表 = new List<float>(){0,0,70,30,0},供奉个数 = 8,升级需要灵气 = 15000000,升级需要玄铁 = 500000000,升级需要玉髓 = 500000000,升级需要矿石 = 500000000}},
-        {9,new 领主府配置(){等级=9,招募概率列表 = new List<float>(){0,0,55,40,5},供奉个数 = 9,升级需要灵气 = 50000000,升级需要玄铁 = 3000000000,升级需要玉髓 = 3000000000,升级需要矿石 = 3000000000}},
-        {10,new 领主府配置(){等级=10,招募概率列表 = new List<float>(){0,0,40,50,10},供奉个数 = 10,升级需要灵气 = 200000000,升级需要玄铁 = 15000000000,升级需要玉髓 = 15000000000,升级需要矿石 = 15000000000}},
+        {1,new 领主府配置(){等级=1,招募概率列表 = new List<float>(){80,20,0,0,0},供奉个数 = 1,每道年供奉申请个数=1,供奉申请个数 = 5,供奉保留个数 = 1,升级需要灵气 = 2000,升级需要玄铁 = 1000,升级需要玉髓 = 1000,升级需要矿石 = 1000}},
+        {2,new 领主府配置(){等级=2,招募概率列表 = new List<float>(){50,50,0,0,0},供奉个数 = 2,每道年供奉申请个数=2,供奉申请个数 = 7,供奉保留个数 = 2,升级需要灵气 = 10000,升级需要玄铁 = 8000,升级需要玉髓 = 8000,升级需要矿石 = 8000}},
+        {3,new 领主府配置(){等级=3,招募概率列表 = new List<float>(){15,70,15,0,0},供奉个数 = 3,每道年供奉申请个数=3,供奉申请个数 = 9,供奉保留个数 = 3,升级需要灵气 = 40000,升级需要玄铁 = 50000,升级需要玉髓 = 50000,升级需要矿石 = 50000}},
+        {4,new 领主府配置(){等级=4,招募概率列表 = new List<float>(){0,70,30,0,0},供奉个数 = 4,每道年供奉申请个数=4,供奉申请个数 = 11,供奉保留个数 = 4,升级需要灵气 = 200000,升级需要玄铁 = 500000,升级需要玉髓 = 500000,升级需要矿石 = 500000}},
+        {5,new 领主府配置(){等级=5,招募概率列表 = new List<float>(){0,50,50,0,0},供奉个数 = 5,每道年供奉申请个数=5,供奉申请个数 = 13,供奉保留个数 = 5,升级需要灵气 = 800000,升级需要玄铁 = 3000000,升级需要玉髓 = 3000000,升级需要矿石 = 3000000}},
+        {6,new 领主府配置(){等级=6,招募概率列表 = new List<float>(){0,20,70,10,0},供奉个数 = 6,每道年供奉申请个数=6,供奉申请个数 = 15,供奉保留个数 = 6,升级需要灵气 = 2000000,升级需要玄铁 = 20000000,升级需要玉髓 = 20000000,升级需要矿石 = 20000000}},
+        {7,new 领主府配置(){等级=7,招募概率列表 = new List<float>(){0,0,80,20,0},供奉个数 = 7,每道年供奉申请个数=7,供奉申请个数 = 18,供奉保留个数 = 7,升级需要灵气 = 5000000,升级需要玄铁 = 100000000,升级需要玉髓 = 100000000,升级需要矿石 = 100000000}},
+        {8,new 领主府配置(){等级=8,招募概率列表 = new List<float>(){0,0,70,30,0},供奉个数 = 8,每道年供奉申请个数=8,供奉申请个数 = 21,供奉保留个数 = 8,升级需要灵气 = 15000000,升级需要玄铁 = 500000000,升级需要玉髓 = 500000000,升级需要矿石 = 500000000}},
+        {9,new 领主府配置(){等级=9,招募概率列表 = new List<float>(){0,0,55,40,5},供奉个数 = 9,每道年供奉申请个数=9,供奉申请个数 = 24,供奉保留个数 = 9,升级需要灵气 = 50000000,升级需要玄铁 = 3000000000,升级需要玉髓 = 3000000000,升级需要矿石 = 3000000000}},
+        {10,new 领主府配置(){等级=10,招募概率列表 = new List<float>(){0,0,40,50,10},供奉个数 = 10,每道年供奉申请个数=10,供奉申请个数 = 28,供奉保留个数 = 10,升级需要灵气 = 200000000,升级需要玄铁 = 15000000000,升级需要玉髓 = 15000000000,升级需要矿石 = 15000000000}},
 
     };
     public static Dictionary<int, 炼丹炼器配置> 炼丹室配置 = new Dictionary<int, 炼丹炼器配置>()

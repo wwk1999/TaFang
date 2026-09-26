@@ -81,6 +81,51 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.Set辅助丹药Buff(丹药Type.掉宝率,(QualityType)i,Math.Max(0,PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率,(QualityType)i)-1));
         }
     }
+
+    public void 每道年供奉申请()
+    {
+        var 申请list = 道场Config.Get每道年供奉申请列表();
+        foreach (var item in 申请list)
+        {
+            switch (item.供奉品质Type)
+            {
+                case 供奉品质Type.凡:
+                    if (!PlayerData.S.自动拒绝凡品供奉 && PlayerData.S.供奉申请列表.Count <
+                        道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数)
+                    {
+                        PlayerData.S.供奉申请列表.Add(item);
+                    }
+                    break;
+                case 供奉品质Type.灵:
+                    if (!PlayerData.S.自动拒绝灵品供奉 && PlayerData.S.供奉申请列表.Count <
+                        道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数)
+                    {
+                        PlayerData.S.供奉申请列表.Add(item);
+                    }
+                    break;
+                case 供奉品质Type.仙:
+                    if (!PlayerData.S.自动拒绝仙品供奉 && PlayerData.S.供奉申请列表.Count <
+                        道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数)
+                    {
+                        PlayerData.S.供奉申请列表.Add(item);
+                    }
+                    break;
+                case 供奉品质Type.圣:
+                    if (!PlayerData.S.自动拒绝圣品供奉 && PlayerData.S.供奉申请列表.Count <
+                        道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数)
+                    {
+                        PlayerData.S.供奉申请列表.Add(item);
+                    }
+                    break;
+                case 供奉品质Type.道:
+                    if ( PlayerData.S.供奉申请列表.Count < 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数)
+                    {
+                        PlayerData.S.供奉申请列表.Add(item);
+                    }
+                    break;
+            }
+        }
+    }
     private void Update()
     {
         timer+=Time.unscaledDeltaTime;
@@ -97,6 +142,7 @@ public class StoreController : XSingleton<StoreController>
         PlayerData.S.道龄S += Time.unscaledDeltaTime;
         if (PlayerData.S.道龄S >= 属性config.每年秒数)
         {
+            每道年供奉申请();
             减少辅助丹药时间();
             ObserverModuleManager.S.SendEvent("刷新主页Buff");
             PlayerData.S.道龄S = 0;

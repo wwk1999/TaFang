@@ -57,6 +57,28 @@ public class PlayerData : XSingleton<PlayerData>
     public float 当前炼制秒数;
 
 
+    public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
+    {
+        { 建筑Type.矿场, 1 },
+        { 建筑Type.地脉, 1 },
+        { 建筑Type.功德碑, 1 },
+        { 建筑Type.玄铁洞, 1 },
+        { 建筑Type.炼丹室, 1 },
+        { 建筑Type.炼器室, 1 },
+        { 建筑Type.聚贤阁, 1 },
+        { 建筑Type.坊市, 0 },
+        { 建筑Type.领主府, 1 },
+    };
+
+    public bool 自动拒绝凡品供奉=false;
+    public bool 自动拒绝灵品供奉=false;
+    public bool 自动拒绝仙品供奉=false;
+    public bool 自动拒绝圣品供奉=false;
+
+    public List<供奉> 当前供奉列表=new List<供奉>();
+    public List<供奉> 供奉申请列表=new List<供奉>();
+    public List<供奉> 供奉保留列表=new List<供奉>();
+
     public Dictionary<建筑Type, int> 道场建筑等级Dic = new Dictionary<建筑Type, int>()
     {
         { 建筑Type.功德碑 ,0},

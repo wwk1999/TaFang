@@ -7,6 +7,30 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 红按钮;
+    public static Sprite 黑按钮;
+    public static Sprite toggle亮;
+    public static Sprite toggle暗;
+
+    public static Sprite 供奉品质标签白;
+    public static Sprite 供奉品质标签绿;
+    public static Sprite 供奉品质标签蓝;
+    public static Sprite 供奉品质标签紫;
+    public static Sprite 供奉品质标签橙;
+    public static Sprite 供奉品质标签粉;
+    public static Sprite 供奉品质标签红;
+    public static Sprite 供奉品质标签彩;
+    
+    public static Sprite 供奉特性标签白;
+    public static Sprite 供奉特性标签绿;
+    public static Sprite 供奉特性标签蓝;
+    public static Sprite 供奉特性标签紫;
+    public static Sprite 供奉特性标签橙;
+    public static Sprite 供奉特性标签粉;
+    public static Sprite 供奉特性标签红;
+    public static Sprite 供奉特性标签彩;
+
+    
     public static Sprite 矿;
     public static Sprite 丹;
     public static Sprite 器;
@@ -7087,8 +7111,68 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get供奉特性标签(供奉品质Type 供奉品质Type)
+    {
+        switch (供奉品质Type)
+        {
+            case 供奉品质Type.凡:
+                return 供奉特性标签蓝;
+            case 供奉品质Type.灵:
+                return 供奉特性标签橙;
+            case 供奉品质Type.仙:
+                return 供奉特性标签粉;
+            case 供奉品质Type.圣:
+                return 供奉特性标签红;
+            case 供奉品质Type.道:
+                return 供奉特性标签彩;
+        }
+        return null;
+    }
+    
+    
+    public static Sprite Get供奉品质标签(供奉品质Type 供奉品质Type)
+    {
+        switch (供奉品质Type)
+        {
+            case 供奉品质Type.凡:
+                return 供奉品质标签蓝;
+            case 供奉品质Type.灵:
+                return 供奉品质标签橙;
+            case 供奉品质Type.仙:
+                return 供奉品质标签粉;
+            case 供奉品质Type.圣:
+                return 供奉品质标签红;
+            case 供奉品质Type.道:
+                return 供奉品质标签彩;
+        }
+        return null;
+    }
     public static void Init()
     {
+        红按钮=Resources.Load<Sprite>("Sprite/按钮/红按钮");
+        黑按钮=Resources.Load<Sprite>("Sprite/按钮/黑按钮");
+        toggle亮=Resources.Load<Sprite>("Sprite/按钮/toggle亮");
+        toggle暗=Resources.Load<Sprite>("Sprite/按钮/toggle暗");
+
+        供奉特性标签彩=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签彩");
+        供奉特性标签红=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签红");
+        供奉特性标签粉=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签粉");
+        供奉特性标签橙=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签橙");
+        供奉特性标签紫=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签紫");
+        供奉特性标签蓝=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签蓝");
+        供奉特性标签绿=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签绿");
+        供奉特性标签白=Resources.Load<Sprite>("Sprite/领主府/供奉特性标签/标签白");
+        
+        供奉品质标签彩=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签彩");
+        供奉品质标签红=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签红");
+        供奉品质标签粉=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签粉");
+        供奉品质标签橙=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签橙");
+        供奉品质标签紫=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签紫");
+        供奉品质标签蓝=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签蓝");
+        供奉品质标签绿=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签绿");
+        供奉品质标签白=Resources.Load<Sprite>("Sprite/领主府/供奉品质标签/标签白");
+
         矿=Resources.Load<Sprite>("Sprite/领主府/数值icon/矿");
         丹=Resources.Load<Sprite>("Sprite/领主府/数值icon/丹");
         器=Resources.Load<Sprite>("Sprite/领主府/数值icon/器");
