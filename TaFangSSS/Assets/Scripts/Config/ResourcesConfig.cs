@@ -7,6 +7,25 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 玄铁;
+    public static Sprite 矿石;
+    public static Sprite 玉髓;
+
+    
+    public static Sprite 建筑item暗;
+    public static Sprite 建筑item亮;
+
+    public static Sprite 道场矿场;
+    public static Sprite 道场玄铁洞;
+    public static Sprite 道场地脉;
+    public static Sprite 道场功德碑;
+    public static Sprite 道场坊市;
+    public static Sprite 道场炼丹室;
+    public static Sprite 道场炼器室;
+    public static Sprite 道场领主府;
+    public static Sprite 道场聚贤阁;
+
+    
     public static Sprite 红按钮;
     public static Sprite 黑按钮;
     public static Sprite toggle亮;
@@ -7121,11 +7140,11 @@ public class ResourcesConfig : MonoBehaviour
         switch (供奉品质Type)
         {
             case 供奉品质Type.凡:
-                return 供奉特性标签蓝;
+                return 供奉特性标签白;
             case 供奉品质Type.灵:
-                return 供奉特性标签橙;
+                return 供奉特性标签蓝;
             case 供奉品质Type.仙:
-                return 供奉特性标签粉;
+                return 供奉特性标签橙;
             case 供奉品质Type.圣:
                 return 供奉特性标签红;
             case 供奉品质Type.道:
@@ -7140,11 +7159,11 @@ public class ResourcesConfig : MonoBehaviour
         switch (供奉品质Type)
         {
             case 供奉品质Type.凡:
-                return 供奉品质标签蓝;
+                return 供奉品质标签白;
             case 供奉品质Type.灵:
-                return 供奉品质标签橙;
+                return 供奉品质标签蓝;
             case 供奉品质Type.仙:
-                return 供奉品质标签粉;
+                return 供奉品质标签橙;
             case 供奉品质Type.圣:
                 return 供奉品质标签红;
             case 供奉品质Type.道:
@@ -7152,8 +7171,54 @@ public class ResourcesConfig : MonoBehaviour
         }
         return null;
     }
+
+    public static Sprite Get道场Sprite(建筑Type type)
+    {
+        switch (type)
+        {
+            case 建筑Type.矿场:
+                return 道场矿场;
+            case 建筑Type.坊市:
+                return 道场坊市;
+            case 建筑Type.聚贤阁:
+                return 道场聚贤阁;
+            case 建筑Type.地脉:
+                return 道场地脉;
+            case 建筑Type.领主府:
+                return 道场领主府;
+            case 建筑Type.炼丹室:
+                return 道场炼丹室;
+            case 建筑Type.炼器室:
+                return 道场炼器室;
+            case 建筑Type.玄铁洞:
+                return 道场玄铁洞;
+            case 建筑Type.功德碑:
+                return 道场功德碑;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        玄铁=Resources.Load<Sprite>("Sprite/DaoJu/玄铁");
+        矿石=Resources.Load<Sprite>("Sprite/DaoJu/矿石");
+        玉髓=Resources.Load<Sprite>("Sprite/DaoJu/玉髓");
+
+        
+        建筑item暗=Resources.Load<Sprite>("Sprite/领主府/建筑item暗");
+        建筑item亮=Resources.Load<Sprite>("Sprite/领主府/建筑item亮");
+
+        道场矿场=Resources.Load<Sprite>("Sprite/道场/矿场");
+        道场玄铁洞=Resources.Load<Sprite>("Sprite/道场/玄铁洞");
+        道场聚贤阁=Resources.Load<Sprite>("Sprite/道场/聚贤阁");
+        道场功德碑=Resources.Load<Sprite>("Sprite/道场/功德碑");
+        道场地脉=Resources.Load<Sprite>("Sprite/道场/地脉");
+        道场领主府=Resources.Load<Sprite>("Sprite/道场/领主府");
+        道场炼丹室=Resources.Load<Sprite>("Sprite/道场/炼丹室");
+        道场炼器室=Resources.Load<Sprite>("Sprite/道场/炼器室");
+        道场坊市=Resources.Load<Sprite>("Sprite/道场/坊市");
+
+        
         红按钮=Resources.Load<Sprite>("Sprite/按钮/红按钮");
         黑按钮=Resources.Load<Sprite>("Sprite/按钮/黑按钮");
         toggle亮=Resources.Load<Sprite>("Sprite/按钮/toggle亮");
@@ -7198,16 +7263,16 @@ public class ResourcesConfig : MonoBehaviour
         女供奉9=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/9");
         女供奉10=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/10");
         
-        女供奉1=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/11");
-        女供奉2=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/12");
-        女供奉3=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/13");
-        女供奉4=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/14");
-        女供奉5=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/15");
-        女供奉6=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/16");
-        女供奉7=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/17");
-        女供奉8=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/18");
-        女供奉9=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/19");
-        女供奉10=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/20");
+        女供奉11=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/11");
+        女供奉12=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/12");
+        女供奉13=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/13");
+        女供奉14=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/14");
+        女供奉15=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/15");
+        女供奉16=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/16");
+        女供奉17=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/17");
+        女供奉18=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/18");
+        女供奉19=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/19");
+        女供奉20=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/20");
         
         女供奉21=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/21");
         女供奉22=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/22");

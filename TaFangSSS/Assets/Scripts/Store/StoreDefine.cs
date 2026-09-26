@@ -3281,10 +3281,6 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.当前供奉列表 = 当前供奉列表;
             runtime.供奉申请列表 = 供奉申请列表;
             runtime.供奉保留列表 = 供奉保留列表;
-            // Sprite不参与序列化，读档后按头像id还原运行时头像
-            foreach (var 供奉 in 当前供奉列表) 道场Config.还原供奉头像(供奉);
-            foreach (var 供奉 in 供奉申请列表) 道场Config.还原供奉头像(供奉);
-            foreach (var 供奉 in 供奉保留列表) 道场Config.还原供奉头像(供奉);
             runtime.建筑等级Dic = 建筑等级Dic;
             runtime.自动拒绝凡品供奉 = 自动拒绝凡品供奉;
             runtime.自动拒绝灵品供奉 = 自动拒绝灵品供奉;

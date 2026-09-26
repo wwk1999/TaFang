@@ -20,7 +20,7 @@ public class 当前供奉item : MonoBehaviour
     
     public void SetItem()
     {
-        icon.sprite = 供奉.供奉头像;
+        icon.sprite = ResourcesConfig.Get女供奉Sprite(供奉.供奉头像id);
         name.text = 供奉.name;
         品质bg.sprite = ResourcesConfig.Get供奉品质标签(供奉.供奉品质Type);
         foreach (Transform item in 数值Content.transform)

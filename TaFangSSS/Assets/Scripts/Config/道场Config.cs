@@ -18,7 +18,14 @@ public enum 建筑Type
     坊市,
 }
 
-
+public enum 升级材料Type
+{
+    None,
+    矿石,
+    玄铁,
+    玉髓,
+    灵气,
+}
 public enum 供奉品质Type
 {
     None,
@@ -118,10 +125,7 @@ public class 供奉
 {
     public 供奉品质Type 供奉品质Type;
     public string name;
-    // 头像只存id，Sprite为运行时资源，不可序列化（Sprite.bounds.center.normalized 会导致 Newtonsoft 自引用循环）
-    public int 头像id;
-    [Newtonsoft.Json.JsonIgnore]
-    public Sprite 供奉头像;
+    public int 供奉头像id;
     public float 矿;
     public float 铁;
     public float 玉;
@@ -203,6 +207,30 @@ public class 道场Config
 
         return "";
     }
+    
+    public static string Get道场建筑名(建筑Type 建筑type)
+    {
+        switch (建筑type)
+        {
+            case 建筑Type.功德碑:
+                return "功德碑";
+            case 建筑Type.玄铁洞:
+                return "玄铁洞";
+            case 建筑Type.矿场:
+                return "矿场";
+            case 建筑Type.炼丹室:
+                return "炼丹室";
+            case 建筑Type.炼器室:
+                return "炼器室";
+            case 建筑Type.坊市:
+                return "坊市";
+            case 建筑Type.地脉:
+                return "地脉";
+            case 建筑Type.聚贤阁:
+                return "聚贤阁";
+        }
+        return "";
+    }
     public static List<string> 女供奉名List = new List<string>()
     {
         // ===== 两字名 80 个（姓氏互不相同，名中用字互不相同）=====
@@ -241,6 +269,7 @@ public class 道场Config
         "太叔如雪","申屠玉润","公孙珠圆","慕容金声","仲孙鸾回","钟离凤翥","长孙鸿渐","宇文关雎","司空窈窕","鲜于幽闲",
         "闾丘贞静","亓官端庄","司寇惠和","巫马柔顺","公西庄敬","颛孙懿德","壤驷徽音","公良令淑","漆雕芳若","乐正芬馨",
     };
+    
     public static Dictionary<int, 聚贤阁配置> 聚贤阁配置 = new Dictionary<int, 聚贤阁配置>()
     {
         {1,new 聚贤阁配置(){等级=1,普通招募概率 = new List<float>(){80,20,0,0,0,0,0,0},高级招募概率 = new List<float>(){0,0,80,20,0,0,0,0},升级需要灵气 = 0,升级需要玄铁 = 1000,升级需要玉髓 = 1000,升级需要矿石 = 1000}},
@@ -265,7 +294,7 @@ public class 道场Config
         {6,new 坊市配置(){等级=6,概率 = new List<float>(){0,0,0,20,60,20,0,0},升级需要灵气 = 0,升级需要玄铁 = 20000000,升级需要玉髓 = 0,升级需要矿石 = 20000000}},
         {7,new 坊市配置(){等级=7,概率 = new List<float>(){0,0,0,0,65,30,5,0},升级需要灵气 = 0,升级需要玄铁 = 100000000,升级需要玉髓 = 0,升级需要矿石 = 100000000}},
         {8,new 坊市配置(){等级=8,概率 = new List<float>(){0,0,0,0,40,50,10,0},升级需要灵气 = 0,升级需要玄铁 = 500000000,升级需要玉髓 = 0,升级需要矿石 = 500000000}},
-        {9,new 坊市配置(){等级=9,概率 = new List<float>(){80,20,0,0,15,70,15,0},升级需要灵气 = 0,升级需要玄铁 = 3000000000,升级需要玉髓 = 0,升级需要矿石 = 3000000000}},
+        {9,new 坊市配置(){等级=9,概率 = new List<float>(){0,0,0,0,15,70,15,0},升级需要灵气 = 0,升级需要玄铁 = 3000000000,升级需要玉髓 = 0,升级需要矿石 = 3000000000}},
         {10,new 坊市配置(){等级=10,概率 = new List<float>(){0,0,0,0,0,79,20,1},升级需要灵气 = 0,升级需要玄铁 = 15000000000,升级需要玉髓 = 0,升级需要矿石 = 15000000000}},
     };
 
@@ -317,8 +346,7 @@ public class 道场Config
         供奉 供奉 = new 供奉();
         供奉.供奉品质Type = type;
         供奉.name = 女供奉名List[Random.Range(0, 女供奉名List.Count)];
-        供奉.头像id = Random.Range(1, 31);
-        供奉.供奉头像 = ResourcesConfig.Get女供奉Sprite(供奉.头像id);
+        供奉.供奉头像id = Random.Range(1, 31);
         供奉.矿 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
         供奉.器 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
         供奉.铁 = Random.Range(供奉数值范围[type].min, 供奉数值范围[type].max + 1);
@@ -345,18 +373,8 @@ public class 道场Config
         供奉特性.供奉特性Type = (供奉特性Type)Random.Range(0, Enum.GetValues(typeof(供奉特性Type)).Length);
         return 供奉特性;
     }
-
-    /// <summary>
-    /// 读档后按 头像id 还原 Sprite；老存档无id（=0）时随机补一个
-    /// </summary>
-    public static void 还原供奉头像(供奉 供奉)
-    {
-        if (供奉.头像id <= 0)
-        {
-            供奉.头像id = Random.Range(1, 31);
-        }
-        供奉.供奉头像 = ResourcesConfig.Get女供奉Sprite(供奉.头像id);
-    }
+    
+    
     public static Dictionary<int, 领主府配置> 领主府配置 = new Dictionary<int, 领主府配置>()
     {
         {1,new 领主府配置(){等级=1,招募概率列表 = new List<float>(){80,20,0,0,0},供奉个数 = 1,每道年供奉申请个数=1,供奉申请个数 = 5,供奉保留个数 = 1,升级需要灵气 = 2000,升级需要玄铁 = 1000,升级需要玉髓 = 1000,升级需要矿石 = 1000}},

@@ -9,9 +9,11 @@ using UnityEngine.UI;
 public class 领主府 : MonoBehaviour
 {
    public Button 退出按钮;
-
+   private bool 显示供奉 = true;
    public Button 供奉按钮;
    public Button 建筑按钮;
+   
+   //供奉界面
    public TextMeshProUGUI 当前供奉个数;
    public TextMeshProUGUI 当前最大供奉个数;
    public TextMeshProUGUI 当前供奉申请个数;
@@ -29,10 +31,22 @@ public class 领主府 : MonoBehaviour
    public GameObject 建筑panel;
    public TextMeshProUGUI 申请列表标题;
    public TextMeshProUGUI 申请列表buttontext;
-
-
-   private bool 显示供奉 = true;
    private bool 显示申请列表 = true;
+   
+   //建筑界面
+   public GameObject 建筑Panel;
+   public TextMeshProUGUI 矿石速度;
+   public TextMeshProUGUI 玄铁速度;
+   public TextMeshProUGUI 玉髓速度;
+   public TextMeshProUGUI 功德速度;
+   public GameObject 建筑列表;
+   public TextMeshProUGUI 建筑名;
+   public Image icon;
+   public TextMeshProUGUI info;
+   public GameObject 升级材料content;
+   public GameObject 当前效果content;
+   public GameObject 升级效果content;
+   public Button 升级按钮;
 
    private void OnEnable()
    {
