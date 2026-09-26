@@ -7,6 +7,16 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 矿;
+    public static Sprite 丹;
+    public static Sprite 器;
+    public static Sprite 贤;
+    public static Sprite 铁;
+    public static Sprite 玉;
+    public static Sprite 德;
+    public static Sprite 坊;
+
+    
     public static Sprite 女供奉1;
     public static Sprite 女供奉2;
     public static Sprite 女供奉3;
@@ -7053,8 +7063,42 @@ public class ResourcesConfig : MonoBehaviour
         }
     }
 
+    public static Sprite Get领主数值icon(建筑Type 建筑type)
+    {
+        switch (建筑type)
+        {
+            case 建筑Type.功德碑:
+                return 德;
+            case 建筑Type.玄铁洞:
+                return 铁;
+            case 建筑Type.矿场:
+                return 矿;
+            case 建筑Type.炼丹室:
+                return 丹;
+            case 建筑Type.炼器室:
+                return 器;
+            case 建筑Type.坊市:
+                return 坊;
+            case 建筑Type.地脉:
+                return 玉;
+            case 建筑Type.聚贤阁:
+                return 贤;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        矿=Resources.Load<Sprite>("Sprite/领主府/数值icon/矿");
+        丹=Resources.Load<Sprite>("Sprite/领主府/数值icon/丹");
+        器=Resources.Load<Sprite>("Sprite/领主府/数值icon/器");
+        德=Resources.Load<Sprite>("Sprite/领主府/数值icon/德");
+        玉=Resources.Load<Sprite>("Sprite/领主府/数值icon/玉");
+        贤=Resources.Load<Sprite>("Sprite/领主府/数值icon/贤");
+        铁=Resources.Load<Sprite>("Sprite/领主府/数值icon/铁");
+        坊=Resources.Load<Sprite>("Sprite/领主府/数值icon/坊");
+
+        
         女供奉1=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/1");
         女供奉2=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/2");
         女供奉3=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/3");
