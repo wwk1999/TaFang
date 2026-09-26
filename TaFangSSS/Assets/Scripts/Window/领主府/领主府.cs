@@ -25,9 +25,17 @@ public class 领主府 : MonoBehaviour
    public Button 申请列表Button;
    public GameObject 供奉panel;
    public GameObject 建筑panel;
+   public TextMeshProUGUI 申请列表标题;
+   public TextMeshProUGUI 申请列表buttontext;
+
 
    private bool 显示供奉 = true;
    private bool 显示申请列表 = true;
+
+   private void OnEnable()
+   {
+      Show城主府();
+   }
 
    public void 刷新城主府(object[] obj)
    {
@@ -42,6 +50,26 @@ public class 领主府 : MonoBehaviour
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("刷新城主府",刷新城主府);
+      自动拒绝凡品.onClick.AddListener(() =>
+      {
+         PlayerData.S.自动拒绝凡品供奉 = !PlayerData.S.自动拒绝凡品供奉;
+         Show供奉信息();
+      });
+      自动拒绝灵品.onClick.AddListener(() =>
+      {
+         PlayerData.S.自动拒绝灵品供奉 = !PlayerData.S.自动拒绝灵品供奉;
+         Show供奉信息();
+      });
+      自动拒绝仙品.onClick.AddListener(() =>
+      {
+         PlayerData.S.自动拒绝仙品供奉 = !PlayerData.S.自动拒绝仙品供奉;
+         Show供奉信息();
+      });
+      自动拒绝圣品.onClick.AddListener(() =>
+      {
+         PlayerData.S.自动拒绝圣品供奉 = !PlayerData.S.自动拒绝圣品供奉;
+         Show供奉信息();
+      });
       供奉按钮.onClick.AddListener(() =>
       {
          显示供奉 = true;
@@ -149,6 +177,8 @@ public class 领主府 : MonoBehaviour
       }
       if (显示申请列表)
       {
+         申请列表标题.text = "供奉申请列表";
+         申请列表buttontext.text = "申请列表";
          申请列表Button.image.sprite = ResourcesConfig.toggle亮;
          foreach (var item in PlayerData.S.供奉申请列表)
          {
@@ -160,6 +190,8 @@ public class 领主府 : MonoBehaviour
       else
       {
          申请列表Button.image.sprite = ResourcesConfig.toggle暗;
+         申请列表标题.text = "供奉保留列表";
+         申请列表buttontext.text = "保留列表";
          foreach (var item in PlayerData.S.供奉保留列表)
          {
             var 供奉 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉保留item"),供奉申请Content.transform).GetComponent<供奉保留item>();

@@ -20,7 +20,12 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
-    
+    public Button 洪荒世界按钮;
+    public Button 返回道场按钮;
+    public GameObject 道场;
+    public GameObject 地图;
+    private bool 显示道场=true;
+
     public RectTransform 地图布局RectTransform;
     public Button 左翻页Button;
     public Button 右翻页Button;
@@ -129,6 +134,28 @@ public class MainWindow : MonoBehaviour
         对话框Text.text = "欢迎道友进入洪荒,共修大道。";
         引导Button.gameObject.SetActive(true);
     }
+    
+    public void Show道场和地图()
+    {
+        if (显示道场)
+        {
+            道场.gameObject.SetActive(true);
+            地图.gameObject.SetActive(false);
+            洪荒世界按钮.gameObject.SetActive(true);
+            返回道场按钮.gameObject.SetActive(false);
+            右翻页Button.gameObject.SetActive(false);
+            左翻页Button.gameObject.SetActive(false);
+        }
+        else
+        {
+            道场.gameObject.SetActive(false);
+            地图.gameObject.SetActive(true);
+            洪荒世界按钮.gameObject.SetActive(false);
+            返回道场按钮.gameObject.SetActive(true);
+            右翻页Button.gameObject.SetActive(true);
+            左翻页Button.gameObject.SetActive(true);
+        }
+    }
     public void Show主页()
     {
         var 通天塔list = PlayerData.S.获取通天塔所有道具();
@@ -153,6 +180,7 @@ public class MainWindow : MonoBehaviour
     }
     public void Init()
     {
+        Show道场和地图();
         Show主页();
         InitWindow();
     }
@@ -383,6 +411,8 @@ public class MainWindow : MonoBehaviour
 
     public void 设置秘境点击像素()
     {
+        洪荒世界按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        返回道场按钮.image.alphaHitTestMinimumThreshold = 0.1f;
         洞天秘境按钮.image.alphaHitTestMinimumThreshold = 0.1f;
         通天塔.image.alphaHitTestMinimumThreshold = 0.1f;
         世界树.image.alphaHitTestMinimumThreshold = 0.1f;
@@ -425,6 +455,16 @@ public class MainWindow : MonoBehaviour
         右翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type+1));
         左翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type-1));
         
+        洪荒世界按钮.onClick.AddListener(() =>
+        {
+            显示道场 = false;
+            Show道场和地图();
+        });
+        返回道场按钮.onClick.AddListener(() =>
+        {
+            显示道场 = true;
+            Show道场和地图();
+        });
         引导Button.onClick.AddListener(() =>
         {
             if (引导count == 0)
