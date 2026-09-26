@@ -15,13 +15,12 @@ public class 道场 : MonoBehaviour
     public Button 聚贤阁;
     public Button 炼丹室;
     public Button 炼器室;
-    public GameObject 领主符Window;
 
     private void Start()
     {
         领主府.onClick.AddListener(() =>
         {
-            领主符Window.SetActive(true);
+            WindowController.S.领主府Window.gameObject.SetActive(true);
         });
     }
 }

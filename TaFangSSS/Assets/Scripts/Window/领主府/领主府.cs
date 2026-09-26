@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class 领主府 : MonoBehaviour
 {
+   public Button 退出按钮;
+
    public Button 供奉按钮;
    public Button 建筑按钮;
    public TextMeshProUGUI 当前供奉个数;
@@ -35,6 +37,7 @@ public class 领主府 : MonoBehaviour
    private void OnEnable()
    {
       Show城主府();
+      Canvas.ForceUpdateCanvases();
    }
 
    public void 刷新城主府(object[] obj)
@@ -50,6 +53,10 @@ public class 领主府 : MonoBehaviour
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("刷新城主府",刷新城主府);
+      退出按钮.onClick.AddListener(() =>
+      {
+         gameObject.SetActive(false);
+      });
       自动拒绝凡品.onClick.AddListener(() =>
       {
          PlayerData.S.自动拒绝凡品供奉 = !PlayerData.S.自动拒绝凡品供奉;
