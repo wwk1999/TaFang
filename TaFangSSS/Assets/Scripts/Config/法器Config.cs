@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using Config;
 using Random = UnityEngine.Random;
 
+public class 法器打造Item
+{
+    public 法器Type 法器Type;
+    public int count;
+    public float 进度;
+}
 public enum 法器Type
 {
     None,

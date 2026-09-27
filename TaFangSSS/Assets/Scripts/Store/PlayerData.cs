@@ -55,7 +55,7 @@ public class PlayerData : XSingleton<PlayerData>
     public QualityType 当前炼制丹药品质 = QualityType.None;
     public int 剩余炼制数量;
     public float 当前炼制秒数;
-
+    public List<法器打造Item> 打造List;
 
     public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
     {

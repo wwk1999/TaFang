@@ -45,6 +45,9 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 自动拒绝灵品供奉=false;
         public bool 自动拒绝仙品供奉=false;
         public bool 自动拒绝圣品供奉=false;
+        
+        public List<法器打造Item> 打造List;
+
         public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
         {
             { 建筑Type.矿场, 1 },
@@ -3229,6 +3232,7 @@ public class StoreDefine : XSingleton<StoreController>
             自动拒绝灵品供奉 = runtime.自动拒绝灵品供奉;
             自动拒绝仙品供奉 = runtime.自动拒绝仙品供奉;
             自动拒绝圣品供奉 = runtime.自动拒绝圣品供奉;
+            打造List = runtime.打造List;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3326,7 +3330,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.自动拒绝灵品供奉 = 自动拒绝灵品供奉;
             runtime.自动拒绝仙品供奉 = 自动拒绝仙品供奉;
             runtime.自动拒绝圣品供奉 = 自动拒绝圣品供奉;
-
+            runtime.打造List = 打造List;
         }
     }
 }
