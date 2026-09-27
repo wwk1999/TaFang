@@ -92,6 +92,33 @@ public class 坊市配置
     public float 升级需要玉髓;
 }
 
+public class 供奉总属性
+{
+    public float 矿场速度;
+    public float 玄铁速度;
+    public float 地脉速度;
+    public float 功德速度;
+    public float 炼丹速度;
+    public float 炼器速度;
+    public float 坊市刷新时间缩减;
+    public float 高级招募卷时间缩减;
+
+
+    
+    public float 概率获得两个高级招募卷;
+    public float 概率增加炼丹数量;
+    public float 增加炼丹经验;
+    public float 增加法器分解粉尘;
+    public float 坊市价格减少;
+    public float 获得矿石概率获得玄铁;
+    public float 获得矿石概率获得玉髓;
+    public float 获得玄铁概率获得矿石;
+    public float 获得玄铁概率获得玉髓;
+    public float 获得玉髓概率获得玄铁;
+    public float 获得玉髓概率获得矿石;
+    public float 坊市刷新概率不消耗次数;
+
+}
 public enum 供奉特性Type
 {
     None,
@@ -138,6 +165,64 @@ public class 供奉
 }
 public class 道场Config
 {
+    public static  供奉总属性 供奉总属性 = new 供奉总属性();
+
+    public void 更新供奉总属性()
+    {
+        float 矿 = 0;
+        float 玉 = 0;
+        float 铁 = 0;
+        float 德 = 0;
+        float 贤 = 0;
+        float 丹 = 0;
+        float 器 = 0;
+        float 坊 = 0;
+        float 特性采矿速度=0;
+        float 特性采铁速度=0;
+        float 特性地脉产玉髓速度=0;
+        float 特性功德产出速度=0;
+        float 特性概率获得两个高级招募卷=0;
+        float 特性概率增加炼丹数量=0;
+        float 特性增加炼丹速度=0;
+        float 特性增加炼丹经验=0;
+        float 特性增加炼器速度=0;
+        float 特性增加法器分解粉尘=0;
+        float 特性坊市价格减少=0;
+        float 特性获得矿石概率获得玄铁=0;
+        float 特性获得矿石概率获得玉髓=0;
+        float 特性获得玄铁概率获得矿石=0;
+        float 特性获得玄铁概率获得玉髓=0;
+        float 特性获得玉髓概率获得玄铁=0;
+        float 特性获得玉髓概率获得矿石=0;
+        float 特性坊市刷新概率不消耗次数=0;
+        foreach (var item in PlayerData.S.当前供奉列表)
+        {
+            矿 += item.矿;
+            坊 += item.坊;
+            丹 += item.丹;
+            器 += item.器;
+            铁 += item.铁;
+            玉 += item.玉;
+            贤 += item.贤;
+            德 += item.德;
+            
+            if (item.特性list != null)
+            {
+                foreach (var 特效item in item.特性list )
+                {
+                    switch (特效item.供奉特性Type)
+                    {
+                        case 供奉特性Type.采矿速度:
+                            特性采矿速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        
+                        
+                    }
+                }
+            }
+        }
+        
+    }
     public static Dictionary<供奉特性Type, List<float>> 供奉特性Dic = new Dictionary<供奉特性Type, List<float>>()
     {
         { 供奉特性Type.采矿速度 ,new List<float>(){5,10,15,25,50} },
