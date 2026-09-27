@@ -275,48 +275,306 @@ public class 领主府 : MonoBehaviour
       switch (HeroWindowController.S.当前显示建筑Type)
       {
          case 建筑Type.矿场:
-            if (道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要灵气 > 0)
             {
-               var 灵气 = Instantiate(Resources.Load("Prefabs/Window/领主府/升级材料item"), 升级材料content.transform)
-                  .GetComponent<升级材料item>();
-               灵气.升级材料Type = 升级材料Type.灵气;
-               灵气.count = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要灵气;
-               灵气.SetItem();
+               var 配置 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
             }
-            if (道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要矿石 > 0)
+         case 建筑Type.玄铁洞:
             {
-               var 矿石 = Instantiate(Resources.Load("Prefabs/Window/领主府/升级材料item"), 升级材料content.transform)
-                  .GetComponent<升级材料item>();
-               矿石.升级材料Type = 升级材料Type.矿石;
-               矿石.count = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要矿石;
-               矿石.SetItem();
+               var 配置 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
             }
-            
-            if (道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玄铁 > 0)
+         case 建筑Type.地脉:
             {
-               var 玄铁 = Instantiate(Resources.Load("Prefabs/Window/领主府/升级材料item"), 升级材料content.transform)
-                  .GetComponent<升级材料item>();
-               玄铁.升级材料Type = 升级材料Type.玄铁;
-               玄铁.count = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玄铁;
-               玄铁.SetItem();
+               var 配置 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
             }
-            
-            if (道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玉髓 > 0)
+         case 建筑Type.功德碑:
             {
-               var 玉髓 = Instantiate(Resources.Load("Prefabs/Window/领主府/升级材料item"), 升级材料content.transform)
-                  .GetComponent<升级材料item>();
-               玉髓.升级材料Type = 升级材料Type.玉髓;
-               玉髓.count = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玉髓;
-               玉髓.SetItem();
+               var 配置 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
             }
-            break;
+         case 建筑Type.聚贤阁:
+            {
+               var 配置 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
+         case 建筑Type.炼丹室:
+            {
+               var 配置 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
+         case 建筑Type.炼器室:
+            {
+               var 配置 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
+         case 建筑Type.领主府:
+            {
+               var 配置 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
+         case 建筑Type.坊市:
+            {
+               var 配置 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
       }
+   }
+
+   
+   private void 添加升级材料item(float 灵气, float 矿石, float 玄铁, float 玉髓)
+   {
+      if (灵气 > 0) 创建升级材料item(升级材料Type.灵气, 灵气);
+      if (矿石 > 0) 创建升级材料item(升级材料Type.矿石, 矿石);
+      if (玄铁 > 0) 创建升级材料item(升级材料Type.玄铁, 玄铁);
+      if (玉髓 > 0) 创建升级材料item(升级材料Type.玉髓, 玉髓);
+   }
+
+   private void 创建升级材料item(升级材料Type 升级材料Type, float count)
+   {
+      var item = Instantiate(Resources.Load("Prefabs/Window/领主府/升级材料item"), 升级材料content.transform)
+         .GetComponent<升级材料item>();
+      item.升级材料Type = 升级材料Type;
+      item.count = count;
+      item.SetItem();
    }
    public void Show建筑信息()
    {
       建筑名.text = 道场Config.Get道场建筑名(HeroWindowController.S.当前显示建筑Type);
       icon.sprite = ResourcesConfig.Get道场建筑Sprite(HeroWindowController.S.当前显示建筑Type);
       info.text = 道场Config.建筑info[HeroWindowController.S.当前显示建筑Type];
-      
+      Show升级材料();
+   }
+
+   public void Show升级效果()
+   {
+      foreach (Transform item in 升级效果content.transform)
+      {
+         Destroy(item.gameObject);
+      }
+      foreach (Transform item in 当前效果content.transform)
+      {
+         Destroy(item.gameObject);
+      }
+
+      switch (HeroWindowController.S.当前显示建筑Type)
+      {
+         case 建筑Type.炼丹室:
+            var 当前炼丹速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前炼丹速度.info = "炼丹速度加成";
+            当前炼丹速度.count = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].速度加成+"%";
+            当前炼丹速度.SetItem();
+            
+            var 升级炼丹速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级炼丹速度.info = "炼丹速度加成";
+            升级炼丹速度.count = 道场Config.炼丹室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].速度加成+"%";
+            升级炼丹速度.SetItem();
+            
+            
+            var 当前最高炼丹品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前最高炼丹品质.info = "最高炼丹品质";
+            当前最高炼丹品质.count = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].最高炼制QualityType.ToString();
+            当前最高炼丹品质.SetItem();
+            
+            var 升级最高炼丹品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级最高炼丹品质.info = "最高炼丹品质";
+            升级最高炼丹品质.count = 道场Config.炼丹室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].最高炼制QualityType.ToString();
+            升级最高炼丹品质.SetItem();
+            break;
+         
+         
+         
+         case 建筑Type.炼器室:
+            var 当前炼器速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前炼器速度.info = "炼器速度加成";
+            当前炼器速度.count = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].速度加成+"%";
+            当前炼器速度.SetItem();
+            
+            var 升级炼器速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级炼器速度.info = "炼器速度加成";
+            升级炼器速度.count = 道场Config.炼器室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼器室]].速度加成+"%";
+            升级炼器速度.SetItem();
+            
+            
+            var 当前最高炼器品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前最高炼器品质.info = "最高炼器品质";
+            当前最高炼器品质.count = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].最高炼制QualityType.ToString();
+            当前最高炼器品质.SetItem();
+            
+            var 升级最高炼器品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级最高炼器品质.info = "最高炼器品质";
+            升级最高炼器品质.count = 道场Config.炼器室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼器室]].最高炼制QualityType.ToString();
+            升级最高炼器品质.SetItem();
+            break;
+         
+         case 建筑Type.聚贤阁:
+            var 当前招募概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 当前效果content.transform)
+               .GetComponent<概率升级效果item>();
+            当前招募概率列表.list = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].普通招募概率;
+            当前招募概率列表.SetItem();
+            
+            var 升级招募概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 升级效果content.transform)
+               .GetComponent<概率升级效果item>();
+            升级招募概率列表.list = 道场Config.聚贤阁配置[1+PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].普通招募概率;
+            升级招募概率列表.SetItem();
+            
+            var 当前招募概率列表1 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 当前效果content.transform)
+               .GetComponent<概率升级效果item>();
+            当前招募概率列表1.list = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].高级招募概率;
+            当前招募概率列表1.SetItem();
+            
+            var 升级招募概率列表1 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 升级效果content.transform)
+               .GetComponent<概率升级效果item>();
+            升级招募概率列表1.list = 道场Config.聚贤阁配置[1+PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].高级招募概率;
+            升级招募概率列表1.SetItem();
+            break;
+         
+         case 建筑Type.坊市:
+            var 当前坊市概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 当前效果content.transform)
+               .GetComponent<概率升级效果item>();
+            当前坊市概率列表.list = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].概率;
+            当前坊市概率列表.SetItem();
+            
+            var 升级坊市概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 升级效果content.transform)
+               .GetComponent<概率升级效果item>();
+            升级坊市概率列表.list = 道场Config.坊市配置[1+PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].概率;
+            升级坊市概率列表.SetItem();
+            break;
+         
+         
+         case 建筑Type.矿场:
+            var 当前矿石速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前矿石速度.info = "矿石开采速度";
+            当前矿石速度.count = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].数值+"/道年";
+            当前矿石速度.SetItem();
+            
+            var 升级矿石速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级矿石速度.info = "矿石开采速度";
+            升级矿石速度.count = 道场Config.矿场配置[1+PlayerData.S.建筑等级Dic[建筑Type.矿场]].数值+"/道年";
+            升级矿石速度.SetItem();
+            break;
+         
+         case 建筑Type.玄铁洞:
+            var 当前玄铁速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前玄铁速度.info = "玄铁开采速度";
+            当前玄铁速度.count = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].数值+"/道年";
+            当前玄铁速度.SetItem();
+            
+            var 升级玄铁速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级玄铁速度.info = "玄铁开采速度";
+            升级玄铁速度.count = 道场Config.玄铁洞配置[1+PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].数值+"/道年";
+            升级玄铁速度.SetItem();
+            break;
+         
+         case 建筑Type.地脉:
+            var 当前玉髓速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前玉髓速度.info = "玉髓开采速度";
+            当前玉髓速度.count = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].数值+"/道年";
+            当前玉髓速度.SetItem();
+            
+            var 升级玉髓速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级玉髓速度.info = "玉髓开采速度";
+            升级玉髓速度.count = 道场Config.地脉配置[1+PlayerData.S.建筑等级Dic[建筑Type.地脉]].数值+"/道年";
+            升级玉髓速度.SetItem();
+            break;
+         
+         case 建筑Type.功德碑:
+            var 当前功德速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前功德速度.info = "功德生成速度";
+            当前功德速度.count = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].数值+"/道年";
+            当前功德速度.SetItem();
+            
+            var 升级功德速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级功德速度.info = "功德生成速度";
+            升级功德速度.count = 道场Config.功德碑配置[1+PlayerData.S.建筑等级Dic[建筑Type.功德碑]].数值+"/道年";
+            升级功德速度.SetItem();
+            break;
+         case 建筑Type.领主府:
+            var 当前供奉个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前供奉个数.info = "最大供奉个数";
+            当前供奉个数.count = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉个数.ToString();
+            当前供奉个数.SetItem();
+            
+            var 升级供奉个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级供奉个数.info = "最大供奉个数";
+            升级供奉个数.count = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉个数.ToString();
+            升级供奉个数.SetItem();
+            
+            var 当前供奉申请个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前供奉申请个数 .info = "供奉申请个数";
+            当前供奉申请个数 .count = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数.ToString();
+            当前供奉申请个数 .SetItem();
+            
+            var 升级供奉申请个数  = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级供奉申请个数 .info = "供奉申请个数";
+            升级供奉申请个数 .count = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉申请个数.ToString();
+            升级供奉申请个数 .SetItem();
+            
+            
+            var 当前供奉保留个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前供奉保留个数 .info = "供奉保留个数";
+            当前供奉保留个数 .count = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉保留个数+"/道年";
+            当前供奉保留个数 .SetItem();
+            
+            var 升级供奉保留个数  = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级供奉保留个数 .info = "供奉保留个数";
+            升级供奉保留个数 .count = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉保留个数+"/道年";
+            升级供奉保留个数 .SetItem();
+         
+            var 当前每道年供奉申请个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前每道年供奉申请个数 .info = "每道年供奉申请个数";
+            当前每道年供奉申请个数 .count = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].每道年供奉申请个数.ToString();
+            当前每道年供奉申请个数 .SetItem();
+            
+            var 升级每道年供奉申请个数  = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级每道年供奉申请个数 .info = "每道年供奉申请个数";
+            升级每道年供奉申请个数 .count = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].每道年供奉申请个数.ToString();
+            升级每道年供奉申请个数 .SetItem();
+            
+            var 当前概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 当前效果content.transform)
+               .GetComponent<概率升级效果item>();
+            当前概率列表.list = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].招募概率列表;
+            当前概率列表.SetItem();
+            
+            var 升级概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 升级效果content.transform)
+               .GetComponent<概率升级效果item>();
+            升级概率列表.list = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].招募概率列表;
+            升级概率列表.SetItem();
+            break;
+      }
    }
 }

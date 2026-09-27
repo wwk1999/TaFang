@@ -16,7 +16,7 @@ public class 建筑item : MonoBehaviour
 
    public void SetItem()
    {
-      icon.sprite = ResourcesConfig.Get道场Sprite(建筑Type);
+      icon.sprite = ResourcesConfig.Get道场建筑Sprite(建筑Type);
       if (!亮)
       {
          bg.image.sprite = ResourcesConfig.建筑item暗;
