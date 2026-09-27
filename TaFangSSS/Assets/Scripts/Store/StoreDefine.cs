@@ -46,7 +46,7 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 自动拒绝仙品供奉=false;
         public bool 自动拒绝圣品供奉=false;
         
-        public List<法器打造Item> 打造List;
+        public List<法器打造Item> 打造List=new List<法器打造Item>();
 
         public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
         {

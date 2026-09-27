@@ -383,9 +383,46 @@ public class 法器材料
 public class 法器Config
 {
 
-    public List<PropType> Get打造法器材料(法器Type type)
+    public static Dictionary<QualityType, float> 法器打造时间 = new Dictionary<QualityType, float>()
     {
-        
+        { QualityType.黄品 ,0.01f},
+        { QualityType.玄品 ,0.02f},
+        { QualityType.地品 ,0.05f},
+        { QualityType.天品 ,0.12f},
+        { QualityType.宇品 ,0.4f},
+        { QualityType.宙品 ,1.5f},
+        { QualityType.洪品 ,6f},
+        { QualityType.荒品 ,30f},
+    };
+
+    /// <summary>
+    /// 品质对应材料图颜色字（黄玄地天宇宙洪荒→白绿蓝紫橙粉红彩）
+    /// </summary>
+    private static readonly string[] 材料颜色Arr = { "白", "绿", "蓝", "紫", "橙", "粉", "红", "彩" };
+
+    /// <summary>
+    /// 获取打造指定法器所需的材料PropType列表（每件每种材料各1个，PropType枚举名=材料名+颜色，如铁白、砂紫）
+    /// </summary>
+    public static List<PropType> Get打造法器材料(法器Type type)
+    {
+        List<PropType> result = new List<PropType>();
+        if (!法器类型Dic.TryGetValue(type, out var 法器类型)) return result;
+        if (!法器品质Dic.TryGetValue(type, out var qualityType)) return result;
+        if (!法器材料Dic.TryGetValue(法器类型, out var 材料List)) return result;
+
+        int qualityIndex = (int)qualityType - 1;
+        if (qualityIndex < 0 || qualityIndex >= 材料颜色Arr.Length) return result;
+
+        foreach (var 材料类型 in 材料List)
+        {
+            string propName = 材料类型 + 材料颜色Arr[qualityIndex];
+            if (Enum.IsDefined(typeof(PropType), propName))
+            {
+                result.Add((PropType)Enum.Parse(typeof(PropType), propName));
+            }
+        }
+
+        return result;
     }
     public static Dictionary<法器类型, List<法器材料Type>> 法器材料Dic = new Dictionary<法器类型, List<法器材料Type>>()
     {

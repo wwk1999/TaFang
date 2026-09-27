@@ -12,11 +12,14 @@ public class 炼器界面 : MonoBehaviour
     public Button 仙石重铸Button;
     public Button 符文附魔Button;
     public Button 符文熔炼Button;
+    public Button 法器打造Button;
+
     public GameObject 仙石镶嵌Panel;
     public GameObject 法器洗练Panel;
     public GameObject 仙石重铸Panel;
     public GameObject 符文附魔Panel;
     public GameObject 符文熔炼Panel;
+    public GameObject 法器打造Panel;
 
     private int 显示类型 = 1;
 
@@ -30,6 +33,7 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
             case 2:
@@ -38,6 +42,7 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
             case 3:
@@ -46,6 +51,7 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
             case 4:
@@ -54,6 +60,8 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+
                 break;
             case 5:
                 仙石镶嵌Button.image.sprite = ResourcesConfig.古朴按钮暗;
@@ -61,6 +69,18 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮亮;
+                法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+
+                break;
+            
+            case 6:
+                仙石镶嵌Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                仙石重铸Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                法器打造Button.image.sprite = ResourcesConfig.古朴按钮亮;
+
                 break;
         }
     }
@@ -100,6 +120,11 @@ public class 炼器界面 : MonoBehaviour
             显示类型 = 5;
             Show();
         });
+        法器打造Button.onClick.AddListener(() =>
+        {
+            显示类型 = 6;
+            Show();
+        });
     }
 
     public void Show()
@@ -113,6 +138,7 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Panel.SetActive(false);
                 符文附魔Panel.SetActive(false);
                 符文熔炼Panel.SetActive(false);
+                法器打造Panel.SetActive(false);
 
                 break;
             case 2:
@@ -121,6 +147,7 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Panel.SetActive(false);
                 符文附魔Panel.SetActive(false);
                 符文熔炼Panel.SetActive(false);
+                法器打造Panel.SetActive(false);
 
                 break;
             case 3:
@@ -129,6 +156,7 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Panel.SetActive(true);
                 符文附魔Panel.SetActive(false);
                 符文熔炼Panel.SetActive(false);
+                法器打造Panel.SetActive(false);
 
                 break;
             case 4:
@@ -137,6 +165,8 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Panel.SetActive(false);
                 符文附魔Panel.SetActive(true);
                 符文熔炼Panel.SetActive(false);
+                法器打造Panel.SetActive(false);
+
                 break;
             case 5:
                 仙石镶嵌Panel.SetActive(false);
@@ -144,6 +174,18 @@ public class 炼器界面 : MonoBehaviour
                 仙石重铸Panel.SetActive(false);
                 符文附魔Panel.SetActive(false);
                 符文熔炼Panel.SetActive(true);
+                法器打造Panel.SetActive(false);
+
+                break;
+            
+            case 6:
+                仙石镶嵌Panel.SetActive(false);
+                法器洗练Panel.SetActive(false);
+                仙石重铸Panel.SetActive(false);
+                符文附魔Panel.SetActive(false);
+                符文熔炼Panel.SetActive(false);
+                法器打造Panel.SetActive(true);
+
                 break;
         }
     }

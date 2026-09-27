@@ -698,6 +698,10 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.控制经验值] += 10000;
             PlayerData.S.PropListDic[PropType.射手经验值] += 10000;
 
+            PlayerData.S.PropListDic[PropType.铁绿]++;
+            PlayerData.S.PropListDic[PropType.石绿]++;
+            PlayerData.S.PropListDic[PropType.羽绿]++;
+            PlayerData.S.PropListDic[PropType.砂绿]++;
             for (int i = 0; i < 100; i++)
             {
                 PlayerData.S.PropListDic[PropType.铁紫]++;

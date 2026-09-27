@@ -177,6 +177,7 @@ public class StoreController : XSingleton<StoreController>
                 PlayerData.S.长生道体年数++;
             }
             炼制丹药();
+            打造法器();
             增加道场资源();
         }
         if (CurrentTime >= StoreTime)
@@ -184,6 +185,43 @@ public class StoreController : XSingleton<StoreController>
             CurrentTime = 0;
             SaveStoreData();
         }
+    }
+
+    public void 打造法器()
+    {
+        if (PlayerData.S.打造List.Count > 0)
+        {
+            if (PlayerData.S.打造List[0].进度 >= 100)
+            {
+                List<PropType> 材料 = 法器Config.Get打造法器材料(PlayerData.S.打造List[0].法器Type);
+                foreach (var item in 材料)
+                {
+                    if (PlayerData.S.PropListDic[item] <= 0)
+                    {
+                        ObserverModuleManager.S.SendEvent("SendUIToast","材料不足，法器打造终止");
+                        PlayerData.S.打造List.Clear();
+                        return;
+                    }
+                }
+                foreach (var item in 材料)
+                {
+                    PlayerData.S.PropListDic[item]--;
+                }
+                PlayerData.S.法器列表.Add(法器Config.Get坊市法器(PlayerData.S.打造List[0].法器Type));
+                PlayerData.S.打造List[0].count--;
+                PlayerData.S.打造List[0].进度 = 0;
+                if (PlayerData.S.打造List[0].count <= 0)
+                {
+                    PlayerData.S.打造List.RemoveAt(0);
+                }
+            }
+            else
+            {
+                float 打造需要秒数 = 法器Config.法器打造时间[法器Config.法器品质Dic[PlayerData.S.打造List[0].法器Type]] * 属性config.每年秒数;
+                PlayerData.S.打造List[0].进度 += 100f / 打造需要秒数;
+            }
+        }
+        ObserverModuleManager.S.SendEvent("刷新法器打造区域");
     }
 
     public void 炼制丹药()

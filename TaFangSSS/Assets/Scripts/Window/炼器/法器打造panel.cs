@@ -152,27 +152,26 @@ public class 法器打造panel : MonoBehaviour
     }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新法器打造区域",刷新法器打造区域);
         ObserverModuleManager.S.UnRegisterEvent("刷新法器打造Panel",刷新法器打造Panel);
+    }
+
+    private void OnEnable()
+    {
+        HeroWindowController.S.法器打造法器类型 = 法器类型.武器;
+        HeroWindowController.S.法器打造法器Type = 法器Type.None;
+        Show法器打造Panel();
     }
 
     public int Get最大打造数量()
     {
-        // 未选中具体法器或该法器类型无材料配置时，打造数量为0
+        // 未选中具体法器时打造数量为0
         if (HeroWindowController.S.法器打造法器Type == 法器Type.None) return 0;
-        if (!法器Config.法器材料Dic.TryGetValue(HeroWindowController.S.法器打造法器类型, out var 材料List)) return 0;
 
-        // 打造目标法器的品质，决定需要哪种颜色的材料（黄玄地天宇宙洪荒→白绿蓝紫橙粉红彩）
-        QualityType qualityType = 法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type];
-        string[] 颜色Arr = { "白", "绿", "蓝", "紫", "橙", "粉", "红", "彩" };
-        int qualityIndex = (int)qualityType - 1;
-        if (qualityIndex < 0 || qualityIndex >= 颜色Arr.Length) return 0;
-
-        // 每件法器需要材料List中的每种材料各1个，最大打造数取所有材料持有量的最小值
+        // 每件法器需要每种材料各1个，最大打造数取所有材料持有量的最小值
         int 最大数量 = int.MaxValue;
-        foreach (var 材料类型 in 材料List)
+        foreach (var propType in 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type))
         {
-            // PropType枚举名即"材料名+颜色"，如 铁白、砂紫
-            PropType propType = (PropType)Enum.Parse(typeof(PropType), 材料类型 + 颜色Arr[qualityIndex]);
             PlayerData.S.PropListDic.TryGetValue(propType, out float count);
             最大数量 = Math.Min(最大数量, Mathf.FloorToInt(count));
         }
@@ -180,8 +179,13 @@ public class 法器打造panel : MonoBehaviour
         return 最大数量 == int.MaxValue ? 0 : 最大数量;
     }
 
+    public void 刷新法器打造区域(object[] obj)
+    {
+        Show打造区域();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新法器打造区域",刷新法器打造区域);
         ObserverModuleManager.S.RegisterEvent("刷新法器打造Panel",刷新法器打造Panel);
         武器Button.onClick.AddListener(() =>
         {
@@ -210,20 +214,19 @@ public class 法器打造panel : MonoBehaviour
         数量进度条.onValueChanged.AddListener(数量进度条监听);
         打造Button.onClick.AddListener(() =>
         {
-            法器Config.法器材料Dic.TryGetValue(HeroWindowController.S.法器打造法器类型, out var 材料List);
-            QualityType qualityType = 法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type];
-            string[] 颜色Arr = { "白", "绿", "蓝", "紫", "橙", "粉", "红", "彩" };
-            int qualityIndex = (int)qualityType - 1;
-
-            // 每件法器需要材料List中的每种材料各1个，最大打造数取所有材料持有量的最小值
-            int 最大数量 = int.MaxValue;
-            foreach (var 材料类型 in 材料List)
+            if (打造数量 == 0)
             {
-                // PropType枚举名即"材料名+颜色"，如 铁白、砂紫
-                PropType propType = (PropType)Enum.Parse(typeof(PropType), 材料类型 + 颜色Arr[qualityIndex]);
-                PlayerData.S.PropListDic[propType]-=;
-                最大数量 = Math.Min(最大数量, Mathf.FloorToInt(count));
+                ObserverModuleManager.S.SendEvent("SendUIToast","请选择打造数量");
+                return;
             }
+            数量进度条.maxValue = Get最大打造数量();
+            法器打造Item 法器打造Item = new 法器打造Item();
+            法器打造Item.count = 打造数量;
+            法器打造Item.进度 = 0;
+            法器打造Item.法器Type = HeroWindowController.S.法器打造法器Type;
+            数量进度条.value = 0;
+            打造数量 = 0;
+            PlayerData.S.打造List.Add(法器打造Item);
         });
     }
 }
