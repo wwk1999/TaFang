@@ -23,10 +23,20 @@ public class 胜利弹窗item : MonoBehaviour
     [NonSerialized] public QualityType 道纹QualityType=QualityType.None;
     [NonSerialized] public 符文Type 符文Type=符文Type.None;
     [NonSerialized] public QualityType 符文QualityType=QualityType.None;
-
+    [NonSerialized] public 法器材料Type 法器材料Type=法器材料Type.None;
+    [NonSerialized] public QualityType 法器材料QualityType=QualityType.None;
 
     public void SetItem()
     {
+        if (法器材料Type != 法器材料Type.None)
+        {
+            Name.text = 符文Config.符文名Dic[符文Type];
+            Name.colorGradientPreset = ResourcesConfig.Get品质TMP(符文QualityType);
+            CountText.text = "";
+            image.sprite=ResourcesConfig.Get符文Sprite(符文Type,符文Config.Quality对应符文品质[符文QualityType]);
+            bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(符文QualityType);
+            return;
+        }
         if (符文Type != 符文Type.None)
         {
             Name.text = 符文Config.符文名Dic[符文Type];

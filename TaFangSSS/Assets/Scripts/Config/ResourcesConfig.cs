@@ -7245,9 +7245,88 @@ public class ResourcesConfig : MonoBehaviour
                 {
                     case QualityType.黄品:
                         return 铁白;
+                    case QualityType.玄品:
+                        return 铁绿;
+                    case QualityType.地品:
+                        return 铁蓝;
+                    case QualityType.天品:
+                        return 铁紫;
+                    case QualityType.宇品:
+                        return 铁橙;
+                    case QualityType.宙品:
+                        return 铁粉;
+                    case QualityType.洪品:
+                        return 铁红;
+                    case QualityType.荒品:
+                        return 铁彩;
+                }
+                break;
+            case 法器材料Type.石:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 石白;
+                    case QualityType.玄品:
+                        return 石绿;
+                    case QualityType.地品:
+                        return 石蓝;
+                    case QualityType.天品:
+                        return 石紫;
+                    case QualityType.宇品:
+                        return 石橙;
+                    case QualityType.宙品:
+                        return 石粉;
+                    case QualityType.洪品:
+                        return 石红;
+                    case QualityType.荒品:
+                        return 石彩;
+                }
+                break;
+            case 法器材料Type.羽:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 羽白;
+                    case QualityType.玄品:
+                        return 羽绿;
+                    case QualityType.地品:
+                        return 羽蓝;
+                    case QualityType.天品:
+                        return 羽紫;
+                    case QualityType.宇品:
+                        return 羽橙;
+                    case QualityType.宙品:
+                        return 羽粉;
+                    case QualityType.洪品:
+                        return 羽红;
+                    case QualityType.荒品:
+                        return 羽彩;
+                }
+                break;
+            case 法器材料Type.砂:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 砂白;
+                    case QualityType.玄品:
+                        return 砂绿;
+                    case QualityType.地品:
+                        return 砂蓝;
+                    case QualityType.天品:
+                        return 砂紫;
+                    case QualityType.宇品:
+                        return 砂橙;
+                    case QualityType.宙品:
+                        return 砂粉;
+                    case QualityType.洪品:
+                        return 砂红;
+                    case QualityType.荒品:
+                        return 砂彩;
                 }
                 break;
         }
+
+        return null;
     }
     public static void Init()
     {

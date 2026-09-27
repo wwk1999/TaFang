@@ -377,6 +377,11 @@ public class 法器Config
         { 法器类型.头盔 ,new List<法器材料Type>() { 法器材料Type.铁 ,法器材料Type.砂}},
         { 法器类型.鞋子 ,new List<法器材料Type>() { 法器材料Type.羽 ,法器材料Type.石}},
     };
+
+    public static string Get法器材料Name(法器材料Type 法器材料Type, QualityType qualityType)
+    {
+        
+    }
     public static Dictionary<QualityType, float> 法器基础属性Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 10 },
