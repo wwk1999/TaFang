@@ -448,6 +448,7 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页血海收获弹窗");
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
         SetBuff();
+        道场Config.更新供奉总属性();
         if (PlayerData.S.是否首次进入主页面)
         {
             首次进入主页面引导();

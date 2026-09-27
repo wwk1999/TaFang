@@ -97,6 +97,8 @@ public class HeroWindowController:XSingleton<HeroWindowController>
 
     [NonSerialized] public 符文 熔炼后符文=new 符文();
 
+    [NonSerialized] public 建筑Type 当前显示建筑Type;
+
     //法器的基础属性包含在最终伤害里
     public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type, ZhiYeType zhiYeType)
     {

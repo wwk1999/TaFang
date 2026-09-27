@@ -167,7 +167,34 @@ public class 道场Config
 {
     public static  供奉总属性 供奉总属性 = new 供奉总属性();
 
-    public void 更新供奉总属性()
+    public static float Get矿石速度()
+    {
+        float value = 矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].数值;
+        value *= (1f + 供奉总属性.矿场速度 / 100f);
+        return value;
+    }
+    
+    public static float Get玄铁速度()
+    {
+        float value = 玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].数值;
+        value *= (1f + 供奉总属性.玄铁速度 / 100f);
+        return value;
+    }
+    
+    public static float Get玉髓速度()
+    {
+        float value = 地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].数值;
+        value *= (1f + 供奉总属性.地脉速度 / 100f);
+        return value;
+    }
+    
+    public static float Get功德速度()
+    {
+        float value = 功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].数值;
+        value *= (1f + 供奉总属性.功德速度 / 100f);
+        return value;
+    }
+    public static void 更新供奉总属性()
     {
         float 矿 = 0;
         float 玉 = 0;
@@ -215,14 +242,97 @@ public class 道场Config
                         case 供奉特性Type.采矿速度:
                             特性采矿速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
                             break;
-                        
-                        
+                        case 供奉特性Type.采铁速度:
+                            特性采铁速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.地脉产玉髓速度:
+                            特性地脉产玉髓速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.功德产出速度:
+                            特性功德产出速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.概率获得两个高级招募卷:
+                            特性概率获得两个高级招募卷 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.概率增加炼丹数量:
+                            特性概率增加炼丹数量 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.增加炼丹速度:
+                            特性增加炼丹速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.增加炼丹经验:
+                            特性增加炼丹经验 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.增加炼器速度:
+                            特性增加炼器速度 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.增加法器分解粉尘:
+                            特性增加法器分解粉尘 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.坊市价格减少:
+                            特性坊市价格减少 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.获得矿石概率获得玄铁:
+                            特性获得矿石概率获得玄铁 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.获得矿石概率获得玉髓:
+                            特性获得矿石概率获得玉髓 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.获得玄铁概率获得矿石:
+                            特性获得玄铁概率获得矿石 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.获得玄铁概率获得玉髓:
+                            特性获得玄铁概率获得玉髓 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.获得玉髓概率获得玄铁:
+                            特性获得玉髓概率获得玄铁 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.获得玉髓概率获得矿石:
+                            特性获得玉髓概率获得矿石 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
+                        case 供奉特性Type.坊市刷新概率不消耗次数:
+                            特性坊市刷新概率不消耗次数 += 供奉特性Dic[特效item.供奉特性Type][(int)特效item.供奉品质Type-1];
+                            break;
                     }
                 }
             }
         }
+        供奉总属性.矿场速度 = 矿 * (1f + 特性采矿速度 / 100f);
+        供奉总属性.玄铁速度 = 铁 * (1f + 特性采铁速度 / 100f);
+        供奉总属性.地脉速度 = 玉 * (1f + 特性地脉产玉髓速度 / 100f);
+        供奉总属性.功德速度 = 德 * (1f + 特性功德产出速度 / 100f);
+        供奉总属性.炼丹速度 = 丹 * (1f + 特性增加炼丹速度 / 100f);
+        供奉总属性.炼器速度 = 器 * (1f + 特性增加炼器速度 / 100f);
+        供奉总属性.坊市刷新时间缩减 = 坊;
+        供奉总属性.高级招募卷时间缩减 = 贤;
         
+        供奉总属性.概率获得两个高级招募卷=特性概率获得两个高级招募卷;
+        供奉总属性.概率增加炼丹数量=特性概率增加炼丹数量;
+        供奉总属性.增加炼丹经验=特性增加炼丹经验;
+        供奉总属性.增加法器分解粉尘=特性增加法器分解粉尘;
+        供奉总属性.坊市价格减少=特性坊市价格减少;
+        供奉总属性.获得矿石概率获得玄铁=特性获得矿石概率获得玄铁;
+        供奉总属性.获得矿石概率获得玉髓=特性获得矿石概率获得玉髓;
+        供奉总属性.获得玄铁概率获得矿石=特性获得玄铁概率获得矿石;
+        供奉总属性.获得玄铁概率获得玉髓=特性获得玄铁概率获得玉髓;
+        供奉总属性.获得玉髓概率获得玄铁=特性获得玉髓概率获得玄铁;
+        供奉总属性.获得玉髓概率获得矿石=特性获得玉髓概率获得矿石;
+        供奉总属性.坊市刷新概率不消耗次数=特性坊市刷新概率不消耗次数;
+
     }
+
+    public static Dictionary<建筑Type, string> 建筑info = new Dictionary<建筑Type, string>()
+    {
+        { 建筑Type.矿场 ,"坐落于洪荒地脉之上的天然矿场，蕴藏着丰富的矿石资源，由灵脉滋养，源源不断产出各类矿石，是建筑筑造的重要资源来源。"},
+        { 建筑Type.地脉 ,"汇聚洪荒大地灵气的脉络节点，地脉之力在此流转不息，可为周边建筑提供源源不断的灵气滋养，是领地发展的根基所在。"},
+        { 建筑Type.玄铁洞 ,"深藏于山腹之中的玄铁矿洞，洞中玄铁坚逾金石，历经地火淬炼，是锻造神兵利器与坚固建筑的珍贵材料产地。"},
+        { 建筑Type.功德碑 ,"铭刻领地功德与先贤事迹的石碑，受天地气运庇佑，可凝聚人心、积攒功德，为领主府邸带来气运加持。"},
+        { 建筑Type.聚贤阁 ,"广纳天下英才的楼阁，贤能之士在此汇聚论道，可提升领地的人才储备与谋略之术，是招贤纳士的重要场所。"},
+        { 建筑Type.炼丹室 ,"以灵脉地火为引的炼丹之所，可炼制各类增进修为、疗伤续命的丹药，是修士提升实力的核心建筑。"},
+        { 建筑Type.炼器室 ,"炉火不熄的炼器工坊，依托玄铁与灵脉之力，可锻造法宝神兵、炼制护身器具，是领地军备的重要保障。"},
+        { 建筑Type.领主府 ,"领地权力的中枢所在，领主在此处理政务、调度资源，府邸气派威严，象征着领地的主权与繁荣。"},
+        { 建筑Type.坊市 ,"领地中最为热闹的交易集市，修士与商贾在此互通有无、买卖灵材，是领地经济流通与财富积累的核心所在。"},
+    };
     public static Dictionary<供奉特性Type, List<float>> 供奉特性Dic = new Dictionary<供奉特性Type, List<float>>()
     {
         { 供奉特性Type.采矿速度 ,new List<float>(){5,10,15,25,50} },

@@ -7172,7 +7172,7 @@ public class ResourcesConfig : MonoBehaviour
         return null;
     }
 
-    public static Sprite Get道场Sprite(建筑Type type)
+    public static Sprite Get道场建筑Sprite(建筑Type type)
     {
         switch (type)
         {
