@@ -23,7 +23,6 @@ public enum 神物Type
 public class 遗迹关卡胜利奖励
 {
     public long 灵魂;
-    public long 功德;
     public bool 神物;
 }
 
@@ -93,10 +92,6 @@ public class 神物Config
         var list = 遗迹掉落Dic[LevelConfig.当前神物Type];
         foreach (var item in list)
         {
-            if (item.PropType == PropType.功德)
-            {
-                遗迹关卡胜利奖励.功德=(long)Random.Range(item.minCount, item.maxCount);
-            }
             if (item.PropType == PropType.灵魂)
             {
                 遗迹关卡胜利奖励.灵魂=(long)Random.Range(item.minCount, item.maxCount);

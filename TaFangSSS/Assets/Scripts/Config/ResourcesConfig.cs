@@ -3606,6 +3606,80 @@ public class ResourcesConfig : MonoBehaviour
                 return 法器粉尘;
             case PropType.仙石精华:
                 return 仙石精华;
+            case PropType.矿石:
+                return 矿石;
+            case PropType.玄铁:
+                return 玄铁;
+            case PropType.玉髓:
+                return 玉髓;
+            
+            case PropType.石白:
+                return 石白;
+            case PropType.石绿:
+                return 石绿;
+            case PropType.石蓝:
+                return 石蓝;
+            case PropType.石紫:
+                return 石紫;
+            case PropType.石橙:
+                return 石橙;
+            case PropType.石粉:
+                return 石粉;
+            case PropType.石红:
+                return 石红;
+            case PropType.石彩:
+                return 石彩;
+
+            case PropType.铁白:
+                return 铁白;
+            case PropType.铁绿:
+                return 铁绿;
+            case PropType.铁蓝:
+                return 铁蓝;
+            case PropType.铁紫:
+                return 铁紫;
+            case PropType.铁橙:
+                return 铁橙;
+            case PropType.铁粉:
+                return 铁粉;
+            case PropType.铁红:
+                return 铁红;
+            case PropType.铁彩:
+                return 铁彩;
+
+            case PropType.羽白:
+                return 羽白;
+            case PropType.羽绿:
+                return 羽绿;
+            case PropType.羽蓝:
+                return 羽蓝;
+            case PropType.羽紫:
+                return 羽紫;
+            case PropType.羽橙:
+                return 羽橙;
+            case PropType.羽粉:
+                return 羽粉;
+            case PropType.羽红:
+                return 羽红;
+            case PropType.羽彩:
+                return 羽彩;
+
+            case PropType.砂白:
+                return 砂白;
+            case PropType.砂绿:
+                return 砂绿;
+            case PropType.砂蓝:
+                return 砂蓝;
+            case PropType.砂紫:
+                return 砂紫;
+            case PropType.砂橙:
+                return 砂橙;
+            case PropType.砂粉:
+                return 砂粉;
+            case PropType.砂红:
+                return 砂红;
+            case PropType.砂彩:
+                return 砂彩;
         }
 
         return null;

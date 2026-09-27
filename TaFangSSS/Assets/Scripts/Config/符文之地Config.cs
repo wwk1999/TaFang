@@ -58,7 +58,6 @@ public class 符文之地关卡怪物Item
 public class 符文之地关卡胜利奖励
 {
     public long 灵魂;
-    public long 功德;
     public List<符文> 符文list;
 }
 public class 符文之地Config
@@ -71,10 +70,6 @@ public class 符文之地Config
         var list = 符文之地掉落Dic[LevelConfig.当前符文之地Type];
         foreach (var item in list)
         {
-            if (item.PropType == PropType.功德)
-            {
-                符文之地关卡胜利奖励.功德=(long)Random.Range(item.minCount, item.maxCount);
-            }
             if (item.PropType == PropType.灵魂)
             {
                 符文之地关卡胜利奖励.灵魂=(long)Random.Range(item.minCount, item.maxCount);

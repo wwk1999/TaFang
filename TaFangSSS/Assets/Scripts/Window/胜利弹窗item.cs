@@ -30,11 +30,11 @@ public class 胜利弹窗item : MonoBehaviour
     {
         if (法器材料Type != 法器材料Type.None)
         {
-            Name.text = 符文Config.符文名Dic[符文Type];
-            Name.colorGradientPreset = ResourcesConfig.Get品质TMP(符文QualityType);
+            Name.text = 法器Config.Get法器材料Name(法器材料Type, 法器材料QualityType);
+            Name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器材料QualityType);
             CountText.text = "";
-            image.sprite=ResourcesConfig.Get符文Sprite(符文Type,符文Config.Quality对应符文品质[符文QualityType]);
-            bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(符文QualityType);
+            image.sprite=ResourcesConfig.Get法器材料Sprite(法器材料Type,法器材料QualityType);
+            bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(法器材料QualityType);
             return;
         }
         if (符文Type != 符文Type.None)

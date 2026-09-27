@@ -3471,6 +3471,42 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { PropType.矿石 ,0},
         { PropType.玄铁 ,0},
         { PropType.玉髓 ,0},
+        
+        { PropType.石白, 0 },
+        { PropType.石绿, 0 },
+        { PropType.石蓝, 0 },
+        { PropType.石紫, 0 },
+        { PropType.石橙, 0 },
+        { PropType.石粉, 0 },
+        { PropType.石红, 0 },
+        { PropType.石彩, 0 },
+
+        { PropType.铁白, 0 },
+        { PropType.铁绿, 0 },
+        { PropType.铁蓝, 0 },
+        { PropType.铁紫, 0 },
+        { PropType.铁橙, 0 },
+        { PropType.铁粉, 0 },
+        { PropType.铁红, 0 },
+        { PropType.铁彩, 0 },
+
+        { PropType.羽白, 0 },
+        { PropType.羽绿, 0 },
+        { PropType.羽蓝, 0 },
+        { PropType.羽紫, 0 },
+        { PropType.羽橙, 0 },
+        { PropType.羽粉, 0 },
+        { PropType.羽红, 0 },
+        { PropType.羽彩, 0 },
+
+        { PropType.砂白, 0 },
+        { PropType.砂绿, 0 },
+        { PropType.砂蓝, 0 },
+        { PropType.砂紫, 0 },
+        { PropType.砂橙, 0 },
+        { PropType.砂粉, 0 },
+        { PropType.砂红, 0 },
+        { PropType.砂彩, 0 },
     };
 
    

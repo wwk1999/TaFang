@@ -69,6 +69,43 @@ namespace Config
         矿石,
         玄铁,
         玉髓,
+        
+        石白,
+        石绿,
+        石蓝,
+        石紫,
+        石橙,
+        石粉,
+        石红,
+        石彩,
+        
+        铁白,
+        铁绿,
+        铁蓝,
+        铁紫,
+        铁橙,
+        铁粉,
+        铁红,
+        铁彩,
+        
+        
+        羽白,
+        羽绿,
+        羽蓝,
+        羽紫,
+        羽橙,
+        羽粉,
+        羽红,
+        羽彩,
+        
+        砂白,
+        砂绿,
+        砂蓝,
+        砂紫,
+        砂橙,
+        砂粉,
+        砂红,
+        砂彩,
     }
     public enum PropType
     {
@@ -155,6 +192,43 @@ namespace Config
         玄铁,
         玉髓,
         
+        石白,
+        石绿,
+        石蓝,
+        石紫,
+        石橙,
+        石粉,
+        石红,
+        石彩,
+        
+        铁白,
+        铁绿,
+        铁蓝,
+        铁紫,
+        铁橙,
+        铁粉,
+        铁红,
+        铁彩,
+        
+        
+        羽白,
+        羽绿,
+        羽蓝,
+        羽紫,
+        羽橙,
+        羽粉,
+        羽红,
+        羽彩,
+        
+        砂白,
+        砂绿,
+        砂蓝,
+        砂紫,
+        砂橙,
+        砂粉,
+        砂红,
+        砂彩,
+        
     }
 
     public enum QualityType
@@ -220,6 +294,73 @@ namespace Config
             return ResourcesConfig.玄铁;
         case 道具信息Type.玉髓:
             return ResourcesConfig.玉髓;
+        case 道具信息Type.石白:
+            return ResourcesConfig.石白;
+        case 道具信息Type.石绿:
+            return ResourcesConfig.石绿;
+        case 道具信息Type.石蓝:
+            return ResourcesConfig.石蓝;
+        case 道具信息Type.石紫:
+            return ResourcesConfig.石紫;
+        case 道具信息Type.石橙:
+            return ResourcesConfig.石橙;
+        case 道具信息Type.石粉:
+            return ResourcesConfig.石粉;
+        case 道具信息Type.石红:
+            return ResourcesConfig.石红;
+        case 道具信息Type.石彩:
+            return ResourcesConfig.石彩;
+
+        case 道具信息Type.铁白:
+            return ResourcesConfig.铁白;
+        case 道具信息Type.铁绿:
+            return ResourcesConfig.铁绿;
+        case 道具信息Type.铁蓝:
+            return ResourcesConfig.铁蓝;
+        case 道具信息Type.铁紫:
+            return ResourcesConfig.铁紫;
+        case 道具信息Type.铁橙:
+            return ResourcesConfig.铁橙;
+        case 道具信息Type.铁粉:
+            return ResourcesConfig.铁粉;
+        case 道具信息Type.铁红:
+            return ResourcesConfig.铁红;
+        case 道具信息Type.铁彩:
+            return ResourcesConfig.铁彩;
+
+        case 道具信息Type.羽白:
+            return ResourcesConfig.羽白;
+        case 道具信息Type.羽绿:
+            return ResourcesConfig.羽绿;
+        case 道具信息Type.羽蓝:
+            return ResourcesConfig.羽蓝;
+        case 道具信息Type.羽紫:
+            return ResourcesConfig.羽紫;
+        case 道具信息Type.羽橙:
+            return ResourcesConfig.羽橙;
+        case 道具信息Type.羽粉:
+            return ResourcesConfig.羽粉;
+        case 道具信息Type.羽红:
+            return ResourcesConfig.羽红;
+        case 道具信息Type.羽彩:
+            return ResourcesConfig.羽彩;
+
+        case 道具信息Type.砂白:
+            return ResourcesConfig.砂白;
+        case 道具信息Type.砂绿:
+            return ResourcesConfig.砂绿;
+        case 道具信息Type.砂蓝:
+            return ResourcesConfig.砂蓝;
+        case 道具信息Type.砂紫:
+            return ResourcesConfig.砂紫;
+        case 道具信息Type.砂橙:
+            return ResourcesConfig.砂橙;
+        case 道具信息Type.砂粉:
+            return ResourcesConfig.砂粉;
+        case 道具信息Type.砂红:
+            return ResourcesConfig.砂红;
+        case 道具信息Type.砂彩:
+            return ResourcesConfig.砂彩;
         case 道具信息Type.道宝紫:
         case 道具信息Type.道宝橙:
         case 道具信息Type.道宝粉:
@@ -255,6 +396,46 @@ namespace Config
             { 道具信息Type.矿石, QualityType.地品 },
             { 道具信息Type.玄铁, QualityType.地品 },
             { 道具信息Type.玉髓, QualityType.地品 },
+            // ================= 石 =================
+            { 道具信息Type.石白, QualityType.黄品 },
+            { 道具信息Type.石绿, QualityType.玄品 },
+            { 道具信息Type.石蓝, QualityType.地品 },
+            { 道具信息Type.石紫, QualityType.天品 },
+            { 道具信息Type.石橙, QualityType.宇品 },
+            { 道具信息Type.石粉, QualityType.宙品 },
+            { 道具信息Type.石红, QualityType.洪品 },
+            { 道具信息Type.石彩, QualityType.荒品 },
+
+// ================= 铁 =================
+            { 道具信息Type.铁白, QualityType.黄品 },
+            { 道具信息Type.铁绿, QualityType.玄品 },
+            { 道具信息Type.铁蓝, QualityType.地品 },
+            { 道具信息Type.铁紫, QualityType.天品 },
+            { 道具信息Type.铁橙, QualityType.宇品 },
+            { 道具信息Type.铁粉, QualityType.宙品 },
+            { 道具信息Type.铁红, QualityType.洪品 },
+            { 道具信息Type.铁彩, QualityType.荒品 },
+
+// ================= 羽 =================
+            { 道具信息Type.羽白, QualityType.黄品 },
+            { 道具信息Type.羽绿, QualityType.玄品 },
+            { 道具信息Type.羽蓝, QualityType.地品 },
+            { 道具信息Type.羽紫, QualityType.天品 },
+            { 道具信息Type.羽橙, QualityType.宇品 },
+            { 道具信息Type.羽粉, QualityType.宙品 },
+            { 道具信息Type.羽红, QualityType.洪品 },
+            { 道具信息Type.羽彩, QualityType.荒品 },
+
+// ================= 砂 =================
+            { 道具信息Type.砂白, QualityType.黄品 },
+            { 道具信息Type.砂绿, QualityType.玄品 },
+            { 道具信息Type.砂蓝, QualityType.地品 },
+            { 道具信息Type.砂紫, QualityType.天品 },
+            { 道具信息Type.砂橙, QualityType.宇品 },
+            { 道具信息Type.砂粉, QualityType.宙品 },
+            { 道具信息Type.砂红, QualityType.洪品 },
+            { 道具信息Type.砂彩, QualityType.荒品 },
+            
             { 道具信息Type.功德, QualityType.宇品 },
             { 道具信息Type.头盔锻造石, QualityType.地品 },
             { 道具信息Type.射手经验值, QualityType.地品 },
@@ -322,6 +503,42 @@ namespace Config
             { 道具信息Type.矿石, PropType.矿石 },
             { 道具信息Type.玄铁, PropType.玄铁 },
             { 道具信息Type.玉髓, PropType.玉髓 },
+            
+            { 道具信息Type.石白, PropType.石白 },
+            { 道具信息Type.石绿, PropType.石绿 },
+            { 道具信息Type.石蓝, PropType.石蓝 },
+            { 道具信息Type.石紫, PropType.石紫 },
+            { 道具信息Type.石橙, PropType.石橙 },
+            { 道具信息Type.石粉, PropType.石粉 },
+            { 道具信息Type.石红, PropType.石红 },
+            { 道具信息Type.石彩, PropType.石彩 },
+
+            { 道具信息Type.铁白, PropType.铁白 },
+            { 道具信息Type.铁绿, PropType.铁绿 },
+            { 道具信息Type.铁蓝, PropType.铁蓝 },
+            { 道具信息Type.铁紫, PropType.铁紫 },
+            { 道具信息Type.铁橙, PropType.铁橙 },
+            { 道具信息Type.铁粉, PropType.铁粉 },
+            { 道具信息Type.铁红, PropType.铁红 },
+            { 道具信息Type.铁彩, PropType.铁彩 },
+
+            { 道具信息Type.羽白, PropType.羽白 },
+            { 道具信息Type.羽绿, PropType.羽绿 },
+            { 道具信息Type.羽蓝, PropType.羽蓝 },
+            { 道具信息Type.羽紫, PropType.羽紫 },
+            { 道具信息Type.羽橙, PropType.羽橙 },
+            { 道具信息Type.羽粉, PropType.羽粉 },
+            { 道具信息Type.羽红, PropType.羽红 },
+            { 道具信息Type.羽彩, PropType.羽彩 },
+
+            { 道具信息Type.砂白, PropType.砂白 },
+            { 道具信息Type.砂绿, PropType.砂绿 },
+            { 道具信息Type.砂蓝, PropType.砂蓝 },
+            { 道具信息Type.砂紫, PropType.砂紫 },
+            { 道具信息Type.砂橙, PropType.砂橙 },
+            { 道具信息Type.砂粉, PropType.砂粉 },
+            { 道具信息Type.砂红, PropType.砂红 },
+            { 道具信息Type.砂彩, PropType.砂彩 },
         };
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
@@ -365,6 +582,42 @@ namespace Config
             { PropType.矿石, 道具信息Type.矿石 },
             { PropType.玄铁, 道具信息Type.玄铁 },
             { PropType.玉髓, 道具信息Type.玉髓 },
+            
+            { PropType.石白, 道具信息Type.石白 },
+            { PropType.石绿, 道具信息Type.石绿 },
+            { PropType.石蓝, 道具信息Type.石蓝 },
+            { PropType.石紫, 道具信息Type.石紫 },
+            { PropType.石橙, 道具信息Type.石橙 },
+            { PropType.石粉, 道具信息Type.石粉 },
+            { PropType.石红, 道具信息Type.石红 },
+            { PropType.石彩, 道具信息Type.石彩 },
+
+            { PropType.铁白, 道具信息Type.铁白 },
+            { PropType.铁绿, 道具信息Type.铁绿 },
+            { PropType.铁蓝, 道具信息Type.铁蓝 },
+            { PropType.铁紫, 道具信息Type.铁紫 },
+            { PropType.铁橙, 道具信息Type.铁橙 },
+            { PropType.铁粉, 道具信息Type.铁粉 },
+            { PropType.铁红, 道具信息Type.铁红 },
+            { PropType.铁彩, 道具信息Type.铁彩 },
+
+            { PropType.羽白, 道具信息Type.羽白 },
+            { PropType.羽绿, 道具信息Type.羽绿 },
+            { PropType.羽蓝, 道具信息Type.羽蓝 },
+            { PropType.羽紫, 道具信息Type.羽紫 },
+            { PropType.羽橙, 道具信息Type.羽橙 },
+            { PropType.羽粉, 道具信息Type.羽粉 },
+            { PropType.羽红, 道具信息Type.羽红 },
+            { PropType.羽彩, 道具信息Type.羽彩 },
+
+            { PropType.砂白, 道具信息Type.砂白 },
+            { PropType.砂绿, 道具信息Type.砂绿 },
+            { PropType.砂蓝, 道具信息Type.砂蓝 },
+            { PropType.砂紫, 道具信息Type.砂紫 },
+            { PropType.砂橙, 道具信息Type.砂橙 },
+            { PropType.砂粉, 道具信息Type.砂粉 },
+            { PropType.砂红, 道具信息Type.砂红 },
+            { PropType.砂彩, 道具信息Type.砂彩 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -375,6 +628,42 @@ namespace Config
             { 道具信息Type.矿石, "矿石" },
             { 道具信息Type.玄铁, "玄铁" },
             { 道具信息Type.玉髓, "玉髓" },
+            { 道具信息Type.石白, "青石" },
+            { 道具信息Type.石绿, "硬石" },
+            { 道具信息Type.石蓝, "灵玉" },
+            { 道具信息Type.石紫, "玄龟石" },
+            { 道具信息Type.石橙, "地脉晶" },
+            { 道具信息Type.石粉, "星辰石" },
+            { 道具信息Type.石红, "鸿蒙石" },
+            { 道具信息Type.石彩, "混沌石" },
+
+            { 道具信息Type.铁白, "凡铁" },
+            { 道具信息Type.铁绿, "精铁" },
+            { 道具信息Type.铁蓝, "玄铁" },
+            { 道具信息Type.铁紫, "寒铁" },
+            { 道具信息Type.铁橙, "地火精金" },
+            { 道具信息Type.铁粉, "星辰铁" },
+            { 道具信息Type.铁红, "鸿蒙紫铁" },
+            { 道具信息Type.铁彩, "混沌神铁" },
+
+            { 道具信息Type.羽白, "凡羽" },
+            { 道具信息Type.羽绿, "轻羽" },
+            { 道具信息Type.羽蓝, "风灵羽" },
+            { 道具信息Type.羽紫, "云纹羽" },
+            { 道具信息Type.羽橙, "灵鹤羽" },
+            { 道具信息Type.羽粉, "鲲鹏羽" },
+            { 道具信息Type.羽红, "鸿蒙羽" },
+            { 道具信息Type.羽彩, "混沌羽" },
+
+            { 道具信息Type.砂白, "粗砂" },
+            { 道具信息Type.砂绿, "细砂" },
+            { 道具信息Type.砂蓝, "灵砂" },
+            { 道具信息Type.砂紫, "星辰砂" },
+            { 道具信息Type.砂橙, "地脉砂" },
+            { 道具信息Type.砂粉, "玄天砂" },
+            { 道具信息Type.砂红, "鸿蒙砂" },
+            { 道具信息Type.砂彩, "混沌砂" },
+            
             { 道具信息Type.法器粉尘, "法器粉尘" },
             { 道具信息Type.功德, "功德" },
             { 道具信息Type.头盔锻造石, "头盔锻造石" },
@@ -479,6 +768,42 @@ namespace Config
             { 道具信息Type.矿石, "升级道场建筑的关键材料" },
             { 道具信息Type.玄铁, "升级道场建筑的关键材料" },
             { 道具信息Type.玉髓, "升级道场建筑的关键材料" },
+            
+            { 道具信息Type.石白, "打造英雄法器的关键材料" },
+            { 道具信息Type.石绿, "打造英雄法器的关键材料" },
+            { 道具信息Type.石蓝, "打造英雄法器的关键材料" },
+            { 道具信息Type.石紫, "打造英雄法器的关键材料" },
+            { 道具信息Type.石橙, "打造英雄法器的关键材料" },
+            { 道具信息Type.石粉, "打造英雄法器的关键材料" },
+            { 道具信息Type.石红, "打造英雄法器的关键材料" },
+            { 道具信息Type.石彩, "打造英雄法器的关键材料" },
+
+            { 道具信息Type.铁白, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁绿, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁蓝, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁紫, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁橙, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁粉, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁红, "打造英雄法器的关键材料" },
+            { 道具信息Type.铁彩, "打造英雄法器的关键材料" },
+
+            { 道具信息Type.羽白, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽绿, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽蓝, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽紫, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽橙, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽粉, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽红, "打造英雄法器的关键材料" },
+            { 道具信息Type.羽彩, "打造英雄法器的关键材料" },
+
+            { 道具信息Type.砂白, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂绿, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂蓝, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂紫, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂橙, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂粉, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂红, "打造英雄法器的关键材料" },
+            { 道具信息Type.砂彩, "打造英雄法器的关键材料" },
         };
 
         
@@ -508,6 +833,74 @@ namespace Config
                     return ResourcesConfig.玄铁;
                 case PropType.玉髓:
                     return ResourcesConfig.玉髓;
+                
+                case PropType.石白:
+                    return ResourcesConfig.石白;
+                case PropType.石绿:
+                    return ResourcesConfig.石绿;
+                case PropType.石蓝:
+                    return ResourcesConfig.石蓝;
+                case PropType.石紫:
+                    return ResourcesConfig.石紫;
+                case PropType.石橙:
+                    return ResourcesConfig.石橙;
+                case PropType.石粉:
+                    return ResourcesConfig.石粉;
+                case PropType.石红:
+                    return ResourcesConfig.石红;
+                case PropType.石彩:
+                    return ResourcesConfig.石彩;
+
+                case PropType.铁白:
+                    return ResourcesConfig.铁白;
+                case PropType.铁绿:
+                    return ResourcesConfig.铁绿;
+                case PropType.铁蓝:
+                    return ResourcesConfig.铁蓝;
+                case PropType.铁紫:
+                    return ResourcesConfig.铁紫;
+                case PropType.铁橙:
+                    return ResourcesConfig.铁橙;
+                case PropType.铁粉:
+                    return ResourcesConfig.铁粉;
+                case PropType.铁红:
+                    return ResourcesConfig.铁红;
+                case PropType.铁彩:
+                    return ResourcesConfig.铁彩;
+
+                case PropType.羽白:
+                    return ResourcesConfig.羽白;
+                case PropType.羽绿:
+                    return ResourcesConfig.羽绿;
+                case PropType.羽蓝:
+                    return ResourcesConfig.羽蓝;
+                case PropType.羽紫:
+                    return ResourcesConfig.羽紫;
+                case PropType.羽橙:
+                    return ResourcesConfig.羽橙;
+                case PropType.羽粉:
+                    return ResourcesConfig.羽粉;
+                case PropType.羽红:
+                    return ResourcesConfig.羽红;
+                case PropType.羽彩:
+                    return ResourcesConfig.羽彩;
+
+                case PropType.砂白:
+                    return ResourcesConfig.砂白;
+                case PropType.砂绿:
+                    return ResourcesConfig.砂绿;
+                case PropType.砂蓝:
+                    return ResourcesConfig.砂蓝;
+                case PropType.砂紫:
+                    return ResourcesConfig.砂紫;
+                case PropType.砂橙:
+                    return ResourcesConfig.砂橙;
+                case PropType.砂粉:
+                    return ResourcesConfig.砂粉;
+                case PropType.砂红:
+                    return ResourcesConfig.砂红;
+                case PropType.砂彩:
+                    return ResourcesConfig.砂彩;
                 case PropType.法器粉尘:
                     return ResourcesConfig.法器粉尘;
                 case PropType.全职业经验值:
@@ -740,6 +1133,43 @@ namespace Config
             { PropType.矿石, "矿石" },
             { PropType.玄铁, "玄铁" },
             { PropType.玉髓, "玉髓" },
+            
+            { PropType.石白, "青石" },
+            { PropType.石绿, "硬石" },
+            { PropType.石蓝, "灵玉" },
+            { PropType.石紫, "玄龟石" },
+            { PropType.石橙, "地脉晶" },
+            { PropType.石粉, "星辰石" },
+            { PropType.石红, "鸿蒙石" },
+            { PropType.石彩, "混沌石" },
+
+            { PropType.铁白, "凡铁" },
+            { PropType.铁绿, "精铁" },
+            { PropType.铁蓝, "玄铁" },
+            { PropType.铁紫, "寒铁" },
+            { PropType.铁橙, "地火精金" },
+            { PropType.铁粉, "星辰铁" },
+            { PropType.铁红, "鸿蒙紫铁" },
+            { PropType.铁彩, "混沌神铁" },
+
+            { PropType.羽白, "凡羽" },
+            { PropType.羽绿, "轻羽" },
+            { PropType.羽蓝, "风灵羽" },
+            { PropType.羽紫, "云纹羽" },
+            { PropType.羽橙, "灵鹤羽" },
+            { PropType.羽粉, "鲲鹏羽" },
+            { PropType.羽红, "鸿蒙羽" },
+            { PropType.羽彩, "混沌羽" },
+
+            { PropType.砂白, "粗砂" },
+            { PropType.砂绿, "细砂" },
+            { PropType.砂蓝, "灵砂" },
+            { PropType.砂紫, "星辰砂" },
+            { PropType.砂橙, "地脉砂" },
+            { PropType.砂粉, "玄天砂" },
+            { PropType.砂红, "鸿蒙砂" },
+            { PropType.砂彩, "混沌砂" },
+            
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
@@ -750,6 +1180,43 @@ namespace Config
             { PropType.矿石, QualityType.地品 },
             { PropType.玄铁, QualityType.地品 },
             { PropType.玉髓, QualityType.地品 },
+            
+            { PropType.石白, QualityType.黄品 },
+            { PropType.石绿, QualityType.玄品 },
+            { PropType.石蓝, QualityType.地品 },
+            { PropType.石紫, QualityType.天品 },
+            { PropType.石橙, QualityType.宇品 },
+            { PropType.石粉, QualityType.宙品 },
+            { PropType.石红, QualityType.洪品 },
+            { PropType.石彩, QualityType.荒品 },
+
+            { PropType.铁白, QualityType.黄品 },
+            { PropType.铁绿, QualityType.玄品 },
+            { PropType.铁蓝, QualityType.地品 },
+            { PropType.铁紫, QualityType.天品 },
+            { PropType.铁橙, QualityType.宇品 },
+            { PropType.铁粉, QualityType.宙品 },
+            { PropType.铁红, QualityType.洪品 },
+            { PropType.铁彩, QualityType.荒品 },
+
+            { PropType.羽白, QualityType.黄品 },
+            { PropType.羽绿, QualityType.玄品 },
+            { PropType.羽蓝, QualityType.地品 },
+            { PropType.羽紫, QualityType.天品 },
+            { PropType.羽橙, QualityType.宇品 },
+            { PropType.羽粉, QualityType.宙品 },
+            { PropType.羽红, QualityType.洪品 },
+            { PropType.羽彩, QualityType.荒品 },
+
+            { PropType.砂白, QualityType.黄品 },
+            { PropType.砂绿, QualityType.玄品 },
+            { PropType.砂蓝, QualityType.地品 },
+            { PropType.砂紫, QualityType.天品 },
+            { PropType.砂橙, QualityType.宇品 },
+            { PropType.砂粉, QualityType.宙品 },
+            { PropType.砂红, QualityType.洪品 },
+            { PropType.砂彩, QualityType.荒品 },
+            
             { PropType.法器粉尘, QualityType.地品 },
             { PropType.洗练石, QualityType.宇品 },
             { PropType.全职业经验值, QualityType.天品 },

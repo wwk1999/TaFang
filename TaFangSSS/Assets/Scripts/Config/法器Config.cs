@@ -368,6 +368,12 @@ public enum 法器材料Type
     羽,
     砂,
 }
+
+public class 法器材料
+{
+    public 法器材料Type 法器材料Type;
+    public QualityType QualityType;
+}
 public class 法器Config
 {
     public static Dictionary<法器类型, List<法器材料Type>> 法器材料Dic = new Dictionary<法器类型, List<法器材料Type>>()
@@ -378,9 +384,27 @@ public class 法器Config
         { 法器类型.鞋子 ,new List<法器材料Type>() { 法器材料Type.羽 ,法器材料Type.石}},
     };
 
+    public static Dictionary<法器材料Type, string[]> 材料名称 = new Dictionary<法器材料Type, string[]>()
+    {
+        { 法器材料Type.铁, new[]{ "凡铁", "精铁", "玄铁", "寒铁", "地火精金", "星辰铁", "鸿蒙紫铁", "混沌神铁" } },
+        { 法器材料Type.砂, new[]{ "粗砂", "细砂", "灵砂", "星辰砂", "地脉砂", "玄天砂", "鸿蒙砂", "混沌砂" } },
+        { 法器材料Type.石, new[]{ "青石", "硬石", "灵玉", "玄龟石", "地脉晶", "星辰石", "鸿蒙石", "混沌石" } },
+        { 法器材料Type.羽, new[]{ "凡羽", "轻羽", "风灵羽", "云纹羽", "灵鹤羽", "鲲鹏羽", "鸿蒙羽", "混沌羽" } },
+    };
+
     public static string Get法器材料Name(法器材料Type 法器材料Type, QualityType qualityType)
     {
-        
+        if (材料名称.TryGetValue(法器材料Type, out var names))
+        {
+            // QualityType.None=0，黄品=1 对应数组第0个，荒品=8 对应第7个
+            int index = (int)qualityType - 1;
+            if (index >= 0 && index < names.Length)
+            {
+                return names[index];
+            }
+        }
+
+        return string.Empty;
     }
     public static Dictionary<QualityType, float> 法器基础属性Dic = new Dictionary<QualityType, float>()
     {
@@ -1660,7 +1684,7 @@ public class 法器Config
     {
         10, 40, 30, 15, 5
     };
-    public static Dictionary<JingJieType, List<float>> 法器掉落概率Dic = new Dictionary<JingJieType, List<float>>()
+    public static Dictionary<JingJieType, List<float>> 法器材料掉落概率Dic = new Dictionary<JingJieType, List<float>>()
     {
         { JingJieType.练气 , new List<float>(){100,0,0,0,0,0,0,0}},
         { JingJieType.筑基 , new List<float>(){80,20,0,0,0,0,0,0}},
@@ -1696,30 +1720,24 @@ public class 法器Config
         }
         return 法器;
     }
-    public static 法器 单次法器掉落(JingJieType jingJieType)
+    public static 法器材料 单次法器材料掉落(JingJieType jingJieType)
     {
         QualityType 掉落品质 = QualityType.黄品;
         float count = 0;
         float 品质random=Random.Range(0,100);
-        foreach (var item in 法器掉落概率Dic[jingJieType])
+        foreach (var item in 法器材料掉落概率Dic[jingJieType])
         {
             count += item;
             if (品质random < count) break;
             掉落品质++;
         }
-        var list = 法器品质列表Dic[掉落品质];
-        法器 法器 = new 法器();
-        法器.法器Type = list[Random.Range(0, list.Count)];
-        var 附加属性列表 = Get法器附加属性(掉落品质);
-        法器.list = 附加属性列表;
-        int 孔个数 = Random.Range(0, (int)掉落品质+1);
-        for (int i = 0; i < 孔个数; i++)
-        {
-            法器.仙石list.Add(new 仙石(){type = 仙石Type.None,quality =QualityType.None,list = null});
-        }
-        return 法器;
+
+        法器材料 法器材料 = new 法器材料();
+        法器材料.QualityType = 掉落品质;
+        法器材料.法器材料Type = (法器材料Type)Random.Range(1, 5);
+        return 法器材料;
     }
-    public static List<法器> Get关卡法器掉落(JingJieType jingJieType)
+    public static List<法器材料> Get关卡法器材料掉落(JingJieType jingJieType)
     {
         int 掉落数量 = 0;
         float count = 0;
@@ -1732,10 +1750,10 @@ public class 法器Config
         }
 
         掉落数量 = (int)(掉落数量*属性config.总掉宝率);
-        List<法器> list = new List<法器>();
+        List<法器材料> list = new List<法器材料>();
         for (int i = 0; i < 掉落数量; i++)
         {
-            list.Add(单次法器掉落(jingJieType));
+            list.Add(单次法器材料掉落(jingJieType));
         }
 
         return list;

@@ -79,13 +79,11 @@ public class SmallLevelInfo
 public class 洞天关卡胜利奖励
 {
     public long 灵魂;
-    public long 功德;
     public List<灵物item> List;
 }
 public class 普通关卡胜利奖励
 {
     public long 灵魂;
-    public long 功德;
     public long 射手经验值;
     public long 法师经验值;
     public long 战士经验值;
@@ -98,7 +96,6 @@ public class 普通关卡胜利奖励
     public long 戒指锻造石;
     public long 护手锻造石;
     public long 招募卷;
-    public long 高级招募卷;
     public long 洗练石;
 }
 
@@ -1189,7 +1186,6 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
        洞天关卡胜利奖励 value = new 洞天关卡胜利奖励();
        List<灵物item> 灵物list = new List<灵物item>();
        value.灵魂=(long)Random.Range(list[0].minCount,list[0].maxCount);
-       value.功德=(long)Random.Range(list[1].minCount,list[1].maxCount);
        var 灵物概率列表 = 灵物突破Config.灵物掉落概率Dic[当前洞天QualityType];
        for (int index = 0; index < 灵物概率列表.Count; index++)
        {
@@ -1226,9 +1222,6 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                case PropType.灵魂:
                    value.灵魂 = (int)(random*(1f+道宝Config.羁绊灵气/100f));
                    break;
-               case PropType.功德:
-                   value.功德 = (int)(random*(1f+道宝Config.羁绊功德/100f));
-                   break;
                case PropType.射手经验值:
                    value.射手经验值 = random;
                    break;
@@ -1264,18 +1257,6 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                    break;
                case PropType.招募卷:
                    value.招募卷 = random;
-                   break;
-               case PropType.高级招募卷:
-                   var random1 = Random.Range(0, 100f);
-                   if (random1 < random)
-                   {
-                       value.高级招募卷 = 1;
-                   }
-                   else
-                   {
-                       value.高级招募卷 = 0;
-                   }
-                   
                    break;
                case PropType.洗练石:
                    value.洗练石 = random;

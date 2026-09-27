@@ -700,8 +700,16 @@ public class MainWindow : MonoBehaviour
 
             for (int i = 0; i < 100; i++)
             {
-                法器 法器 = 法器Config.单次法器掉落(JingJieType.圣人);
-                PlayerData.S.法器列表.Add(法器);
+                PlayerData.S.PropListDic[PropType.铁紫]++;
+                PlayerData.S.PropListDic[PropType.石紫]++;
+                PlayerData.S.PropListDic[PropType.羽紫]++;
+                PlayerData.S.PropListDic[PropType.砂紫]++;
+                
+                PlayerData.S.PropListDic[PropType.铁白]++;
+                PlayerData.S.PropListDic[PropType.石白]++;
+                PlayerData.S.PropListDic[PropType.羽白]++;
+                PlayerData.S.PropListDic[PropType.砂白]++;
+                
                 仙石 仙石 = 仙石Config.单次仙石掉落(JingJieType.圣人);
                 PlayerData.S.仙石列表.Add(仙石);
             }
