@@ -7,6 +7,43 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 铁白;
+    public static Sprite 铁绿;
+    public static Sprite 铁蓝;
+    public static Sprite 铁紫;
+    public static Sprite 铁橙;
+    public static Sprite 铁粉;
+    public static Sprite 铁红;
+    public static Sprite 铁彩;
+    
+    public static Sprite 羽白;
+    public static Sprite 羽绿;
+    public static Sprite 羽蓝;
+    public static Sprite 羽紫;
+    public static Sprite 羽橙;
+    public static Sprite 羽粉;
+    public static Sprite 羽红;
+    public static Sprite 羽彩;
+    
+    public static Sprite 砂白;
+    public static Sprite 砂绿;
+    public static Sprite 砂蓝;
+    public static Sprite 砂紫;
+    public static Sprite 砂橙;
+    public static Sprite 砂粉;
+    public static Sprite 砂红;
+    public static Sprite 砂彩;
+    
+    public static Sprite 石白;
+    public static Sprite 石绿;
+    public static Sprite 石蓝;
+    public static Sprite 石紫;
+    public static Sprite 石橙;
+    public static Sprite 石粉;
+    public static Sprite 石红;
+    public static Sprite 石彩;
+
+    
     public static Sprite 玄铁;
     public static Sprite 矿石;
     public static Sprite 玉髓;
@@ -7198,8 +7235,62 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get法器材料Sprite(法器材料Type 法器材料Type,QualityType qualityType)
+    {
+        switch (法器材料Type)
+        {
+            case 法器材料Type.铁:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 铁白;
+                }
+                break;
+        }
+    }
     public static void Init()
     {
+        铁白=Resources.Load<Sprite>("Sprite/法器材料/铁白");
+        铁绿=Resources.Load<Sprite>("Sprite/法器材料/铁绿");
+        铁蓝=Resources.Load<Sprite>("Sprite/法器材料/铁蓝");
+        铁紫=Resources.Load<Sprite>("Sprite/法器材料/铁紫");
+        铁橙=Resources.Load<Sprite>("Sprite/法器材料/铁橙");
+        铁粉=Resources.Load<Sprite>("Sprite/法器材料/铁粉");
+        铁红=Resources.Load<Sprite>("Sprite/法器材料/铁红");
+        铁彩=Resources.Load<Sprite>("Sprite/法器材料/铁彩");
+        
+        石白=Resources.Load<Sprite>("Sprite/法器材料/石白");
+        石绿=Resources.Load<Sprite>("Sprite/法器材料/石绿");
+        石蓝=Resources.Load<Sprite>("Sprite/法器材料/石蓝");
+        石紫=Resources.Load<Sprite>("Sprite/法器材料/石紫");
+        石橙=Resources.Load<Sprite>("Sprite/法器材料/石橙");
+        石粉=Resources.Load<Sprite>("Sprite/法器材料/石粉");
+        石红=Resources.Load<Sprite>("Sprite/法器材料/石红");
+        石彩=Resources.Load<Sprite>("Sprite/法器材料/石彩");
+        
+        
+        羽白=Resources.Load<Sprite>("Sprite/法器材料/羽白");
+        羽绿=Resources.Load<Sprite>("Sprite/法器材料/羽绿");
+        羽蓝=Resources.Load<Sprite>("Sprite/法器材料/羽蓝");
+        羽紫=Resources.Load<Sprite>("Sprite/法器材料/羽紫");
+        羽橙=Resources.Load<Sprite>("Sprite/法器材料/羽橙");
+        羽粉=Resources.Load<Sprite>("Sprite/法器材料/羽粉");
+        羽红=Resources.Load<Sprite>("Sprite/法器材料/羽红");
+        羽彩=Resources.Load<Sprite>("Sprite/法器材料/羽彩");
+        
+        
+        砂白=Resources.Load<Sprite>("Sprite/法器材料/砂白");
+        砂绿=Resources.Load<Sprite>("Sprite/法器材料/砂绿");
+        砂蓝=Resources.Load<Sprite>("Sprite/法器材料/砂蓝");
+        砂紫=Resources.Load<Sprite>("Sprite/法器材料/砂紫");
+        砂橙=Resources.Load<Sprite>("Sprite/法器材料/砂橙");
+        砂粉=Resources.Load<Sprite>("Sprite/法器材料/砂粉");
+        砂红=Resources.Load<Sprite>("Sprite/法器材料/砂红");
+        砂彩=Resources.Load<Sprite>("Sprite/法器材料/砂彩");
+
+
+        
         玄铁=Resources.Load<Sprite>("Sprite/DaoJu/玄铁");
         矿石=Resources.Load<Sprite>("Sprite/DaoJu/矿石");
         玉髓=Resources.Load<Sprite>("Sprite/DaoJu/玉髓");
