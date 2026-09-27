@@ -382,6 +382,11 @@ public class 法器材料
 }
 public class 法器Config
 {
+
+    public List<PropType> Get打造法器材料(法器Type type)
+    {
+        
+    }
     public static Dictionary<法器类型, List<法器材料Type>> 法器材料Dic = new Dictionary<法器类型, List<法器材料Type>>()
     {
         { 法器类型.武器 ,new List<法器材料Type>() { 法器材料Type.铁 ,法器材料Type.石}},
