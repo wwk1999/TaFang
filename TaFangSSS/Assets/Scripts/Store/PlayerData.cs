@@ -59,15 +59,15 @@ public class PlayerData : XSingleton<PlayerData>
 
     public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
     {
+        { 建筑Type.领主府, 1 },
         { 建筑Type.矿场, 1 },
+        { 建筑Type.玄铁洞, 1 },
         { 建筑Type.地脉, 1 },
         { 建筑Type.功德碑, 1 },
-        { 建筑Type.玄铁洞, 1 },
         { 建筑Type.炼丹室, 1 },
         { 建筑Type.炼器室, 1 },
         { 建筑Type.聚贤阁, 1 },
         { 建筑Type.坊市, 0 },
-        { 建筑Type.领主府, 1 },
     };
 
     public bool 自动拒绝凡品供奉=false;
@@ -3467,6 +3467,10 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { PropType.功法经验 ,0},
         { PropType.仙石精华 ,0},
         { PropType.法器粉尘 ,0},
+        
+        { PropType.矿石 ,0},
+        { PropType.玄铁 ,0},
+        { PropType.玉髓 ,0},
     };
 
    

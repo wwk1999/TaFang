@@ -14,6 +14,15 @@ public class 建筑item : MonoBehaviour
    [NonSerialized] public bool 亮;
    [NonSerialized] public 建筑Type 建筑Type;
 
+   private void Start()
+   {
+      bg.onClick.AddListener(() =>
+      {
+         HeroWindowController.S.当前显示建筑Type = 建筑Type;
+         ObserverModuleManager.S.SendEvent("刷新领主府");
+      });
+   }
+
    public void SetItem()
    {
       icon.sprite = ResourcesConfig.Get道场建筑Sprite(建筑Type);

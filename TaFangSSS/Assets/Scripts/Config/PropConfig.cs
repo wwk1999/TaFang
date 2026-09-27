@@ -65,6 +65,10 @@ namespace Config
         功法经验,
         法器粉尘,
         仙石精华,
+        
+        矿石,
+        玄铁,
+        玉髓,
     }
     public enum PropType
     {
@@ -147,6 +151,10 @@ namespace Config
         法器粉尘,
         仙石精华,
         
+        矿石,
+        玄铁,
+        玉髓,
+        
     }
 
     public enum QualityType
@@ -206,6 +214,12 @@ namespace Config
             return ResourcesConfig.仙石精华;
         case 道具信息Type.法器粉尘:
             return ResourcesConfig.法器粉尘;
+        case 道具信息Type.矿石:
+            return ResourcesConfig.矿石;
+        case 道具信息Type.玄铁:
+            return ResourcesConfig.玄铁;
+        case 道具信息Type.玉髓:
+            return ResourcesConfig.玉髓;
         case 道具信息Type.道宝紫:
         case 道具信息Type.道宝橙:
         case 道具信息Type.道宝粉:
@@ -238,6 +252,9 @@ namespace Config
             { 道具信息Type.功法经验, QualityType.地品 },
             { 道具信息Type.法器粉尘, QualityType.地品 },
             { 道具信息Type.仙石精华, QualityType.地品 },
+            { 道具信息Type.矿石, QualityType.地品 },
+            { 道具信息Type.玄铁, QualityType.地品 },
+            { 道具信息Type.玉髓, QualityType.地品 },
             { 道具信息Type.功德, QualityType.宇品 },
             { 道具信息Type.头盔锻造石, QualityType.地品 },
             { 道具信息Type.射手经验值, QualityType.地品 },
@@ -302,6 +319,9 @@ namespace Config
             { 道具信息Type.功法经验, PropType.功法经验 },
             { 道具信息Type.法器粉尘, PropType.法器粉尘 },
             { 道具信息Type.仙石精华, PropType.仙石精华 },
+            { 道具信息Type.矿石, PropType.矿石 },
+            { 道具信息Type.玄铁, PropType.玄铁 },
+            { 道具信息Type.玉髓, PropType.玉髓 },
         };
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
@@ -342,6 +362,9 @@ namespace Config
             { PropType.功法经验, 道具信息Type.功法经验 },
             { PropType.法器粉尘, 道具信息Type.法器粉尘 },
             { PropType.仙石精华, 道具信息Type.仙石精华 },
+            { PropType.矿石, 道具信息Type.矿石 },
+            { PropType.玄铁, 道具信息Type.玄铁 },
+            { PropType.玉髓, 道具信息Type.玉髓 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -349,6 +372,9 @@ namespace Config
             { 道具信息Type.None, "无" },
             { 道具信息Type.功法经验, "功法经验" },
             { 道具信息Type.仙石精华, "仙石精华" },
+            { 道具信息Type.矿石, "矿石" },
+            { 道具信息Type.玄铁, "玄铁" },
+            { 道具信息Type.玉髓, "玉髓" },
             { 道具信息Type.法器粉尘, "法器粉尘" },
             { 道具信息Type.功德, "功德" },
             { 道具信息Type.头盔锻造石, "头盔锻造石" },
@@ -450,7 +476,9 @@ namespace Config
             { 道具信息Type.功法经验, "提升英雄功法等级的关键材料" },
             { 道具信息Type.法器粉尘, "洗练法器词条的关键材料" },
             { 道具信息Type.仙石精华, "重铸仙石的关键材料" },
-
+            { 道具信息Type.矿石, "升级道场建筑的关键材料" },
+            { 道具信息Type.玄铁, "升级道场建筑的关键材料" },
+            { 道具信息Type.玉髓, "升级道场建筑的关键材料" },
         };
 
         
@@ -474,6 +502,12 @@ namespace Config
                     return ResourcesConfig.功法经验;
                 case PropType.仙石精华:
                     return ResourcesConfig.仙石精华;
+                case PropType.矿石:
+                    return ResourcesConfig.矿石;
+                case PropType.玄铁:
+                    return ResourcesConfig.玄铁;
+                case PropType.玉髓:
+                    return ResourcesConfig.玉髓;
                 case PropType.法器粉尘:
                     return ResourcesConfig.法器粉尘;
                 case PropType.全职业经验值:
@@ -703,6 +737,9 @@ namespace Config
             { PropType.功法经验, "功法经验" },
             { PropType.法器粉尘, "法器粉尘" },
             { PropType.仙石精华, "仙石精华" },
+            { PropType.矿石, "矿石" },
+            { PropType.玄铁, "玄铁" },
+            { PropType.玉髓, "玉髓" },
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
@@ -710,6 +747,9 @@ namespace Config
             { PropType.None, QualityType.None },
             { PropType.功法经验, QualityType.地品 },
             { PropType.仙石精华, QualityType.地品 },
+            { PropType.矿石, QualityType.地品 },
+            { PropType.玄铁, QualityType.地品 },
+            { PropType.玉髓, QualityType.地品 },
             { PropType.法器粉尘, QualityType.地品 },
             { PropType.洗练石, QualityType.宇品 },
             { PropType.全职业经验值, QualityType.天品 },

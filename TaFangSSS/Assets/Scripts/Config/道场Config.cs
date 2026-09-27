@@ -423,6 +423,8 @@ public class 道场Config
                 return "地脉";
             case 建筑Type.聚贤阁:
                 return "聚贤阁";
+            case 建筑Type.领主府:
+                return "领主府";
         }
         return "";
     }

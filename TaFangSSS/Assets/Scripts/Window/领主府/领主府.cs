@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -28,13 +29,12 @@ public class 领主府 : MonoBehaviour
    public GameObject 供奉申请Content;
    public Button 申请列表Button;
    public GameObject 供奉panel;
-   public GameObject 建筑panel;
    public TextMeshProUGUI 申请列表标题;
    public TextMeshProUGUI 申请列表buttontext;
    private bool 显示申请列表 = true;
    
    //建筑界面
-   public GameObject 建筑Panel;
+   public GameObject 建筑panel;
    public TextMeshProUGUI 矿石速度;
    public TextMeshProUGUI 玄铁速度;
    public TextMeshProUGUI 玉髓速度;
@@ -98,11 +98,116 @@ public class 领主府 : MonoBehaviour
          显示供奉 = true;
          Show城主府();
       });
+      建筑按钮.onClick.AddListener(() =>
+      {
+         显示供奉 = false;
+         HeroWindowController.S.当前显示建筑Type = 建筑Type.领主府;
+         Show城主府();
+      });
+      升级按钮.onClick.AddListener(() =>
+      {
+         float 需要灵气 = 0;
+         float 需要矿石 = 0;
+         float 需要玄铁 = 0;
+         float 需要玉髓 = 0;
+         switch (HeroWindowController.S.当前显示建筑Type)
+         {
+            case 建筑Type.矿场:
+               需要灵气 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要灵气;
+               需要矿石 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要矿石;
+               需要玄铁 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玄铁;
+               需要玉髓 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玉髓;
+               break;
+            case 建筑Type.玄铁洞:
+               需要灵气 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要灵气;
+               需要矿石 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要矿石;
+               需要玄铁 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要玄铁;
+               需要玉髓 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要玉髓;
+               break;
+            case 建筑Type.地脉:
+               需要灵气 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要灵气;
+               需要矿石 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要矿石;
+               需要玄铁 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要玄铁;
+               需要玉髓 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要玉髓;
+               break;
+            case 建筑Type.功德碑:
+               需要灵气 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要灵气;
+               需要矿石 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要矿石;
+               需要玄铁 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要玄铁;
+               需要玉髓 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要玉髓;
+               break;
+            
+            case 建筑Type.炼丹室:
+               需要灵气 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要灵气;
+               需要矿石 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要矿石;
+               需要玄铁 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要玄铁;
+               需要玉髓 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要玉髓;
+               break;
+            
+            case 建筑Type.炼器室:
+               需要灵气 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要灵气;
+               需要矿石 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要矿石;
+               需要玄铁 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要玄铁;
+               需要玉髓 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要玉髓;
+               break;
+            
+            case 建筑Type.聚贤阁:
+               需要灵气 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要灵气;
+               需要矿石 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要矿石;
+               需要玄铁 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要玄铁;
+               需要玉髓 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要玉髓;
+               break;
+            
+            case 建筑Type.坊市:
+               需要灵气 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要灵气;
+               需要矿石 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要矿石;
+               需要玄铁 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要玄铁;
+               需要玉髓 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要玉髓;
+               break;
+            
+            case 建筑Type.领主府:
+               需要灵气 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要灵气;
+               需要矿石 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要矿石;
+               需要玄铁 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要玄铁;
+               需要玉髓 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要玉髓;
+               break;
+         }
+
+         if (PlayerData.S.PropListDic[PropType.灵魂] < 需要灵气)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","灵气不足");
+            return;
+         }
+         if (PlayerData.S.PropListDic[PropType.矿石] < 需要矿石)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","矿石不足");
+            return;
+         }
+         if (PlayerData.S.PropListDic[PropType.玄铁] < 需要玄铁)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","玄铁不足");
+            return;
+         }
+         if (PlayerData.S.PropListDic[PropType.玉髓] < 需要玉髓)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","玉髓不足");
+            return;
+         }
+
+         PlayerData.S.PropListDic[PropType.灵魂] -= 需要灵气;
+         PlayerData.S.PropListDic[PropType.矿石] -= 需要矿石;
+         PlayerData.S.PropListDic[PropType.玄铁]-= 需要玄铁;
+         PlayerData.S.PropListDic[PropType.玉髓] -= 需要玉髓;
+         PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]++;
+         ObserverModuleManager.S.SendEvent("SendUIToast","升级建筑成功");
+         ObserverModuleManager.S.SendEvent("刷新领主府");
+      });
       申请列表Button.onClick.AddListener(() =>
       {
          显示申请列表 = !显示申请列表;
          Show申请或保留列表();
       });
+      
    }
 
    public void Set切换Button()
@@ -258,10 +363,13 @@ public class 领主府 : MonoBehaviour
 
       foreach (var item in PlayerData.S.建筑等级Dic)
       {
-         var 建筑 = Instantiate(Resources.Load("Prefabs/Window/领主府/建筑item"), 建筑列表.transform).GetComponent<建筑item>();
-         建筑.建筑Type=item.Key;
-         建筑.亮 = item.Key == HeroWindowController.S.当前显示建筑Type;
-         建筑.SetItem();
+         if (item.Value > 0)
+         {
+            var 建筑 = Instantiate(Resources.Load("Prefabs/Window/领主府/建筑item"), 建筑列表.transform).GetComponent<建筑item>();
+            建筑.建筑Type=item.Key;
+            建筑.亮 = item.Key == HeroWindowController.S.当前显示建筑Type;
+            建筑.SetItem();
+         }
       }
    }
 
@@ -354,6 +462,7 @@ public class 领主府 : MonoBehaviour
       icon.sprite = ResourcesConfig.Get道场建筑Sprite(HeroWindowController.S.当前显示建筑Type);
       info.text = 道场Config.建筑info[HeroWindowController.S.当前显示建筑Type];
       Show升级材料();
+      Show升级效果();
    }
 
    public void Show升级效果()
@@ -544,13 +653,13 @@ public class 领主府 : MonoBehaviour
             var 当前供奉保留个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
                .GetComponent<数值升级效果item>();
             当前供奉保留个数 .info = "供奉保留个数";
-            当前供奉保留个数 .count = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉保留个数+"/道年";
+            当前供奉保留个数 .count = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉保留个数.ToString();
             当前供奉保留个数 .SetItem();
             
             var 升级供奉保留个数  = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
                .GetComponent<数值升级效果item>();
             升级供奉保留个数 .info = "供奉保留个数";
-            升级供奉保留个数 .count = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉保留个数+"/道年";
+            升级供奉保留个数 .count = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].供奉保留个数.ToString();
             升级供奉保留个数 .SetItem();
          
             var 当前每道年供奉申请个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
