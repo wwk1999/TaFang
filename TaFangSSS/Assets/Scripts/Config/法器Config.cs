@@ -192,6 +192,7 @@ public enum 法器Type
     法师鞋子红,
     法师鞋子彩,
 }
+
 public class 法器附加属性品质type
 {
     public 法器附加属性Type 法器附加属性Type { get;set; }
@@ -358,8 +359,24 @@ public class 法器属性
         黑暗穿透 = 0;
     }
 }
+
+public enum 法器材料Type
+{
+    None,
+    铁,
+    石,
+    羽,
+    砂,
+}
 public class 法器Config
 {
+    public static Dictionary<法器类型, List<法器材料Type>> 法器材料Dic = new Dictionary<法器类型, List<法器材料Type>>()
+    {
+        { 法器类型.武器 ,new List<法器材料Type>() { 法器材料Type.铁 ,法器材料Type.石}},
+        { 法器类型.衣服 ,new List<法器材料Type>() { 法器材料Type.羽 ,法器材料Type.砂}},
+        { 法器类型.头盔 ,new List<法器材料Type>() { 法器材料Type.铁 ,法器材料Type.砂}},
+        { 法器类型.鞋子 ,new List<法器材料Type>() { 法器材料Type.羽 ,法器材料Type.石}},
+    };
     public static Dictionary<QualityType, float> 法器基础属性Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 10 },

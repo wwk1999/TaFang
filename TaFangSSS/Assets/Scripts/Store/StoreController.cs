@@ -126,6 +126,14 @@ public class StoreController : XSingleton<StoreController>
             }
         }
     }
+
+    public void 增加道场资源()
+    {
+        PlayerData.S.PropListDic[PropType.矿石] += 道场Config.Get矿石速度() / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.玄铁] += 道场Config.Get玄铁速度() / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.玉髓] += 道场Config.Get玉髓速度() / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.功德] += 道场Config.Get功德速度() / 属性config.每年秒数;
+    }
     private void Update()
     {
         timer+=Time.unscaledDeltaTime;
@@ -153,7 +161,7 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.坊市刷新次数++;
         }
         //自动保存
-        if (当前增加修为时间 >= 增加修为时间)
+        if (当前增加修为时间 >= 增加修为时间)//每秒
         {
             ObserverModuleManager.S.SendEvent("刷新坊市剩余时间");
             ObserverModuleManager.S.SendEvent("刷新主页面");
@@ -169,7 +177,7 @@ public class StoreController : XSingleton<StoreController>
                 PlayerData.S.长生道体年数++;
             }
             炼制丹药();
-
+            增加道场资源();
         }
         if (CurrentTime >= StoreTime)
         {
