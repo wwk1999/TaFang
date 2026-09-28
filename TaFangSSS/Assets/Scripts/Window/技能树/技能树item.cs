@@ -19,6 +19,8 @@ public class 技能树item : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
     [NonSerialized] public HeroType HeroType;
     [NonSerialized] public int 行;
     [NonSerialized] public int 列;
+    [NonSerialized] public int 最大;
+    [NonSerialized] public int 当前;
 
     private void Start()
     {
@@ -67,6 +69,8 @@ public class 技能树item : MonoBehaviour,IPointerEnterHandler,IPointerExitHand
         int 最大level = 英雄技能树Config.英雄技能树Dic[HeroType][行 - 1][列 - 1].最大等级;
         当前等级.text=当前level.ToString();
         最大等级.text=最大level.ToString();
+        最大 = 最大level;
+        当前 = 当前level;
         image.image.sprite = ResourcesConfig.Get英雄技能树Icon(英雄技能树Config.Get英雄技能Type(HeroType, 行, 列));
         if (当前level < 最大level)
         {

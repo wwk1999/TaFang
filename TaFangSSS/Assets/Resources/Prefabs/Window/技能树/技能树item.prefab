@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 3627162989172937803}
   - component: {fileID: 2300119363843899296}
   - component: {fileID: 1703517074612712498}
+  - component: {fileID: 8738245423868534185}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -694,6 +695,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8738245423868534185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104912022829659883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1632f846ba459f4e8632e0bdccf0686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u6280\u80FD\u6811/\u6280\u80FD\u6811\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  "\u6280\u80FD\u6811item": {fileID: 3738336583935870939}
 --- !u!1 &6869765606389101979
 GameObject:
   m_ObjectHideFlags: 0

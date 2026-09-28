@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 
 public enum 技能Type{
     None,
@@ -320,7 +321,45 @@ public class 英雄技能树Config
 
     public static string Get技能info(HeroType heroType,技能Type 技能Type)
     {
-        string str="每级"+技能infoDic[技能Type]+$"<color=#2B7C1C>+{英雄技能树Dic[]}</color>"
+        string desc = 技能infoDic.TryGetValue(技能Type, out var d) ? d : string.Empty;
+
+        // 在该英雄的技能树配置中找到对应技能Type的节点，取其每级加成值count
+        float 每级数值 = 0f;
+        bool 找到 = false;
+        if (技能Type != 技能Type.None &&
+            英雄技能树Dic.TryGetValue(heroType, out var 配置表) && 配置表 != null)
+        {
+            foreach (var 行 in 配置表)
+            {
+                if (行 == null) continue;
+                foreach (var item in 行)
+                {
+                    if (item != null && item.技能Type == 技能Type)
+                    {
+                        每级数值 = item.count;
+                        找到 = true;
+                        break;
+                    }
+                }
+                if (找到) break;
+            }
+        }
+
+        if (!找到) return "每级" + desc;
+
+        // 后缀：0=带S（秒），1=不带，2=带%
+        string 后缀 = 技能后缀(技能Type) switch
+        {
+            0 => "S",
+            2 => "%",
+            _ => string.Empty,
+        };
+
+        string 数值 = 每级数值 == Mathf.Floor(每级数值)
+            ? ((int)每级数值).ToString()
+            : 每级数值.ToString();
+
+        return "每级" + desc + $"<color=#2B7C1C>+{数值}{后缀}</color>";
     }
     //0是带S,1是啥也不带,2是带%
     public static int 技能后缀(技能Type 技能Type)
