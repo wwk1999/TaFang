@@ -118,7 +118,7 @@ public class MainWindow : MonoBehaviour
     public Button 三十三重天按钮;
     public Button 主线关卡Debug;
     public Button 城墙Debug;
-    public Button 灵宝Debug;
+    public Button 灵物Debug;
 
     public GameObject 通天塔收获弹窗;
     public GameObject 世界树收获弹窗;
@@ -493,7 +493,7 @@ public class MainWindow : MonoBehaviour
         });
         mask.gameObject.SetActive(true);
         mask.DOFade(0, 1.3f);
-        灵宝Debug.onClick.AddListener(() =>
+        灵物Debug.onClick.AddListener(() =>
         {
             for (int i = (int)JingJieType.练气; i <= (int)JingJieType.混元圣人; i++)
             {
