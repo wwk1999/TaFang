@@ -14,6 +14,7 @@ public enum 英雄详情界面显示类型
     法器,
     功法,
     境界,
+    详情,
 }
 public class 英雄详情界面 : MonoBehaviour
 {
@@ -42,11 +43,13 @@ public class 英雄详情界面 : MonoBehaviour
     public Button 境界Button;
     public Button 功法Button;
     public Button 法器Button;
-    
+    public Button 详情Button;
+
     public Button 境界亮Button;
     public Button 功法亮Button;
     public Button 法器亮Button;
-    
+    public Button 详情亮Button;
+
     public Button 重置Button;
     public Button 提升境界Button;
     public Button 退出Button;
@@ -85,8 +88,46 @@ public class 英雄详情界面 : MonoBehaviour
 
     
     [NonSerialized]public HeroType 当前heroType=HeroType.丹童;
-    private 英雄详情界面显示类型 显示类型 = 英雄详情界面显示类型.境界;
+    private 英雄详情界面显示类型 显示类型 = 英雄详情界面显示类型.详情;
+    
+    //详情界面
+    public GameObject 详情Panel;
+    public Image 英雄icon;
+    public TextMeshProUGUI 英雄name;
+    public TextMeshProUGUI 英雄职业;
+    public TextMeshProUGUI 英雄元素;
+    public TextMeshProUGUI 英雄最高境界;
+    public Image 职业icon;
+    public Image 元素icon;
+    public Image 技能icon;
+    public TextMeshProUGUI 技能名;
+    public TextMeshProUGUI 技能冷却时间;
+    public TextMeshProUGUI 技能介绍;
+    public Image 神通icon;
+    public TextMeshProUGUI 神通名;
+    public TextMeshProUGUI 神通冷却时间;
+    public TextMeshProUGUI 神通能量;
+    public TextMeshProUGUI 神通介绍;
 
+    public void Show英雄详情()
+    {
+        英雄icon.sprite = ResourcesConfig.Get英雄平台Sprite(当前heroType);
+        英雄name.text = HeroConfig.HeroNameDic[当前heroType];
+        英雄职业.text = HeroConfig.Get职业Name(HeroConfig.HeroZhiYeDic[当前heroType].zhiYeType);
+        英雄元素.text = HeroConfig.HeroZhiYeDic[当前heroType].yuanSuType.ToString();
+        英雄最高境界.text = 英雄技能树Config.英雄最高境界Dic[HeroConfig.HeroQualityDic[当前heroType]].ToString();
+        职业icon.sprite = ResourcesConfig.Get职业icon(HeroConfig.HeroZhiYeDic[当前heroType].zhiYeType);
+        元素icon.sprite = ResourcesConfig.Get元素Sprite(HeroConfig.HeroZhiYeDic[当前heroType].yuanSuType);
+        技能icon.sprite = ResourcesConfig.Get技能icon(当前heroType);
+        技能名.text = HeroConfig.SkillNameDic[当前heroType];
+        技能冷却时间.text = HeroConfig.HeroAttackTimeDic[当前heroType] + "S";
+        技能介绍.text = HeroConfig.HeroSkillInfoDic[当前heroType];
+        神通名.text = HeroConfig.英雄神通配置Dic[当前heroType].name;
+        神通冷却时间.text = HeroConfig.英雄神通配置Dic[当前heroType].cd+"S";
+        神通能量.text = HeroConfig.英雄神通配置Dic[当前heroType].能量.ToString();
+        神通介绍.text = HeroConfig.Hero神通InfoDic[当前heroType];
+        神通icon.sprite = ResourcesConfig.Get英雄神通icon(当前heroType);
+    }
     private 法器类型 当前法器类型 = 法器类型.武器;
     private int 法器背包当前页数=1;
 
@@ -481,6 +522,11 @@ public class 英雄详情界面 : MonoBehaviour
             显示类型 = 英雄详情界面显示类型.法器;
             刷新界面();
         });
+        详情Button.onClick.AddListener(() =>
+        {
+            显示类型 = 英雄详情界面显示类型.详情;
+            刷新界面();
+        });
         功法Button.onClick.AddListener(() =>
         {
             显示类型 = 英雄详情界面显示类型.功法;
@@ -614,6 +660,8 @@ public class 英雄详情界面 : MonoBehaviour
                 法器亮Button.gameObject.SetActive(false);
                 功法Button.gameObject.SetActive(true);
                 功法亮Button.gameObject.SetActive(false);
+                详情Button.gameObject.SetActive(true);
+                详情亮Button.gameObject.SetActive(false);
                 break;
             case 英雄详情界面显示类型.功法:
                 功法亮Button.gameObject.SetActive(true);
@@ -622,6 +670,8 @@ public class 英雄详情界面 : MonoBehaviour
                 法器亮Button.gameObject.SetActive(false);
                 境界Button.gameObject.SetActive(true);
                 境界亮Button.gameObject.SetActive(false);
+                详情Button.gameObject.SetActive(true);
+                详情亮Button.gameObject.SetActive(false);
                 break;
             case 英雄详情界面显示类型.法器:
                 法器亮Button.gameObject.SetActive(true);
@@ -630,6 +680,18 @@ public class 英雄详情界面 : MonoBehaviour
                 境界亮Button.gameObject.SetActive(false);
                 功法Button.gameObject.SetActive(true);
                 功法亮Button.gameObject.SetActive(false);
+                详情Button.gameObject.SetActive(true);
+                详情亮Button.gameObject.SetActive(false);
+                break;
+            case 英雄详情界面显示类型.详情:
+                法器亮Button.gameObject.SetActive(false);
+                法器Button.gameObject.SetActive(true);
+                境界Button.gameObject.SetActive(true);
+                境界亮Button.gameObject.SetActive(false);
+                功法Button.gameObject.SetActive(true);
+                功法亮Button.gameObject.SetActive(false);
+                详情Button.gameObject.SetActive(false);
+                详情亮Button.gameObject.SetActive(true);
                 break;
         }
     }
@@ -642,19 +704,31 @@ public class 英雄详情界面 : MonoBehaviour
                 功法Panel.SetActive(false);
                 法器Panel.SetActive(false);
                 境界Panel.SetActive(true);
+                详情Panel.SetActive(false);
+
                 Show技能面板();
                 break;
             case 英雄详情界面显示类型.功法:
                 功法Panel.SetActive(true);
                 法器Panel.SetActive(false);
                 境界Panel.SetActive(false);
+                详情Panel.SetActive(false);
+
                 Show功法();
                 break;
             case 英雄详情界面显示类型.法器:
                 功法Panel.SetActive(false);
                 法器Panel.SetActive(true);
                 境界Panel.SetActive(false);
+                详情Panel.SetActive(false);
                 Show法器();
+                break;
+            case 英雄详情界面显示类型.详情:
+                功法Panel.SetActive(false);
+                法器Panel.SetActive(false);
+                境界Panel.SetActive(false);
+                详情Panel.SetActive(true);
+                Show英雄详情();
                 break;
         }
     }

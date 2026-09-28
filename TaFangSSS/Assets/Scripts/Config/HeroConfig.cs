@@ -419,12 +419,12 @@ namespace Config
                     break;
             }
 
-            return $"<color=green>{sb}{suffix}</color>";
+            return $"<color=#338119>{sb}{suffix}</color>";
         }
 
         public static string Get伤害str(string str)
         {
-            return "<color=green>" + str + "</color>";
+            return "<color=#338119>" + str + "</color>";
         }
 
         public static string Get元素string(YuanSuType type)
