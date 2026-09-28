@@ -21,13 +21,13 @@ public class 法器打造panel : MonoBehaviour
     public TextMeshProUGUI Name;
     public Slider 数量进度条;
     public TextMeshProUGUI Count;
-    public TextMeshProUGUI 伤害增幅;
-    public TextMeshProUGUI 职业;
-    public TextMeshProUGUI 词条数量;
-    public TextMeshProUGUI 孔数;
     public GameObject 打造区域;
-    public GameObject 法器信息Content;
     public Button 打造Button;
+    public GameObject 材料区域;
+    public Image 材料1bg;
+    public Image 材料1icon;
+    public Image 材料2bg;
+    public Image 材料2icon;
 
     private int 打造数量 = 0;
     public void Show左Panel()
@@ -60,13 +60,16 @@ public class 法器打造panel : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+        int index = 0;
         foreach (var item in PlayerData.S.打造List)
         {
             var 打造item = Instantiate(Resources.Load("Prefabs/Window/炼器/打造item"), 打造区域.transform).GetComponent<打造item>();
             打造item.法器Type = item.法器Type;
             打造item.count = item.count;
             打造item.进度 = item.进度;
+            打造item.index = index;
             打造item.SetItem();
+            index++;
         }
     }
     public void Show右panel()
@@ -77,25 +80,27 @@ public class 法器打造panel : MonoBehaviour
             艺术字.gameObject.SetActive(false);
             icon.gameObject.SetActive(false);
             Name.gameObject.SetActive(false);
-            法器信息Content.gameObject.SetActive(false);
             Count.gameObject.SetActive(false);
+            材料区域.gameObject.SetActive(false);
             return;
         }
+        材料区域.gameObject.SetActive(true);
         Count.gameObject.SetActive(true);
         数量进度条.gameObject.SetActive(true);
         艺术字.gameObject.SetActive(true);
         icon.gameObject.SetActive(true);
         Name.gameObject.SetActive(true);
-        法器信息Content.gameObject.SetActive(true);
+        var list = 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type);
+        材料1bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[0]);
+        材料2bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[1]);
+        材料1icon.sprite = ResourcesConfig.GetPropSprite(list[0]);
+        材料2icon.sprite = ResourcesConfig.GetPropSprite(list[1]);
         icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.法器打造法器Type);
         艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type]);
         Name.text = 法器Config.法器名Dic[HeroWindowController.S.法器打造法器Type];
         数量进度条.value = 0;
         Count.text = "0";
-        伤害增幅.text = 法器Config.法器基础属性Dic[法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type]] + "%";
-        职业.text = 法器Config.法器职业Dic[HeroWindowController.S.法器打造法器Type].ToString();
-        词条数量.text = ((int)法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type]).ToString();
-        孔数.text="0-"+(int)法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type];
+       
         Show打造区域();
     }
 
