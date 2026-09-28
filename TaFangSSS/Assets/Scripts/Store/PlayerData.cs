@@ -61,14 +61,14 @@ public class PlayerData : XSingleton<PlayerData>
 
     public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
     {
-        { 建筑Type.领主府, 1 },
-        { 建筑Type.矿场, 1 },
-        { 建筑Type.玄铁洞, 1 },
-        { 建筑Type.地脉, 1 },
-        { 建筑Type.功德碑, 1 },
-        { 建筑Type.炼丹室, 1 },
-        { 建筑Type.炼器室, 1 },
-        { 建筑Type.聚贤阁, 1 },
+        { 建筑Type.领主府, 0 },
+        { 建筑Type.矿场, 0 },
+        { 建筑Type.玄铁洞, 0 },
+        { 建筑Type.地脉, 0 },
+        { 建筑Type.功德碑, 0 },
+        { 建筑Type.炼丹室, 0 },
+        { 建筑Type.炼器室, 0 },
+        { 建筑Type.聚贤阁, 0 },
         { 建筑Type.坊市, 0 },
     };
 
@@ -80,19 +80,7 @@ public class PlayerData : XSingleton<PlayerData>
     public List<供奉> 当前供奉列表=new List<供奉>();
     public List<供奉> 供奉申请列表=new List<供奉>();
     public List<供奉> 供奉保留列表=new List<供奉>();
-
-    public Dictionary<建筑Type, int> 道场建筑等级Dic = new Dictionary<建筑Type, int>()
-    {
-        { 建筑Type.功德碑 ,0},
-        { 建筑Type.炼丹室 ,0},
-        { 建筑Type.炼器室 ,0},
-        { 建筑Type.领主府 ,0},
-        { 建筑Type.矿场 ,0},
-        { 建筑Type.地脉 ,0},
-        { 建筑Type.玄铁洞 ,0},
-        { 建筑Type.坊市 ,0},
-        { 建筑Type.聚贤阁 ,0},
-    };
+    
     public List<HeroType>神通配置List=new List<HeroType>();
 
     public Dictionary<HeroType, List<List<int>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<int>>>()

@@ -21,7 +21,7 @@ public class 炼器界面 : MonoBehaviour
     public GameObject 符文熔炼Panel;
     public GameObject 法器打造Panel;
 
-    private int 显示类型 = 1;
+    private int 显示类型 = 6;
 
     public void Set按钮()
     {

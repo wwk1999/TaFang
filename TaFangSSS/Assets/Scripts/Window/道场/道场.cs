@@ -17,6 +17,7 @@ public class 道场 : MonoBehaviour
     public Button 炼器室;
     public Button 灵兽坊;
     public Button 双修殿;
+    public GameObject 坊市窗口;
     private void Start()
     {
         矿场.image.alphaHitTestMinimumThreshold = 0.1f;
@@ -33,7 +34,49 @@ public class 道场 : MonoBehaviour
 
         领主府.onClick.AddListener(() =>
         {
+            if (PlayerData.S.建筑等级Dic[建筑Type.领主府] == 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                return;
+            }
             WindowController.S.领主府Window.gameObject.SetActive(true);
         });
+        聚贤阁.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] == 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                return;
+            }
+            WindowController.S.招募Window.gameObject.SetActive(true);
+        });
+        坊市.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.坊市] == 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
+                return;
+            }
+            坊市窗口.gameObject.SetActive(true);        
+        });
+        炼丹室.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.炼丹室] == 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
+                return;
+            }
+            WindowController.S.炼丹Window.gameObject.SetActive(true);
+        });
+        炼器室.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.炼器室] == 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","通关花果山解锁");
+                return;
+            }
+            WindowController.S.炼器Window.gameObject.SetActive(true);
+        });
+        
     }
 }

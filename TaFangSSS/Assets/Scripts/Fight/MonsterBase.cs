@@ -1330,6 +1330,13 @@ public class MonsterBase : MonoBehaviour
                   else
                   {
                      PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
+                     if (PlayerData.S.最大主线关卡 == 主线关卡Type.花果山)
+                     {
+                        PlayerData.S.建筑等级Dic[建筑Type.功德碑] = 1;
+                        PlayerData.S.建筑等级Dic[建筑Type.炼器室] = 1;
+                        ObserverModuleManager.S.SendEvent("SendUIToast","炼器室已解锁");
+                        ObserverModuleManager.S.SendEvent("SendUIToast","功德碑已解锁");
+                     }
                      PlayerData.S.最大主线关卡++;
                   }
                   

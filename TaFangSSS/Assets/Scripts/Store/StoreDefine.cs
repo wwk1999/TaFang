@@ -48,31 +48,20 @@ public class StoreDefine : XSingleton<StoreController>
         
         public List<法器打造Item> 打造List=new List<法器打造Item>();
 
-        public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
-        {
-            { 建筑Type.矿场, 1 },
-            { 建筑Type.地脉, 1 },
-            { 建筑Type.功德碑, 1 },
-            { 建筑Type.玄铁洞, 1 },
-            { 建筑Type.炼丹室, 1 },
-            { 建筑Type.炼器室, 1 },
-            { 建筑Type.聚贤阁, 1 },
-            { 建筑Type.坊市, 0 },
-            { 建筑Type.领主府, 1 },
-        };
+         public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
+    {
+        { 建筑Type.领主府, 0 },
+        { 建筑Type.矿场, 0 },
+        { 建筑Type.玄铁洞, 0 },
+        { 建筑Type.地脉, 0 },
+        { 建筑Type.功德碑, 0 },
+        { 建筑Type.炼丹室, 0 },
+        { 建筑Type.炼器室, 0 },
+        { 建筑Type.聚贤阁, 0 },
+        { 建筑Type.坊市, 0 },
+    };
 
-        public Dictionary<建筑Type, int> 道场建筑等级Dic = new Dictionary<建筑Type, int>()
-        {
-            { 建筑Type.功德碑 ,0},
-            { 建筑Type.炼丹室 ,0},
-            { 建筑Type.炼器室 ,0},
-            { 建筑Type.领主府 ,0},
-            { 建筑Type.矿场 ,0},
-            { 建筑Type.地脉 ,0},
-            { 建筑Type.玄铁洞 ,0},
-            { 建筑Type.坊市 ,0},
-            { 建筑Type.聚贤阁 ,0},
-        };
+      
         
         public List<符文> 符文道文List = new List<符文>();
         public List<符文> 符文圣文List = new List<符文>();
@@ -3223,7 +3212,6 @@ public class StoreDefine : XSingleton<StoreController>
             符文圣文List = runtime.符文圣文List;
             符文帝文List = runtime.符文帝文List;
             符文道文List = runtime.符文道文List;
-            道场建筑等级Dic = runtime.道场建筑等级Dic;
             当前供奉列表 = runtime.当前供奉列表;
             供奉申请列表 = runtime.供奉申请列表;
             供奉保留列表 = runtime.供奉保留列表;
@@ -3321,7 +3309,6 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.符文圣文List = 符文圣文List;
             runtime.符文帝文List = 符文帝文List;
             runtime.符文灵文List = 符文灵文List;
-            runtime.道场建筑等级Dic = 道场建筑等级Dic;
             runtime.当前供奉列表 = 当前供奉列表;
             runtime.供奉申请列表 = 供奉申请列表;
             runtime.供奉保留列表 = 供奉保留列表;
