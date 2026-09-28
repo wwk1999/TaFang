@@ -175,8 +175,8 @@ public class MainWindow : MonoBehaviour
         JingJieSlider.value = PlayerData.S.Exp;
         CurrentExp.text=((int)PlayerData.S.Exp).ToString();
         MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为).ToString();
-        LingQi.text=PlayerData.S.PropListDic[PropType.灵魂].ToString();
-        GongDe.text=PlayerData.S.PropListDic[PropType.功德].ToString();
+        LingQi.text=PlayerData.S.PropListDic[PropType.灵魂].ToString("F0");
+        GongDe.text=PlayerData.S.PropListDic[PropType.功德].ToString("F0");
     }
     public void Init()
     {
@@ -697,6 +697,7 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.辅助经验值] += 10000;
             PlayerData.S.PropListDic[PropType.控制经验值] += 10000;
             PlayerData.S.PropListDic[PropType.射手经验值] += 10000;
+            PlayerData.S.PropListDic[PropType.功德]+=100000000;
 
             PlayerData.S.PropListDic[PropType.铁绿]++;
             PlayerData.S.PropListDic[PropType.石绿]++;

@@ -40,6 +40,21 @@ public class 突破确认弹窗 : MonoBehaviour
             if (PlayerData.S.当前轮回境界 > PlayerData.S.历史最高境界)
             {
                 PlayerData.S.历史最高境界 = PlayerData.S.当前轮回境界;
+                if (PlayerData.S.历史最高境界 == JingJieType.筑基)
+                {
+                    PlayerData.S.建筑等级Dic[建筑Type.领主府] = 1;
+                    PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] = 1;
+                    ObserverModuleManager.S.SendEvent("SendUIToast","领主府已解锁");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
+                }
+                
+                if (PlayerData.S.历史最高境界 == JingJieType.金丹)
+                {
+                    PlayerData.S.建筑等级Dic[建筑Type.领主府] = 1;
+                    PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] = 1;
+                    ObserverModuleManager.S.SendEvent("SendUIToast","领主府已解锁");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
+                }
             }
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);

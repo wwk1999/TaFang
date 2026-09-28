@@ -426,7 +426,7 @@ public class 储物袋界面 : MonoBehaviour
       }
       return Mathf.CeilToInt(count / 54f);
    }
-   
+
    public void Show丹药()
    {
       分解Btn.gameObject.SetActive(false);
@@ -649,7 +649,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 54);
+      return Mathf.CeilToInt(count / 54f);
    }
    
    public int Get丹药最大页数()
@@ -665,7 +665,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 54);
+      return Mathf.CeilToInt(count / 54f);
    }
 
    public int Get功法最大页数()
@@ -678,7 +678,7 @@ public class 储物袋界面 : MonoBehaviour
             count++;
          }
       }
-      return Mathf.CeilToInt(count / 54);
+      return Mathf.CeilToInt(count / 54f);
    }
    public void Show功法()
    {
@@ -791,7 +791,7 @@ public class 储物袋界面 : MonoBehaviour
             }
          }
       }
-      return Mathf.CeilToInt(count / 54);
+      return Mathf.CeilToInt(count / 54f);
    }
    public void Show灵物()
    {
@@ -891,13 +891,13 @@ public class 储物袋界面 : MonoBehaviour
    {
       int count = 0;
       
-      return Mathf.CeilToInt(PlayerData.S.仙石列表.Count / 54);
+      return Mathf.CeilToInt(PlayerData.S.仙石列表.Count / 54f);
    }
    public int Get法器最大页数()
    {
       int count = 0;
       
-      return Mathf.CeilToInt(PlayerData.S.法器列表.Count / 54);
+      return Mathf.CeilToInt(PlayerData.S.法器列表.Count / 54f);
    }
    public void Show仙石()
    {

@@ -363,7 +363,7 @@ public class 领主府 : MonoBehaviour
 
       foreach (var item in PlayerData.S.建筑等级Dic)
       {
-         if (item.Value > 0)
+         if (item.Value > 0||item.Key==建筑Type.矿场||item.Key==建筑Type.玄铁洞||item.Key==建筑Type.地脉)
          {
             var 建筑 = Instantiate(Resources.Load("Prefabs/Window/领主府/建筑item"), 建筑列表.transform).GetComponent<建筑item>();
             建筑.建筑Type=item.Key;
