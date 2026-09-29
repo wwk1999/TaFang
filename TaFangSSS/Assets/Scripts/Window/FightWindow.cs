@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public Button 返回道场;
     public GameObject 丹药content;
     public RectTransform 神通能量trans;
     public TextMeshProUGUI 神通能量当前值;

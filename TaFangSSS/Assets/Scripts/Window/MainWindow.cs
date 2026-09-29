@@ -20,6 +20,7 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public Button 返回战斗按钮;
     public Button 洪荒世界按钮;
     public Button 返回道场按钮;
     public GameObject 道场;
