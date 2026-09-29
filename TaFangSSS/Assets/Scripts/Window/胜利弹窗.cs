@@ -34,7 +34,8 @@ public class 胜利弹窗 : MonoBehaviour
             战斗Text.text = "重复挑战:" + (int)(5f - 重复挑战Time);
             if (5f - 重复挑战Time < 0)
             {
-                SceneManager.LoadScene("LoadScene");
+               ObserverModuleManager.S.SendEvent("关卡重置");
+               gameObject.SetActive(false);
             }
         }
     }

@@ -52,7 +52,7 @@ public class FightController : XSingleton<FightController>
         {YuanSuType.电,0},
         {YuanSuType.物理,0},
     };
-
+    
     [NonSerialized] public Dictionary<HeroType, int> 英雄辅助印记数量 = new Dictionary<HeroType, int>();
     [NonSerialized] public Dictionary<HeroType,int>出战英雄编号=new Dictionary<HeroType,int>();
     [NonSerialized] public Dictionary<int,float>献祭英雄增加伤害=new Dictionary<int,float>();
@@ -1785,6 +1785,32 @@ public class FightController : XSingleton<FightController>
         }
         gameObject.SetActive(false);
     }
+    public void 重置场景()
+    {
+        英雄辅助印记数量.Clear();
+        当前神通能量 = 属性config.总属性.神通最大值;
+        关卡游戏时长 = 0;
+        foreach (var item in 当前英雄伤害Dic)
+        {
+            item.Value.总伤害 = 0;
+            item.Value.技能伤害 = 0;
+            item.Value.神通伤害 = 0;
+        }
+        孙悟空每秒增加伤害Time = 0;
+        通天暴击次数 = 0;
+        鸿钧陨石次数 = 0;
+        盘古击杀次数 = 0;
+        免疫护盾次数 = 0;
+        涅槃次数 = 0;
+        当前冰冻间隔 = 0;
+        城墙无敌Time = 0;
+        城墙当前生命值 = 缓存城墙最大生命值;
+        总杀怪增伤 = 0;
+        NormalMonsterCount = 0;
+        EliteMonsterCount = 0;
+        KillMonsterCount = 0;
+        战斗结束 = false;
+    }
 
     public void CreateNormalMonster()
     {
@@ -1905,12 +1931,18 @@ public class FightController : XSingleton<FightController>
         城墙护盾值 = 城墙Config.开局护盾值 / 100f * 缓存城墙最大生命值;
         涅槃次数 = 城墙Config.涅槃次数;
         城墙当前生命值 = 缓存城墙最大生命值;
+        ObserverModuleManager.S.RegisterEvent("关卡重置",重置关卡);
 
         ObserverModuleManager.S.RegisterEvent("刷新主页面",游戏时长);
     }
 
+    public void 重置关卡(object[] obj)
+    {
+        重置场景();
+    }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("关卡重置",重置关卡);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页面",游戏时长);
     }
 
