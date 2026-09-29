@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 494722448856381232}
   - component: {fileID: 4611705093281885542}
   - component: {fileID: 6881824185417702677}
+  - component: {fileID: 1022897598850387909}
   m_Layer: 0
   m_Name: icon
   m_TagString: Untagged
@@ -75,6 +76,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1022897598850387909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247201318953296899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2bd6af772846f4fa00d126c3323004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  "\u4F9B\u5949\u6570\u503Citem": {fileID: 4359737397156580672}
 --- !u!1 &6542003772012580327
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -322,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

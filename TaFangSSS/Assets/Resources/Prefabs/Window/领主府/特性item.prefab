@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -68,14 +68,14 @@ MonoBehaviour:
   m_text: "\u5251\u9053\u5929\u624D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62e704f195ba1b74790f0bebf67c8832, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 6471a602d5053c143bea4e7694c6bfa7, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 01cea895e891c804c82ff9ae7e9bcca0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 8615442948095655198}
   - component: {fileID: 6474447701028451493}
   - component: {fileID: 9141932877506081548}
+  - component: {fileID: 8751038732405117663}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 30b79634e7057584898eadcd8e7196af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26bc1750ee3cbb34b8e00e431aa824ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -261,3 +262,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8751038732405117663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6844940843382532518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a629ffb50bd1bb642b3aa2db6f875a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u7279\u6027\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  "\u7279\u6027item": {fileID: 3704228872335762826}

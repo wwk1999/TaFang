@@ -167,6 +167,52 @@ public class 道场Config
 {
     public static  供奉总属性 供奉总属性 = new 供奉总属性();
 
+    public static string Get供奉特性Info(供奉特性Type 供奉特性Type, 供奉品质Type 品质type)
+    {
+        string str = 供奉特性Info[供奉特性Type];
+        str += $"<color=#1B4F0F>+{Get供奉特性数值(供奉特性Type, 品质type)}%</color>";
+        return str;
+    }
+    public static float Get供奉特性数值(供奉特性Type 供奉特性Type, 供奉品质Type 品质type)
+    {
+        var list = 供奉特性Dic[供奉特性Type];
+        return list[(int)(品质type - 1)];
+    }
+
+    public static Dictionary<供奉特性Type, string> 供奉特性Info = new Dictionary<供奉特性Type, string>
+    {
+        { 供奉特性Type.采矿速度, "矿石开采速度" },
+        { 供奉特性Type.采铁速度, "玄铁开采速度" },
+        { 供奉特性Type.地脉产玉髓速度, "玉髓产出速度" },
+        { 供奉特性Type.功德产出速度, "功德产出速度" },
+        { 供奉特性Type.概率获得两个高级招募卷, "每次获得两个高级招募卷" },
+        { 供奉特性Type.概率增加炼丹数量, "每次成丹数量+1概率" },
+        { 供奉特性Type.增加炼丹速度, "炼丹速度" },
+        { 供奉特性Type.增加炼丹经验, "炼丹经验" },
+        { 供奉特性Type.增加炼器速度, "炼器速度" },
+        { 供奉特性Type.增加法器分解粉尘, "法器分解粉尘" },
+        { 供奉特性Type.坊市价格减少, "坊市价格减少" },
+        { 供奉特性Type.获得矿石概率获得玄铁, "获得矿石时额外获得玄铁概率" },
+        { 供奉特性Type.获得矿石概率获得玉髓, "获得矿石时额外获得玉髓概率" },
+        { 供奉特性Type.获得玄铁概率获得矿石, "获得玄铁时额外获得矿石概率" },
+        { 供奉特性Type.获得玄铁概率获得玉髓, "获得玄铁时额外获得玉髓概率" },
+        { 供奉特性Type.获得玉髓概率获得玄铁, "获得玉髓时额外获得玄铁概率" },
+        { 供奉特性Type.获得玉髓概率获得矿石, "获得玉髓时额外获得矿石概率" },
+        { 供奉特性Type.坊市刷新概率不消耗次数, "刷新坊市不消耗次数概率" },
+    };
+
+    public static Dictionary<建筑Type, string> 供奉数值Info = new Dictionary<建筑Type, string>
+    {
+        { 建筑Type.矿场 ,"每点矿石开采速度+1%"},
+        { 建筑Type.地脉 ,"每点玉髓生成速度+1%"},
+        { 建筑Type.玄铁洞 ,"每点玄铁开采速度+1%"},
+        { 建筑Type.功德碑 ,"每点功德生成速度+1%"},
+        { 建筑Type.聚贤阁 ,"每点高级招募卷掉率+1%"},
+        { 建筑Type.炼丹室 ,"每点炼丹速度+1%"},
+        { 建筑Type.炼器室 ,"每点炼器速度+1%"},
+        { 建筑Type.坊市 ,"每点坊市刷新速度+1%"},
+    };
+
     public static float Get矿石速度()
     {
         float value = 矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].数值;
