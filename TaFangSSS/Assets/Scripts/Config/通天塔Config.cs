@@ -310,7 +310,7 @@ public class 通天塔Config
                     break;
             }
             var 品质list=城墙Config.城墙道具列表Dic[道宝Config.QualityTo道宝Quality[quality]];
-            int random1=Random.Range(0, list.Count);
+            int random1=Random.Range(0, 品质list.Count);
             list.Add(品质list[random1]);
         }
 

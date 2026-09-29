@@ -323,7 +323,7 @@ public class 世界树Config
                     break;
             }
             var 品质list=道宝Config.道宝品质列表[道宝Config.QualityTo道宝Quality[quality]];
-            int random1=Random.Range(0, list.Count);
+            int random1=Random.Range(0, 品质list.Count);
             list.Add(品质list[random1]);
         }
 

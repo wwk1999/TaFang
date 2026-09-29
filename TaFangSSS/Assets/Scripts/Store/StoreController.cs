@@ -18,7 +18,7 @@ public class StoreController : XSingleton<StoreController>
     private float 增加修为时间 = 1;
     private float 当前增加修为时间 = 0;
     private float 坊市刷新次数时间 = 0;
-    
+    private float 法器打造当前时间 = 0;
      public void SaveStoreData(StoreDefine.StoreData data = null)
     {
         try
@@ -190,6 +190,7 @@ public class StoreController : XSingleton<StoreController>
         CurrentTime+= Time.unscaledDeltaTime;
         当前增加修为时间+= Time.unscaledDeltaTime;
         坊市刷新次数时间+=Time.unscaledDeltaTime;
+        法器打造当前时间+=Time.unscaledDeltaTime;
         PlayerData.S.道龄S += Time.unscaledDeltaTime;
         if (坊市刷新次数时间 >= Get坊市刷新次数时间())
         {
@@ -208,6 +209,11 @@ public class StoreController : XSingleton<StoreController>
             ObserverModuleManager.S.SendEvent("刷新坊市窗口");
         }
         //自动保存
+        if (法器打造当前时间 > 0.1f)
+        {
+            法器打造当前时间 = 0;
+            打造法器();
+        }
         if (当前增加修为时间 >= 增加修为时间)//每秒
         {
             ObserverModuleManager.S.SendEvent("刷新坊市剩余时间");
@@ -224,7 +230,7 @@ public class StoreController : XSingleton<StoreController>
                 PlayerData.S.长生道体年数++;
             }
             炼制丹药();
-            打造法器();
+            
             增加道场资源();
         }
         if (CurrentTime >= StoreTime)
@@ -271,7 +277,7 @@ public class StoreController : XSingleton<StoreController>
             else
             {
                 float 打造需要秒数 = Get法器打造时间();
-                PlayerData.S.打造List[0].进度 += 100f / 打造需要秒数;
+                PlayerData.S.打造List[0].进度 += 10f / 打造需要秒数;
             }
         }
         ObserverModuleManager.S.SendEvent("刷新法器打造区域");
