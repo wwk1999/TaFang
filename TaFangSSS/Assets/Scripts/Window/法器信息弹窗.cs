@@ -28,6 +28,13 @@ public class 法器信息弹窗 : MonoBehaviour
          附加属性item.SetItem();
       }
 
+      if (法器.符文 != null)
+      {
+         var item=Instantiate(Resources.Load("Prefabs/Window/法器符文信息"), content.transform).GetComponent<法器符文信息>();
+         item.符文 = 法器.符文;
+         item.SetItem();
+      }
+
       for (int i = 1; i < Enum.GetValues(typeof(仙石Type)).Length; i++)
       {
          int 数量 = 仙石Config.Get法器仙石数量(法器, (仙石Type)i);
