@@ -940,86 +940,86 @@ namespace Config
 
                 // 白色品质元神 -> 对应人物 Sprite（白）
                 case PropType.丹童元神:
-                    return ResourcesConfig.DanTong;
+                    return ResourcesConfig.丹童平台;
                
                 case PropType.土地元神:
-                    return ResourcesConfig.TuDi;
+                    return ResourcesConfig.土地平台;
                 case PropType.河伯元神:
-                    return ResourcesConfig.HeBo;
+                    return ResourcesConfig.河伯平台;
                 case PropType.瑶池仙女元神:
-                    return ResourcesConfig.YaoChiXianNv;
+                    return ResourcesConfig.瑶池仙女平台;
               
 
                 // 绿色品质元神 -> 对应人物 Sprite（绿）
                 case PropType.石敢当元神:
-                    return ResourcesConfig.ShiGanDang;
+                    return ResourcesConfig.石敢当平台;
                 case PropType.玄女元神:
-                    return ResourcesConfig.XuanNv;
+                    return ResourcesConfig.玄女平台;
                 case PropType.龟丞相元神:
-                    return ResourcesConfig.GuiChengXiang;
+                    return ResourcesConfig.龟丞相平台;
                 case PropType.太白金星元神:
-                    return ResourcesConfig.TaiBaiJinXing;
+                    return ResourcesConfig.太白金星平台;
               
 
                 // 蓝色品质元神 -> 对应人物 Sprite（蓝）
                 case PropType.多闻天王元神:
-                    return ResourcesConfig.DuoWenTianWang;
+                    return ResourcesConfig.多闻天王平台;
                
                 case PropType.广目天王元神:
-                    return ResourcesConfig.GuangMuTianWang;
+                    return ResourcesConfig.广目天王平台;
                
                 case PropType.雷震子元神:
-                    return ResourcesConfig.LeiZhengZi;
+                    return ResourcesConfig.雷震子平台;
                 case PropType.月老元神:
-                    return ResourcesConfig.YueLao;
+                    return ResourcesConfig.月老平台;
 
                 // 紫色品质元神 -> 对应人物 Sprite（紫）
                 case PropType.嫦娥元神:
-                    return ResourcesConfig.ChangE;
+                    return ResourcesConfig.嫦娥平台;
                
                 case PropType.杨戬元神:
-                    return ResourcesConfig.YangJian;
+                    return ResourcesConfig.杨戬平台;
                 case PropType.妲己元神:
-                    return ResourcesConfig.DanJi;
+                    return ResourcesConfig.妲己平台;
                 case PropType.牛魔王元神:
-                    return ResourcesConfig.NiuMoWang;
+                    return ResourcesConfig.牛魔王平台;
 
                 // 橙色品质元神 -> 对应人物 Sprite（橙）
                 case PropType.哪吒元神:
-                    return ResourcesConfig.NeZha;
+                    return ResourcesConfig.哪吒平台;
                 case PropType.孙悟空元神:
-                    return ResourcesConfig.SunWuKong;
+                    return ResourcesConfig.孙悟空平台;
                 
                 case PropType.碧霄元神:
-                    return ResourcesConfig.BiXiao;
+                    return ResourcesConfig.碧霄平台;
                 case PropType.琼霄元神:
-                    return ResourcesConfig.QiongXiao;
+                    return ResourcesConfig.琼霄平台;
 
                 // 粉色品质元神 -> 对应人物 Sprite（粉）
                
                 case PropType.羲和元神:
-                    return ResourcesConfig.XiHe;
+                    return ResourcesConfig.羲和平台;
                 case PropType.常羲元神:
-                    return ResourcesConfig.ChangXi;
+                    return ResourcesConfig.常羲平台;
                 case PropType.后羿元神:
-                    return ResourcesConfig.HouYi;
+                    return ResourcesConfig.后羿平台;
                 case PropType.云霄元神:
-                    return ResourcesConfig.YunXiao;
+                    return ResourcesConfig.云霄平台;
 
                 // 红色品质元神 -> 对应人物 Sprite（红）
                 case PropType.女娲元神:
-                    return ResourcesConfig.NvWa;
+                    return ResourcesConfig.女娲平台;
                 // 彩色品质元神 -> 对应人物 Sprite（彩）
                 case PropType.老子元神:
-                    return ResourcesConfig.LaoZi;
+                    return ResourcesConfig.老子平台;
                 case PropType.通天元神:
-                    return ResourcesConfig.TongTian;
+                    return ResourcesConfig.通天平台;
                 case PropType.元始元神:
-                    return ResourcesConfig.YuanShi;
+                    return ResourcesConfig.元始平台;
                 case PropType.鸿钧元神:
-                    return ResourcesConfig.鸿钧;
+                    return ResourcesConfig.鸿钧平台;
                 case PropType.盘古元神:
-                    return ResourcesConfig.盘古;
+                    return ResourcesConfig.盘古平台;
 
                 case PropType.None:
                 default:
