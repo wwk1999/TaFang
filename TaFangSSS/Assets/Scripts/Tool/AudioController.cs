@@ -409,8 +409,6 @@ public void 停止元始音效(object[] obj)
 
    public void Play音效(object[] obj)
    {
-       if (SceneManager.GetActiveScene().name != "FightScene") return;
-
       if (音效Source == null) return;
       音效Type type = (音效Type)obj[0];
       AudioClip alip=AudioConfig.Get音效Clip(type);

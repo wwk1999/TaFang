@@ -1347,7 +1347,8 @@ public class MonsterBase : MonoBehaviour
                   PlayerData.S.混沌虚空最大层数++;
                }
       }
-      Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
+      ObserverModuleManager.S.SendEvent("显示胜利弹窗");
+    //  Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
    }
 
    public float 计算根基丹药伤害(float damage, HeroType heroType)

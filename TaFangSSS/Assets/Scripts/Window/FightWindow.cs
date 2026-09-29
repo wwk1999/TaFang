@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public GameObject content;
+    public 胜利弹窗 胜利弹窗;
     public Button 返回道场;
     public GameObject 丹药content;
     public RectTransform 神通能量trans;
@@ -137,6 +139,7 @@ public class FightWindow : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("显示胜利弹窗",显示胜利弹窗);
         ObserverModuleManager.S.UnRegisterEvent("设置丹药区域",Set丹药区域);
         ObserverModuleManager.S.UnRegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.UnRegisterEvent("首领出现",首领出现);
@@ -163,8 +166,13 @@ public class FightWindow : MonoBehaviour
         Set神通进度条();
     }
 
+    public void 显示胜利弹窗(object[] obj)
+    {
+        胜利弹窗.gameObject.SetActive(true);
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("显示胜利弹窗",显示胜利弹窗);
         ObserverModuleManager.S.RegisterEvent("设置丹药区域",Set丹药区域);
         ObserverModuleManager.S.RegisterEvent("通关新手引导",通关新手引导);
         ObserverModuleManager.S.RegisterEvent("首领出现",首领出现);
@@ -216,7 +224,7 @@ public class FightWindow : MonoBehaviour
             }
 
             WindowController.S.MainWindow.SetActive(true);
-            gameObject.SetActive(false);
+            content.gameObject.SetActive(false);
         }
         设置Button.onClick.AddListener(() =>
         {

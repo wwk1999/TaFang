@@ -19,7 +19,6 @@ public class LoadWindow : MonoBehaviour
 
     private void Start()
     {
-        
         StartCoroutine(LoadAndPreload());
         loadSlider.onValueChanged.AddListener((value) =>
         {
