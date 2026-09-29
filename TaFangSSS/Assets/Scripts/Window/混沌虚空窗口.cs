@@ -56,6 +56,7 @@ public class 混沌虚空窗口 : MonoBehaviour
                 SceneManager.SetActiveScene(Scene);
             }
             WindowController.S.MainWindow.SetActive(false);
+            gameObject.SetActive(false);
         });
         左箭头.onClick.AddListener(() =>
         {

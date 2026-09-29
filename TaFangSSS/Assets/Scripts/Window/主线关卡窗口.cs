@@ -62,6 +62,7 @@ public class 主线关卡窗口 : MonoBehaviour
          {
             SceneManager.SetActiveScene(Scene);
          }
+         gameObject.SetActive(false);
       });
    }
 

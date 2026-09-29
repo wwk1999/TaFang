@@ -39,6 +39,7 @@ public class 洞天秘境窗口 : MonoBehaviour
                 SceneManager.SetActiveScene(Scene);
             }
             WindowController.S.MainWindow.SetActive(false);
+            gameObject.SetActive(false);
         });
         神通配置Button.onClick.AddListener(() =>
         {

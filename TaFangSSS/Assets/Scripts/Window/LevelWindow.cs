@@ -25,6 +25,7 @@ public class LevelWindow : MonoBehaviour
             {
                 SceneManager.SetActiveScene(Scene);
             }
+            gameObject.SetActive(false);
         });
         RightPanel.SetActive(false);
         ObserverModuleManager.S.RegisterEvent("LevelSamllButton",ShowLevel);

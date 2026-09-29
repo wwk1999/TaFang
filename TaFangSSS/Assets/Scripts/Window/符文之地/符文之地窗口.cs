@@ -174,6 +174,7 @@ public class 符文之地窗口 : MonoBehaviour
                 SceneManager.SetActiveScene(Scene);
             }
             WindowController.S.MainWindow.SetActive(false);
+            gameObject.SetActive(false);
         });
     }
 }

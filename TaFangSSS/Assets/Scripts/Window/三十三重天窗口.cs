@@ -109,6 +109,7 @@ public class 三十三重天窗口 : MonoBehaviour
                 SceneManager.SetActiveScene(Scene);
             }
             WindowController.S.MainWindow.SetActive(false);
+            gameObject.SetActive(false);
         });
     }
 

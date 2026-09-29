@@ -481,6 +481,7 @@ public class MainWindow : MonoBehaviour
         });
         返回战斗按钮.onClick.AddListener(() =>
         {
+            ObserverModuleManager.S.SendEvent("播放BGM",false);
             Scene fightScene = SceneManager.GetSceneByName("FightScene");
             if (fightScene.IsValid() && fightScene.isLoaded)
             {

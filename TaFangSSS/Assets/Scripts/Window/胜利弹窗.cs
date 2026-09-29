@@ -43,7 +43,7 @@ public class 胜利弹窗 : MonoBehaviour
     private void OnEnable()
     {
         ObserverModuleManager.S.SendEvent("停止元始音效");
-        ObserverModuleManager.S.SendEvent("播放音效", 音效Type.成功);
+        //ObserverModuleManager.S.SendEvent("播放音效", 音效Type.成功);
         if (PlayerData.S.是否首次通关关卡)
         {
             PlayerData.S.是否首次通关关卡 = false;

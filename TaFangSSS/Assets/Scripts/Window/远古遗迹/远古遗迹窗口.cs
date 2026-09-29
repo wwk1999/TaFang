@@ -140,6 +140,7 @@ public class 远古遗迹窗口 : MonoBehaviour
                 SceneManager.SetActiveScene(Scene);
             }
             WindowController.S.MainWindow.SetActive(false);
+            gameObject.SetActive(false);
         });
     }
 }

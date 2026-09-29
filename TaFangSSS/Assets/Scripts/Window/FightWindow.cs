@@ -209,6 +209,7 @@ public class FightWindow : MonoBehaviour
 
         IEnumerator ReturnToDojo()
         {
+            ObserverModuleManager.S.SendEvent("播放BGM",true);
             Scene uiScene = SceneManager.GetSceneByName("UIScene");
 
             if (!uiScene.IsValid() || !uiScene.isLoaded)
