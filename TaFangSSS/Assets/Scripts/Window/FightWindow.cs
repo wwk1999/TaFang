@@ -196,20 +196,28 @@ public class FightWindow : MonoBehaviour
         });
         返回道场.onClick.AddListener(() =>
         {
+            StartCoroutine(ReturnToDojo());
+        });
+
+        IEnumerator ReturnToDojo()
+        {
             Scene uiScene = SceneManager.GetSceneByName("UIScene");
+
+            if (!uiScene.IsValid() || !uiScene.isLoaded)
+            {
+                // 异步加载并等待完成
+                yield return SceneManager.LoadSceneAsync("UIScene", LoadSceneMode.Additive);
+                uiScene = SceneManager.GetSceneByName("UIScene");
+            }
+
             if (uiScene.IsValid() && uiScene.isLoaded)
             {
                 SceneManager.SetActiveScene(uiScene);
-                WindowController.S.MainWindow.SetActive(false);
-                gameObject.SetActive(false);
             }
-            else
-            {
-                SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
-                SceneManager.SetActiveScene(uiScene);
-                gameObject.SetActive(false);
-            }
-        });
+
+            WindowController.S.MainWindow.SetActive(true);
+            gameObject.SetActive(false);
+        }
         设置Button.onClick.AddListener(() =>
         {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;

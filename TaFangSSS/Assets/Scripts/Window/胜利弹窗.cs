@@ -21,7 +21,7 @@ public class 胜利弹窗 : MonoBehaviour
         ExitButtn.onClick.AddListener(() => { SceneManager.LoadScene("UIScene"); });
         AgainButtn.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("LoadScene",LoadSceneMode.Additive);
+            SceneManager.LoadScene("LoadScene");
         });
     }
     
