@@ -314,13 +314,13 @@ public class 丹药Config
         switch (类型)
         {
             case 丹药类型.战斗丹药:
-                return 战斗丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
+                return 战斗丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f);
             case 丹药类型.辅助丹药:
-                return 辅助丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
+                return 辅助丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f);
             case 丹药类型.根基丹药:
-                return 根基丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
+                return 根基丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f);
             case 丹药类型.造化丹药:
-                return 造化丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f);
+                return 造化丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f);
         }
 
         return 0;
@@ -521,6 +521,9 @@ public class 丹药Config
                 需要时间 = 属性config.每年秒数 * 造化丹药炼制时间Dic[qualityType];
                 break;
         }
+
+        需要时间 /= (1f + 体质Config.当前体质总属性.炼丹速度 / 100f);
+        需要时间 /= (1f + 道场Config.供奉总属性.炼丹速度 / 100f);
 
         return 需要时间/(1f+体质Config.当前体质总属性.炼丹速度/100f);
     }

@@ -95,6 +95,7 @@ public class 普通关卡胜利奖励
     public long 项链锻造石;
     public long 戒指锻造石;
     public long 护手锻造石;
+    public long 高级招募卷;
     public long 招募卷;
     public long 洗练石;
 }
@@ -1207,6 +1208,19 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
    {
        HashSet<LevelDiaoLuo> list = LevelDiaoLuoDic[当前主线关卡Type];
        普通关卡胜利奖励 value = new 普通关卡胜利奖励();
+       float 高级招募卷random=Random.Range(0f, 100f);
+       if (高级招募卷random < 10 * (1f+道场Config.供奉总属性.高级招募卷掉率 / 100f))
+       {
+           float 获得两个招募卷random=Random.Range(0f, 100f);
+           if (获得两个招募卷random < 道场Config.供奉总属性.概率获得两个高级招募卷)
+           {
+               value.高级招募卷 = 1;
+           }
+           else
+           {
+               value.高级招募卷 = 1;
+           }
+       }
        foreach (var item in list)
        {
            float min = item.minCount;

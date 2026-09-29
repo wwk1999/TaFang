@@ -7,6 +7,7 @@ using Config;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class StoreController : XSingleton<StoreController>
 {
@@ -16,7 +17,7 @@ public class StoreController : XSingleton<StoreController>
     private float CurrentTime = 0;
     private float 增加修为时间 = 1;
     private float 当前增加修为时间 = 0;
-
+    private float 坊市刷新次数时间 = 0;
     
      public void SaveStoreData(StoreDefine.StoreData data = null)
     {
@@ -129,10 +130,51 @@ public class StoreController : XSingleton<StoreController>
 
     public void 增加道场资源()
     {
-        PlayerData.S.PropListDic[PropType.矿石] += 道场Config.Get矿石速度() / 属性config.每年秒数;
-        PlayerData.S.PropListDic[PropType.玄铁] += 道场Config.Get玄铁速度() / 属性config.每年秒数;
-        PlayerData.S.PropListDic[PropType.玉髓] += 道场Config.Get玉髓速度() / 属性config.每年秒数;
-        PlayerData.S.PropListDic[PropType.功德] += 道场Config.Get功德速度() / 属性config.每年秒数;
+        float 矿石速度 = 道场Config.Get矿石速度();
+        float 玄铁速度 = 道场Config.Get玄铁速度();
+        float 玉髓速度 = 道场Config.Get玉髓速度();
+        float 功德速度 = 道场Config.Get功德速度();
+        float 矿石增加玄铁random = Random.Range(0, 100f);
+        if (矿石增加玄铁random < 道场Config.供奉总属性.获得矿石概率获得玄铁)
+        {
+            PlayerData.S.PropListDic[PropType.玄铁] += 矿石速度 / 属性config.每年秒数;
+        }
+        
+        float 矿石增加玉髓random = Random.Range(0, 100f);
+        if (矿石增加玉髓random < 道场Config.供奉总属性.获得矿石概率获得玉髓)
+        {
+            PlayerData.S.PropListDic[PropType.玉髓] += 矿石速度 / 属性config.每年秒数;
+        }
+        
+        float 玄铁增加矿石random = Random.Range(0, 100f);
+        if (玄铁增加矿石random < 道场Config.供奉总属性.获得玄铁概率获得矿石)
+        {
+            PlayerData.S.PropListDic[PropType.矿石] += 玄铁速度 / 属性config.每年秒数;
+        }
+        
+        float 玄铁增加玉髓random = Random.Range(0, 100f);
+        if (玄铁增加玉髓random < 道场Config.供奉总属性.获得玄铁概率获得玉髓)
+        {
+            PlayerData.S.PropListDic[PropType.玉髓] += 玄铁速度 / 属性config.每年秒数;
+        }
+        
+        float 玉髓增加矿石random = Random.Range(0, 100f);
+        if (玉髓增加矿石random < 道场Config.供奉总属性.获得玉髓概率获得矿石)
+        {
+            PlayerData.S.PropListDic[PropType.矿石] += 玉髓速度 / 属性config.每年秒数;
+        }
+        
+        float 玉髓增加玄铁random = Random.Range(0, 100f);
+        if (玉髓增加玄铁random < 道场Config.供奉总属性.获得玉髓概率获得玄铁)
+        {
+            PlayerData.S.PropListDic[PropType.玄铁] += 玉髓速度 / 属性config.每年秒数;
+        }
+
+
+        PlayerData.S.PropListDic[PropType.矿石] += 矿石速度 / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.玄铁] += 玄铁速度 / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.玉髓] += 玉髓速度 / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.功德] += 功德速度 / 属性config.每年秒数;
     }
     private void Update()
     {
@@ -147,7 +189,13 @@ public class StoreController : XSingleton<StoreController>
         }
         CurrentTime+= Time.unscaledDeltaTime;
         当前增加修为时间+= Time.unscaledDeltaTime;
+        坊市刷新次数时间+=Time.unscaledDeltaTime;
         PlayerData.S.道龄S += Time.unscaledDeltaTime;
+        if (坊市刷新次数时间 >= Get坊市刷新次数时间())
+        {
+            坊市刷新次数时间 = 0;
+            PlayerData.S.坊市刷新次数++;
+        }
         if (PlayerData.S.道龄S >= 属性config.每年秒数)
         {
             每道年供奉申请();
@@ -158,7 +206,6 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.剩余传道次数++;
             坊市Config.刷新坊市列表();
             ObserverModuleManager.S.SendEvent("刷新坊市窗口");
-            PlayerData.S.坊市刷新次数++;
         }
         //自动保存
         if (当前增加修为时间 >= 增加修为时间)//每秒
@@ -187,6 +234,12 @@ public class StoreController : XSingleton<StoreController>
         }
     }
 
+    public float Get坊市刷新次数时间()
+    {
+        float value = 属性config.每年秒数;
+        value /= (1f + 道场Config.供奉总属性.坊市刷新次数时间缩减 / 100f);
+        return value;
+    }
     public void 打造法器()
     {
         if (PlayerData.S.打造List.Count > 0)
@@ -217,11 +270,18 @@ public class StoreController : XSingleton<StoreController>
             }
             else
             {
-                float 打造需要秒数 = 法器Config.法器打造时间[法器Config.法器品质Dic[PlayerData.S.打造List[0].法器Type]] * 属性config.每年秒数;
+                float 打造需要秒数 = Get法器打造时间();
                 PlayerData.S.打造List[0].进度 += 100f / 打造需要秒数;
             }
         }
         ObserverModuleManager.S.SendEvent("刷新法器打造区域");
+    }
+
+    public float Get法器打造时间()
+    {
+        float value=法器Config.法器打造时间[法器Config.法器品质Dic[PlayerData.S.打造List[0].法器Type]] * 属性config.每年秒数;
+        value /= (1f + 道场Config.供奉总属性.炼器速度/100f);
+        return value;
     }
 
     public void 炼制丹药()
@@ -237,7 +297,14 @@ public class StoreController : XSingleton<StoreController>
                 {
                     PlayerData.S.Set灵药数量(item.灵药Type,item.QualityType,PlayerData.S.Get灵药数量(item.灵药Type,item.QualityType)-1);
                 }
-                PlayerData.S.Set丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质,PlayerData.S.Get丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质)+1);
+
+                int 炼丹数量 = 1;
+                float 增加炼丹数量random=Random.Range(0f, 100f);
+                if (增加炼丹数量random < 道场Config.供奉总属性.概率增加炼丹数量)
+                {
+                    炼丹数量 = 2;
+                }
+                PlayerData.S.Set丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质,PlayerData.S.Get丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质)+炼丹数量);
                 PlayerData.S.当前炼制秒数 = 0;
                 PlayerData.S.剩余炼制数量--;
                 PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);

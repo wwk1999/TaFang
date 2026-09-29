@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class 坊市窗口 : MonoBehaviour
 {
@@ -46,8 +47,17 @@ public class 坊市窗口 : MonoBehaviour
         });
         刷新按钮.onClick.AddListener(() =>
         {
+            if (PlayerData.S.坊市刷新次数 <= 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","坊市刷新次数不足");
+                return;
+            }
             坊市Config.刷新坊市列表();
-            PlayerData.S.坊市刷新次数--;
+            float 坊市刷新不消耗次数random=Random.Range(0, 100f);
+            if (坊市刷新不消耗次数random >= 道场Config.供奉总属性.坊市刷新概率不消耗次数)
+            {
+              PlayerData.S.坊市刷新次数--;  
+            }
             Show();
         });
     }

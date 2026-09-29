@@ -360,8 +360,16 @@ public class 胜利弹窗 : MonoBehaviour
         PlayerData.S.PropListDic[PropType.项链锻造石] += value.项链锻造石;
         PlayerData.S.PropListDic[PropType.戒指锻造石] += value.戒指锻造石;
         PlayerData.S.PropListDic[PropType.招募卷] += value.招募卷;
+        PlayerData.S.PropListDic[PropType.高级招募卷] += value.高级招募卷;
 
-
+        if (value.高级招募卷 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.高级招募卷;
+            item.count = value.高级招募卷;
+            item.SetItem();
+        }
 
         if (value.灵魂 > 0)
         {
