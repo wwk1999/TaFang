@@ -32,7 +32,7 @@ public class 洞天秘境窗口 : MonoBehaviour
         挑战按钮.onClick.AddListener(() =>
         {
             LevelConfig.当前关卡类型 = 关卡类型.洞天秘境;
-            SceneManager.LoadScene("LoadScene");
+            SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
         });
         神通配置Button.onClick.AddListener(() =>
         {

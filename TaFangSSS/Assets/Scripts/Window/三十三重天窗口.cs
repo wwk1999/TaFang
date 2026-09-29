@@ -102,7 +102,7 @@ public class 三十三重天窗口 : MonoBehaviour
         {
             LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
             LevelConfig.当前主线关卡Type = HeroWindowController.S.当前三十三重天Type;
-            SceneManager.LoadScene("LoadScene");
+            SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
         });
     }
 

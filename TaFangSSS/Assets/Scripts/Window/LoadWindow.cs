@@ -35,7 +35,7 @@ public class LoadWindow : MonoBehaviour
     private IEnumerator LoadAndPreload()
     {
         // 1. 开始异步加载战斗场景
-        AsyncOperation async = SceneManager.LoadSceneAsync("FightScene");
+        AsyncOperation async = SceneManager.LoadSceneAsync("FightScene",LoadSceneMode.Additive);
         async.allowSceneActivation = false; // 先不激活
   
         // 2. 等待加载进度达到 0.9（此时场景所有资源已加载完成，但还未实例化）

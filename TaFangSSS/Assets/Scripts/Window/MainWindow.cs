@@ -7,6 +7,7 @@ using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum 主页地图Type
@@ -159,6 +160,15 @@ public class MainWindow : MonoBehaviour
     }
     public void Show主页()
     {
+        Scene scene = SceneManager.GetSceneByName("FightScene");
+        if (scene.IsValid() && scene.isLoaded)
+        {
+            返回战斗按钮.gameObject.SetActive(true);
+        }
+        else
+        {
+            返回战斗按钮.gameObject.SetActive(false);
+        }
         var 通天塔list = PlayerData.S.获取通天塔所有道具();
         通天塔收获弹窗.gameObject.SetActive(通天塔list.Count>0);
         var 不周山list = PlayerData.S.获取不周山所有道具();
@@ -469,6 +479,11 @@ public class MainWindow : MonoBehaviour
             显示道场 = true;
             Show道场和地图();
         });
+        返回战斗按钮.onClick.AddListener(() =>
+        {
+            //SceneSwitcher.S.进入战斗();
+        });
+        返回战斗按钮.gameObject.SetActive(false);
         引导Button.onClick.AddListener(() =>
         {
             if (引导count == 0)

@@ -18,7 +18,7 @@ public class LevelWindow : MonoBehaviour
         TiaoZhanButton.onClick.AddListener(() =>
         {
             
-            SceneManager.LoadScene("LoadScene");
+            SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
         });
         RightPanel.SetActive(false);
         ObserverModuleManager.S.RegisterEvent("LevelSamllButton",ShowLevel);

@@ -193,6 +193,10 @@ public class FightWindow : MonoBehaviour
             Time.timeScale = 0;
             退出确认弹窗.gameObject.SetActive(true);
         });
+        返回道场.onClick.AddListener(() =>
+        {
+           // SceneSwitcher.S.返回道场();
+        });
         设置Button.onClick.AddListener(() =>
         {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
