@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
@@ -195,7 +196,19 @@ public class FightWindow : MonoBehaviour
         });
         返回道场.onClick.AddListener(() =>
         {
-           // SceneSwitcher.S.返回道场();
+            Scene uiScene = SceneManager.GetSceneByName("UIScene");
+            if (uiScene.IsValid() && uiScene.isLoaded)
+            {
+                SceneManager.SetActiveScene(uiScene);
+                WindowController.S.MainWindow.SetActive(false);
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+                SceneManager.SetActiveScene(uiScene);
+                gameObject.SetActive(false);
+            }
         });
         设置Button.onClick.AddListener(() =>
         {

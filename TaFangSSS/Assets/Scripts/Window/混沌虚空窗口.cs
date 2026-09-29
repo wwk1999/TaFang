@@ -50,6 +50,12 @@ public class 混沌虚空窗口 : MonoBehaviour
             LevelConfig.战斗混沌虚空层数 = HeroWindowController.S.显示混沌虚空层数;
             ObserverModuleManager.S.SendEvent("播放BGM",false);
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
+            Scene Scene = SceneManager.GetSceneByName("LoadScene");
+            if (Scene.IsValid() && Scene.isLoaded)
+            {
+                SceneManager.SetActiveScene(Scene);
+            }
+            WindowController.S.MainWindow.SetActive(false);
         });
         左箭头.onClick.AddListener(() =>
         {

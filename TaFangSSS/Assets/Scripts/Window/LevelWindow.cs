@@ -19,6 +19,12 @@ public class LevelWindow : MonoBehaviour
         {
             
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
+            Scene Scene = SceneManager.GetSceneByName("LoadScene");
+            WindowController.S.MainWindow.SetActive(false);
+            if (Scene.IsValid() && Scene.isLoaded)
+            {
+                SceneManager.SetActiveScene(Scene);
+            }
         });
         RightPanel.SetActive(false);
         ObserverModuleManager.S.RegisterEvent("LevelSamllButton",ShowLevel);

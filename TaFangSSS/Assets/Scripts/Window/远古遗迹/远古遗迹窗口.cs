@@ -134,6 +134,12 @@ public class 远古遗迹窗口 : MonoBehaviour
             LevelConfig.当前关卡类型 = 关卡类型.远古遗迹;
             LevelConfig.当前神物Type= HeroWindowController.S.当前遗迹关卡Type;
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
+            Scene Scene = SceneManager.GetSceneByName("LoadScene");
+            if (Scene.IsValid() && Scene.isLoaded)
+            {
+                SceneManager.SetActiveScene(Scene);
+            }
+            WindowController.S.MainWindow.SetActive(false);
         });
     }
 }

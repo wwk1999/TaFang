@@ -56,6 +56,12 @@ public class 主线关卡窗口 : MonoBehaviour
          LevelConfig.Is混沌虚空 = false;
 
          SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
+         Scene Scene = SceneManager.GetSceneByName("LoadScene");
+         WindowController.S.MainWindow.SetActive(false);
+         if (Scene.IsValid() && Scene.isLoaded)
+         {
+            SceneManager.SetActiveScene(Scene);
+         }
       });
    }
 
