@@ -481,7 +481,13 @@ public class MainWindow : MonoBehaviour
         });
         返回战斗按钮.onClick.AddListener(() =>
         {
-            //SceneSwitcher.S.进入战斗();
+            Scene fightScene = SceneManager.GetSceneByName("FightScene");
+            if (fightScene.IsValid() && fightScene.isLoaded)
+            {
+                SceneManager.SetActiveScene(fightScene);
+                ObserverModuleManager.S.SendEvent("显示FightWindow");
+                gameObject.SetActive(false);
+            }
         });
         返回战斗按钮.gameObject.SetActive(false);
         引导Button.onClick.AddListener(() =>

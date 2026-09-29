@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioController : MonoBehaviour
 {
@@ -66,6 +67,8 @@ public class AudioController : MonoBehaviour
    }
    public IEnumerator Play首领出现音效()
    {
+       if (SceneManager.GetActiveScene().name != "FightScene") yield break;
+    
        if (首领AudioSource == null) yield break;
        首领AudioSource.time = 0f;
        首领AudioSource.Play();
@@ -80,6 +83,8 @@ public class AudioController : MonoBehaviour
    }
    public void 播放人物音效(object[] obj)
 {
+    if (SceneManager.GetActiveScene().name != "FightScene") return;
+
     战斗音效Type type = (战斗音效Type)obj[0];
     var audio = Get人物空闲AudioSource();
     if (audio == null) return;
@@ -374,6 +379,8 @@ public void 停止元始音效(object[] obj)
 }
    public void 播放怪物音效(object[] obj)
    {
+       if (SceneManager.GetActiveScene().name != "FightScene") return;
+
       战斗音效Type type = (战斗音效Type)obj[0];
       var audio = Get怪物空闲AudioSource();
       if (audio == null) return;
@@ -402,6 +409,8 @@ public void 停止元始音效(object[] obj)
 
    public void Play音效(object[] obj)
    {
+       if (SceneManager.GetActiveScene().name != "FightScene") return;
+
       if (音效Source == null) return;
       音效Type type = (音效Type)obj[0];
       AudioClip alip=AudioConfig.Get音效Clip(type);

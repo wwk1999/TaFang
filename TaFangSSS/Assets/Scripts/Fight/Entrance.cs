@@ -15,6 +15,7 @@ public class Entrance : MonoBehaviour
    public TextMeshProUGUI 当前血量;
    public TextMeshProUGUI 最大血量;
    public RectTransform 护盾;
+   public GameObject fightWindow;
 
    public void Set血条()
    {
@@ -104,13 +105,19 @@ public class Entrance : MonoBehaviour
    }
    private void OnDestroy()
    {
+       ObserverModuleManager.S.UnRegisterEvent("显示FightWindow",显示FightWindow);
       ObserverModuleManager.S.UnRegisterEvent("围栏受击",围栏受击);
       ObserverModuleManager.S.UnRegisterEvent("设置护盾",设置护盾);
-   }  
+   }
 
+   public void 显示FightWindow(object[] obj)
+   {
+       fightWindow.gameObject.SetActive(true);
+   }
    private void Start()
    {
       Application.targetFrameRate = 30;
+      ObserverModuleManager.S.RegisterEvent("显示FightWindow",显示FightWindow);
       ObserverModuleManager.S.RegisterEvent("围栏受击",围栏受击);
       ObserverModuleManager.S.RegisterEvent("设置护盾",设置护盾);
       地图Type type = Get地图Type();

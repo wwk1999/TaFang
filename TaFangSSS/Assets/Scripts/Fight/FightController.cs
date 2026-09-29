@@ -2026,7 +2026,7 @@ public class FightController : XSingleton<FightController>
             普通怪物Time = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].CreateNormalMonsterTime;
             普通怪物最大数量=符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
         }
-        if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量&&SceneManager.GetActiveScene().name=="FightScene")
+        if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
         {
             NormalMonsterCount++;
             CreateNormalMonster();
