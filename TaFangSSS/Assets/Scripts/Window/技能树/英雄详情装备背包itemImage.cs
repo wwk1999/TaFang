@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 英雄详情功法itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 英雄详情装备背包itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
      [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
-    [SerializeField] private string popupPrefabPath = "Prefabs/Window/功法信息弹窗";
+    [SerializeField] private string popupPrefabPath = "Prefabs/Window/法器信息弹窗";
     
     [Tooltip("弹窗偏移量（相对于鼠标位置）")]
     [SerializeField] private Vector2 popupOffset = new Vector2(0, 0);
@@ -20,7 +20,7 @@ public class 英雄详情功法itemImage : MonoBehaviour, IPointerEnterHandler, 
     private Canvas targetCanvas;
     // 鼠标是否在当前Image内
     private bool isHovering = false;
-    public 英雄详情功法item 英雄详情功法item;
+    public 英雄详情装备背包item 英雄详情装备背包item;
     
      private void Start()
     {
@@ -61,6 +61,7 @@ public class 英雄详情功法itemImage : MonoBehaviour, IPointerEnterHandler, 
     
     private void ShowPopup(Vector2 mousePosition)
     {
+        if (英雄详情装备背包item.法器 == null) return;
         // 如果已经有弹窗，先销毁
         if (currentPopup != null)
         {
@@ -75,8 +76,8 @@ public class 英雄详情功法itemImage : MonoBehaviour, IPointerEnterHandler, 
         CanvasGroup cg = currentPopup.GetComponent<CanvasGroup>();
         if (cg == null) cg = currentPopup.AddComponent<CanvasGroup>();
         cg.blocksRaycasts = false;
-        功法信息弹窗 弹窗 = currentPopup.GetComponent<功法信息弹窗>();
-        弹窗.功法Type = 英雄详情功法item.功法Type;
+        法器信息弹窗 弹窗 = currentPopup.GetComponent<法器信息弹窗>();
+        弹窗.法器 = 英雄详情装备背包item.法器;
         弹窗.SetItem();
         // 设置弹窗的位置
         UpdatePopupPosition(mousePosition);
@@ -94,7 +95,6 @@ public class 英雄详情功法itemImage : MonoBehaviour, IPointerEnterHandler, 
     private void UpdatePopupPosition(Vector2 mousePosition)
     {
         if (currentPopup == null) return;
-        
         RectTransform rectTransform = currentPopup.GetComponent<RectTransform>();
         if (rectTransform == null) return;
         
