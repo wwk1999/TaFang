@@ -66,7 +66,9 @@ public class 世界树英雄派遣弹窗 : MonoBehaviour
                 派遣item.需要品质 = 要求.需要英雄品质;
                 派遣item.需要星级 = 要求.需要英雄星级;
                 派遣item.需要职业 = 要求.需要英雄职业;
+                派遣item.需要境界 = 要求.需要境界;
                 派遣item.需要元素 = 要求.需要英雄元素;
+
                 派遣item.HeroType = item.Key;
                 派遣item.SetItem();
             }

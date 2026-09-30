@@ -10,6 +10,7 @@ public class 世界树英雄派遣弹窗item : MonoBehaviour
 {
     [NonSerialized] public QualityType 需要品质;
     [NonSerialized] public int 需要星级;
+    [NonSerialized] public int 需要境界;
     [NonSerialized] public YuanSuType 需要元素;
     [NonSerialized] public ZhiYeType 需要职业;
     [NonSerialized] public HeroType HeroType;
@@ -75,7 +76,7 @@ public class 世界树英雄派遣弹窗item : MonoBehaviour
             mask.SetActive(true);
             maskText.text = "派遣中";
         }else if ((需要品质!=QualityType.None&&HeroConfig.HeroQualityDic[HeroType] < 需要品质) || PlayerData.S.HeroDataDic[HeroType].Level < 需要星级 + 1 ||
-                  (需要元素 != YuanSuType.None && 需要元素 != HeroConfig.HeroZhiYeDic[HeroType].yuanSuType) ||
+                  (PlayerData.S.HeroDataDic[HeroType].境界 < 需要境界||需要元素 != YuanSuType.None && 需要元素 != HeroConfig.HeroZhiYeDic[HeroType].yuanSuType) ||
                   (需要职业 != ZhiYeType.None && 需要职业 != HeroConfig.HeroZhiYeDic[HeroType].zhiYeType))
         {
             mask.SetActive(true);

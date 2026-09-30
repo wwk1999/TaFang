@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public static class 清除存档工具
 {
-    private const string 主存档文件 = "TaFangStoreShiWan1.json";
+    private const string 主存档文件 = "TaFangStorePlaytest1.json";
     private const string 显示设置存档文件 = "TaFangStore.json";
 
     [MenuItem("Tool/清除存档")]

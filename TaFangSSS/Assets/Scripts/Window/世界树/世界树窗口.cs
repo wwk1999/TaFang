@@ -194,7 +194,7 @@ public class 世界树窗口 : MonoBehaviour
       掉落数量.text = 世界树Config.世界树关卡Dic[层数].掉落数量.ToString();
       年数.text = 世界树Config.世界树关卡Dic[层数].需要年数.ToString();
       元素.text = HeroConfig.Get元素string(世界树Config.世界树关卡Dic[层数].需要英雄元素);
-      星级.text=世界树Config.世界树关卡Dic[层数].需要英雄星级.ToString();
+      星级.text=世界树Config.世界树关卡Dic[层数].需要境界.ToString();
       bool 寻宝=PlayerData.S.世界树寻宝Dic[HeroWindowController.S.当前世界树层数].寻宝;
       寻宝按钮.interactable = !寻宝;
       if (寻宝)

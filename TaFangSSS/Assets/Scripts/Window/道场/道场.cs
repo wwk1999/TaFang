@@ -36,19 +36,48 @@ public class 道场 : MonoBehaviour
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.领主府] == 0)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
-                return;
+                if (PlayerData.S.历史最高境界 >= JingJieType.筑基)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.领主府] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.领主府] = 1;
+                    }
+                    WindowController.S.打开窗口(WindowController.S.领主府Window);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                    return;
+                }
             }
-            WindowController.S.打开窗口(WindowController.S.领主府Window);
+            else
+            {
+                WindowController.S.打开窗口(WindowController.S.领主府Window);
+            }
         });
         聚贤阁.onClick.AddListener(() =>
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] == 0)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
-                return;
+                if (PlayerData.S.历史最高境界 >= JingJieType.筑基)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] = 1;
+                    }
+
+                    WindowController.S.招募Window.gameObject.SetActive(true);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast", "筑基境界解锁");
+                    return;
+                }
             }
-            WindowController.S.招募Window.gameObject.SetActive(true);
+            else
+            {
+                WindowController.S.招募Window.gameObject.SetActive(true);
+            }
         });
         坊市.onClick.AddListener(() =>
         {
@@ -68,7 +97,10 @@ public class 道场 : MonoBehaviour
                     return;
                 }
             }
-            坊市窗口.gameObject.SetActive(true);        
+            else
+            {
+                坊市窗口.gameObject.SetActive(true);
+            }
         });
         炼丹室.onClick.AddListener(() =>
         {
@@ -88,6 +120,10 @@ public class 道场 : MonoBehaviour
                     ObserverModuleManager.S.SendEvent("SendUIToast", "元婴境界解锁");
                     return;
                 }
+            }
+            else
+            {
+                WindowController.S.炼丹Window.gameObject.SetActive(true);
             }
 
         });

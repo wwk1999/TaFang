@@ -18,6 +18,7 @@ public class 秘境属性
     public int 需要英雄星级;
     public YuanSuType 需要英雄元素;
     public ZhiYeType 需要英雄职业;
+    public int 需要境界;
 }
 
 public class 秘境寻宝Item
@@ -81,6 +82,7 @@ public class 通天塔Config
                 需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=0,
             }
         },
         
@@ -97,6 +99,7 @@ public class 通天塔Config
                 需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=0,
             }
         },
         
@@ -110,9 +113,10 @@ public class 通天塔Config
                 需要年数 = 1f,
                 需要人数=3,
                 需要英雄品质=QualityType.地品,
-                需要英雄星级=1,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=3,
             }
         },
         
@@ -126,9 +130,10 @@ public class 通天塔Config
                 需要年数 = 2,
                 需要人数=3,
                 需要英雄品质=QualityType.天品,
-                需要英雄星级=1,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=3,
             }
         },
         
@@ -142,9 +147,10 @@ public class 通天塔Config
                 需要年数 = 4,
                 需要人数=4,
                 需要英雄品质=QualityType.天品,
-                需要英雄星级=2,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=6,
             }
         },
         
@@ -159,9 +165,10 @@ public class 通天塔Config
                 需要年数 = 10,
                 需要人数=4,
                 需要英雄品质=QualityType.宇品,
-                需要英雄星级=2,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=6,
             }
         },
         
@@ -175,9 +182,10 @@ public class 通天塔Config
                 需要年数 = 14,
                 需要人数=10,
                 需要英雄品质=QualityType.宙品,
-                需要英雄星级=2,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=6,
             }
         },
         
@@ -191,9 +199,10 @@ public class 通天塔Config
                 需要年数 = 40,
                 需要人数=4,
                 需要英雄品质=QualityType.宙品,
-                需要英雄星级=3,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=10,
             }
         },
         
@@ -207,9 +216,10 @@ public class 通天塔Config
                 需要年数 = 100,
                 需要人数=4,
                 需要英雄品质=QualityType.洪品,
-                需要英雄星级=2,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=6,
             }
         },
         
@@ -223,9 +233,10 @@ public class 通天塔Config
                 需要年数 = 200,
                 需要人数=2,
                 需要英雄品质=QualityType.荒品,
-                需要英雄星级=3,
+                需要英雄星级=0,
                 需要英雄元素=YuanSuType.None,
                 需要英雄职业=ZhiYeType.None,
+                需要境界=10,
             }
         },
     };

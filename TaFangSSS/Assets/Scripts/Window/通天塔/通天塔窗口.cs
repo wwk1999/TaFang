@@ -192,7 +192,7 @@ public class 通天塔窗口 : MonoBehaviour
       掉落数量.text = 通天塔Config.通天塔关卡Dic[层数].掉落数量.ToString();
       年数.text = 通天塔Config.通天塔关卡Dic[层数].需要年数.ToString();
       品质.text = PropConfig.QualityNameDic[通天塔Config.通天塔关卡Dic[层数].需要英雄品质];
-      星级.text=通天塔Config.通天塔关卡Dic[层数].需要英雄星级.ToString();
+      星级.text=通天塔Config.通天塔关卡Dic[层数].需要境界.ToString();
       bool 寻宝=PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].寻宝;
       寻宝按钮.interactable = !寻宝;
       if (寻宝)
