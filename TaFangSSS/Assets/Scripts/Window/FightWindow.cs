@@ -201,13 +201,16 @@ public class FightWindow : MonoBehaviour
                 SceneManager.SetActiveScene(uiScene);
             }
 
-            WindowController.S.MainWindow.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.MainWindow);
             content.gameObject.SetActive(false);
+            // 双场景并存后重建一次 UGUI 全局画布排序（等价手动改一次 sortingOrder）
+            QueueController.S.下一帧刷新画布排序();
         }
         设置Button.onClick.AddListener(() =>
         {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
             obj.transform.SetAsLastSibling();
+            WindowController.强制刷新画布排序(obj);
         });
         倍速Button1.onClick.AddListener(() =>
         {

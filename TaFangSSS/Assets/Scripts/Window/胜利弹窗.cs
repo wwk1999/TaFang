@@ -20,13 +20,13 @@ public class 胜利弹窗 : MonoBehaviour
     {
         ExitButtn.onClick.AddListener(() =>
         {
-            // 停用所有跨场景存活的池化战斗对象，防止它们在 UIScene 里自动 new 出 FightController
-            QueueController.S.回收所有战斗对象();
+            // 回收池化战斗对象 + 新场景加载后重建画布排序
+            QueueController.S.退出战斗();
             SceneManager.LoadScene("UIScene");
         });
         AgainButtn.onClick.AddListener(() =>
         {
-            QueueController.S.回收所有战斗对象();
+            QueueController.S.退出战斗();
             SceneManager.LoadScene("LoadScene");
         });
     }

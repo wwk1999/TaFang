@@ -28,4 +28,28 @@ public class WindowController : XSingleton<WindowController>
       MainWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/MainWindow"));
       MainWindow.SetActive(true);
    }
+
+   /// <summary>
+   /// 显示窗口并强制刷新 UGUI 全局画布排序。
+   /// additive 双场景并存/SetActive 切换后，Overlay Canvas 的全局排序缓存可能不重建
+   /// （Game视图层级错误、Scene视图正常，手动改一次任意 Canvas.sortingOrder 即恢复）。
+   /// 这里通过切换 Canvas.enabled 让其重新注册，等价于手动改 sortingOrder 触发的全局重排。
+   /// </summary>
+   public void 打开窗口(GameObject window)
+   {
+      window.SetActive(true);
+      强制刷新画布排序(window);
+   }
+
+   public static void 强制刷新画布排序(GameObject window)
+   {
+      if (window == null) return;
+      var canvas = window.GetComponent<Canvas>();
+      if (canvas != null && canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+      {
+         canvas.enabled = false;
+         canvas.enabled = true;
+      }
+      Canvas.ForceUpdateCanvases();
+   }
 }

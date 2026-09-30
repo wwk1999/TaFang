@@ -156,6 +156,38 @@ public class QueueController:XSingleton<QueueController>
         }
     }
 
+    /// <summary>
+    /// 退出战斗时调用：回收池化战斗对象，并在新场景加载后强制重建一次 UGUI 全局画布排序。
+    /// 单场景切换后常驻的伤害数字 Canvas(order10000) 与新场景 Canvas 的全局排序缓存
+    /// 可能不重算（Game视图层级错、Scene视图对，手动改一次任意 sortingOrder 即恢复），
+    /// 这里在加载完成后的帧用"order+1再还原"模拟该手动操作。
+    /// </summary>
+    public void 退出战斗()
+    {
+        回收所有战斗对象();
+        StartCoroutine(场景切换后刷新画布排序());
+    }
+
+    /// <summary>additive 返回道场后也可调：仅刷新画布排序，不回收战斗对象</summary>
+    public void 下一帧刷新画布排序()
+    {
+        StartCoroutine(场景切换后刷新画布排序());
+    }
+
+    private IEnumerator 场景切换后刷新画布排序()
+    {
+        // 等两帧：第1帧新场景 Awake/Start 完成，第2帧确保 Instantiate 的窗口 Canvas 全部注册
+        yield return null;
+        yield return null;
+        foreach (var c in FindObjectsOfType<Canvas>())
+        {
+            if (c == null) continue;
+            int order = c.sortingOrder;
+            c.sortingOrder = order + 1;
+            c.sortingOrder = order;
+        }
+    }
+
     
     public IEnumerator InitHeroSkill()
     {

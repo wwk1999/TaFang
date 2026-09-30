@@ -39,7 +39,7 @@ public class 道场 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
                 return;
             }
-            WindowController.S.领主府Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.领主府Window);
         });
         聚贤阁.onClick.AddListener(() =>
         {

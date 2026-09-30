@@ -1912,6 +1912,23 @@ public class FightController : XSingleton<FightController>
 
     protected override void Awake()
     {
+        // XSingleton.S 在找不到实例时会自动 new GameObject，战斗对象的 DOTween 延迟回调等
+        // 可能在回到 UIScene 后误访问 FightController.S，从而在 UIScene 里凭空创建一个
+        // FightController（会刷怪、弹伤害数字，且下次进战斗变成双实例、残留旧怪）。
+        // 合法实例只可能存在于 FightScene，其余场景的一律立即自毁。
+        if (gameObject.scene.name != "FightScene")
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // 清理上一次退出战斗时漏网、残留在 UIScene/DontDestroyOnLoad 的 FightController
+        foreach (var other in FindObjectsOfType<FightController>())
+        {
+            if (other != this && other.gameObject.scene.name != "FightScene")
+                Destroy(other.gameObject);
+        }
+
         base.Awake();
         // 字段初始化器里不能调单例/Config(构造函数阶段禁止 FindObjectOfType),挪到 Awake
         当前神通能量 = 属性config.总属性.神通最大值;

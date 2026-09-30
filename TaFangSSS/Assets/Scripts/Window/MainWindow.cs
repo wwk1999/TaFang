@@ -578,6 +578,7 @@ public class MainWindow : MonoBehaviour
         {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
             obj.transform.SetAsLastSibling();
+            WindowController.强制刷新画布排序(obj);
         });
         紫霄宫传道Button.onClick.AddListener(() =>
         {
@@ -659,19 +660,19 @@ public class MainWindow : MonoBehaviour
         });
         道宝Button.onClick.AddListener(() =>
         {
-            WindowController.S.道宝Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.道宝Window);
         });
         城墙Button.onClick.AddListener(() =>
         {
-            WindowController.S.城墙Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.城墙Window);
         });
         炼器Button.onClick.AddListener(() =>
         {
-            WindowController.S.炼器Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.炼器Window);
         });
         炼丹Button.onClick.AddListener(() =>
         {
-            WindowController.S.炼丹Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.炼丹Window);
         });
         主线关卡Debug.onClick.AddListener(() =>
         {
@@ -690,7 +691,7 @@ public class MainWindow : MonoBehaviour
         });
         储物袋按钮.onClick.AddListener(() =>
         {
-            WindowController.S.储物袋Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.储物袋Window);
         });
         英雄按钮.onClick.AddListener(() =>
         {
@@ -702,7 +703,7 @@ public class MainWindow : MonoBehaviour
                 父canvas.GetComponent<GraphicRaycaster>().enabled = true;
                 PlayerData.S.是否首次进入主页面 = false;
             }
-            WindowController.S.英雄Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.英雄Window);
         });
         招募卷Debug.onClick.AddListener(() =>
         {
@@ -764,7 +765,7 @@ public class MainWindow : MonoBehaviour
         });
         招募Btn.onClick.AddListener(() =>
         {
-            WindowController.S.招募Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.招募Window);
         });
     }
 
@@ -772,15 +773,15 @@ public class MainWindow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            WindowController.S.储物袋Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.储物袋Window);
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            WindowController.S.炼器Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.炼器Window);
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            WindowController.S.炼丹Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.炼丹Window);
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -788,19 +789,19 @@ public class MainWindow : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-            WindowController.S.道宝Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.道宝Window);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            WindowController.S.英雄Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.英雄Window);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            WindowController.S.招募Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.招募Window);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            WindowController.S.城墙Window.gameObject.SetActive(true);
+            WindowController.S.打开窗口(WindowController.S.城墙Window);
         }
     }
 
