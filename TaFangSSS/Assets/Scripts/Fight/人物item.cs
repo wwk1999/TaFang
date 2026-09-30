@@ -280,7 +280,7 @@ public class 人物item : MonoBehaviour
             if (heroType == HeroType.瑶池仙女||heroType == HeroType.妲己||heroType == HeroType.女娲)//辅助类
             {
                 Animator.Play("人物放大缩小",0,0f);
-                var dir=(new Vector2(targetPos.x-100f,targetPos.y)-(Vector2)transform.position).normalized;
+                var dir=(targetPos-(Vector2)transform.position).normalized;
                 FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time,女娲神通time);
             }
             else if (攻击范围内怪物.Contains(monsterBase))
@@ -317,7 +317,15 @@ public class 人物item : MonoBehaviour
                 else
                 {
                     Animator.Play("人物攻击",0,0f);
-                    var dir=(targetPos-(Vector2)transform.position).normalized;
+                    Vector2 dir = new Vector2(0, 0);
+                    if (targetPos.x > -3.5f)
+                    {
+                        dir=(new Vector2(targetPos.x-1f,targetPos.y)-(Vector2)transform.position).normalized;
+                    }
+                    else
+                    {
+                        dir=(new Vector2(targetPos.x,targetPos.y)-(Vector2)transform.position).normalized;
+                    }
                     FightController.S.人物攻击(heroType,transform.position,dir,targetPos,瑶池冰辅助,妲己黑暗辅助,女娲电辅助,瑶池神通time,妲己神通time,女娲神通time);
                 }
             }

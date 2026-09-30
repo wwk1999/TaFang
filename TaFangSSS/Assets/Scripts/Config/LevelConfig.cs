@@ -189,11 +189,16 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.狮驼岭, JingJieType.大乘 },
         { 主线关卡Type.东海龙宫,JingJieType.大乘 },
         { 主线关卡Type.冥府, JingJieType.大乘 },
+        
         { 主线关卡Type.南天门, JingJieType.天仙 },
         { 主线关卡Type.瑶池仙境, JingJieType.天仙 },
         { 主线关卡Type.斩妖台, JingJieType.天仙 },
+        
+        
         { 主线关卡Type.御马监, JingJieType.玄仙 },
         { 主线关卡Type.蟠桃园, JingJieType.玄仙 },
+        
+        
         { 主线关卡Type.兜率宫, JingJieType.金仙 },
         { 主线关卡Type.紫微宫, JingJieType.金仙 },
         { 主线关卡Type.昊天殿, JingJieType.金仙 },
@@ -1685,8 +1690,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.南天门,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 3200, minCount = 2500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 3000, minCount = 2500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 2000, minCount = 1800, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.战士经验值 },
@@ -1706,8 +1711,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.瑶池仙境,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 4000, minCount = 3200, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 3500, minCount = 3000, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.战士经验值 },
@@ -1727,8 +1732,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.斩妖台,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 5000, minCount = 4000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 4000, minCount = 3500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.战士经验值 },
@@ -1748,7 +1753,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.御马监,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5000, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 4500, minCount = 4000, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 4500, minCount = 3600, PropType = PropType.射手经验值 },
@@ -1769,8 +1774,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.蟠桃园,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 7500, minCount = 6000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 5000, minCount = 4500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.战士经验值 },
@@ -1790,8 +1795,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.兜率宫,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 7500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 5500, minCount = 5000, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.战士经验值 },
@@ -1811,9 +1816,9 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.紫微宫,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 11000, minCount = 9000, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5500, PropType = PropType.灵魂 },
 
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
 
                     new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.战士经验值 },
@@ -1833,8 +1838,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.昊天殿,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 13000, minCount = 11000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 6500, minCount = 6000, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
                     new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
                     new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },

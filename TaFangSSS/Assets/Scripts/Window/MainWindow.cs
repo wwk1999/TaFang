@@ -27,7 +27,7 @@ public class MainWindow : MonoBehaviour
     public Button 返回道场按钮;
     public GameObject 道场;
     public GameObject 地图;
-    private bool 显示道场=true;
+    private bool 显示道场=false;
 
     public RectTransform 地图布局RectTransform;
     public Button 左翻页Button;
@@ -414,11 +414,7 @@ public class MainWindow : MonoBehaviour
     private void 翻页(主页地图Type 主页地图Type)
     {
         if (主页地图Type < 主页地图Type.东胜神州 || 主页地图Type > 主页地图Type.天庭) return;
-        if (主页地图Type == 主页地图Type.天庭)
-        {
-            ObserverModuleManager.S.SendEvent("SendUIToast","正在制作,稍等");
-            return;
-        }
+       
         if (主页地图Type > 最大主页地图Type())
         {
             ObserverModuleManager.S.SendEvent("SendUIToast","未解锁");
@@ -503,6 +499,11 @@ public class MainWindow : MonoBehaviour
         });
         返回道场按钮.onClick.AddListener(() =>
         {
+            if (PlayerData.S.最大主线关卡 <= 主线关卡Type.花果山)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","通关花果山后解锁");
+                return;
+            }
             显示道场 = true;
             Show道场和地图();
         });

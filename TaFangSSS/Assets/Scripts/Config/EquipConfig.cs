@@ -149,10 +149,10 @@
          { QualityType.玄品 ,new 材料Item(){材料数量 = 5,灵气数量=500}},
          { QualityType.地品 ,new 材料Item(){材料数量 = 20,灵气数量=2000}},
          { QualityType.天品 ,new 材料Item(){材料数量 = 60,灵气数量=10000}},
-         { QualityType.宇品 ,new 材料Item(){材料数量 = 120,灵气数量=20000}},
-         { QualityType.宙品 ,new 材料Item(){材料数量 = 200,灵气数量=50000}},
-         { QualityType.洪品 ,new 材料Item(){材料数量 = 300,灵气数量=150000}},
-         { QualityType.荒品 ,new 材料Item(){材料数量 = 500,灵气数量=500000}},
+         { QualityType.宇品 ,new 材料Item(){材料数量 = 120,灵气数量=50000}},
+         { QualityType.宙品 ,new 材料Item(){材料数量 = 200,灵气数量=200000}},
+         { QualityType.洪品 ,new 材料Item(){材料数量 = 300,灵气数量=1000000}},
+         { QualityType.荒品 ,new 材料Item(){材料数量 = 500,灵气数量=5000000}},
 
      };
      
