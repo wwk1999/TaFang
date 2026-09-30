@@ -179,19 +179,19 @@ public class 神物Config
     
     public static Dictionary<神物Type, float> 神物掉落概率Dic = new Dictionary<神物Type, float>()
     {
-        { 神物Type.最终伤害, 3 },
-        { 神物Type.冷却缩减, 3 },
-        { 神物Type.全元素增伤, 3 },
+        { 神物Type.最终伤害, 1.5f },
+        { 神物Type.冷却缩减, 1.5f },
+        { 神物Type.全元素增伤, 1.5f },
         { 神物Type.元素人人为我, 1 },
         { 神物Type.元素我为人人, 1 },
-        { 神物Type.全职业增伤, 3 },
-        { 神物Type.职业我为人人, 1 },
-        { 神物Type.职业人人为我, 1 },
-        { 神物Type.暴击爆伤, 2 },
-        { 神物Type.二次暴击, 0.5f },
-        { 神物Type.轮回次数加伤, 1 },
-        { 神物Type.轮回系数, 0.5f },
-        { 神物Type.时间流速加快, 1 },
+        { 神物Type.全职业增伤, 1 },
+        { 神物Type.职业我为人人, 0.8f },
+        { 神物Type.职业人人为我, 0.8f },
+        { 神物Type.暴击爆伤, 0.8f },
+        { 神物Type.二次暴击, 0.3f },
+        { 神物Type.轮回次数加伤, 0.5f },
+        { 神物Type.轮回系数, 0.3f },
+        { 神物Type.时间流速加快, 0.1f },
     };
 
     public static Dictionary<神物Type, HashSet<LevelDiaoLuo>> 遗迹掉落Dic =
@@ -201,91 +201,91 @@ public class 神物Config
             神物Type.最终伤害,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1000, minCount = 800, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.冷却缩减,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.全元素增伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 115, minCount = 95, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1500, minCount = 1200, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.元素人人为我,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1800, minCount = 1500, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.元素我为人人,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.全职业增伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 115, minCount = 95, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 2600, minCount = 2200, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.职业人人为我,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 3000, minCount = 2600, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.职业我为人人,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 3500, minCount = 3000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.暴击爆伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 4000, minCount = 3500, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.二次暴击,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 4500, minCount = 4000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.轮回次数加伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 140, minCount = 120, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 5000, minCount = 4500, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.轮回系数,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 140, minCount = 120, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 6000, minCount = 5000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.时间流速加快,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 7000, minCount = 6000, PropType = PropType.灵魂 },
             }
         },
     };
@@ -321,178 +321,179 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全元素增伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 45, Attack = 8, Defense = 3, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e7f, Attack = 5000, Defense = 2000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全元素增伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 110, Attack = 18, Defense = 8, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e8f, Attack = 10000, Defense = 3000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全元素增伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 280, Attack = 40, Defense = 20, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e9f, Attack = 20000, Defense = 6000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
         },
-
-        {
-            new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 48, Attack = 5, Defense = 6, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
-        },
-        {
-            new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 115, Attack = 12, Defense = 14, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
-        },
-        {
-            new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 290, Attack = 30, Defense = 30, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
-        },
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素我为人人, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 52, Attack = 7, Defense = 4, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e8f, Attack = 10000, Defense = 4000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素我为人人, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 125, Attack = 16, Defense = 10, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e9f, Attack = 20000, Defense = 6000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素我为人人, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 310, Attack = 36, Defense = 24, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e10f, Attack = 40000, Defense = 8000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
         },
+        
+        
+        
+
+        {
+            new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Normal },
+            new MonsterAttribute() { Hp = 3e9f, Attack = 20000, Defense = 8000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+        },
+        {
+            new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Elite },
+            new MonsterAttribute() { Hp = 3e10f, Attack = 40000, Defense = 12000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+        },
+        {
+            new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Boss },
+            new MonsterAttribute() { Hp = 3e11f, Attack = 80000, Defense = 16000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+        },
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全职业增伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 60, Attack = 9, Defense = 3, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e10f, Attack = 40000, Defense = 16000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全职业增伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 140, Attack = 20, Defense = 8, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e11f, Attack = 80000, Defense = 24000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全职业增伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 350, Attack = 45, Defense = 18, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e12f, Attack = 160000, Defense = 32000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
+        
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业我为人人, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 42, Attack = 10, Defense = 2, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e11f, Attack = 80000, Defense = 32000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业我为人人, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 100, Attack = 22, Defense = 6, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e12f, Attack = 160000, Defense = 48000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业我为人人, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 260, Attack = 50, Defense = 15, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e13f, Attack = 320000, Defense = 64000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
+        
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业人人为我, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 58, Attack = 6, Defense = 7, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e12f, Attack = 80000, Defense = 64000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业人人为我, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 135, Attack = 14, Defense = 16, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e13f, Attack = 160000, Defense = 96000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业人人为我, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 330, Attack = 32, Defense = 35, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e14f, Attack = 320000, Defense = 128000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.暴击爆伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 40, Attack = 12, Defense = 2, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e13f, Attack = 160000, Defense = 100000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.暴击爆伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 95, Attack = 28, Defense = 5, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e14f, Attack = 300000, Defense = 200000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.暴击爆伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 240, Attack = 60, Defense = 12, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e15f, Attack = 600000, Defense = 400000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
+        
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.二次暴击, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 38, Attack = 14, Defense = 1, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e14f, Attack = 400000, Defense = 200000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.二次暴击, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 90, Attack = 32, Defense = 4, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e15f, Attack = 600000, Defense = 400000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.二次暴击, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 220, Attack = 70, Defense = 10, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e16f, Attack = 800000, Defense = 800000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
         },
+
+        
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回次数加伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 70, Attack = 5, Defense = 8, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e15f, Attack = 800000, Defense = 400000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回次数加伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 160, Attack = 12, Defense = 18, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e16f, Attack = 1200000, Defense = 800000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回次数加伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 400, Attack = 28, Defense = 40, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e17f, Attack = 1600000, Defense = 1600000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
+        
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回系数, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 65, Attack = 4, Defense = 9, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e16f, Attack = 1600000, Defense = 800000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回系数, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 150, Attack = 10, Defense = 20, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e17f, Attack = 2000000, Defense = 1600000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回系数, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 380, Attack = 25, Defense = 45, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e18f, Attack = 4000000, Defense = 3200000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
+        
+        
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.时间流速加快, MonsterType = MonsterType.Normal },
-            new MonsterAttribute()
-                { Hp = 35, Attack = 11, Defense = 3, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+            new MonsterAttribute() { Hp = 3e17f, Attack = 3200000, Defense = 1600000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.时间流速加快, MonsterType = MonsterType.Elite },
-            new MonsterAttribute()
-                { Hp = 85, Attack = 25, Defense = 8, 物理抗性 = 5, 冰霜抗性 = 5, 火焰抗性 = 5, 黑暗抗性 = 5, 雷电抗性 = 5 }
+            new MonsterAttribute() { Hp = 3e18f, Attack = 4000000, Defense = 3200000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.时间流速加快, MonsterType = MonsterType.Boss },
-            new MonsterAttribute()
-                { Hp = 210, Attack = 55, Defense = 18, 物理抗性 = 15, 冰霜抗性 = 15, 火焰抗性 = 15, 黑暗抗性 = 15, 雷电抗性 = 15 }
+            new MonsterAttribute() { Hp = 3e19f, Attack = 8000000, Defense = 6400000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
     };
 

@@ -126,14 +126,14 @@ public class LevelConfig : MonoBehaviour
 
     public static Dictionary<秘境type, 主线关卡Type> 秘境解锁Dic = new Dictionary<秘境type, 主线关卡Type>()
     {
-        { 秘境type.洞天福地, 主线关卡Type.水帘洞 },
-        { 秘境type.紫霄宫, 主线关卡Type.蓬莱仙岛 },
+        { 秘境type.洞天福地, 主线关卡Type.花果山 },
+        { 秘境type.紫霄宫, 主线关卡Type.水帘洞 },
         { 秘境type.通天塔, 主线关卡Type.五行山 },
         { 秘境type.九幽血海, 主线关卡Type.女儿国 },
         { 秘境type.世界树, 主线关卡Type.火焰山 },
         { 秘境type.远古遗迹, 主线关卡Type.流沙河 },
         { 秘境type.符文之地, 主线关卡Type.东海龙宫 },
-        { 秘境type.三十三重天, 主线关卡Type.登天路 },
+        { 秘境type.三十三重天, 主线关卡Type.昊天殿 },
     };
     public static Dictionary<主线关卡Type, int> 主线关卡通关奖励Dic = new Dictionary<主线关卡Type, int>()
     {
@@ -2065,7 +2065,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
         { 主线关卡Type.花果山, "花果山" },
         { 主线关卡Type.水帘洞, "水帘洞" },
         { 主线关卡Type.傲来国, "傲来国" },
-        { 主线关卡Type.东海龙宫, "东海龙宫" },
+        { 主线关卡Type.东海龙宫, "通天河" },
         { 主线关卡Type.蓬莱仙岛, "蓬莱仙岛" },
         { 主线关卡Type.五行山, "五行山" },
         { 主线关卡Type.高老庄, "高老庄" },

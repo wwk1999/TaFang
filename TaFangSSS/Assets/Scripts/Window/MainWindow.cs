@@ -401,6 +401,11 @@ public class MainWindow : MonoBehaviour
     private void 翻页(主页地图Type 主页地图Type)
     {
         if (主页地图Type < 主页地图Type.东胜神州 || 主页地图Type > 主页地图Type.天庭) return;
+        if (主页地图Type == 主页地图Type.天庭)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","正在制作,稍等");
+            return;
+        }
         if (主页地图Type > 最大主页地图Type())
         {
             ObserverModuleManager.S.SendEvent("SendUIToast","未解锁");
@@ -547,7 +552,7 @@ public class MainWindow : MonoBehaviour
         远古遗迹按钮.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.远古遗迹];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
@@ -558,7 +563,7 @@ public class MainWindow : MonoBehaviour
         洞天秘境按钮.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.洞天福地];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
@@ -570,7 +575,7 @@ public class MainWindow : MonoBehaviour
         符文之地按钮.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.符文之地];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
@@ -589,7 +594,7 @@ public class MainWindow : MonoBehaviour
         紫霄宫传道Button.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.紫霄宫];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
@@ -600,7 +605,7 @@ public class MainWindow : MonoBehaviour
         通天塔.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.通天塔];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
@@ -612,7 +617,7 @@ public class MainWindow : MonoBehaviour
         世界树.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.世界树];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
@@ -624,7 +629,7 @@ public class MainWindow : MonoBehaviour
         血海.onClick.AddListener(() =>
         {
             主线关卡Type 关卡限制 = LevelConfig.秘境解锁Dic[秘境type.九幽血海];
-            if (PlayerData.S.最大主线关卡 < 关卡限制)
+            if (PlayerData.S.最大主线关卡 <= 关卡限制)
             {
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");

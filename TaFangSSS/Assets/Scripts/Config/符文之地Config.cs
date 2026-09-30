@@ -331,15 +331,15 @@ public class 符文之地Config
     {
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.青木林, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e8f, Attack = 5000, Defense = 3000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.青木林, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e9f, Attack = 10000, Defense = 5000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.青木林, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e10f, Attack = 20000, Defense = 10000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
         },
         
         
@@ -348,128 +348,136 @@ public class 符文之地Config
 
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.赤炎窟, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e9f, Attack = 10000, Defense = 5000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.赤炎窟, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e10f, Attack = 30000, Defense = 10000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.赤炎窟, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e11f, Attack = 50000, Defense = 20000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
+
 
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.黑风谷, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e10f, Attack = 30000, Defense = 10000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.黑风谷, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e11f, Attack = 50000, Defense = 20000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.黑风谷, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e12f, Attack = 100000, Defense = 50000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
+        
+        
 
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.玄水深渊, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e11f, Attack = 50000, Defense = 30000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.玄水深渊, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e12f, Attack = 100000, Defense = 50000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.玄水深渊, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e13f, Attack = 200000, Defense = 100000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
-
+        
+        
+        
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.紫雷泽, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e12f, Attack = 100000, Defense = 50000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.紫雷泽, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e13f, Attack = 200000, Defense = 100000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.紫雷泽, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e14f, Attack = 400000, Defense = 200000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
 
+        
+        
+        
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.白骨荒原, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e13f, Attack = 200000, Defense = 100000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.白骨荒原, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e14f, Attack = 400000, Defense = 200000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.白骨荒原, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e15f, Attack = 800000, Defense = 400000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.金戈壁, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e14f, Attack = 400000, Defense = 200000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.金戈壁, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e15f, Attack = 500000, Defense = 400000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.金戈壁, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e16f, Attack = 1000000, Defense = 800000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
         },
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e15f, Attack = 800000, Defense = 400000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e16f, Attack = 1000000, Defense = 800000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e17f, Attack = 2000000, Defense = 1600000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e16f, Attack = 1600000, Defense = 800000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e17f, Attack = 2000000, Defense = 1600000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e18f, Attack = 4000000, Defense = 3200000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
-        }, 
+            new MonsterAttribute() { Hp = 3e17f, Attack = 3200000, Defense = 1600000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+        },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e18f, Attack = 4000000, Defense = 3200000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = 3e19f, Attack = 8000000, Defense = 6400000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
     };
     
@@ -482,80 +490,70 @@ public class 符文之地Config
             符文之地Type.青木林,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 1200, minCount = 1500, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.赤炎窟,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 90, minCount = 70, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 1500, minCount = 1800, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.黑风谷,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 115, minCount = 95, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 95, minCount = 75, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 1800, minCount = 2200, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.玄水深渊,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 2200, minCount = 2600, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.紫雷泽,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 2600, minCount = 3000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.白骨荒原,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 115, minCount = 95, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 95, minCount = 75, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 3000, minCount = 3500, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.金戈壁,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 3500, minCount = 4000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.幻梦泽,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 4000, minCount = 5000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.混沌墟,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 80, minCount = 60, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 5000, minCount = 6000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.天道台,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 80, minCount = 60, PropType = PropType.功德 },
+                new LevelDiaoLuo() { maxCount = 6000, minCount = 7000, PropType = PropType.灵魂 },
             }
         },
     };

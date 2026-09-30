@@ -12,7 +12,7 @@ using Random = UnityEngine.Random;
 public class StoreController : XSingleton<StoreController>
 {
     public StoreDefine.StoreData StoreData;
-    private string SavePath =>Path.Combine(Application.persistentDataPath, "TaFangStoreShiWan1.json");
+    private string SavePath =>Path.Combine(Application.persistentDataPath, "TaFangStorePlaytest1.json");
     private float StoreTime = 3;
     private float CurrentTime = 0;
     private float 增加修为时间 = 1;
