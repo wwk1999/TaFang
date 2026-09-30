@@ -100,6 +100,12 @@ public class 凌霄宝殿窗口 : MonoBehaviour
         });
         挑战Button.onClick.AddListener(() =>
         {
+            Scene Scene1 = SceneManager.GetSceneByName("FightScene");
+            if (Scene1.IsValid() && Scene1.isLoaded)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","已在战斗中");
+                return;
+            }
             LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
             LevelConfig.Is混沌虚空 = false;
             LevelConfig.当前主线关卡Type = HeroWindowController.S.当前凌霄宝殿Type;

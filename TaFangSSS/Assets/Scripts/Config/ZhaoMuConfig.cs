@@ -29,36 +29,36 @@ namespace Config
             { PropType.太白金星元神, 10 },
 
             // 地品价格 = 20
-            { PropType.多闻天王元神, 25 },
-            { PropType.广目天王元神, 25 },
-            { PropType.雷震子元神, 25 },
-            { PropType.月老元神, 25 },
+            { PropType.多闻天王元神, 30 },
+            { PropType.广目天王元神, 30 },
+            { PropType.雷震子元神, 30 },
+            { PropType.月老元神, 30 },
 
             // 天品价格 = 40
-            { PropType.嫦娥元神, 100 },
-            { PropType.杨戬元神, 100 },
-            { PropType.妲己元神, 100 },
-            { PropType.牛魔王元神, 100 },
+            { PropType.嫦娥元神, 150 },
+            { PropType.杨戬元神, 150 },
+            { PropType.妲己元神, 150 },
+            { PropType.牛魔王元神, 150 },
 
             // 宇品价格 = 80
-            { PropType.哪吒元神, 300 },
-            { PropType.孙悟空元神, 300 },
-            { PropType.碧霄元神, 300 },
-            { PropType.琼霄元神, 300 },
+            { PropType.哪吒元神, 500 },
+            { PropType.孙悟空元神, 500 },
+            { PropType.碧霄元神, 500 },
+            { PropType.琼霄元神, 500 },
 
             // 宙品价格 = 160
-            { PropType.羲和元神, 1000 },
-            { PropType.常羲元神, 1000 },
-            { PropType.后羿元神, 1000 },
-            { PropType.云霄元神, 1000 },
+            { PropType.羲和元神, 2000 },
+            { PropType.常羲元神, 2000 },
+            { PropType.后羿元神, 2000 },
+            { PropType.云霄元神, 2000 },
 
             // 洪品价格 = 320
-            { PropType.女娲元神, 2000 },
-            { PropType.老子元神, 2000 },
-            { PropType.通天元神, 2000 },
-            { PropType.元始元神, 2000 },
-            { PropType.盘古元神, 5000 },
-            { PropType.鸿钧元神, 5000 },
+            { PropType.女娲元神, 5000 },
+            { PropType.老子元神, 5000 },
+            { PropType.通天元神, 5000 },
+            { PropType.元始元神, 5000 },
+            { PropType.盘古元神, 12000 },
+            { PropType.鸿钧元神, 12000 },
         };
         
         public static Dictionary<JingJieType, List<ZhaoMuItem>> ZhaoMuGaiLvNormalDic =

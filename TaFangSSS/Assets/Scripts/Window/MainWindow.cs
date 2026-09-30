@@ -91,6 +91,10 @@ public class MainWindow : MonoBehaviour
     public TextMeshProUGUI MaxExp;
     public TextMeshProUGUI LingQi;
     public TextMeshProUGUI GongDe;
+    public TextMeshProUGUI 矿石;
+    public TextMeshProUGUI 玄铁;
+    public TextMeshProUGUI 玉髓;
+
     public Button 招募Btn;
     public Button 招募卷Debug;
     public Button 英雄按钮;
@@ -188,6 +192,10 @@ public class MainWindow : MonoBehaviour
         MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为).ToString();
         LingQi.text=PlayerData.S.PropListDic[PropType.灵魂].ToString("F0");
         GongDe.text=PlayerData.S.PropListDic[PropType.功德].ToString("F0");
+        矿石.text=PlayerData.S.PropListDic[PropType.矿石].ToString("F0");
+        玄铁.text=PlayerData.S.PropListDic[PropType.玄铁].ToString("F0");
+        玉髓.text=PlayerData.S.PropListDic[PropType.玉髓].ToString("F0");
+
     }
     public void Init()
     {

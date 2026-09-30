@@ -31,6 +31,12 @@ public class 洞天秘境窗口 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
         挑战按钮.onClick.AddListener(() =>
         {
+            Scene Scene1 = SceneManager.GetSceneByName("FightScene");
+            if (Scene1.IsValid() && Scene1.isLoaded)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","已在战斗中");
+                return;
+            }
             LevelConfig.当前关卡类型 = 关卡类型.洞天秘境;
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
             Scene Scene = SceneManager.GetSceneByName("LoadScene");

@@ -131,6 +131,12 @@ public class 远古遗迹窗口 : MonoBehaviour
         });
         挑战Button.onClick.AddListener(() =>
         {
+            Scene Scene1 = SceneManager.GetSceneByName("FightScene");
+            if (Scene1.IsValid() && Scene1.isLoaded)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","已在战斗中");
+                return;
+            }
             LevelConfig.当前关卡类型 = 关卡类型.远古遗迹;
             LevelConfig.当前神物Type= HeroWindowController.S.当前遗迹关卡Type;
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);

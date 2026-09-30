@@ -38,7 +38,6 @@ public class ObserverModuleManager : XSingleton<ObserverModuleManager>
     {
         if (!_observerDic.ContainsKey(key)) 
         {
-            Debug.LogWarning($"没有找到事件 {key} 的监听器");
             return;
         }
 

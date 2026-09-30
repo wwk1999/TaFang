@@ -179,24 +179,24 @@ public class 道宝Config
         { 道宝Type.风火轮, "哪吒足下灵宝，脚踏风火日行万里，飞腾九天灵动非凡至极。" },
         { 道宝Type.如意金箍棒, "大禹定海神针，可大可小随心如意，齐天大圣横扫九天之兵。" },
     };
-    public static float 羁绊黑暗伤害增幅 => Get羁绊Level(羁绊Type.翻海断岳) * 5;
-    public static float 羁绊火焰伤害增幅 => Get羁绊Level(羁绊Type.五方照落) * 5;
-    public static float 羁绊雷电伤害增幅 => Get羁绊Level(羁绊Type.照落金莲) * 5;
-    public static float 羁绊物理伤害增幅 => Get羁绊Level(羁绊Type.五行飞仙斩) * 5;
-    public static float 羁绊冰霜伤害增幅 => Get羁绊Level(羁绊Type.紫金断岳) * 5;
+    public static float 羁绊黑暗伤害增幅 => Get羁绊Level(羁绊Type.翻海断岳) * 3;
+    public static float 羁绊火焰伤害增幅 => Get羁绊Level(羁绊Type.五方照落) * 3;
+    public static float 羁绊雷电伤害增幅 => Get羁绊Level(羁绊Type.照落金莲) * 3;
+    public static float 羁绊物理伤害增幅 => Get羁绊Level(羁绊Type.五行飞仙斩) * 3;
+    public static float 羁绊冰霜伤害增幅 => Get羁绊Level(羁绊Type.紫金断岳) * 3;
     
-    public static float 羁绊法师伤害增幅 => Get羁绊Level(羁绊Type.天地人) * 5;
-    public static float 羁绊战士伤害增幅 => Get羁绊Level(羁绊Type.弑神定海) * 5;
-    public static float 羁绊射手伤害增幅 => Get羁绊Level(羁绊Type.山河七宝) * 5;
+    public static float 羁绊法师伤害增幅 => Get羁绊Level(羁绊Type.天地人) * 3;
+    public static float 羁绊战士伤害增幅 => Get羁绊Level(羁绊Type.弑神定海) * 3;
+    public static float 羁绊射手伤害增幅 => Get羁绊Level(羁绊Type.山河七宝) * 3;
     
-    public static float 羁绊暴击率 => Get羁绊Level(羁绊Type.造化乾坤) * 5;
-    public static float 羁绊伤害减免 => Get羁绊Level(羁绊Type.圣德光辉) * 5;
-    public static float 羁绊最终伤害 => Get羁绊Level(羁绊Type.菩提风火) * 5;
+    public static float 羁绊暴击率 => Get羁绊Level(羁绊Type.造化乾坤) * 3;
+    public static float 羁绊伤害减免 => Get羁绊Level(羁绊Type.圣德光辉) * 3;
+    public static float 羁绊最终伤害 => Get羁绊Level(羁绊Type.菩提风火) * 3;
     
-    public static float 羁绊灵气 => Get羁绊Level(羁绊Type.开天辟地) * 10;
-    public static float 羁绊功德 => Get羁绊Level(羁绊Type.诛仙剑阵) * 10;
+    public static float 羁绊灵气 => Get羁绊Level(羁绊Type.开天辟地) * 5;
+    public static float 羁绊功德 => Get羁绊Level(羁绊Type.诛仙剑阵) * 5;
     
-    public static float 羁绊寻宝速度=> Get羁绊Level(羁绊Type.混沌归元) * 10;
+    public static float 羁绊寻宝速度=> Get羁绊Level(羁绊Type.混沌归元) * 5;
 
      public static Dictionary<羁绊Type, 羁绊配置> 羁绊配置 = new Dictionary<羁绊Type, 羁绊配置>()
     {
@@ -213,7 +213,7 @@ public class 道宝Config
                     道宝Type.金蛟剪,
                     道宝Type.先天五方旗,
                 },
-                效果描述 = "每级提供5%的黑暗伤害增幅"
+                效果描述 = "每级提供3%的黑暗伤害增幅"
             }
         },
         {
@@ -229,7 +229,7 @@ public class 道宝Config
                     道宝Type.五色神光,
                     道宝Type.紫金葫芦,
                 },
-                效果描述 = "每级提供5%的物理伤害增幅"
+                效果描述 = "每级提供3%的物理伤害增幅"
             }
         },
         {
@@ -245,7 +245,7 @@ public class 道宝Config
                     道宝Type.落宝金钱,
                     道宝Type.照妖镜,
                 },
-                效果描述 = "每级提供5%的雷霆伤害增幅"
+                效果描述 = "每级提供3%的雷霆伤害增幅"
             }
         },
         {
@@ -261,7 +261,7 @@ public class 道宝Config
                     道宝Type.金蛟剪,
                     道宝Type.如意金箍棒,
                 },
-                效果描述 = "每级提供5%的冰霜伤害增幅"
+                效果描述 = "每级提供3%的冰霜伤害增幅"
             }
         },
         {
@@ -277,7 +277,7 @@ public class 道宝Config
                     道宝Type.照妖镜,
                     道宝Type.翻天印,
                 },
-                效果描述 = "每级提供5%的火焰伤害增幅"
+                效果描述 = "每级提供3%的火焰伤害增幅"
             }
         },
         
@@ -295,7 +295,7 @@ public class 道宝Config
                     道宝Type.地书,
                     道宝Type.冥书,
                 },
-                效果描述 = "每级提供5%法师伤害增幅"
+                效果描述 = "每级提供3%法师伤害增幅"
             }
         },
         {
@@ -310,7 +310,7 @@ public class 道宝Config
                     道宝Type.山河社稷图,
                     道宝Type.七宝妙树,
                 },
-                效果描述 = "每级提供5%射手伤害增幅"
+                效果描述 = "每级提供3%射手伤害增幅"
             }
         },
         {
@@ -325,7 +325,7 @@ public class 道宝Config
                     道宝Type.弑神枪,
                     道宝Type.定海神珠,
                 },
-                效果描述 = "每级提供5%战士伤害增幅"
+                效果描述 = "每级提供3%战士伤害增幅"
             }
         },
         
@@ -343,7 +343,7 @@ public class 道宝Config
                     道宝Type.轩辕剑,
                     道宝Type.女娲石,
                 },
-                效果描述 = "每级提供5%城墙伤害减免"
+                效果描述 = "每级提供3%城墙伤害减免"
             }
         },
         {
@@ -359,7 +359,7 @@ public class 道宝Config
                     道宝Type.乾坤鼎,
                     道宝Type.玉净瓶,
                 },
-                效果描述 = "每级提供5%暴击率"
+                效果描述 = "每级提供3%暴击率"
             }
         },
         {
@@ -375,7 +375,7 @@ public class 道宝Config
                     道宝Type.风火轮,
                     道宝Type.河图洛书,
                 },
-                效果描述 = "每级提供5%最终伤害增幅"
+                效果描述 = "每级提供3%最终伤害增幅"
             }
         },
         
@@ -394,7 +394,7 @@ public class 道宝Config
                     道宝Type.陷仙剑,
                     道宝Type.绝仙剑,
                 },
-                效果描述 = "每级增加主线关卡10%功德数量"
+                效果描述 = "每级增加主线关卡5%功德数量"
             }
         },
         {
@@ -409,7 +409,7 @@ public class 道宝Config
                     道宝Type.盘古幡,
                     道宝Type.混沌钟,
                 },
-                效果描述 = "每级增加主线关卡10%灵气数量"
+                效果描述 = "每级增加主线关卡5%灵气数量"
             }
         },
         // ==================== 混沌级 ====================
@@ -427,7 +427,7 @@ public class 道宝Config
                     道宝Type.混沌珠,
                     道宝Type.开天斧,
                 },
-                效果描述 = "每级增加秘境关卡10%寻宝速度"
+                效果描述 = "每级增加秘境关卡5%寻宝速度"
             }
         },
     };
