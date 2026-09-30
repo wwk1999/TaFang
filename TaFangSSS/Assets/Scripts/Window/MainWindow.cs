@@ -257,9 +257,10 @@ public class MainWindow : MonoBehaviour
         }
     }
 
-    // 统一入口：激活窗口 + 强制刷新 UGUI 全局画布排序（解决 additive 双场景后层级缓存不重建）
+    // 统一入口：激活窗口 + 延迟一帧强制刷新 UGUI 全局画布排序（解决 additive 双场景后层级缓存不重建）
     private void 激活窗口(GameObject win)
     {
+        // 先激活再刷新：Canvas 未激活时不在全局排序列表里，同帧改回还会被 UGUI 跳过重排
         win.SetActive(true);
         WindowController.强制刷新画布排序(win);
     }

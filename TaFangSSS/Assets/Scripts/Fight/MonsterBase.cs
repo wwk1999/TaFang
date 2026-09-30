@@ -199,7 +199,10 @@ public class MonsterBase : MonoBehaviour
       InitAttribute();
       image.sortingOrder = (int)(transform.position.y * -100)+1;
       bg.sortingOrder = (int)(transform.position.y * -100);
-      HpCanvas.sortingOrder = (int)(transform.position.y * -100)+3;
+      // 血条 Canvas 固定层级：之前按 Y 坐标算出随机排序值，每次出怪都会以随机 order 激活根 Canvas，
+      // 触发 UGUI 全局画布排序重建——additive 双场景下 UI 窗口被排错/不显示的元凶。
+      // 固定 500：血条仍在所有怪物立绘(order±400)之上，且与 Overlay 的 UI 窗口互不干扰。
+      HpCanvas.sortingOrder = 500;
       灼烧image.sortingOrder = (int)(transform.position.y * -100)+2;
       冰块.sortingOrder = (int)(transform.position.y * -100)+2;
       MonsterSlider.gameObject.SetActive(false);

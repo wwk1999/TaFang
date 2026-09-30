@@ -74,10 +74,22 @@ public class 道场 : MonoBehaviour
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.炼丹室] == 0)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
-                return;
+                if (PlayerData.S.历史最高境界 >= JingJieType.元婴)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.炼丹室] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.炼丹室] = 1;
+                    }
+
+                    WindowController.S.炼丹Window.gameObject.SetActive(true);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast", "元婴境界解锁");
+                    return;
+                }
             }
-            WindowController.S.炼丹Window.gameObject.SetActive(true);
+
         });
         炼器室.onClick.AddListener(() =>
         {

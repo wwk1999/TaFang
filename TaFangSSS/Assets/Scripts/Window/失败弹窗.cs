@@ -31,16 +31,15 @@ public class 失败弹窗 : MonoBehaviour
         {
             Time.timeScale = 1;
             清空怪物();
-            // 回收池化战斗对象 + 新场景加载后重建画布排序
-            QueueController.S.退出战斗();
-            SceneManager.LoadScene("UIScene");
+            // 卸载战斗场景并切回还活着的 UIScene（Single 重载会销毁 WindowController/MainWindow，画布排序必乱）
+            QueueController.S.退出战斗回道场();
         });
         AgainButtn.onClick.AddListener(() =>
         {
             Time.timeScale = 1;
             清空怪物();
-            QueueController.S.退出战斗();
-            SceneManager.LoadScene("LoadScene");
+            // 卸载战斗场景后 additive 重走 LoadScene→FightScene 流程，常驻 UIScene 不动
+            QueueController.S.重开战斗();
         });
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Config;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QueueController:XSingleton<QueueController>
 {
@@ -174,17 +175,90 @@ public class QueueController:XSingleton<QueueController>
         StartCoroutine(场景切换后刷新画布排序());
     }
 
+    /// <summary>
+    /// 战斗弹窗"再战一次/重试"：卸载当前战斗场景，重新走 LoadScene→FightScene 加载流程。
+    /// 必须由常驻的 QueueController 执行协程：弹窗自身在 FightScene 里，场景一卸载协程就中断。
+    /// 绝不能用 Single LoadScene：会把常驻的 UIScene 一起卸掉（WindowController/MainWindow 全挂
+    /// 在 UIScene 下会被销毁，之后单例在 FightScene 重建、UIScene 重载，两套 UI 混杂导致画布排序必乱）。
+    /// </summary>
+    public void 重开战斗()
+    {
+        StartCoroutine(重开战斗协程());
+    }
+
+    private IEnumerator 重开战斗协程()
+    {
+        回收所有战斗对象();
+        // 卸载战斗场景 + 残留的加载场景（首次进战斗后 LoadScene 场景只是被隐藏没卸载，
+        // additive 重载同名场景会叠加出两份 LoadWindow，必须先卸干净）
+        var unloadFight = SceneManager.UnloadSceneAsync("FightScene");
+        var unloadLoad = SceneManager.UnloadSceneAsync("LoadScene");
+        while ((unloadFight != null && !unloadFight.isDone) ||
+               (unloadLoad != null && !unloadLoad.isDone))
+        {
+            yield return null;
+        }
+        // additive 重新走加载流程，LoadWindow.Start 会自动加载新 FightScene 并切换 active scene
+        var load = SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Additive);
+        while (load != null && !load.isDone)
+        {
+            yield return null;
+        }
+        var loadScene = SceneManager.GetSceneByName("LoadScene");
+        if (loadScene.IsValid() && loadScene.isLoaded)
+        {
+            SceneManager.SetActiveScene(loadScene);
+        }
+    }
+
+    /// <summary>
+    /// 战斗弹窗"退出"：卸载战斗场景，直接切回还活着的 UIScene（不重载）。
+    /// 原来的 Single LoadScene("UIScene") 会把旧 UIScene 连同挂在其下的
+    /// WindowController/MainWindow/所有窗口销毁再重建，破坏 additive 双场景架构。
+    /// </summary>
+    public void 退出战斗回道场()
+    {
+        退出战斗();
+        StartCoroutine(卸载战斗场景回道场协程());
+    }
+
+    private IEnumerator 卸载战斗场景回道场协程()
+    {
+        var unload = SceneManager.UnloadSceneAsync("FightScene");
+        while (unload != null && !unload.isDone)
+        {
+            yield return null;
+        }
+        Scene uiScene = SceneManager.GetSceneByName("UIScene");
+        if (uiScene.IsValid() && uiScene.isLoaded)
+        {
+            SceneManager.SetActiveScene(uiScene);
+            WindowController.S.打开窗口(WindowController.S.MainWindow);
+        }
+        else
+        {
+            // 兜底：UIScene 意外不在了（例如旧存档冷启动路径），才整体重载
+            SceneManager.LoadScene("UIScene");
+        }
+    }
+
     private IEnumerator 场景切换后刷新画布排序()
     {
         // 等两帧：第1帧新场景 Awake/Start 完成，第2帧确保 Instantiate 的窗口 Canvas 全部注册
         yield return null;
         yield return null;
-        foreach (var c in FindObjectsOfType<Canvas>())
+        // 必须跨帧：同帧内 +1 再改回，帧末最终值未变，UGUI 会跳过全局排序重建
+        var canvases = FindObjectsOfType<Canvas>();
+        foreach (var c in canvases)
         {
             if (c == null) continue;
-            int order = c.sortingOrder;
-            c.sortingOrder = order + 1;
-            c.sortingOrder = order;
+            c.sortingOrder = c.sortingOrder + 1;
+        }
+        yield return null; // 让新值真实渲染一帧，强制 UGUI 重建全局排序
+        foreach (var c in canvases)
+        {
+            if (c == null) continue;
+            c.sortingOrder = c.sortingOrder - 1;
         }
     }
 
