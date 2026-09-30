@@ -34,22 +34,28 @@ public class 序列一次伤害技能 : MonoBehaviour
         }
         switch (heroType)
         {
+            // 特效的 heroType 是神通模板英雄，可能并未上场（Entrance 只为出战英雄填充 英雄技能树属性），
+            // 未上场时按 效果范围=0 处理，避免裸索引器抛 KeyNotFoundException（与 冰符/普通魔法弹 同款写法）
             case HeroType.河伯:
                 目标scale = 英雄星级属性.河伯效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
+                if (FightController.S.英雄技能树属性.ContainsKey(heroType))
+                    目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
                 break;
             case HeroType.嫦娥:
                 目标scale = 英雄星级属性.嫦娥效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
+                if (FightController.S.英雄技能树属性.ContainsKey(heroType))
+                    目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
                 break;
             case HeroType.雷震子:
                 目标scale = 英雄星级属性.雷震子效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
+                if (FightController.S.英雄技能树属性.ContainsKey(heroType))
+                    目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
 
                 break;
             case HeroType.碧霄:
                 目标scale = 英雄星级属性.碧霄效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
+                if (FightController.S.英雄技能树属性.ContainsKey(heroType))
+                    目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
 
                 break;
             case HeroType.琼霄:
@@ -57,7 +63,8 @@ public class 序列一次伤害技能 : MonoBehaviour
                 break;
             case HeroType.玄女:
                 目标scale = 英雄星级属性.玄女效果范围;
-                目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
+                if (FightController.S.英雄技能树属性.ContainsKey(heroType))
+                    目标scale *= (1f + FightController.S.英雄技能树属性[heroType].效果范围 / 100f);
                 break;
         }
         gameObject.transform.localScale = new Vector3(原始scale.x * 目标scale, 原始scale.y * 目标scale, 1);
