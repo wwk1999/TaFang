@@ -81,7 +81,10 @@ public class PlayerData : XSingleton<PlayerData>
     public List<供奉> 供奉申请列表=new List<供奉>();
     public List<供奉> 供奉保留列表=new List<供奉>();
     
-    public List<HeroType>神通配置List=new List<HeroType>();
+    public List<HeroType>神通配置List=new List<HeroType>()
+    {
+        HeroType.丹童
+    };
 
     public Dictionary<HeroType, List<List<int>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<int>>>()
 {
@@ -3370,7 +3373,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     };
     public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
     {
-        { 0, new List<HeroType>() { HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
+        { 0, new List<HeroType>() { HeroType.丹童 ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
         { 1, new List<HeroType>(){ HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
         { 2, new List<HeroType>(){ HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},
         { 3, new List<HeroType>(){ HeroType.None ,HeroType.None,HeroType.None,HeroType.None,HeroType.None}},

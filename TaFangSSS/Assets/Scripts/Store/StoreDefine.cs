@@ -25,7 +25,10 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 是否首次进入英雄界面 = false;
         public bool 是否首次进入关卡 = false;
         public bool 是否首次通关关卡 = false;
-        public List<HeroType>神通配置List=new List<HeroType>();
+        public List<HeroType>神通配置List=new List<HeroType>()
+        {
+            HeroType.丹童
+        };
         public bool 是否首次配置神通 = false;
 
         public int CurrentBianDui = 1;
@@ -2995,7 +2998,7 @@ public class StoreDefine : XSingleton<StoreController>
 
         public Dictionary<int, List<HeroType>> 出战英雄List = new Dictionary<int, List<HeroType>>()
         {
-            { 0, new List<HeroType>() { HeroType.None, HeroType.None, HeroType.None, HeroType.None, HeroType.None } },
+            { 0, new List<HeroType>() { HeroType.丹童, HeroType.None, HeroType.None, HeroType.None, HeroType.None } },
             { 1, new List<HeroType>() { HeroType.None, HeroType.None, HeroType.None, HeroType.None, HeroType.None } },
             { 2, new List<HeroType>() { HeroType.None, HeroType.None, HeroType.None, HeroType.None, HeroType.None } },
             { 3, new List<HeroType>() { HeroType.None, HeroType.None, HeroType.None, HeroType.None, HeroType.None } },

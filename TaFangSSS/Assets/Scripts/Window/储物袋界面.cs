@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public Button 超脱Button;
+
    public 轮回确认弹窗 轮回确认弹窗;
    public Button 轮回按钮;
    public 丹方使用弹窗 丹方使用弹窗;
@@ -69,7 +71,6 @@ public class 储物袋界面 : MonoBehaviour
       Set头像框();
       体质.text = 体质Config.体质名Dic[PlayerData.S.当前体质];
       体质.colorGradientPreset = ResourcesConfig.Get品质TMP(体质Config.体质品质Dic[PlayerData.S.当前体质]);
-      轮回按钮.gameObject.SetActive(PlayerData.S.当前轮回境界>=JingJieType.合体);
       修炼速度count.text = 属性config.显示修炼速度 + "%";
       if (JingJieConfig.跟脚 > 10000)
       {
@@ -225,7 +226,20 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
       轮回按钮.onClick.AddListener(() =>
       {
+         if (PlayerData.S.当前轮回境界 < JingJieType.合体)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","合体期解锁轮回");
+            return;
+         }
          轮回确认弹窗.gameObject.SetActive(true);
+      });
+      超脱Button.onClick.AddListener(() =>
+      {
+         if (PlayerData.S.当前轮回境界 < JingJieType.圣人)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","圣人期解锁超脱 ");
+            return;
+         }
       });
       分解Btn.onClick.AddListener(() =>
       {
@@ -316,9 +330,9 @@ public class 储物袋界面 : MonoBehaviour
       });
       突破Button.onClick.AddListener(() =>
       {
-         if (PlayerData.S.当前轮回境界 >= JingJieType.大乘)
+         if (PlayerData.S.当前轮回境界 >= JingJieType.玄仙)
          {
-            ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版,欢迎在群里反馈问题");
+            ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版,欢迎在群里反馈问题,别忘了加愿望单哦");
             return;
          }
          if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200)
