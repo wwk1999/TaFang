@@ -484,13 +484,13 @@ public class 功法Config
     public static Dictionary<QualityType, int> 传道消耗Dic = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品, 100 },
-        { QualityType.玄品, 300 },
-        { QualityType.地品, 1000 },
-        { QualityType.天品, 3000 },
-        { QualityType.宇品, 10000 },
-        { QualityType.宙品, 30000 },
-        { QualityType.洪品, 100000 },
-        { QualityType.荒品, 1000000 },
+        { QualityType.玄品, 400 },
+        { QualityType.地品, 2000 },
+        { QualityType.天品, 10000 },
+        { QualityType.宇品, 50000 },
+        { QualityType.宙品, 400000 },
+        { QualityType.洪品, 3000000 },
+        { QualityType.荒品, 30000000 },
     };
 
     public static Dictionary<QualityType, List<float>> 传道概率Dic = new Dictionary<QualityType, List<float>>()

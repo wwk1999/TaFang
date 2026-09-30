@@ -1687,13 +1687,13 @@ public class MonsterBase : MonoBehaviour
          小怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
          精英怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].EliteMonsterCount;
       }
-      if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == 小怪数量/2)
+      if (FightController.S.KillMonsterCount == 小怪数量/2)
       {
          FightController.S.CreateBossMonster();
       }
       for (int i = 1; i <= 精英怪数量; i++)
       {
-         if (SceneManager.GetActiveScene().name=="FightScene"&&FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
+         if (FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
          {
             FightController.S.CreateEliteMonster();
          }

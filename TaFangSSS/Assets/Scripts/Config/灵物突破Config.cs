@@ -396,7 +396,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 100, maxCount = 150, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 80, maxCount = 100, PropType = PropType.功德 },
             }
         },
         {
@@ -404,7 +403,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 150, maxCount = 200, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 100, maxCount = 120, PropType = PropType.功德 },
             }
         },
         {
@@ -412,7 +410,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 200, maxCount = 300, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 120, maxCount = 150, PropType = PropType.功德 },
             }
         },
         {
@@ -420,7 +417,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 150, maxCount = 200, PropType = PropType.功德 },
             }
         },
         {
@@ -428,7 +424,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 200, maxCount = 300, PropType = PropType.功德 },
             }
         },
         {
@@ -436,7 +431,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.功德 },
             }
         },
         {
@@ -444,7 +438,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.功德 },
             }
         },
         {
@@ -452,7 +445,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.功德 },
             }
         },
 
@@ -462,7 +454,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 200, maxCount = 300, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 120, maxCount = 150, PropType = PropType.功德 },
             }
         },
         {
@@ -470,7 +461,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 150, maxCount = 200, PropType = PropType.功德 },
             }
         },
         {
@@ -478,7 +468,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 200, maxCount = 300, PropType = PropType.功德 },
             }
         },
         {
@@ -486,7 +475,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.功德 },
             }
         },
         {
@@ -494,7 +482,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 500, maxCount = 1000, PropType = PropType.功德 },
             }
         },
         {
@@ -502,7 +489,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 2000, PropType = PropType.功德 },
             }
         },
         {
@@ -510,7 +496,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 5000, PropType = PropType.功德 },
             }
         },
         {
@@ -518,7 +503,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 20000, maxCount = 50000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.功德 },
             }
         },
 
@@ -528,7 +512,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 200, maxCount = 300, PropType = PropType.功德 },
             }
         },
         {
@@ -536,7 +519,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 500, maxCount = 700, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 300, maxCount = 400, PropType = PropType.功德 },
             }
         },
         {
@@ -544,7 +526,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 700, maxCount = 1000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 400, maxCount = 600, PropType = PropType.功德 },
             }
         },
         {
@@ -552,7 +533,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1000, maxCount = 1500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 600, maxCount = 1000, PropType = PropType.功德 },
             }
         },
         {
@@ -560,7 +540,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1500, maxCount = 3000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 1500, PropType = PropType.功德 },
             }
         },
         {
@@ -568,7 +547,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1500, maxCount = 2000, PropType = PropType.功德 },
             }
         },
         {
@@ -576,7 +554,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 3000, PropType = PropType.功德 },
             }
         },
         {
@@ -584,7 +561,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.功德 },
             }
         },
 
@@ -594,7 +570,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 500, maxCount = 800, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 300, maxCount = 500, PropType = PropType.功德 },
             }
         },
         {
@@ -602,7 +577,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 800, maxCount = 1200, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 500, maxCount = 800, PropType = PropType.功德 },
             }
         },
         {
@@ -610,7 +584,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1200, maxCount = 2000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 800, maxCount = 1200, PropType = PropType.功德 },
             }
         },
         {
@@ -618,7 +591,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 2000, maxCount = 3000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1200, maxCount = 1600, PropType = PropType.功德 },
             }
         },
         {
@@ -626,7 +598,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1600, maxCount = 2000, PropType = PropType.功德 },
             }
         },
         {
@@ -634,7 +605,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 5000, maxCount = 10000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 3000, PropType = PropType.功德 },
             }
         },
         {
@@ -642,7 +612,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 10000, maxCount = 20000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 3000, maxCount = 5000, PropType = PropType.功德 },
             }
         },
         {
@@ -650,7 +619,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 20000, maxCount = 30000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 5000, maxCount = 8000, PropType = PropType.功德 },
             }
         },
 
@@ -660,7 +628,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 800, maxCount = 1000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 600, maxCount = 800, PropType = PropType.功德 },
             }
         },
         {
@@ -668,7 +635,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1000, maxCount = 1200, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 800, maxCount = 1000, PropType = PropType.功德 },
             }
         },
         {
@@ -676,7 +642,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1200, maxCount = 1500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1000, maxCount = 1300, PropType = PropType.功德 },
             }
         },
         {
@@ -684,7 +649,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 1500, maxCount = 2000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1300, maxCount = 1500, PropType = PropType.功德 },
             }
         },
         {
@@ -692,7 +656,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 2000, maxCount = 2800, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 1500, maxCount = 2000, PropType = PropType.功德 },
             }
         },
         {
@@ -700,7 +663,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 2800, maxCount = 3500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2000, maxCount = 2600, PropType = PropType.功德 },
             }
         },
         {
@@ -708,7 +670,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 3500, maxCount = 4500, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 2600, maxCount = 3500, PropType = PropType.功德 },
             }
         },
         {
@@ -716,7 +677,6 @@ public class 灵物突破Config
             new List<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { minCount = 4500, maxCount = 6000, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { minCount = 3500, maxCount = 4500, PropType = PropType.功德 },
             }
         },
 
