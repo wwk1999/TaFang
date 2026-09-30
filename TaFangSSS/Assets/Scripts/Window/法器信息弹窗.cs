@@ -28,7 +28,7 @@ public class 法器信息弹窗 : MonoBehaviour
          附加属性item.SetItem();
       }
 
-      if (法器.符文 != null)
+      if (法器.符文 != null&&法器.符文.type!=符文Type.None)
       {
          var item=Instantiate(Resources.Load("Prefabs/Window/法器符文信息"), content.transform).GetComponent<法器符文信息>();
          item.符文 = 法器.符文;

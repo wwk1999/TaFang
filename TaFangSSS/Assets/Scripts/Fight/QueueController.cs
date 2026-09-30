@@ -133,6 +133,29 @@ public class QueueController:XSingleton<QueueController>
         DontDestroyOnLoad(gameObject);
     }
 
+    /// <summary>
+    /// 退出战斗前调用：停用所有仍在飞行/播放的池化战斗对象（怪物、弹道、死亡特效、伤害数字等）。
+    /// 这些对象都挂在 DontDestroyOnLoad 的 QueueController 下会跨场景存活，
+    /// 若保持 active 回到 UIScene，它们的 Update 访问 FightController.S 时
+    /// XSingleton 找不到实例会自动 new 一个 FightController 挂到 UIScene 上。
+    /// </summary>
+    public void 回收所有战斗对象()
+    {
+        // 直接挂在 QueueController 下的池化对象全部停用（伤害数字Canvas根节点除外，它本身不是战斗逻辑）
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i);
+            if (child == _伤害数字CanvasRoot) continue;
+            child.gameObject.SetActive(false);
+        }
+        // 伤害数字/黑暗印记爆炸挂在 Canvas 根节点下，停用时保持 Canvas 根节点本身 active
+        if (_伤害数字CanvasRoot != null)
+        {
+            for (int i = 0; i < _伤害数字CanvasRoot.childCount; i++)
+                _伤害数字CanvasRoot.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
     
     public IEnumerator InitHeroSkill()
     {

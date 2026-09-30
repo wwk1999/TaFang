@@ -35,6 +35,8 @@ public class 退出确认弹窗 : MonoBehaviour
         {
             Time.timeScale = 1;
             清空怪物();
+            // 停用所有跨场景存活的池化战斗对象，防止它们在 UIScene 里自动 new 出 FightController
+            QueueController.S.回收所有战斗对象();
             SceneManager.LoadScene("UIScene");
         });
     }
