@@ -47,8 +47,11 @@ public class WindowController : XSingleton<WindowController>
       var canvas = window.GetComponent<Canvas>();
       if (canvas != null && canvas.renderMode == RenderMode.ScreenSpaceOverlay)
       {
-         canvas.enabled = false;
-         canvas.enabled = true;
+         // 用 sortingOrder +1 再还原触发 UGUI 全局画布排序缓存重建
+         // （Canvas.enabled 切换不触发全局重排，只有 sortingOrder setter 才会标脏全局列表）
+         int order = canvas.sortingOrder;
+         canvas.sortingOrder = order + 1;
+         canvas.sortingOrder = order;
       }
       Canvas.ForceUpdateCanvases();
    }

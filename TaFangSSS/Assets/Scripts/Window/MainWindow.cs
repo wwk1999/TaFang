@@ -257,11 +257,23 @@ public class MainWindow : MonoBehaviour
         }
     }
 
+    // 统一入口：激活窗口 + 强制刷新 UGUI 全局画布排序（解决 additive 双场景后层级缓存不重建）
+    private void 激活窗口(GameObject win)
+    {
+        win.SetActive(true);
+        WindowController.强制刷新画布排序(win);
+    }
+    private void 激活窗口(Component win)
+    {
+        win.gameObject.SetActive(true);
+        WindowController.强制刷新画布排序(win.gameObject);
+    }
+
     public void 显示主线关卡弹窗(object[] obj)
     {
         主线关卡Type 主线关卡Type = (主线关卡Type)obj[0];
         主线关卡窗口.主线关卡Type = 主线关卡Type;
-        主线关卡窗口.gameObject.SetActive(true);
+        激活窗口(主线关卡窗口);
         if (PlayerData.S.是否首次进入关卡)
         {
             主线关卡新手mask.gameObject.SetActive(true);
@@ -311,12 +323,12 @@ public class MainWindow : MonoBehaviour
     
     public void 显示凌霄宝殿弹窗(object[] obj)
     {
-        凌霄宝殿窗口.gameObject.SetActive(true);
+        激活窗口(凌霄宝殿窗口);
     }
 
     public void 显示混沌虚空弹窗(object[] obj)
     {
-        混沌虚空窗口.gameObject.SetActive(true);
+        激活窗口(混沌虚空窗口);
     }
 
    
@@ -338,7 +350,7 @@ public class MainWindow : MonoBehaviour
     
     public void 显示三十三重天弹窗(object[] obj)
     {
-        三十三重天窗口.gameObject.SetActive(true);
+        激活窗口(三十三重天窗口);
     }
 
 
@@ -350,7 +362,7 @@ public class MainWindow : MonoBehaviour
     public void 显示丹药选择弹窗(object[] obj)
     {
         丹药选择弹窗.index = (int)obj[0];
-        丹药选择弹窗.gameObject.SetActive(true);
+        激活窗口(丹药选择弹窗);
     }
 
     public void 刷新主页Buff(object[] obj)
@@ -375,7 +387,7 @@ public class MainWindow : MonoBehaviour
     {
         //打开弹窗时按引导标志同步mask状态，避免上次引导残留的activeSelf=true导致非引导时mask跟着显示
         神通配置新手mask.gameObject.SetActive(PlayerData.S.是否首次配置神通);
-        神通配置弹窗.gameObject.SetActive(true);
+        激活窗口(神通配置弹窗);
     }
 
     public 主页地图Type 最大主页地图Type()
@@ -547,7 +559,7 @@ public class MainWindow : MonoBehaviour
         });
         坊市Button.onClick.AddListener(() =>
         {
-            坊市窗口.gameObject.SetActive(true);
+            激活窗口(坊市窗口);
         });
         远古遗迹按钮.onClick.AddListener(() =>
         {
@@ -558,7 +570,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
                 return;
             }
-            远古遗迹窗口.gameObject.SetActive(true);
+            激活窗口(远古遗迹窗口);
         });
         洞天秘境按钮.onClick.AddListener(() =>
         {
@@ -569,7 +581,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
                 return;
             }
-            洞天秘境窗口.gameObject.SetActive(true);
+            激活窗口(洞天秘境窗口);
         });
         
         符文之地按钮.onClick.AddListener(() =>
@@ -582,7 +594,7 @@ public class MainWindow : MonoBehaviour
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.符文之地;
-            符文之地窗口.gameObject.SetActive(true);
+            激活窗口(符文之地窗口);
         });
         
         设置按钮.onClick.AddListener(() =>
@@ -600,7 +612,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast",$"通关{LevelConfig.主线关卡NameDic[关卡限制]}解锁");
                 return;
             }
-            紫霄宫传道窗口.gameObject.SetActive(true);
+            激活窗口(紫霄宫传道窗口);
         });
         通天塔.onClick.AddListener(() =>
         {
@@ -612,7 +624,7 @@ public class MainWindow : MonoBehaviour
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.通天塔;
-            通天塔窗口.gameObject.SetActive(true);
+            激活窗口(通天塔窗口);
         });
         世界树.onClick.AddListener(() =>
         {
@@ -624,7 +636,7 @@ public class MainWindow : MonoBehaviour
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.血海;
-            世界树窗口.gameObject.SetActive(true);
+            激活窗口(世界树窗口);
         });
         血海.onClick.AddListener(() =>
         {
@@ -636,7 +648,7 @@ public class MainWindow : MonoBehaviour
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.世界树;
-            血海窗口.gameObject.SetActive(true);
+            激活窗口(血海窗口);
         });
         
         不周山.onClick.AddListener(() =>
@@ -648,7 +660,7 @@ public class MainWindow : MonoBehaviour
                 return;
             }
             HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.不周山;
-            不周山窗口.gameObject.SetActive(true);
+            激活窗口(不周山窗口);
         });
         城墙Debug.onClick.AddListener(() =>
         {
@@ -796,7 +808,7 @@ public class MainWindow : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            坊市窗口.gameObject.SetActive(true);
+            激活窗口(坊市窗口);
         }
         if (Input.GetKeyDown(KeyCode.T))
         {

@@ -54,8 +54,19 @@ public class 道场 : MonoBehaviour
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.坊市] == 0)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
-                return;
+                if (PlayerData.S.历史最高境界 >= JingJieType.金丹)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.坊市] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.坊市] = 1;
+                    }
+                    坊市窗口.gameObject.SetActive(true);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","金丹境界解锁");
+                    return;
+                }
             }
             坊市窗口.gameObject.SetActive(true);        
         });

@@ -52,8 +52,10 @@ public class 突破确认弹窗 : MonoBehaviour
                 {
                     PlayerData.S.建筑等级Dic[建筑Type.领主府] = 1;
                     PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] = 1;
+                    PlayerData.S.建筑等级Dic[建筑Type.坊市] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","领主府已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","坊市已解锁");
                 }
             }
             PlayerData.S.Exp = 0;
