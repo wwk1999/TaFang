@@ -203,8 +203,6 @@ public class FightWindow : MonoBehaviour
 
             WindowController.S.MainWindow.SetActive(true);
             content.gameObject.SetActive(false);
-            // 关闭战斗相机/Canvas 等渲染组件（不停战斗逻辑），防止后台战斗画面遮挡道场界面
-            QueueController.S.切换后台战斗视觉(false);
         }
         设置Button.onClick.AddListener(() =>
         {

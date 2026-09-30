@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Config;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class QueueController:XSingleton<QueueController>
 {
@@ -155,66 +154,6 @@ public class QueueController:XSingleton<QueueController>
             for (int i = 0; i < _伤害数字CanvasRoot.childCount; i++)
                 _伤害数字CanvasRoot.GetChild(i).gameObject.SetActive(false);
         }
-    }
-
-    // ===== additive 双场景并存时的战斗视觉开关 =====
-    // 回道场时只关渲染组件（Camera/Canvas），不关 GameObject，保证 FightController/怪物 Update 继续跑；
-    // 否则战斗相机、FightScene 的 Overlay Canvas(order1000)、伤害数字Canvas(order10000)
-    // 会跨场景继续渲染，遮挡 UIScene 里 sortingOrder 更低的界面（Game视图被挡、Scene视图正常）。
-    private Camera _fightCamera;
-    private Camera _uiCamera;
-    private readonly List<Canvas> _fightSceneCanvases = new List<Canvas>();
-
-    /// <summary>
-    /// 切换后台战斗视觉：false=回道场（隐藏所有战斗渲染），true=回战斗（还原）
-    /// </summary>
-    public void 切换后台战斗视觉(bool 显示战斗)
-    {
-        var fightScene = SceneManager.GetSceneByName("FightScene");
-        var uiScene = SceneManager.GetSceneByName("UIScene");
-
-        if (_fightCamera == null && fightScene.IsValid())
-            _fightCamera = 查找场景相机(fightScene);
-        if (_uiCamera == null && uiScene.IsValid())
-            _uiCamera = 查找场景相机(uiScene);
-
-        if (显示战斗)
-        {
-            if (_fightCamera != null) _fightCamera.enabled = true;
-            if (_uiCamera != null) _uiCamera.cullingMask = -1; // Everything，恢复正常遮罩
-            foreach (var c in _fightSceneCanvases)
-                if (c != null) c.enabled = true;
-            if (_伤害数字CanvasRoot != null)
-                _伤害数字CanvasRoot.GetComponent<Canvas>().enabled = true;
-        }
-        else
-        {
-            // 缓存战斗场景所有 Canvas（含未激活节点），只关组件不停逻辑
-            _fightSceneCanvases.Clear();
-            if (fightScene.IsValid())
-            {
-                foreach (var root in fightScene.GetRootGameObjects())
-                    _fightSceneCanvases.AddRange(root.GetComponentsInChildren<Canvas>(true));
-            }
-            if (_fightCamera != null) _fightCamera.enabled = false;
-            // UI 相机临时只渲染 UI 层(5)：怪物L7/特效L9 等后台战斗 SpriteRenderer 不会被它画出来
-            if (_uiCamera != null) _uiCamera.cullingMask = 1 << 5;
-            foreach (var c in _fightSceneCanvases)
-                if (c != null) c.enabled = false;
-            // 伤害数字 Canvas(WorldSpace,order10000) 在 DontDestroyOnLoad 下，单独关
-            if (_伤害数字CanvasRoot != null)
-                _伤害数字CanvasRoot.GetComponent<Canvas>().enabled = false;
-        }
-    }
-
-    private Camera 查找场景相机(Scene scene)
-    {
-        foreach (var root in scene.GetRootGameObjects())
-        {
-            var cam = root.GetComponentInChildren<Camera>(true);
-            if (cam != null) return cam;
-        }
-        return null;
     }
 
     

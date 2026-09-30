@@ -495,8 +495,6 @@ public class MainWindow : MonoBehaviour
             {
                 SceneManager.SetActiveScene(fightScene);
                 ObserverModuleManager.S.SendEvent("显示FightWindow");
-                // 还原战斗相机/Canvas 渲染
-                QueueController.S.切换后台战斗视觉(true);
                 gameObject.SetActive(false);
             }
         });
