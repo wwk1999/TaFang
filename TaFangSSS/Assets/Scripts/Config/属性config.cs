@@ -570,7 +570,16 @@ public class 属性config
      public static float 丹药掉宝率 => Get丹药掉宝率();
      
      public static float 总掉宝率 => (1f+丹药掉宝率/100f)*(1f+体质Config.当前体质总属性.掉宝率/100f);
-     
+
+     public static float Get总掉宝率()
+     {
+          float value=(1f+丹药掉宝率/100f)*(1f+体质Config.当前体质总属性.掉宝率/100f);
+          if (PlayerData.S.是否加入愿望单)
+          {
+               value *= 1.2f;
+          }
+          return value;
+     }
      public static float Get丹药掉宝率()
      {
           float count = 0;

@@ -11,6 +11,7 @@ public class PlayerData : XSingleton<PlayerData>
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool 是否加入愿望单 = false;
     public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;
     public 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
     public string Name = "修仙者";

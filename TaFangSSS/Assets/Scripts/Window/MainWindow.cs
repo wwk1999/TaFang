@@ -21,6 +21,7 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public Button 加入愿望单按钮;
     public Button 返回战斗按钮;
     public Button 洪荒世界按钮;
     public Button 返回道场按钮;
@@ -486,6 +487,11 @@ public class MainWindow : MonoBehaviour
         {
             显示道场 = true;
             Show道场和地图();
+        });
+        加入愿望单按钮.onClick.AddListener(() =>
+        {
+            PlayerData.S.是否加入愿望单 = true;
+            Application.OpenURL("https://store.steampowered.com/app/5074040/");
         });
         返回战斗按钮.onClick.AddListener(() =>
         {

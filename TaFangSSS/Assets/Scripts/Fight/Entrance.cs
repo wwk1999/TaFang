@@ -96,7 +96,7 @@ public class Entrance : MonoBehaviour
    public IEnumerator DelayShow失败弹窗()
    {
        yield return new WaitForSecondsRealtime(0.5f);
-       Instantiate(Resources.Load("Prefabs/Window/失败弹窗"));
+       ObserverModuleManager.S.SendEvent("显示失败弹窗");
    }
 
    public void 设置护盾(object[] obj)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Config;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class StoreDefine : XSingleton<StoreController>
@@ -12,6 +13,7 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public bool 是否加入愿望单 = false;
         public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;
 
         public 神物Type 最大神物关卡 = 神物Type.最终伤害;
@@ -25,6 +27,9 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 是否首次进入英雄界面 = false;
         public bool 是否首次进入关卡 = false;
         public bool 是否首次通关关卡 = false;
+        // Replace：反序列化时用存档里的列表整体替换，而不是往字段默认值[丹童]里追加
+        // （Newtonsoft 默认 Auto 会复用初始化器创建的集合并 Add，导致丹童每次读档都被加回来）
+        [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
         public List<HeroType>神通配置List=new List<HeroType>()
         {
             HeroType.丹童
@@ -3224,6 +3229,7 @@ public class StoreDefine : XSingleton<StoreController>
             自动拒绝仙品供奉 = runtime.自动拒绝仙品供奉;
             自动拒绝圣品供奉 = runtime.自动拒绝圣品供奉;
             打造List = runtime.打造List;
+            是否加入愿望单 =runtime.是否加入愿望单;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3302,7 +3308,18 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.是否首次进入英雄界面 = 是否首次进入英雄界面;
             runtime.是否首次进入关卡 = 是否首次进入关卡;
             runtime.是否首次通关关卡 = 是否首次通关关卡;
-            runtime.神通配置List = 神通配置List;
+            // 保序去重：清理旧版本因 Newtonsoft Auto 追加 bug 已存进存档的重复英雄（如多个丹童）
+            var 去重神通List = new List<HeroType>();
+            var 已存在神通 = new HashSet<HeroType>();
+            if (神通配置List != null)
+            {
+                foreach (var hero in 神通配置List)
+                {
+                    if (已存在神通.Add(hero))
+                        去重神通List.Add(hero);
+                }
+            }
+            runtime.神通配置List = 去重神通List;
             runtime.是否首次配置神通 = 是否首次配置神通;
             runtime.英雄技能树Dic = 英雄技能树Dic;
             runtime.主页地图Type = 主页地图Type;
@@ -3321,6 +3338,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.自动拒绝仙品供奉 = 自动拒绝仙品供奉;
             runtime.自动拒绝圣品供奉 = 自动拒绝圣品供奉;
             runtime.打造List = 打造List;
+            runtime.是否加入愿望单 = 是否加入愿望单;
         }
     }
 }

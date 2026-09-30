@@ -136,13 +136,7 @@ public class 洞天秘境窗口 : MonoBehaviour
             trans.sizeDelta = new Vector2(80, 80);
             MonsterItem.SetItem();
         }
-        var 功德item=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
-        功德item.PropType = PropType.功德;
-        功德item.QualityType = LevelConfig.当前洞天QualityType;
-
-        RectTransform trans1 = 功德item.gameObject.GetComponent<RectTransform>();
-        trans1.sizeDelta = new Vector2(80, 80);
-        功德item.SetItem();
+        
         var 灵魂item=Instantiate(Resources.Load("Prefabs/Window/洞天掉落Item"),掉落列表.transform).GetComponent<洞天掉落Item>();
         灵魂item.PropType = PropType.灵魂;
         灵魂item.QualityType = LevelConfig.当前洞天QualityType;

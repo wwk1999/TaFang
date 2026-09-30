@@ -202,7 +202,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.功德 },
             }
         },
         {
@@ -210,7 +209,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 90, minCount = 70, PropType = PropType.功德 },
             }
         },
         {
@@ -218,7 +216,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 115, minCount = 95, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 95, minCount = 75, PropType = PropType.功德 },
             }
         },
         {
@@ -226,7 +223,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
             }
         },
         {
@@ -234,7 +230,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
             }
         },
         {
@@ -242,7 +237,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 115, minCount = 95, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 95, minCount = 75, PropType = PropType.功德 },
             }
         },
         {
@@ -250,7 +244,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
             }
         },
         {
@@ -258,7 +251,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
             }
         },
         {
@@ -266,7 +258,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 80, minCount = 60, PropType = PropType.功德 },
             }
         },
         {
@@ -274,7 +265,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 80, minCount = 60, PropType = PropType.功德 },
             }
         },
         {
@@ -282,7 +272,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 140, minCount = 120, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.功德 },
             }
         },
         {
@@ -290,7 +279,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 140, minCount = 120, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.功德 },
             }
         },
         {
@@ -298,7 +286,6 @@ public class 神物Config
             new HashSet<LevelDiaoLuo>()
             {
                 new LevelDiaoLuo() { maxCount = 130, minCount = 110, PropType = PropType.灵魂 },
-                new LevelDiaoLuo() { maxCount = 110, minCount = 90, PropType = PropType.功德 },
             }
         },
     };

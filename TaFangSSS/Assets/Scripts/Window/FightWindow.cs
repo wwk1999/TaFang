@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public 失败弹窗 失败弹窗;
     public GameObject content;
     public 胜利弹窗 胜利弹窗;
     public Button 返回道场;
@@ -114,8 +115,13 @@ public class FightWindow : MonoBehaviour
         }
     }
 
+    public void 显示失败弹窗(object[] obj)
+    {
+        失败弹窗.gameObject.SetActive(true);
+    }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("显示失败弹窗",显示失败弹窗);
         ObserverModuleManager.S.UnRegisterEvent("显示胜利弹窗",显示胜利弹窗);
         ObserverModuleManager.S.UnRegisterEvent("设置丹药区域",Set丹药区域);
         ObserverModuleManager.S.UnRegisterEvent("通关新手引导",通关新手引导);
@@ -149,6 +155,7 @@ public class FightWindow : MonoBehaviour
     }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("显示失败弹窗",显示失败弹窗);
         ObserverModuleManager.S.RegisterEvent("显示胜利弹窗",显示胜利弹窗);
         ObserverModuleManager.S.RegisterEvent("设置丹药区域",Set丹药区域);
         ObserverModuleManager.S.RegisterEvent("通关新手引导",通关新手引导);

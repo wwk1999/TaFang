@@ -70,6 +70,7 @@ public class StartWindow : MonoBehaviour
       ObserverModuleManager.S.SendEvent("播放BGM",true);
       加入愿望单Button.onClick.AddListener(() =>
       {
+         PlayerData.S.是否加入愿望单 = true;
          Application.OpenURL("https://store.steampowered.com/app/5074040/");
       });
       StartBtn.onClick.AddListener(() =>
