@@ -1685,15 +1685,15 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
 
   // 昊天殿 (第23关)
   {
-    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Normal },
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Normal },
     new MonsterAttribute() { Hp = 200000000000, Attack = 120000, Defense = 40000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
-    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Elite },
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Elite },
     new MonsterAttribute() { Hp = 2000000000000, Attack = 200000, Defense = 60000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
-    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Boss },
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Boss },
     new MonsterAttribute() { Hp = 20000000000000, Attack = 400000, Defense = 120000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
 
