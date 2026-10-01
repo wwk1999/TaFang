@@ -1239,7 +1239,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
            switch (item.PropType)
            {
                case PropType.灵魂:
-                   value.灵魂 = (int)(random*(1f+道宝Config.羁绊灵气/100f));
+                   value.灵魂 = (int)(random*(1f+道宝Config.羁绊灵气/100f)*(1f+属性config.灵气增幅));
                    break;
                case PropType.射手经验值:
                    value.射手经验值 = random;

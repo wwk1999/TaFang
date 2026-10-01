@@ -96,7 +96,7 @@ public class 胜利弹窗 : MonoBehaviour
     public void 洞天关卡结算()
     {
         洞天关卡胜利奖励 value = LevelConfig.Get洞天关卡胜利奖励();
-        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
+        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         foreach (var item in value.List)
         {
             PlayerData.S.Set灵物数量(item.JingJieType, item.QualityType,
@@ -125,7 +125,7 @@ public class 胜利弹窗 : MonoBehaviour
     public void 遗迹关卡结算()
     {
         遗迹关卡胜利奖励 value = 神物Config.Get遗迹关卡奖励();
-        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
+        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         // TryGetValue：老存档的神物获得Dic可能缺少新神物键，缺失视为未获得
         bool 已获得神物 = PlayerData.S.神物获得Dic.TryGetValue(LevelConfig.当前神物Type, out var got) && got;
         if (value.神物 && !已获得神物)
@@ -157,7 +157,7 @@ public class 胜利弹窗 : MonoBehaviour
         }
 
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
-        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
+        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         foreach (var item in value.符文list)
         {
             switch (item.quality)

@@ -1858,9 +1858,12 @@ public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterT
     基础防御 *= 1.5f;
     基础攻击力 *= 1.5f;
   }
-  基础攻击力 = Mathf.Pow(基础攻击力, 1.2f * count );
-  基础防御 = Mathf.Pow(基础防御, 1.2f * count );
-  基础生命 = Mathf.Pow(基础生命, 1.5f * count );
+  // 每层乘法成长（幂底数必须是倍率而不是基础值）：
+  // 原 pow(基础值, 1.5×层) 每层增长数千万倍，第5层起血量超出 float 上限(3.4e38)变为 Infinity，怪永远不死
+  // 现第33层普通怪血量 ≈ 150000×3^32 ≈ 2.8e20，远离溢出；手感偏软/偏硬直接调这三个倍率
+  基础攻击力 *= Mathf.Pow(1.2f, count - 1);
+  基础防御 *= Mathf.Pow(1.2f, count - 1);
+  基础生命 *= Mathf.Pow(1.5f, count - 1);
   if (count > 10)
   {
     基础抗性 = 80;

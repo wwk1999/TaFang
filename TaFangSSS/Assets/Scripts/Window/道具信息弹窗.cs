@@ -51,7 +51,7 @@ public class 道具信息弹窗 : MonoBehaviour
          case 道具信息Type.辅助经验值:
          case 道具信息Type.鞋子锻造石:
          case 道具信息Type.项链锻造石:
-            if (主线关卡Type == 主线关卡Type.混沌虚空)
+            if (HeroWindowController.S.当前显示关卡类型 == 当前显示关卡类型.三十三重天)
             {
                var value=LevelConfig.Get混沌虚空奖励(HeroWindowController.S.显示混沌虚空层数,PropConfig.道具信息ToPropType[type]);
                数量.text = "掉落数量:" + value.min + "-" + value.max;

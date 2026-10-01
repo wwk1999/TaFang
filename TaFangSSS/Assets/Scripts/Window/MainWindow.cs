@@ -535,6 +535,7 @@ public class MainWindow : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","通关昊天殿之后解锁");
                 return;
             }
+            HeroWindowController.S.当前显示关卡类型 = 当前显示关卡类型.三十三重天;
             混沌虚空窗口.gameObject.SetActive(true);
         });
         加入愿望单按钮.onClick.AddListener(() =>

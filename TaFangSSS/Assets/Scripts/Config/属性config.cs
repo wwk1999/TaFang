@@ -568,8 +568,8 @@ public class 属性config
      public static float 每年秒数 => Get每秒数();
 
      public static float 丹药掉宝率 => Get丹药掉宝率();
-     
-     public static float 总掉宝率 => (1f+丹药掉宝率/100f)*(1f+体质Config.当前体质总属性.掉宝率/100f);
+
+     public static float 总掉宝率 => Get总掉宝率();
 
      public static float Get总掉宝率()
      {
@@ -578,6 +578,7 @@ public class 属性config
           {
                value *= 1.2f;
           }
+          value *= (1f + (PlayerData.S.混沌虚空最大层数 - 1) / 100f);
           return value;
      }
      public static float Get丹药掉宝率()
@@ -592,6 +593,8 @@ public class 属性config
           }
           return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
      }
+
+     public static float 灵气增幅 => (PlayerData.S.混沌虚空最大层数 - 1) / 100f;
      public static float Get丹药修炼速度()
      {
           float count = 0;
