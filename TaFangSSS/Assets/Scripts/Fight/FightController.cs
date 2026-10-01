@@ -1528,6 +1528,8 @@ public class FightController : XSingleton<FightController>
     public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, float speed,float 瑶池冰辅助,float 黑暗辅助,int 穿透,bool 女娲电辅助,HeroType heroType,bool 瑶池神通,bool 妲己神通,bool 女娲神通,bool 是否神通)
     {
         普通魔法弹带peng 魔法弹 = null;
+        try
+        {
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
         {
             case 攻击特效Type.丹童神通:
@@ -1595,6 +1597,13 @@ public class FightController : XSingleton<FightController>
         魔法弹.女娲神通 = 女娲神通;
         魔法弹.穿透 = 穿透;
         魔法弹.gameObject.SetActive(true);
+        }
+        catch
+        {
+            // 对象池耗尽等异常：跳过这发弹幕即可（纯表现损失）。
+            // 绝不能让异常沿调用链上抛到 DOTween 回调——SafeMode 会杀掉整个序列，
+            // 英雄的 上场/是否在神通 标志将永久卡死不再出手
+        }
     }
     // 英雄静态战斗数据懒加载缓存：字典在 Entrance 出战初始化时已全部填好，战斗内不变
     public 英雄战斗缓存 Get英雄战斗缓存(HeroType heroType)
@@ -1814,6 +1823,8 @@ public class FightController : XSingleton<FightController>
 
     public void CreateNormalMonster()
     {
+        // 对象池耗尽（怪未及时回收等）时跳过本次生成，避免每帧抛异常
+        if (QueueController.S.普通怪Queue.Count == 0) return;
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.普通怪Queue.Dequeue();
@@ -1849,6 +1860,8 @@ public class FightController : XSingleton<FightController>
         {
             return;
         }
+        // 对象池耗尽时跳过本次生成，避免每帧抛异常
+        if (QueueController.S.精英怪Queue.Count == 0) return;
         EliteMonsterCount++;
         float x = 10f;
         float y = Random.Range(-4f, 4f);
@@ -1884,6 +1897,8 @@ public class FightController : XSingleton<FightController>
         {
             return;
         }
+        // 对象池耗尽时跳过，避免抛异常且空播首领出现事件
+        if (QueueController.S.首领怪Queue.Count == 0) return;
         ObserverModuleManager.S.SendEvent("首领出现");
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.首领出现);
         float x = 10f;

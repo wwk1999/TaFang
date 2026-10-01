@@ -108,10 +108,23 @@ public class 人物item : MonoBehaviour
         float random=Random.Range(0.8f,1.2f);
         return value*random;
     }
+    [NonSerialized] private Collider2D 攻击范围Collider;
+    private Collider2D Get攻击范围Collider()
+    {
+        if (攻击范围Collider == null && 攻击范围Tri != null)
+            攻击范围Collider = 攻击范围Tri.GetComponentInChildren<Collider2D>();
+        return 攻击范围Collider;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Monster")) return;
         if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
+
+        // 英雄根节点下有多个触发器（石敢当神通三角形、牛魔王技能圆等），
+        // 它们的 Enter/Exit 也会发给本脚本；只认真正接触攻击范围碰撞体的怪
+        var rangeCol = Get攻击范围Collider();
+        if (rangeCol != null && !rangeCol.IsTouching(other)) return;
 
         if (攻击范围内怪物.Add(monster))  // Add返回true表示新增
         {
@@ -123,6 +136,12 @@ public class 人物item : MonoBehaviour
     {
         if (!other.CompareTag("Monster")) return;
         if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
+
+        // 任一附属触发器的 Exit 不能移除仍在攻击范围内的怪：
+        // HashSet 去重了 Enter，但任何触发器的 Exit 都会移除成功，
+        // 怪退出附属触发器但仍在攻击圈内时会被误删，且攻击圈不会补发 Enter
+        var rangeCol = Get攻击范围Collider();
+        if (rangeCol != null && rangeCol.IsTouching(other)) return;
 
         if (攻击范围内怪物.Remove(monster))
         {
@@ -272,7 +291,23 @@ public class 人物item : MonoBehaviour
             释放神通();
         }
         else if (!是否在神通&&monsterBase!=null&&CurrentAttackTime > 攻击间隔&&!上场&&!FightController.S.战斗结束)
-        { 
+        {
+            // 全局集火目标不在自己攻击范围内时（战士范围小、下场往返期间目标常走远），
+            // 改打自己范围内最靠前(x最小)的怪，避免原地发呆等全局目标死亡
+            if (!攻击范围内怪物.Contains(monsterBase) && 攻击范围内怪物列表.Count > 0)
+            {
+                MonsterBase 替补目标 = null;
+                for (int i = 0; i < 攻击范围内怪物列表.Count; i++)
+                {
+                    var m = 攻击范围内怪物列表[i];
+                    if (m == null || m.isDead) continue;
+                    if (替补目标 == null || m.transform.position.x < 替补目标.transform.position.x)
+                    {
+                        替补目标 = m;
+                    }
+                }
+                if (替补目标 != null) monsterBase = 替补目标;
+            }
             Vector2 targetPos = monsterBase.transform.position;
             CurrentAttackTime = 0;
             if (heroType == HeroType.瑶池仙女||heroType == HeroType.妲己||heroType == HeroType.女娲)//辅助类
@@ -779,6 +814,16 @@ public class 人物item : MonoBehaviour
         {
             上场 = false;
             是否在神通 = false;
+        });
+        // 兜底：序列若被 DOTween SafeMode 中途杀死（回调内对象池等抛异常），
+        // OnKill 仍会执行，保证 上场/是否在神通 复位，战士不会永久停手
+        mySequence.OnKill(() =>
+        {
+            if (this == null) return;
+            上场 = false;
+            是否在神通 = false;
+            if (Vector2.Distance(transform.position, 原始Pos) > 0.01f)
+                transform.DOMove(原始Pos, 0.2f);
         });
     }
 
