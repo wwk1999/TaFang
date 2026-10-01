@@ -510,13 +510,13 @@ namespace Config
 
         public static PropType NormalZhaoMu()
         {
-            List<ZhaoMuItem> list = ZhaoMuGaiLvNormalDic[PlayerData.S.历史最高境界];
-            int random=Random.Range(1, 101);
-            int count = 0;
+            var list = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].普通招募概率;
+            float random=Random.Range(0, 100f);
+            float count = 0;
             int quality = 1;
             foreach (var item in list)
             {
-                count += item.count;
+                count += item;
                 if (random <= count)
                 {
                     break;
@@ -532,13 +532,13 @@ namespace Config
         
         public static PropType GaoJiZhaoMu()
         {
-            List<ZhaoMuItem> list = ZhaoMuGaiLvGaoJiDic[PlayerData.S.历史最高境界];
-            int random=Random.Range(1, 101);
-            int count = 0;
+            var list = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].高级招募概率;
+            float random=Random.Range(0, 100f);
+            float count = 0;
             int quality = 1;
             foreach (var item in list)
             {
-                count += item.count;
+                count += item;
                 if (random <= count)
                 {
                     break;

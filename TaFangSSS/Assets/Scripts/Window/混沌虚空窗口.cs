@@ -13,9 +13,6 @@ public class 混沌虚空窗口 : MonoBehaviour
 
     public GameObject 丹药content;
 
-    public TextMeshProUGUI title;
-    public TextMeshProUGUI description;
-    public TextMeshProUGUI 通关奖励;
     public GameObject 敌人Content;
     public GameObject 掉落Content;
     public Button 挑战Button;
@@ -115,7 +112,6 @@ public class 混沌虚空窗口 : MonoBehaviour
 
     public void 刷新混沌虚空窗口(object[] obj)
     {
-        通关奖励.text = $"修炼速度+<color=green>{LevelConfig.Get混沌虚空通关奖励(HeroWindowController.S.显示混沌虚空层数)}%</color>";
     }
     private void Awake()
     {
@@ -160,9 +156,6 @@ public class 混沌虚空窗口 : MonoBehaviour
         pagenum = 最大页数;
         HeroWindowController.S.显示混沌虚空层数 = PlayerData.S.混沌虚空最大层数;
         ObserverModuleManager.S.SendEvent("混沌虚空格子点击",HeroWindowController.S.显示混沌虚空层数);
-        title.text = LevelConfig.主线关卡NameDic[主线关卡Type.混沌虚空];
-        description.text = LevelConfig.主线关卡介绍Dic[主线关卡Type.混沌虚空];
-        通关奖励.text = $"修炼速度+<color=green>{LevelConfig.Get混沌虚空通关奖励(HeroWindowController.S.显示混沌虚空层数)}%</color>";
         foreach (Transform item in 敌人Content.transform)
         {
             Destroy(item.gameObject);

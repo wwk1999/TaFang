@@ -15,7 +15,7 @@ public class 升级材料item : MonoBehaviour
 
     public void SetItem()
     {
-        countText.text = count.ToString();
+        countText.text = PlayerData.S.格式化数字(count);
         switch (升级材料Type)
         {
             case 升级材料Type.灵气:

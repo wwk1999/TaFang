@@ -71,19 +71,19 @@ public class 神物Config
     };
     public static Dictionary<神物Type, float> 神物数值Dic = new Dictionary<神物Type, float>()
     {
-        { 神物Type.最终伤害, 50 },
-        { 神物Type.冷却缩减, 30 },
-        { 神物Type.全元素增伤, 50 },
+        { 神物Type.最终伤害, 80 },
+        { 神物Type.冷却缩减, 40 },
+        { 神物Type.全元素增伤, 80 },
         { 神物Type.元素人人为我, 1 },
         { 神物Type.元素我为人人, 1 },
-        { 神物Type.全职业增伤, 50 },
+        { 神物Type.全职业增伤, 80 },
         { 神物Type.职业我为人人, 1 },
         { 神物Type.职业人人为我, 1 },
-        { 神物Type.暴击爆伤, 50 },
+        { 神物Type.暴击爆伤, 60 },
         { 神物Type.二次暴击, 1 },
         { 神物Type.轮回次数加伤, 10 },
         { 神物Type.轮回系数, 1 },
-        { 神物Type.时间流速加快, 20 },
+        { 神物Type.时间流速加快, 30 },
     };
 
     public static 遗迹关卡胜利奖励 Get遗迹关卡奖励()
@@ -179,17 +179,17 @@ public class 神物Config
     
     public static Dictionary<神物Type, float> 神物掉落概率Dic = new Dictionary<神物Type, float>()
     {
-        { 神物Type.最终伤害, 1.5f },
-        { 神物Type.冷却缩减, 1.5f },
-        { 神物Type.全元素增伤, 1.5f },
+        { 神物Type.最终伤害, 2f },
+        { 神物Type.冷却缩减, 2f },
+        { 神物Type.全元素增伤, 2f },
         { 神物Type.元素人人为我, 1 },
         { 神物Type.元素我为人人, 1 },
         { 神物Type.全职业增伤, 1 },
-        { 神物Type.职业我为人人, 0.8f },
-        { 神物Type.职业人人为我, 0.8f },
-        { 神物Type.暴击爆伤, 0.8f },
-        { 神物Type.二次暴击, 0.3f },
-        { 神物Type.轮回次数加伤, 0.5f },
+        { 神物Type.职业我为人人, 1f },
+        { 神物Type.职业人人为我, 1f },
+        { 神物Type.暴击爆伤, 1f },
+        { 神物Type.二次暴击, 0.4f },
+        { 神物Type.轮回次数加伤, 0.4f },
         { 神物Type.轮回系数, 0.3f },
         { 神物Type.时间流速加快, 0.1f },
     };
@@ -201,91 +201,91 @@ public class 神物Config
             神物Type.最终伤害,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 1000, minCount = 800, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1000, minCount = 1000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.冷却缩减,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1300, minCount = 1000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.全元素增伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 1500, minCount = 1200, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1600, minCount = 1300, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.元素人人为我,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 1800, minCount = 1500, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 2000, minCount = 1600, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.元素我为人人,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 2500, minCount = 2000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.全职业增伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 2600, minCount = 2200, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 3000, minCount = 2500, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.职业人人为我,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 3000, minCount = 2600, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 3500, minCount = 3000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.职业我为人人,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 3500, minCount = 3000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 4000, minCount = 3500, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.暴击爆伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 4000, minCount = 3500, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 4500, minCount = 4000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.二次暴击,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 4500, minCount = 4000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 5000, minCount = 4500, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.轮回次数加伤,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 5000, minCount = 4500, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 6000, minCount = 5000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.轮回系数,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 6000, minCount = 5000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 7000, minCount = 6000, PropType = PropType.灵魂 },
             }
         },
         {
             神物Type.时间流速加快,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 7000, minCount = 6000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.灵魂 },
             }
         },
     };

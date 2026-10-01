@@ -21,6 +21,7 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+
     public Button 导出存档Button;
 
     public Button 三十三重天Button;
@@ -529,7 +530,12 @@ public class MainWindow : MonoBehaviour
         });
         三十三重天Button.onClick.AddListener(() =>
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast","通关昊天殿之后解锁");
+            if (PlayerData.S.最大主线关卡 <= LevelConfig.秘境解锁Dic[秘境type.三十三重天])
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","通关昊天殿之后解锁");
+                return;
+            }
+            混沌虚空窗口.gameObject.SetActive(true);
         });
         加入愿望单按钮.onClick.AddListener(() =>
         {

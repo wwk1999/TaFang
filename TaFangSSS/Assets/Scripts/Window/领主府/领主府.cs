@@ -342,10 +342,10 @@ public class 领主府 : MonoBehaviour
 
    public void Show道场信息()
    {
-      矿石速度.text = 道场Config.Get矿石速度().ToString("F0");
-      玄铁速度.text = 道场Config.Get玄铁速度().ToString("F0");
-      玉髓速度.text = 道场Config.Get玉髓速度().ToString("F0");
-      功德速度.text = 道场Config.Get功德速度().ToString("F0");
+      矿石速度.text = PlayerData.S.格式化数字(道场Config.Get矿石速度());
+      玄铁速度.text = PlayerData.S.格式化数字(道场Config.Get玄铁速度());
+      玉髓速度.text = PlayerData.S.格式化数字(道场Config.Get玉髓速度());
+      功德速度.text = PlayerData.S.格式化数字(道场Config.Get功德速度());
    }
 
    public void Show建筑面板()
@@ -559,12 +559,12 @@ public class 领主府 : MonoBehaviour
          case 建筑Type.坊市:
             var 当前坊市概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 当前效果content.transform)
                .GetComponent<概率升级效果item>();
-            当前坊市概率列表.list = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].概率;
+            当前坊市概率列表.list = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].概率;
             当前坊市概率列表.SetItem();
             
             var 升级坊市概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 升级效果content.transform)
                .GetComponent<概率升级效果item>();
-            升级坊市概率列表.list = 道场Config.坊市配置[1+PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].概率;
+            升级坊市概率列表.list = 道场Config.坊市配置[1+PlayerData.S.建筑等级Dic[建筑Type.坊市]].概率;
             升级坊市概率列表.SetItem();
             break;
          

@@ -190,7 +190,7 @@ public class Entrance : MonoBehaviour
                 return 地图Type.天庭;
       }
 
-      return 地图Type.混沌;
+      return 地图Type.天庭;
    }
 
    public void InitRenWu()

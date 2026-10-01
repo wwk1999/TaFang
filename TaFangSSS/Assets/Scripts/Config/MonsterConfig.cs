@@ -1839,6 +1839,76 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
     new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
 };
+
+public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterType type)
+{
+  float 基础攻击力 = 100000;
+  float 基础防御 = 300;
+  float 基础生命 = 150000;
+  float 基础抗性 = 70;
+  if (type == MonsterType.Boss)
+  {
+    基础生命 *= 100;
+    基础防御 *= 2;
+    基础攻击力 *= 2;
+  }
+  if (type == MonsterType.Elite)
+  {
+    基础生命 *= 10;
+    基础防御 *= 1.5f;
+    基础攻击力 *= 1.5f;
+  }
+  基础攻击力 = Mathf.Pow(基础攻击力, 1.2f * count );
+  基础防御 = Mathf.Pow(基础防御, 1.2f * count );
+  基础生命 = Mathf.Pow(基础生命, 1.5f * count );
+  if (count > 10)
+  {
+    基础抗性 = 80;
+  }
+  if (count > 20)
+  {
+    基础抗性 = 85;
+  }
+  if (count > 30)
+  {
+    基础抗性 = 90;
+  }
+  if (count > 40)
+  {
+    基础抗性 = 93;
+  }
+  if (count > 50)
+  {
+    基础抗性 = 95;
+  }
+  if (count > 60)
+  {
+    基础抗性 = 97;
+  }
+  if (count > 70)
+  {
+    基础抗性 = 98;
+  }
+  if (count > 80)
+  {
+    基础抗性 = 98.5f;
+  }
+  if (count > 90)
+  {
+    基础抗性 = 99;
+  }
+
+  MonsterAttribute MonsterAttribute = new MonsterAttribute();
+  MonsterAttribute.Hp = 基础生命;
+  MonsterAttribute.Attack = 基础攻击力;
+  MonsterAttribute.Defense = 基础防御;
+  MonsterAttribute.物理抗性 = 基础抗性;
+  MonsterAttribute.冰霜抗性 = 基础抗性;
+  MonsterAttribute.黑暗抗性 = 基础抗性;
+  MonsterAttribute.火焰抗性 = 基础抗性;
+  MonsterAttribute.雷电抗性 = 基础抗性;
+  return MonsterAttribute;
+}
   public static Dictionary<MonsterTypeName, MonsterType> MonsterTypeDic =
         new Dictionary<MonsterTypeName, MonsterType>()
         {

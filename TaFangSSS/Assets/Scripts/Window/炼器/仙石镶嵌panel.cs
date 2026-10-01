@@ -36,7 +36,6 @@ public class 仙石镶嵌panel : MonoBehaviour
 
     private void OnEnable()
     {
-        HeroWindowController.S.仙石镶嵌panel当前法器 = null;
         HeroWindowController.S.仙石=null;
         页数num = 1;
         显示法器 = true;

@@ -333,13 +333,8 @@ public class MonsterBase : MonoBehaviour
       };
       if (LevelConfig.Is混沌虚空)
       {
-         int count = LevelConfig.战斗混沌虚空层数 - 1;
-         float 倍率 = Mathf.Pow(1.2f, count);
-         怪物属性.Attack *= 倍率;
-         怪物属性.Hp *= 倍率;
-         怪物属性.Defense *= 倍率;
+         return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗混沌虚空层数, item.MonsterType);
       }
-
       return 怪物属性;
    }
 
@@ -1595,7 +1590,7 @@ public class MonsterBase : MonoBehaviour
    {
       foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
       {
-         if (item == HeroType.None) return;
+         if (item == HeroType.None) continue;
          if (PlayerData.S.HeroDataDic[item].功法Type != 功法Type.None)
          {
             PlayerData.S.HeroDataDic[item].功法经验+=(1f+FightController.S.缓存体质总属性.功法经验加成/100f);

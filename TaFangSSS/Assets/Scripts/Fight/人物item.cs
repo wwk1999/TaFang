@@ -108,13 +108,8 @@ public class 人物item : MonoBehaviour
         float random=Random.Range(0.8f,1.2f);
         return value*random;
     }
-    [NonSerialized] private Collider2D 攻击范围Collider;
-    private Collider2D Get攻击范围Collider()
-    {
-        if (攻击范围Collider == null && 攻击范围Tri != null)
-            攻击范围Collider = 攻击范围Tri.GetComponentInChildren<Collider2D>();
-        return 攻击范围Collider;
-    }
+    public Collider2D 攻击范围Collider;
+   
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -123,7 +118,7 @@ public class 人物item : MonoBehaviour
 
         // 英雄根节点下有多个触发器（石敢当神通三角形、牛魔王技能圆等），
         // 它们的 Enter/Exit 也会发给本脚本；只认真正接触攻击范围碰撞体的怪
-        var rangeCol = Get攻击范围Collider();
+        var rangeCol = 攻击范围Collider;
         if (rangeCol != null && !rangeCol.IsTouching(other)) return;
 
         if (攻击范围内怪物.Add(monster))  // Add返回true表示新增
@@ -140,7 +135,7 @@ public class 人物item : MonoBehaviour
         // 任一附属触发器的 Exit 不能移除仍在攻击范围内的怪：
         // HashSet 去重了 Enter，但任何触发器的 Exit 都会移除成功，
         // 怪退出附属触发器但仍在攻击圈内时会被误删，且攻击圈不会补发 Enter
-        var rangeCol = Get攻击范围Collider();
+        var rangeCol = 攻击范围Collider;
         if (rangeCol != null && rangeCol.IsTouching(other)) return;
 
         if (攻击范围内怪物.Remove(monster))

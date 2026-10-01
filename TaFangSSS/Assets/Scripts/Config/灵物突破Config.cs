@@ -181,7 +181,7 @@ public class 灵物突破Config
             new MonsterAttribute() { Hp = 500000000, Attack = 10000, Defense = 4000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
         },
 
-
+        
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute() { Hp = 300000000, Attack = 10000, Defense = 4000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
@@ -199,34 +199,34 @@ public class 灵物突破Config
         {
             new 洞天怪物Item() { JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 5000000000, Attack = 30000, Defense = 12000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 50000000000, Attack = 60000, Defense = 18000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 500000000000, Attack = 120000, Defense = 40000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 300000000000, Attack = 120000, Defense = 40000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 3000000000000, Attack = 200000, Defense = 60000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = 30000000000000, Attack = 400000, Defense = 120000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
 
 

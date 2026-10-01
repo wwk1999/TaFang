@@ -330,7 +330,7 @@ public class 储物袋界面 : MonoBehaviour
       });
       突破Button.onClick.AddListener(() =>
       {
-         if (PlayerData.S.当前轮回境界 >= JingJieType.玄仙)
+         if (PlayerData.S.当前轮回境界 >= JingJieType.金仙)
          {
             ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版,欢迎在群里反馈问题,别忘了加愿望单哦");
             return;

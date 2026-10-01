@@ -40,7 +40,7 @@ public class 主线关卡地图item : MonoBehaviour
         {
             标签.gameObject.SetActive(true);
             image.image.raycastTarget = true;
-            name.text = LevelConfig.主线关卡NameDic[主线关卡Type];
+            name.text = (int)主线关卡Type+"."+LevelConfig.主线关卡NameDic[主线关卡Type];
         }
     }
 }
