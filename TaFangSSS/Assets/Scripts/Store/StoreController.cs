@@ -65,6 +65,29 @@ public class StoreController : XSingleton<StoreController>
         return StoreData;
     }
 
+    /// <summary>
+    /// 导出存档：先把当前进度保存到本地，再复制一份到桌面，返回导出文件路径。
+    /// </summary>
+    public string 导出存档()
+    {
+        // 先落盘，保证导出的是最新进度
+        SaveStoreData();
+
+        string 存档名 = $"塔防刷刷刷存档_{StoreData.Player.Name}_{DateTime.Now:yyyyMMdd_HHmmss}";
+        foreach (var c in Path.GetInvalidFileNameChars())
+        {
+            存档名 = 存档名.Replace(c, '_');
+        }
+
+        string 导出路径 = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+            存档名 + ".json");
+
+        File.Copy(SavePath, 导出路径, true);
+        Debug.Log($"导出存档成功->{导出路径}");
+        return 导出路径;
+    }
+
     protected override void Awake()
     {
         DontDestroyOnLoad(gameObject);

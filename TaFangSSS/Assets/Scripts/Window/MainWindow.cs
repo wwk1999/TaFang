@@ -21,6 +21,8 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public Button 导出存档Button;
+
     public Button 三十三重天Button;
 
     public Button 加入愿望单按钮;
@@ -508,6 +510,22 @@ public class MainWindow : MonoBehaviour
             }
             显示道场 = true;
             Show道场和地图();
+        });
+        导出存档Button.onClick.AddListener(() =>
+        {
+            try
+            {
+                string 导出路径 = StoreController.S.导出存档();
+                // IL2CPP 不支持 System.Diagnostics.Process，用 OpenURL 打开桌面文件夹
+                string 导出目录 = System.IO.Path.GetDirectoryName(导出路径);
+                Application.OpenURL("file:///" + 导出目录.Replace("\\", "/"));
+                ObserverModuleManager.S.SendEvent("SendUIToast", "存档已导出到桌面");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"导出存档失败: {e.Message}");
+                ObserverModuleManager.S.SendEvent("SendUIToast", "导出存档失败");
+            }
         });
         三十三重天Button.onClick.AddListener(() =>
         {
