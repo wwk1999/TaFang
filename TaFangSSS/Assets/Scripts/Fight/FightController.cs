@@ -383,8 +383,8 @@ public class FightController : XSingleton<FightController>
                 break;
         }
     }
-    
 
+    public float 射手攻击速度 = 15;
     public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助,float 瑶池神通,float 妲己神通time,float 女娲神通time)
     {
         float damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.总属性.总攻击力;
@@ -395,43 +395,43 @@ public class FightController : XSingleton<FightController>
                 switch (丹童分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 4:
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 5:
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.普通火魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,丹童穿透数量,女娲电辅助>0,HeroType.丹童,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }                
                 break;
             case HeroType.土地:
                 ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.土地);
-                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,0,女娲电辅助>0,HeroType.土地,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                Shot普通魔法弹(攻击特效Type.黑暗魔法弹,shotpos,dir,damage,射手攻击速度,瑶池冰辅助,黑暗辅助,0,女娲电辅助>0,HeroType.土地,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 break;
             case HeroType.河伯:
                 一次伤害技能(攻击特效Type.冰刺, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通time>0,女娲神通time>0);           
@@ -455,37 +455,37 @@ public class FightController : XSingleton<FightController>
                 switch (太白金星分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 4:
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 5:
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,太白金星穿透数量,女娲电辅助>0,HeroType.太白金星,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }
                 break;
@@ -494,37 +494,37 @@ public class FightController : XSingleton<FightController>
                 switch (多闻天王分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 4:
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 5:
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.黑暗花魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,多闻天王穿透数量,女娲电辅助>0,HeroType.多闻天王,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }
                 break;
@@ -536,37 +536,37 @@ public class FightController : XSingleton<FightController>
                 switch (月老分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 4:
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 5:
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.火虎魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,月老穿透数量,女娲电辅助>0,HeroType.月老,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }
                 break;
@@ -579,37 +579,37 @@ public class FightController : XSingleton<FightController>
                switch (杨戬分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,0,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 4:
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 5:
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.电龙魔法弹,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,杨戬穿透数量,女娲电辅助>0,HeroType.杨戬,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }
                 break;
@@ -630,43 +630,43 @@ public class FightController : XSingleton<FightController>
                 switch (后羿分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 4:
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 5:
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助>0,HeroType.后羿,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }
                 //StartCoroutine(后羿连射(hero, shotpos, dir, damage, 瑶池冰辅助, 黑暗辅助,女娲电辅助>0,瑶池神通>0,妲己神通time>0,女娲神通time>0));
@@ -682,22 +682,22 @@ public class FightController : XSingleton<FightController>
                 switch (云霄分裂数量)
                 {
                     case 0:
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,dir,damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 1:
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 2:
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                     case 3:
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        Shot普通魔法弹(攻击特效Type.冰剑气,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,100,女娲电辅助>0,HeroType.云霄,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                         break;
                 }
                 break;
@@ -714,56 +714,56 @@ public class FightController : XSingleton<FightController>
 
                 if (通天分裂数量==0)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 }
 
                 if (通天分裂数量==1)
                 {
                     Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 2, true), damage,
-                         10, 瑶池冰辅助, 黑暗辅助, 通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                        射手攻击速度, 瑶池冰辅助, 黑暗辅助, 通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                     Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, GetDirectionOffset(dir, 2, false), damage,
-                         10, 瑶池冰辅助, 黑暗辅助, 通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, dir, damage, 10, 瑶池冰辅助,
+                        射手攻击速度, 瑶池冰辅助, 黑暗辅助, 通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气, shotpos, dir, damage, 射手攻击速度, 瑶池冰辅助,
                         黑暗辅助, 通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 }
                 
                 if (通天分裂数量==2)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 }
                 
                 if (通天分裂数量==3)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,0,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,0,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 }
                 
                 if (通天分裂数量==4)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,1,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,5,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,1,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,5,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,1,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,5,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,1,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,3,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,5,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 }
                 
                 if (通天分裂数量==5)
                 {
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,6,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,0,true),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
-                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,6,false),damage,10,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,6,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,0,true),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,2,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,4,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
+                    Shot普通魔法弹(攻击特效Type.黑暗剑气,shotpos,GetDirectionOffset(dir,6,false),damage,射手攻击速度,瑶池冰辅助,黑暗辅助,通天穿透数量,女娲电辅助>0,HeroType.通天,瑶池神通>0,妲己神通time>0,女娲神通time>0,false);
                 }
                 break;
             case HeroType.鸿钧:
