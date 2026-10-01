@@ -569,8 +569,8 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
     // 冥府
     { MonsterTypeName.牛头, true },
     { MonsterTypeName.马面, false },
-    { MonsterTypeName.判官, true },
-    { MonsterTypeName.阎罗王, true },
+    { MonsterTypeName.判官, false },
+    { MonsterTypeName.阎罗王, false },
 
     // ==================== 天庭篇（凌霄宝殿十大关） ====================
     // 南天门

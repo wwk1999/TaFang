@@ -497,12 +497,12 @@ public class 功法Config
     {
         { QualityType.黄品, new List<float>() { 100, 0, 0, 0, 0, 0, 0, 0 } },
         { QualityType.玄品, new List<float>() { 70, 30, 0, 0, 0, 0, 0, 0 } },
-        { QualityType.地品, new List<float>() { 35, 50, 25, 0, 0, 0, 0, 0 } },
-        { QualityType.天品, new List<float>() { 10, 30, 40, 20, 0, 0, 0, 0 } },
-        { QualityType.宇品, new List<float>() { 0, 15, 40, 30, 15, 0, 0, 0 } },
-        { QualityType.宙品, new List<float>() { 0, 10, 25, 30, 25, 10, 0, 0 } },
-        { QualityType.洪品, new List<float>() { 0, 0, 10, 25, 40, 20, 5, 0 } },
-        { QualityType.荒品, new List<float>() { 0, 0, 0, 14, 40, 30, 15, 1 } },
+        { QualityType.地品, new List<float>() { 20, 60, 20, 0, 0, 0, 0, 0 } },
+        { QualityType.天品, new List<float>() { 0, 55, 30, 15, 0, 0, 0, 0 } },
+        { QualityType.宇品, new List<float>() { 0, 0, 65, 25, 10, 0, 0, 0 } },
+        { QualityType.宙品, new List<float>() { 0, 0, 0, 75, 20, 5, 0, 0 } },
+        { QualityType.洪品, new List<float>() { 0, 0, 0, 0, 87, 10, 3, 0 } },
+        { QualityType.荒品, new List<float>() { 0, 0, 0, 0, 0, 89, 10, 1 } },
     };
 
     public static 功法Type Get功法(QualityType qualityType)

@@ -617,7 +617,8 @@ public class 道场Config
     {
         供奉特性 供奉特性 = new 供奉特性();
         供奉特性.供奉品质Type = type;
-        供奉特性.供奉特性Type = (供奉特性Type)Random.Range(0, Enum.GetValues(typeof(供奉特性Type)).Length);
+        // 从 1 开始，跳过 None（枚举第 0 项），否则会生成无名的空特性导致字典取不到 key
+        供奉特性.供奉特性Type = (供奉特性Type)Random.Range(1, Enum.GetValues(typeof(供奉特性Type)).Length);
         return 供奉特性;
     }
     

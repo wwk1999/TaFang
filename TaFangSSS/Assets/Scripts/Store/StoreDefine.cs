@@ -3329,9 +3329,10 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.符文圣文List = 符文圣文List;
             runtime.符文帝文List = 符文帝文List;
             runtime.符文灵文List = 符文灵文List;
-            runtime.当前供奉列表 = 当前供奉列表;
-            runtime.供奉申请列表 = 供奉申请列表;
-            runtime.供奉保留列表 = 供奉保留列表;
+            // 过滤存档中可能残留的 null 供奉，避免下游渲染/属性统计空引用
+            runtime.当前供奉列表 = 过滤null供奉(当前供奉列表);
+            runtime.供奉申请列表 = 过滤null供奉(供奉申请列表);
+            runtime.供奉保留列表 = 过滤null供奉(供奉保留列表);
             runtime.建筑等级Dic = 建筑等级Dic;
             runtime.自动拒绝凡品供奉 = 自动拒绝凡品供奉;
             runtime.自动拒绝灵品供奉 = 自动拒绝灵品供奉;
@@ -3339,6 +3340,17 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.自动拒绝圣品供奉 = 自动拒绝圣品供奉;
             runtime.打造List = 打造List;
             runtime.是否加入愿望单 = 是否加入愿望单;
+        }
+
+        private static List<供奉> 过滤null供奉(List<供奉> list)
+        {
+            var 结果 = new List<供奉>();
+            if (list == null) return 结果;
+            foreach (var item in list)
+            {
+                if (item != null) 结果.Add(item);
+            }
+            return 结果;
         }
     }
 }

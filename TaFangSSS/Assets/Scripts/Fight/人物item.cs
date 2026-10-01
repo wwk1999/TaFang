@@ -110,7 +110,6 @@ public class 人物item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (上场) return;
         if (!other.CompareTag("Monster")) return;
         if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
 
@@ -122,7 +121,6 @@ public class 人物item : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (上场) return;
         if (!other.CompareTag("Monster")) return;
         if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
 

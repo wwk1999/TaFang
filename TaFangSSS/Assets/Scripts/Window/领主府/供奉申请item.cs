@@ -86,6 +86,8 @@ public class 供奉申请item : MonoBehaviour
         {
             foreach (var item in 供奉.特性list)
             {
+                // 跳过旧存档中可能存在的 None 特性（无对应名字配置）
+                if (item.供奉特性Type == 供奉特性Type.None) continue;
                 var 特性 = Instantiate(Resources.Load("Prefabs/Window/领主府/特性item"), 特性Content.transform)
                     .GetComponent<特性item>();
                 特性.供奉品质Type = item.供奉品质Type;
