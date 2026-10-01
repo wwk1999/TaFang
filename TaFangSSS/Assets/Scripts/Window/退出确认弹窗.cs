@@ -37,6 +37,7 @@ public class 退出确认弹窗 : MonoBehaviour
             清空怪物();
             // 卸载战斗场景并切回还活着的 UIScene（Single 重载会销毁 WindowController/MainWindow，画布排序必乱）
             QueueController.S.退出战斗回道场();
+            ObserverModuleManager.S.SendEvent("播放BGM",true);
         });
     }
 }

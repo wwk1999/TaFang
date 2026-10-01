@@ -189,10 +189,20 @@ public class QueueController:XSingleton<QueueController>
     private IEnumerator 重开战斗协程()
     {
         回收所有战斗对象();
-        // 卸载战斗场景 + 残留的加载场景（首次进战斗后 LoadScene 场景只是被隐藏没卸载，
-        // additive 重载同名场景会叠加出两份 LoadWindow，必须先卸干净）
-        var unloadFight = SceneManager.UnloadSceneAsync("FightScene");
-        var unloadLoad = SceneManager.UnloadSceneAsync("LoadScene");
+        // 卸载战斗场景 + 可能残留的加载场景（LoadWindow 完成任务后已会自行卸载 LoadScene）。
+        // 注意：场景未加载时 UnloadSceneAsync(名字) 会直接抛异常，必须先判断 isLoaded
+        AsyncOperation unloadFight = null;
+        AsyncOperation unloadLoad = null;
+        Scene fightScene = SceneManager.GetSceneByName("FightScene");
+        if (fightScene.IsValid() && fightScene.isLoaded)
+        {
+            unloadFight = SceneManager.UnloadSceneAsync("FightScene");
+        }
+        Scene 残留loadScene = SceneManager.GetSceneByName("LoadScene");
+        if (残留loadScene.IsValid() && 残留loadScene.isLoaded)
+        {
+            unloadLoad = SceneManager.UnloadSceneAsync("LoadScene");
+        }
         while ((unloadFight != null && !unloadFight.isDone) ||
                (unloadLoad != null && !unloadLoad.isDone))
         {
@@ -224,7 +234,12 @@ public class QueueController:XSingleton<QueueController>
 
     private IEnumerator 卸载战斗场景回道场协程()
     {
-        var unload = SceneManager.UnloadSceneAsync("FightScene");
+        AsyncOperation unload = null;
+        Scene fightScene = SceneManager.GetSceneByName("FightScene");
+        if (fightScene.IsValid() && fightScene.isLoaded)
+        {
+            unload = SceneManager.UnloadSceneAsync("FightScene");
+        }
         while (unload != null && !unload.isDone)
         {
             yield return null;
