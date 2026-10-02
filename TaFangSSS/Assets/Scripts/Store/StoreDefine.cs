@@ -3129,6 +3129,7 @@ public class StoreDefine : XSingleton<StoreController>
         { PropType.砂粉, 0 },
         { PropType.砂红, 0 },
         { PropType.砂彩, 0 },
+        { PropType.轮回石, 0 },
     };
 
        

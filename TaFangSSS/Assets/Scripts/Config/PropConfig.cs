@@ -106,6 +106,8 @@ namespace Config
         砂粉,
         砂红,
         砂彩,
+        
+        轮回石,
     }
     public enum PropType
     {
@@ -229,6 +231,7 @@ namespace Config
         砂红,
         砂彩,
         
+        轮回石,
     }
 
     public enum QualityType
@@ -361,6 +364,8 @@ namespace Config
             return ResourcesConfig.砂红;
         case 道具信息Type.砂彩:
             return ResourcesConfig.砂彩;
+        case 道具信息Type.轮回石:
+            return ResourcesConfig.轮回石;
         case 道具信息Type.道宝紫:
         case 道具信息Type.道宝橙:
         case 道具信息Type.道宝粉:
@@ -435,6 +440,7 @@ namespace Config
             { 道具信息Type.砂粉, QualityType.宙品 },
             { 道具信息Type.砂红, QualityType.洪品 },
             { 道具信息Type.砂彩, QualityType.荒品 },
+            { 道具信息Type.轮回石, QualityType.地品 },
             
             { 道具信息Type.功德, QualityType.宇品 },
             { 道具信息Type.头盔锻造石, QualityType.地品 },
@@ -539,6 +545,7 @@ namespace Config
             { 道具信息Type.砂粉, PropType.砂粉 },
             { 道具信息Type.砂红, PropType.砂红 },
             { 道具信息Type.砂彩, PropType.砂彩 },
+            { 道具信息Type.轮回石, PropType.轮回石 },
         };
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
@@ -618,6 +625,7 @@ namespace Config
             { PropType.砂粉, 道具信息Type.砂粉 },
             { PropType.砂红, 道具信息Type.砂红 },
             { PropType.砂彩, 道具信息Type.砂彩 },
+            { PropType.轮回石, 道具信息Type.轮回石 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -663,6 +671,7 @@ namespace Config
             { 道具信息Type.砂粉, "玄天砂" },
             { 道具信息Type.砂红, "鸿蒙砂" },
             { 道具信息Type.砂彩, "混沌砂" },
+            { 道具信息Type.轮回石, "轮回石" },
             
             { 道具信息Type.法器粉尘, "法器粉尘" },
             { 道具信息Type.功德, "功德" },
@@ -804,6 +813,7 @@ namespace Config
             { 道具信息Type.砂粉, "打造英雄法器的关键材料" },
             { 道具信息Type.砂红, "打造英雄法器的关键材料" },
             { 道具信息Type.砂彩, "打造英雄法器的关键材料" },
+            { 道具信息Type.轮回石, "轮回转世的关键材料" },
         };
 
         
@@ -901,6 +911,8 @@ namespace Config
                     return ResourcesConfig.砂红;
                 case PropType.砂彩:
                     return ResourcesConfig.砂彩;
+                case PropType.轮回石:
+                    return ResourcesConfig.轮回石;
                 case PropType.法器粉尘:
                     return ResourcesConfig.法器粉尘;
                 case PropType.全职业经验值:
@@ -1169,7 +1181,7 @@ namespace Config
             { PropType.砂粉, "玄天砂" },
             { PropType.砂红, "鸿蒙砂" },
             { PropType.砂彩, "混沌砂" },
-            
+            { PropType.轮回石, "轮回石" },
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
@@ -1180,6 +1192,7 @@ namespace Config
             { PropType.矿石, QualityType.地品 },
             { PropType.玄铁, QualityType.地品 },
             { PropType.玉髓, QualityType.地品 },
+            { PropType.轮回石, QualityType.地品 },
             
             { PropType.石白, QualityType.黄品 },
             { PropType.石绿, QualityType.玄品 },

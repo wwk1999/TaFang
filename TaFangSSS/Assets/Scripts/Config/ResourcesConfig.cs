@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 轮回石;
+    
     public static Sprite 铁白;
     public static Sprite 铁绿;
     public static Sprite 铁蓝;
@@ -3622,6 +3624,9 @@ public class ResourcesConfig : MonoBehaviour
                 return 砂红;
             case PropType.砂彩:
                 return 砂彩;
+            
+            case PropType.轮回石:
+                return 轮回石;
         }
 
         return null;
@@ -7346,6 +7351,7 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        轮回石=Resources.Load<Sprite>("Sprite/DaoJu/轮回石");
         铁白=Resources.Load<Sprite>("Sprite/法器材料/铁白");
         铁绿=Resources.Load<Sprite>("Sprite/法器材料/铁绿");
         铁蓝=Resources.Load<Sprite>("Sprite/法器材料/铁蓝");

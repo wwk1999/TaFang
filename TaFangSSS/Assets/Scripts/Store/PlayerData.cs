@@ -3501,6 +3501,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { PropType.砂粉, 0 },
         { PropType.砂红, 0 },
         { PropType.砂彩, 0 },
+        { PropType.轮回石, 0 },
     };
 
    
@@ -3555,7 +3556,8 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         "寂", "冥", "幽", "混", "沌", "浑", "归",
     };
 
-    // 严格 ×10^4 一级：大数名[i] 对应 10^(4×(i+1))；倒序排列供格式化从大到小匹配
+    // 大数名升序：大数名[j] 对应 10^(4×(j+1))；
+    // Units 需降序（格式化从大到小匹配），故 units[i] = 10^(4×(n-i)) 配 大数名[n-1-i]
     private static readonly (double value, string symbol)[] Units = 构建大数单位();
 
     private static (double, string)[] 构建大数单位()
@@ -3563,19 +3565,13 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         var units = new (double, string)[大数名.Length];
         for (int i = 0; i < 大数名.Length; i++)
         {
-            units[i] = (Math.Pow(10, 4 * (i + 1)), 大数名[大数名.Length - 1 - i]);
+            units[i] = (Math.Pow(10, 4 * (大数名.Length - i)), 大数名[大数名.Length - 1 - i]);
         }
         return units;
     }
     
     public string 格式化数字(double num)
     {
-        // [临时诊断] 定位负数/溢出显示的来源，问题确认后删除此段
-        if (double.IsNaN(num) || double.IsInfinity(num) || num < 0)
-        {
-            Debug.Log($"[格式化数字诊断] 异常输入 num={num}\n调用栈:\n{System.Environment.StackTrace}");
-        }
-
         // 处理负数
         if (num < 0)
         {
@@ -3591,10 +3587,11 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         // 从大到小遍历单位
         foreach (var unit in Units)
         {
-            // 达到当前单位的1000倍才转换（即 1000万、1000亿、1000兆...）
+            // 达到当前单位的100倍才转换（即 100万、100亿、100兆...）
             if (num >= unit.value * 100)
             {
-                double v = (num / unit.value);
+                // 相邻单位严格 ×10^4，v 必在 [100, 100万) 内：取整保证无小数、无科学计数法
+                long v = (long)Math.Floor(num / unit.value);
                 return v + unit.symbol;
             }
         }

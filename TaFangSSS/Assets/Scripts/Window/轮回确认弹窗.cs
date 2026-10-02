@@ -12,9 +12,11 @@ public class 轮回确认弹窗 : MonoBehaviour
     public Button 返回Button;
     public Button 确认Button;
     public Button maskButton;
+    public TextMeshProUGUI 轮回石count;
 
     private void OnEnable()
     {
+        轮回石count.text=JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界].ToString();
         text.text = $"并永久保留<color=green>{JingJieConfig.轮回系数}%</color>当前跟脚作为轮回后的初始跟脚";
     }
 
@@ -30,6 +32,12 @@ public class 轮回确认弹窗 : MonoBehaviour
         });
         确认Button.onClick.AddListener(() =>
         {
+            if (PlayerData.S.PropListDic[PropType.轮回石] < JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界])
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","轮回石数量不足");
+                return;
+            }
+            PlayerData.S.PropListDic[PropType.轮回石] -= JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界];
             double 轮回前跟脚 = JingJieConfig.跟脚;
             PlayerData.S.当前体质 = 体质Config.Get轮回体质();
             PlayerData.S.初始跟脚 += 轮回前跟脚 * JingJieConfig.轮回系数 / 100f;

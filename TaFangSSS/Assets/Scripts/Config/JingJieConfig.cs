@@ -31,6 +31,25 @@ public enum JingJieType
 
 public class JingJieConfig : MonoBehaviour
 {
+    public static Dictionary<JingJieType, int> 轮回消耗Dic =
+        new Dictionary<JingJieType, int>()
+
+        {
+            { JingJieType.合体,60},
+            { JingJieType.大乘,120},
+            { JingJieType.天仙,180},
+            { JingJieType.玄仙,240},
+            { JingJieType.金仙,300},
+            { JingJieType.太乙金仙,360},
+            { JingJieType.大罗金仙,5000},
+            { JingJieType.准圣,8000},
+            { JingJieType.圣人,12000},
+            { JingJieType.天道圣人,20000},
+            { JingJieType.大道圣人,30000},
+            { JingJieType.混元圣人,50000},
+            { JingJieType.鸿蒙,100000},
+        };
+    
     public static Dictionary<JingJieType, List<long>> 突破材料Dic = new Dictionary<JingJieType, List<long>>()
     {
         { JingJieType.练气, new List<long>() { 300, 500, 800, 1200, 2000, 3000, 5000, 10000 } },

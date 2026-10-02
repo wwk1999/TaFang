@@ -1385,6 +1385,6 @@ public class 灵物突破Config
         { QualityType.宇品, new List<float>() { 0, 15, 40, 30, 15, 0, 0, 0 } },
         { QualityType.宙品, new List<float>() { 0, 10, 25, 30, 25, 10, 0, 0 } },
         { QualityType.洪品, new List<float>() { 0, 0, 10, 25, 40, 20, 5, 0 } },
-        { QualityType.荒品, new List<float>() { 0, 0, 0, 14, 40, 30, 15, 1 } },
+        { QualityType.荒品, new List<float>() { 0, 0, 0, 18.8f, 40, 30, 10, 1.2f } },
     };
 }
