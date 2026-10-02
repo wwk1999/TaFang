@@ -70,17 +70,6 @@ public class 功法属性Item
 
 public class 功法Config
 {
-    public static Dictionary<QualityType, int> 功法升星经验 = new Dictionary<QualityType, int>()
-    {
-        { QualityType.黄品 ,100},
-        { QualityType.玄品 ,200},
-        { QualityType.地品 ,500},
-        { QualityType.天品 ,2000},
-        { QualityType.宇品 ,6000},
-        { QualityType.宙品 ,20000},
-        { QualityType.洪品 ,100000},
-        { QualityType.荒品 ,1000000},
-    };
 
     public static int Get功法升级经验(int level)
     {
@@ -107,16 +96,28 @@ public class 功法Config
         else return 10000;
     }
     
+    public static Dictionary<QualityType, int> 功法升星经验 = new Dictionary<QualityType, int>()
+    {
+        { QualityType.黄品 ,100},
+        { QualityType.玄品 ,200},
+        { QualityType.地品 ,500},
+        { QualityType.天品 ,2000},
+        { QualityType.宇品 ,6000},
+        { QualityType.宙品 ,20000},
+        { QualityType.洪品 ,100000},
+        { QualityType.荒品 ,1000000},
+    };
+    
     public static Dictionary<QualityType, int> 功法分解经验 = new Dictionary<QualityType, int>()
     {
-        { QualityType.黄品 ,50},
+        { QualityType.黄品 ,30},
         { QualityType.玄品 ,100},
         { QualityType.地品 ,200},
-        { QualityType.天品 ,500},
-        { QualityType.宇品 ,1000},
-        { QualityType.宙品 ,2000},
-        { QualityType.洪品 ,4000},
-        { QualityType.荒品 ,10000},
+        { QualityType.天品 ,800},
+        { QualityType.宇品 ,2000},
+        { QualityType.宙品 ,5000},
+        { QualityType.洪品 ,10000},
+        { QualityType.荒品 ,30000},
     };
     public static Dictionary<功法Type, QualityType> 功法TypeQualityDic = new Dictionary<功法Type, QualityType>()
     {

@@ -697,6 +697,7 @@ public class MainWindow : MonoBehaviour
         });
         城墙Debug.onClick.AddListener(() =>
         {
+            PlayerData.S.初始跟脚 *= 10;
             PlayerData.S.城墙等级++;
             PlayerData.S.城墙道具等级Dic[城墙道具Type.不动明王阵]++;
             PlayerData.S.城墙道具等级Dic[城墙道具Type.周天星斗大阵]++;

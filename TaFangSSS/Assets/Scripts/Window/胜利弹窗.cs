@@ -245,7 +245,44 @@ public class 胜利弹窗 : MonoBehaviour
             轮回石数量= 1;
         }
         PlayerData.S.PropListDic[PropType.轮回石] += 轮回石数量;
-        var list = 法器Config.Get关卡法器材料掉落(LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type]);
+        JingJieType 关卡JieType = LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type];
+        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        {
+            if (LevelConfig.战斗混沌虚空层数 >= 700)
+            {
+                关卡JieType = JingJieType.鸿蒙;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 550)
+            {
+                关卡JieType = JingJieType.混元圣人;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 450)
+            {
+                关卡JieType = JingJieType.大道圣人;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 350)
+            {
+                关卡JieType = JingJieType.天道圣人;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 250)
+            {
+                关卡JieType = JingJieType.圣人;
+            }
+            else if (LevelConfig.战斗混沌虚空层数 >= 180)
+            {
+                关卡JieType = JingJieType.准圣;
+            }
+            else if (LevelConfig.战斗混沌虚空层数 >= 100)
+            {
+                关卡JieType = JingJieType.大罗金仙;
+            }
+            else if (LevelConfig.战斗混沌虚空层数 >= 50)
+            {
+                关卡JieType = JingJieType.太乙金仙;
+            }
+            else 
+            {
+                关卡JieType = JingJieType.金仙;
+            }
+        }
+        
+        var list = 法器Config.Get关卡法器材料掉落(关卡JieType);
         foreach (var item in list)
         {
             switch (item.法器材料Type)

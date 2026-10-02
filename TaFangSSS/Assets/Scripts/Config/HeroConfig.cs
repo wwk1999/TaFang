@@ -1324,7 +1324,7 @@ namespace Config
             { HeroType.云霄, 3f },
 
             { HeroType.女娲, 6 },
-            { HeroType.老子, 3 },
+            { HeroType.老子, 2 },
             { HeroType.通天, 1.5f },
             { HeroType.元始, 1f },
 

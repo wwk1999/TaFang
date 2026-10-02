@@ -13,6 +13,9 @@ public class StoreController : XSingleton<StoreController>
 {
     public StoreDefine.StoreData StoreData;
     private string SavePath =>Path.Combine(Application.persistentDataPath, "TaFangStorePlaytest1.json");
+    // 原子写入用的临时文件；.bak 是上一次保存成功的主档，断电/损坏时用它恢复
+    private string TmpPath => SavePath + ".tmp";
+    private string BakPath => SavePath + ".bak";
     private float StoreTime = 3;
     private float CurrentTime = 0;
     private float 增加修为时间 = 1;
@@ -32,7 +35,23 @@ public class StoreController : XSingleton<StoreController>
             };
             var json = JsonConvert.SerializeObject(StoreData, settings);
 
-            File.WriteAllText(SavePath, json);
+            // 原子写入：先写临时文件并强制落盘，再原子替换主档；
+            // File.Replace 会把旧主档自动转存为 .bak，断电/损坏时可用它恢复
+            using (var fs = new FileStream(TmpPath, FileMode.Create, FileAccess.Write, FileShare.None))
+            using (var writer = new StreamWriter(fs))
+            {
+                writer.Write(json);
+                writer.Flush();
+                fs.Flush(true); // 刷到磁盘，防止断电丢 OS 缓冲
+            }
+            if (File.Exists(SavePath))
+            {
+                File.Replace(TmpPath, SavePath, BakPath, true);
+            }
+            else
+            {
+                File.Move(TmpPath, SavePath);
+            }
 
             Debug.Log($"保存数据成功->{SavePath}");
         }
@@ -624,32 +643,53 @@ public class StoreController : XSingleton<StoreController>
 
     public void LoadStoreData()
     {
-        var path = SavePath;
-        if (!File.Exists(path))
+        // 依次尝试：主档 → 备份档（.bak，断电/损坏时的救命稻草）→ 全新档
+        if (TryLoad(SavePath))
         {
-            StoreData = new StoreDefine.StoreData();
-            StoreData.Player.CopyFromRuntime(PlayerData.S);
-            SaveStoreData(StoreData);
-            Debug.Log("首次创建存档");
+            Debug.Log("加载数据完成");
             return;
         }
 
+        Debug.LogWarning("主档读取失败，尝试备份恢复");
+        if (TryLoad(BakPath))
+        {
+            Debug.LogWarning("已从备份(.bak)恢复存档");
+            // 立即把恢复的数据写回主档，避免下次启动再次走备份
+            SaveStoreData(StoreData);
+            return;
+        }
+
+        StoreData = new StoreDefine.StoreData();
+        StoreData.Player.CopyFromRuntime(PlayerData.S);
+        SaveStoreData(StoreData);
+        Debug.LogWarning("主档与备份均不可用，首次创建存档");
+    }
+
+    /// <summary>
+    /// 尝试从指定路径读档并应用到运行时；任何异常都不外抛，返回是否成功
+    /// </summary>
+    private bool TryLoad(string path)
+    {
+        if (!File.Exists(path)) return false;
         try
         {
             var json = File.ReadAllText(path);
+            if (string.IsNullOrWhiteSpace(json)) return false;
             var loadSettings = new JsonSerializerSettings
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects
             };
-            StoreData = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json, loadSettings);
+            var data = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json, loadSettings);
+            if (data?.Player == null) return false;
+            StoreData = data;
             StoreData.Player.ApplyToRuntime(PlayerData.S);
+            return true;
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            // Unity 下 Console.WriteLine 不可见，统一走 Debug.LogError
+            Debug.LogError($"读取存档失败({path}): {e.Message}");
+            return false;
         }
-
-        Debug.Log("加载数据完成");
     }
 }

@@ -1745,13 +1745,13 @@ public class 法器Config
         { JingJieType.玄仙 , new List<float>(){0,0,40,50,10,0,0,0}},
         { JingJieType.金仙 , new List<float>(){0,0,10,70,20,0,0,0}},
         { JingJieType.太乙金仙 , new List<float>(){0,00,00,70,30,0,0,0}},
-        { JingJieType.大罗金仙 , new List<float>(){0,0,13,40,40,7,0,0}},
-        { JingJieType.准圣 , new List<float>(){0,0,5,30,50,15,0,0}},
-        { JingJieType.圣人 , new List<float>(){0,0,0,15,60,25,0,0}},
+        { JingJieType.大罗金仙 , new List<float>(){0,0,15,40,40,5,0,0}},
+        { JingJieType.准圣 , new List<float>(){0,0,10,30,50,10,0,0}},
+        { JingJieType.圣人 , new List<float>(){0,0,0,25,60,15,0,0}},
         { JingJieType.天道圣人 , new List<float>(){0,0,0,0,62,35,3,0}},
-        { JingJieType.大道圣人 , new List<float>(){0,0,0,0,42,50,8,0}},
-        { JingJieType.混元圣人 , new List<float>(){0,0,0,0,20,65,15,0}},
-        { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,4,70,25,1}},
+        { JingJieType.大道圣人 , new List<float>(){0,0,0,0,45,50,5,0}},
+        { JingJieType.混元圣人 , new List<float>(){0,0,0,0,25,65,10,0}},
+        { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,14,70,15,1}},
     };
 
     public static 法器 Get坊市法器(法器Type type)
