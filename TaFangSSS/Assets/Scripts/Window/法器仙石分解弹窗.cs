@@ -50,11 +50,11 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                     PlayerData.S.法器列表.RemoveAll(法器 => 
                     {
                         var 品质 = 法器Config.法器品质Dic[法器.法器Type];
-                        bool v= (品质 == QualityType.黄品 && 黄) || 
+                        bool v= 法器.HeroType==HeroType.None&&((品质 == QualityType.黄品 && 黄) || 
                                (品质 == QualityType.玄品 && 玄) || 
                                (品质 == QualityType.地品 && 地) || 
                                (品质 == QualityType.天品 && 天) || 
-                               (品质 == QualityType.宇品 && 宇);
+                               (品质 == QualityType.宇品 && 宇));
                         if (v)
                         {
                             PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器分解Dic[品质]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);

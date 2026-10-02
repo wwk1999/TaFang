@@ -138,7 +138,7 @@ public class 血海Config
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 0,
                 需要英雄元素 = YuanSuType.None,
-                需要英雄职业 = ZhiYeType.辅助,
+                需要英雄职业 = ZhiYeType.战士,
                 需要境界=6,
             }
         },

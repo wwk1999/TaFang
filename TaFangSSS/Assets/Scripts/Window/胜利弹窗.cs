@@ -419,7 +419,7 @@ public class 胜利弹窗 : MonoBehaviour
             item1.SetItem();
         }
 
-        var 仙石列表 = 仙石Config.Get关卡仙石掉落(LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type]);
+        var 仙石列表 = 仙石Config.Get关卡仙石掉落(关卡JieType);
         foreach (var item in 仙石列表)
         {
             PlayerData.S.仙石列表.Add(item);

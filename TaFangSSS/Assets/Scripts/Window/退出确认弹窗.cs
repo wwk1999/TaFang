@@ -23,7 +23,7 @@ public class 退出确认弹窗 : MonoBehaviour
     {
         maskButton.onClick.AddListener(() =>
         {
-            Time.timeScale = 1;
+            Time.timeScale = PlayerData.S.关卡倍速;
             gameObject.SetActive(false);
         });
         返回Button.onClick.AddListener(() =>
