@@ -212,7 +212,7 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.上清境禹余天, JingJieType.准圣 },
         { 主线关卡Type.太清境大赤天, JingJieType.准圣 },
         { 主线关卡Type.大罗天, JingJieType.圣人 },
-        { 主线关卡Type.混沌虚空, JingJieType.圣人 },
+        { 主线关卡Type.混沌虚空, JingJieType.太乙金仙 },
     };
    public static Dictionary<主线关卡Type, string> 主线关卡介绍Dic = new Dictionary<主线关卡Type, string>()
 {

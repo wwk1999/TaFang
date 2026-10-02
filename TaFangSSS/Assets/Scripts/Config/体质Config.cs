@@ -409,32 +409,32 @@ public class 体质Config
             list = new List<float>(){0,70,30,0,0};
         }else if (跟脚 < 100000)
         {
-            list = new List<float>(){0,40,50,10,0};
+            list = new List<float>(){0,45,50,5,0};
         }else if (跟脚 < 1000000)
         {
-            list = new List<float>(){0,10,60,30,0};
+            list = new List<float>(){0,30,60,10,0};
         }else if (跟脚 < 10000000)
         {
-            list = new List<float>(){0,0,45,50,5};
+            list = new List<float>(){0,0,80,20,0};
         }else if (跟脚 < 100000000)
         {
-            list = new List<float>(){0,0,15,70,15};
+            list = new List<float>(){0,0,70,30,0};
         }
         else if (跟脚 < 1000000000)
         {
-            list = new List<float>(){0,0,0,70,30};
+            list = new List<float>(){0,0,57,40,3};
         }
         else if (跟脚 < 10000000000)
         {
-            list = new List<float>(){0,0,0,50,50};
+            list = new List<float>(){0,0,45,50,5};
         }
         else if (跟脚 < 100000000000)
         {
-            list = new List<float>(){0,0,0,20,80};
+            list = new List<float>(){0,0,32,60,8};
         }
         else
         {
-            list = new List<float>(){0,0,0,0,100};
+            list = new List<float>(){0,0,20,70,10};
         }
 
         var random = Random.Range(0, 100f);

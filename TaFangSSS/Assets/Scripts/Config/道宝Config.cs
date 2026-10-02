@@ -133,7 +133,7 @@ public class 道宝Config
 
         return value;
     }
-    public static List<float> 单件升级奖励Dic = new List<float>() {1,5,30,200,1500 };
+    public static List<float> 单件升级奖励Dic = new List<float>() {0.5f,1,2,4,10 };
 
     public static Dictionary<道宝Type, string> 道宝InfoDic = new Dictionary<道宝Type, string>()
     {

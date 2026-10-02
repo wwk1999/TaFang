@@ -1843,8 +1843,8 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
 public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterType type)
 {
   float 基础攻击力 = 100000;
-  float 基础防御 = 300;
-  float 基础生命 = 150000;
+  float 基础防御 = 30000;
+  float 基础生命 = 150000000000;
   float 基础抗性 = 70;
   if (type == MonsterType.Boss)
   {
