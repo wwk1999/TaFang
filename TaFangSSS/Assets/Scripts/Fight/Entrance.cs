@@ -48,11 +48,11 @@ public class Entrance : MonoBehaviour
       float 城墙血量比例 = (float)FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.Get低血量伤害减免血量值()/ 100f)
       {
-          damage *= (1f - 城墙Config.低血量伤害减免值 / 100f);
+          damage *= (1f / (1f+城墙Config.低血量伤害减免值 / 100f));
       }
       if (城墙血量比例 > 城墙Config.Get高血量伤害减免血量值()/ 100f)
       {
-          damage *= (1f - 城墙Config.高血量伤害减免值 / 100f);
+          damage *= (1f / (1f+城墙Config.高血量伤害减免值 / 100f));
       }
       damage *= 1f /(1f+ 属性.伤害减免);
       damage=Math.Max(damage,0);
@@ -61,11 +61,11 @@ public class Entrance : MonoBehaviour
       FightController.S.Show伤害数字(PlayerData.S.格式化数字(damage),YuanSuType.物理,new Vector2(-5,y));
       if (FightController.S.城墙护盾值 >= damage)
       {
-          FightController.S.城墙护盾值 -= (int)damage;
+          FightController.S.城墙护盾值 -= (float)damage;
       }
       else
       {
-          FightController.S.城墙当前生命值 -= (int)damage - FightController.S.城墙护盾值;
+          FightController.S.城墙当前生命值 -= damage - FightController.S.城墙护盾值;
           FightController.S.城墙护盾值 = 0;
       }
       if (FightController.S.城墙当前生命值 <= 0)
@@ -73,7 +73,7 @@ public class Entrance : MonoBehaviour
           if (FightController.S.涅槃次数 > 0)
           {
               FightController.S.涅槃次数--;
-              FightController.S.城墙当前生命值 = (int)(城墙Config.Get城墙最大生命值() * (城墙Config.涅槃血量 / 100f));
+              FightController.S.城墙当前生命值 = 城墙Config.Get城墙最大生命值() * (城墙Config.涅槃血量 / 100f);
               if (FightController.S.城墙无敌Time > 0)
               {
                   FightController.S.城墙无敌Time += 城墙Config.涅槃无敌时间;

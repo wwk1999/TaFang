@@ -125,6 +125,7 @@ public class 胜利弹窗 : MonoBehaviour
     public void 遗迹关卡结算()
     {
         遗迹关卡胜利奖励 value = 神物Config.Get遗迹关卡奖励();
+        PlayerData.S.PropListDic[PropType.轮回石] += 1;
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         // TryGetValue：老存档的神物获得Dic可能缺少新神物键，缺失视为未获得
         bool 已获得神物 = PlayerData.S.神物获得Dic.TryGetValue(LevelConfig.当前神物Type, out var got) && got;
@@ -137,6 +138,11 @@ public class 胜利弹窗 : MonoBehaviour
             item.SetItem();
             PlayerData.S.最大神物关卡++;
         }
+        var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        item1.Type = PropType.轮回石;
+        item1.count = 1;
+        item1.SetItem();
 
         if (value.灵魂 > 0)
         {
@@ -157,6 +163,7 @@ public class 胜利弹窗 : MonoBehaviour
         }
 
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
+        PlayerData.S.PropListDic[PropType.轮回石] += 1;
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         foreach (var item in value.符文list)
         {
@@ -185,6 +192,11 @@ public class 胜利弹窗 : MonoBehaviour
             符文.符文QualityType = item.quality;
             符文.SetItem();
         }
+        var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        item1.Type = PropType.轮回石;
+        item1.count = 1;
+        item1.SetItem();
 
         if (value.灵魂 > 0)
         {
@@ -208,6 +220,31 @@ public class 胜利弹窗 : MonoBehaviour
         //    item1.道纹QualityType = 道纹.quality;
         //    item1.SetItem();
         //}
+        float 轮回石数量 = 0;
+        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        {
+            if (LevelConfig.战斗混沌虚空层数 >= 300)
+            {
+                轮回石数量= 5;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 200)
+            {
+                轮回石数量= 4;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 100)
+            {
+                轮回石数量= 3;
+            }else if (LevelConfig.战斗混沌虚空层数 >= 50)
+            {
+                轮回石数量= 2;
+            }else
+            {
+                轮回石数量= 1;
+            }
+        }
+        else
+        {
+            轮回石数量= 1;
+        }
+        PlayerData.S.PropListDic[PropType.轮回石] += 轮回石数量;
         var list = 法器Config.Get关卡法器材料掉落(LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type]);
         foreach (var item in list)
         {
@@ -355,7 +392,6 @@ public class 胜利弹窗 : MonoBehaviour
             item1.仙石QualityType = item.quality;
             item1.SetItem();
         }
-        PlayerData.S.PropListDic[PropType.轮回石] += 1;
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
         PlayerData.S.PropListDic[PropType.洗练石] += value.洗练石;
         PlayerData.S.PropListDic[PropType.射手经验值] += value.射手经验值;
@@ -375,7 +411,7 @@ public class 胜利弹窗 : MonoBehaviour
         var item11 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
             .GetComponent<胜利弹窗item>();
         item11.Type = PropType.轮回石;
-        item11.count = 1;
+        item11.count = (long)轮回石数量;
         item11.SetItem();
         
         if (value.高级招募卷 > 0)

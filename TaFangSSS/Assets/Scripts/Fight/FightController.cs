@@ -2016,8 +2016,8 @@ public class FightController : XSingleton<FightController>
             当前神通能量 = Math.Min(属性config.总属性.神通最大值, 当前神通能量);
             孙悟空每秒增加伤害Time++;
             每秒回血Time = 0;
-            int 回血值 = (int)(城墙Config.每秒回血值/ 100f * 缓存城墙最大生命值) ;
-            int value = (int)(缓存城墙最大生命值 - 城墙当前生命值);
+            double 回血值 = 城墙Config.每秒回血值/ 100f * 缓存城墙最大生命值;
+            double value = 缓存城墙最大生命值 - 城墙当前生命值;
             if (value == 0)
             {
                 return;
@@ -2043,7 +2043,7 @@ public class FightController : XSingleton<FightController>
         if (每段时间护盾间隔时间 > 城墙Config.护盾间隔时间)
         {
             每段时间护盾间隔时间 = 0;
-            城墙护盾值 += (int)(缓存城墙最大生命值 * 城墙Config.每段时间护盾值 / 100f);
+            城墙护盾值 += (float)(缓存城墙最大生命值 * 城墙Config.每段时间护盾值 / 100f);
             ObserverModuleManager.S.SendEvent("设置护盾");
         }
         if (无敌间隔Time > 城墙Config.无敌间隔时间)

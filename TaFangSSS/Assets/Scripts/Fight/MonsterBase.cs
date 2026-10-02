@@ -1661,7 +1661,7 @@ public class MonsterBase : MonoBehaviour
       FightController.S.总杀怪增伤 += 城墙Config.杀怪增伤数值;
       if (城墙Config.杀怪回血数值 > 0)
       {
-         int value = (int)(城墙Config.杀怪回血数值 / 100f * FightController.S.缓存城墙最大生命值);
+         double value = 城墙Config.杀怪回血数值 / 100f * FightController.S.缓存城墙最大生命值;
          FightController.S.城墙当前生命值=Math.Min(FightController.S.缓存城墙最大生命值,FightController.S.城墙当前生命值+value);
          FightController.S.Show伤害数字(PlayerData.S.格式化数字(value),YuanSuType.None,new Vector2(-5,0),true);
       }

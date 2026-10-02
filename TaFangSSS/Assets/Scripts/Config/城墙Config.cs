@@ -1430,9 +1430,10 @@ public class 城墙Config
             }
         }
 
-        return (int)(value * (1 + count));
+        // 城墙最大生命值：float 直返，避免 (int) 在血量超过 21.47 亿时溢出为负
+        return value * (1 + count);
     }
-    
+
     public static int Get城墙防御()
     {
         int value = Get城墙基础防御();
