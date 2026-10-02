@@ -440,44 +440,44 @@ public class 符文之地Config
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e22f, Attack = 800000, Defense = 400000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = 3e22f, Attack = 8000000, Defense = 400000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e23f, Attack = 1000000, Defense = 800000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = 3e23f, Attack = 10000000, Defense = 800000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e24f, Attack = 2000000, Defense = 1600000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = 3e24f, Attack = 20000000, Defense = 1600000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
         },
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e26f, Attack = 1600000, Defense = 800000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = 3e26f, Attack = 160000000, Defense = 800000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e27f, Attack = 2000000, Defense = 1600000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = 3e27f, Attack = 200000000, Defense = 1600000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e28f, Attack = 4000000, Defense = 3200000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = 3e28f, Attack = 400000000, Defense = 3200000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
         },
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e32f, Attack = 3200000, Defense = 1600000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = 3e32f, Attack = 3200000000, Defense = 1600000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e33f, Attack = 4000000, Defense = 3200000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = 3e33f, Attack = 4000000000, Defense = 3200000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e34f, Attack = 8000000, Defense = 6400000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = 3e34f, Attack = 8000000000, Defense = 6400000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
         },
     };
     
