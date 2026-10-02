@@ -361,7 +361,7 @@ public class 人物item : MonoBehaviour
         Vector2 targetPos=monsterBase.transform.position;
         var dir=(targetPos-(Vector2)transform.position).normalized;
 
-        float damage = HeroConfig.英雄神通配置Dic[HeroType.后羿].damage/100f * 属性config.总属性.总攻击力;
+        double damage = HeroConfig.英雄神通配置Dic[HeroType.后羿].damage/100f * 属性config.总属性.总攻击力;
 
         FightController.S.后羿神通(后羿神通trans.transform.position,dir,damage,瑶池冰辅助,妲己黑暗辅助,女娲电辅助>0,瑶池神通time>0,妲己神通time>0,女娲神通time>0);
     }

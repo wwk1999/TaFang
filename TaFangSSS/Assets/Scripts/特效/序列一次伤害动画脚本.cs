@@ -16,7 +16,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
     [NonSerialized] public bool 女娲神通;
 
     [NonSerialized] public bool 瑶池神通;
-    [NonSerialized] public float damage;
+    [NonSerialized] public double damage;
     [NonSerialized] public HeroType HeroType;
     [NonSerialized] public bool 女娲电辅助;
     [NonSerialized] public bool 是否神通;
@@ -156,7 +156,7 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         if (_resultsBuffer.Count == 0) return;
 
         // ---- 循环外：与具体怪物无关的伤害加成只算一次（不写回 damage 字段，避免多怪物/多事件滚雪球） ----
-        float finalDamage = damage;
+        double finalDamage = damage;
         // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
 
         if (黑暗辅助)

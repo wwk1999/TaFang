@@ -238,6 +238,7 @@ public class 道场Config
     {
         float value = 功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].数值;
         value *= (1f + 供奉总属性.功德速度 / 100f);
+        value *= (1f + 道宝Config.羁绊功德/100f);
         return value;
     }
     public static void 更新供奉总属性()

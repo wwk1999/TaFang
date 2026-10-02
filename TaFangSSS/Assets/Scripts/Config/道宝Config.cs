@@ -179,24 +179,24 @@ public class 道宝Config
         { 道宝Type.风火轮, "哪吒足下灵宝，脚踏风火日行万里，飞腾九天灵动非凡至极。" },
         { 道宝Type.如意金箍棒, "大禹定海神针，可大可小随心如意，齐天大圣横扫九天之兵。" },
     };
-    public static float 羁绊黑暗伤害增幅 => Get羁绊Level(羁绊Type.翻海断岳) * 3;
-    public static float 羁绊火焰伤害增幅 => Get羁绊Level(羁绊Type.五方照落) * 3;
-    public static float 羁绊雷电伤害增幅 => Get羁绊Level(羁绊Type.照落金莲) * 3;
-    public static float 羁绊物理伤害增幅 => Get羁绊Level(羁绊Type.五行飞仙斩) * 3;
-    public static float 羁绊冰霜伤害增幅 => Get羁绊Level(羁绊Type.紫金断岳) * 3;
+    public static float 羁绊黑暗伤害增幅 => Get羁绊Level(羁绊Type.翻海断岳) * 2;
+    public static float 羁绊火焰伤害增幅 => Get羁绊Level(羁绊Type.五方照落) * 2;
+    public static float 羁绊雷电伤害增幅 => Get羁绊Level(羁绊Type.照落金莲) * 2;
+    public static float 羁绊物理伤害增幅 => Get羁绊Level(羁绊Type.五行飞仙斩) * 2;
+    public static float 羁绊冰霜伤害增幅 => Get羁绊Level(羁绊Type.紫金断岳) * 2;
     
-    public static float 羁绊法师伤害增幅 => Get羁绊Level(羁绊Type.天地人) * 3;
-    public static float 羁绊战士伤害增幅 => Get羁绊Level(羁绊Type.弑神定海) * 3;
-    public static float 羁绊射手伤害增幅 => Get羁绊Level(羁绊Type.山河七宝) * 3;
+    public static float 羁绊法师伤害增幅 => Get羁绊Level(羁绊Type.天地人) * 2;
+    public static float 羁绊战士伤害增幅 => Get羁绊Level(羁绊Type.弑神定海) * 2;
+    public static float 羁绊射手伤害增幅 => Get羁绊Level(羁绊Type.山河七宝) * 2;
     
-    public static float 羁绊暴击率 => Get羁绊Level(羁绊Type.造化乾坤) * 3;
-    public static float 羁绊伤害减免 => Get羁绊Level(羁绊Type.圣德光辉) * 3;
-    public static float 羁绊最终伤害 => Get羁绊Level(羁绊Type.菩提风火) * 3;
+    public static float 羁绊暴击率 => Get羁绊Level(羁绊Type.造化乾坤) * 1;
+    public static float 羁绊伤害减免 => Get羁绊Level(羁绊Type.圣德光辉) * 2;
+    public static float 羁绊最终伤害 => Get羁绊Level(羁绊Type.菩提风火) * 2;
     
-    public static float 羁绊灵气 => Get羁绊Level(羁绊Type.开天辟地) * 5;
-    public static float 羁绊功德 => Get羁绊Level(羁绊Type.诛仙剑阵) * 5;
+    public static float 羁绊灵气 => Get羁绊Level(羁绊Type.开天辟地) * 1;
+    public static float 羁绊功德 => Get羁绊Level(羁绊Type.诛仙剑阵) * 1;
     
-    public static float 羁绊寻宝速度=> Get羁绊Level(羁绊Type.混沌归元) * 5;
+    public static float 羁绊寻宝速度=> Get羁绊Level(羁绊Type.混沌归元) * 1;
 
      public static Dictionary<羁绊Type, 羁绊配置> 羁绊配置 = new Dictionary<羁绊Type, 羁绊配置>()
     {

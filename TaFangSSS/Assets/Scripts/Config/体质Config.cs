@@ -391,7 +391,7 @@ public class 体质Config
         { QualityType.荒品, 100 },
     };
 
-    public static QualityType Get轮回体质品质(float 跟脚)
+    public static QualityType Get轮回体质品质(double 跟脚)
     {
         List<float> list = null;
         if (跟脚 < 10)

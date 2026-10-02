@@ -50,7 +50,7 @@ public class 石敢当锤子 : MonoBehaviour
       if (!other.CompareTag("Monster") || speed <= 0) return;
       if (!QueueController.S.MonsterColliderDic.TryGetValue(other, out var monster)) return;
 
-      float finalDamage = 属性config.总属性.总攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
+      double finalDamage = 属性config.总属性.总攻击力 * 英雄星级属性.石敢当攻击数值 / 100f;
       // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
       if (瑶池冰辅助)
       {

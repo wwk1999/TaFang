@@ -13,7 +13,7 @@ public class 普通魔法弹带peng : MonoBehaviour
    public GameObject parent;
    public 攻击特效Type Type;
    [NonSerialized]public float DelayTime=5;
-   [NonSerialized] public float damage;
+   [NonSerialized] public double damage;
    [NonSerialized] public HeroType HeroType;
    [NonSerialized] public bool 瑶池冰辅助;
    [NonSerialized] public bool 瑶池神通;
@@ -64,7 +64,7 @@ public class 普通魔法弹带peng : MonoBehaviour
       if (hit != null) hit.transform.position = closestPoint;
 
       // ---- 辅助加成全部算在局部变量上，不写回 damage 字段（避免穿透弹多怪物滚雪球） ----
-      float finalDamage = damage;
+      double finalDamage = damage;
       // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
 
       if (黑暗辅助)

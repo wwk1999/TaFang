@@ -30,7 +30,7 @@ public class 轮回确认弹窗 : MonoBehaviour
         });
         确认Button.onClick.AddListener(() =>
         {
-            float 轮回前跟脚 = JingJieConfig.跟脚;
+            double 轮回前跟脚 = JingJieConfig.跟脚;
             PlayerData.S.当前体质 = 体质Config.Get轮回体质();
             PlayerData.S.初始跟脚 += 轮回前跟脚 * JingJieConfig.轮回系数 / 100f;
             for (int i = 1; i < Enum.GetValues(typeof(JingJieType)).Length; i++)

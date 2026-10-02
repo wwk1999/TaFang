@@ -11,9 +11,9 @@ using Random = UnityEngine.Random;
 
 public class 英雄伤害item
 {
-    public float 总伤害;
-    public float 神通伤害;
-    public float 技能伤害;
+    public double 总伤害;
+    public double 神通伤害;
+    public double 技能伤害;
 }
 
 public class 献祭属性
@@ -63,7 +63,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public 体质总属性 缓存体质总属性;
     [NonSerialized] public Dictionary<HeroType, 英雄战斗缓存> 英雄战斗缓存Dic = new Dictionary<HeroType, 英雄战斗缓存>();
     [NonSerialized] public float 领主暴击率 = 0;
-    [NonSerialized] public float 领主总攻击力 = 0 ;
+    [NonSerialized] public double 领主总攻击力 = 0 ;
     [NonSerialized] public float 技能树总所有英雄伤害 = 0;
 
     [NonSerialized] public int 丹童穿透数量 = 0 ;
@@ -167,7 +167,7 @@ public class FightController : XSingleton<FightController>
     public void 刷新伤害面板()
     {
         List<伤害item> value = new List<伤害item>();
-        float 总伤害 = 0;
+        double 总伤害 = 0;
         foreach (var item in 当前英雄伤害Dic)
         {
             总伤害+=item.Value.总伤害;
@@ -177,8 +177,7 @@ public class FightController : XSingleton<FightController>
         {
             foreach (var item in 当前英雄伤害Dic)
             {
-                float 比例 = item.Value.总伤害 / 总伤害;
-                value.Add(new 伤害item(){heroType = item.Key,damage = item.Value.总伤害,总比例 = 比例,神通比例 = item.Value.神通伤害/item.Value.总伤害,技能比例 = item.Value.技能伤害/item.Value.总伤害});
+                value.Add(new 伤害item(){heroType = item.Key,damage = item.Value.总伤害,总比例 = (float)(item.Value.总伤害 / 总伤害),神通比例 = (float)(item.Value.神通伤害/item.Value.总伤害),技能比例 = (float)(item.Value.技能伤害/item.Value.总伤害)});
             }
         }
         else
@@ -257,7 +256,7 @@ public class FightController : XSingleton<FightController>
         return null;
     }
 
-    public IEnumerator 后羿连射(HeroType hero,Vector2 shotpos,Vector2 dir,float damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
+    public IEnumerator 后羿连射(HeroType hero,Vector2 shotpos,Vector2 dir,double damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
         float 概率 = 英雄星级属性.后羿连射概率;
         float random = Random.Range(0, 100);
@@ -273,7 +272,7 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void 后羿神通(Vector2 shotpos, Vector2 dir, float damage, float 瑶池冰辅助, float 黑暗辅助, bool 女娲电辅助, bool 瑶池神通,
+    public void 后羿神通(Vector2 shotpos, Vector2 dir, double damage, float 瑶池冰辅助, float 黑暗辅助, bool 女娲电辅助, bool 瑶池神通,
         bool 妲己神通,bool 女娲神通)
     {
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.后羿);
@@ -289,7 +288,7 @@ public class FightController : XSingleton<FightController>
         Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 2, false), damage, 15,瑶池冰辅助,黑暗辅助,100,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,女娲神通,true);
         Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, 15,瑶池冰辅助,黑暗辅助,100,女娲电辅助,HeroType.后羿, 瑶池神通,妲己神通,女娲神通,true);
     }
-    public void 后羿基础射击(HeroType hero,Vector2 shotpos,Vector2 dir,float damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
+    public void 后羿基础射击(HeroType hero,Vector2 shotpos,Vector2 dir,double damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.后羿);
 
@@ -337,7 +336,7 @@ public class FightController : XSingleton<FightController>
     public void 人物神通(HeroType hero, Vector2 shotpos, Vector2 dir, Vector2 targetPos, float 瑶池冰辅助, float 黑暗辅助,
         float 女娲电辅助,float 瑶池神通,float 妲己神通, float 女娲神通,int count = 0)
     {
-        float damage = HeroConfig.英雄神通配置Dic[hero].damage/100f * 属性config.总属性.总攻击力;
+        double damage = HeroConfig.英雄神通配置Dic[hero].damage/100f * 属性config.总属性.总攻击力;
         switch (hero)
         {
             case HeroType.丹童:
@@ -387,7 +386,7 @@ public class FightController : XSingleton<FightController>
     public float 射手攻击速度 = 15;
     public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助,float 瑶池神通,float 妲己神通time,float 女娲神通time)
     {
-        float damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.总属性.总攻击力;
+        double damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.总属性.总攻击力;
         switch (hero)
         {
             case HeroType.丹童:
@@ -966,7 +965,7 @@ public class FightController : XSingleton<FightController>
 
     public IEnumerator Spine一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos, bool 瑶池冰辅助, bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,int count=0)
     {
-        float damage = 属性config.总属性.总攻击力;
+        double damage = 属性config.总属性.总攻击力;
         switch (攻击特效Type)
         {
             case 攻击特效Type.陨石:
@@ -1015,7 +1014,7 @@ public class FightController : XSingleton<FightController>
 
     public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助,bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
-        float damage = 属性config.总属性.总攻击力;
+        double damage = 属性config.总属性.总攻击力;
         
         switch (攻击特效Type)
         {
@@ -1497,7 +1496,7 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void 循环伤害技能(攻击特效Type 攻击特效Type, Vector2 shotPos, Vector2 dir, float damage, YuanSuType yuanSuType,
+    public void 循环伤害技能(攻击特效Type 攻击特效Type, Vector2 shotPos, Vector2 dir, double damage, YuanSuType yuanSuType,
         float speed, float 瑶池冰辅助, float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
         循环伤害技能 魔法弹 = null;
@@ -1525,7 +1524,7 @@ public class FightController : XSingleton<FightController>
     }
 
 
-    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, float damage, float speed,float 瑶池冰辅助,float 黑暗辅助,int 穿透,bool 女娲电辅助,HeroType heroType,bool 瑶池神通,bool 妲己神通,bool 女娲神通,bool 是否神通)
+    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, double damage, float speed,float 瑶池冰辅助,float 黑暗辅助,int 穿透,bool 女娲电辅助,HeroType heroType,bool 瑶池神通,bool 妲己神通,bool 女娲神通,bool 是否神通)
     {
         普通魔法弹带peng 魔法弹 = null;
         try

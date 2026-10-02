@@ -13,7 +13,7 @@ using DG.Tweening;
 public class 灼烧
 {
    public float 灼烧Time;
-   public float 灼烧伤害;
+   public double 灼烧伤害;
    public float 灼烧当前时间;
    public int 灼烧层数;
 }
@@ -24,14 +24,14 @@ public class MonsterBase : MonoBehaviour
    public GameObject 灼烧obj;
    public SpriteRenderer 灼烧image;
    [NonSerialized]public float 灼烧time = 0;
-   [NonSerialized]public float 灼烧伤害=0;
+   [NonSerialized]public double 灼烧伤害=0;
    [NonSerialized]public float 灼烧间隔 = 1;
    [NonSerialized]public float 灼烧当前时间 = 0;
    [NonSerialized]public float 冰冻time = 0;
    [NonSerialized]public float 易电time = 0;
-   [NonSerialized]public float 易电伤害 = 0;
+   [NonSerialized]public double 易电伤害 = 0;
    [NonSerialized]public float 黑暗印记层数 = 0;
-   [NonSerialized]public float 黑暗印记伤害 = 0;
+   [NonSerialized]public double 黑暗印记伤害 = 0;
    [NonSerialized]public float 怪物真实护甲 = 0;
    
    [NonSerialized]public Dictionary<HeroType,int>英雄攻击次数=new Dictionary<HeroType,int>();
@@ -59,7 +59,7 @@ public class MonsterBase : MonoBehaviour
    public Slider 残影Slider;
 
    [NonSerialized] public MonsterAttribute MonsterAttribute;
-   [NonSerialized]public float CurrentHP;
+   [NonSerialized]public double CurrentHP;
    [NonSerialized] public float basespeed;
    private float CurrentAttackTime = 0;
    private int 异常状态个数 = 0;
@@ -96,7 +96,7 @@ public class MonsterBase : MonoBehaviour
 
    [NonSerialized] public float 冰元素减速 = 0;//多次减速取最大值
    [NonSerialized] public float 冰元素减速时间 = 0;
-   public void Set灼烧伤害(float damage)
+   public void Set灼烧伤害(double damage)
    {
       damage *= 属性config.总属性.羲和灼烧伤害;
       if (灼烧time <= 0)
@@ -208,11 +208,12 @@ public class MonsterBase : MonoBehaviour
       MonsterSlider.gameObject.SetActive(false);
       残影Slider.gameObject.SetActive(false);
       CurrentHP = MonsterAttribute.Hp;
-      // maxValue 只设一次；两条都先对齐全血，保证首次受击残影从满血开始追（原逻辑首帧残影 value 是陈旧值）
-      MonsterSlider.maxValue = MonsterAttribute.Hp;
-      残影Slider.maxValue = MonsterAttribute.Hp;
-      MonsterSlider.value = CurrentHP;
-      残影Slider.value = CurrentHP;
+      // 血条归一化：Slider 是 float，大数值 HP 直接赋值会溢出为 Infinity，
+      // 统一用 0~1 的血量比例驱动主血条与残影血条
+      MonsterSlider.maxValue = 1;
+      残影Slider.maxValue = 1;
+      MonsterSlider.value = 1;
+      残影Slider.value = 1;
       _血条脏 = false;
       _血条刷新计时 = 0f;
       _残影激活 = false;
@@ -338,7 +339,7 @@ public class MonsterBase : MonoBehaviour
       return 怪物属性;
    }
 
-   public float 元素伤害(float damage,YuanSuType yuanSuType)
+   public double 元素伤害(double damage,YuanSuType yuanSuType)
    {
       switch (yuanSuType)
       {
@@ -362,7 +363,7 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
    
-   public float 职业伤害(float damage,ZhiYeType zhiYeType)
+   public double 职业伤害(double damage,ZhiYeType zhiYeType)
    {
       switch (zhiYeType)
       {
@@ -496,7 +497,7 @@ public class MonsterBase : MonoBehaviour
       }
    }
 
-   public float Get道纹伤害(float 原始Damage, HeroType heroType)
+   public double Get道纹伤害(double 原始Damage, HeroType heroType)
    {
       if (heroType == HeroType.孙悟空)
       {
@@ -540,7 +541,7 @@ public class MonsterBase : MonoBehaviour
       return 原始Damage;
    }
 
-   public float 计算法师功法暴击伤害(float damage, HeroType heroType)
+   public double 计算法师功法暴击伤害(double damage, HeroType heroType)
    {
       if (_ctx.职业.zhiYeType == ZhiYeType.法师 &&
           PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
@@ -552,7 +553,7 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
-   public float 计算符文伤害(float damage, HeroType heroType, 攻击特效Type 攻击特效)
+   public double 计算符文伤害(double damage, HeroType heroType, 攻击特效Type 攻击特效)
    {
       bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
       YuanSuType yuansu = _ctx.职业.yuanSuType;
@@ -653,7 +654,7 @@ public class MonsterBase : MonoBehaviour
          100f);
       return damage;
    }
-   public float 计算技能树伤害(float damage, HeroType heroType,攻击特效Type 攻击特效)
+   public double 计算技能树伤害(double damage, HeroType heroType,攻击特效Type 攻击特效)
    {
       YuanSuType yuansu = _ctx.职业.yuanSuType;
       bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
@@ -763,7 +764,7 @@ public class MonsterBase : MonoBehaviour
    
    // 受击扣血：只改 CurrentHP + 置脏 + 启动残影，不直接刷主 Slider（0.1s 节流在 Update 统一做）；
    // 残影从当前显示值追向新血量，连续 AOE 时平滑下拖不跳变；死亡判定仍由各调用处立即执行
-   private void 受击扣血(float damage)
+   private void 受击扣血(double damage)
    {
       CurrentHP -= damage;
       MonsterSlider.gameObject.SetActive(true);
@@ -771,11 +772,11 @@ public class MonsterBase : MonoBehaviour
       if (!_残影激活) 残影Slider.gameObject.SetActive(true);
       _残影激活 = true;
       _残影起始值 = 残影Slider.value;
-      _残影目标值 = CurrentHP;
+      _残影目标值 = (float)(CurrentHP / MonsterAttribute.Hp);
       _残影计时 = 0f;
    }
 
-   public void Hurt(float 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
+   public void Hurt(double 原始Damage,HeroType heroType,攻击特效Type 攻击特效)
    {
       // 高频字典查找全部缓存到本地变量（同一个 heroType 被查 7+ 次）；
       // 职业/技能树/符文/法器/丹药整场战斗不变，走英雄战斗缓存（首次命中懒加载，之后只是一次字典 TryGetValue）
@@ -835,11 +836,11 @@ public class MonsterBase : MonoBehaviour
       }
       if (_ctx.技能树.物理碎甲领主攻击百分比 > 0)
       {
-         怪物真实护甲 -= FightController.S.领主总攻击力 * _ctx.技能树.物理碎甲领主攻击百分比*(1f+_ctx.符文.加强碎甲效果/100f) / 100f;
+         怪物真实护甲 -= (float)(FightController.S.领主总攻击力 * _ctx.技能树.物理碎甲领主攻击百分比*(1f+_ctx.符文.加强碎甲效果/100f)) / 100f;
          怪物真实护甲 = Math.Max(0, 怪物真实护甲);
       }
 
-      float 最终Damage = Math.Max(原始Damage - 怪物真实护甲,0);
+      double 最终Damage = Math.Max(原始Damage - 怪物真实护甲,0);
       最终Damage *= (1f + FightController.S.技能树总所有英雄伤害 / 100f);
       if (怪物真实护甲 == 0)
       {
@@ -1074,7 +1075,7 @@ public class MonsterBase : MonoBehaviour
       }
    }
 
-   public void 英雄灼烧(float 最终Damage,HeroType  heroType)
+   public void 英雄灼烧(double 最终Damage,HeroType  heroType)
    {
       if (heroType == HeroType.月老)
       {
@@ -1293,7 +1294,7 @@ public class MonsterBase : MonoBehaviour
          {
             _血条刷新计时 = 0f;
             _血条脏 = false;
-            MonsterSlider.value = CurrentHP;
+            MonsterSlider.value = (float)(CurrentHP / MonsterAttribute.Hp);
          }
       }
       if (_残影激活)
@@ -1349,7 +1350,7 @@ public class MonsterBase : MonoBehaviour
     //  Instantiate(Resources.Load("Prefabs/Window/胜利弹窗"));
    }
 
-   public float 计算根基丹药伤害(float damage, HeroType heroType)
+   public double 计算根基丹药伤害(double damage, HeroType heroType)
    {
       YuanSuType yuansu=_ctx.职业.yuanSuType;
       switch (yuansu)
@@ -1374,7 +1375,7 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
-   public float 计算体质伤害(float damage, HeroType heroType)
+   public double 计算体质伤害(double damage, HeroType heroType)
    {
       YuanSuType yuanSuType = _ctx.职业.yuanSuType;
       ZhiYeType zhiYeType=_ctx.职业.zhiYeType;
@@ -1416,7 +1417,7 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
-   public float 计算体质辅助伤害(float damage, HeroType heroType)
+   public double 计算体质辅助伤害(double damage, HeroType heroType)
    {
       if (瑶池冰辅助 > 0)
       {
@@ -1433,13 +1434,13 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
-   public float 计算轮回次数加伤害(float damage, HeroType heroType)
+   public double 计算轮回次数加伤害(double damage, HeroType heroType)
    {
       if(PlayerData.S.轮回次数==0)return  damage;
-      float value=damage*PlayerData.S.轮回次数*(1f+FightController.S.缓存体质总属性.轮回次数加伤害/100f);
+      double value=damage*PlayerData.S.轮回次数*(1f+FightController.S.缓存体质总属性.轮回次数加伤害/100f);
       return value;
    }
-   public float 计算功法伤害(float damage,HeroType  heroType)
+   public double 计算功法伤害(double damage,HeroType  heroType)
    {
       // 所有功法最终伤害加成统一求和后只乘一次：
       // 主英雄自身功法 + 瑶池/妲己/女娲的辅助功法（按怪物身上的辅助标志），
@@ -1469,7 +1470,7 @@ public class MonsterBase : MonoBehaviour
       return damage * (1f + 功法伤害加成);
    }
 
-   public float 计算丹药伤害(float damage, HeroType heroType)
+   public double 计算丹药伤害(double damage, HeroType heroType)
    {
       ZhiYeType zhiYeType = _ctx.职业.zhiYeType;
       YuanSuType yuanSuType=_ctx.职业.yuanSuType;
@@ -1547,7 +1548,7 @@ public class MonsterBase : MonoBehaviour
       return 聚合;
    }
 
-   public float 计算法器伤害(float damage,HeroType  heroType,法器属性 法器属性)
+   public double 计算法器伤害(double damage,HeroType  heroType,法器属性 法器属性)
    {
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       YuanSuType yuansu = _ctx.职业.yuanSuType;

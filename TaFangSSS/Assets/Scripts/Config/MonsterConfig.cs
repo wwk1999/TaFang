@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -463,8 +464,8 @@ public class 主线关卡怪物Item
 
 public class MonsterAttribute
 {
-    public float Hp;
-    public float Attack;
+    public double Hp;
+    public double Attack;
     public float Defense;
     public float 物理抗性;
     public float 冰霜抗性;
@@ -1842,9 +1843,9 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
 
 public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterType type)
 {
-  float 基础攻击力 = 100000;
+  double 基础攻击力 = 100000;
   float 基础防御 = 30000;
-  float 基础生命 = 150000000000;
+  double 基础生命 = 150000000000;
   float 基础抗性 = 70;
   if (type == MonsterType.Boss)
   {
@@ -1861,9 +1862,9 @@ public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterT
   // 每层乘法成长（幂底数必须是倍率而不是基础值）：
   // 原 pow(基础值, 1.5×层) 每层增长数千万倍，第5层起血量超出 float 上限(3.4e38)变为 Infinity，怪永远不死
   // 现第33层普通怪血量 ≈ 150000×3^32 ≈ 2.8e20，远离溢出；手感偏软/偏硬直接调这三个倍率
-  基础攻击力 *= Mathf.Pow(1.2f, count - 1);
+  基础攻击力 *= Math.Pow(1.2, count - 1);
   基础防御 *= Mathf.Pow(1.2f, count - 1);
-  基础生命 *= Mathf.Pow(1.5f, count - 1);
+  基础生命 *= Math.Pow(1.5, count - 1);
   if (count > 10)
   {
     基础抗性 = 80;

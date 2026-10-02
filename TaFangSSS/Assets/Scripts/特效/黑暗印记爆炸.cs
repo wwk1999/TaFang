@@ -7,7 +7,7 @@ using UnityEngine;
 public class 黑暗印记爆炸 : MonoBehaviour
 {
     public Animator Animator;
-    [NonSerialized] public float damage;
+    [NonSerialized] public double damage;
     [NonSerialized] public HeroType HeroType;
 
     private void OnEnable()
