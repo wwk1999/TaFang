@@ -361,9 +361,9 @@ public class 灵物突破Config
         { QualityType.地品, 10 },
         { QualityType.天品, 50 },
         { QualityType.宇品, 300 },
-        { QualityType.宙品, 2000 },
-        { QualityType.洪品, 10000 },
-        { QualityType.荒品, 100000 },
+        { QualityType.宙品, 3000 },
+        { QualityType.洪品, 50000 },
+        { QualityType.荒品, 1000000 },
     };
 
     public static Dictionary<JingJieType, string> 突破灵物名Dic = new Dictionary<JingJieType, string>()
