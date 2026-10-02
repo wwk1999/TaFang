@@ -140,7 +140,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public float 城墙无敌Time = 0;
     [NonSerialized] public float 每秒回血Time = 0;
     [NonSerialized] public float 无敌间隔Time = 0;
-    [NonSerialized] public float 城墙当前生命值;
+    [NonSerialized] public double 城墙当前生命值;
     [NonSerialized] public HashSet<MonsterBase>当前怪物Set = new HashSet<MonsterBase>();
     [NonSerialized] public float CreateMonsterTime = 1f;
     [NonSerialized] public float 当前创建普通怪物时间 = 0;
@@ -191,9 +191,9 @@ public class FightController : XSingleton<FightController>
         ObserverModuleManager.S.SendEvent("刷新伤害面板",value);
     }
 
-    public float Get护盾Left()
+    public double Get护盾Left()
     {
-        float 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
+        double 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
         float 护盾比例=城墙护盾值/缓存城墙最大生命值;
         if (护盾比例 >= 1)
         {
@@ -201,7 +201,7 @@ public class FightController : XSingleton<FightController>
         }
         else if(血量value+护盾比例<=1)
         {
-            return 147.6f * 血量value;
+            return 147.6d * 血量value;
         }
         else
         {
@@ -209,9 +209,9 @@ public class FightController : XSingleton<FightController>
         }
     }
     
-    public float Get护盾Right()
+    public double Get护盾Right()
     {
-        float 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
+        double 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
         float 护盾比例=城墙护盾值/缓存城墙最大生命值;
         if (护盾比例 >= 1)
         {
@@ -2022,7 +2022,7 @@ public class FightController : XSingleton<FightController>
             {
                 return;
             }
-            int 真实回血值 = 0;
+            double 真实回血值 = 0;
             if (value > 回血值)
             {
                 真实回血值 = 回血值;

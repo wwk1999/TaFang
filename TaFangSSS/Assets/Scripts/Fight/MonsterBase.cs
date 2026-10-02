@@ -970,7 +970,7 @@ public class MonsterBase : MonoBehaviour
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
       最终Damage = 元素伤害(最终Damage, yuanSu);
       最终Damage = 职业伤害(最终Damage, zhiYe);
-      float 城墙血量比例 = FightController.S.城墙当前生命值 / FightController.S.缓存城墙最大生命值;
+      double 城墙血量比例 = FightController.S.城墙当前生命值 / FightController.S.缓存城墙最大生命值;
       if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
       {
          最终Damage *= (1 +  城墙Config.低血量增伤值/ 100f);

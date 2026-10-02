@@ -22,9 +22,9 @@ public class Entrance : MonoBehaviour
        当前血量.text=PlayerData.S.格式化数字(FightController.S.城墙当前生命值); 
        最大血量.text= PlayerData.S.格式化数字(城墙Config.Get城墙最大生命值());
        血条Slider.maxValue = 城墙Config.Get城墙最大生命值();
-       血条Slider.value = FightController.S.城墙当前生命值;
-       护盾.offsetMin = new Vector2(FightController.S.Get护盾Left(),护盾.offsetMin.y);
-       护盾.offsetMax = new Vector2(-FightController.S.Get护盾Right(),护盾.offsetMax.y);
+       血条Slider.value = (float)FightController.S.城墙当前生命值;
+       护盾.offsetMin = new Vector2((float)FightController.S.Get护盾Left(),护盾.offsetMin.y);
+       护盾.offsetMax = new Vector2((float)-FightController.S.Get护盾Right(),护盾.offsetMax.y);
    }
    public void 围栏受击(object[] obj)
    {
@@ -45,7 +45,7 @@ public class Entrance : MonoBehaviour
       double damage = (double)obj[0];
       damage -=城墙Config.Get城墙防御();
       属性config.领主总属性 属性 = new 属性config.领主总属性();
-      float 城墙血量比例 = FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
+      float 城墙血量比例 = (float)FightController.S.城墙当前生命值 / 城墙Config.Get城墙最大生命值();
       if (城墙血量比例 < 城墙Config.Get低血量伤害减免血量值()/ 100f)
       {
           damage *= (1f - 城墙Config.低血量伤害减免值 / 100f);

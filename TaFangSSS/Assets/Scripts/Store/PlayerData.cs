@@ -3570,6 +3570,12 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     
     public string 格式化数字(double num)
     {
+        // [临时诊断] 定位负数/溢出显示的来源，问题确认后删除此段
+        if (double.IsNaN(num) || double.IsInfinity(num) || num < 0)
+        {
+            Debug.Log($"[格式化数字诊断] 异常输入 num={num}\n调用栈:\n{System.Environment.StackTrace}");
+        }
+
         // 处理负数
         if (num < 0)
         {
@@ -3588,7 +3594,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
             // 达到当前单位的1000倍才转换（即 1000万、1000亿、1000兆...）
             if (num >= unit.value * 100)
             {
-                int v = (int)(num / unit.value);
+                double v = (num / unit.value);
                 return v + unit.symbol;
             }
         }
