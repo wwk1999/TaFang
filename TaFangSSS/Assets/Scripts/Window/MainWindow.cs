@@ -196,11 +196,11 @@ public class MainWindow : MonoBehaviour
         JingJieSlider.value = PlayerData.S.Exp;
         CurrentExp.text=((int)PlayerData.S.Exp).ToString();
         MaxExp.text=(JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界]*JingJieConfig.每年基础修为).ToString();
-        LingQi.text=PlayerData.S.PropListDic[PropType.灵魂].ToString("F0");
-        GongDe.text=PlayerData.S.PropListDic[PropType.功德].ToString("F0");
-        矿石.text=PlayerData.S.PropListDic[PropType.矿石].ToString("F0");
-        玄铁.text=PlayerData.S.PropListDic[PropType.玄铁].ToString("F0");
-        玉髓.text=PlayerData.S.PropListDic[PropType.玉髓].ToString("F0");
+        LingQi.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
+        GongDe.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.功德]);
+        矿石.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.矿石]);
+        玄铁.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.玄铁]);
+        玉髓.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.玉髓]);
 
     }
     public void Init()

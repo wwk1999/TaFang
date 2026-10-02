@@ -148,7 +148,7 @@ public class 坊市Config
 
     public static QualityType Get坊市物品品质()
     {
-        var list = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].概率;
+        var list = 道场Config.坊市配置[PlayerData.S.坊市等级].概率;
         float random = Random.Range(0, 100f);
         float count = 0;
         QualityType qualityType = QualityType.黄品;
@@ -171,7 +171,7 @@ public class 坊市Config
         PlayerData.S.坊市物品列表.Clear();
         for (int i = 0; i < 12; i++)
         {
-            var item = 坊市Config.Get坊市物品();
+            var item = Get坊市物品();
             PlayerData.S.坊市物品列表.Add(item);
         }
     }

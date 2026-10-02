@@ -266,6 +266,13 @@ public class 储物袋界面 : MonoBehaviour
       {
          switch (显示类型)
          {
+            case 1:
+               if (页数Num < Get材料最大页数())
+               {
+                  页数Num++;
+                  刷新背包();
+               }
+               break;
             case 2:
                if (页数Num < Get道纹最大页数())
                {
@@ -650,6 +657,27 @@ public class 储物袋界面 : MonoBehaviour
             break;
       }
    }
+   // 材料+丹方总数算最大页数，与 ShowProp 的收集口径一致
+   public int Get材料最大页数()
+   {
+      int count = 0;
+      foreach (var item in PlayerData.S.PropListDic)
+      {
+         if (item.Value > 0)
+         {
+            count++;
+         }
+      }
+      foreach (var item in PlayerData.S.丹方Dic)
+      {
+         if (item.Value > 0)
+         {
+            count++;
+         }
+      }
+      return Mathf.CeilToInt(count / 54f);
+   }
+
    public int Get灵药最大页数()
    {
       int count = 0;

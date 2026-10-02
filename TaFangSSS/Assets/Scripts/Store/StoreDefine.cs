@@ -13,6 +13,7 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public int 坊市等级 = 1;
         public bool 是否加入愿望单 = false;
         public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;
 
@@ -3231,6 +3232,7 @@ public class StoreDefine : XSingleton<StoreController>
             自动拒绝圣品供奉 = runtime.自动拒绝圣品供奉;
             打造List = runtime.打造List;
             是否加入愿望单 =runtime.是否加入愿望单;
+            坊市等级 = runtime.坊市等级;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3341,6 +3343,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.自动拒绝圣品供奉 = 自动拒绝圣品供奉;
             runtime.打造List = 打造List;
             runtime.是否加入愿望单 = 是否加入愿望单;
+            runtime.坊市等级 = 坊市等级;
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)

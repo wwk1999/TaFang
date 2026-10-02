@@ -14,6 +14,9 @@ public class 坊市窗口 : MonoBehaviour
     public TextMeshProUGUI 剩余时间;
     public Button 刷新按钮;
     public Button exitButton;
+    public Button 左Button;
+    public Button 右Button;
+    public TextMeshProUGUI num;
 
     private void OnEnable()
     {
@@ -41,6 +44,22 @@ public class 坊市窗口 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("刷新坊市窗口",刷新坊市窗口);
 
         ObserverModuleManager.S.RegisterEvent("刷新坊市剩余时间",刷新剩余时间);
+        左Button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.坊市等级 > 1)
+            {
+                PlayerData.S.坊市等级--;
+                num.text = PlayerData.S.坊市等级.ToString();
+            }
+        });
+        右Button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.坊市等级 < PlayerData.S.建筑等级Dic[建筑Type.坊市])
+            {
+                PlayerData.S.坊市等级++;
+                num.text = PlayerData.S.坊市等级.ToString();
+            }
+        });
         exitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
@@ -64,6 +83,7 @@ public class 坊市窗口 : MonoBehaviour
 
     public void Show()
     {
+        num.text = PlayerData.S.坊市等级.ToString();
         刷新次数.text=PlayerData.S.坊市刷新次数.ToString();
         剩余时间.text = (属性config.每年秒数 - PlayerData.S.道龄S).ToString("F0")+"S";
         foreach (Transform item in content.transform)
