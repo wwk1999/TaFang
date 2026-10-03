@@ -562,7 +562,7 @@ public class 道场Config
 
     public static Dictionary<供奉品质Type, float> 供奉特性概率 = new Dictionary<供奉品质Type, float>()
     {
-        { 供奉品质Type.凡, 2 },
+        { 供奉品质Type.凡, 2 },  
         { 供奉品质Type.灵, 4 },
         { 供奉品质Type.仙, 8 },
         { 供奉品质Type.圣, 10 },
