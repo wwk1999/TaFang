@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class FightWindow : MonoBehaviour
 {
+    public GameObject 层数;
+    public TextMeshProUGUI 层数count;
     public 失败弹窗 失败弹窗;
     public GameObject content;
     public 胜利弹窗 胜利弹窗;
@@ -121,6 +123,7 @@ public class FightWindow : MonoBehaviour
     }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新关卡层数",刷新关卡层数);
         ObserverModuleManager.S.UnRegisterEvent("显示失败弹窗",显示失败弹窗);
         ObserverModuleManager.S.UnRegisterEvent("显示胜利弹窗",显示胜利弹窗);
         ObserverModuleManager.S.UnRegisterEvent("设置丹药区域",Set丹药区域);
@@ -153,8 +156,27 @@ public class FightWindow : MonoBehaviour
     {
         胜利弹窗.gameObject.SetActive(true);
     }
+
+    public void Set关卡层数()
+    {
+        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        {
+            层数.gameObject.SetActive(true);
+            层数count.text = LevelConfig.战斗混沌虚空层数.ToString();
+        }
+        else
+        {
+            层数.gameObject.SetActive(false);
+        }
+    }
+
+    public void 刷新关卡层数(object[] obj)
+    {
+        Set关卡层数();
+    }
     private void Awake()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新关卡层数",刷新关卡层数);
         ObserverModuleManager.S.RegisterEvent("显示失败弹窗",显示失败弹窗);
         ObserverModuleManager.S.RegisterEvent("显示胜利弹窗",显示胜利弹窗);
         ObserverModuleManager.S.RegisterEvent("设置丹药区域",Set丹药区域);
@@ -163,6 +185,7 @@ public class FightWindow : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("刷新关卡进度",刷新关卡进度);
         Set倍速Button();
         Set神通进度条();
+        Set关卡层数();
         引导Button.onClick.AddListener(() =>
         {
             if (引导Count == 0)

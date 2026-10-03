@@ -15,6 +15,7 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 元素人人为我开关=true;
     public bool 职业人人为我开关=true;
 
+    public bool 是否自动下一关=true;
     public int 坊市等级 = 1;
     public bool 是否加入愿望单 = false;
     public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;

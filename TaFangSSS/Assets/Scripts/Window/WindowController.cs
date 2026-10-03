@@ -49,7 +49,8 @@ public class WindowController : XSingleton<WindowController>
    public static void 强制刷新画布排序(GameObject window)
    {
       if (window == null) return;
-      var canvas = window.GetComponent<Canvas>();
+      // 弹窗类节点通常不自带 Canvas（继承父窗口的），往父级找到实际承载它的画布
+      var canvas = window.GetComponentInParent<Canvas>();
       if (canvas == null || canvas.renderMode != RenderMode.ScreenSpaceOverlay) return;
       // 用 WindowController 做协程宿主（DontDestroyOnLoad），避免窗口被关闭时协程中断
       S.StartCoroutine(延迟刷新画布排序协程(canvas));

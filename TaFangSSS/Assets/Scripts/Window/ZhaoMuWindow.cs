@@ -67,6 +67,16 @@ public class ZhaoMuWindow : MonoBehaviour
       ResetCount();
    }
 
+   /// <summary>
+   /// 弹窗不能裸 SetActive：后台战斗场景 additive 加载后 Overlay Canvas 全局排序缓存可能不重建，
+   /// 弹窗会被压在战斗 UI 底下（逻辑照跑但看不见），必须走排序刷新
+   /// </summary>
+   private void 显示弹窗(GameObject window)
+   {
+      window.SetActive(true);
+      WindowController.强制刷新画布排序(window);
+   }
+
    public void 刷新招募界面(object[] obj)
    {
       ResetCount();
@@ -83,7 +93,7 @@ public class ZhaoMuWindow : MonoBehaviour
       ShowShangDian();
       概率按钮.onClick.AddListener(() =>
       {
-         概率弹窗.gameObject.SetActive(true);
+         显示弹窗(概率弹窗);
       });
       Toggle.onValueChanged.AddListener(delegate
       {
@@ -112,7 +122,7 @@ public class ZhaoMuWindow : MonoBehaviour
             招募成功弹窗.Is10 = false;
             PropType propType = ZhaoMuConfig.GaoJiZhaoMu();
             招募成功弹窗.Item1Type = propType;
-            招募成功弹窗.gameObject.SetActive(true);
+            显示弹窗(招募成功弹窗.gameObject);
          }
          else
          {
@@ -130,7 +140,7 @@ public class ZhaoMuWindow : MonoBehaviour
             {
                招募成功弹窗.list[i]=ZhaoMuConfig.GaoJiZhaoMu();
             }
-            招募成功弹窗.gameObject.SetActive(true);
+            显示弹窗(招募成功弹窗.gameObject);
          }
 
          ResetCount();
@@ -150,7 +160,7 @@ public class ZhaoMuWindow : MonoBehaviour
             招募成功弹窗.Is10 = false;
             PropType propType = ZhaoMuConfig.NormalZhaoMu();
             招募成功弹窗.Item1Type = propType;
-            招募成功弹窗.gameObject.SetActive(true);
+            显示弹窗(招募成功弹窗.gameObject);
             PlayerData.S.招募积分++;
             PlayerData.S.PropListDic[PropType.招募卷]--;
          }
@@ -170,7 +180,7 @@ public class ZhaoMuWindow : MonoBehaviour
             {
                招募成功弹窗.list[i]=ZhaoMuConfig.NormalZhaoMu();
             }
-            招募成功弹窗.gameObject.SetActive(true);
+            显示弹窗(招募成功弹窗.gameObject);
             PlayerData.S.招募积分+=10;
          }
          ResetCount();

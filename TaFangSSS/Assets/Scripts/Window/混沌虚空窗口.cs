@@ -23,6 +23,7 @@ public class 混沌虚空窗口 : MonoBehaviour
     public Button 右箭头;
     private int pagenum = 1;
     public Toggle 重复挑战Toggle;
+    public Toggle 自动下一关Toggle;
 
     private void Start()
     {
@@ -38,6 +39,11 @@ public class 混沌虚空窗口 : MonoBehaviour
         {
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
             PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
+        });
+        自动下一关Toggle.onValueChanged.AddListener(delegate
+        {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+            PlayerData.S.是否自动下一关 = 自动下一关Toggle.isOn;
         });
         挑战Button.onClick.AddListener(() =>
         {

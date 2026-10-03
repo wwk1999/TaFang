@@ -223,16 +223,16 @@ public class 胜利弹窗 : MonoBehaviour
         float 轮回石数量 = 0;
         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
         {
-            if (LevelConfig.战斗混沌虚空层数 >= 300)
+            if (LevelConfig.战斗混沌虚空层数 >= 600)
             {
                 轮回石数量= 5;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 200)
+            }else if (LevelConfig.战斗混沌虚空层数 >= 300)
             {
                 轮回石数量= 4;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 100)
+            }else if (LevelConfig.战斗混沌虚空层数 >= 150)
             {
                 轮回石数量= 3;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 50)
+            }else if (LevelConfig.战斗混沌虚空层数 >= 80)
             {
                 轮回石数量= 2;
             }else
@@ -248,6 +248,11 @@ public class 胜利弹窗 : MonoBehaviour
         JingJieType 关卡JieType = LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type];
         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
         {
+            if (PlayerData.S.是否自动下一关)
+            {
+                LevelConfig.战斗混沌虚空层数++;
+            }
+            ObserverModuleManager.S.SendEvent("刷新关卡层数");
             if (LevelConfig.战斗混沌虚空层数 >= 700)
             {
                 关卡JieType = JingJieType.鸿蒙;

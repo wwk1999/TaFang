@@ -13,6 +13,8 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public bool 是否自动下一关=true;
+
         public bool 元素人人为我开关=true;
         public bool 职业人人为我开关=true;
         public int 坊市等级 = 1;
@@ -3236,11 +3238,13 @@ public class StoreDefine : XSingleton<StoreController>
             是否加入愿望单 =runtime.是否加入愿望单;
             坊市等级 = runtime.坊市等级;
             元素人人为我开关 = runtime.元素人人为我开关;
+            是否自动下一关 = runtime.是否自动下一关;
             职业人人为我开关 = runtime.职业人人为我开关;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.是否自动下一关 = 是否自动下一关;
             runtime.Name = Name;
             runtime.历史最高境界 = 历史最高境界;
             runtime.当前轮回境界 = 当前轮回境界;            
