@@ -9,12 +9,14 @@ using UnityEngine.UI;
 
 public class ZhaoMuWindow : MonoBehaviour
 {
+   public Toggle 招募所有Toggle;
+
    public Button 概率按钮;
    public GameObject 概率弹窗;
    public Button 普通招募按钮;
    public Button 高级招募按钮;
    public Button 退出按钮;
-   public Toggle Toggle;
+   public Toggle 招募十次Toggle;
    public TextMeshProUGUI NormalCount;
    public TextMeshProUGUI 当前NormalCount;
    public TextMeshProUGUI GaoJiCount;
@@ -26,19 +28,28 @@ public class ZhaoMuWindow : MonoBehaviour
    public TextMeshProUGUI 积分;
    public void ResetCount()
    {
-      Toggle.isOn=PlayerData.S.是否招募十次;
+      招募十次Toggle.isOn=PlayerData.S.是否招募十次;
+      招募所有Toggle.isOn=PlayerData.S.是否招募所有;
       积分.text=PlayerData.S.招募积分.ToString();
       当前NormalCount.text = PlayerData.S.PropListDic[PropType.招募卷].ToString();
       当前GaoJiCount.text = PlayerData.S.PropListDic[PropType.高级招募卷].ToString();
-      if (PlayerData.S.是否招募十次)
+      if (PlayerData.S.是否招募所有)
       {
-         NormalCount.text = "10";
-         GaoJiCount.text = "10";
+         NormalCount.text = PlayerData.S.PropListDic[PropType.招募卷].ToString();
+         GaoJiCount.text = PlayerData.S.PropListDic[PropType.高级招募卷].ToString();
       }
       else
       {
-         NormalCount.text = "1";
-         GaoJiCount.text = "1";
+         if (PlayerData.S.是否招募十次)
+         {
+            NormalCount.text = "10";
+            GaoJiCount.text = "10";
+         }
+         else
+         {
+            NormalCount.text = "1";
+            GaoJiCount.text = "1";
+         }
       }
    }
 
@@ -86,6 +97,14 @@ public class ZhaoMuWindow : MonoBehaviour
    {
       ObserverModuleManager.S.UnRegisterEvent("刷新招募界面",刷新招募界面);
    }
+   public IEnumerator 招募所有Toast(Dictionary<PropType, int> list)
+   {
+      foreach (var item in list)
+      {
+         ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[item.Key],PropConfig.PropQualityDic[item.Key],item.Value);
+         yield return new WaitForSeconds(0.1f);
+      }
+   }
 
    private void Start()
    {
@@ -95,10 +114,24 @@ public class ZhaoMuWindow : MonoBehaviour
       {
          显示弹窗(概率弹窗);
       });
-      Toggle.onValueChanged.AddListener(delegate
+      招募十次Toggle.onValueChanged.AddListener(delegate
       {
          ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
-         PlayerData.S.是否招募十次 = Toggle.isOn;
+         PlayerData.S.是否招募十次 = 招募十次Toggle.isOn;
+         if (PlayerData.S.是否招募十次)
+         {
+            PlayerData.S.是否招募所有 = false;
+         }
+         ResetCount();
+      });
+      招募所有Toggle.onValueChanged.AddListener(delegate
+      {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+         PlayerData.S.是否招募所有 = 招募所有Toggle.isOn;
+         if (PlayerData.S.是否招募所有)
+         {
+            PlayerData.S.是否招募十次 = false;
+         }
          ResetCount();
       });
       退出按钮.onClick.AddListener(() =>
@@ -107,6 +140,32 @@ public class ZhaoMuWindow : MonoBehaviour
       });
       高级招募按钮.onClick.AddListener(() =>
       {
+         if (PlayerData.S.是否招募所有)
+         {
+            Dictionary<PropType,int> 招募列表 = new Dictionary<PropType,int>();
+            for (int i = 0; i < PlayerData.S.PropListDic[PropType.高级招募卷]; i++)
+            {
+               PropType heroType=ZhaoMuConfig.GaoJiZhaoMu();
+               if (招募列表.ContainsKey(heroType))
+               {
+                  招募列表[heroType]++;
+               }
+               else
+               {
+                  招募列表[heroType] = 1;
+               }
+            }
+            StartCoroutine(招募所有Toast(招募列表));
+            foreach (var item in 招募列表)
+            {
+               PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[item.Key]].元神 += item.Value;   
+            }
+            PlayerData.S.招募积分 += 5*(int)PlayerData.S.PropListDic[PropType.高级招募卷];
+            PlayerData.S.PropListDic[PropType.高级招募卷] = 0;
+            ResetCount();
+            return;
+         }
+         
          招募成功弹窗.IsGaoJi = true;
          if (!PlayerData.S.是否招募十次)
          {
@@ -145,9 +204,35 @@ public class ZhaoMuWindow : MonoBehaviour
 
          ResetCount();
       });
-
+      
+      
       普通招募按钮.onClick.AddListener(() =>
       {
+         if (PlayerData.S.是否招募所有)
+         {
+            Dictionary<PropType,int> 招募列表 = new Dictionary<PropType,int>();
+            for (int i = 0; i < PlayerData.S.PropListDic[PropType.招募卷]; i++)
+            {
+               PropType heroType=ZhaoMuConfig.NormalZhaoMu();
+               if (招募列表.ContainsKey(heroType))
+               {
+                  招募列表[heroType]++;
+               }
+               else
+               {
+                  招募列表[heroType] = 1;
+               }
+            }
+            StartCoroutine(招募所有Toast(招募列表));
+            foreach (var item in 招募列表)
+            {
+               PlayerData.S.HeroDataDic[PropConfig.PropToHeroDic[item.Key]].元神 += item.Value;   
+            }
+            PlayerData.S.招募积分 += (int)PlayerData.S.PropListDic[PropType.招募卷];
+            PlayerData.S.PropListDic[PropType.招募卷] = 0;
+            ResetCount();
+            return;
+         }
          if (PlayerData.S.PropListDic[PropType.招募卷] < 1)
          {
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);

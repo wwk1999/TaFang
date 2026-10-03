@@ -19,13 +19,17 @@ public class 法器仙石分解弹窗 : MonoBehaviour
     public Toggle 地Toggle;
     public Toggle 天Toggle;
     public Toggle 宇Toggle;
+    public Toggle 宙Toggle;
+    public Toggle 洪Toggle;
     public Button 分解Button;
+    public Button maskButton;
     private bool 黄=false;
     private bool 玄=false;
     private bool 地=false;
     private bool 天=false;
     private bool 宇=false;
-
+    private bool 宙=false;
+    private bool 洪=false;
     public void SetToggle()
     {
         黄Toggle.isOn = 黄;
@@ -33,6 +37,8 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         地Toggle.isOn = 地;
         天Toggle.isOn = 天;
         宇Toggle.isOn = 宇;
+        宙Toggle.isOn = 宙;
+        洪Toggle.isOn = 洪;
     }
     private void OnEnable()
     {
@@ -42,6 +48,10 @@ public class 法器仙石分解弹窗 : MonoBehaviour
     
     private void Start()
     {
+        maskButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
         分解Button.onClick.AddListener(() =>
         {
             switch (分解类型)
@@ -54,7 +64,9 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                                (品质 == QualityType.玄品 && 玄) || 
                                (品质 == QualityType.地品 && 地) || 
                                (品质 == QualityType.天品 && 天) || 
-                               (品质 == QualityType.宇品 && 宇));
+                               (品质 == QualityType.宇品 && 宇)||
+                               (品质 == QualityType.宙品 && 宙)||
+                               (品质 == QualityType.洪品 && 洪));
                         if (v)
                         {
                             PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器分解Dic[品质]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
@@ -70,7 +82,9 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                                (品质 == QualityType.玄品 && 玄) || 
                                (品质 == QualityType.地品 && 地) || 
                                (品质 == QualityType.天品 && 天) || 
-                               (品质 == QualityType.宇品 && 宇);
+                               (品质 == QualityType.宇品 && 宇)||
+                               (品质 == QualityType.宙品 && 宙)||
+                               (品质 == QualityType.洪品 && 洪);
                         if (v)
                         {
                             PlayerData.S.PropListDic[PropType.仙石精华] += 仙石Config.仙石分解Dic[品质];
@@ -101,6 +115,14 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         宇Toggle.onValueChanged.AddListener((value) =>
         {
             宇=value;
+        });
+        宙Toggle.onValueChanged.AddListener((value) =>
+        {
+            宙=value;
+        });
+        洪Toggle.onValueChanged.AddListener((value) =>
+        {
+            洪=value;
         });
     }
 }    

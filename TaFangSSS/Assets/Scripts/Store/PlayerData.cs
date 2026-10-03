@@ -45,6 +45,7 @@ public class PlayerData : XSingleton<PlayerData>
     public int 招募积分 = 0;
     public float 关卡倍速 = 1;
     public bool 是否招募十次 = false;
+    public bool 是否招募所有 = false;
     public bool 重复挑战 = false;
     public float 关卡修炼速度加成 = 0;
     public float BGM音量 = 1;

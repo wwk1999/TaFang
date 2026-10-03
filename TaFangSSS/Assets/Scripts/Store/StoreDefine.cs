@@ -48,7 +48,7 @@ public class StoreDefine : XSingleton<StoreController>
         public 体质Type 当前体质 = 体质Type.凡体;
         public int 轮回次数 = 0;
         public bool 是否首次进入主页面 = true;
-        
+        public bool 是否招募所有 = false;
         
         public List<供奉> 当前供奉列表=new List<供奉>();
         public List<供奉> 供奉申请列表=new List<供奉>();
@@ -3240,6 +3240,7 @@ public class StoreDefine : XSingleton<StoreController>
             元素人人为我开关 = runtime.元素人人为我开关;
             是否自动下一关 = runtime.是否自动下一关;
             职业人人为我开关 = runtime.职业人人为我开关;
+            是否招募所有 = runtime.是否招募所有;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3354,6 +3355,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.坊市等级 = 坊市等级;
             runtime.元素人人为我开关 = 元素人人为我开关;
             runtime.职业人人为我开关 = 职业人人为我开关;
+            runtime.是否招募所有 = 是否招募所有;
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)

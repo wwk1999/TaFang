@@ -32,7 +32,7 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized]public double 易电伤害 = 0;
    [NonSerialized]public float 黑暗印记层数 = 0;
    [NonSerialized]public double 黑暗印记伤害 = 0;
-   [NonSerialized]public float 怪物真实护甲 = 0;
+   [NonSerialized]public double 怪物真实护甲 = 0;
    
    [NonSerialized]public Dictionary<HeroType,int>英雄攻击次数=new Dictionary<HeroType,int>();
 
@@ -836,7 +836,8 @@ public class MonsterBase : MonoBehaviour
       }
       if (_ctx.技能树.物理碎甲领主攻击百分比 > 0)
       {
-         怪物真实护甲 -= (float)(FightController.S.领主总攻击力 * _ctx.技能树.物理碎甲领主攻击百分比*(1f+_ctx.符文.加强碎甲效果/100f)) / 100f;
+         // 领主总攻击力是大 double，转 float 会溢出成 Infinity，再减 Infinity 护甲就是 ∞-∞=NaN
+         怪物真实护甲 -= FightController.S.领主总攻击力 * _ctx.技能树.物理碎甲领主攻击百分比*(1f+_ctx.符文.加强碎甲效果/100f) / 100f;
          怪物真实护甲 = Math.Max(0, 怪物真实护甲);
       }
 
