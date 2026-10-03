@@ -238,7 +238,7 @@ public class 属性config
                }
           }
 
-          if (_神物.元素人人为我 != 0)
+          if (_神物.元素人人为我 != 0&&PlayerData.S.元素人人为我开关)
           {
                switch (最大元素)
                {
@@ -405,7 +405,7 @@ public class 属性config
                }
           }
 
-          if (_神物.职业人人为我 != 0)
+          if (_神物.职业人人为我 != 0&&PlayerData.S.职业人人为我开关)
           {
                switch (最大职业)
                {

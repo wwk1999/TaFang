@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class 设置界面 : MonoBehaviour
 {
+   public Button 元素人人为我;
+   public Button 职业人人为我;
+
    public Button maskButton;
    public Button exitButton;
    public TMP_Dropdown  语言Dropdown;
@@ -15,8 +18,38 @@ public class 设置界面 : MonoBehaviour
    public Slider 音效Slider;
    public Toggle 窗口模式Toggle;
 
+   public void Set开关()
+   {
+      if (PlayerData.S.元素人人为我开关)
+      {
+         元素人人为我.image.sprite = ResourcesConfig.toggle亮;
+      }
+      else
+      {
+         元素人人为我.image.sprite = ResourcesConfig.toggle暗;
+      }
+      if (PlayerData.S.职业人人为我开关)
+      {
+         职业人人为我.image.sprite = ResourcesConfig.toggle亮;
+      }
+      else
+      {
+         职业人人为我.image.sprite = ResourcesConfig.toggle暗;
+      }
+   }
    public void Start()
    {
+      Set开关();
+      元素人人为我.onClick.AddListener(() =>
+      {
+         PlayerData.S.元素人人为我开关 = !PlayerData.S.元素人人为我开关;
+         Set开关();
+      });
+      职业人人为我.onClick.AddListener(() =>
+      {
+         PlayerData.S.职业人人为我开关 = !PlayerData.S.职业人人为我开关;
+         Set开关();
+      });
       BGMSlider.value = PlayerData.S.BGM音量;
       音效Slider.value = PlayerData.S.音效音量;
       窗口模式Toggle.isOn = PlayerData.S.是否窗口;
