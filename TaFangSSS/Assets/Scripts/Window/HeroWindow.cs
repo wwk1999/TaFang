@@ -33,6 +33,7 @@ public class HeroWindow : MonoBehaviour
    public 英雄详情弹窗 英雄详情弹窗;
    public 英雄详情界面 英雄详情界面;
    private int 引导count = 0;
+   
    public void 交换英雄(object[] obj)
    {
       ResetHeroPanel();
@@ -170,6 +171,31 @@ public class HeroWindow : MonoBehaviour
 
    private void Update()
    {
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+         if (功法选择弹窗.gameObject.activeSelf)
+         {
+            功法选择弹窗.gameObject.SetActive(false);
+         }
+         else if (功法装备弹窗.gameObject.activeSelf)
+         {
+            功法装备弹窗.gameObject.SetActive(false);
+         }
+         else if (功法确认装备弹窗.gameObject.activeSelf)
+         {
+            功法确认装备弹窗.gameObject.SetActive(false);
+         }
+         else if (英雄详情界面.gameObject.activeSelf)
+         {
+            英雄详情界面.gameObject.SetActive(false);
+         }
+         else
+         {
+            gameObject.SetActive(false);
+         }
+      }
+      
+      
       if (HeroWindowController.S.IsDrag)
       {
          ScrollView.vertical=false;

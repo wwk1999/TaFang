@@ -275,9 +275,11 @@ public class 领主府 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
+      // prefab 提出循环：一次加载，N 条共用（循环内逐条 Load 是字符串查找开销）
+      var 当前供奉prefab = Resources.Load("Prefabs/Window/领主府/当前供奉item");
       foreach (var item in PlayerData.S.当前供奉列表)
       {
-         var 当前供奉 = Instantiate(Resources.Load("Prefabs/Window/领主府/当前供奉item"),当前供奉Content.transform).GetComponent<当前供奉item>();
+         var 当前供奉 = Instantiate(当前供奉prefab,当前供奉Content.transform).GetComponent<当前供奉item>();
          当前供奉.供奉 = item;
          当前供奉.SetItem();
       }
@@ -311,9 +313,10 @@ public class 领主府 : MonoBehaviour
          申请列表标题.text = "供奉申请列表";
          申请列表buttontext.text = "申请列表";
          申请列表Button.image.sprite = ResourcesConfig.toggle亮;
+         var 申请prefab = Resources.Load("Prefabs/Window/领主府/供奉申请item");
          foreach (var item in PlayerData.S.供奉申请列表)
          {
-            var 供奉 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉申请item"),供奉申请Content.transform).GetComponent<供奉申请item>();
+            var 供奉 = Instantiate(申请prefab,供奉申请Content.transform).GetComponent<供奉申请item>();
             供奉.供奉 = item;
             供奉.SetItem();
          }
@@ -323,9 +326,10 @@ public class 领主府 : MonoBehaviour
          申请列表Button.image.sprite = ResourcesConfig.toggle暗;
          申请列表标题.text = "供奉保留列表";
          申请列表buttontext.text = "保留列表";
+         var 保留prefab = Resources.Load("Prefabs/Window/领主府/供奉保留item");
          foreach (var item in PlayerData.S.供奉保留列表)
          {
-            var 供奉 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉保留item"),供奉申请Content.transform).GetComponent<供奉保留item>();
+            var 供奉 = Instantiate(保留prefab,供奉申请Content.transform).GetComponent<供奉保留item>();
             供奉.供奉 = item;
             供奉.SetItem();
          }

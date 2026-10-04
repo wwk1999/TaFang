@@ -39,6 +39,15 @@ public class 坊市窗口 : MonoBehaviour
     {
         Show();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新坊市窗口",刷新坊市窗口);

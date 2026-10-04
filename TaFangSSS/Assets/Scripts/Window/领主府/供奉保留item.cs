@@ -18,9 +18,13 @@ public class 供奉保留item : MonoBehaviour
     public Button 同意按钮;
 
     [NonSerialized] public 供奉 供奉;
-    
+
+    // 预制体静态缓存：每条保留要建 8 个数值子项，循环内逐条 Resources.Load 是打开面板卡顿的一部分
+    private static GameObject _数值itemprefab;
+
     public void SetItem()
     {
+        if (_数值itemprefab == null) _数值itemprefab = Resources.Load<GameObject>("Prefabs/Window/领主府/供奉数值item");
         icon.sprite = ResourcesConfig.Get女供奉Sprite(供奉.供奉头像id);
         name.text = 供奉.name;
         品质bg.sprite = ResourcesConfig.Get供奉品质标签(供奉.供奉品质Type);
@@ -33,49 +37,49 @@ public class 供奉保留item : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-        var 矿 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 矿 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         矿.建筑Type = 建筑Type.矿场;
         矿.count = 供奉.矿;
         矿.SetItem();
         
-        var 铁 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 铁 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         铁.建筑Type = 建筑Type.玄铁洞;
         铁.count = 供奉.铁;
         铁.SetItem();
         
-        var 玉 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 玉 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         玉.建筑Type = 建筑Type.地脉;
         玉.count = 供奉.玉;
         玉.SetItem();
         
-        var 德 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 德 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         德.建筑Type = 建筑Type.功德碑;
         德.count = 供奉.德;
         德.SetItem();
         
-        var 贤 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 贤 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         贤.建筑Type = 建筑Type.聚贤阁;
         贤.count = 供奉.贤;
         贤.SetItem();
         
-        var 丹 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 丹 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         丹.建筑Type = 建筑Type.炼丹室;
         丹.count = 供奉.丹;
         丹.SetItem();
         
-        var 器 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 器 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         器.建筑Type = 建筑Type.炼器室;
         器.count = 供奉.器;
         器.SetItem();
         
-        var 坊 = Instantiate(Resources.Load("Prefabs/Window/领主府/供奉数值item"), 数值Content.transform)
+        var 坊 = Instantiate(_数值itemprefab, 数值Content.transform)
             .GetComponent<供奉数值item>();
         坊.建筑Type = 建筑Type.坊市;
         坊.count = 供奉.坊;
