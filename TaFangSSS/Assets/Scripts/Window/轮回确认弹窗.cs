@@ -16,7 +16,7 @@ public class 轮回确认弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
-        轮回石count.text=JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界].ToString();
+        轮回石count.text=(JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界]+PlayerData.S.轮回次数).ToString();
         text.text = $"并永久保留<color=green>{JingJieConfig.轮回系数}%</color>当前跟脚作为轮回后的初始跟脚";
     }
 
@@ -32,7 +32,7 @@ public class 轮回确认弹窗 : MonoBehaviour
         });
         确认Button.onClick.AddListener(() =>
         {
-            if (PlayerData.S.PropListDic[PropType.轮回石] < JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界])
+            if (PlayerData.S.PropListDic[PropType.轮回石] < JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界]+PlayerData.S.轮回次数)
             {
                 ObserverModuleManager.S.SendEvent("SendUIToast","轮回石数量不足");
                 return;

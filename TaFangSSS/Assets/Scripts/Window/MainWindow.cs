@@ -21,6 +21,7 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public TextMeshProUGUI 轮回次数;
 
     public Button 导出存档Button;
 
@@ -201,6 +202,7 @@ public class MainWindow : MonoBehaviour
         矿石.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.矿石]);
         玄铁.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.玄铁]);
         玉髓.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.玉髓]);
+        轮回次数.text=PlayerData.S.格式化数字(PlayerData.S.轮回次数);
 
     }
     public void Init()
