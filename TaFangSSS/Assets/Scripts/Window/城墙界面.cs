@@ -31,6 +31,21 @@ public class 城墙界面 : MonoBehaviour
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (详情Content.activeSelf)
+            {
+                详情Content.gameObject.SetActive(false);
+            }
+            else if (城墙法宝详情弹窗.gameObject.activeSelf)
+            {
+                城墙法宝详情弹窗.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
         if (HeroWindowController.S.城墙IsDrag)
         {
             ScrollView.vertical=false;
@@ -125,6 +140,8 @@ public class 城墙界面 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("显示城墙法宝详情弹窗",显示城墙法宝详情弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新城墙界面",刷新城墙界面);
     }
+
+   
 
     private void Start()
     {

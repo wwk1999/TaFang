@@ -116,7 +116,8 @@ public class Entrance : MonoBehaviour
    }
    private void Start()
    {
-      Application.targetFrameRate = 30;
+      // 30fps 节流在部分机器上受光标位置影响，叠加 3 倍速后造成移动速度不一致；统一 60
+      Application.targetFrameRate = 60;
       ObserverModuleManager.S.RegisterEvent("显示FightWindow",显示FightWindow);
       ObserverModuleManager.S.RegisterEvent("围栏受击",围栏受击);
       ObserverModuleManager.S.RegisterEvent("设置护盾",设置护盾);

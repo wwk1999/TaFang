@@ -212,6 +212,66 @@ public class 储物袋界面 : MonoBehaviour
       Set经验SLider();
       Set境界();
    }
+
+   private void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+         if (突破弹窗.activeSelf)
+         {
+            突破弹窗.SetActive(false);
+         }
+         else if (详情GameObject.activeSelf)
+         {
+            详情GameObject.SetActive(false);
+         }
+         else if (强化弹窗.activeSelf)
+         {
+            强化弹窗.SetActive(false);
+         }
+         else if (人物属性弹窗.activeSelf)
+         {
+            人物属性弹窗.SetActive(false);
+         }
+         else if (功法分解弹窗.gameObject.activeSelf)
+         {
+            功法分解弹窗.gameObject.SetActive(false);
+         }
+         else if (法器仙石分解弹窗.gameObject.activeSelf)
+         {
+            法器仙石分解弹窗.gameObject.SetActive(false);
+         }
+         else if (分解确认弹窗.gameObject.activeSelf)
+         {
+            分解确认弹窗.gameObject.SetActive(false);
+         }
+         else if (轮回确认弹窗.gameObject.activeSelf)
+         {
+            轮回确认弹窗.gameObject.SetActive(false);
+         }
+         else if (确认服用造化丹药弹窗.gameObject.activeSelf)
+         {
+            确认服用造化丹药弹窗.gameObject.SetActive(false);
+         }
+         else if (服用辅助丹药弹窗.gameObject.activeSelf)
+         {
+            服用辅助丹药弹窗.gameObject.SetActive(false);
+         }
+         else if (根基丹药服用弹窗.gameObject.activeSelf)
+         {
+            根基丹药服用弹窗.gameObject.SetActive(false);
+         }
+         else if (丹方使用弹窗.gameObject.activeSelf)
+         {
+            丹方使用弹窗.gameObject.SetActive(false);
+         }
+         else
+         {
+            gameObject.SetActive(false);
+         }
+      }
+   }
+
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("刷新人物信息",刷新人物信息);

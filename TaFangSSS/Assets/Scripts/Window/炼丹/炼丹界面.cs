@@ -118,6 +118,22 @@ public class 炼丹界面 : MonoBehaviour
         炼制进度条.value = 0;
         炼制百分比.text = "0%";
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (详情content.activeSelf)
+            {
+                详情content.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
     public void 炼制中Show()
     {
         当前选择炼制数量 = 0;

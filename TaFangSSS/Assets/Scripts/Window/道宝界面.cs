@@ -15,6 +15,26 @@ public class 道宝界面 : MonoBehaviour
     public TextMeshProUGUI 总修炼速度加成;
 
     public 道宝详情弹窗 道宝详情弹窗;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (道宝详情弹窗.gameObject.activeSelf)
+            {
+                道宝详情弹窗.gameObject.SetActive(false);
+            }
+            else if (羁绊弹窗.activeSelf)
+            {
+                羁绊弹窗.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
     private void OnEnable()
     {
         道宝详情弹窗.gameObject.SetActive(false);

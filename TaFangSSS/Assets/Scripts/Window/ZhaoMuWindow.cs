@@ -106,6 +106,29 @@ public class ZhaoMuWindow : MonoBehaviour
       }
    }
 
+   private void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+         if (招募成功弹窗.gameObject.activeSelf)
+         {
+            招募成功弹窗.gameObject.SetActive(false);
+         }
+         else if (招募商店兑换窗口.gameObject.activeSelf)
+         {
+            招募商店兑换窗口.gameObject.SetActive(false);
+         }
+         else if (概率弹窗.gameObject.activeSelf)
+         {
+            概率弹窗.gameObject.SetActive(false);
+         }
+         else
+         {
+            gameObject.SetActive(false);
+         }
+      }
+   }
+
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("刷新招募界面",刷新招募界面);

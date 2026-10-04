@@ -1277,7 +1277,9 @@ public class MonsterBase : MonoBehaviour
          {
             移动Animation.speed = 1;
             Vector3 pos = _rb.position;
-            _rb.MovePosition(new Vector2(pos.x-RealSpeed*Time.deltaTime, pos.y));
+            // 直接写位置而非 MovePosition：MovePosition 延迟到物理步生效，
+            // 帧率与物理步率交互时会丢位移（表现为不同帧率下移动速度不一致）
+            _rb.position = new Vector2(pos.x-RealSpeed*Time.deltaTime, pos.y);
          }
          else
          {

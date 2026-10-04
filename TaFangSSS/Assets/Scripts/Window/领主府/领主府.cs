@@ -465,6 +465,14 @@ public class 领主府 : MonoBehaviour
       Show升级效果();
    }
 
+   private void Update()
+   {
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+         gameObject.SetActive(false);
+      }
+   }
+
    public void Show升级效果()
    {
       foreach (Transform item in 升级效果content.transform)

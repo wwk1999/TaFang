@@ -130,7 +130,9 @@ public class QueueController:XSingleton<QueueController>
     
     protected override void Awake()
     {
-        Application.targetFrameRate = 30;
+        // 30fps 节流在部分机器上受光标位置影响（鼠标在窗口内/外节流行为不同），
+        // 叠加 3 倍速后造成怪物移动速度不一致；60fps 消除该差异
+        Application.targetFrameRate = 60;
         DontDestroyOnLoad(gameObject);
     }
 

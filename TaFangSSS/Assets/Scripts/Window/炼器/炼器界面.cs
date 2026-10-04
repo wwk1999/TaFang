@@ -21,7 +21,40 @@ public class 炼器界面 : MonoBehaviour
     public GameObject 符文熔炼Panel;
     public GameObject 法器打造Panel;
 
+    public GameObject 仙石确认镶嵌弹窗;
+    public GameObject 符文确认附魔弹窗;
+    public GameObject 洗练确认保留弹窗;
+    public GameObject 重铸确认保留弹窗;
+
+
     private int 显示类型 = 6;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (仙石确认镶嵌弹窗.activeSelf)
+            {
+                仙石确认镶嵌弹窗.gameObject.SetActive(false);
+            }
+            else if (符文确认附魔弹窗.activeSelf)
+            {
+                符文确认附魔弹窗.gameObject.SetActive(false);
+            }
+            else if (洗练确认保留弹窗.activeSelf)
+            {
+                洗练确认保留弹窗.gameObject.SetActive(false);
+            }
+            else if (重铸确认保留弹窗.activeSelf)
+            {
+                重铸确认保留弹窗.gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
 
     public void Set按钮()
     {

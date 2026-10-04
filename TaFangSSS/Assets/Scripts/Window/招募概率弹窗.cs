@@ -9,20 +9,15 @@ using UnityEngine.UI;
 
 public class 招募概率弹窗 : MonoBehaviour
 {
-   public Button LeftButton;
-   public Button RightButton;
-   public TextMeshProUGUI Title;
    public GameObject Content;
    public Button NormalZhaoMuButton;
    public Button GaoJiZhaoMuButton;
    [NonSerialized] public bool IsGaoJi = false;
-   [NonSerialized]public JingJieType JingJieType=JingJieType.练气;
 
    public Button maskButton;
 
    private void OnEnable()
    {
-      JingJieType = PlayerData.S.历史最高境界;
       Show();
    }
 
@@ -31,16 +26,6 @@ public class 招募概率弹窗 : MonoBehaviour
       maskButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);
-      });
-      LeftButton.onClick.AddListener(() =>
-      {
-         JingJieType = JingJieType == JingJieType.练气 ? JingJieType.练气 :(JingJieType - 1);
-         Show();
-      });
-      RightButton.onClick.AddListener(() =>
-      {
-         JingJieType = JingJieType == JingJieType.鸿蒙 ? JingJieType.鸿蒙 :(JingJieType + 1);
-         Show();
       });
       NormalZhaoMuButton.onClick.AddListener(() =>
       {
@@ -61,32 +46,26 @@ public class 招募概率弹窗 : MonoBehaviour
       {
          Destroy(item.gameObject);
       }
-      Title.text = JingJieConfig.JingJieNameDic[JingJieType];
-      List<ZhaoMuItem>list = new List<ZhaoMuItem>();
+      List<float>list = new List<float>();
       if (!IsGaoJi)
       {
-         list=ZhaoMuConfig.ZhaoMuGaiLvNormalDic[JingJieType];
+         list = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].普通招募概率;
       }
       else
       {
-         list=ZhaoMuConfig.ZhaoMuGaiLvGaoJiDic[JingJieType];
+         list=道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].高级招募概率;
       }
 
+      int index = 1;
       foreach (var item in list)
       {
+         if (item == 0) continue;
          var gailvItem = Instantiate(Resources.Load("Prefabs/Window/概率Item"),Content.transform).GetComponent<招募概率item>();
-         gailvItem.QualityType=item.type;
-         if (IsGaoJi)
-         {
-            gailvItem.Count=ZhaoMuConfig.ZhaoMuGaiLvGaoJiDic[JingJieType][(int)item.type-1].count;
-         }
-         else
-         {
-            gailvItem.Count=ZhaoMuConfig.ZhaoMuGaiLvNormalDic[JingJieType][(int)item.type-1].count;
-         }
-
+         gailvItem.QualityType=(QualityType)index;
+         gailvItem.Count = item;
          gailvItem.StringType = "元神";
          gailvItem.SetItem();
+         index++;
       }
    }
 }
