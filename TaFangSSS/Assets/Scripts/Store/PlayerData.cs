@@ -2130,58 +2130,28 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
 
     public void Set丹药数量(丹药Type type, QualityType qualityType, int count)
     {
+        // 索引器写入：老存档反序列化会整体替换字典，新增丹药（如掉宝率_寻龙丹）的
+        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
         string key = type.ToString() + "_" + qualityType.ToString();
-    
-        if (丹药Dic.ContainsKey(key))
-        {
-            丹药Dic[key] = count;
-        }
-        else
-        {
-            Debug.LogWarning($"未找到键: {key}");
-        }
+        丹药Dic[key] = count;
     }
     
     public void Set辅助丹药Buff(丹药Type type, QualityType qualityType, int count)
     {
         string key = type.ToString() + "_" + qualityType.ToString();
-    
-        if (辅助丹药BuffDic.ContainsKey(key))
-        {
-            辅助丹药BuffDic[key] = count;
-        }
-        else
-        {
-            Debug.LogWarning($"未找到键: {key}");
-        }
+        辅助丹药BuffDic[key] = count;
     }
     
     public void Set丹方解锁(丹药Type type, QualityType qualityType, bool count)
     {
         string key = type.ToString() + "_" + qualityType.ToString();
-    
-        if (丹方解锁Dic.ContainsKey(key))
-        {
-            丹方解锁Dic[key] = count?1:0;
-        }
-        else
-        {
-            Debug.LogWarning($"未找到键: {key}");
-        }
+        丹方解锁Dic[key] = count?1:0;
     }
-    
+
     public void Set丹方数量(丹药Type type, QualityType qualityType, int count)
     {
         string key = type.ToString() + "_" + qualityType.ToString();
-    
-        if (丹方Dic.ContainsKey(key))
-        {
-            丹方Dic[key] = count;
-        }
-        else
-        {
-            Debug.LogWarning($"未找到键: {key}");
-        }
+        丹方Dic[key] = count;
     }
     
     

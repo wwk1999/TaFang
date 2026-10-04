@@ -12,7 +12,6 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
     public Image bg;
     public Image icon;
     public TextMeshProUGUI name;
-    public TextMeshProUGUI 品质;
     public TextMeshProUGUI 数量;
 
     public Slider 数量Slider;
@@ -90,6 +89,5 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
         icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
         name.text = 丹药Config.丹药名Dic[丹药Type];
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-        品质.text = "品质："+PropConfig.QualityNameDic[QualityType];
     }
 }

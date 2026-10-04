@@ -179,6 +179,7 @@ public class 储物袋界面 : MonoBehaviour
       QualityType qualityType = (QualityType)obj[1];
       服用辅助丹药弹窗.丹药Type = type;
       服用辅助丹药弹窗.QualityType = qualityType;
+      服用辅助丹药弹窗.SetItem();
       服用辅助丹药弹窗.gameObject.SetActive(true);
    }
 
