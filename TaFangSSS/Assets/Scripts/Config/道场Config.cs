@@ -231,7 +231,7 @@ public class 道场Config
     {
         float value = 地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].数值;
         value *= (1f + 供奉总属性.地脉速度 / 100f);
-        return value;
+        return value; 
     }
     
     public static float Get功德速度()

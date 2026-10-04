@@ -1043,6 +1043,8 @@ public class MonsterBase : MonoBehaviour
                黑暗印记爆炸.transform.position = transform.position;
                黑暗印记爆炸.damage = 黑暗印记伤害*(1f+_ctx.符文.引爆时造成范围爆炸/100f);
                黑暗印记爆炸.HeroType = heroType;
+               // 本体在引爆结算中已吃满印记池，爆炸只应打周围怪，否则本体双吃
+               黑暗印记爆炸.引爆源怪 = this;
                黑暗印记爆炸.gameObject.SetActive(true);
             }
             黑暗印记伤害 = 0;
@@ -1050,7 +1052,12 @@ public class MonsterBase : MonoBehaviour
          else
          {
             黑暗印记层数++;
-            黑暗印记伤害 += 最终Damage * _ctx.技能树.黑暗印记储存伤害 / 100f;
+            // 爆印的爆炸伤害不回填印记池：引爆→爆炸→又被记池→再引爆是利滚利复利链，
+            // 同屏怪越多群体伤害膨胀越猛
+            if (攻击特效 != 攻击特效Type.黑暗印记爆炸)
+            {
+               黑暗印记伤害 += 最终Damage * _ctx.技能树.黑暗印记储存伤害 / 100f;
+            }
          }
       }
       

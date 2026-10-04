@@ -31,6 +31,8 @@ public class 坊市item : MonoBehaviour
     [NonSerialized] public QualityType QualityType;
     [NonSerialized]public bool 是否被购买 = false;
     [NonSerialized] public int index = 0;
+    
+    
 
     public void Start()
     {
@@ -153,7 +155,7 @@ public class 坊市item : MonoBehaviour
             icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
             bg.sprite = ResourcesConfig.Get传道背景框(法器Config.法器品质Dic[法器Type]);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器Type]);
-            desc.text = "法器";
+            desc.text = 法器Config.法器descDic[法器Type];
             价格.text = PlayerData.S.格式化数字(坊市Config.法器价格Dic[法器Config.法器品质Dic[法器Type]]/(1f+道场Config.供奉总属性.坊市价格减少/100f));
         }
         
@@ -164,7 +166,7 @@ public class 坊市item : MonoBehaviour
             icon.sprite = ResourcesConfig.Get仙石Sprite(仙石Type,QualityType);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
-            desc.text = "仙石";
+            desc.text = 仙石Config.仙石DescDic[仙石Type];
             价格.text = PlayerData.S.格式化数字(坊市Config.仙石价格Dic[QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f));
         }
         
@@ -175,7 +177,7 @@ public class 坊市item : MonoBehaviour
             icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
-            desc.text = "丹药";
+            desc.text = 丹药Config.Get丹药Desc(丹药Type,QualityType);
             价格.text = PlayerData.S.格式化数字(丹药Config.Get丹药价格(丹药Type,QualityType)/(1f+道场Config.供奉总属性.坊市价格减少/100f));
         }
         
@@ -186,7 +188,7 @@ public class 坊市item : MonoBehaviour
             icon.sprite = ResourcesConfig.Get丹方icon(丹方Type,QualityType);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
-            desc.text = "丹方";
+            desc.text = 丹药Config.丹方DescDic[丹方Type];
             价格.text = PlayerData.S.格式化数字(丹药Config.Get丹方价格(丹方Type,QualityType)/(1f+道场Config.供奉总属性.坊市价格减少/100f));
         }
     }

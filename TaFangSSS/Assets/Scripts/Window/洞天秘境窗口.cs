@@ -107,6 +107,7 @@ public class 洞天秘境窗口 : MonoBehaviour
 
     private void OnEnable()
     {
+        重复挑战.isOn = PlayerData.S.重复挑战;
         Set丹药();
         ShowInfo();
         Show关卡列表();

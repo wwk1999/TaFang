@@ -40,6 +40,8 @@ public class 黑暗印记爆炸动画脚本 : MonoBehaviour
         foreach (Collider2D col in _resultsBuffer)
         {
             if (!monsterDic.TryGetValue(col, out var monster)) continue;
+            // 引爆源怪在结算时已吃满印记池，爆炸跳过它（本体双吃修复）
+            if (monster == 黑暗印记爆炸.引爆源怪) continue;
             monster.Hurt(finalDamage, 黑暗印记爆炸.HeroType, 攻击特效Type.黑暗印记爆炸);
         }
     }

@@ -9,6 +9,12 @@ using UnityEngine.UI;
 
 public class 炼丹界面 : MonoBehaviour
 {
+    public Button 详情Button;
+    public GameObject 详情content;
+
+    public Button 加Button;
+    public Button 减button;
+
     public Button exitbutton;
     public GameObject 丹方列表content;
     public TextMeshProUGUI 炼丹等级;
@@ -200,6 +206,26 @@ public class 炼丹界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("炼制刷新",炼制刷新);
         ObserverModuleManager.S.RegisterEvent("刷新炼丹界面",刷新炼丹界面);
         ObserverModuleManager.S.RegisterEvent("更新炼丹界面UI",更新炼丹界面UI);
+        // 加/减按钮：步进炼制数量。只改 Slider.value，由 onValueChanged 统一同步
+        // 当前选择炼制数量 与 炼制数量 文本（单一数据源）；炼制过程中不可调整
+        加Button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.当前炼制丹药Type != 丹药Type.None) return;
+            int max = (int)炼制数量Slider.maxValue;
+            if (当前选择炼制数量 >= max) return;
+            炼制数量Slider.value = 当前选择炼制数量 + 1;
+            
+        });
+        详情Button.onClick.AddListener(() =>
+        {
+            详情content.gameObject.SetActive(true);
+        });
+        减button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.当前炼制丹药Type != 丹药Type.None) return;
+            if (当前选择炼制数量 <= 0) return;
+            炼制数量Slider.value = 当前选择炼制数量 - 1;
+        });
         炼制Button.onClick.AddListener(() =>
         {
             if (当前选择炼制数量 == 0)
