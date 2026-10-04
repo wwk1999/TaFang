@@ -540,7 +540,7 @@ public class 储物袋界面 : MonoBehaviour
          {
             if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i) > 0)
             {
-               if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+               if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
                {
                   var baggrid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/丹药Grid"), BagContent.transform)
                      .GetComponent<丹药grid>();
@@ -579,7 +579,7 @@ public class 储物袋界面 : MonoBehaviour
          {
             if (PlayerData.S.Get灵药数量(item.Key, (QualityType)i) > 0)
             {
-               if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+               if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
                {
                   var baggrid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/灵药Grid"), BagContent.transform)
                      .GetComponent<灵药grid>();
@@ -616,7 +616,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.荒品)>0)
          {
-            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -631,7 +631,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.洪品)>0)
          {
-            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -646,7 +646,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.宙品)>0)
          {
-            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -661,7 +661,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.宇品)>0)
          {
-            if (count >= (页数Num - 1) * 54&& count <= 页数Num * 54)
+            if (count >= (页数Num - 1) * 54&& count < 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -676,7 +676,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.Get道纹数量(item.Key,QualityType.天品)>0)
          {
-            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
                baggrid.道纹Type = item.Key;
@@ -814,7 +814,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (item.Value > 0)
          {
-            if (count >= (页数Num - 1) * 54 && count <= 页数Num * 54)
+            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
             {
                var baggrid = Instantiate(Resources.Load("Prefabs/Window/功法Grid"), BagContent.transform).GetComponent<功法Grid>();
                baggrid.功法Type = item.Key;
