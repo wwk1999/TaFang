@@ -11,6 +11,7 @@ public class PlayerData : XSingleton<PlayerData>
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool 是否第一次游戏=true;
 
     public bool 元素人人为我开关=true;
     public bool 职业人人为我开关=true;
@@ -52,7 +53,7 @@ public class PlayerData : XSingleton<PlayerData>
     public float 音效音量 = 1;
     public Vector2 分辨率 = new Vector2(1920,1080);
     public bool 是否窗口 = true;
-    public int 剩余传道次数 = 0;
+    public int 剩余传道次数 = 3;
     public int 坊市刷新次数 = 0;
     public List<坊市物品> 坊市物品列表 = new List<坊市物品>();
     public List<法器> 法器列表 = new List<法器>();

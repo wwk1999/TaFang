@@ -14,6 +14,7 @@ public class StoreDefine : XSingleton<StoreController>
     public class PlayData
     {
         public bool 是否自动下一关=true;
+        public bool 是否第一次游戏=true;
 
         public bool 元素人人为我开关=true;
         public bool 职业人人为我开关=true;
@@ -429,7 +430,7 @@ public class StoreDefine : XSingleton<StoreController>
         public float 分辨率X = 1920;
         public float 分辨率Y = 1080;
         public bool 是否窗口 = true;
-        public int 剩余传道次数 = 0;
+        public int 剩余传道次数 = 3;
         public int 坊市刷新次数 = 0;
         public List<坊市物品> 坊市物品列表 = new List<坊市物品>();
         public List<法器> 法器列表 = new List<法器>();
@@ -3241,6 +3242,7 @@ public class StoreDefine : XSingleton<StoreController>
             是否自动下一关 = runtime.是否自动下一关;
             职业人人为我开关 = runtime.职业人人为我开关;
             是否招募所有 = runtime.是否招募所有;
+            是否第一次游戏 = runtime.是否第一次游戏;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3356,6 +3358,7 @@ public class StoreDefine : XSingleton<StoreController>
             runtime.元素人人为我开关 = 元素人人为我开关;
             runtime.职业人人为我开关 = 职业人人为我开关;
             runtime.是否招募所有 = 是否招募所有;
+            runtime.是否第一次游戏 = 是否第一次游戏;
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)

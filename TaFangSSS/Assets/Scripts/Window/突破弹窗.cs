@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class 突破弹窗 : MonoBehaviour
 {
+   public Button 详情Button;
+   public GameObject 详情Content;
    public Button ExitButton;
    public GameObject Content;
    public 突破确认弹窗 突破确认弹窗;
@@ -20,6 +22,10 @@ public class 突破弹窗 : MonoBehaviour
 
    private void Start()
    {
+      详情Button.onClick.AddListener(() =>
+      {
+         详情Content.gameObject.SetActive(true);
+      });
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);

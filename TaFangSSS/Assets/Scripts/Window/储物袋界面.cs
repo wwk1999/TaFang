@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public Button 详情Button;
+   public GameObject 详情GameObject;
+
    public Button 超脱Button;
 
    public 轮回确认弹窗 轮回确认弹窗;
@@ -240,6 +243,10 @@ public class 储物袋界面 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("SendUIToast","圣人期解锁超脱 ");
             return;
          }
+      });
+      详情Button.onClick.AddListener(() =>
+      {
+         详情GameObject.gameObject.SetActive(true);
       });
       分解Btn.onClick.AddListener(() =>
       {

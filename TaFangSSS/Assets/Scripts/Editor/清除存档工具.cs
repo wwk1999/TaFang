@@ -63,21 +63,21 @@ public static class 清除存档工具
     public static void 清除存档()
     {
         string dir = Application.persistentDataPath;
-        string 主存档路径 = Path.Combine(dir, 主存档文件);
-        string 显示设置路径 = Path.Combine(dir, 显示设置存档文件);
+        // 主档之外还要清 .bak 备份和 .tmp 临时文件：
+        // 读档顺序是 主档 → .bak → 新档，只删主档的话下次启动会从 .bak 复活进度
+        string[] 待删文件 = { 主存档文件, 主存档文件 + ".bak", 主存档文件 + ".tmp", 显示设置存档文件 };
 
-        bool 主存档存在 = File.Exists(主存档路径);
-        bool 显示设置存在 = File.Exists(显示设置路径);
+        string 文件列表 = "";
+        foreach (string 文件名 in 待删文件)
+        {
+            if (File.Exists(Path.Combine(dir, 文件名))) 文件列表 += "  • " + 文件名 + "\n";
+        }
 
-        if (!主存档存在 && !显示设置存在)
+        if (文件列表 == "")
         {
             EditorUtility.DisplayDialog("清除存档", "未找到任何存档文件，无需清除。\n\n存档目录:\n" + dir, "确定");
             return;
         }
-
-        string 文件列表 = "";
-        if (主存档存在) 文件列表 += "  • " + 主存档文件 + "\n";
-        if (显示设置存在) 文件列表 += "  • " + 显示设置存档文件 + "\n";
 
         bool 确认 = EditorUtility.DisplayDialog(
             "清除存档确认",
@@ -88,8 +88,11 @@ public static class 清除存档工具
 
         try
         {
-            if (主存档存在) File.Delete(主存档路径);
-            if (显示设置存在) File.Delete(显示设置路径);
+            foreach (string 文件名 in 待删文件)
+            {
+                string 路径 = Path.Combine(dir, 文件名);
+                if (File.Exists(路径)) File.Delete(路径);
+            }
         }
         catch (System.Exception e)
         {

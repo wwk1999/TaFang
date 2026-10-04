@@ -211,6 +211,11 @@ public class FightWindow : MonoBehaviour
         });
         返回道场.onClick.AddListener(() =>
         {
+            if (PlayerData.S.最大主线关卡 <= 主线关卡Type.花果山)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","通关花果山后解锁");
+                return;
+            }
             StartCoroutine(ReturnToDojo());
         });
 

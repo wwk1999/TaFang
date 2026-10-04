@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 public class 城墙界面 : MonoBehaviour
 {
+    public GameObject 详情Content;
+    public Button 详情Button;
+
     public TextMeshProUGUI 灵气count;
     public Button exitbutton;
     public GameObject 左装备COntent;
@@ -130,6 +133,10 @@ public class 城墙界面 : MonoBehaviour
         exitbutton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        详情Button.onClick.AddListener(() =>
+        {
+            详情Content.SetActive(true);
         });
         升级button.onClick.AddListener(() =>
         {

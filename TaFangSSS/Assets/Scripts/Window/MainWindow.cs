@@ -21,6 +21,9 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public Button 新手攻略Button;
+    public GameObject 新手攻略;
+
     public TextMeshProUGUI 轮回次数;
 
     public Button 导出存档Button;
@@ -207,6 +210,11 @@ public class MainWindow : MonoBehaviour
     }
     public void Init()
     {
+        if (PlayerData.S.是否第一次游戏)
+        {
+            新手攻略.gameObject.SetActive(true);
+            PlayerData.S.是否第一次游戏 = false;
+        }
         Show道场和地图();
         Show主页();
         InitWindow();
@@ -494,6 +502,10 @@ public class MainWindow : MonoBehaviour
         {
             首次进入主页面引导();
         }
+        新手攻略Button.onClick.AddListener(() =>
+        {
+            新手攻略.gameObject.SetActive(true);
+        });
         地图布局.padding.left=Math.Min(0,(-1920*((int)PlayerData.S.主页地图Type-1)));
         当前Left=Math.Min(0,(-1920*((int)PlayerData.S.主页地图Type-1)));
         右翻页Button.onClick.AddListener(() => 翻页(PlayerData.S.主页地图Type+1));
