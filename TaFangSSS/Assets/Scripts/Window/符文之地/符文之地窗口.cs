@@ -41,6 +41,12 @@ public class 符文之地窗口 : MonoBehaviour
     
     public void Show符文之地窗口(符文之地Type Type)
     {
+        // 老存档进度可能越界（枚举调整后旧值无效，或反序列化成 None），
+        // 关卡名Dic 缺 key 会抛 KeyNotFoundException，钳回第一关
+        if (!符文之地Config.符文之地关卡名Dic.ContainsKey(Type))
+        {
+            Type = 符文之地Type.青木林;
+        }
         title.text = 符文之地Config.符文之地关卡名Dic[Type];
         foreach (Transform item in 敌人Content.transform)
         {
@@ -136,6 +142,12 @@ public class 符文之地窗口 : MonoBehaviour
         Show关卡列表();
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
 
+        // 越界进度（旧档存了超过当前枚举的值，如 11）钳回范围内并回写存档，
+        // 否则掉落查询等所有用到 当前符文之地Type 的地方都会 KeyNotFound
+        if (!符文之地Config.符文之地关卡名Dic.ContainsKey(PlayerData.S.符文之地最大关卡))
+        {
+            PlayerData.S.符文之地最大关卡 = 符文之地Type.青木林;
+        }
         HeroWindowController.S.当前符文之地Type = PlayerData.S.符文之地最大关卡;
         ObserverModuleManager.S.SendEvent("符文之地按钮点击",HeroWindowController.S.当前符文之地Type);
     }

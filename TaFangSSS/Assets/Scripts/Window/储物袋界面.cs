@@ -5,6 +5,7 @@ using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
@@ -405,6 +406,12 @@ public class 储物袋界面 : MonoBehaviour
       });
       突破Button.onClick.AddListener(() =>
       {
+         Scene Scene1 = SceneManager.GetSceneByName("FightScene");
+         if (Scene1.IsValid() && Scene1.isLoaded&&LevelConfig.当前关卡类型==关卡类型.洞天秘境)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","不可在挑战洞天福地时突破境界");
+            return;
+         }
          if (PlayerData.S.当前轮回境界 >= JingJieType.金仙)
          {
             ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版,欢迎在群里反馈问题,别忘了加愿望单哦");
