@@ -185,7 +185,7 @@ public class 坊市Config
                                   (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < value)
                     {
-                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
@@ -204,7 +204,7 @@ public class 坊市Config
                     float value =仙石价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < value)
                     {
-                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
@@ -240,7 +240,7 @@ public class 坊市Config
                     }
                     if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                     {
-                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
@@ -275,7 +275,7 @@ public class 坊市Config
                     }
                     if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                     {
-                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
