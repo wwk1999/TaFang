@@ -103,7 +103,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized]public 法器类型 法器打造法器类型;
     
     [NonSerialized]public 仙石Type 当前筛选仙石type;
-    [NonSerialized]public 附加属性Type 当前仙石排序附加属性Type;
+    [NonSerialized]public 法器附加属性Type 当前仙石排序附加属性Type;
 
 
     //法器的基础属性包含在最终伤害里
