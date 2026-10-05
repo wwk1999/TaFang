@@ -25,7 +25,11 @@ public class 失败弹窗 : MonoBehaviour
     {
         重复挑战Time = 0;
         ObserverModuleManager.S.SendEvent("停止元始音效");
-
+        // 与胜利弹窗一致：未开重复挑战时按钮显示"再战一次"，开启时由 Update 显示倒计时
+        if (PlayerData.S.重复挑战 == false)
+        {
+            战斗Text.text = "再战一次";
+        }
     }
     
     private void Update()
@@ -36,6 +40,9 @@ public class 失败弹窗 : MonoBehaviour
             战斗Text.text = "重复挑战:" + (int)(5f - 重复挑战Time);
             if (5f - 重复挑战Time < 0)
             {
+                // 失败时 Entrance 把 timeScale 冻结为 0，自动重开必须先恢复，
+                // 否则重置后 deltaTime 恒为 0，怪物不动、不刷怪，像死机
+                Time.timeScale = PlayerData.S.关卡倍速;
                 清空怪物();
                 ObserverModuleManager.S.SendEvent("关卡重置");
                 gameObject.SetActive(false);

@@ -9,6 +9,12 @@ using UnityEngine.EventSystems;
 
 public class 仙石镶嵌panel : MonoBehaviour
 {
+    public Button 排序按钮;
+    public Button 筛选按钮;
+    public GameObject 筛选区域;
+    public GameObject 排序区域;
+    public Button 下拉区域Mask;
+
     public 仙石确认镶嵌弹窗 仙石确认镶嵌弹窗;
     public Button 法器Button;
     public Button 仙石Button;
@@ -127,12 +133,48 @@ public class 仙石镶嵌panel : MonoBehaviour
         仙石确认镶嵌弹窗.法器 = 法器;
         仙石确认镶嵌弹窗.gameObject.SetActive(true);
     }
+
+    public void Init排序和筛选Content()
+    {
+        foreach (Transform item in 筛选区域.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 排序区域.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in 仙石Config.仙石名Dic)
+        {
+            var 筛选item = Instantiate(Resources.Load("Prefabs/Window/炼器/仙石筛选选项item"),筛选区域.transform).GetComponent<仙石筛选选项item>();
+            筛选item.仙石Type=item.Key;
+            筛选item.SetItem();
+        }
+        foreach (var item in EquipConfig.附加属性NameDic)
+        {
+            var 筛选item = Instantiate(Resources.Load("Prefabs/Window/炼器/仙石排序选项item"),筛选区域.transform).GetComponent<仙石排序选项item>();
+            筛选item.附加属性Type=item.Key;
+            筛选item.SetItem();
+        }
+    }
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("显示仙石镶嵌确认弹窗",显示仙石镶嵌确认弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新仙石镶嵌Panel",刷新仙石镶嵌Panel);
         ObserverModuleManager.S.RegisterEvent("Show仙石image",Show仙石image);
         ObserverModuleManager.S.RegisterEvent("镶嵌法器点击",镶嵌法器点击);
+        Init排序和筛选Content();
+        排序按钮.onClick.AddListener(() =>
+        {
+            排序区域.gameObject.SetActive(true);
+            下拉区域Mask.gameObject.SetActive(true);
+        });
+        筛选按钮.onClick.AddListener(() =>
+        {
+            筛选区域.gameObject.SetActive(true);
+            下拉区域Mask.gameObject.SetActive(true);
+        });
         左箭头.onClick.AddListener(() =>
         {
             if (页数num > 1) 
@@ -237,6 +279,17 @@ public class 仙石镶嵌panel : MonoBehaviour
                 仙石item.仙石 = PlayerData.S.仙石列表[i];
                 仙石item.SetItem();
             }
+        }
+    }
+
+    public void Show仙石()
+    {
+        for (int i = 40*(页数num-1); i < Math.Min(页数num*40,PlayerData.S.仙石列表.Count); i++)
+        {
+            var 仙石item = Instantiate(Resources.Load("Prefabs/Window/炼器/镶嵌仙石item"), content.transform)
+                .GetComponent<镶嵌仙石item>();
+            仙石item.仙石 = PlayerData.S.仙石列表[i];
+            仙石item.SetItem();
         }
     }
     public void Show左panel()
