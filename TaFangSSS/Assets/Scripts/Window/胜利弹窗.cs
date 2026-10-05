@@ -159,7 +159,12 @@ public class 胜利弹窗 : MonoBehaviour
     {
         if (LevelConfig.当前符文之地Type == PlayerData.S.符文之地最大关卡)
         {
-            PlayerData.S.符文之地最大关卡++;
+            // 通关最终关后不再自增，否则会产生无效枚举值（11），
+            // 触发符文之地窗口的越界钳制把进度回退
+            if (PlayerData.S.符文之地最大关卡 < 符文之地Type.天道台)
+            {
+                PlayerData.S.符文之地最大关卡++;
+            }
         }
 
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();

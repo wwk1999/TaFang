@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,8 @@ public class 失败弹窗 : MonoBehaviour
 {
     public Button AgainButtn;
     public Button ExitButtn;
-
+    private float 重复挑战Time = 0;
+    public TextMeshProUGUI 战斗Text;
     public void 清空怪物()
     {
         foreach (var item in QueueController.S.MonsterColliderDic)
@@ -21,8 +23,24 @@ public class 失败弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        重复挑战Time = 0;
         ObserverModuleManager.S.SendEvent("停止元始音效");
 
+    }
+    
+    private void Update()
+    {
+        if (PlayerData.S.重复挑战)
+        {
+            重复挑战Time += Time.unscaledDeltaTime;
+            战斗Text.text = "重复挑战:" + (int)(5f - 重复挑战Time);
+            if (5f - 重复挑战Time < 0)
+            {
+                清空怪物();
+                ObserverModuleManager.S.SendEvent("关卡重置");
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     private void Start()
