@@ -396,10 +396,10 @@ public class 法器Config
         { QualityType.玄品 ,0.02f},
         { QualityType.地品 ,0.05f},
         { QualityType.天品 ,0.12f},
-        { QualityType.宇品 ,0.4f},
-        { QualityType.宙品 ,1.5f},
-        { QualityType.洪品 ,6f},
-        { QualityType.荒品 ,30f},
+        { QualityType.宇品 ,0.3f},
+        { QualityType.宙品 ,1f},
+        { QualityType.洪品 ,3f},
+        { QualityType.荒品 ,15f},
     };
 
     /// <summary>

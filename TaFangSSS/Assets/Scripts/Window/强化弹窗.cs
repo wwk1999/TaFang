@@ -102,8 +102,6 @@ public class 强化弹窗 : MonoBehaviour
          }
       }
       ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
-
-      ObserverModuleManager.S.SendEvent("SendUIToast","洗练成功");
       Set属性Panel();
       Set材料();
    }

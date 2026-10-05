@@ -37,8 +37,8 @@ public class 失败弹窗 : MonoBehaviour
         if (PlayerData.S.重复挑战)
         {
             重复挑战Time += Time.unscaledDeltaTime;
-            战斗Text.text = "重复挑战:" + (int)(5f - 重复挑战Time);
-            if (5f - 重复挑战Time < 0)
+            战斗Text.text = "重复挑战:" + (int)(2f - 重复挑战Time);
+            if (2f - 重复挑战Time < 0)
             {
                 // 失败时 Entrance 把 timeScale 冻结为 0，自动重开必须先恢复，
                 // 否则重置后 deltaTime 恒为 0，怪物不动、不刷怪，像死机

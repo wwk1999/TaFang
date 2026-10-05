@@ -285,7 +285,7 @@ public class 符文之地Config
         int index=0;
         foreach (var item in list)
         {
-            float random=Random.Range(0f, 100f);
+            float random=Random.Range(0f, 100f)/属性config.总掉宝率;
             if (random < item)
             {
                 符文 符文 = new 符文();
