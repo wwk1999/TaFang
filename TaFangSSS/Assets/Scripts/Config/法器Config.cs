@@ -383,6 +383,13 @@ public class 法器材料
 public class 法器Config
 {
 
+    public static Dictionary<法器类型, string> 法器类型String = new Dictionary<法器类型, string>()
+    {
+        { 法器类型.头盔 ,"头盔"},
+        { 法器类型.武器 ,"武器"},
+        { 法器类型.衣服 ,"衣服"},
+        { 法器类型.鞋子 ,"鞋子"},
+    };
     public static Dictionary<QualityType, float> 法器打造时间 = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品 ,0.01f},

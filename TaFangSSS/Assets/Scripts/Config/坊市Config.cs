@@ -174,6 +174,119 @@ public class 坊市Config
             var item = Get坊市物品();
             PlayerData.S.坊市物品列表.Add(item);
         }
+
+        for (int i = 0; i < PlayerData.S.坊市物品列表.Count; i++)
+        {
+            if (PlayerData.S.坊市物品列表[i].法器Type != 法器Type.None)
+            {
+                if (PlayerData.S.Get坊市法器自动购买(PlayerData.S.坊市物品列表[i].法器Type))
+                {
+                    float value =法器价格Dic[法器Config.法器品质Dic[PlayerData.S.坊市物品列表[i].法器Type]] /
+                                  (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
+                    if (PlayerData.S.PropListDic[PropType.灵魂] < value)
+                    {
+                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        return;
+                    }
+
+                    PlayerData.S.PropListDic[PropType.灵魂] -= value;
+                    法器 法器 = 法器Config.Get坊市法器(PlayerData.S.坊市物品列表[i].法器Type);
+                    PlayerData.S.法器列表.Add(法器);
+                    PlayerData.S.坊市物品列表[i].是否被购买 = true;
+                    ObserverModuleManager.S.SendEvent("SendUIToast",法器Config.法器名Dic[PlayerData.S.坊市物品列表[i].法器Type],法器Config.法器品质Dic[PlayerData.S.坊市物品列表[i].法器Type],1);
+                }
+            }
+            
+            if (PlayerData.S.坊市物品列表[i].仙石Type != 仙石Type.None)
+            {
+                if (PlayerData.S.Get坊市仙石自动购买(PlayerData.S.坊市物品列表[i].仙石Type,PlayerData.S.坊市物品列表[i].QualityType))
+                {
+                    float value =仙石价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                    if (PlayerData.S.PropListDic[PropType.灵魂] < value)
+                    {
+                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        return;
+                    }
+
+                    PlayerData.S.PropListDic[PropType.灵魂] -= value;
+                    仙石 仙石 = 仙石Config.Get坊市仙石(PlayerData.S.坊市物品列表[i].仙石Type,PlayerData.S.坊市物品列表[i].QualityType);
+                    PlayerData.S.仙石列表.Add(仙石);
+                    PlayerData.S.坊市物品列表[i].是否被购买 = true;
+                    ObserverModuleManager.S.SendEvent("SendUIToast",仙石Config.仙石名Dic[PlayerData.S.坊市物品列表[i].仙石Type],PlayerData.S.坊市物品列表[i].QualityType,1);
+
+                }
+            }
+
+            if (PlayerData.S.坊市物品列表[i].丹药Type != 丹药Type.None)
+            {
+                if (PlayerData.S.Get坊市丹药自动购买(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType))
+                {
+                    var 丹药类型 = 丹药Config.丹药类型Dic[PlayerData.S.坊市物品列表[i].丹药Type];
+                    float 价格 = 0;
+                    switch (丹药类型)
+                    {
+                        case 丹药类型.战斗丹药:
+                            价格=战斗丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                        case 丹药类型.辅助丹药:
+                            价格=辅助丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                        case 丹药类型.根基丹药:
+                            价格=根基丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                        case 丹药类型.造化丹药:
+                            价格=造化丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                    }
+                    if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
+                    {
+                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        return;
+                    }
+
+                    PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+                    PlayerData.S.Set丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
+                    PlayerData.S.坊市物品列表[i].是否被购买 = true;
+                    ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹药名Dic[PlayerData.S.坊市物品列表[i].丹药Type],PlayerData.S.坊市物品列表[i].QualityType,1);
+
+                }
+            }
+
+            if (PlayerData.S.坊市物品列表[i].丹方Type != 丹药Type.None&&!PlayerData.S.Get丹方解锁(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType))
+            {
+                if (PlayerData.S.Get坊市丹方自动购买(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType))
+                {
+                    var 丹药类型 = 丹药Config.丹药类型Dic[PlayerData.S.坊市物品列表[i].丹方Type];
+                    float 价格 = 0;
+                    switch (丹药类型)
+                    {
+                        case 丹药类型.战斗丹药:
+                            价格=战斗丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                        case 丹药类型.辅助丹药:
+                            价格=辅助丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                        case 丹药类型.根基丹药:
+                            价格=根基丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                        case 丹药类型.造化丹药:
+                            价格=造化丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                            break;
+                    }
+                    if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
+                    {
+                        ObserverModuleManager.S.SendEvent("灵气不足,自动购买失败");
+                        return;
+                    }
+
+                    PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+                    PlayerData.S.Set丹方数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
+                    PlayerData.S.坊市物品列表[i].是否被购买 = true;
+                    ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹方名Dic[PlayerData.S.坊市物品列表[i].丹方Type],PlayerData.S.坊市物品列表[i].QualityType,1);
+                }
+            }
+        }
+        
     }
 
     public static 坊市物品 Get坊市物品()

@@ -95,6 +95,778 @@ public class PlayerData : XSingleton<PlayerData>
         HeroType.丹童
     };
 
+    public Dictionary<法器Type, bool> 坊市自动购买法器配置 = new Dictionary<法器Type, bool>()
+{
+    { 法器Type.None, false },
+
+    // ============== 1. 战士 ==============
+    { 法器Type.战士武器白, false },
+    { 法器Type.战士武器绿, false },
+    { 法器Type.战士武器蓝, false },
+    { 法器Type.战士武器紫, false },
+    { 法器Type.战士武器橙, false },
+    { 法器Type.战士武器粉, false },
+    { 法器Type.战士武器红, false },
+    { 法器Type.战士武器彩, false },
+
+    { 法器Type.战士头盔白, false },
+    { 法器Type.战士头盔绿, false },
+    { 法器Type.战士头盔蓝, false },
+    { 法器Type.战士头盔紫, false },
+    { 法器Type.战士头盔橙, false },
+    { 法器Type.战士头盔粉, false },
+    { 法器Type.战士头盔红, false },
+    { 法器Type.战士头盔彩, false },
+
+    { 法器Type.战士衣服白, false },
+    { 法器Type.战士衣服绿, false },
+    { 法器Type.战士衣服蓝, false },
+    { 法器Type.战士衣服紫, false },
+    { 法器Type.战士衣服橙, false },
+    { 法器Type.战士衣服粉, false },
+    { 法器Type.战士衣服红, false },
+    { 法器Type.战士衣服彩, false },
+
+    { 法器Type.战士鞋子白, false },
+    { 法器Type.战士鞋子绿, false },
+    { 法器Type.战士鞋子蓝, false },
+    { 法器Type.战士鞋子紫, false },
+    { 法器Type.战士鞋子橙, false },
+    { 法器Type.战士鞋子粉, false },
+    { 法器Type.战士鞋子红, false },
+    { 法器Type.战士鞋子彩, false },
+
+    // ============== 2. 控制 ==============
+    { 法器Type.控制武器白, false },
+    { 法器Type.控制武器绿, false },
+    { 法器Type.控制武器蓝, false },
+    { 法器Type.控制武器紫, false },
+    { 法器Type.控制武器橙, false },
+    { 法器Type.控制武器粉, false },
+    { 法器Type.控制武器红, false },
+    { 法器Type.控制武器彩, false },
+
+    { 法器Type.控制头盔白, false },
+    { 法器Type.控制头盔绿, false },
+    { 法器Type.控制头盔蓝, false },
+    { 法器Type.控制头盔紫, false },
+    { 法器Type.控制头盔橙, false },
+    { 法器Type.控制头盔粉, false },
+    { 法器Type.控制头盔红, false },
+    { 法器Type.控制头盔彩, false },
+
+    { 法器Type.控制衣服白, false },
+    { 法器Type.控制衣服绿, false },
+    { 法器Type.控制衣服蓝, false },
+    { 法器Type.控制衣服紫, false },
+    { 法器Type.控制衣服橙, false },
+    { 法器Type.控制衣服粉, false },
+    { 法器Type.控制衣服红, false },
+    { 法器Type.控制衣服彩, false },
+
+    { 法器Type.控制鞋子白, false },
+    { 法器Type.控制鞋子绿, false },
+    { 法器Type.控制鞋子蓝, false },
+    { 法器Type.控制鞋子紫, false },
+    { 法器Type.控制鞋子橙, false },
+    { 法器Type.控制鞋子粉, false },
+    { 法器Type.控制鞋子红, false },
+    { 法器Type.控制鞋子彩, false },
+
+    // ============== 3. 辅助 ==============
+    { 法器Type.辅助武器白, false },
+    { 法器Type.辅助武器绿, false },
+    { 法器Type.辅助武器蓝, false },
+    { 法器Type.辅助武器紫, false },
+    { 法器Type.辅助武器橙, false },
+    { 法器Type.辅助武器粉, false },
+    { 法器Type.辅助武器红, false },
+    { 法器Type.辅助武器彩, false },
+
+    { 法器Type.辅助头盔白, false },
+    { 法器Type.辅助头盔绿, false },
+    { 法器Type.辅助头盔蓝, false },
+    { 法器Type.辅助头盔紫, false },
+    { 法器Type.辅助头盔橙, false },
+    { 法器Type.辅助头盔粉, false },
+    { 法器Type.辅助头盔红, false },
+    { 法器Type.辅助头盔彩, false },
+
+    { 法器Type.辅助衣服白, false },
+    { 法器Type.辅助衣服绿, false },
+    { 法器Type.辅助衣服蓝, false },
+    { 法器Type.辅助衣服紫, false },
+    { 法器Type.辅助衣服橙, false },
+    { 法器Type.辅助衣服粉, false },
+    { 法器Type.辅助衣服红, false },
+    { 法器Type.辅助衣服彩, false },
+
+    { 法器Type.辅助鞋子白, false },
+    { 法器Type.辅助鞋子绿, false },
+    { 法器Type.辅助鞋子蓝, false },
+    { 法器Type.辅助鞋子紫, false },
+    { 法器Type.辅助鞋子橙, false },
+    { 法器Type.辅助鞋子粉, false },
+    { 法器Type.辅助鞋子红, false },
+    { 法器Type.辅助鞋子彩, false },
+
+    // ============== 4. 射手 ==============
+    { 法器Type.射手武器白, false },
+    { 法器Type.射手武器绿, false },
+    { 法器Type.射手武器蓝, false },
+    { 法器Type.射手武器紫, false },
+    { 法器Type.射手武器橙, false },
+    { 法器Type.射手武器粉, false },
+    { 法器Type.射手武器红, false },
+    { 法器Type.射手武器彩, false },
+
+    { 法器Type.射手头盔白, false },
+    { 法器Type.射手头盔绿, false },
+    { 法器Type.射手头盔蓝, false },
+    { 法器Type.射手头盔紫, false },
+    { 法器Type.射手头盔橙, false },
+    { 法器Type.射手头盔粉, false },
+    { 法器Type.射手头盔红, false },
+    { 法器Type.射手头盔彩, false },
+
+    { 法器Type.射手衣服白, false },
+    { 法器Type.射手衣服绿, false },
+    { 法器Type.射手衣服蓝, false },
+    { 法器Type.射手衣服紫, false },
+    { 法器Type.射手衣服橙, false },
+    { 法器Type.射手衣服粉, false },
+    { 法器Type.射手衣服红, false },
+    { 法器Type.射手衣服彩, false },
+
+    { 法器Type.射手鞋子白, false },
+    { 法器Type.射手鞋子绿, false },
+    { 法器Type.射手鞋子蓝, false },
+    { 法器Type.射手鞋子紫, false },
+    { 法器Type.射手鞋子橙, false },
+    { 法器Type.射手鞋子粉, false },
+    { 法器Type.射手鞋子红, false },
+    { 法器Type.射手鞋子彩, false },
+
+    // ============== 5. 法师 ==============
+    { 法器Type.法师武器白, false },
+    { 法器Type.法师武器绿, false },
+    { 法器Type.法师武器蓝, false },
+    { 法器Type.法师武器紫, false },
+    { 法器Type.法师武器橙, false },
+    { 法器Type.法师武器粉, false },
+    { 法器Type.法师武器红, false },
+    { 法器Type.法师武器彩, false },
+
+    { 法器Type.法师头盔白, false },
+    { 法器Type.法师头盔绿, false },
+    { 法器Type.法师头盔蓝, false },
+    { 法器Type.法师头盔紫, false },
+    { 法器Type.法师头盔橙, false },
+    { 法器Type.法师头盔粉, false },
+    { 法器Type.法师头盔红, false },
+    { 法器Type.法师头盔彩, false },
+
+    { 法器Type.法师衣服白, false },
+    { 法器Type.法师衣服绿, false },
+    { 法器Type.法师衣服蓝, false },
+    { 法器Type.法师衣服紫, false },
+    { 法器Type.法师衣服橙, false },
+    { 法器Type.法师衣服粉, false },
+    { 法器Type.法师衣服红, false },
+    { 法器Type.法师衣服彩, false },
+
+    { 法器Type.法师鞋子白, false },
+    { 法器Type.法师鞋子绿, false },
+    { 法器Type.法师鞋子蓝, false },
+    { 法器Type.法师鞋子紫, false },
+    { 法器Type.法师鞋子橙, false },
+    { 法器Type.法师鞋子粉, false },
+    { 法器Type.法师鞋子红, false },
+    { 法器Type.法师鞋子彩, false },
+};
+public Dictionary<string, bool> 坊市自动购买丹药配置 = new Dictionary<string, bool>()
+{
+    // 火焰伤害
+    {"火焰伤害_黄品", false},
+    {"火焰伤害_玄品", false},
+    {"火焰伤害_地品", false},
+    {"火焰伤害_天品", false},
+    {"火焰伤害_宇品", false},
+    {"火焰伤害_宙品", false},
+    {"火焰伤害_洪品", false},
+    {"火焰伤害_荒品", false},
+    
+    // 冰霜伤害
+    {"冰霜伤害_黄品", false},
+    {"冰霜伤害_玄品", false},
+    {"冰霜伤害_地品", false},
+    {"冰霜伤害_天品", false},
+    {"冰霜伤害_宇品", false},
+    {"冰霜伤害_宙品", false},
+    {"冰霜伤害_洪品", false},
+    {"冰霜伤害_荒品", false},
+    
+    // 雷电伤害
+    {"雷电伤害_黄品", false},
+    {"雷电伤害_玄品", false},
+    {"雷电伤害_地品", false},
+    {"雷电伤害_天品", false},
+    {"雷电伤害_宇品", false},
+    {"雷电伤害_宙品", false},
+    {"雷电伤害_洪品", false},
+    {"雷电伤害_荒品", false},
+    
+    // 黑暗伤害
+    {"黑暗伤害_黄品", false},
+    {"黑暗伤害_玄品", false},
+    {"黑暗伤害_地品", false},
+    {"黑暗伤害_天品", false},
+    {"黑暗伤害_宇品", false},
+    {"黑暗伤害_宙品", false},
+    {"黑暗伤害_洪品", false},
+    {"黑暗伤害_荒品", false},
+    
+    // 物理伤害
+    {"物理伤害_黄品", false},
+    {"物理伤害_玄品", false},
+    {"物理伤害_地品", false},
+    {"物理伤害_天品", false},
+    {"物理伤害_宇品", false},
+    {"物理伤害_宙品", false},
+    {"物理伤害_洪品", false},
+    {"物理伤害_荒品", false},
+    
+    // 战士伤害
+    {"战士伤害_黄品", false},
+    {"战士伤害_玄品", false},
+    {"战士伤害_地品", false},
+    {"战士伤害_天品", false},
+    {"战士伤害_宇品", false},
+    {"战士伤害_宙品", false},
+    {"战士伤害_洪品", false},
+    {"战士伤害_荒品", false},
+    
+    // 法师伤害
+    {"法师伤害_黄品", false},
+    {"法师伤害_玄品", false},
+    {"法师伤害_地品", false},
+    {"法师伤害_天品", false},
+    {"法师伤害_宇品", false},
+    {"法师伤害_宙品", false},
+    {"法师伤害_洪品", false},
+    {"法师伤害_荒品", false},
+    
+    // 射手伤害
+    {"射手伤害_黄品", false},
+    {"射手伤害_玄品", false},
+    {"射手伤害_地品", false},
+    {"射手伤害_天品", false},
+    {"射手伤害_宇品", false},
+    {"射手伤害_宙品", false},
+    {"射手伤害_洪品", false},
+    {"射手伤害_荒品", false},
+    
+    // 控制伤害
+    {"控制伤害_黄品", false},
+    {"控制伤害_玄品", false},
+    {"控制伤害_地品", false},
+    {"控制伤害_天品", false},
+    {"控制伤害_宇品", false},
+    {"控制伤害_宙品", false},
+    {"控制伤害_洪品", false},
+    {"控制伤害_荒品", false},
+    
+    // 辅助伤害
+    {"辅助伤害_黄品", false},
+    {"辅助伤害_玄品", false},
+    {"辅助伤害_地品", false},
+    {"辅助伤害_天品", false},
+    {"辅助伤害_宇品", false},
+    {"辅助伤害_宙品", false},
+    {"辅助伤害_洪品", false},
+    {"辅助伤害_荒品", false},
+    
+    // 最终伤害
+    {"最终伤害_黄品", false},
+    {"最终伤害_玄品", false},
+    {"最终伤害_地品", false},
+    {"最终伤害_天品", false},
+    {"最终伤害_宇品", false},
+    {"最终伤害_宙品", false},
+    {"最终伤害_洪品", false},
+    {"最终伤害_荒品", false},
+    
+    // 修炼速度
+    {"修炼速度_黄品", false},
+    {"修炼速度_玄品", false},
+    {"修炼速度_地品", false},
+    {"修炼速度_天品", false},
+    {"修炼速度_宇品", false},
+    {"修炼速度_宙品", false},
+    {"修炼速度_洪品", false},
+    {"修炼速度_荒品", false},
+    
+    // 掉宝率
+    {"掉宝率_黄品", false},
+    {"掉宝率_玄品", false},
+    {"掉宝率_地品", false},
+    {"掉宝率_天品", false},
+    {"掉宝率_宇品", false},
+    {"掉宝率_宙品", false},
+    {"掉宝率_洪品", false},
+    {"掉宝率_荒品", false},
+    
+    // 英雄暴击伤害
+    {"英雄暴击伤害_黄品", false},
+    {"英雄暴击伤害_玄品", false},
+    {"英雄暴击伤害_地品", false},
+    {"英雄暴击伤害_天品", false},
+    {"英雄暴击伤害_宇品", false},
+    {"英雄暴击伤害_宙品", false},
+    {"英雄暴击伤害_洪品", false},
+    {"英雄暴击伤害_荒品", false},
+    
+    // 加跟脚
+    {"加跟脚_黄品", false},
+    {"加跟脚_玄品", false},
+    {"加跟脚_地品", false},
+    {"加跟脚_天品", false},
+    {"加跟脚_宇品", false},
+    {"加跟脚_宙品", false},
+    {"加跟脚_洪品", false},
+    {"加跟脚_荒品", false},
+    
+    // 英雄火焰伤害
+    {"英雄火焰伤害_黄品", false},
+    {"英雄火焰伤害_玄品", false},
+    {"英雄火焰伤害_地品", false},
+    {"英雄火焰伤害_天品", false},
+    {"英雄火焰伤害_宇品", false},
+    {"英雄火焰伤害_宙品", false},
+    {"英雄火焰伤害_洪品", false},
+    {"英雄火焰伤害_荒品", false},
+    
+    // 英雄冰霜伤害
+    {"英雄冰霜伤害_黄品", false},
+    {"英雄冰霜伤害_玄品", false},
+    {"英雄冰霜伤害_地品", false},
+    {"英雄冰霜伤害_天品", false},
+    {"英雄冰霜伤害_宇品", false},
+    {"英雄冰霜伤害_宙品", false},
+    {"英雄冰霜伤害_洪品", false},
+    {"英雄冰霜伤害_荒品", false},
+    
+    // 英雄雷电伤害
+    {"英雄雷电伤害_黄品", false},
+    {"英雄雷电伤害_玄品", false},
+    {"英雄雷电伤害_地品", false},
+    {"英雄雷电伤害_天品", false},
+    {"英雄雷电伤害_宇品", false},
+    {"英雄雷电伤害_宙品", false},
+    {"英雄雷电伤害_洪品", false},
+    {"英雄雷电伤害_荒品", false},
+    
+    // 英雄黑暗伤害
+    {"英雄黑暗伤害_黄品", false},
+    {"英雄黑暗伤害_玄品", false},
+    {"英雄黑暗伤害_地品", false},
+    {"英雄黑暗伤害_天品", false},
+    {"英雄黑暗伤害_宇品", false},
+    {"英雄黑暗伤害_宙品", false},
+    {"英雄黑暗伤害_洪品", false},
+    {"英雄黑暗伤害_荒品", false},
+    
+    // 英雄物理伤害
+    {"英雄物理伤害_黄品", false},
+    {"英雄物理伤害_玄品", false},
+    {"英雄物理伤害_地品", false},
+    {"英雄物理伤害_天品", false},
+    {"英雄物理伤害_宇品", false},
+    {"英雄物理伤害_宙品", false},
+    {"英雄物理伤害_洪品", false},
+    {"英雄物理伤害_荒品", false},
+    
+    // 英雄战士伤害
+    {"英雄战士伤害_黄品", false},
+    {"英雄战士伤害_玄品", false},
+    {"英雄战士伤害_地品", false},
+    {"英雄战士伤害_天品", false},
+    {"英雄战士伤害_宇品", false},
+    {"英雄战士伤害_宙品", false},
+    {"英雄战士伤害_洪品", false},
+    {"英雄战士伤害_荒品", false},
+    
+    // 英雄法师伤害
+    {"英雄法师伤害_黄品", false},
+    {"英雄法师伤害_玄品", false},
+    {"英雄法师伤害_地品", false},
+    {"英雄法师伤害_天品", false},
+    {"英雄法师伤害_宇品", false},
+    {"英雄法师伤害_宙品", false},
+    {"英雄法师伤害_洪品", false},
+    {"英雄法师伤害_荒品", false},
+    
+    // 英雄射手伤害
+    {"英雄射手伤害_黄品", false},
+    {"英雄射手伤害_玄品", false},
+    {"英雄射手伤害_地品", false},
+    {"英雄射手伤害_天品", false},
+    {"英雄射手伤害_宇品", false},
+    {"英雄射手伤害_宙品", false},
+    {"英雄射手伤害_洪品", false},
+    {"英雄射手伤害_荒品", false},
+    
+    // 英雄控制伤害
+    {"英雄控制伤害_黄品", false},
+    {"英雄控制伤害_玄品", false},
+    {"英雄控制伤害_地品", false},
+    {"英雄控制伤害_天品", false},
+    {"英雄控制伤害_宇品", false},
+    {"英雄控制伤害_宙品", false},
+    {"英雄控制伤害_洪品", false},
+    {"英雄控制伤害_荒品", false},
+    
+    // 英雄辅助伤害
+    {"英雄辅助伤害_黄品", false},
+    {"英雄辅助伤害_玄品", false},
+    {"英雄辅助伤害_地品", false},
+    {"英雄辅助伤害_天品", false},
+    {"英雄辅助伤害_宇品", false},
+    {"英雄辅助伤害_宙品", false},
+    {"英雄辅助伤害_洪品", false},
+    {"英雄辅助伤害_荒品", false},
+    
+    // 英雄最终伤害
+    {"英雄最终伤害_黄品", false},
+    {"英雄最终伤害_玄品", false},
+    {"英雄最终伤害_地品", false},
+    {"英雄最终伤害_天品", false},
+    {"英雄最终伤害_宇品", false},
+    {"英雄最终伤害_宙品", false},
+    {"英雄最终伤害_洪品", false},
+    {"英雄最终伤害_荒品", false},
+};
+
+public Dictionary<string, bool> 坊市自动购买丹方配置 = new Dictionary<string, bool>()
+{
+    // 火焰伤害
+    {"火焰伤害_黄品", false},
+    {"火焰伤害_玄品", false},
+    {"火焰伤害_地品", false},
+    {"火焰伤害_天品", false},
+    {"火焰伤害_宇品", false},
+    {"火焰伤害_宙品", false},
+    {"火焰伤害_洪品", false},
+    {"火焰伤害_荒品", false},
+    
+    // 冰霜伤害
+    {"冰霜伤害_黄品", false},
+    {"冰霜伤害_玄品", false},
+    {"冰霜伤害_地品", false},
+    {"冰霜伤害_天品", false},
+    {"冰霜伤害_宇品", false},
+    {"冰霜伤害_宙品", false},
+    {"冰霜伤害_洪品", false},
+    {"冰霜伤害_荒品", false},
+    
+    // 雷电伤害
+    {"雷电伤害_黄品", false},
+    {"雷电伤害_玄品", false},
+    {"雷电伤害_地品", false},
+    {"雷电伤害_天品", false},
+    {"雷电伤害_宇品", false},
+    {"雷电伤害_宙品", false},
+    {"雷电伤害_洪品", false},
+    {"雷电伤害_荒品", false},
+    
+    // 黑暗伤害
+    {"黑暗伤害_黄品", false},
+    {"黑暗伤害_玄品", false},
+    {"黑暗伤害_地品", false},
+    {"黑暗伤害_天品", false},
+    {"黑暗伤害_宇品", false},
+    {"黑暗伤害_宙品", false},
+    {"黑暗伤害_洪品", false},
+    {"黑暗伤害_荒品", false},
+    
+    // 物理伤害
+    {"物理伤害_黄品", false},
+    {"物理伤害_玄品", false},
+    {"物理伤害_地品", false},
+    {"物理伤害_天品", false},
+    {"物理伤害_宇品", false},
+    {"物理伤害_宙品", false},
+    {"物理伤害_洪品", false},
+    {"物理伤害_荒品", false},
+    
+    // 战士伤害
+    {"战士伤害_黄品", false},
+    {"战士伤害_玄品", false},
+    {"战士伤害_地品", false},
+    {"战士伤害_天品", false},
+    {"战士伤害_宇品", false},
+    {"战士伤害_宙品", false},
+    {"战士伤害_洪品", false},
+    {"战士伤害_荒品", false},
+    
+    // 法师伤害
+    {"法师伤害_黄品", false},
+    {"法师伤害_玄品", false},
+    {"法师伤害_地品", false},
+    {"法师伤害_天品", false},
+    {"法师伤害_宇品", false},
+    {"法师伤害_宙品", false},
+    {"法师伤害_洪品", false},
+    {"法师伤害_荒品", false},
+    
+    // 射手伤害
+    {"射手伤害_黄品", false},
+    {"射手伤害_玄品", false},
+    {"射手伤害_地品", false},
+    {"射手伤害_天品", false},
+    {"射手伤害_宇品", false},
+    {"射手伤害_宙品", false},
+    {"射手伤害_洪品", false},
+    {"射手伤害_荒品", false},
+    
+    // 控制伤害
+    {"控制伤害_黄品", false},
+    {"控制伤害_玄品", false},
+    {"控制伤害_地品", false},
+    {"控制伤害_天品", false},
+    {"控制伤害_宇品", false},
+    {"控制伤害_宙品", false},
+    {"控制伤害_洪品", false},
+    {"控制伤害_荒品", false},
+    
+    // 辅助伤害
+    {"辅助伤害_黄品", false},
+    {"辅助伤害_玄品", false},
+    {"辅助伤害_地品", false},
+    {"辅助伤害_天品", false},
+    {"辅助伤害_宇品", false},
+    {"辅助伤害_宙品", false},
+    {"辅助伤害_洪品", false},
+    {"辅助伤害_荒品", false},
+    
+    // 最终伤害
+    {"最终伤害_黄品", false},
+    {"最终伤害_玄品", false},
+    {"最终伤害_地品", false},
+    {"最终伤害_天品", false},
+    {"最终伤害_宇品", false},
+    {"最终伤害_宙品", false},
+    {"最终伤害_洪品", false},
+    {"最终伤害_荒品", false},
+    
+    // 修炼速度
+    {"修炼速度_黄品", false},
+    {"修炼速度_玄品", false},
+    {"修炼速度_地品", false},
+    {"修炼速度_天品", false},
+    {"修炼速度_宇品", false},
+    {"修炼速度_宙品", false},
+    {"修炼速度_洪品", false},
+    {"修炼速度_荒品", false},
+    
+    // 掉宝率
+    {"掉宝率_黄品", false},
+    {"掉宝率_玄品", false},
+    {"掉宝率_地品", false},
+    {"掉宝率_天品", false},
+    {"掉宝率_宇品", false},
+    {"掉宝率_宙品", false},
+    {"掉宝率_洪品", false},
+    {"掉宝率_荒品", false},
+    
+    // 英雄暴击伤害
+    {"英雄暴击伤害_黄品", false},
+    {"英雄暴击伤害_玄品", false},
+    {"英雄暴击伤害_地品", false},
+    {"英雄暴击伤害_天品", false},
+    {"英雄暴击伤害_宇品", false},
+    {"英雄暴击伤害_宙品", false},
+    {"英雄暴击伤害_洪品", false},
+    {"英雄暴击伤害_荒品", false},
+    
+    // 加跟脚
+    {"加跟脚_黄品", false},
+    {"加跟脚_玄品", false},
+    {"加跟脚_地品", false},
+    {"加跟脚_天品", false},
+    {"加跟脚_宇品", false},
+    {"加跟脚_宙品", false},
+    {"加跟脚_洪品", false},
+    {"加跟脚_荒品", false},
+    
+    // 英雄火焰伤害
+    {"英雄火焰伤害_黄品", false},
+    {"英雄火焰伤害_玄品", false},
+    {"英雄火焰伤害_地品", false},
+    {"英雄火焰伤害_天品", false},
+    {"英雄火焰伤害_宇品", false},
+    {"英雄火焰伤害_宙品", false},
+    {"英雄火焰伤害_洪品", false},
+    {"英雄火焰伤害_荒品", false},
+    
+    // 英雄冰霜伤害
+    {"英雄冰霜伤害_黄品", false},
+    {"英雄冰霜伤害_玄品", false},
+    {"英雄冰霜伤害_地品", false},
+    {"英雄冰霜伤害_天品", false},
+    {"英雄冰霜伤害_宇品", false},
+    {"英雄冰霜伤害_宙品", false},
+    {"英雄冰霜伤害_洪品", false},
+    {"英雄冰霜伤害_荒品", false},
+    
+    // 英雄雷电伤害
+    {"英雄雷电伤害_黄品", false},
+    {"英雄雷电伤害_玄品", false},
+    {"英雄雷电伤害_地品", false},
+    {"英雄雷电伤害_天品", false},
+    {"英雄雷电伤害_宇品", false},
+    {"英雄雷电伤害_宙品", false},
+    {"英雄雷电伤害_洪品", false},
+    {"英雄雷电伤害_荒品", false},
+    
+    // 英雄黑暗伤害
+    {"英雄黑暗伤害_黄品", false},
+    {"英雄黑暗伤害_玄品", false},
+    {"英雄黑暗伤害_地品", false},
+    {"英雄黑暗伤害_天品", false},
+    {"英雄黑暗伤害_宇品", false},
+    {"英雄黑暗伤害_宙品", false},
+    {"英雄黑暗伤害_洪品", false},
+    {"英雄黑暗伤害_荒品", false},
+    
+    // 英雄物理伤害
+    {"英雄物理伤害_黄品", false},
+    {"英雄物理伤害_玄品", false},
+    {"英雄物理伤害_地品", false},
+    {"英雄物理伤害_天品", false},
+    {"英雄物理伤害_宇品", false},
+    {"英雄物理伤害_宙品", false},
+    {"英雄物理伤害_洪品", false},
+    {"英雄物理伤害_荒品", false},
+    
+    // 英雄战士伤害
+    {"英雄战士伤害_黄品", false},
+    {"英雄战士伤害_玄品", false},
+    {"英雄战士伤害_地品", false},
+    {"英雄战士伤害_天品", false},
+    {"英雄战士伤害_宇品", false},
+    {"英雄战士伤害_宙品", false},
+    {"英雄战士伤害_洪品", false},
+    {"英雄战士伤害_荒品", false},
+    
+    // 英雄法师伤害
+    {"英雄法师伤害_黄品", false},
+    {"英雄法师伤害_玄品", false},
+    {"英雄法师伤害_地品", false},
+    {"英雄法师伤害_天品", false},
+    {"英雄法师伤害_宇品", false},
+    {"英雄法师伤害_宙品", false},
+    {"英雄法师伤害_洪品", false},
+    {"英雄法师伤害_荒品", false},
+    
+    // 英雄射手伤害
+    {"英雄射手伤害_黄品", false},
+    {"英雄射手伤害_玄品", false},
+    {"英雄射手伤害_地品", false},
+    {"英雄射手伤害_天品", false},
+    {"英雄射手伤害_宇品", false},
+    {"英雄射手伤害_宙品", false},
+    {"英雄射手伤害_洪品", false},
+    {"英雄射手伤害_荒品", false},
+    
+    // 英雄控制伤害
+    {"英雄控制伤害_黄品", false},
+    {"英雄控制伤害_玄品", false},
+    {"英雄控制伤害_地品", false},
+    {"英雄控制伤害_天品", false},
+    {"英雄控制伤害_宇品", false},
+    {"英雄控制伤害_宙品", false},
+    {"英雄控制伤害_洪品", false},
+    {"英雄控制伤害_荒品", false},
+    
+    // 英雄辅助伤害
+    {"英雄辅助伤害_黄品", false},
+    {"英雄辅助伤害_玄品", false},
+    {"英雄辅助伤害_地品", false},
+    {"英雄辅助伤害_天品", false},
+    {"英雄辅助伤害_宇品", false},
+    {"英雄辅助伤害_宙品", false},
+    {"英雄辅助伤害_洪品", false},
+    {"英雄辅助伤害_荒品", false},
+    
+    // 英雄最终伤害
+    {"英雄最终伤害_黄品", false},
+    {"英雄最终伤害_玄品", false},
+    {"英雄最终伤害_地品", false},
+    {"英雄最终伤害_天品", false},
+    {"英雄最终伤害_宇品", false},
+    {"英雄最终伤害_宙品", false},
+    {"英雄最终伤害_洪品", false},
+    {"英雄最终伤害_荒品", false},
+};
+
+public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<string, bool>()
+{
+    { "赤阳石_黄品", false },
+    { "赤阳石_玄品", false },
+    { "赤阳石_地品", false },
+    { "赤阳石_天品", false },
+    { "赤阳石_宇品", false },
+    { "赤阳石_宙品", false },
+    { "赤阳石_洪品", false },
+    { "赤阳石_荒品", false },
+
+    { "太虚石_黄品", false },
+    { "太虚石_玄品", false },
+    { "太虚石_地品", false },
+    { "太虚石_天品", false },
+    { "太虚石_宇品", false },
+    { "太虚石_宙品", false },
+    { "太虚石_洪品", false },
+    { "太虚石_荒品", false },
+
+    { "清心玉_黄品", false },
+    { "清心玉_玄品", false },
+    { "清心玉_地品", false },
+    { "清心玉_天品", false },
+    { "清心玉_宇品", false },
+    { "清心玉_宙品", false },
+    { "清心玉_洪品", false },
+    { "清心玉_荒品", false },
+
+    { "玄冥石_黄品", false },
+    { "玄冥石_玄品", false },
+    { "玄冥石_地品", false },
+    { "玄冥石_天品", false },
+    { "玄冥石_宇品", false },
+    { "玄冥石_宙品", false },
+    { "玄冥石_洪品", false },
+    { "玄冥石_荒品", false },
+
+    { "玄灵晶_黄品", false },
+    { "玄灵晶_玄品", false },
+    { "玄灵晶_地品", false },
+    { "玄灵晶_天品", false },
+    { "玄灵晶_宇品", false },
+    { "玄灵晶_宙品", false },
+    { "玄灵晶_洪品", false },
+    { "玄灵晶_荒品", false },
+
+    { "天罡石_黄品", false },
+    { "天罡石_玄品", false },
+    { "天罡石_地品", false },
+    { "天罡石_天品", false },
+    { "天罡石_宇品", false },
+    { "天罡石_宙品", false },
+    { "天罡石_洪品", false },
+    { "天罡石_荒品", false },
+};
+
     public Dictionary<HeroType, List<List<int>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<int>>>()
 {
     {
@@ -2114,6 +2886,91 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         }
     
         return 0;
+    }
+    
+    public bool Get坊市丹药自动购买(丹药Type type, QualityType qualityType)
+    {
+        string key = type.ToString() + "_" + qualityType.ToString();
+    
+        if (坊市自动购买丹药配置.TryGetValue(key, out bool count))
+        {
+            return count;
+        }
+    
+        return false;
+    }
+    
+    public void Set坊市丹药自动购买(丹药Type type, QualityType qualityType, bool count)
+    {
+        // 索引器写入：老存档反序列化会整体替换字典，新增丹药（如掉宝率_寻龙丹）的
+        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
+        string key = type.ToString() + "_" + qualityType.ToString();
+        坊市自动购买丹药配置[key] = count;
+    }
+    
+    public bool Get坊市丹方自动购买(丹药Type type, QualityType qualityType)
+    {
+        string key = type.ToString() + "_" + qualityType.ToString();
+    
+        if (坊市自动购买丹方配置.TryGetValue(key, out bool count))
+        {
+            return count;
+        }
+    
+        return false;
+    }
+    
+    
+    
+    public void Set坊市丹方自动购买(丹药Type type, QualityType qualityType, bool count)
+    {
+        // 索引器写入：老存档反序列化会整体替换字典，新增丹方（如掉宝率_寻龙丹）的
+        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
+        string key = type.ToString() + "_" + qualityType.ToString();
+        坊市自动购买丹方配置[key] = count;
+    }
+    
+    
+    public bool Get坊市法器自动购买(法器Type type)
+    {
+    
+        if (坊市自动购买法器配置.TryGetValue(type, out bool count))
+        {
+            return count;
+        }
+    
+        return false;
+    }
+    
+    public void Set坊市法器自动购买(法器Type type, bool count)
+    {
+        // 索引器写入：老存档反序列化会整体替换字典，新增法器（如掉宝率_寻龙丹）的
+        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
+        坊市自动购买法器配置[type] = count;
+    }
+    
+    
+    
+    public bool Get坊市仙石自动购买(仙石Type type, QualityType qualityType)
+    {
+        string key = type.ToString() + "_" + qualityType.ToString();
+    
+        if (坊市自动购买仙石配置.TryGetValue(key, out bool count))
+        {
+            return count;
+        }
+    
+        return false;
+    }
+    
+    
+    
+    public void Set坊市仙石自动购买(仙石Type type, QualityType qualityType, bool count)
+    {
+        // 索引器写入：老存档反序列化会整体替换字典，新增仙石（如掉宝率_寻龙丹）的
+        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
+        string key = type.ToString() + "_" + qualityType.ToString();
+        坊市自动购买仙石配置[key] = count;
     }
     
     public int Get丹方数量(丹药Type type, QualityType qualityType)

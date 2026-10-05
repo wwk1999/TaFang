@@ -18,6 +18,9 @@ public class 坊市窗口 : MonoBehaviour
     public Button 右Button;
     public TextMeshProUGUI num;
 
+    public Button 自动购买Button;
+    public GameObject 自动购买弹窗;
+
     private void OnEnable()
     {
         Show();
@@ -51,8 +54,12 @@ public class 坊市窗口 : MonoBehaviour
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新坊市窗口",刷新坊市窗口);
-
         ObserverModuleManager.S.RegisterEvent("刷新坊市剩余时间",刷新剩余时间);
+        
+        自动购买Button.onClick.AddListener(() =>
+        {
+            自动购买弹窗.gameObject.SetActive(true);
+        });
         左Button.onClick.AddListener(() =>
         {
             if (PlayerData.S.坊市等级 > 1)

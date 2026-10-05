@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Config;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -22,6 +24,9 @@ public class StoreController : XSingleton<StoreController>
     private float 当前增加修为时间 = 0;
     private float 坊市刷新次数时间 = 0;
     private float 法器打造当前时间 = 0;
+    // 后台保存状态：0=空闲 1=序列化/落盘中；防重入、导出与退出同步都靠它
+    private int 正在后台保存 = 0;
+
      public void SaveStoreData(StoreDefine.StoreData data = null)
     {
         try
@@ -33,27 +38,61 @@ public class StoreController : XSingleton<StoreController>
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 Formatting = Newtonsoft.Json.Formatting.None
             };
-            var json = JsonConvert.SerializeObject(StoreData, settings);
+            var snapshot = StoreData; // 捕获局部引用，防止下次保存重建 StoreData 后闭包取错对象
 
-            // 原子写入：先写临时文件并强制落盘，再原子替换主档；
-            // File.Replace 会把旧主档自动转存为 .bak，断电/损坏时可用它恢复
-            using (var fs = new FileStream(TmpPath, FileMode.Create, FileAccess.Write, FileShare.None))
-            using (var writer = new StreamWriter(fs))
+            // 路径必须在主线程解析成局部变量：SavePath 等是属性，每次访问都会
+            // 触发 Application.persistentDataPath——它只允许主线程访问，
+            // 后台线程一碰就抛 UnityException，导致每次保存都被跳过
+            var savePath = SavePath;
+            var tmpPath = TmpPath;
+            var bakPath = BakPath;
+
+            // 上一次后台保存还没落盘就跳过本次：自动保存 3 秒一次，
+            // 跳过一次无感，下一次保存的本来就是更新的数据
+            if (Interlocked.CompareExchange(ref 正在后台保存, 1, 0) != 0)
             {
-                writer.Write(json);
-                writer.Flush();
-                fs.Flush(true); // 刷到磁盘，防止断电丢 OS 缓冲
-            }
-            if (File.Exists(SavePath))
-            {
-                File.Replace(TmpPath, SavePath, BakPath, true);
-            }
-            else
-            {
-                File.Move(TmpPath, SavePath);
+                return;
             }
 
-            Debug.Log($"保存数据成功->{SavePath}");
+            // 序列化 + 落盘是耗时大头（仙石几万颗时主线程要卡几百毫秒），
+            // 挪到后台线程；主线程只剩 CopyFromRuntime 引用快照，毫秒级
+            Task.Run(() =>
+            {
+                try
+                {
+                    var json = JsonConvert.SerializeObject(snapshot, settings);
+
+                    // 原子写入：先写临时文件并强制落盘，再原子替换主档；
+                    // File.Replace 会把旧主档自动转存为 .bak，断电/损坏时可用它恢复
+                    using (var fs = new FileStream(tmpPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                    using (var writer = new StreamWriter(fs))
+                    {
+                        writer.Write(json);
+                        writer.Flush();
+                        fs.Flush(true); // 刷到磁盘，防止断电丢 OS 缓冲
+                    }
+                    if (File.Exists(savePath))
+                    {
+                        File.Replace(tmpPath, savePath, bakPath, true);
+                    }
+                    else
+                    {
+                        File.Move(tmpPath, savePath);
+                    }
+
+                    Debug.Log($"保存数据成功->{savePath}");
+                }
+                catch (System.Exception e)
+                {
+                    // 后台序列化期间玩家买仙石/吃丹药等修改了集合，遍历会抛异常；
+                    // 跳过本次即可：主档仍是上一次成功的，原子写保证不会有半截档，3 秒后自动重试
+                    Debug.LogWarning($"后台保存跳过一次，等待下次自动保存: {e.Message}");
+                }
+                finally
+                {
+                    Volatile.Write(ref 正在后台保存, 0);
+                }
+            });
         }
         catch (System.Exception e)
         {
@@ -85,12 +124,32 @@ public class StoreController : XSingleton<StoreController>
     }
 
     /// <summary>
+    /// 等待后台保存落盘完成：导出存档前必须等（否则拷到的是上一份），
+    /// 退出游戏前也等（否则最后一次保存可能没写完进程就结束了）
+    /// </summary>
+    public void 等待后台保存完成(float 超时秒 = 5f)
+    {
+        var 截止 = Time.realtimeSinceStartup + 超时秒;
+        while (Volatile.Read(ref 正在后台保存) == 1 && Time.realtimeSinceStartup < 截止)
+        {
+            Thread.Sleep(20);
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        等待后台保存完成();
+    }
+
+    /// <summary>
     /// 导出存档：先把当前进度保存到本地，再复制一份到桌面，返回导出文件路径。
     /// </summary>
     public string 导出存档()
     {
-        // 先落盘，保证导出的是最新进度
+        // 先落盘（保存已改为后台线程，必须等它写完再拷贝），
+        // 保证导出的是最新进度
         SaveStoreData();
+        等待后台保存完成();
 
         string 存档名 = $"塔防刷刷刷存档_{StoreData.Player.Name}_{DateTime.Now:yyyyMMdd_HHmmss}";
         foreach (var c in Path.GetInvalidFileNameChars())

@@ -16,6 +16,8 @@ public enum 坊市道具类型
 }
 public class 坊市item : MonoBehaviour
 {
+    public TextMeshProUGUI 标签text;
+
     public TextMeshProUGUI name;
     public Image icon;
     public Image bg;
@@ -183,6 +185,11 @@ public class 坊市item : MonoBehaviour
         
         if (丹方Type != 丹药Type.None)
         {
+            if (PlayerData.S.Get丹方解锁(丹方Type, QualityType))
+            {
+                售空.gameObject.SetActive(true);
+                标签text.text = "已拥有";
+            }
             name.text = 丹药Config.丹方名Dic[丹方Type];
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
             icon.sprite = ResourcesConfig.Get丹方icon(丹方Type,QualityType);
