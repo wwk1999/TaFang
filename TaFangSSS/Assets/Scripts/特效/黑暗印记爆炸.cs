@@ -7,7 +7,7 @@ using UnityEngine;
 public class 黑暗印记爆炸 : MonoBehaviour
 {
     public Animator Animator;
-    [NonSerialized] public double damage;
+    [NonSerialized] public BigDouble damage;
     [NonSerialized] public HeroType HeroType;
     // 引爆源怪：本体已在引爆结算中吃满印记池，爆炸范围命中时跳过它，避免双吃
     [NonSerialized] public MonsterBase 引爆源怪;

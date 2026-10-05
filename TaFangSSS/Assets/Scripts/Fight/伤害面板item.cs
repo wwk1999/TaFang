@@ -18,7 +18,7 @@ public class 伤害面板item : MonoBehaviour
     [NonSerialized]public float 总比例;
     [NonSerialized]public float 神通比例;
     [NonSerialized]public float 技能比例;
-    [NonSerialized] public double damage;
+    [NonSerialized] public BigDouble damage;
 
     public void SetItem()
     {

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class 火球 : MonoBehaviour
 {
     public 攻击特效Type Type;
-    [NonSerialized] public double damage;
+    [NonSerialized] public BigDouble damage;
     [NonSerialized] public HeroType HeroType=HeroType.元始;
 
     [NonSerialized] public bool 瑶池冰辅助;
@@ -30,7 +30,7 @@ public class 火球 : MonoBehaviour
         // 命中火花对象池耗尽时仅跳过表现，伤害照常结算
         if (hit != null) hit.transform.position = closestPoint;
 
-        double realDamage = damage;
+        BigDouble realDamage = damage;
         // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
         if (黑暗辅助)
         {

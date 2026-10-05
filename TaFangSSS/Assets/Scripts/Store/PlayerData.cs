@@ -25,7 +25,7 @@ public class PlayerData : XSingleton<PlayerData>
     public JingJieType 历史最高境界 = JingJieType.练气;
     public JingJieType 当前轮回境界 = JingJieType.练气;
     public int 轮回次数 = 0;
-    public double 初始跟脚 = 1;
+    public BigDouble 初始跟脚 = 1;
     public bool 是否首次进入游戏 = false;
     public bool 是否首次进入主页面 = false;
     public bool 是否首次进入英雄界面 = false;
@@ -4433,6 +4433,43 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
 
         // 超大数值降级为科学计数法
         return num.ToString("E1");
+    }
+
+    /// <summary>
+    /// BigDouble 版格式化数字：单位与大数名共用同一张万进表，
+    /// 但不再用 Math.Pow 单位表比较（10^308 就爆 double），
+    /// 而是取 Log10 指数直接定位单位，全域可用
+    /// </summary>
+    public string 格式化数字(BigDouble num)
+    {
+        if (num < 0)
+        {
+            return "-" + 格式化数字(BigDouble.Abs(num));
+        }
+
+        // 小于100万直接显示整数（这个量级 double 完全装得下）
+        if (num < 1000000)
+        {
+            return Math.Floor((double)num).ToString();
+        }
+
+        // e = 位数-1；与大数名[j]（10^(4(j+1))）匹配需要商 >= 100，
+        // 即 e - 4k >= 2（k = 单位指数/4），取 k = (e-2)/4 向下取整
+        double e = BigDouble.Log10(num);
+        int k = (int)Math.Floor((e - 2) / 4);
+        if (k < 1)
+        {
+            k = 1; // 100万 ~ 1亿：万
+        }
+        if (k > 大数名.Length)
+        {
+            // 超出单位表（> 10^306）：降级科学计数法
+            return num.ToString();
+        }
+
+        BigDouble unit = BigDouble.Pow10(4 * k);
+        double v = Math.Floor((double)(num / unit));
+        return v + 大数名[k - 1];
     }
 
 }

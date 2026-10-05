@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class 伤害item
 {
     public HeroType heroType;
-    public double damage;
+    public BigDouble damage;
     public float 总比例;
     public float 神通比例;
     public float 技能比例;

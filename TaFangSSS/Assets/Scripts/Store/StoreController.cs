@@ -36,7 +36,8 @@ public class StoreController : XSingleton<StoreController>
             var settings = new JsonSerializerSettings
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-                Formatting = Newtonsoft.Json.Formatting.None
+                Formatting = Newtonsoft.Json.Formatting.None,
+                Converters = { new BigDoubleJsonConverter() }
             };
             var snapshot = StoreData; // 捕获局部引用，防止下次保存重建 StoreData 后闭包取错对象
 
@@ -117,7 +118,8 @@ public class StoreController : XSingleton<StoreController>
         var json = File.ReadAllText(path);
         var settings = new JsonSerializerSettings
         {
-            PreserveReferencesHandling = PreserveReferencesHandling.Objects
+            PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+            Converters = { new BigDoubleJsonConverter() }
         };
         StoreData = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json, settings);
         return StoreData;
@@ -736,7 +738,8 @@ public class StoreController : XSingleton<StoreController>
             if (string.IsNullOrWhiteSpace(json)) return false;
             var loadSettings = new JsonSerializerSettings
             {
-                PreserveReferencesHandling = PreserveReferencesHandling.Objects
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                Converters = { new BigDoubleJsonConverter() }
             };
             var data = JsonConvert.DeserializeObject<StoreDefine.StoreData>(json, loadSettings);
             if (data?.Player == null) return false;

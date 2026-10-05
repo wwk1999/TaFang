@@ -105,11 +105,11 @@ public class JingJieConfig : MonoBehaviour
         { JingJieType.鸿蒙,100000},
     };
 
-    public static double  跟脚 => Get跟脚();
+    public static BigDouble 跟脚 => Get跟脚();
     public static float 轮回系数 => 1+属性config.总属性.轮回系数*100f+体质Config.当前体质总属性.轮回系数;
-    public static double  Get跟脚()
+    public static BigDouble Get跟脚()
     {
-        double value = PlayerData.S.初始跟脚;
+        BigDouble value = PlayerData.S.初始跟脚;
         value *= (1f + 丹药Config.Get造化丹药总值() / 100f);
         foreach (var item in PlayerData.S.当前轮回突破Dic)
         {

@@ -66,7 +66,7 @@ public class 黑暗抓痕动画脚本 : MonoBehaviour
         if (_resultsBuffer.Count == 0) return;
 
         // ---- 循环外：基础伤害与所有加成只算一次 ----
-        double damage = 是否神通
+        BigDouble damage = 是否神通
             ? 属性config.总属性.总攻击力 * HeroConfig.英雄神通配置Dic[heroType].damage / 100f
             : 属性config.总属性.总攻击力 * 英雄星级属性.Get英雄攻击数值(heroType) / 100f;
 

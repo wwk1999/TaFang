@@ -11,9 +11,9 @@ using Random = UnityEngine.Random;
 
 public class 英雄伤害item
 {
-    public double 总伤害;
-    public double 神通伤害;
-    public double 技能伤害;
+    public BigDouble 总伤害;
+    public BigDouble 神通伤害;
+    public BigDouble 技能伤害;
 }
 
 public class 献祭属性
@@ -59,11 +59,11 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public List<献祭属性>献祭英雄列表=new List<献祭属性>();
     [NonSerialized] public Dictionary<HeroType, 符文属性> 英雄符文属性 = new Dictionary<HeroType, 符文属性>();
     // 战斗内不变量缓存：城墙最大生命值（原每次受击都要遍历两份字典计算）、当前体质总属性、英雄静态数据
-    [NonSerialized] public float 缓存城墙最大生命值;
+    [NonSerialized] public BigDouble 缓存城墙最大生命值;
     [NonSerialized] public 体质总属性 缓存体质总属性;
     [NonSerialized] public Dictionary<HeroType, 英雄战斗缓存> 英雄战斗缓存Dic = new Dictionary<HeroType, 英雄战斗缓存>();
     [NonSerialized] public float 领主暴击率 = 0;
-    [NonSerialized] public double 领主总攻击力 = 0 ;
+    [NonSerialized] public BigDouble 领主总攻击力 = 0 ;
     [NonSerialized] public float 技能树总所有英雄伤害 = 0;
 
     [NonSerialized] public int 丹童穿透数量 = 0 ;
@@ -140,7 +140,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized] public float 城墙无敌Time = 0;
     [NonSerialized] public float 每秒回血Time = 0;
     [NonSerialized] public float 无敌间隔Time = 0;
-    [NonSerialized] public double 城墙当前生命值;
+    [NonSerialized] public BigDouble 城墙当前生命值;
     [NonSerialized] public HashSet<MonsterBase>当前怪物Set = new HashSet<MonsterBase>();
     [NonSerialized] public float CreateMonsterTime = 1f;
     [NonSerialized] public float 当前创建普通怪物时间 = 0;
@@ -167,7 +167,7 @@ public class FightController : XSingleton<FightController>
     public void 刷新伤害面板()
     {
         List<伤害item> value = new List<伤害item>();
-        double 总伤害 = 0;
+        BigDouble 总伤害 = 0;
         foreach (var item in 当前英雄伤害Dic)
         {
             总伤害+=item.Value.总伤害;
@@ -177,7 +177,9 @@ public class FightController : XSingleton<FightController>
         {
             foreach (var item in 当前英雄伤害Dic)
             {
-                value.Add(new 伤害item(){heroType = item.Key,damage = item.Value.总伤害,总比例 = (float)(item.Value.总伤害 / 总伤害),神通比例 = (float)(item.Value.神通伤害/item.Value.总伤害),技能比例 = (float)(item.Value.技能伤害/item.Value.总伤害)});
+                // 分母是"该英雄自己的总伤害"：辅助英雄或刚开场时它是 0，0/0 要抛除零异常，先判掉
+                BigDouble heroDamage = item.Value.总伤害;
+                value.Add(new 伤害item(){heroType = item.Key,damage = heroDamage,总比例 = (float)(heroDamage / 总伤害),神通比例 = heroDamage != 0 ? (float)(item.Value.神通伤害 / heroDamage) : 0,技能比例 = heroDamage != 0 ? (float)(item.Value.技能伤害 / heroDamage) : 0});
             }
         }
         else
@@ -193,8 +195,8 @@ public class FightController : XSingleton<FightController>
 
     public double Get护盾Left()
     {
-        double 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
-        float 护盾比例=城墙护盾值/缓存城墙最大生命值;
+        double 血量value = (double)(城墙当前生命值 / 缓存城墙最大生命值);
+        float 护盾比例= (float)(城墙护盾值 / 缓存城墙最大生命值);
         if (护盾比例 >= 1)
         {
             return 0;
@@ -211,8 +213,8 @@ public class FightController : XSingleton<FightController>
     
     public double Get护盾Right()
     {
-        double 血量value = 城墙当前生命值 / 缓存城墙最大生命值;
-        float 护盾比例=城墙护盾值/缓存城墙最大生命值;
+        double 血量value = (double)(城墙当前生命值 / 缓存城墙最大生命值);
+        float 护盾比例= (float)(城墙护盾值 / 缓存城墙最大生命值);
         if (护盾比例 >= 1)
         {
             return 0;
@@ -256,7 +258,7 @@ public class FightController : XSingleton<FightController>
         return null;
     }
 
-    public IEnumerator 后羿连射(HeroType hero,Vector2 shotpos,Vector2 dir,double damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
+    public IEnumerator 后羿连射(HeroType hero,Vector2 shotpos,Vector2 dir,BigDouble damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
         float 概率 = 英雄星级属性.后羿连射概率;
         float random = Random.Range(0, 100);
@@ -272,7 +274,7 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void 后羿神通(Vector2 shotpos, Vector2 dir, double damage, float 瑶池冰辅助, float 黑暗辅助, bool 女娲电辅助, bool 瑶池神通,
+    public void 后羿神通(Vector2 shotpos, Vector2 dir, BigDouble damage, float 瑶池冰辅助, float 黑暗辅助, bool 女娲电辅助, bool 瑶池神通,
         bool 妲己神通,bool 女娲神通)
     {
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.后羿);
@@ -288,7 +290,7 @@ public class FightController : XSingleton<FightController>
         Shot普通魔法弹(攻击特效Type.物理箭, shotpos, GetDirectionOffset(dir, 2, false), damage, 15,瑶池冰辅助,黑暗辅助,100,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,女娲神通,true);
         Shot普通魔法弹(攻击特效Type.物理箭, shotpos, dir, damage, 15,瑶池冰辅助,黑暗辅助,100,女娲电辅助,HeroType.后羿, 瑶池神通,妲己神通,女娲神通,true);
     }
-    public void 后羿基础射击(HeroType hero,Vector2 shotpos,Vector2 dir,double damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
+    public void 后羿基础射击(HeroType hero,Vector2 shotpos,Vector2 dir,BigDouble damage,float 瑶池冰辅助,float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
         ObserverModuleManager.S.SendEvent("播放人物音效",战斗音效Type.后羿);
 
@@ -336,7 +338,7 @@ public class FightController : XSingleton<FightController>
     public void 人物神通(HeroType hero, Vector2 shotpos, Vector2 dir, Vector2 targetPos, float 瑶池冰辅助, float 黑暗辅助,
         float 女娲电辅助,float 瑶池神通,float 妲己神通, float 女娲神通,int count = 0)
     {
-        double damage = HeroConfig.英雄神通配置Dic[hero].damage/100f * 属性config.总属性.总攻击力;
+        BigDouble damage = HeroConfig.英雄神通配置Dic[hero].damage/100f * 属性config.总属性.总攻击力;
         switch (hero)
         {
             case HeroType.丹童:
@@ -386,7 +388,7 @@ public class FightController : XSingleton<FightController>
     public float 射手攻击速度 = 15;
     public void 人物攻击(HeroType hero,Vector2 shotpos,Vector2 dir,Vector2 targetPos,float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助,float 瑶池神通,float 妲己神通time,float 女娲神通time)
     {
-        double damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.总属性.总攻击力;
+        BigDouble damage = 英雄星级属性.Get英雄攻击数值(hero)/100f * 属性config.总属性.总攻击力;
         switch (hero)
         {
             case HeroType.丹童:
@@ -965,7 +967,7 @@ public class FightController : XSingleton<FightController>
 
     public IEnumerator Spine一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos, bool 瑶池冰辅助, bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,int count=0)
     {
-        double damage = 属性config.总属性.总攻击力;
+        BigDouble damage = 属性config.总属性.总攻击力;
         switch (攻击特效Type)
         {
             case 攻击特效Type.陨石:
@@ -1014,7 +1016,7 @@ public class FightController : XSingleton<FightController>
 
     public void 一次伤害技能(攻击特效Type 攻击特效Type, Vector2 pos,bool 瑶池冰辅助,bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
-        double damage = 属性config.总属性.总攻击力;
+        BigDouble damage = 属性config.总属性.总攻击力;
         
         switch (攻击特效Type)
         {
@@ -1496,7 +1498,7 @@ public class FightController : XSingleton<FightController>
         }
     }
 
-    public void 循环伤害技能(攻击特效Type 攻击特效Type, Vector2 shotPos, Vector2 dir, double damage, YuanSuType yuanSuType,
+    public void 循环伤害技能(攻击特效Type 攻击特效Type, Vector2 shotPos, Vector2 dir, BigDouble damage, YuanSuType yuanSuType,
         float speed, float 瑶池冰辅助, float 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
         循环伤害技能 魔法弹 = null;
@@ -1524,7 +1526,7 @@ public class FightController : XSingleton<FightController>
     }
 
 
-    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, double damage, float speed,float 瑶池冰辅助,float 黑暗辅助,int 穿透,bool 女娲电辅助,HeroType heroType,bool 瑶池神通,bool 妲己神通,bool 女娲神通,bool 是否神通)
+    public void Shot普通魔法弹(攻击特效Type 攻击特效Type,Vector2 shotPos, Vector2 dir, BigDouble damage, float speed,float 瑶池冰辅助,float 黑暗辅助,int 穿透,bool 女娲电辅助,HeroType heroType,bool 瑶池神通,bool 妲己神通,bool 女娲神通,bool 是否神通)
     {
         普通魔法弹带peng 魔法弹 = null;
         try
@@ -1959,7 +1961,7 @@ public class FightController : XSingleton<FightController>
         // 城墙最大生命值/体质属性整场战斗不变，缓存一次供 Hurt 热路径直接读
         缓存城墙最大生命值 = 城墙Config.Get城墙最大生命值();
         缓存体质总属性 = 体质Config.当前体质总属性;
-        城墙护盾值 = 城墙Config.开局护盾值 / 100f * 缓存城墙最大生命值;
+        城墙护盾值 = (float)(城墙Config.开局护盾值 / 100f * 缓存城墙最大生命值);
         涅槃次数 = 城墙Config.涅槃次数;
         城墙当前生命值 = 缓存城墙最大生命值;
         ObserverModuleManager.S.RegisterEvent("关卡重置",重置关卡);
@@ -2016,13 +2018,13 @@ public class FightController : XSingleton<FightController>
             当前神通能量 = Math.Min(属性config.总属性.神通最大值, 当前神通能量);
             孙悟空每秒增加伤害Time++;
             每秒回血Time = 0;
-            double 回血值 = 城墙Config.每秒回血值/ 100f * 缓存城墙最大生命值;
-            double value = 缓存城墙最大生命值 - 城墙当前生命值;
+            BigDouble 回血值 = 城墙Config.每秒回血值/ 100f * 缓存城墙最大生命值;
+            BigDouble value = 缓存城墙最大生命值 - 城墙当前生命值;
             if (value == 0)
             {
                 return;
             }
-            double 真实回血值 = 0;
+            BigDouble 真实回血值 = 0;
             if (value > 回血值)
             {
                 真实回血值 = 回血值;
@@ -2036,7 +2038,7 @@ public class FightController : XSingleton<FightController>
             {
                 Show伤害数字(PlayerData.S.格式化数字(真实回血值),YuanSuType.None,new Vector2(-5,0),true);
                 城墙当前生命值 += 真实回血值;
-                城墙当前生命值 = Math.Min(缓存城墙最大生命值, 城墙当前生命值);
+                城墙当前生命值 = BigDouble.Min(缓存城墙最大生命值, 城墙当前生命值);
                 ObserverModuleManager.S.SendEvent("设置护盾");
             }
         }

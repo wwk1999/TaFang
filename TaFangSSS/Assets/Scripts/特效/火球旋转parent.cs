@@ -15,7 +15,7 @@ public class 火球旋转parent : MonoBehaviour
     [NonSerialized] public bool 妲己神通;
     [NonSerialized] public bool 女娲神通;
 
-    [NonSerialized] public double damage;
+    [NonSerialized] public BigDouble damage;
 
     public void Hide()
     {

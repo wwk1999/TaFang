@@ -25,7 +25,7 @@ public class 冰符动画脚本: MonoBehaviour
     [NonSerialized] public bool 妲己神通;
     [NonSerialized] public bool 女娲神通;
 
-    [NonSerialized]public double damage;
+    [NonSerialized]public BigDouble damage;
     [NonSerialized]public HeroType HeroType;
     [NonSerialized] public bool 女娲电辅助;
     [NonSerialized] public bool 瑶池神通;
@@ -156,7 +156,7 @@ public class 冰符动画脚本: MonoBehaviour
 
         // ---- 循环外：所有与具体怪物无关的伤害加成只算一次 ----
         // 注意：不能写回 damage 字段，否则同一次施法的多个碰撞事件、多只怪物之间会滚雪球累乘
-        double finalDamage = damage;
+        BigDouble finalDamage = damage;
         // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
 
         if (黑暗辅助)
@@ -177,7 +177,7 @@ public class 冰符动画脚本: MonoBehaviour
         // ---- 循环外：与怪物无关的常量提前算好 ----
         bool 是冰符 = Type == 攻击特效Type.冰符;
         bool 是火符 = Type == 攻击特效Type.火符;
-        double 灼烧伤害值 = 是火符 ? 英雄星级属性.羲和灼烧伤害 / 100f * 属性config.总属性.总攻击力 : 0f;
+        BigDouble 灼烧伤害值 = 是火符 ? 英雄星级属性.羲和灼烧伤害 / 100f * 属性config.总属性.总攻击力 : 0f;
         float 冰冻概率 = 瑶池神通 ? HeroConfig.英雄神通配置Dic[HeroType].damage : 0f;
 
         var monsterDic = QueueController.S.MonsterColliderDic;

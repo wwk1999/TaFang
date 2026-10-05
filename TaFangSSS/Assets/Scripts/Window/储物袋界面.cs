@@ -78,11 +78,11 @@ public class 储物袋界面 : MonoBehaviour
       修炼速度count.text = 属性config.显示修炼速度 + "%";
       if (JingJieConfig.跟脚 > 10000)
       {
-         跟脚.text = PlayerData.S.格式化数字(Math.Round(JingJieConfig.跟脚,2)).ToString();
+         跟脚.text = PlayerData.S.格式化数字(JingJieConfig.跟脚);
       }
       else
       {
-         跟脚.text = Math.Round(JingJieConfig.跟脚,2).ToString();
+         跟脚.text = Math.Round((double)JingJieConfig.跟脚,2).ToString();
       }
       境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
    }

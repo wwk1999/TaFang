@@ -18,7 +18,7 @@ public class Spine一次伤害 : MonoBehaviour
    [NonSerialized] public bool 妲己神通;
    [NonSerialized] public bool 女娲神通;
 
-   [NonSerialized] public double damage;
+   [NonSerialized] public BigDouble damage;
    [NonSerialized] public HeroType HeroType;
 
    private Vector2 原始scale=Vector2.one;
@@ -84,7 +84,7 @@ public class Spine一次伤害 : MonoBehaviour
       if (_resultsBuffer.Count == 0) return;
 
       // ---- 循环外：与具体怪物无关的伤害加成只算一次（不写回 damage 字段，避免多怪物滚雪球） ----
-      double finalDamage = damage;
+      BigDouble finalDamage = damage;
       // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
 
       if (黑暗辅助)
@@ -129,3 +129,4 @@ public class Spine一次伤害 : MonoBehaviour
    }
 
 }
+

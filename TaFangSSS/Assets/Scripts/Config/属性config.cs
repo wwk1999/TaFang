@@ -466,7 +466,7 @@ public class 属性config
     
     
     public float 暴击伤害 => 200 + Get英雄暴击伤害增幅()+_神物.暴击爆伤*100;
-    public double 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
+    public BigDouble 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
     public float 二次暴击 => _神物.二次暴击;
     public float 轮回次数加伤 => _神物.轮回次数加伤;
     public float 轮回系数 => _神物.轮回系数;
@@ -553,13 +553,13 @@ public class 属性config
           return 装备基础属性 * 装备属性增幅;
      }
 
-     public static double Get境界攻击力()
+     public static BigDouble Get境界攻击力()
      {
-          double 基础攻击 = JingJieConfig.JingJieAttributeDic[PlayerData.S.当前轮回境界];
+          BigDouble 基础攻击 = JingJieConfig.JingJieAttributeDic[PlayerData.S.当前轮回境界];
 
           return 基础攻击 * JingJieConfig.Get跟脚();
      }
-     public static double 基础境界攻击力=>Get境界攻击力();
+     public static BigDouble 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
      public static float 显示修炼速度 => ((1f+PlayerData.S.关卡修炼速度加成/100f) * (1f+道宝Config.Get道宝总修炼速度()/100f)-1)*100f;
      public static float 丹药修炼速度 => Get丹药修炼速度();

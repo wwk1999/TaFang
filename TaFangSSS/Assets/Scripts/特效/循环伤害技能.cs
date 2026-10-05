@@ -11,7 +11,7 @@ public class 循环伤害技能 : MonoBehaviour
     [NonSerialized]public Vector2 MoveDirection;
     public 攻击特效Type Type;
     [NonSerialized]public float DelayTime=15;
-    [NonSerialized] public double damage;
+    [NonSerialized] public BigDouble damage;
     [NonSerialized] public HeroType HeroType;
     [NonSerialized] public bool 瑶池冰辅助;
     [NonSerialized] public bool 黑暗辅助;
@@ -75,7 +75,7 @@ public class 循环伤害技能 : MonoBehaviour
     {
         if (当前范围内怪物.Count == 0) return;
 
-        double finalDamage = 计算辅助加成(damage);
+        BigDouble finalDamage = 计算辅助加成(damage);
 
         // 用复用的 List 快照，避免每次伤害都 new List 产生 GC
         _伤害快照.Clear();
@@ -108,9 +108,9 @@ public class 循环伤害技能 : MonoBehaviour
     /// <summary>
     /// 辅助英雄（妲己/女娲/瑶池）伤害加成，与怪物无关，每次命中算一次，不写回 damage 字段
     /// </summary>
-    private double 计算辅助加成(double baseDamage)
+    private BigDouble 计算辅助加成(BigDouble baseDamage)
     {
-        double finalDamage = baseDamage;
+        BigDouble finalDamage = baseDamage;
         // 辅助功法加成已移入 MonsterBase.计算功法伤害：与被辅助英雄功法相加后统一乘一次，不再各自乘算
 
         if (黑暗辅助)
@@ -143,7 +143,7 @@ public class 循环伤害技能 : MonoBehaviour
         // 命中火花对象池耗尽时仅跳过表现，伤害照常结算
         if (hit != null) hit.transform.position = closestPoint;
 
-        double finalDamage = 计算辅助加成(damage);
+        BigDouble finalDamage = 计算辅助加成(damage);
         // 老子冰旋风体积增伤
         float scale = (transform.localScale.x - 1) / 0.01f * 属性config.总属性.老子体积增伤;
         finalDamage *= (1 + scale);
