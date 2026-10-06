@@ -246,9 +246,105 @@ namespace Config
         洪品,
         荒品,
     }
-
+    
     public class PropConfig : MonoBehaviour
     {
+        public static 法器材料Type GetProp法器材料Type(PropType Type)
+        {
+            switch (Type)
+            {
+                // 石类
+                case PropType.石白:
+                case PropType.石绿:
+                case PropType.石蓝:
+                case PropType.石紫:
+                case PropType.石橙:
+                case PropType.石粉:
+                case PropType.石红:
+                case PropType.石彩:
+                    return 法器材料Type.石;
+
+                // 铁类
+                case PropType.铁白:
+                case PropType.铁绿:
+                case PropType.铁蓝:
+                case PropType.铁紫:
+                case PropType.铁橙:
+                case PropType.铁粉:
+                case PropType.铁红:
+                case PropType.铁彩:
+                    return 法器材料Type.铁;
+
+                // 羽类
+                case PropType.羽白:
+                case PropType.羽绿:
+                case PropType.羽蓝:
+                case PropType.羽紫:
+                case PropType.羽橙:
+                case PropType.羽粉:
+                case PropType.羽红:
+                case PropType.羽彩:
+                    return 法器材料Type.羽;
+
+                // 砂类
+                case PropType.砂白:
+                case PropType.砂绿:
+                case PropType.砂蓝:
+                case PropType.砂紫:
+                case PropType.砂橙:
+                case PropType.砂粉:
+                case PropType.砂红:
+                case PropType.砂彩:
+                    return 法器材料Type.砂;
+
+                default:
+                    return 法器材料Type.None;
+            }
+        }
+        public static bool Prop是否为法器材料(PropType propType)
+        {
+            switch (propType)
+            {
+                case PropType.石白:
+                case PropType.石绿:
+                case PropType.石蓝:
+                case PropType.石紫:
+                case PropType.石橙:
+                case PropType.石粉:
+                case PropType.石红:
+                case PropType.石彩:
+                    
+                case PropType.铁白:
+                case PropType.铁绿:
+                case PropType.铁蓝:
+                case PropType.铁紫:
+                case PropType.铁橙:
+                case PropType.铁粉:
+                case PropType.铁红:
+                case PropType.铁彩:
+                    
+                case PropType.羽白:
+                case PropType.羽绿:
+                case PropType.羽蓝:
+                case PropType.羽紫:
+                case PropType.羽橙:
+                case PropType.羽粉:
+                case PropType.羽红:
+                case PropType.羽彩:
+                    
+                case PropType.砂白:
+                case PropType.砂绿:
+                case PropType.砂蓝:
+                case PropType.砂紫:
+                case PropType.砂橙:
+                case PropType.砂粉:
+                case PropType.砂红:
+                case PropType.砂彩:
+                    return true;
+            }
+
+            return false;
+        }
         public static Sprite Get道具信息Sprite(道具信息Type Type)
 {
     switch (Type)

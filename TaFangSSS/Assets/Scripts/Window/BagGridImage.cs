@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BagGridImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class BagGridImage : MonoBehaviour,IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -22,6 +23,7 @@ public class BagGridImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     // 鼠标是否在当前Image内
     private bool isHovering = false;
     public BagGrid BagGrid;
+    private bool 按下Shift=false;
 
     private void Start()
     {
@@ -112,6 +114,39 @@ public class BagGridImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             // 如果转换失败，使用屏幕坐标直接设置
             rectTransform.position = mousePosition + popupOffset;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            按下Shift = true;
+        }
+        else
+        {
+            按下Shift = false;
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (PropConfig.Prop是否为法器材料(BagGrid.propType))
+            {
+                if (按下Shift)
+                {
+                    PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[
+                        PropConfig.PropQualityDic[BagGrid.propType]] * PlayerData.S.PropListDic[BagGrid.propType];
+                    PlayerData.S.PropListDic[BagGrid.propType] = 0;
+                    ObserverModuleManager.S.SendEvent("刷新背包");
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("显示法器材料分解弹窗", BagGrid.propType);
+                }
+            }
         }
     }
 }

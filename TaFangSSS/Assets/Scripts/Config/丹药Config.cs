@@ -1080,6 +1080,24 @@ public class 丹药Config
         return 0;
     }
     
+    public static float Get丹药分解价格(丹药Type 丹药Type, QualityType qualityType)
+    {
+        var 丹药类型 = 丹药类型Dic[丹药Type];
+        switch (丹药类型)
+        {
+            case 丹药类型.战斗丹药:
+                return 坊市Config.战斗丹药分解价格Dic[qualityType];
+            case 丹药类型.辅助丹药:
+                return 坊市Config.辅助丹药分解价格Dic[qualityType];
+            case 丹药类型.根基丹药:
+                return 坊市Config.根基丹药分解价格Dic[qualityType];
+            case 丹药类型.造化丹药:
+                return 坊市Config.造化丹药分解价格Dic[qualityType];
+        }
+
+        return 0;
+    }
+    
     public static float Get丹方价格(丹药Type 丹药Type, QualityType qualityType)
     {
         var 丹药类型 = 丹药类型Dic[丹药Type];

@@ -13,6 +13,7 @@ public class 背包Grid信息弹窗 : MonoBehaviour
     public TextMeshProUGUI name;
     public TextMeshProUGUI quality;
     public TextMeshProUGUI info;
+    public TextMeshProUGUI 分解Tip;
 
     [NonSerialized] public PropType PropType;
     [NonSerialized] public QualityType QualityType;
@@ -30,6 +31,7 @@ public class 背包Grid信息弹窗 : MonoBehaviour
     }
     public void SetItem()
     {
+        分解Tip.gameObject.SetActive(PropConfig.Prop是否为法器材料(PropType));
         bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite=ResourcesConfig.GetPropSprite(PropType);
         name.text = PropConfig.PropNameDic[PropType];

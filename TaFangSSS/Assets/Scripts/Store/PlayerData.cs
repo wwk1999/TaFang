@@ -2574,6 +2574,44 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     {"英雄最终伤害_洪品", 0},
     {"英雄最终伤害_荒品", 0},
 };
+
+    public 丹药Type Get丹药Type(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+            return 丹药Type.None;
+
+        // 取最后一个下划线之前的部分，例如 "英雄最终伤害_荒品" -> "英雄最终伤害"
+        int index = str.LastIndexOf('_');
+        if (index <= 0)
+            return 丹药Type.None;
+
+        string typeName = str.Substring(0, index);
+
+        // 解析成枚举
+        if (System.Enum.TryParse(typeName, out 丹药Type type))
+            return type;
+
+        return 丹药Type.None;
+    }
+
+    public  QualityType Get丹药品质(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+            return QualityType.None;
+
+        // 取最后一个下划线之后的部分，例如 "火焰伤害_黄品" -> "黄品"
+        int index = str.LastIndexOf('_');
+        if (index < 0 || index >= str.Length - 1)
+            return QualityType.None;
+
+        string qualityName = str.Substring(index + 1);
+
+        // 解析成枚举
+        if (Enum.TryParse(qualityName, out QualityType quality))
+            return quality;
+
+        return QualityType.None;
+    }
     
      public Dictionary<string, int> 丹方Dic = new Dictionary<string, int>()
 {

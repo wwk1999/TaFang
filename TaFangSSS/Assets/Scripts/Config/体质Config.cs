@@ -432,9 +432,17 @@ public class 体质Config
         {
             list = new List<float>(){0,0,32,60,8};
         }
-        else
+        else if (跟脚 < 1000000000000)
         {
             list = new List<float>(){0,0,20,70,10};
+        }
+        else if (跟脚 < 10000000000000)
+        {
+            list = new List<float>(){0,0,10,78,12};
+        }
+        else
+        {
+            list = new List<float>(){0,0,5,81,14};
         }
 
         var random = Random.Range(0, 100f);

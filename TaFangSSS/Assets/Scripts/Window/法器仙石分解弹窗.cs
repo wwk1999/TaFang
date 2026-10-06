@@ -10,6 +10,7 @@ public enum 分解类型
     None,
     法器,
     仙石,
+    丹药,
 }
 public class 法器仙石分解弹窗 : MonoBehaviour
 {
@@ -56,6 +57,64 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         {
             switch (分解类型)
             {
+                case 分解类型.丹药:
+                    foreach (var item in PlayerData.S.丹药Dic)
+                    {
+                        QualityType qualityType=PlayerData.S.Get丹药品质(item.Key);
+                        switch (qualityType)
+                        {
+                            case QualityType.黄品:
+                                if (黄)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                            case QualityType.玄品:
+                                if (玄)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                            case QualityType.地品:
+                                if (地)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                            case QualityType.天品:
+                                if (天)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                            case QualityType.宇品:
+                                if (宇)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                            case QualityType.宙品:
+                                if (宙)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                            case QualityType.洪品:
+                                if (洪)
+                                {
+                                    PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                }
+                                break;
+                        }
+                    }
+                    break;
                 case 分解类型.法器:
                     PlayerData.S.法器列表.RemoveAll(法器 => 
                     {

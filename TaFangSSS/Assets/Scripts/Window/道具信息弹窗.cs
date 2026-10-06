@@ -13,6 +13,8 @@ public class 道具信息弹窗 : MonoBehaviour
    public TextMeshProUGUI name;
    public TextMeshProUGUI desc;
    public TextMeshProUGUI 数量;
+   public TextMeshProUGUI 分解tip;
+
    [NonSerialized]public 道具信息Type  type;
    [NonSerialized] public 主线关卡Type 主线关卡Type;
 
@@ -30,6 +32,7 @@ public class 道具信息弹窗 : MonoBehaviour
 
    public void SetItem()
    {
+      分解tip.gameObject.SetActive(PropConfig.Prop是否为法器材料(PropConfig.道具信息ToPropType[type]));
       bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(PropConfig.道具信息品质Dic[type]);
       icon.sprite = PropConfig.Get道具信息Sprite(type);
       name.text = PropConfig.道具信息NameDic[type];

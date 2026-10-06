@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class 储物袋界面 : MonoBehaviour
 {
+   public 法器材料分解弹窗 法器材料分解弹窗;
    public Button 详情Button;
    public GameObject 详情GameObject;
 
@@ -131,8 +132,15 @@ public class 储物袋界面 : MonoBehaviour
       刷新背包();
    }
 
+   public void 显示法器材料分解弹窗(object[] obj)
+   {
+      法器材料分解弹窗.PropType = (PropType)obj[0];
+      法器材料分解弹窗.SetItem();
+      法器材料分解弹窗.gameObject.SetActive(true);
+   }
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("显示法器材料分解弹窗",显示法器材料分解弹窗);
       ObserverModuleManager.S.UnRegisterEvent("刷新人物信息",刷新人物信息);
       ObserverModuleManager.S.UnRegisterEvent("显示使用丹方弹窗",显示使用丹方弹窗);
       ObserverModuleManager.S.UnRegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
@@ -276,6 +284,7 @@ public class 储物袋界面 : MonoBehaviour
 
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("显示法器材料分解弹窗",显示法器材料分解弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新人物信息",刷新人物信息);
       ObserverModuleManager.S.RegisterEvent("显示使用丹方弹窗",显示使用丹方弹窗);
       ObserverModuleManager.S.RegisterEvent("显示服用造化丹药确认弹窗",显示服用造化丹药确认弹窗);
@@ -320,6 +329,11 @@ public class 储物袋界面 : MonoBehaviour
          if (显示类型 == 6)
          {
             法器仙石分解弹窗.分解类型 = 分解类型.仙石;
+            法器仙石分解弹窗.gameObject.SetActive(true);
+         }
+         if (显示类型 == 9)
+         {
+            法器仙石分解弹窗.分解类型 = 分解类型.丹药;
             法器仙石分解弹窗.gameObject.SetActive(true);
          }
       });
@@ -525,7 +539,7 @@ public class 储物袋界面 : MonoBehaviour
 
    public void Show丹药()
    {
-      分解Btn.gameObject.SetActive(false);
+      分解Btn.gameObject.SetActive(true);
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       材料Btn.image.sprite = ResourcesConfig.按钮暗;

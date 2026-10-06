@@ -862,6 +862,18 @@ public class 法器Config
         { QualityType.洪品 ,50000},
         { QualityType.荒品 ,250000},
     };
+    
+    public static Dictionary<QualityType, int> 法器材料分解粉尘Dic = new Dictionary<QualityType, int>()
+    {
+        { QualityType.黄品 ,5},
+        { QualityType.玄品 ,15},
+        { QualityType.地品 ,50},
+        { QualityType.天品 ,150},
+        { QualityType.宇品 ,500},
+        { QualityType.宙品 ,1500},
+        { QualityType.洪品 ,5000},
+        { QualityType.荒品 ,25000},
+    };
     public static Dictionary<法器Type, ZhiYeType> 法器职业Dic = new Dictionary<法器Type, ZhiYeType>()
 {
     // ==================== 1. 战士 ====================

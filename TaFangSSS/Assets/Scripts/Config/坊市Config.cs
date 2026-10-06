@@ -38,6 +38,19 @@ public class 坊市Config
         { QualityType.洪品, 300000 },
         { QualityType.荒品, 1000000 },
     };
+    
+    public static Dictionary<QualityType, long> 战斗丹药分解价格Dic = new Dictionary<QualityType, long>()
+    {
+        { QualityType.黄品, 10 },
+        { QualityType.玄品, 20 },
+        { QualityType.地品, 50 },
+        { QualityType.天品, 200 },
+        { QualityType.宇品, 1000 },
+        { QualityType.宙品, 5000 },
+        { QualityType.洪品, 30000 },
+        { QualityType.荒品, 100000 },
+    };
+    
     public static Dictionary<QualityType, long> 战斗丹方价格Dic = new Dictionary<QualityType, long>()
     {
         { QualityType.黄品, 1000 },
@@ -60,6 +73,18 @@ public class 坊市Config
         { QualityType.宙品, 300000 },
         { QualityType.洪品, 1000000 },
         { QualityType.荒品, 10000000 },
+    };
+    
+    public static Dictionary<QualityType, long> 辅助丹药分解价格Dic = new Dictionary<QualityType, long>()
+    {
+        { QualityType.黄品, 20 },
+        { QualityType.玄品, 50 },
+        { QualityType.地品, 200 },
+        { QualityType.天品, 1000 },
+        { QualityType.宇品, 5000 },
+        { QualityType.宙品, 30000 },
+        { QualityType.洪品, 100000 },
+        { QualityType.荒品, 1000000 },
     };
     public static Dictionary<QualityType, long> 辅助丹方价格Dic = new Dictionary<QualityType, long>()
     {
@@ -95,6 +120,18 @@ public class 坊市Config
         { QualityType.荒品, 50000000 },
     };
     
+    public static Dictionary<QualityType, long> 根基丹药分解价格Dic = new Dictionary<QualityType, long>()
+    {
+        { QualityType.黄品, 50 },
+        { QualityType.玄品, 200 },
+        { QualityType.地品, 1000 },
+        { QualityType.天品, 5000 },
+        { QualityType.宇品, 30000 },
+        { QualityType.宙品, 100000 },
+        { QualityType.洪品, 500000 },
+        { QualityType.荒品, 5000000 },
+    };
+    
     public static Dictionary<QualityType, long> 根基丹方价格Dic = new Dictionary<QualityType, long>()
     {
         { QualityType.黄品, 5000 },
@@ -117,6 +154,17 @@ public class 坊市Config
         { QualityType.宙品, 5000000 },
         { QualityType.洪品, 30000000 },
         { QualityType.荒品, 300000000 },
+    };
+    public static Dictionary<QualityType, long> 造化丹药分解价格Dic = new Dictionary<QualityType, long>()
+    {
+        { QualityType.黄品, 200 },
+        { QualityType.玄品, 1000 },
+        { QualityType.地品, 5000 },
+        { QualityType.天品, 30000 },
+        { QualityType.宇品, 100000 },
+        { QualityType.宙品, 500000 },
+        { QualityType.洪品, 3000000 },
+        { QualityType.荒品, 30000000 },
     };
     
     public static Dictionary<QualityType, long> 造化丹方价格Dic = new Dictionary<QualityType, long>()
