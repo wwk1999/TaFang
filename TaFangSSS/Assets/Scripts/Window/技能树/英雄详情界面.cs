@@ -369,6 +369,25 @@ public class 英雄详情界面 : MonoBehaviour
                 }
 
             法器类型 法器类型 = 法器Config.法器类型Dic[HeroWindowController.S.英雄详情界面当前选择法器.法器Type];
+
+                // 修复：新法器如果还戴在别的英雄身上，先从那位英雄的对应槽位摘下来。
+                // 原代码只处理"当前英雄槽位里的旧法器"，从不清"新法器的前任主人"——
+                // 结果两个英雄的槽位同时引用同一件法器，属性两边都生效
+                var 新法器 = HeroWindowController.S.英雄详情界面当前选择法器;
+                if (新法器.HeroType != HeroType.None && 新法器.HeroType != 当前heroType)
+                {
+                    switch (法器类型)
+                    {
+                        case 法器类型.头盔: PlayerData.S.HeroDataDic[新法器.HeroType].头盔 = null; break;
+                        case 法器类型.衣服: PlayerData.S.HeroDataDic[新法器.HeroType].衣服 = null; break;
+                        case 法器类型.鞋子: PlayerData.S.HeroDataDic[新法器.HeroType].鞋子 = null;
+                            break;
+                        case 法器类型.武器: PlayerData.S.HeroDataDic[新法器.HeroType].武器 = null;
+                            break;
+                    }
+                    Sync法器列表(新法器, 新法器.HeroType);
+                }
+
                 switch (法器类型)
                 {
                     case 法器类型.头盔:

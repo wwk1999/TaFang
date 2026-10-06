@@ -11,12 +11,16 @@ public class 英雄详情装备背包item : MonoBehaviour
     public Image icon;
     public GameObject gou;
     public GameObject 已装备icon;
+    public GameObject 头像;
+    public Image 英雄icon;
     [NonSerialized] public 法器 法器;
     [NonSerialized] public bool 已装备;
 
     public void SetItem()
     {
-        已装备icon.SetActive(已装备);
+        头像.SetActive(法器.HeroType!=HeroType.None);
+        英雄icon.sprite=ResourcesConfig.GetHeroSprite(法器.HeroType);
+        已装备icon.SetActive(法器.HeroType!=HeroType.None);
         gou.SetActive(false);
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);

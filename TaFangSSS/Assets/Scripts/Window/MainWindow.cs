@@ -21,6 +21,8 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public GameObject 愿望单提示;
+
     public Button 新手攻略Button;
     public GameObject 新手攻略;
 
@@ -214,6 +216,15 @@ public class MainWindow : MonoBehaviour
         {
             新手攻略.gameObject.SetActive(true);
             PlayerData.S.是否第一次游戏 = false;
+        }
+
+        if (PlayerData.S.历史最高境界 >= JingJieType.金仙 && !PlayerData.S.是否加入愿望单)
+        {
+            愿望单提示.gameObject.SetActive(true);
+        }
+        else
+        {
+            愿望单提示.gameObject.SetActive(false);
         }
         Show道场和地图();
         Show主页();

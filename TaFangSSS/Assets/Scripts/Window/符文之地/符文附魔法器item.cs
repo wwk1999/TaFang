@@ -14,6 +14,8 @@ public class 符文附魔法器item : MonoBehaviour
    public GameObject gou;
    public GameObject 出战;
    [NonSerialized] public 法器 法器;
+   public GameObject 头像;
+   public Image 英雄头像;
 
    private void Start()
    {
@@ -26,6 +28,8 @@ public class 符文附魔法器item : MonoBehaviour
 
    public void SetItem()
    {
+      头像.SetActive(法器.HeroType!=HeroType.None);
+      英雄头像.sprite = ResourcesConfig.GetHeroSprite(法器.HeroType);
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
       icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
       name.text = 法器Config.法器名Dic[法器.法器Type];
