@@ -196,7 +196,7 @@ public class 血海窗口 : MonoBehaviour
       寻宝按钮.interactable = !寻宝;
       if (寻宝)
       {
-         寻宝按钮Text.text = "寻宝中(剩余" + PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].time+")";
+         寻宝按钮Text.text = "寻宝中(剩余" + (int)PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].time+")";
       }
       else
       {
@@ -212,7 +212,7 @@ public class 血海窗口 : MonoBehaviour
       寻宝按钮.interactable = !寻宝;
       if (寻宝)
       {
-         寻宝按钮Text.text = "寻宝中(剩余" + PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].time+"S)";
+         寻宝按钮Text.text = "寻宝中(剩余" + (int)PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].time+"S)";
       }
       else
       {

@@ -197,7 +197,7 @@ public class 通天塔窗口 : MonoBehaviour
       寻宝按钮.interactable = !寻宝;
       if (寻宝)
       {
-         寻宝按钮Text.text = "寻宝中(剩余" + PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time+")";
+         寻宝按钮Text.text = "寻宝中(剩余" + (int)PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time+")";
       }
       else
       {
@@ -213,7 +213,7 @@ public class 通天塔窗口 : MonoBehaviour
       寻宝按钮.interactable = !寻宝;
       if (寻宝)
       {
-         寻宝按钮Text.text = "寻宝中(剩余" + PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time+"S)";
+         寻宝按钮Text.text = "寻宝中(剩余" + (int)PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].time+"S)";
       }
       else
       {

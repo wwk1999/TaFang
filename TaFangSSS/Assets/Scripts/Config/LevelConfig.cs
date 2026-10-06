@@ -1322,8 +1322,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      {
          // 每加一层 min/max +1500
          case PropType.灵魂:
-             result.min += 加成层数 * 60;
-             result.max += 加成层数 * 60;
+             result.min += 加成层数 * 70;
+             result.max += 加成层数 * 70;
              break;
          // 每加一层 min/max +1000
          // 经验值：每加一层 min/max +1000
