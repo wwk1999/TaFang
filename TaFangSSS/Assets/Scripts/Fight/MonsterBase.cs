@@ -1659,7 +1659,53 @@ public class MonsterBase : MonoBehaviour
       }
       isDead = true;
       try
-      { 
+      {
+         // 进度推进先行：击杀计数与里程碑/胜利判定必须在所有观察者事件之前——
+         // try 只有 finally 没有 catch，任何监听者抛异常都会吞掉后续语句，
+         // 击杀丢一次就永远凑不够关卡总数，战斗卡死在"不出怪也不胜利"的中间态
+         FightController.S.KillMonsterCount++;
+         int 小怪数量 = 100;
+         int 精英怪数量 = 2;
+         if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
+         {
+            小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
+            精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
+         }else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
+         {
+            小怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
+            精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = LevelConfig.当前洞天QualityType }].EliteMonsterCount;
+         }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
+         {
+            小怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
+            精英怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].EliteMonsterCount;
+         }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
+         {
+            小怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
+            精英怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].EliteMonsterCount;
+         }
+         if (FightController.S.KillMonsterCount == 小怪数量/2)
+         {
+            FightController.S.CreateBossMonster();
+         }
+         for (int i = 1; i <= 精英怪数量; i++)
+         {
+            if (FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
+            {
+               FightController.S.CreateEliteMonster();
+            }
+         }
+
+         float 总数量 = 0;
+         总数量 = 计算怪物总数(小怪数量, 精英怪数量);
+
+         ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
+         // >= 而非 ==：精英里程碑重复值可能多生成精英使总击杀越过关卡总数，
+         // == 会错过胜利窗口，同样造成卡死
+         if (FightController.S.KillMonsterCount >= 总数量)
+         {
+            FightController.S.战斗结束 = true;
+            FightController.S.StartCoroutine(Show胜利弹窗());
+         }
          FightController.S.当前神通能量 += _ctx.符文.击杀怪物获得神通能量;
          ObserverModuleManager.S.SendEvent("符文减少神通冷却",heroType);
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
@@ -1676,47 +1722,6 @@ public class MonsterBase : MonoBehaviour
          FightController.S.Show伤害数字(PlayerData.S.格式化数字(value),YuanSuType.None,new Vector2(-5,0),true);
       }
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
-      FightController.S.KillMonsterCount++;
-      int 小怪数量 = 100;
-      int 精英怪数量 = 2;
-      if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
-      {
-         小怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].NormalMonsterCount;
-         精英怪数量 = LevelConfig.LevelInfos[LevelConfig.当前主线关卡Type].EliteMonsterCount;
-      }else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
-      {
-         小怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item(){JingJieType = PlayerData.S.当前轮回境界,qualityType = LevelConfig.当前洞天QualityType}].NormalMonsterCount;
-         精英怪数量 = LevelConfig.洞天LevelInfos[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = LevelConfig.当前洞天QualityType }].EliteMonsterCount;
-      }else if (LevelConfig.当前关卡类型 == 关卡类型.远古遗迹)
-      {
-         小怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].NormalMonsterCount;
-         精英怪数量 = 神物Config.遗迹关卡信息Dic[LevelConfig.当前神物Type].EliteMonsterCount;
-      }else if (LevelConfig.当前关卡类型 == 关卡类型.符文之地)
-      {
-         小怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
-         精英怪数量 = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].EliteMonsterCount;
-      }
-      if (FightController.S.KillMonsterCount == 小怪数量/2)
-      {
-         FightController.S.CreateBossMonster();
-      }
-      for (int i = 1; i <= 精英怪数量; i++)
-      {
-         if (FightController.S.KillMonsterCount == (int)(小怪数量 * (i / (精英怪数量 + 1f))))
-         {
-            FightController.S.CreateEliteMonster();
-         }
-      }
-
-      float 总数量 = 0;
-      总数量 = 计算怪物总数(小怪数量, 精英怪数量);
-      
-      ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
-      if (FightController.S.KillMonsterCount == 总数量)
-      {
-         FightController.S.战斗结束 = true;
-         FightController.S.StartCoroutine(Show胜利弹窗());
-      }
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
       switch (monsterType)
       {

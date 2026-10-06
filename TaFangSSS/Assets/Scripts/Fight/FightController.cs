@@ -1829,6 +1829,7 @@ public class FightController : XSingleton<FightController>
         float x = 10f;
         float y = Random.Range(-4f, 4f);
         var monster=QueueController.S.普通怪Queue.Dequeue();
+        NormalMonsterCount++; // Dequeue 成功才扣配额：与精英怪写法对齐，池空跳过不烧配额
         当前怪物Set.Add(monster);
         monster.transform.position = new Vector3(x,y,0);
         List<MonsterTypeName> list = null;
@@ -2093,7 +2094,9 @@ public class FightController : XSingleton<FightController>
         }
         if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
         {
-            NormalMonsterCount++;
+            // 配额在 CreateNormalMonster 内部 Dequeue 成功后才扣：
+            // 原来先 ++ 再生成，对象池空时生成被跳过但配额白扣，
+            // 本关实出怪数 < 配额 → 击杀永远凑不够总数 → 不出怪也不胜利，卡死
             CreateNormalMonster();
             当前创建普通怪物时间 = 0;
         }
