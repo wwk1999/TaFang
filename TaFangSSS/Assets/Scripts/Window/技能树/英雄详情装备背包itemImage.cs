@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 英雄详情装备背包itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 英雄详情装备背包itemImage : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
      [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -114,6 +114,16 @@ public class 英雄详情装备背包itemImage : MonoBehaviour, IPointerEnterHan
         {
             // 如果转换失败，使用屏幕坐标直接设置
             rectTransform.position = mousePosition + popupOffset;
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            HeroWindowController.S.英雄详情界面当前选择法器 = 英雄详情装备背包item.法器;
+            ObserverModuleManager.S.SendEvent("英雄详情界面装备点击",英雄详情装备背包item.法器);
+            ObserverModuleManager.S.SendEvent("右键装备法器");
         }
     }
 }

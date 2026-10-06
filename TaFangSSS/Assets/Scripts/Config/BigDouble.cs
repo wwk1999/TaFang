@@ -30,8 +30,20 @@ public struct BigDouble : IEquatable<BigDouble>, IComparable<BigDouble>
     private static BigDouble Fast(double mantissa, long exponent)
     {
         if (mantissa == 0 || double.IsNaN(mantissa)) return Zero;
-        while (mantissa >= 10 || mantissa <= -10) { mantissa /= 10; exponent++; }
-        while (mantissa < 1 && mantissa > -1) { mantissa *= 10; exponent--; }
+        // ∞ 尾数（哨兵值参与运算的产物）：保持 ∞，绝不进入归位循环（否则死循环）
+        if (double.IsInfinity(mantissa)) return new BigDouble { Mantissa = mantissa > 0 ? 1 : -1, Exponent = long.MaxValue };
+        while (mantissa >= 10 || mantissa <= -10)
+        {
+            mantissa /= 10;
+            if (exponent == long.MaxValue) return new BigDouble { Mantissa = mantissa > 0 ? 1 : -1, Exponent = long.MaxValue }; // 指数饱和为 ∞，不回绕
+            exponent++;
+        }
+        while (mantissa < 1 && mantissa > -1)
+        {
+            mantissa *= 10;
+            if (exponent == long.MinValue) return Zero; // 指数下溢饱和为 0，不回绕
+            exponent--;
+        }
         return new BigDouble { Mantissa = mantissa, Exponent = exponent };
     }
 
@@ -39,6 +51,7 @@ public struct BigDouble : IEquatable<BigDouble>, IComparable<BigDouble>
     public BigDouble(double mantissa, long exponent)
     {
         if (mantissa == 0 || double.IsNaN(mantissa)) { Mantissa = 0; Exponent = 0; return; }
+        if (double.IsInfinity(mantissa)) { Mantissa = mantissa > 0 ? 1 : -1; Exponent = long.MaxValue; return; } // (long)Log10(∞) 是未定义强转，会得到 long.MinValue 垃圾指数
         var e = Math.Floor(Math.Log10(Math.Abs(mantissa)));
         Exponent = exponent + (long)e;
         Mantissa = mantissa / Math.Pow(10, e);
@@ -94,7 +107,17 @@ public struct BigDouble : IEquatable<BigDouble>, IComparable<BigDouble>
     public static BigDouble operator -(BigDouble a) => new BigDouble { Mantissa = -a.Mantissa, Exponent = a.Exponent };
 
     /// <summary>乘法热路径：两个规范尾数之积 ∈ [1,100)，一步归位，零对数调用</summary>
-    public static BigDouble operator *(BigDouble a, BigDouble b) => Fast(a.Mantissa * b.Mantissa, a.Exponent + b.Exponent);
+    public static BigDouble operator *(BigDouble a, BigDouble b)
+    {
+        // ∞ 哨兵参与乘法：指数相加会溢出回绕，必须短路成饱和结果
+        if (a.Exponent == long.MaxValue || b.Exponent == long.MaxValue)
+        {
+            double m = a.Mantissa * b.Mantissa;
+            if (m == 0) return new BigDouble { Mantissa = double.NaN, Exponent = 0 }; // 0×∞ = NaN
+            return new BigDouble { Mantissa = m > 0 ? 1 : -1, Exponent = long.MaxValue };
+        }
+        return Fast(a.Mantissa * b.Mantissa, a.Exponent + b.Exponent);
+    }
 
     /// <summary>大数 × 小乘区（百分比增幅等），最常用的热路径</summary>
     public static BigDouble operator *(BigDouble a, double b) => Fast(a.Mantissa * b, a.Exponent);
@@ -102,6 +125,13 @@ public struct BigDouble : IEquatable<BigDouble>, IComparable<BigDouble>
 
     public static BigDouble operator /(BigDouble a, BigDouble b)
     {
+        // ∞ 哨兵参与除法：指数相减同样会回绕，先短路
+        if (a.Exponent == long.MaxValue)
+        {
+            if (b.Exponent == long.MaxValue) return new BigDouble { Mantissa = double.NaN, Exponent = 0 }; // ∞/∞ = NaN
+            return new BigDouble { Mantissa = a.Mantissa > 0 == b.Mantissa > 0 ? 1 : -1, Exponent = long.MaxValue };
+        }
+        if (b.Exponent == long.MaxValue) return Zero; // 有限大数 / ∞ = 0
         if (b.Mantissa == 0)
         {
             // IEEE 语义（与 double 一致）：x/0 = ±∞，0/0 = NaN。
