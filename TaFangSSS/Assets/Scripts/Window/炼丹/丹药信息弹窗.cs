@@ -24,10 +24,12 @@ public class 丹药信息弹窗 : MonoBehaviour
     public TextMeshProUGUI 类型;
     public TextMeshProUGUI info;
     public TextMeshProUGUI tip;
+    public TextMeshProUGUI 价格;
 
     [NonSerialized] public 丹药显示Type 丹药显示Type = 丹药显示Type.背包;
     public void SetItem()
     {
+        价格.text = PlayerData.S.格式化数字(丹药Config.Get丹药分解价格(丹药Type, QualityType));
         switch (丹药显示Type)
         {
             case 丹药显示Type.背包:

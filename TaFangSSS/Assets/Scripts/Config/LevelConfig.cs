@@ -1322,8 +1322,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      {
          // 每加一层 min/max +1500
          case PropType.灵魂:
-             result.min += 加成层数 * 100;
-             result.max += 加成层数 * 100;
+             result.min += 加成层数 * 60;
+             result.max += 加成层数 * 60;
              break;
          // 每加一层 min/max +1000
          // 经验值：每加一层 min/max +1000
@@ -1349,8 +1349,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
              break;
          // 洗练石和高级招募卷：每20层 min/max +1
          case PropType.洗练石:
-             result.min += 加成层数 / 100;
-             result.max += 加成层数 / 100;
+             result.min += 加成层数 / 50;
+             result.max += 加成层数 / 50;
              break;
      }
 

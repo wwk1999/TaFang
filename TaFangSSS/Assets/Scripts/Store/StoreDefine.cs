@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using Newtonsoft.Json;
+using System.Linq;
 using UnityEngine;
 
 public class StoreDefine : XSingleton<StoreController>
@@ -4139,6 +4140,21 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.坊市自动购买丹药配置 = 坊市自动购买丹药配置;
             runtime.坊市自动购买仙石配置 = 坊市自动购买仙石配置;
             runtime.坊市自动购买法器配置 = 坊市自动购买法器配置;
+
+            // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
+            // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException
+            foreach (var key in 丹药Dic.Keys.Where(k => runtime.Get丹药Type(k) == 丹药Type.None).ToList())
+            {
+                丹药Dic.Remove(key);
+            }
+            foreach (var key in 丹方Dic.Keys.Where(k => runtime.Get丹药Type(k) == 丹药Type.None).ToList())
+            {
+                丹方Dic.Remove(key);
+            }
+            foreach (var key in 丹方解锁Dic.Keys.Where(k => runtime.Get丹药Type(k) == 丹药Type.None).ToList())
+            {
+                丹方解锁Dic.Remove(key);
+            }
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)

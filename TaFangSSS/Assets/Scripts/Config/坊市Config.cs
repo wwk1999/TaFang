@@ -328,7 +328,9 @@ public class 坊市Config
                     }
 
                     PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
-                    PlayerData.S.Set丹方数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
+                    // 必须用 .丹方Type：丹方商品的丹药Type恒为None，
+                    // 旧写法把丹方数量记到 "None_黄品" 这个废 key 上，玩家花钱但丹方被吞
+                    PlayerData.S.Set丹方数量(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹方数量(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
                     ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹方名Dic[PlayerData.S.坊市物品列表[i].丹方Type],PlayerData.S.坊市物品列表[i].QualityType,1);
                 }

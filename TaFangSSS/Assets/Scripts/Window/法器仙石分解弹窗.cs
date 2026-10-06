@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Config;
 using UnityEngine;
 using UnityEngine.UI;
@@ -58,8 +59,16 @@ public class 法器仙石分解弹窗 : MonoBehaviour
             switch (分解类型)
             {
                 case 分解类型.丹药:
-                    foreach (var item in PlayerData.S.丹药Dic)
+                    // ToList() 先拍快照再遍历：循环体内的 Set丹药数量 会写丹药Dic，
+                    // 边枚举边写入会抛 "Collection was modified"（索引器写入也递增版本号）
+                    foreach (var item in PlayerData.S.丹药Dic.ToList())
                     {
+                        // 脏数据防御：解析不出丹药类型的条目（如 "None_黄品"）跳过，
+                        // 否则 Get丹药分解价格 查 丹药类型Dic[None] 抛 KeyNotFoundException
+                        if (PlayerData.S.Get丹药Type(item.Key) == 丹药Type.None)
+                        {
+                            continue;
+                        }
                         QualityType qualityType=PlayerData.S.Get丹药品质(item.Key);
                         switch (qualityType)
                         {

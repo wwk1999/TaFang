@@ -143,6 +143,66 @@
          { QualityType.洪品, new List<float>() { 0,25,30,25,15,5} },
          { QualityType.荒品, new List<float>() { 0,20,25,25,20,7,3} },
      };
+
+     public static 材料Item Get强化材料(int level)
+     {
+         材料Item 材料Item = new 材料Item();
+         if (level <= 10)
+         {
+             材料Item.材料数量 = 2;
+             材料Item.灵气数量 = 200;
+         }else if (level <= 20)
+         {
+             材料Item.材料数量 = 5;
+             材料Item.灵气数量 = 500;
+         }
+         else if (level <= 30)
+         {
+             材料Item.材料数量 = 20;
+             材料Item.灵气数量 = 2000;
+         }
+         else if (level <= 40)
+         {
+             材料Item.材料数量 = 60;
+             材料Item.灵气数量 = 10000;
+         }
+         else if (level <= 50)
+         {
+             材料Item.材料数量 = 120;
+             材料Item.灵气数量 = 50000;
+         }
+         else if (level <= 60)
+         {
+             材料Item.材料数量 = 200;
+             材料Item.灵气数量 = 200000;
+         }
+         else if (level <= 70)
+         {
+             材料Item.材料数量 = 300;
+             材料Item.灵气数量 = 1000000;
+         }else if (level <= 80)
+         {
+             材料Item.材料数量 = 500;
+             材料Item.灵气数量 = 5000000;
+         }
+         else if (level <= 90)
+         {
+             材料Item.材料数量 = 800;
+             材料Item.灵气数量 = 30000000;
+         }
+         else if (level <= 100)
+         {
+             材料Item.材料数量 = 1200;
+             材料Item.灵气数量 = 120000000;
+         }
+         else
+         {
+             材料Item.材料数量 = 1200000;
+             材料Item.灵气数量 = 1200000000;
+         }
+
+         return 材料Item;
+     }
      public static Dictionary<QualityType, 材料Item> 强化材料Dic = new Dictionary<QualityType, 材料Item>()
      {
          { QualityType.黄品 ,new 材料Item(){材料数量 = 2,灵气数量=200}},
@@ -689,7 +749,29 @@
          {77, 700},
          {78, 730},
          {79, 760},
-         {80, 790}
+         {80, 790},
+         
+         {81, 840},
+         {82, 890},
+         {83, 940},
+         {84, 990},
+         {85, 1040},
+         {86, 1090},
+         {87, 1140},
+         {88, 1190},
+         {89, 1240},
+         {90, 1290},
+         
+         {91, 1370},
+         {92, 1450},
+         {93, 1530},
+         {94, 1610},
+         {95, 1690},
+         {96, 1770},
+         {97, 1850},
+         {98, 1930},
+         {99, 2010},
+         {100, 2090},
      };
 
      
