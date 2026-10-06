@@ -17,6 +17,6 @@ public class BagGrid : MonoBehaviour
     {
         image.sprite = ResourcesConfig.GetPropSprite(propType);
         bg.sprite = ResourcesConfig.Get道具背景框Sprite(propType);
-        count.text = PlayerData.S.PropListDic[propType].ToString("F0");
+        count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[propType]);
     }
 }

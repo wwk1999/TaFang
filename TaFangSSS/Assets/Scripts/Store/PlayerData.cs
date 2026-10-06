@@ -3025,26 +3025,45 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
 
     public void Set丹药数量(丹药Type type, QualityType qualityType, int count)
     {
+        // 写入边界防线：None 一律拒收。战斗丹药槽默认就是 {None,None}，
+        // 槽位空着时"取下/消耗"会把 "None_None" 写进字典，背包里出现 None 物品
+        //（读档时虽被清理，但本次会话内一直显示）。正常购买/炼制/服用永远不会传 None
+        if (type == 丹药Type.None || qualityType == QualityType.None)
+        {
+            return;
+        }
         // 索引器写入：老存档反序列化会整体替换字典，新增丹药（如掉宝率_寻龙丹）的
         // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
         string key = type.ToString() + "_" + qualityType.ToString();
         丹药Dic[key] = count;
     }
-    
+
     public void Set辅助丹药Buff(丹药Type type, QualityType qualityType, int count)
     {
+        if (type == 丹药Type.None || qualityType == QualityType.None)
+        {
+            return;
+        }
         string key = type.ToString() + "_" + qualityType.ToString();
         辅助丹药BuffDic[key] = count;
     }
-    
+
     public void Set丹方解锁(丹药Type type, QualityType qualityType, bool count)
     {
+        if (type == 丹药Type.None || qualityType == QualityType.None)
+        {
+            return;
+        }
         string key = type.ToString() + "_" + qualityType.ToString();
         丹方解锁Dic[key] = count?1:0;
     }
 
     public void Set丹方数量(丹药Type type, QualityType qualityType, int count)
     {
+        if (type == 丹药Type.None || qualityType == QualityType.None)
+        {
+            return;
+        }
         string key = type.ToString() + "_" + qualityType.ToString();
         丹方Dic[key] = count;
     }
@@ -4459,6 +4478,31 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         "宗", "禅", "悟", "觉", "明", "澈", "澄", "圆", "满", "盈", "溢", "融",
     };
 
+    public int Get数字阶数(BigDouble num)
+    {
+        // 0 或负数没有阶数
+        if (num <= 0)
+        {
+            return 0;
+        }
+
+        // 与 格式化数字 完全相同的定位公式（达到下一单位100倍才进位）：
+        // 单位"万"覆盖 100万~100亿、"亿"覆盖 100亿~100兆……保证阶数和显示单位永远一致
+        double e = BigDouble.Log10(num);
+        int k = (int)Math.Floor((e - 2) / 4);
+
+        if (k < 1)
+        {
+            return 0;   // 小于100万：显示纯整数，没有单位
+        }
+
+        // 上限钳制：阶数拿去索引 大数名[k-1] 时不会越界（表铺到 10^1000，最大阶 250）
+        if (k > 大数名.Length)
+        {
+            k = 大数名.Length;
+        }
+        return k;
+    }
     public string 格式化数字(double num)
     {
         // 处理负数

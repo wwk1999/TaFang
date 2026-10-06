@@ -79,7 +79,7 @@ public class 储物袋界面 : MonoBehaviour
       修炼速度count.text = 属性config.显示修炼速度 + "%";
       if (JingJieConfig.跟脚 > 10000)
       {
-         跟脚.text = PlayerData.S.格式化数字(JingJieConfig.跟脚);
+         跟脚.text = PlayerData.S.格式化数字(JingJieConfig.跟脚)+$"({PlayerData.S.Get数字阶数(JingJieConfig.跟脚)}阶)";
       }
       else
       {
@@ -761,7 +761,13 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (item.Value > 0)
          {
-            count++;
+            // 与 ShowProp 同口径：跳过 "None_xx" 脏 key，统计和显示不一致会导致页数错位
+            var parts = item.Key.Split('_');
+            if (parts.Length == 2 && Enum.TryParse(parts[0], out 丹药Type 丹药type) && 丹药type != 丹药Type.None
+                && Enum.TryParse(parts[1], out QualityType quality) && quality != QualityType.None)
+            {
+               count++;
+            }
          }
       }
       return Mathf.CeilToInt(count / 54f);
@@ -880,7 +886,10 @@ public class 储物袋界面 : MonoBehaviour
          if (item.Value > 0)
          {
             var parts = item.Key.Split('_');
-            if (parts.Length == 2 && Enum.TryParse(parts[0], out 丹药Type 丹药type) && Enum.TryParse(parts[1], out QualityType quality))
+            // "None" 也是合法枚举名，TryParse 会放行——必须显式排除，
+            // 否则旧 bug 写入的 "None_黄品" 会在材料页显示成 None 丹方
+            if (parts.Length == 2 && Enum.TryParse(parts[0], out 丹药Type 丹药type) && 丹药type != 丹药Type.None
+                && Enum.TryParse(parts[1], out QualityType quality) && quality != QualityType.None)
             {
                itemList.Add(((int)quality, true, PropType.None, 丹药type, quality));
             }
