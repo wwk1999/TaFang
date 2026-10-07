@@ -4155,6 +4155,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             {
                 丹方解锁Dic.Remove(key);
             }
+
+            // 读档自愈：功法数量钳制不为负。旧版装备弹窗无库存检查，
+            // 重复装备会把数量扣成负数，而背包只显示 >0 的功法——
+            // 负数会让玩家"重新抽到同一本也看不见"（-1+1=0 仍不显示）
+            foreach (var key in 功法数量Dic.Keys.Where(k => 功法数量Dic[k] < 0).ToList())
+            {
+                功法数量Dic[key] = 0;
+            }
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)
