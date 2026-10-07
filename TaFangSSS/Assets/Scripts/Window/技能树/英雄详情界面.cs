@@ -589,7 +589,10 @@ public class 英雄详情界面 : MonoBehaviour
                 }
             }
             PlayerData.S.PropListDic[PropType.功法经验] -= 功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]];
-            PlayerData.S.功法数量Dic[功法Type] -= 1;
+            if (功法星级 % 5 == 0 && 功法星级 > 0)
+            {
+                PlayerData.S.功法数量Dic[功法Type] -= 1;
+            }
             PlayerData.S.HeroDataDic[当前heroType].功法星级++;
             ObserverModuleManager.S.SendEvent("刷新英雄卡片功法",当前heroType);
             刷新界面();
