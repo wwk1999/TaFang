@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class 洗练属性Content : MonoBehaviour
 {
+    [NonSerialized] public bool 是否带锁=false;
     [NonSerialized] public List<法器附加属性值> list;
     [NonSerialized] public 仙石Type 仙石Type = 仙石Type.None;
     public GameObject content;
@@ -31,6 +32,7 @@ public class 洗练属性Content : MonoBehaviour
             var 词条item = Instantiate(Resources.Load("Prefabs/Window/炼器/法器洗练词条Item"), content.transform)
                 .GetComponent<法器洗练词条Item>();
             词条item.法器附加属性值 = item;
+            词条item.是否有锁 = 是否带锁;
             词条item.SetItem();
         }
     }

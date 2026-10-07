@@ -61,6 +61,7 @@ public class 法器洗练panel : MonoBehaviour
             粉尘Count.text = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]].ToString();
             洗练前词条.list = HeroWindowController.S.洗练panel当前法器.list;
             洗练后词条.list = HeroWindowController.S.洗练后词条;
+            洗练后词条.是否带锁 = true;
             洗练前词条.SetItem();
             洗练后词条.SetItem();
         }

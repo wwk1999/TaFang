@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class 法器洗练词条Item : MonoBehaviour
 {
    public TextMeshProUGUI text;
+   public Button 锁;
    [NonSerialized] public 法器附加属性值 法器附加属性值;
    [NonSerialized] public 仙石Type 仙石Type=仙石Type.None;
-
+   [NonSerialized] public bool 是否有锁=false;
    public void SetItem()
    {
+       锁.gameObject.SetActive(是否有锁);
        if (仙石Type != 仙石Type.None)
        {
            text.text = "仙石类型：" + 仙石Config.仙石名Dic[仙石Type];

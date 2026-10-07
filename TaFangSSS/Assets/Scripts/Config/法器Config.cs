@@ -256,6 +256,7 @@ public class 法器附加属性值
 {
     public 法器附加属性Type 法器附加属性Type;
     public float count;
+    public bool 锁 = false;
 }
 
 public class 法器

@@ -113,7 +113,7 @@ public class 领主府 : MonoBehaviour
          switch (HeroWindowController.S.当前显示建筑Type)
          {
             case 建筑Type.矿场:
-               if (!道场Config.矿场配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.矿场配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -124,7 +124,7 @@ public class 领主府 : MonoBehaviour
                需要玉髓 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玉髓;
                break;
             case 建筑Type.玄铁洞:
-               if (!道场Config.玄铁洞配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.玄铁洞配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -135,7 +135,7 @@ public class 领主府 : MonoBehaviour
                需要玉髓 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要玉髓;
                break;
             case 建筑Type.地脉:
-               if (!道场Config.地脉配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.地脉配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -146,7 +146,7 @@ public class 领主府 : MonoBehaviour
                需要玉髓 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要玉髓;
                break;
             case 建筑Type.功德碑:
-               if (!道场Config.功德碑配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.功德碑配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -158,7 +158,7 @@ public class 领主府 : MonoBehaviour
                break;
             
             case 建筑Type.炼丹室:
-               if (!道场Config.炼丹室配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.炼丹室配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -170,7 +170,7 @@ public class 领主府 : MonoBehaviour
                break;
             
             case 建筑Type.炼器室:
-               if (!道场Config.炼器室配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.炼器室配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -182,7 +182,7 @@ public class 领主府 : MonoBehaviour
                break;
             
             case 建筑Type.聚贤阁:
-               if (!道场Config.聚贤阁配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.聚贤阁配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
@@ -194,7 +194,7 @@ public class 领主府 : MonoBehaviour
                break;
             
             case 建筑Type.坊市:
-               if (!道场Config.坊市配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.坊市配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]+1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
