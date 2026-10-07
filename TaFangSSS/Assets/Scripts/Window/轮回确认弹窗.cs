@@ -37,7 +37,7 @@ public class 轮回确认弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","轮回石数量不足");
                 return;
             }
-            PlayerData.S.PropListDic[PropType.轮回石] -= JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界];
+            PlayerData.S.PropListDic[PropType.轮回石] -= JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界]+PlayerData.S.轮回次数;
             BigDouble 轮回前跟脚 = JingJieConfig.跟脚;
             PlayerData.S.当前体质 = 体质Config.Get轮回体质();
             PlayerData.S.初始跟脚 += 轮回前跟脚 * JingJieConfig.轮回系数 / 100f;
