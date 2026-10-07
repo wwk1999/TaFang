@@ -68,11 +68,7 @@ public class 英雄详情界面 : MonoBehaviour
     public TextMeshProUGUI name;
     public TextMeshProUGUI 职业;
     public TextMeshProUGUI info;
-    public GameObject xx1;
-    public GameObject xx2;
-    public GameObject xx3;
-    public GameObject xx4;
-    public GameObject xx5;
+    public GameObject 功法星级content;
     public TextMeshProUGUI 当前值;
     public TextMeshProUGUI 最大值;
     public Image 功法经验条;
@@ -80,10 +76,12 @@ public class 英雄详情界面 : MonoBehaviour
     public TextMeshProUGUI 每重增幅;
     public TextMeshProUGUI 当前层数;
     public TextMeshProUGUI 当前加成;
-    public TextMeshProUGUI 升星材料count;
+    public TextMeshProUGUI 升星功法经验count;
+    public Image 升星需要功法Icon;
+    public TextMeshProUGUI 升星需要功法Text;
+
     public Button 升星Button;
     public GameObject 功法content;
-    public GameObject 升星材料content;
     
 
     
@@ -208,6 +206,41 @@ public class 英雄详情界面 : MonoBehaviour
             装备.SetItem();
         }
     }
+
+    public void Set功法星级()
+    {
+        foreach (Transform item in 功法星级content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        功法星级 功法星级 = 功法Config.Get功法星级(PlayerData.S.HeroDataDic[当前heroType].功法星级);
+        for (int i = 0; i < 功法星级.太阳; i++)
+        {
+            var item = Instantiate(Resources.Load("Prefabs/Window/技能树/功法星级item"), 功法星级content.transform)
+                .GetComponent<功法星级item>();
+            item.功法星级Type=功法星级Type.太阳;
+            item.SetItem();
+        }
+        
+        for (int i = 0; i < 功法星级.月亮; i++)
+        {
+            var item = Instantiate(Resources.Load("Prefabs/Window/技能树/功法星级item"), 功法星级content.transform)
+                .GetComponent<功法星级item>();
+            item.功法星级Type=功法星级Type.月亮;
+            item.SetItem();
+        }
+        
+        for (int i = 0; i < 功法星级.星星; i++)
+        {
+            var item = Instantiate(Resources.Load("Prefabs/Window/技能树/功法星级item"), 功法星级content.transform)
+                .GetComponent<功法星级item>();
+            item.功法星级Type=功法星级Type.星星;
+            item.SetItem();
+        }
+    }
+    
+    
     
     public void 刷新功法详情()
     {
@@ -219,7 +252,6 @@ public class 英雄详情界面 : MonoBehaviour
         }
         int 功法等级 = PlayerData.S.HeroDataDic[当前heroType].功法等级;
         int 功法星级 = PlayerData.S.HeroDataDic[当前heroType].功法星级;
-        升星材料content.SetActive(功法星级<=5);
         功法详情content.SetActive(true);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(功法Config.功法TypeQualityDic[功法Type]);
         icon.sprite = ResourcesConfig.Get功法Sprite(功法Type);
@@ -227,11 +259,7 @@ public class 英雄详情界面 : MonoBehaviour
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(功法Config.功法TypeQualityDic[功法Type]);
         职业.text = HeroConfig.Get职业Name(功法Config.功法职业Dic[功法Type]);
         info.text = 功法Config.功法介绍Dic[功法Type];
-        xx1.gameObject.SetActive(PlayerData.S.HeroDataDic[当前heroType].功法星级>=1);
-        xx2.gameObject.SetActive(PlayerData.S.HeroDataDic[当前heroType].功法星级>=2);
-        xx3.gameObject.SetActive(PlayerData.S.HeroDataDic[当前heroType].功法星级>=3);
-        xx4.gameObject.SetActive(PlayerData.S.HeroDataDic[当前heroType].功法星级>=4);
-        xx5.gameObject.SetActive(PlayerData.S.HeroDataDic[当前heroType].功法星级>=5);
+        Set功法星级();
         当前值.text = PlayerData.S.HeroDataDic[当前heroType].功法经验.ToString();
         最大值.text = 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[当前heroType].功法等级).ToString();
         功法经验条.fillAmount = PlayerData.S.HeroDataDic[当前heroType].功法经验 /
@@ -256,7 +284,10 @@ public class 英雄详情界面 : MonoBehaviour
             每重增幅.text = $"英雄最终伤害+<color=#{hex}>{最终伤害}%</color>";
         }
 
-        升星材料count.text = PlayerData.S.格式化数字(功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]]);
+        升星需要功法Icon.gameObject.SetActive(功法星级%5==0&&功法星级>0);
+        升星需要功法Text.gameObject.SetActive(功法星级%5==0&&功法星级>0);
+        升星需要功法Icon.sprite = ResourcesConfig.Get功法Sprite(功法Type);
+        升星功法经验count.text = PlayerData.S.格式化数字(功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]]);
     }
 
     public void 刷新功法背包()
@@ -543,17 +574,22 @@ public class 英雄详情界面 : MonoBehaviour
         {
             int 功法星级 = PlayerData.S.HeroDataDic[当前heroType].功法星级;
             功法Type 功法Type = PlayerData.S.HeroDataDic[当前heroType].功法Type;
-            if (功法星级 >= 5)
-            {
-                ObserverModuleManager.S.SendEvent("SendUIToast","功法星级已达最高星级");
-                return;
-            }
             if (PlayerData.S.PropListDic[PropType.功法经验] < 功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]])
             {
                 ObserverModuleManager.S.SendEvent("SendUIToast","功法经验不足");
                 return;
             }
+
+            if (功法星级 % 5 == 0 && 功法星级 > 0)
+            {
+                if (PlayerData.S.功法数量Dic[功法Type] < 1)
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","升星功法不足");
+                    return;
+                }
+            }
             PlayerData.S.PropListDic[PropType.功法经验] -= 功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]];
+            PlayerData.S.功法数量Dic[功法Type] -= 1;
             PlayerData.S.HeroDataDic[当前heroType].功法星级++;
             ObserverModuleManager.S.SendEvent("刷新英雄卡片功法",当前heroType);
             刷新界面();

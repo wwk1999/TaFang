@@ -68,9 +68,41 @@ public class 功法属性Item
     public float count;
 }
 
+public class 功法星级
+{
+    public int 星星;
+    public int 月亮;
+    public int 太阳;
+}
+
 public class 功法Config
 {
 
+    public static 功法星级 Get功法星级(int level)
+    {
+        if (level < 0)
+        {
+            level = 0;
+        }
+
+        // 按你的规则：
+        // 1个月亮 = 5级
+        // 1个太阳 = 25级
+        int 太阳 = level / 25;
+        int 剩余 = level % 25;
+
+        int 月亮 = 剩余 / 5;
+        剩余 = 剩余 % 5;
+
+        int 星星 = 剩余;
+
+        return new 功法星级
+        {
+            太阳 = 太阳,
+            月亮 = 月亮,
+            星星 = 星星
+        };
+    }
     public static int Get功法升级经验(int level)
     {
         if (level <= 5)return 300;

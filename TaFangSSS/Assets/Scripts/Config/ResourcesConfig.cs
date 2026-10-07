@@ -7,7 +7,12 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 星星;
+    public static Sprite 月亮;
+    public static Sprite 太阳;
+    
     public static Sprite 轮回石;
+    
     
     public static Sprite 铁白;
     public static Sprite 铁绿;
@@ -7351,6 +7356,10 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        星星=Resources.Load<Sprite>("Sprite/星级icon/星星");
+        月亮=Resources.Load<Sprite>("Sprite/星级icon/月亮");
+        太阳=Resources.Load<Sprite>("Sprite/星级icon/太阳");
+
         轮回石=Resources.Load<Sprite>("Sprite/DaoJu/轮回石");
         铁白=Resources.Load<Sprite>("Sprite/法器材料/铁白");
         铁绿=Resources.Load<Sprite>("Sprite/法器材料/铁绿");
@@ -7484,197 +7493,197 @@ public class ResourcesConfig : MonoBehaviour
         击杀怪物获得神通能量_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
         击杀怪物获得神通能量_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
 
-        击杀怪物减少神通冷却_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        击杀怪物减少神通冷却_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        击杀怪物减少神通冷却_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        击杀怪物减少神通冷却_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        击杀怪物减少神通冷却_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        击杀怪物减少神通冷却_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[5];
+        击杀怪物减少神通冷却_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[6];
+        击杀怪物减少神通冷却_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[7];
+        击杀怪物减少神通冷却_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[8];
+        击杀怪物减少神通冷却_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[9];
 
-        技能伤害减少神通伤害增加_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        技能伤害减少神通伤害增加_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        技能伤害减少神通伤害增加_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        技能伤害减少神通伤害增加_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        技能伤害减少神通伤害增加_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        技能伤害减少神通伤害增加_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[5];
+        技能伤害减少神通伤害增加_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[6];
+        技能伤害减少神通伤害增加_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[7];
+        技能伤害减少神通伤害增加_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[8];
+        技能伤害减少神通伤害增加_道文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[9];
 
-        技能伤害增加不能释放神通_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        技能伤害增加不能释放神通_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        技能伤害增加不能释放神通_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        技能伤害增加不能释放神通_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        技能伤害增加不能释放神通_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        技能伤害增加不能释放神通_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[0];
+        技能伤害增加不能释放神通_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[1];
+        技能伤害增加不能释放神通_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[2];
+        技能伤害增加不能释放神通_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[3];
+        技能伤害增加不能释放神通_道文 = Resources.LoadAll<Sprite>("Sprite/符文/禁法舍末")[4];
 
-        献祭自身加强相邻英雄_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        献祭自身加强相邻英雄_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        献祭自身加强相邻英雄_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        献祭自身加强相邻英雄_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        献祭自身加强相邻英雄_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        献祭自身加强相邻英雄_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[0];
+        献祭自身加强相邻英雄_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[1];
+        献祭自身加强相邻英雄_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[2];
+        献祭自身加强相邻英雄_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[3];
+        献祭自身加强相邻英雄_道文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[4];
 
-        火同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        火同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        火同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        火同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        火同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        火同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[5];
+        火同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[6];
+        火同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[7];
+        火同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[8];
+        火同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[9];
 
-        冰同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        冰同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        冰同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        冰同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        冰同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        冰同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[0];
+        冰同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[1];
+        冰同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[2];
+        冰同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[3];
+        冰同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/玄冰赤炎")[4];
 
-        黑暗同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        黑暗同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        黑暗同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        黑暗同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        黑暗同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        黑暗同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[5];
+        黑暗同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[6];
+        黑暗同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[7];
+        黑暗同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[8];
+        黑暗同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[9];
 
-        雷电同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        雷电同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        雷电同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        雷电同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        雷电同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        雷电同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[0];
+        雷电同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[1];
+        雷电同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[2];
+        雷电同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[3];
+        雷电同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/紫雷幽暗")[4];
 
-        物理同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        物理同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        物理同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        物理同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        物理同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        物理同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[5];
+        物理同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[6];
+        物理同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[7];
+        物理同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[8];
+        物理同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[9];
 
-        战士同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        战士同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        战士同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        战士同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        战士同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        战士同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[0];
+        战士同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[1];
+        战士同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[2];
+        战士同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[3];
+        战士同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/战魂体脉")[4];
 
-        射手同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        射手同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        射手同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        射手同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        射手同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        射手同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[5];
+        射手同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[6];
+        射手同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[7];
+        射手同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[8];
+        射手同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[9];
 
-        控制同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        控制同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        控制同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        控制同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        控制同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        控制同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[0];
+        控制同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[1];
+        控制同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[2];
+        控制同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[3];
+        控制同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/禁锁射星")[4];
 
-        法师同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        法师同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        法师同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        法师同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        法师同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        法师同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[5];
+        法师同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[6];
+        法师同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[7];
+        法师同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[8];
+        法师同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[9];
 
-        辅助同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        辅助同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        辅助同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        辅助同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        辅助同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        辅助同气连枝_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[0];
+        辅助同气连枝_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[1];
+        辅助同气连枝_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[2];
+        辅助同气连枝_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[3];
+        辅助同气连枝_道文 = Resources.LoadAll<Sprite>("Sprite/符文/辅道灵法")[4];
 
-        辅助印记增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        辅助印记增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        辅助印记增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        辅助印记增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        辅助印记增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        辅助印记增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[5];
+        辅助印记增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[6];
+        辅助印记增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[7];
+        辅助印记增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[8];
+        辅助印记增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/燃身圣灵")[9];
 
-        元素每有一个不同增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        元素每有一个不同增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        元素每有一个不同增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        元素每有一个不同增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        元素每有一个不同增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        元素每有一个不同增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[5];
+        元素每有一个不同增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[6];
+        元素每有一个不同增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[7];
+        元素每有一个不同增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[8];
+        元素每有一个不同增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[9];
 
-        职业每有一个不同增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        职业每有一个不同增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        职业每有一个不同增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        职业每有一个不同增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        职业每有一个不同增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        职业每有一个不同增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[0];
+        职业每有一个不同增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[1];
+        职业每有一个不同增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[2];
+        职业每有一个不同增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[3];
+        职业每有一个不同增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/百道万象")[4];
 
-        对怪物的第一次伤害增加_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        对怪物的第一次伤害增加_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        对怪物的第一次伤害增加_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        对怪物的第一次伤害增加_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        对怪物的第一次伤害增加_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        对怪物的第一次伤害增加_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[5];
+        对怪物的第一次伤害增加_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[6];
+        对怪物的第一次伤害增加_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[7];
+        对怪物的第一次伤害增加_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[8];
+        对怪物的第一次伤害增加_道文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[9];
 
-        对怪物攻击次数越多越加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        对怪物攻击次数越多越加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        对怪物攻击次数越多越加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        对怪物攻击次数越多越加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        对怪物攻击次数越多越加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        对怪物攻击次数越多越加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[0];
+        对怪物攻击次数越多越加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[1];
+        对怪物攻击次数越多越加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[2];
+        对怪物攻击次数越多越加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[3];
+        对怪物攻击次数越多越加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/重诛破煞")[4];
 
-        加强碎甲效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        加强碎甲效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        加强碎甲效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        加强碎甲效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        加强碎甲效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        加强碎甲效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[5];
+        加强碎甲效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[6];
+        加强碎甲效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[7];
+        加强碎甲效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[8];
+        加强碎甲效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[9];
 
-        碎甲为0时加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        碎甲为0时加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        碎甲为0时加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        碎甲为0时加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        碎甲为0时加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        碎甲为0时加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[0];
+        碎甲为0时加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[1];
+        碎甲为0时加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[2];
+        碎甲为0时加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[3];
+        碎甲为0时加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/碎魂裂甲")[4];
 
-        每层火焰灼烧加伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        每层火焰灼烧加伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        每层火焰灼烧加伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        每层火焰灼烧加伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        每层火焰灼烧加伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        每层火焰灼烧加伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[5];
+        每层火焰灼烧加伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[6];
+        每层火焰灼烧加伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[7];
+        每层火焰灼烧加伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[8];
+        每层火焰灼烧加伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[9];
 
-        死亡后留下火焰_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        死亡后留下火焰_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        死亡后留下火焰_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        死亡后留下火焰_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        死亡后留下火焰_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        死亡后留下火焰_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[0];
+        死亡后留下火焰_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[1];
+        死亡后留下火焰_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[2];
+        死亡后留下火焰_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[3];
+        死亡后留下火焰_道文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[4];
 
-        每层黑暗印记加伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        每层黑暗印记加伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        每层黑暗印记加伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        每层黑暗印记加伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        每层黑暗印记加伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        每层黑暗印记加伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[0];
+        每层黑暗印记加伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[1];
+        每层黑暗印记加伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[2];
+        每层黑暗印记加伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[3];
+        每层黑暗印记加伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/暗印焚身")[4];
 
-        引爆时造成范围爆炸_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        引爆时造成范围爆炸_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        引爆时造成范围爆炸_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        引爆时造成范围爆炸_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        引爆时造成范围爆炸_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        引爆时造成范围爆炸_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[5];
+        引爆时造成范围爆炸_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[6];
+        引爆时造成范围爆炸_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[7];
+        引爆时造成范围爆炸_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[8];
+        引爆时造成范围爆炸_道文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[9];
 
-        雷属性打易电状态加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        雷属性打易电状态加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        雷属性打易电状态加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        雷属性打易电状态加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        雷属性打易电状态加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        雷属性打易电状态加伤害_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[0];
+        雷属性打易电状态加伤害_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[1];
+        雷属性打易电状态加伤害_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[2];
+        雷属性打易电状态加伤害_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[3];
+        雷属性打易电状态加伤害_道文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[4];
 
-        增强易电效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        增强易电效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        增强易电效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        增强易电效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        增强易电效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        增强易电效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[0];
+        增强易电效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[1];
+        增强易电效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[2];
+        增强易电效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[3];
+        增强易电效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/雷引爆印")[4];
 
-        取消冰冻每冰冻概率增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        取消冰冻每冰冻概率增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        取消冰冻每冰冻概率增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        取消冰冻每冰冻概率增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        取消冰冻每冰冻概率增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        取消冰冻每冰冻概率增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[5];
+        取消冰冻每冰冻概率增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[6];
+        取消冰冻每冰冻概率增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[7];
+        取消冰冻每冰冻概率增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[8];
+        取消冰冻每冰冻概率增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/引雷碎霜")[9];
 
-        冰减速效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        冰减速效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        冰减速效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        冰减速效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        冰减速效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        冰减速效果_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[5];
+        冰减速效果_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[6];
+        冰减速效果_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[7];
+        冰减速效果_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[8];
+        冰减速效果_道文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[9];
 
-        每有一个异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        每有一个异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        每有一个异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        每有一个异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        每有一个异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        每有一个异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[0];
+        每有一个异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[1];
+        每有一个异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[2];
+        每有一个异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[3];
+        每有一个异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/万厄寒滞")[4];
 
-        没有异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        没有异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        没有异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        没有异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        没有异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        没有异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[0];
+        没有异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[1];
+        没有异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[2];
+        没有异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[3];
+        没有异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[4];
 
-        清除异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[0];
-        清除异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[1];
-        清除异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[2];
-        清除异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[3];
-        清除异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/噬魂斩业")[4];
+        清除异常状态增伤_灵文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[5];
+        清除异常状态增伤_仙文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[6];
+        清除异常状态增伤_帝文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[7];
+        清除异常状态增伤_圣文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[8];
+        清除异常状态增伤_道文 = Resources.LoadAll<Sprite>("Sprite/符文/无垢清道")[9];
 
 
 
