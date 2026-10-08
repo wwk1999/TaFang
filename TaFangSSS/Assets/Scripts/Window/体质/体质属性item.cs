@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class 体质属性item : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class 体质属性item : MonoBehaviour
     public TextMeshProUGUI countText;
     [NonSerialized] public string name;
     [NonSerialized] public float count;
-
     public void SetItem()
     {
         nameText.text = name;

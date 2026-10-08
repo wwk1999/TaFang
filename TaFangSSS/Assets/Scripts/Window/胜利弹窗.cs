@@ -258,7 +258,7 @@ public class 胜利弹窗 : MonoBehaviour
                 LevelConfig.战斗混沌虚空层数++;
             }
             ObserverModuleManager.S.SendEvent("刷新关卡层数");
-            if (LevelConfig.战斗混沌虚空层数 >= 700)
+            if (LevelConfig.战斗混沌虚空层数 >= 800)
             {
                 关卡JieType = JingJieType.鸿蒙;
             }else if (LevelConfig.战斗混沌虚空层数 >= 550)

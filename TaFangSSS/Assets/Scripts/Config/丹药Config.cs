@@ -1035,14 +1035,14 @@ public class 丹药Config
             case 丹药Type.掉宝率:
                 switch (qualityType)
                 {
-                    case QualityType.黄品: return 10;
-                    case QualityType.玄品: return 20;
-                    case QualityType.地品: return 30;
-                    case QualityType.天品: return 50;
-                    case QualityType.宇品: return 80;
-                    case QualityType.宙品: return 120;
-                    case QualityType.洪品: return 180;
-                    case QualityType.荒品: return 300;
+                    case QualityType.黄品: return 5;
+                    case QualityType.玄品: return 10;
+                    case QualityType.地品: return 15;
+                    case QualityType.天品: return 25;
+                    case QualityType.宇品: return 40;
+                    case QualityType.宙品: return 60;
+                    case QualityType.洪品: return 100;
+                    case QualityType.荒品: return 200;
                 }
 
                 break;
@@ -1065,14 +1065,14 @@ public class 丹药Config
             case 丹药Type.加跟脚:
                 switch (qualityType)
                 {
-                    case QualityType.黄品: return 5;
-                    case QualityType.玄品: return 10;
-                    case QualityType.地品: return 20;
-                    case QualityType.天品: return 30;
-                    case QualityType.宇品: return 50;
-                    case QualityType.宙品: return 80;
-                    case QualityType.洪品: return 120;
-                    case QualityType.荒品: return 180;
+                    case QualityType.黄品: return 3;
+                    case QualityType.玄品: return 5;
+                    case QualityType.地品: return 10;
+                    case QualityType.天品: return 15;
+                    case QualityType.宇品: return 25;
+                    case QualityType.宙品: return 40;
+                    case QualityType.洪品: return 60;
+                    case QualityType.荒品: return 100;
                 }
 
                 break;

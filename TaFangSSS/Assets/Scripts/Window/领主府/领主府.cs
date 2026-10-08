@@ -34,6 +34,11 @@ public class 领主府 : MonoBehaviour
    private bool 显示申请列表 = true;
    
    //建筑界面
+   public RectTransform 矿石RectTransform;
+   public RectTransform 玄铁RectTransform;
+   public RectTransform 玉髓RectTransform;
+   public RectTransform 功德RectTransform;
+
    public GameObject 建筑panel;
    public TextMeshProUGUI 矿石速度;
    public TextMeshProUGUI 玄铁速度;
@@ -395,8 +400,22 @@ public class 领主府 : MonoBehaviour
       玄铁速度.text = PlayerData.S.格式化数字(道场Config.Get玄铁速度());
       玉髓速度.text = PlayerData.S.格式化数字(道场Config.Get玉髓速度());
       功德速度.text = PlayerData.S.格式化数字(道场Config.Get功德速度());
+      LayoutRebuilder.ForceRebuildLayoutImmediate(矿石RectTransform);
+      LayoutRebuilder.MarkLayoutForRebuild(矿石RectTransform);
+      LayoutRebuilder.ForceRebuildLayoutImmediate(玄铁RectTransform);
+      LayoutRebuilder.MarkLayoutForRebuild(玄铁RectTransform);
+      LayoutRebuilder.ForceRebuildLayoutImmediate(玉髓RectTransform);
+      LayoutRebuilder.MarkLayoutForRebuild(玉髓RectTransform);
+      LayoutRebuilder.ForceRebuildLayoutImmediate(功德RectTransform);
+      LayoutRebuilder.MarkLayoutForRebuild(功德RectTransform);
+      StartCoroutine(刷新canvas());
    }
 
+   IEnumerator 刷新canvas()
+   {
+      yield return null;
+      Canvas.ForceUpdateCanvases();
+   }
    public void Show建筑面板()
    {
       Show道场信息();

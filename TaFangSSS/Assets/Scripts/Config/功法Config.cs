@@ -380,7 +380,7 @@ public class 功法Config
             case 功法Type.战士红:
             case 功法Type.战士橙:
             case 功法Type.战士彩:
-                return $"战士攻击距离+<color=#{hex}>{value}</color>";
+                return $"战士攻击距离+<color=green>{value}</color>";
 
             // 法师系列 - 暴击伤害
             case 功法Type.法师白:
@@ -392,7 +392,7 @@ public class 功法Config
             case 功法Type.法师橙:
             case 功法Type.法师彩:
                 
-                return $"法师暴击伤害+<color=#{hex}>{value}%</color>";
+                return $"法师暴击伤害+<color=green>{value}%</color>";
 
             // 辅助系列 - 辅助效果
             case 功法Type.辅助白:
@@ -403,7 +403,7 @@ public class 功法Config
             case 功法Type.辅助红:
             case 功法Type.辅助橙:
             case 功法Type.辅助彩:
-                return $"辅助效果+<color=#{hex}>{value}%</color>";
+                return $"辅助效果+<color=green>{value}%</color>";
 
             // 控制系列 - 控制效果
             case 功法Type.控制白:
@@ -414,7 +414,7 @@ public class 功法Config
             case 功法Type.控制红:
             case 功法Type.控制橙:
             case 功法Type.控制彩:
-                return $"控制效果+<color=#{hex}>{value}%</color>";
+                return $"控制效果+<color=green>{value}%</color>";
 
             // 射手系列 - 冷却缩减
             case 功法Type.射手白:
@@ -425,7 +425,7 @@ public class 功法Config
             case 功法Type.射手红:
             case 功法Type.射手橙:
             case 功法Type.射手彩:
-                return $"射手冷却缩减+<color=#{hex}>{value}%</color>";
+                return $"射手冷却缩减+<color=green>{value}%</color>";
 
             default:
                 return "";

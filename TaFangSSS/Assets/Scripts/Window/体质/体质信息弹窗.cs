@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class 体质信息弹窗 : MonoBehaviour
 {
     public GameObject content;
     [NonSerialized] public 体质Type 体质Type;
-
+    public  RectTransform rectTransform;
     public void SetItem()
     {
         foreach (Transform item in content.transform)
@@ -237,5 +238,7 @@ public class 体质信息弹窗 : MonoBehaviour
             item.count = 体质属性.时间流速加成;
             item.SetItem();
         }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(rectTransform);
+        LayoutRebuilder.MarkLayoutForRebuild(rectTransform);
     }
 }
