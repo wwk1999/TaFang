@@ -400,21 +400,32 @@ public class 领主府 : MonoBehaviour
       玄铁速度.text = PlayerData.S.格式化数字(道场Config.Get玄铁速度());
       玉髓速度.text = PlayerData.S.格式化数字(道场Config.Get玉髓速度());
       功德速度.text = PlayerData.S.格式化数字(道场Config.Get功德速度());
+
+      // TMP 设置 text 后 preferredWidth 不会立即更新（要等它自己的解析周期），
+      // 直接 ForceRebuild 读到的是旧度量——这就是"进去布局乱、隐藏再显示才好"的根源。
+      // ForceMeshUpdate 强制 TMP 当场完成解析，布局重建才能读到正确尺寸
+      矿石速度.ForceMeshUpdate();
+      玄铁速度.ForceMeshUpdate();
+      玉髓速度.ForceMeshUpdate();
+      功德速度.ForceMeshUpdate();
+
       LayoutRebuilder.ForceRebuildLayoutImmediate(矿石RectTransform);
-      LayoutRebuilder.MarkLayoutForRebuild(矿石RectTransform);
       LayoutRebuilder.ForceRebuildLayoutImmediate(玄铁RectTransform);
-      LayoutRebuilder.MarkLayoutForRebuild(玄铁RectTransform);
       LayoutRebuilder.ForceRebuildLayoutImmediate(玉髓RectTransform);
-      LayoutRebuilder.MarkLayoutForRebuild(玉髓RectTransform);
       LayoutRebuilder.ForceRebuildLayoutImmediate(功德RectTransform);
-      LayoutRebuilder.MarkLayoutForRebuild(功德RectTransform);
-      StartCoroutine(刷新canvas());
+
+      StartCoroutine(延迟重建道场布局());
    }
 
-   IEnumerator 刷新canvas()
+   // 兜底：万一首帧 TMP 度量仍未完全就绪（组件激活时序的边角情况），
+   // 下一帧再补一次重建，保证两次之内必然正确
+   IEnumerator 延迟重建道场布局()
    {
       yield return null;
-      Canvas.ForceUpdateCanvases();
+      LayoutRebuilder.ForceRebuildLayoutImmediate(矿石RectTransform);
+      LayoutRebuilder.ForceRebuildLayoutImmediate(玄铁RectTransform);
+      LayoutRebuilder.ForceRebuildLayoutImmediate(玉髓RectTransform);
+      LayoutRebuilder.ForceRebuildLayoutImmediate(功德RectTransform);
    }
    public void Show建筑面板()
    {
