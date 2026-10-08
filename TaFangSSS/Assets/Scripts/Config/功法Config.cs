@@ -132,24 +132,24 @@ public class 功法Config
     {
         { QualityType.黄品 ,100},
         { QualityType.玄品 ,300},
-        { QualityType.地品 ,800},
-        { QualityType.天品 ,2000},
-        { QualityType.宇品 ,6000},
-        { QualityType.宙品 ,20000},
-        { QualityType.洪品 ,200000},
-        { QualityType.荒品 ,3000000},
+        { QualityType.地品 ,600},
+        { QualityType.天品 ,1200},
+        { QualityType.宇品 ,2500},
+        { QualityType.宙品 ,5000},
+        { QualityType.洪品 ,10000},
+        { QualityType.荒品 ,20000},
     };
     
     public static Dictionary<QualityType, int> 功法分解经验 = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,30},
-        { QualityType.玄品 ,100},
-        { QualityType.地品 ,300},
-        { QualityType.天品 ,1000},
-        { QualityType.宇品 ,3000},
-        { QualityType.宙品 ,10000},
-        { QualityType.洪品 ,50000},
-        { QualityType.荒品 ,500000},
+        { QualityType.玄品 ,50},
+        { QualityType.地品 ,100},
+        { QualityType.天品 ,250},
+        { QualityType.宇品 ,500},
+        { QualityType.宙品 ,1000},
+        { QualityType.洪品 ,2000},
+        { QualityType.荒品 ,4000},
     };
     public static Dictionary<功法Type, QualityType> 功法TypeQualityDic = new Dictionary<功法Type, QualityType>()
     {
@@ -434,14 +434,14 @@ public class 功法Config
 
     public static Dictionary<QualityType, float> 功法升级最终伤害奖励Dic = new Dictionary<QualityType, float>()
     {
-        { QualityType.黄品, 5 },
-        { QualityType.玄品, 10 },
-        { QualityType.地品, 15 },
-        { QualityType.天品, 20 },
-        { QualityType.宇品, 30 },
-        { QualityType.宙品, 50 },
-        { QualityType.洪品, 100 },
-        { QualityType.荒品, 200 },
+        { QualityType.黄品, 3 },
+        { QualityType.玄品, 6 },
+        { QualityType.地品, 12 },
+        { QualityType.天品, 25 },
+        { QualityType.宇品, 50 },
+        { QualityType.宙品, 100 },
+        { QualityType.洪品, 200 },
+        { QualityType.荒品, 500 },
     };
     
     //增加被辅助英雄伤害

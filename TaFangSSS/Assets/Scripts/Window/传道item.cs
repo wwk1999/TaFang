@@ -19,42 +19,99 @@ public class 传道item : MonoBehaviour
     {
         传道Button.onClick.AddListener(() =>
             {
-                if (PlayerData.S.剩余传道次数 <= 0)
+                if (PlayerData.S.消耗传道次数)
                 {
-                    ObserverModuleManager.S.SendEvent("SendUIToast","传道次数不足");
-                    return;
-                }
+                    if (PlayerData.S.剩余传道次数 <= 0)
+                    {
+                        ObserverModuleManager.S.SendEvent("SendUIToast", "传道次数不足");
+                        return;
+                    }
+                    if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.传道消耗Dic[qualityType])
+                    {
+                        ObserverModuleManager.S.SendEvent("SendUIToast", "功德不足");
+                        return;
+                    }
 
-                if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.传道消耗Dic[qualityType])
-                {
-                    ObserverModuleManager.S.SendEvent("SendUIToast","功德不足");
-                    return;
+                    int 传道次数 = 1;
+                    if (PlayerData.S.传道所有)
+                    {
+                        传道次数 = (int)Math.Min(PlayerData.S.剩余传道次数,
+                            PlayerData.S.PropListDic[PropType.功德] / 功法Config.传道消耗Dic[qualityType]);
+                    }
+
+                    StartCoroutine(传道(传道次数));
+                    ObserverModuleManager.S.SendEvent("刷新主页面");
+                    ObserverModuleManager.S.SendEvent("刷新传道界面");
                 }
-                功法Type type=功法Config.传道(qualityType);
-                ZhiYeType zhiye=功法Config.功法职业Dic[type];
-                ObserverModuleManager.S.SendEvent("SendUIToast",HeroConfig.Get职业Name(zhiye)+"·"+功法Config.功法名Dic[type],功法Config.功法TypeQualityDic[type],1);
-                PlayerData.S.功法数量Dic[type]++;
-                PlayerData.S.剩余传道次数--;
-                PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType];
-                ObserverModuleManager.S.SendEvent("刷新主页面");
-                ObserverModuleManager.S.SendEvent("刷新传道界面");
+                else
+                {
+                    if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.传道消耗Dic[qualityType]*3)
+                    {
+                        ObserverModuleManager.S.SendEvent("SendUIToast", "功德不足");
+                        return;
+                    }
+                    int 传道次数 = 1;
+                    if (PlayerData.S.传道所有)
+                    {
+                        传道次数 = (int)(PlayerData.S.PropListDic[PropType.功德] / (功法Config.传道消耗Dic[qualityType]*3));
+                    }
+                    StartCoroutine(传道(传道次数));
+                    ObserverModuleManager.S.SendEvent("刷新主页面");
+                    ObserverModuleManager.S.SendEvent("刷新传道界面");
+                }
             }
         );
     }
 
+    IEnumerator 传道(int count)
+    {
+        Dictionary<功法Type, int> list = new Dictionary<功法Type, int>();
+        for (int i = 0; i < count; i++)
+        {
+            功法Type type = 功法Config.传道(qualityType);
+            if (list.ContainsKey(type))
+            {
+                list[type]++;
+            }
+            else
+            {
+                list[type] = 1;
+            }
+            PlayerData.S.功法数量Dic[type]++;
+        }
+        if (PlayerData.S.消耗传道次数)
+        {
+            PlayerData.S.剩余传道次数-=count;
+            PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType]*count;
+        }
+        else
+        {
+            PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType]*3*count;
+        }
+
+        foreach (var item in list)
+        {
+            ZhiYeType zhiye = 功法Config.功法职业Dic[item.Key];
+            ObserverModuleManager.S.SendEvent("SendUIToast",
+                HeroConfig.Get职业Name(zhiye) + "·" + 功法Config.功法名Dic[item.Key], 功法Config.功法TypeQualityDic[item.Key], item.Value);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
     public void SetItem()
     {
         bg.sprite=ResourcesConfig.Get传道背景框(qualityType);
         name.text=PropConfig.QualityNameDic[qualityType]+"传道";
         name.colorGradientPreset=ResourcesConfig.Get品质TMP(qualityType);
         icon.sprite=ResourcesConfig.Get传道icon(qualityType);
-        功德count.text=功法Config.传道消耗Dic[qualityType].ToString();
-        传道Button.image.sprite=ResourcesConfig.Get传道按钮(qualityType);
-        switch (qualityType)
+        if (PlayerData.S.消耗传道次数)
         {
-            case QualityType.黄品:
-                
-                break;
+           功德count.text=功法Config.传道消耗Dic[qualityType].ToString(); 
         }
+        else
+        {
+            功德count.text=(功法Config.传道消耗Dic[qualityType]*3).ToString(); 
+        }
+        传道Button.image.sprite=ResourcesConfig.Get传道按钮(qualityType);
+       
     }
 }

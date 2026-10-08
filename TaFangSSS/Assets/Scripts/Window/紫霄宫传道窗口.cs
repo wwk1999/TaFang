@@ -14,7 +14,8 @@ public class 紫霄宫传道窗口 : MonoBehaviour
     public GameObject Content;
     public Button 查看按钮;
     public GameObject 概率弹窗;
-
+    public Toggle 消耗传道次数Toggle;
+    public Toggle 传道所有Toggle;
 
     private void OnDestroy()
     {
@@ -23,6 +24,7 @@ public class 紫霄宫传道窗口 : MonoBehaviour
 
     public void 刷新传道界面(object[] obj)
     {
+        消耗传道次数Toggle.isOn = PlayerData.S.消耗传道次数;
         传道次数.text = PlayerData.S.剩余传道次数.ToString();
     }
     private void Start()
@@ -37,10 +39,26 @@ public class 紫霄宫传道窗口 : MonoBehaviour
         {
             gameObject.SetActive(false);
         });
+        消耗传道次数Toggle.onValueChanged.AddListener(delegate
+        {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+            PlayerData.S.消耗传道次数 = 消耗传道次数Toggle.isOn;
+            Show();
+        });    
+        传道所有Toggle.onValueChanged.AddListener(delegate
+        {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+            PlayerData.S.传道所有 = 传道所有Toggle.isOn;
+        }); 
     }
+
+   
 
     private void OnEnable()
     {
+        消耗传道次数Toggle.isOn = PlayerData.S.消耗传道次数;
+        传道所有Toggle.isOn = PlayerData.S.传道所有;
+
         Show();
     }
 

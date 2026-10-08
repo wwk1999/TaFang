@@ -16,6 +16,8 @@ public class StoreDefine : XSingleton<StoreController>
     {
         public bool 是否自动下一关=true;
         public bool 是否第一次游戏=true;
+        public bool 消耗传道次数=true;
+        public bool 传道所有=false;
 
         public bool 元素人人为我开关=true;
         public bool 职业人人为我开关=true;
@@ -4020,10 +4022,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             坊市自动购买丹药配置 = runtime.坊市自动购买丹药配置;
             坊市自动购买仙石配置 = runtime.坊市自动购买仙石配置;
             坊市自动购买法器配置 = runtime.坊市自动购买法器配置;
+            消耗传道次数 =  runtime.消耗传道次数;
+            传道所有 =  runtime.传道所有;
+
         }
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            
             runtime.是否自动下一关 = 是否自动下一关;
             runtime.Name = Name;
             runtime.历史最高境界 = 历史最高境界;
@@ -4140,6 +4146,9 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.坊市自动购买丹药配置 = 坊市自动购买丹药配置;
             runtime.坊市自动购买仙石配置 = 坊市自动购买仙石配置;
             runtime.坊市自动购买法器配置 = 坊市自动购买法器配置;
+            runtime.消耗传道次数 = 消耗传道次数;
+            runtime.传道所有 =  传道所有;
+
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException

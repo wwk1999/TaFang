@@ -10,6 +10,8 @@ public class PlayerData : XSingleton<PlayerData>
     {
         DontDestroyOnLoad(gameObject);
     }
+    public bool 消耗传道次数=true;
+    public bool 传道所有=false;
 
     public bool 是否第一次游戏=true;
 
