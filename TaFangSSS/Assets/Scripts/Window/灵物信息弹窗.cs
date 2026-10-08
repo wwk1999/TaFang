@@ -34,7 +34,7 @@ public class 灵物信息弹窗 : MonoBehaviour
             name.text = 灵物突破Config.突破灵物名Dic[JingJieType];
             品质.text = PropConfig.QualityNameDic[QualityType];
             品质.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-            desc.text = "突破" + JingJieConfig.JingJieNameDic[JingJieType+1] + "境界的核心材料";
+            desc.text = "突破" + JingJieConfig.JingJieNameDic[JingJieType+1] + "境界的核心材料,建议三十三重天200层后再去追求荒品突破，否则掉宝不够";
         }
         else
         {
