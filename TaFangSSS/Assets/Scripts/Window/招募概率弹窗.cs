@@ -60,13 +60,16 @@ public class 招募概率弹窗 : MonoBehaviour
       foreach (var item in list)
       {
          index++;
+         // 列表第 i 项对应品质 i+1（黄品=1）。
+         // 修复：原代码 SetItem 后有多余的第二次 index++，导致品质标签逐项错位，
+         // 聚贤阁9级以上的高级概率表会越界到 (QualityType)9/10 → QualityNameDic 崩溃
          if (item == 0) continue;
+         if (!PropConfig.QualityNameDic.ContainsKey((QualityType)index)) continue;   // 防御：配置超长不再崩
          var gailvItem = Instantiate(Resources.Load("Prefabs/Window/概率Item"),Content.transform).GetComponent<招募概率item>();
          gailvItem.QualityType=(QualityType)index;
          gailvItem.Count = item;
          gailvItem.StringType = "元神";
          gailvItem.SetItem();
-         index++;
       }
    }
 }
