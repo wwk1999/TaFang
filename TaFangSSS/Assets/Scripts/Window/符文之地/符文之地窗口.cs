@@ -17,6 +17,9 @@ public class 符文之地窗口 : MonoBehaviour
     public GameObject 敌人Content;
     public GameObject 掉落Content;
     public Button 挑战Button;
+    public Button 掉落Button;
+    public GameObject 掉落概率GameObject;
+
     public Button ExitButton;
     public GameObject 关卡列表GameObject;
     public Toggle 重复挑战Toggle;
@@ -172,6 +175,10 @@ public class 符文之地窗口 : MonoBehaviour
         {
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
             PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
+        });
+        掉落Button.onClick.AddListener(() =>
+        {
+            掉落概率GameObject.gameObject.SetActive(true);
         });
         挑战Button.onClick.AddListener(() =>
         {

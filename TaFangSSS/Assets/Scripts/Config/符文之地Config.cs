@@ -497,63 +497,63 @@ public class 符文之地Config
             符文之地Type.赤炎窟,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 1500, minCount = 1800, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 1500, minCount = 2000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.黑风谷,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 1800, minCount = 2200, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 2000, minCount = 2600, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.玄水深渊,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 2200, minCount = 2600, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 2600, minCount = 3400, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.紫雷泽,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 2600, minCount = 3000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 3400, minCount = 4400, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.白骨荒原,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 3000, minCount = 3500, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 4400, minCount = 5600, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.金戈壁,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 3500, minCount = 4000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 5600, minCount = 7000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.幻梦泽,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 4000, minCount = 5000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 7000, minCount = 8500, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.混沌墟,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 5000, minCount = 6000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 8500, minCount = 10000, PropType = PropType.灵魂 },
             }
         },
         {
             符文之地Type.天道台,
             new HashSet<LevelDiaoLuo>()
             {
-                new LevelDiaoLuo() { maxCount = 6000, minCount = 7000, PropType = PropType.灵魂 },
+                new LevelDiaoLuo() { maxCount = 10000, minCount = 12000, PropType = PropType.灵魂 },
             }
         },
     };

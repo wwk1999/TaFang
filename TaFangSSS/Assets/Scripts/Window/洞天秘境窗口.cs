@@ -14,6 +14,9 @@ public class 洞天秘境窗口 : MonoBehaviour
 
     public Button exitButton;
     public Button maskButton;
+    public Button 掉落概率Button;
+    public GameObject 掉落概率弹窗;
+
 
     public GameObject 关卡列表;
     public TextMeshProUGUI 关卡名;
@@ -58,6 +61,10 @@ public class 洞天秘境窗口 : MonoBehaviour
         maskButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        掉落概率Button.onClick.AddListener(() =>
+        {
+            掉落概率弹窗.gameObject.SetActive(true);
         });
         重复挑战.onValueChanged.AddListener((value) =>
         {

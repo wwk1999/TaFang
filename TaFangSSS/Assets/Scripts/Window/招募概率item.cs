@@ -20,7 +20,7 @@ public class 招募概率item : MonoBehaviour
    public void SetItem()
    {   
       LabelText.text=PropConfig.QualityNameDic[QualityType];
-      CountText.text = Count+"%";
+      CountText.text = Count.ToString("F1")+"%";
       Title.text = PropConfig.QualityNameDic[QualityType]+StringType;
       switch (QualityType)
       {

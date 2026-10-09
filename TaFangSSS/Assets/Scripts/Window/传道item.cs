@@ -14,6 +14,8 @@ public class 传道item : MonoBehaviour
     public TextMeshProUGUI 功德count;
     public Button 传道Button;
     [NonSerialized]public QualityType qualityType;
+    // 单次传道的次数上限：防止功德极大时一次传几亿次（循环卡死、功法数量int溢出）
+    private const long 单次传道上限 = 10000;
 
     private void Start()
     {
@@ -32,10 +34,10 @@ public class 传道item : MonoBehaviour
                         return;
                     }
 
-                    int 传道次数 = 1;
+                    long 传道次数 = 1;
                     if (PlayerData.S.传道所有)
                     {
-                        传道次数 = (int)Math.Min(PlayerData.S.剩余传道次数,
+                        传道次数 = (long)Math.Min(PlayerData.S.剩余传道次数,
                             PlayerData.S.PropListDic[PropType.功德] / 功法Config.传道消耗Dic[qualityType]);
                     }
 
@@ -50,10 +52,18 @@ public class 传道item : MonoBehaviour
                         ObserverModuleManager.S.SendEvent("SendUIToast", "功德不足");
                         return;
                     }
-                    int 传道次数 = 1;
+                    long 传道次数 = 1;
                     if (PlayerData.S.传道所有)
                     {
-                        传道次数 = (int)(PlayerData.S.PropListDic[PropType.功德] / (功法Config.传道消耗Dic[qualityType]*3));
+                        // 功德后期是 10^17+ 的大数，除出来的次数远超 int 范围：
+                        // (int) 强转溢出会得到 int.MinValue（负数）→ 功法不发、功德几乎不动，
+                        // 这就是"勾了传道所有却不消耗功德"的原因。必须用 long 承接
+                        传道次数 = (long)(PlayerData.S.PropListDic[PropType.功德] / (功法Config.传道消耗Dic[qualityType]*3));
+                        if (传道次数 > 单次传道上限)
+                        {
+                            传道次数 = 单次传道上限;
+                            ObserverModuleManager.S.SendEvent("SendUIToast", "功德过多，本次最多传道" + 单次传道上限 + "次");
+                        }
                     }
                     StartCoroutine(传道(传道次数));
                     ObserverModuleManager.S.SendEvent("刷新主页面");
@@ -63,7 +73,7 @@ public class 传道item : MonoBehaviour
         );
     }
 
-    IEnumerator 传道(int count)
+    IEnumerator 传道(long count)
     {
         Dictionary<功法Type, int> list = new Dictionary<功法Type, int>();
         for (int i = 0; i < count; i++)
@@ -81,7 +91,7 @@ public class 传道item : MonoBehaviour
         }
         if (PlayerData.S.消耗传道次数)
         {
-            PlayerData.S.剩余传道次数-=count;
+            PlayerData.S.剩余传道次数-=(int)count;   // 该分支 count ≤ 剩余传道次数，截断无损
             PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType]*count;
         }
         else

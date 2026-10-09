@@ -19,6 +19,8 @@ public class 强化弹窗 : MonoBehaviour
    public TextMeshProUGUI 洗练TextMeshProUGUI;
    public TextMeshProUGUI levelText;
    public TextMeshProUGUI 当前等级;
+   public TextMeshProUGUI 无暇conut;
+
    public TextMeshProUGUI 强化后等级;
    public TextMeshProUGUI 当前攻击力;
    public TextMeshProUGUI 强化后攻击力;
@@ -67,8 +69,8 @@ public class 强化弹窗 : MonoBehaviour
       }
       int level=PlayerData.S.EquipLevelDic[equipType];
       var item = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(level)];
-      int cailiao = item.材料数量*(锁count+1);
-      int lingqi = item.灵气数量*(锁count+1);
+      int cailiao = item.材料数量*(int)Math.Pow(2,锁count);
+      int lingqi = item.灵气数量*(int)Math.Pow(2,锁count);
       if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
       {
          ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
@@ -97,6 +99,7 @@ public class 强化弹窗 : MonoBehaviour
                item1.QualityType = citiao.QualityType;
                item1.附加属性Type = citiao.附加属性Type;
                item1.count = citiao.count;
+               item1.无暇 = citiao.无暇;
             }
             index++;
          }
@@ -441,8 +444,8 @@ public class 强化弹窗 : MonoBehaviour
          材料image.sprite = ResourcesConfig.洗练石;
          当前数量.text = PlayerData.S.PropListDic[PropType.洗练石].ToString();
          
-         强化需要数量.text = (EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].材料数量*(锁count+1)).ToString();
-         需要灵魂Count.text=(EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量*(锁count+1)).ToString();
+         强化需要数量.text = (EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].材料数量*Math.Pow(2,锁count)).ToString();
+         需要灵魂Count.text=(EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量*Math.Pow(2,锁count)).ToString();
       }
    }
 
@@ -469,6 +472,15 @@ public class 强化弹窗 : MonoBehaviour
    }
    public void Set属性Panel()
    {
+      int count = 0;
+      foreach (var item in PlayerData.S.装备附加属性Dic[equipType])
+      {
+         if(item.无暇)
+         { 
+            count++;
+         }
+      }
+      无暇conut.text=count.ToString();
       当前等级.text = "+" + PlayerData.S.EquipLevelDic[equipType];
       强化后等级.text = "+" + (PlayerData.S.EquipLevelDic[equipType]+1);
       当前攻击力.text = "攻击力+" + EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[equipType]];

@@ -13,6 +13,7 @@ public class 附加属性item : MonoBehaviour
    public TextMeshProUGUI info;
    public Button Suo;
    public GameObject mask;
+   public TextMeshProUGUI 无暇text;
    public TextMeshProUGUI masktext;
    [NonSerialized]public QualityType JieSuoQualityType;
    [NonSerialized]public EquipType EquipType;
@@ -38,9 +39,12 @@ public class 附加属性item : MonoBehaviour
       }
       else
       {
-         mask.SetActive(false);
          附加属性Type 附加属性Type = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].附加属性Type;
          QualityType QualityType= PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].QualityType;
+         bool 无暇 = PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].无暇;
+         无暇text.gameObject.SetActive(无暇);
+         无暇text.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
+         mask.SetActive(false);
          bg.sprite = ResourcesConfig.Get标签背景(QualityType);
          labeltext.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
          labeltext.text=PropConfig.QualityNameDic[QualityType];

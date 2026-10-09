@@ -27,6 +27,7 @@
      public QualityType  QualityType;
      public float count;
      public bool IsSuo;
+     public bool 无暇;
  }
  public enum 附加属性Type
  {
@@ -60,6 +61,7 @@
      public QualityType QualityType;
      public 附加属性Type 附加属性Type;
      public float count;
+     public bool 无暇;
  }
 
  public class EquipConfig
@@ -127,11 +129,18 @@
              }
          }
          QualityType quality=(QualityType)(value+2);
+         float 无暇random=Random.Range(0f, 100f);
+         bool 无暇 = false;
          int random1=Random.Range(1, Enum.GetValues(typeof(附加属性Type)).Length);
          附加属性Type 附加属性Type = (附加属性Type)random1;
-         var randomcount = Random.Range(附加属性数值Dic[附加属性Type][(int)(quality - 2)].minCount,
+         float randomcount = Random.Range(附加属性数值Dic[附加属性Type][(int)(quality - 2)].minCount,
              附加属性数值Dic[附加属性Type][(int)(quality - 2)].maxCount);
-         return new 词条Item() { 附加属性Type = 附加属性Type, QualityType = quality,count=randomcount };
+         if (无暇random < 1f)
+         {
+             无暇 = true;
+             randomcount = 附加属性数值Dic[附加属性Type][(int)(quality - 2)].maxCount;
+         }
+         return new 词条Item() { 附加属性Type = 附加属性Type, QualityType = quality,count=randomcount,无暇= 无暇};
      }
      public static Dictionary<QualityType, List<float>> 强化词条概率Dic = new Dictionary<QualityType, List<float>>()
      {
@@ -393,46 +402,200 @@
      public static float Get装备附加属性数值(附加属性Type type)
      {
          float count = 0;
+         int 头盔无暇count = 0;
+         int 护手无暇count = 0;
+         int 衣服无暇count = 0;
+         int 鞋子无暇count = 0;
+         int 项链无暇count = 0;
+         int 戒指无暇count = 0;
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.头盔])
+         {
+             if (item.无暇)
+             {
+                 头盔无暇count +=1;
+             }
+         }
+         
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.衣服])
+         {
+             if (item.无暇)
+             {
+                 衣服无暇count +=1;
+             }
+         }
+         
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.鞋子])
+         {
+             if (item.无暇)
+             {
+                 鞋子无暇count +=1;
+             }
+         }
+         
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.戒指])
+         {
+             if (item.无暇)
+             {
+                 戒指无暇count +=1;
+             }
+         }
+         
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.项链])
+         {
+             if (item.无暇)
+             {
+                 项链无暇count +=1;
+             }
+         }
+         
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.护手])
+         {
+             if (item.无暇)
+             {
+                 护手无暇count +=1;
+             }
+         }
          foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.头盔])
          {
              if (item.附加属性Type == type)
              {
-                 count += item.count/ 100f;
+                 float value = item.count / 100f;
+                 if (item.无暇)
+                 {
+                     value *= 2;
+                 }
+                 if (头盔无暇count >= 7)
+                 {
+                     value *= 2f;
+                 }else if (头盔无暇count >= 5)
+                 {
+                     value *= 1.5f;
+                 }else if (头盔无暇count >= 3)
+                 {
+                     value *= 1.2f;
+                 }
+                 count += value;
              }
          }
          foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.戒指])
          {
              if (item.附加属性Type == type)
              {
-                 count += item.count/ 100f;
+                 float value = item.count / 100f;
+                 if (item.无暇)
+                 {
+                     value *= 2;
+                 }
+                 if (戒指无暇count >= 7)
+                 {
+                     value *= 2f;
+                 }else if (戒指无暇count >= 5)
+                 {
+                     value *= 1.5f;
+                 }else if (戒指无暇count >= 3)
+                 {
+                     value *= 1.2f;
+                 }
+                 count += value;
              }
          }
+         
+         
+         
          foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.项链])
          {
              if (item.附加属性Type == type)
              {
-                 count += item.count/ 100f;
+                 float value = item.count / 100f;
+                 if (item.无暇)
+                 {
+                     value *= 2;
+                 }
+                 if (项链无暇count >= 7)
+                 {
+                     value *= 2f;
+                 }else if (项链无暇count >= 5)
+                 {
+                     value *= 1.5f;
+                 }else if (项链无暇count >= 3)
+                 {
+                     value *= 1.2f;
+                 }
+                 count += value;
              }
          }
+         
+         
+         
          foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.鞋子])
          {
              if (item.附加属性Type == type)
              {
-                 count += item.count/ 100f;
+                 float value = item.count / 100f;
+                 if (item.无暇)
+                 {
+                     value *= 2;
+                 }
+                 if (鞋子无暇count >= 7)
+                 {
+                     value *= 2f;
+                 }else if (鞋子无暇count >= 5)
+                 {
+                     value *= 1.5f;
+                 }else if (鞋子无暇count >= 3)
+                 {
+                     value *= 1.2f;
+                 }
+                 count += value;
              }
          }
-         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.衣服])
-         {
-             if (item.附加属性Type == type)
-             {
-                 count += item.count/ 100f;
-             }
-         }
+         
+         
+         
          foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.护手])
          {
              if (item.附加属性Type == type)
              {
-                 count += item.count/ 100f;
+                 float value = item.count / 100f;
+                 if (item.无暇)
+                 {
+                     value *= 2;
+                 }
+                 if (护手无暇count >= 7)
+                 {
+                     value *= 2f;
+                 }else if (护手无暇count >= 5)
+                 {
+                     value *= 1.5f;
+                 }else if (护手无暇count >= 3)
+                 {
+                     value *= 1.2f;
+                 }
+                 count += value;
+             }
+         }
+         
+         
+         foreach (var item in PlayerData.S.装备附加属性Dic[EquipType.衣服])
+         {
+             if (item.附加属性Type == type)
+             {
+                 float value = item.count / 100f;
+                 if (item.无暇)
+                 {
+                     value *= 2;
+                 }
+                 if (衣服无暇count >= 7)
+                 {
+                     value *= 2f;
+                 }else if (衣服无暇count >= 5)
+                 {
+                     value *= 1.5f;
+                 }else if (衣服无暇count >= 3)
+                 {
+                     value *= 1.2f;
+                 }
+                 count += value;
              }
          }
 
