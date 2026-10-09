@@ -82,6 +82,13 @@ public class 远古遗迹窗口 : MonoBehaviour
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
 
         HeroWindowController.S.当前遗迹关卡Type = PlayerData.S.最大神物关卡;
+        // 通关最后一关后 最大神物关卡++ 会越过枚举上界（变成不存在的14），
+        // 神物名Dic[14] 不存在会 KeyNotFound 崩窗口。越界时钳制到最后一关展示；
+        // 存档里的哨兵值保留——遗迹关卡item 的"已获得"标记（最大神物关卡 > 神物Type）依赖它
+        if (HeroWindowController.S.当前遗迹关卡Type > 神物Type.时间流速加快)
+        {
+            HeroWindowController.S.当前遗迹关卡Type = 神物Type.时间流速加快;
+        }
         ObserverModuleManager.S.SendEvent("遗迹关卡按钮点击",HeroWindowController.S.当前遗迹关卡Type);
     }
     public void 刷新战斗丹药(object[] obj)

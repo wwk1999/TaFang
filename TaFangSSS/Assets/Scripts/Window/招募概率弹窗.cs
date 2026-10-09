@@ -56,9 +56,10 @@ public class 招募概率弹窗 : MonoBehaviour
          list=道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].高级招募概率;
       }
 
-      int index = 1;
+      int index = 0;
       foreach (var item in list)
       {
+         index++;
          if (item == 0) continue;
          var gailvItem = Instantiate(Resources.Load("Prefabs/Window/概率Item"),Content.transform).GetComponent<招募概率item>();
          gailvItem.QualityType=(QualityType)index;
