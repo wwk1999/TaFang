@@ -440,21 +440,21 @@ public class 功法Config
         { QualityType.天品, 25 },
         { QualityType.宇品, 50 },
         { QualityType.宙品, 100 },
-        { QualityType.洪品, 200 },
-        { QualityType.荒品, 500 },
+        { QualityType.洪品, 250 },
+        { QualityType.荒品, 1500 },
     };
     
     //增加被辅助英雄伤害
     public static Dictionary<QualityType, float> 辅助功法升级奖励Dic = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 3 },
-        { QualityType.玄品, 5 },
-        { QualityType.地品, 10 },
-        { QualityType.天品, 15 },
-        { QualityType.宇品, 20 },
-        { QualityType.宙品, 30 },
-        { QualityType.洪品, 50 },
-        { QualityType.荒品, 100 },
+        { QualityType.玄品, 6 },
+        { QualityType.地品, 12 },
+        { QualityType.天品, 25 },
+        { QualityType.宇品, 50 },
+        { QualityType.宙品, 100 },
+        { QualityType.洪品, 250 },
+        { QualityType.荒品, 1500 },
     };
 
     // 辅助英雄功法给被辅助英雄的最终伤害加成（比率，如0.15=15%）

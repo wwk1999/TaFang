@@ -25,6 +25,11 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
     {
         服用按钮.onClick.AddListener(() =>
         {
+            if (count < 1)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","请选择服用数量");
+                return;
+            }
             PlayerData.S.Set辅助丹药Buff(丹药Type, QualityType, PlayerData.S.Get辅助丹药Buff(丹药Type, QualityType) + count);
             PlayerData.S.Set丹药数量(丹药Type, QualityType,PlayerData.S.Get丹药数量(丹药Type, QualityType)-count);
             ObserverModuleManager.S.SendEvent("SendUIToast","服用成功");
@@ -65,7 +70,11 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
     {
         if (PlayerData.S.Get丹药数量(丹药Type, QualityType) == 1)
         {
-            数量Slider.value=数量Slider.maxValue;
+            // 恰好剩 1 颗时强制选中它。count 必须同步重置，
+            // 否则沿用上一次的服用数量（吃1颗却加60颗效果的根因）
+            数量Slider.value = 数量Slider.maxValue;
+            count = 1;
+            数量.text = "1";
             return;
         }
         int newCount=(int)value;
@@ -76,8 +85,11 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
     public void SetItem()
     {
         数量.text = "1";
-        int count = PlayerData.S.Get丹药数量(丹药Type, QualityType);
-        if (count > 1)
+        // 重置服用数量字段。原代码这里声明了同名局部变量 int count，
+        // 把字段遮蔽了，导致字段保留上一次的值（60）没被重置
+        count = 1;
+        int 背包数量 = PlayerData.S.Get丹药数量(丹药Type, QualityType);
+        if (背包数量 > 1)
         {
             数量Slider.value = 数量Slider.minValue;
         }

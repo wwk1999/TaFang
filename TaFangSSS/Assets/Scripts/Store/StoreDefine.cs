@@ -4172,6 +4172,13 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             {
                 功法数量Dic[key] = 0;
             }
+
+            // 读档自愈：丹药数量钳制不为负。旧版服用弹窗数量滑条沿用上一次的服用数量，
+            // 背包剩 1 颗时会按旧数量扣成负数（吃 1 颗橙色按 60 颗扣成 -59）
+            foreach (var key in 丹药Dic.Keys.Where(k => 丹药Dic[k] < 0).ToList())
+            {
+                丹药Dic[key] = 0;
+            }
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)

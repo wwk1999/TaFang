@@ -3036,8 +3036,9 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         }
         // 索引器写入：老存档反序列化会整体替换字典，新增丹药（如掉宝率_寻龙丹）的
         // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
+        // 负数钳 0：服用弹窗数量滑条曾沿用过上次值，吃 1 颗按 60 颗扣成负数
         string key = type.ToString() + "_" + qualityType.ToString();
-        丹药Dic[key] = count;
+        丹药Dic[key] = Math.Max(0, count);
     }
 
     public void Set辅助丹药Buff(丹药Type type, QualityType qualityType, int count)

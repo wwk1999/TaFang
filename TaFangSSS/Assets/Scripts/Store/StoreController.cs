@@ -18,7 +18,9 @@ public class StoreController : XSingleton<StoreController>
     // 原子写入用的临时文件；.bak 是上一次保存成功的主档，断电/损坏时用它恢复
     private string TmpPath => SavePath + ".tmp";
     private string BakPath => SavePath + ".bak";
-    private float StoreTime = 3;
+    // 自动保存间隔 30 秒：流式写入后单次分配已很小，落盘频率也可以降下来；
+    // 退出游戏时 等待后台保存完成() 会兜底，最多损失最后 30 秒内的进度
+    private float StoreTime = 30;
     private float CurrentTime = 0;
     private float 增加修为时间 = 1;
     private float 当前增加修为时间 = 0;
@@ -61,15 +63,20 @@ public class StoreController : XSingleton<StoreController>
             {
                 try
                 {
-                    var json = JsonConvert.SerializeObject(snapshot, settings);
-
-                    // 原子写入：先写临时文件并强制落盘，再原子替换主档；
-                    // File.Replace 会把旧主档自动转存为 .bak，断电/损坏时可用它恢复
+                    // 流式写入：不再先把存档序列化成一个 2.8MB+ 的大字符串。
+                    // 旧写法 SerializeObject 每次分配 存档字符串 + PreserveReferences
+                    // 元数据字典 + StringBuilder 扩容缓冲，单次 10~20MB，
+                    // 每 3 秒一次；Mono 的 Boehm GC 不压缩堆、空闲内存不归还 OS，
+                    // 挂机一晚堆就碎片化膨胀到 GB 级。
+                    // JsonTextWriter 直接写文件流：输出与 SerializeObject 逐字节一致
+                    var serializer = JsonSerializer.Create(settings);
                     using (var fs = new FileStream(tmpPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (var writer = new StreamWriter(fs))
+                    using (var streamWriter = new StreamWriter(fs))
+                    using (var jsonWriter = new JsonTextWriter(streamWriter))
                     {
-                        writer.Write(json);
-                        writer.Flush();
+                        serializer.Serialize(jsonWriter, snapshot);
+                        jsonWriter.Flush();
+                        streamWriter.Flush();
                         fs.Flush(true); // 刷到磁盘，防止断电丢 OS 缓冲
                     }
                     if (File.Exists(savePath))
@@ -82,6 +89,8 @@ public class StoreController : XSingleton<StoreController>
                     }
 
                     Debug.Log($"保存数据成功->{savePath}");
+                    // 注意：这里不要每次保存都打日志——3 秒一条，挂机一晚 1 万+ 条，
+                    // 编辑器 Console 全量缓存，也是内存膨胀源
                 }
                 catch (System.Exception e)
                 {

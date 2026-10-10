@@ -156,7 +156,7 @@ public class 混沌虚空窗口 : MonoBehaviour
     {
         Set丹药();
         重复挑战Toggle.isOn = PlayerData.S.重复挑战;
-        自动下一关Toggle.isOn = PlayerData.S.重复挑战;
+        自动下一关Toggle.isOn = PlayerData.S.是否自动下一关;
         int 最大页数 = Mathf.CeilToInt(PlayerData.S.混沌虚空最大层数 / 30f);
         Show关卡层数(最大页数);
         PageNumText.text = 最大页数.ToString();
