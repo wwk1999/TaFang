@@ -13,7 +13,7 @@ public class 品质概率item : MonoBehaviour
 
     public void SetItem()
     {
-        text.text = 品质 + "：" + 概率 + "%";
+        text.text = 品质 + ":" + 概率 + "%";
     }
 
 }

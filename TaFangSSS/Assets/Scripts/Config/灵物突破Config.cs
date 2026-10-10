@@ -383,7 +383,7 @@ public class 灵物突破Config
         { JingJieType.准圣, "鸿蒙紫气" },
         { JingJieType.圣人, "轮回沙" },
         { JingJieType.天道圣人, "太初本源" },
-        { JingJieType.大道圣人, "涅槃莲心" },
+        { JingJieType.大道圣人, "永恒莲心" },
         { JingJieType.混元圣人, "混沌石" },
     };
 

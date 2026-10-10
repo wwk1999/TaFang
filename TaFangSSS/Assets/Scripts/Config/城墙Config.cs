@@ -685,7 +685,7 @@ public class 城墙Config
     { 城墙道具Type.百年桃木, "历经百年风雨的桃木，可驱邪避煞，镇守一方平安，邪祟莫敢近之，乃辟邪安宅之良材。" },
     { 城墙道具Type.蛟龙骨, "千年蛟龙褪下的远古遗骨，蕴含龙威，百兽见之莫不震慑，俯首称臣，尽显万兽之王威严。" },
     { 城墙道具Type.血琥珀, "上古神兽精血滴落石化而成，历经万载方成此至宝，蕴藏神兽血脉之力，珍贵稀有举世罕见。" },
-    { 城墙道具Type.轮回印记, "烙印了轮回之力的神秘印记，生死转换，涅槃可获重生，轮回不止不息，生灭循环永不断绝。" },
+    { 城墙道具Type.轮回印记, "烙印了轮回之力的神秘印记，生死转换，可获重生，轮回不止不息，生灭循环永不断绝。" },
     { 城墙道具Type.雷击木, "遭受天雷轰击而不毁灭的神木，蕴含天地雷霆威严，可震慑世间一切邪祟，雷光所至万恶伏诛。" },
     { 城墙道具Type.鸿蒙灵根, "鸿蒙初判时诞生的先天灵根，蕴藏无穷生机与造化，乃万灵之根源，天地之始万物之母。" },
 };
@@ -696,11 +696,11 @@ public class 城墙Config
             城墙道具属性Type.涅槃, 
             new List<string>()
             {
-                $"涅槃时恢复{HeroConfig.Get技能伤害string(50, 1)}的最大生命值",
-                $"涅槃时无敌时间增加{HeroConfig.Get技能伤害string(1, 2)}",
-                "每关涅槃次数+1",
-                $"涅槃时恢复{HeroConfig.Get技能伤害string(80, 1)}的最大生命值",
-                "每关涅槃次数+1"
+                $"重生时恢复{HeroConfig.Get技能伤害string(50, 1)}的最大生命值",
+                $"重生时无敌时间增加{HeroConfig.Get技能伤害string(1, 2)}",
+                "每关重生次数+1",
+                $"重生时恢复{HeroConfig.Get技能伤害string(80, 1)}的最大生命值",
+                "每关重生次数+1"
             } 
         },
         { 
@@ -869,7 +869,7 @@ public class 城墙Config
 
     public static Dictionary<城墙道具属性Type, string> 城墙道具属性Info = new Dictionary<城墙道具属性Type, string>()
     {
-        { 城墙道具属性Type.涅槃 ,$"城墙血量低于0时,可涅槃一次,恢复{HeroConfig.Get技能伤害string(30,1)}的最大生命值,并无敌{HeroConfig.Get技能伤害string(2,2)}"},
+        { 城墙道具属性Type.涅槃 ,$"城墙血量低于0时,可重生一次,恢复{HeroConfig.Get技能伤害string(30,1)}的最大生命值,并无敌{HeroConfig.Get技能伤害string(2,2)}"},
         { 城墙道具属性Type.泥沼 ,$"敌人靠近城墙时,降低敌人{HeroConfig.Get技能伤害string(30,1)}的移动速度"},
         { 城墙道具属性Type.冰冻 ,$"每隔{HeroConfig.Get技能伤害string(10,2)}冻结所有敌人{HeroConfig.Get技能伤害string(0.5f,1)}"},
 

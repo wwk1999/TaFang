@@ -64,5 +64,7 @@ public class 法器信息弹窗 : MonoBehaviour
       var 法器孔item = Instantiate(Resources.Load("Prefabs/Window/法器孔item"), content.transform).GetComponent<法器孔item>();
       法器孔item.list = 法器.仙石list;
       法器孔item.SetItem();
+      
+      var tip = Instantiate(Resources.Load("Prefabs/Window/tip"), content.transform);
    }
 }

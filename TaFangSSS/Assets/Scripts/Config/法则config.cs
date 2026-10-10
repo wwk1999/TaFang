@@ -88,7 +88,7 @@ public class 法则config
 
     public static Dictionary<HeroType, string> 法则info = new Dictionary<HeroType, string>()
     {
-        { HeroType.哪吒, "掌控三昧真火，焚尽世间污秽，于灰烬中涅槃重生。" },
+        { HeroType.哪吒, "掌控三昧真火，焚尽世间污秽，于灰烬中重生。" },
         { HeroType.孙悟空, "战意不息，愈战愈勇，一棒破万法，斗天斗地斗自我。" },
         { HeroType.碧霄, "至阴至寒，冻结时空，削去仙神顶上三花，消融道行。" },
         { HeroType.琼霄, "混元封禁，困锁肉身，定住元神，万法难逃。" },
