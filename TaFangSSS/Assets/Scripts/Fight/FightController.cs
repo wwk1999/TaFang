@@ -809,7 +809,6 @@ public class FightController : XSingleton<FightController>
             return;
         }
         var item = DequeueOrNull(QueueController.S.石敢当锤子Queue);
-        if (item == null) break;
         item.dir = dir;
         item.speed = 12*(1f+英雄技能树属性[HeroType.石敢当].石敢当锤子速度/100f);
         item.transform.position = shotpos;

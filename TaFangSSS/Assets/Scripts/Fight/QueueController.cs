@@ -210,6 +210,8 @@ public class QueueController:XSingleton<QueueController>
         {
             yield return null;
         }
+        // 同"退出战斗回道场"：卸载场景后释放它引用的原生资源，防止重开循环累积
+        yield return Resources.UnloadUnusedAssets();
         // additive 重新走加载流程，LoadWindow.Start 会自动加载新 FightScene 并切换 active scene
         var load = SceneManager.LoadSceneAsync("LoadScene", LoadSceneMode.Additive);
         while (load != null && !load.isDone)
@@ -246,6 +248,9 @@ public class QueueController:XSingleton<QueueController>
         {
             yield return null;
         }
+        // 场景卸载不会自动释放它引用的原生资源（纹理/材质/动画等），
+        // 每次往返战斗会累积一套场景资源导致内存只涨不降，必须手动卸载未使用资源
+        yield return Resources.UnloadUnusedAssets();
         Scene uiScene = SceneManager.GetSceneByName("UIScene");
         if (uiScene.IsValid() && uiScene.isLoaded)
         {
@@ -311,7 +316,7 @@ public class QueueController:XSingleton<QueueController>
             switch (type)
             {
                 case PengType.电魔法弹Peng:
-                    if (电魔法弹PengQueue.Count > 100)
+                    if (电魔法弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -320,7 +325,7 @@ public class QueueController:XSingleton<QueueController>
                     电魔法弹PengQueue.Enqueue(电魔法弹Peng);
                     break;
                 case PengType.黑暗飞箭Peng:
-                    if (黑暗飞箭PengQueue.Count > 100)
+                    if (黑暗飞箭PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -329,7 +334,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗飞箭PengQueue.Enqueue(黑暗飞箭Peng);
                     break;
                 case PengType.黑暗剑气Peng:
-                    if (黑暗剑气PengQueue.Count > 100)
+                    if (黑暗剑气PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -338,7 +343,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗剑气PengQueue.Enqueue(黑暗剑气Peng);
                     break;
                 case PengType.物理箭Peng:
-                    if (物理箭PengQueue.Count > 100)
+                    if (物理箭PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -347,7 +352,7 @@ public class QueueController:XSingleton<QueueController>
                     物理箭PengQueue.Enqueue(物理箭Peng);
                     break;
                 case PengType.紫鬼弹Peng:
-                    if (紫鬼弹PengQueue.Count > 100)
+                    if (紫鬼弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -356,7 +361,7 @@ public class QueueController:XSingleton<QueueController>
                     紫鬼弹PengQueue.Enqueue(紫鬼弹Peng);
                     break;
                 case PengType.黑暗花魔法弹Peng:
-                    if (黑暗花魔法弹PengQueue.Count > 100)
+                    if (黑暗花魔法弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -365,7 +370,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗花魔法弹PengQueue.Enqueue(黑暗花魔法弹Peng);
                     break;
                 case PengType.冰爆气魔法弹Peng:
-                    if (冰爆气魔法弹PengQueue.Count > 100)
+                    if (冰爆气魔法弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -374,7 +379,7 @@ public class QueueController:XSingleton<QueueController>
                     冰爆气魔法弹PengQueue.Enqueue(冰爆气魔法弹Peng);
                     break;
                 case PengType.电龙魔法弹Peng:
-                    if (电龙魔法弹PengQueue.Count > 100)
+                    if (电龙魔法弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -383,7 +388,7 @@ public class QueueController:XSingleton<QueueController>
                     电龙魔法弹PengQueue.Enqueue(电龙魔法弹Peng);
                     break;
                 case PengType.电爆气魔法弹Peng:
-                    if (电爆气魔法弹PengQueue.Count > 100)
+                    if (电爆气魔法弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -392,7 +397,7 @@ public class QueueController:XSingleton<QueueController>
                     电爆气魔法弹PengQueue.Enqueue(电爆气魔法弹Peng);
                     break;
                 case PengType.冰大魔法弹Peng:
-                    if (冰大魔法弹PengQueue.Count > 200)
+                    if (冰大魔法弹PengQueue.Count >= 200)
                     {
                         break;
                     }
@@ -401,7 +406,7 @@ public class QueueController:XSingleton<QueueController>
                     冰大魔法弹PengQueue.Enqueue(冰大魔法弹Peng);
                     break;
                 case PengType.火虎魔法弹Peng:
-                    if (火虎魔法弹PengQueue.Count > 200)
+                    if (火虎魔法弹PengQueue.Count >= 200)
                     {
                         break;
                     }
@@ -410,7 +415,7 @@ public class QueueController:XSingleton<QueueController>
                     火虎魔法弹PengQueue.Enqueue(火虎魔法弹Peng);
                     break;
                 case PengType.黑暗魔法弹Peng:
-                    if (黑暗魔法弹PengQueue.Count > 100)
+                    if (黑暗魔法弹PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -420,7 +425,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case PengType.丹童神通Peng:
-                    if (丹童神通PengQueue.Count > 100)
+                    if (丹童神通PengQueue.Count >= 100)
                     {
                         break;
                     }
@@ -486,7 +491,7 @@ public class QueueController:XSingleton<QueueController>
         int count = 0;
         for (int i = 0; i < 普通怪数量; i++)
         {
-            if (普通怪Queue.Count > 普通怪数量)
+            if (普通怪Queue.Count >= 普通怪数量)
             {
                 break;
             }
@@ -503,7 +508,7 @@ public class QueueController:XSingleton<QueueController>
 
         for (int i = 0; i < 1500; i++)
         {
-            if (伤害数字Queue.Count > 1500)
+            if (伤害数字Queue.Count >= 1500)
             {
                 break;
             }
@@ -519,7 +524,7 @@ public class QueueController:XSingleton<QueueController>
 
         for (int i = 0; i < 150; i++)
         {
-            if (普通怪死亡Queue.Count > 50)
+            if (普通怪死亡Queue.Count >= 50)
             {
                 break;
             }
@@ -534,7 +539,7 @@ public class QueueController:XSingleton<QueueController>
         }
         for (int i = 0; i < 精英怪数量; i++)
         {
-            if (精英怪Queue.Count > 精英怪数量)
+            if (精英怪Queue.Count >= 精英怪数量)
             {
                 break;
             }
@@ -551,7 +556,7 @@ public class QueueController:XSingleton<QueueController>
 
         for (int i = 0; i < 5; i++)
         {
-            if (精英怪死亡Queue.Count > 5)
+            if (精英怪死亡Queue.Count >= 5)
             {
                 break;
             }
@@ -562,7 +567,7 @@ public class QueueController:XSingleton<QueueController>
 
         for (int i = 0; i < 5; i++)
         {
-            if (首领怪Queue.Count > 5)
+            if (首领怪Queue.Count >= 5)
             {
                 break;
             }
@@ -587,7 +592,7 @@ public class QueueController:XSingleton<QueueController>
         int count = 0;
         for (int i = 0; i < 100; i++)
         {
-            if (黑暗印记爆炸Queue.Count <= 100)
+            if (黑暗印记爆炸Queue.Count < 100)
             {
                 var 黑暗印记爆炸 = Instantiate(Resources.Load("Prefabs/特效/黑暗印记爆炸"), 伤害数字CanvasRoot).GetComponent<黑暗印记爆炸>();
                 黑暗印记爆炸.gameObject.SetActive(false);
@@ -602,7 +607,7 @@ public class QueueController:XSingleton<QueueController>
             switch (type)
             {
                 case 攻击特效Type.陨石:
-                    if (陨石Queue.Count > 50)
+                    if (陨石Queue.Count >= 50)
                     {
                         break;
                     }
@@ -611,7 +616,7 @@ public class QueueController:XSingleton<QueueController>
                     陨石Queue.Enqueue(陨石);
                     break;
                 case 攻击特效Type.冰旋风:
-                    if (冰旋风Queue.Count > 50)
+                    if (冰旋风Queue.Count >= 50)
                     {
                         break;
                     }
@@ -620,7 +625,7 @@ public class QueueController:XSingleton<QueueController>
                     冰旋风Queue.Enqueue(冰旋风);
                     break;
                 case 攻击特效Type.冰剑气:
-                    if (冰剑气Queue.Count > 50)
+                    if (冰剑气Queue.Count >= 50)
                     {
                         break;
                     }
@@ -629,7 +634,7 @@ public class QueueController:XSingleton<QueueController>
                     冰剑气Queue.Enqueue(冰剑气);
                     break;
                 case 攻击特效Type.盘古拳:
-                    if (盘古拳Queue.Count > 3)
+                    if (盘古拳Queue.Count >= 3)
                     {
                         break;
                     }
@@ -638,7 +643,7 @@ public class QueueController:XSingleton<QueueController>
                     盘古拳Queue.Enqueue(盘古拳);
                     break;
                 case 攻击特效Type.火符:
-                    if (火符Queue.Count > 2)
+                    if (火符Queue.Count >= 2)
                     {
                         break;
                     }
@@ -647,7 +652,7 @@ public class QueueController:XSingleton<QueueController>
                     火符Queue.Enqueue(火符);
                     break;
                 case 攻击特效Type.冰符:
-                    if (冰符Queue.Count > 2)
+                    if (冰符Queue.Count >= 2)
                     {
                         break;
                     }
@@ -656,7 +661,7 @@ public class QueueController:XSingleton<QueueController>
                     冰符Queue.Enqueue(冰符);
                     break;
                 case 攻击特效Type.黑暗符:
-                    if (黑暗符Queue.Count > 100)
+                    if (黑暗符Queue.Count >= 100)
                     {
                         break;
                     }
@@ -665,7 +670,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗符Queue.Enqueue(黑暗符);
                     break;
                 case 攻击特效Type.冰龙:
-                    if (冰龙Queue.Count > 100)
+                    if (冰龙Queue.Count >= 100)
                     {
                         break;
                     }
@@ -674,7 +679,7 @@ public class QueueController:XSingleton<QueueController>
                     冰龙Queue.Enqueue(冰龙);
                     break;
                 case 攻击特效Type.嫦娥技能:
-                    if (嫦娥技能Queue.Count > 100)
+                    if (嫦娥技能Queue.Count >= 100)
                     {
                         break;
                     }
@@ -683,7 +688,7 @@ public class QueueController:XSingleton<QueueController>
                     嫦娥技能Queue.Enqueue(嫦娥技能);
                     break;
                 case 攻击特效Type.落雷:
-                    if (落雷Queue.Count > 100)
+                    if (落雷Queue.Count >= 100)
                     {
                         break;
                     }
@@ -692,7 +697,7 @@ public class QueueController:XSingleton<QueueController>
                     落雷Queue.Enqueue(落雷);
                     break;
                 case 攻击特效Type.龟丞相技能:
-                    if (龟丞相技能Queue.Count > 100)
+                    if (龟丞相技能Queue.Count >= 100)
                     {
                         break;
                     }
@@ -701,7 +706,7 @@ public class QueueController:XSingleton<QueueController>
                     龟丞相技能Queue.Enqueue(龟丞相技能);
                     break;
                 case 攻击特效Type.玄女技能:
-                    if (玄女技能Queue.Count > 100)
+                    if (玄女技能Queue.Count >= 100)
                     {
                         break;
                     }
@@ -710,7 +715,7 @@ public class QueueController:XSingleton<QueueController>
                     玄女技能Queue.Enqueue(玄女技能);
                     break;
                 case 攻击特效Type.石敢当锤子:
-                    if (石敢当锤子Queue.Count > 100)
+                    if (石敢当锤子Queue.Count >= 100)
                     {
                         break;
                     }
@@ -719,7 +724,7 @@ public class QueueController:XSingleton<QueueController>
                     石敢当锤子Queue.Enqueue(石敢当锤子);
                     break;
                 case 攻击特效Type.电魔法弹:
-                    if (电魔法弹Queue.Count > 100)
+                    if (电魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -728,7 +733,7 @@ public class QueueController:XSingleton<QueueController>
                     电魔法弹Queue.Enqueue(电魔法弹);
                     break;
                 case 攻击特效Type.黑暗飞箭:
-                    if (黑暗飞箭Queue.Count > 100)
+                    if (黑暗飞箭Queue.Count >= 100)
                     {
                         break;
                     }
@@ -737,7 +742,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗飞箭Queue.Enqueue(黑暗飞箭);
                     break;
                 case 攻击特效Type.黑暗剑气:
-                    if (黑暗剑气Queue.Count > 100)
+                    if (黑暗剑气Queue.Count >= 100)
                     {
                         break;
                     }
@@ -746,7 +751,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗剑气Queue.Enqueue(黑暗剑气);
                     break;
                 case 攻击特效Type.物理箭:
-                    if (物理箭Queue.Count > 250)
+                    if (物理箭Queue.Count >= 250)
                     {
                         break;
                     }
@@ -755,7 +760,7 @@ public class QueueController:XSingleton<QueueController>
                     物理箭Queue.Enqueue(物理箭);
                     break;
                 case 攻击特效Type.紫鬼弹:
-                    if (紫鬼弹Queue.Count > 100)
+                    if (紫鬼弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -764,7 +769,7 @@ public class QueueController:XSingleton<QueueController>
                     紫鬼弹Queue.Enqueue(紫鬼弹);
                     break;
                 case 攻击特效Type.黑暗花魔法弹:
-                    if (黑暗花魔法弹Queue.Count > 100)
+                    if (黑暗花魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -773,7 +778,7 @@ public class QueueController:XSingleton<QueueController>
                     黑暗花魔法弹Queue.Enqueue(黑暗花魔法弹);
                     break;
                 case 攻击特效Type.冰爆气魔法弹:
-                    if (冰爆气魔法弹Queue.Count > 100)
+                    if (冰爆气魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -782,7 +787,7 @@ public class QueueController:XSingleton<QueueController>
                     冰爆气魔法弹Queue.Enqueue(冰爆气魔法弹);
                     break;
                 case 攻击特效Type.电龙魔法弹:
-                    if (电龙魔法弹Queue.Count > 100)
+                    if (电龙魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -791,7 +796,7 @@ public class QueueController:XSingleton<QueueController>
                     电龙魔法弹Queue.Enqueue(电龙魔法弹);
                     break;
                 case 攻击特效Type.电爆气魔法弹:
-                    if (电爆气魔法弹Queue.Count > 100)
+                    if (电爆气魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -800,7 +805,7 @@ public class QueueController:XSingleton<QueueController>
                     电爆气魔法弹Queue.Enqueue(电爆气魔法弹);
                     break;
                 case 攻击特效Type.冰大魔法弹:
-                    if (冰大魔法弹Queue.Count > 100)
+                    if (冰大魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -809,7 +814,7 @@ public class QueueController:XSingleton<QueueController>
                     冰大魔法弹Queue.Enqueue(冰大魔法弹);
                     break;
                 case 攻击特效Type.火虎魔法弹:
-                    if (火虎魔法弹Queue.Count > 100)
+                    if (火虎魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -818,7 +823,7 @@ public class QueueController:XSingleton<QueueController>
                     火虎魔法弹Queue.Enqueue(火虎魔法弹);
                     break;
                 case 攻击特效Type.普通火魔法弹:
-                    if (普通火魔法弹Queue.Count > 100)
+                    if (普通火魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -827,7 +832,7 @@ public class QueueController:XSingleton<QueueController>
                     普通火魔法弹Queue.Enqueue(普通火魔法弹);
                     break;
                 case 攻击特效Type.黑暗魔法弹:
-                    if (黑暗魔法弹Queue.Count > 100)
+                    if (黑暗魔法弹Queue.Count >= 100)
                     {
                         break;
                     }
@@ -837,7 +842,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.冰刺:
-                    if (冰刺Queue.Count > 100)
+                    if (冰刺Queue.Count >= 100)
                     {
                         break;
                     }
@@ -851,7 +856,7 @@ public class QueueController:XSingleton<QueueController>
                 
                 
                 case 攻击特效Type.丹童神通:
-                    if (丹童神通Queue.Count > 2)
+                    if (丹童神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -861,7 +866,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.太白金星神通:
-                    if (太白金星神通Queue.Count > 6)
+                    if (太白金星神通Queue.Count >= 6)
                     {
                         break;
                     }
@@ -871,7 +876,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.云霄神通:
-                    if (云霄神通Queue.Count > 2)
+                    if (云霄神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -881,7 +886,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.土地神通:
-                    if (土地神通Queue.Count > 2)
+                    if (土地神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -890,7 +895,7 @@ public class QueueController:XSingleton<QueueController>
                     土地神通Queue.Enqueue(土地神通);
                     break;
                 case 攻击特效Type.孙悟空神通:
-                    if (孙悟空神通Queue.Count > 2)
+                    if (孙悟空神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -899,7 +904,7 @@ public class QueueController:XSingleton<QueueController>
                     孙悟空神通Queue.Enqueue(孙悟空神通);
                     break;
                 case 攻击特效Type.琼霄神通:
-                    if (琼霄神通Queue.Count > 2)
+                    if (琼霄神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -908,7 +913,7 @@ public class QueueController:XSingleton<QueueController>
                     琼霄神通Queue.Enqueue(琼霄神通);
                     break;
                 case 攻击特效Type.嫦娥神通:
-                    if (嫦娥神通Queue.Count > 2)
+                    if (嫦娥神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -917,7 +922,7 @@ public class QueueController:XSingleton<QueueController>
                     嫦娥神通Queue.Enqueue(嫦娥神通);
                     break;
                 case 攻击特效Type.羲和神通:
-                    if (羲和神通Queue.Count > 6)
+                    if (羲和神通Queue.Count >= 6)
                     {
                         break;
                     }
@@ -926,7 +931,7 @@ public class QueueController:XSingleton<QueueController>
                     羲和神通Queue.Enqueue(羲和神通);
                     break;
                 case 攻击特效Type.通天神通:
-                    if (通天神通Queue.Count > 2)
+                    if (通天神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -935,7 +940,7 @@ public class QueueController:XSingleton<QueueController>
                     通天神通Queue.Enqueue(通天神通);
                     break;
                 case 攻击特效Type.河伯神通:
-                    if (河伯神通Queue.Count > 2)
+                    if (河伯神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -944,7 +949,7 @@ public class QueueController:XSingleton<QueueController>
                     河伯神通Queue.Enqueue(河伯神通);
                     break;
                 case 攻击特效Type.龟丞相神通:
-                    if (龟丞相神通Queue.Count > 2)
+                    if (龟丞相神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -955,7 +960,7 @@ public class QueueController:XSingleton<QueueController>
                 
                 
                 case 攻击特效Type.元始神通:
-                    if (元始神通Queue.Count > 2)
+                    if (元始神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -965,7 +970,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.鸿钧神通:
-                    if (鸿钧神通Queue.Count > 2)
+                    if (鸿钧神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -975,7 +980,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.老子神通:
-                    if (老子神通Queue.Count > 6)
+                    if (老子神通Queue.Count >= 6)
                     {
                         break;
                     }
@@ -985,7 +990,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.碧霄神通:
-                    if (碧霄神通Queue.Count > 30)
+                    if (碧霄神通Queue.Count >= 30)
                     {
                         break;
                     }
@@ -995,7 +1000,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.石敢当神通:
-                    if (石敢当神通Queue.Count > 6)
+                    if (石敢当神通Queue.Count >= 6)
                     {
                         break;
                     }
@@ -1005,7 +1010,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.盘古神通:
-                    if (盘古神通Queue.Count > 2)
+                    if (盘古神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -1015,7 +1020,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.玄女神通:
-                    if (玄女神通Queue.Count > 30)
+                    if (玄女神通Queue.Count >= 30)
                     {
                         break;
                     }
@@ -1025,7 +1030,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.牛魔王神通:
-                    if (牛魔王神通Queue.Count > 6)
+                    if (牛魔王神通Queue.Count >= 6)
                     {
                         break;
                     }
@@ -1035,7 +1040,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.杨戬神通:
-                    if (杨戬神通Queue.Count > 6)
+                    if (杨戬神通Queue.Count >= 6)
                     {
                         break;
                     }
@@ -1044,7 +1049,7 @@ public class QueueController:XSingleton<QueueController>
                     杨戬神通Queue.Enqueue(杨戬神通);
                     break;
                 case 攻击特效Type.月老神通:
-                    if (月老神通Queue.Count > 20)
+                    if (月老神通Queue.Count >= 20)
                     {
                         break;
                     }
@@ -1054,7 +1059,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.常曦神通:
-                    if (常曦神通Queue.Count > 2)
+                    if (常曦神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -1064,7 +1069,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.广木天王神通:
-                    if (广木天王神通Queue.Count > 2)
+                    if (广木天王神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -1074,7 +1079,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.多闻天王神通:
-                    if (多闻天王神通Queue.Count > 2)
+                    if (多闻天王神通Queue.Count >= 2)
                     {
                         break;
                     }
@@ -1084,7 +1089,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.哪吒神通:
-                    if (哪吒神通Queue.Count > 30)
+                    if (哪吒神通Queue.Count >= 30)
                     {
                         break;
                     }
@@ -1094,7 +1099,7 @@ public class QueueController:XSingleton<QueueController>
                     break;
                 
                 case 攻击特效Type.雷震子神通:
-                    if (雷震子神通Queue.Count > 30)
+                    if (雷震子神通Queue.Count >= 30)
                     {
                         break;
                     }

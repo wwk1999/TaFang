@@ -233,6 +233,9 @@ public class MainWindow : MonoBehaviour
 
     public void InitWindow()
     {
+        // 幂等守卫：WindowController 常驻持有这 8 个窗口，OnEnable 每次返回道场都会触发。
+        // 无守卫时每次往返都克隆一整套窗口，旧实例成为孤儿永不销毁——挂机内存膨胀的主因
+        if (WindowController.S.领主府Window != null) return;
         WindowController.S.招募Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/招募界面"));
         WindowController.S.招募Window.gameObject.SetActive(false);
         WindowController.S.英雄Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/HeroWindow"));
