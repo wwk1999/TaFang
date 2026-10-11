@@ -793,9 +793,23 @@ public class FightController : XSingleton<FightController>
         return rotation * dir;
     }
 
+    // 特效池判空出队：池空返回 null，调用方直接跳过这发特效（纯表现损失）。
+    // 不能让 Dequeue 在空池上抛 InvalidOperationException——这些调用发生在 DOTween 回调/高频攻击循环里，
+    // 每次异常都会分配异常对象+整条堆栈字符串，是挂机内存只涨不还的分配源之一
+    private static T DequeueOrNull<T>(Queue<T> queue) where T : class
+    {
+        return queue.Count > 0 ? queue.Dequeue() : null;
+    }
+
     public void 石敢当技能(Vector2 dir,Vector2 shotpos,bool 瑶池冰辅助,bool 黑暗辅助,bool 女娲电辅助,bool 瑶池神通,bool 妲己神通,bool 女娲神通)
     {
-        var item = QueueController.S.石敢当锤子Queue.Dequeue();
+        // 池空跳过这发锤子
+        if (QueueController.S.石敢当锤子Queue.Count == 0)
+        {
+            return;
+        }
+        var item = DequeueOrNull(QueueController.S.石敢当锤子Queue);
+        if (item == null) break;
         item.dir = dir;
         item.speed = 12*(1f+英雄技能树属性[HeroType.石敢当].石敢当锤子速度/100f);
         item.transform.position = shotpos;
@@ -997,7 +1011,8 @@ public class FightController : XSingleton<FightController>
                          yield return  new WaitForSeconds(0.1f/(count/5f));
                          continue;
                      }
-                     var 陨石 = QueueController.S.陨石Queue.Dequeue();
+                     var 陨石 = DequeueOrNull(QueueController.S.陨石Queue);
+                     if (陨石 == null) break;
                      陨石.transform.position = randompos;
                      陨石.瑶池冰辅助 = 瑶池冰辅助;
                      陨石.黑暗辅助 = 黑暗辅助;
@@ -1021,7 +1036,8 @@ public class FightController : XSingleton<FightController>
         switch (攻击特效Type)
         {
             case 攻击特效Type.多闻天王神通:
-                var 多闻天王神通 = QueueController.S.多闻天王神通Queue.Dequeue();
+                var 多闻天王神通 = DequeueOrNull(QueueController.S.多闻天王神通Queue);
+                if (多闻天王神通 == null) break;
                 多闻天王神通.transform.position = pos;
                 多闻天王神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 多闻天王神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1036,7 +1052,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.广木天王神通:
-                var 广木天王神通 = QueueController.S.广木天王神通Queue.Dequeue();
+                var 广木天王神通 = DequeueOrNull(QueueController.S.广木天王神通Queue);
+                if (广木天王神通 == null) break;
                 广木天王神通.transform.position = pos;
                 广木天王神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 广木天王神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1051,7 +1068,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.盘古神通:
-                var 盘古神通 = QueueController.S.盘古神通Queue.Dequeue();
+                var 盘古神通 = DequeueOrNull(QueueController.S.盘古神通Queue);
+                if (盘古神通 == null) break;
                 盘古神通.transform.position = pos;
                 盘古神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 盘古神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1066,7 +1084,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.鸿钧神通:
-                var 鸿钧神通 = QueueController.S.鸿钧神通Queue.Dequeue();
+                var 鸿钧神通 = DequeueOrNull(QueueController.S.鸿钧神通Queue);
+                if (鸿钧神通 == null) break;
                 鸿钧神通.transform.position = pos;
                 鸿钧神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 鸿钧神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1081,7 +1100,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.元始神通:
-                var 元始神通 = QueueController.S.元始神通Queue.Dequeue();
+                var 元始神通 = DequeueOrNull(QueueController.S.元始神通Queue);
+                if (元始神通 == null) break;
                 元始神通.transform.position = pos;
                 元始神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 元始神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1096,7 +1116,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.老子神通:
-                var 老子神通 = QueueController.S.老子神通Queue.Dequeue();
+                var 老子神通 = DequeueOrNull(QueueController.S.老子神通Queue);
+                if (老子神通 == null) break;
                 老子神通.transform.position = pos;
                 老子神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 老子神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1111,7 +1132,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.常曦神通:
-                var 常曦神通 = QueueController.S.常曦神通Queue.Dequeue();
+                var 常曦神通 = DequeueOrNull(QueueController.S.常曦神通Queue);
+                if (常曦神通 == null) break;
                 常曦神通.transform.position = pos;
                 常曦神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 常曦神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1126,7 +1148,8 @@ public class FightController : XSingleton<FightController>
                 常曦神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.玄女神通:
-                var 玄女神通 = QueueController.S.玄女神通Queue.Dequeue();
+                var 玄女神通 = DequeueOrNull(QueueController.S.玄女神通Queue);
+                if (玄女神通 == null) break;
                 玄女神通.transform.position = pos;
                 玄女神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 玄女神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1142,7 +1165,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.碧霄神通:
-                var 碧霄神通 = QueueController.S.碧霄神通Queue.Dequeue();
+                var 碧霄神通 = DequeueOrNull(QueueController.S.碧霄神通Queue);
+                if (碧霄神通 == null) break;
                 碧霄神通.transform.position = pos;
                 碧霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 碧霄神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1157,7 +1181,8 @@ public class FightController : XSingleton<FightController>
                 碧霄神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.哪吒神通:
-                var 哪吒神通 = QueueController.S.哪吒神通Queue.Dequeue();
+                var 哪吒神通 = DequeueOrNull(QueueController.S.哪吒神通Queue);
+                if (哪吒神通 == null) break;
                 哪吒神通.transform.position = pos;
                 哪吒神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 哪吒神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1172,7 +1197,8 @@ public class FightController : XSingleton<FightController>
                 哪吒神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.杨戬神通:
-                var 杨戬神通 = QueueController.S.杨戬神通Queue.Dequeue();
+                var 杨戬神通 = DequeueOrNull(QueueController.S.杨戬神通Queue);
+                if (杨戬神通 == null) break;
                 杨戬神通.transform.position = pos;
                 杨戬神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 杨戬神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1188,7 +1214,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.月老神通:
-                var 月老神通 = QueueController.S.月老神通Queue.Dequeue();
+                var 月老神通 = DequeueOrNull(QueueController.S.月老神通Queue);
+                if (月老神通 == null) break;
                 月老神通.transform.position = pos;
                 月老神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 月老神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1203,7 +1230,8 @@ public class FightController : XSingleton<FightController>
                 月老神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.雷震子神通:
-                var 雷震子神通 = QueueController.S.雷震子神通Queue.Dequeue();
+                var 雷震子神通 = DequeueOrNull(QueueController.S.雷震子神通Queue);
+                if (雷震子神通 == null) break;
                 雷震子神通.transform.position = pos;
                 雷震子神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 雷震子神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1218,7 +1246,8 @@ public class FightController : XSingleton<FightController>
                 雷震子神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.嫦娥技能:
-                var 嫦娥技能 = QueueController.S.嫦娥技能Queue.Dequeue();
+                var 嫦娥技能 = DequeueOrNull(QueueController.S.嫦娥技能Queue);
+                if (嫦娥技能 == null) break;
                 嫦娥技能.transform.position = pos;
                 嫦娥技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 嫦娥技能.脚本.黑暗辅助 = 黑暗辅助;
@@ -1234,7 +1263,8 @@ public class FightController : XSingleton<FightController>
                 嫦娥技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰刺:
-                var item = QueueController.S.冰刺Queue.Dequeue();
+                var item = DequeueOrNull(QueueController.S.冰刺Queue);
+                if (item == null) break;
                 item.transform.position = pos;
                 item.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 item.脚本.黑暗辅助 = 黑暗辅助;
@@ -1250,7 +1280,8 @@ public class FightController : XSingleton<FightController>
                 item.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.玄女技能:
-                var 玄女技能 = QueueController.S.玄女技能Queue.Dequeue();
+                var 玄女技能 = DequeueOrNull(QueueController.S.玄女技能Queue);
+                if (玄女技能 == null) break;
                 玄女技能.transform.position = pos;
                 玄女技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 玄女技能.脚本.黑暗辅助 = 黑暗辅助;
@@ -1266,7 +1297,8 @@ public class FightController : XSingleton<FightController>
                 玄女技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.龟丞相技能:
-                var 龟丞相技能 = QueueController.S.龟丞相技能Queue.Dequeue();
+                var 龟丞相技能 = DequeueOrNull(QueueController.S.龟丞相技能Queue);
+                if (龟丞相技能 == null) break;
                 龟丞相技能.transform.position = pos;
                 龟丞相技能.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 龟丞相技能.脚本.黑暗辅助 = 黑暗辅助;
@@ -1282,7 +1314,8 @@ public class FightController : XSingleton<FightController>
                 龟丞相技能.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.落雷:
-                var 落雷 = QueueController.S.落雷Queue.Dequeue();
+                var 落雷 = DequeueOrNull(QueueController.S.落雷Queue);
+                if (落雷 == null) break;
                 落雷.transform.position = pos;
                 落雷.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 落雷.脚本.黑暗辅助 = 黑暗辅助;
@@ -1298,7 +1331,8 @@ public class FightController : XSingleton<FightController>
                 落雷.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰龙:
-                var 冰龙 = QueueController.S.冰龙Queue.Dequeue();
+                var 冰龙 = DequeueOrNull(QueueController.S.冰龙Queue);
+                if (冰龙 == null) break;
                 冰龙.transform.position = pos;
                 冰龙.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 冰龙.脚本.黑暗辅助 = 黑暗辅助;
@@ -1314,7 +1348,8 @@ public class FightController : XSingleton<FightController>
                 冰龙.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.黑暗符:
-                var 黑暗符 = QueueController.S.黑暗符Queue.Dequeue();
+                var 黑暗符 = DequeueOrNull(QueueController.S.黑暗符Queue);
+                if (黑暗符 == null) break;
                 黑暗符.transform.position = pos;
                 黑暗符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 黑暗符.脚本.黑暗辅助 = 黑暗辅助;
@@ -1330,7 +1365,8 @@ public class FightController : XSingleton<FightController>
                 黑暗符.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.冰符:
-                var 冰符 = QueueController.S.冰符Queue.Dequeue();
+                var 冰符 = DequeueOrNull(QueueController.S.冰符Queue);
+                if (冰符 == null) break;
                 冰符.transform.position = pos;
                 冰符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 冰符.脚本.黑暗辅助 = 黑暗辅助;
@@ -1346,7 +1382,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.通天神通:
-                var 通天神通 = QueueController.S.通天神通Queue.Dequeue();
+                var 通天神通 = DequeueOrNull(QueueController.S.通天神通Queue);
+                if (通天神通 == null) break;
                 通天神通.transform.position = pos;
                 通天神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 通天神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1361,7 +1398,8 @@ public class FightController : XSingleton<FightController>
                 通天神通.gameObject.SetActive(true);
                 break;
             case 攻击特效Type.火符:
-                var 火符 = QueueController.S.火符Queue.Dequeue();
+                var 火符 = DequeueOrNull(QueueController.S.火符Queue);
+                if (火符 == null) break;
                 火符.transform.position = pos;
                 火符.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 火符.脚本.黑暗辅助 = 黑暗辅助;
@@ -1376,7 +1414,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.土地神通:
-                var 土地神通 = QueueController.S.土地神通Queue.Dequeue();
+                var 土地神通 = DequeueOrNull(QueueController.S.土地神通Queue);
+                if (土地神通 == null) break;
                 土地神通.transform.position = pos;
                 土地神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 土地神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1392,7 +1431,8 @@ public class FightController : XSingleton<FightController>
             
             
             case 攻击特效Type.羲和神通:
-                var 羲和神通 = QueueController.S.羲和神通Queue.Dequeue();
+                var 羲和神通 = DequeueOrNull(QueueController.S.羲和神通Queue);
+                if (羲和神通 == null) break;
                 羲和神通.transform.position = pos;
                 羲和神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 羲和神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1407,7 +1447,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.琼霄神通:
-                var 琼霄神通 = QueueController.S.琼霄神通Queue.Dequeue();
+                var 琼霄神通 = DequeueOrNull(QueueController.S.琼霄神通Queue);
+                if (琼霄神通 == null) break;
                 琼霄神通.transform.position = pos;
                 琼霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 琼霄神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1422,7 +1463,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.孙悟空神通:
-                var 孙悟空神通 = QueueController.S.孙悟空神通Queue.Dequeue();
+                var 孙悟空神通 = DequeueOrNull(QueueController.S.孙悟空神通Queue);
+                if (孙悟空神通 == null) break;
                 孙悟空神通.transform.position = pos;
                 孙悟空神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 孙悟空神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1437,7 +1479,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.嫦娥神通:
-                var 嫦娥神通 = QueueController.S.嫦娥神通Queue.Dequeue();
+                var 嫦娥神通 = DequeueOrNull(QueueController.S.嫦娥神通Queue);
+                if (嫦娥神通 == null) break;
                 嫦娥神通.transform.position = pos;
                 嫦娥神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 嫦娥神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1452,7 +1495,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.云霄神通:
-                var 云霄神通 = QueueController.S.云霄神通Queue.Dequeue();
+                var 云霄神通 = DequeueOrNull(QueueController.S.云霄神通Queue);
+                if (云霄神通 == null) break;
                 云霄神通.transform.position = pos;
                 云霄神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 云霄神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1467,7 +1511,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.龟丞相神通:
-                var 龟丞相神通 = QueueController.S.龟丞相神通Queue.Dequeue();
+                var 龟丞相神通 = DequeueOrNull(QueueController.S.龟丞相神通Queue);
+                if (龟丞相神通 == null) break;
                 龟丞相神通.transform.position = pos;
                 龟丞相神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 龟丞相神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1482,7 +1527,8 @@ public class FightController : XSingleton<FightController>
                 break;
             
             case 攻击特效Type.河伯神通:
-                var 河伯神通 = QueueController.S.河伯神通Queue.Dequeue();
+                var 河伯神通 = DequeueOrNull(QueueController.S.河伯神通Queue);
+                if (河伯神通 == null) break;
                 河伯神通.transform.position = pos;
                 河伯神通.脚本.瑶池冰辅助 = 瑶池冰辅助;
                 河伯神通.脚本.黑暗辅助 = 黑暗辅助;
@@ -1505,7 +1551,11 @@ public class FightController : XSingleton<FightController>
         switch (攻击特效Type) // 请将“攻击特效类型变量”替换为实际的变量名
         {
             case 攻击特效Type.冰旋风:
-                魔法弹 = QueueController.S.冰旋风Queue.Dequeue();
+                魔法弹 = DequeueOrNull(QueueController.S.冰旋风Queue);
+                if (魔法弹 == null)
+                {
+                    return;
+                }
                 魔法弹.HeroType=HeroType.老子;
                 break;
         }
