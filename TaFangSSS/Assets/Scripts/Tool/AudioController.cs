@@ -368,7 +368,6 @@ public class AudioController : MonoBehaviour
             break;
 
         default:
-            Debug.LogWarning($"未处理的战斗音效类型: {type}");
             break;
     }
 }

@@ -47,9 +47,8 @@ public class 世界树主页收获弹窗 : MonoBehaviour
                 秘境item.SetItem();
                 秘境item.gameObject.SetActive(true);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Debug.LogError($"刷新主页世界树收获弹窗: 创建item失败, 道宝Type={item.Key}, Error={e.Message}");
             }
         }
     }

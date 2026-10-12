@@ -91,11 +91,10 @@ public class StoreController : XSingleton<StoreController>
                     // 注意：这里不要每次保存都打日志——3 秒一条，挂机一晚 1 万+ 条，
                     // 编辑器 Console 全量缓存，也是内存膨胀源
                 }
-                catch (System.Exception e)
+                catch (System.Exception)
                 {
                     // 后台序列化期间玩家买仙石/吃丹药等修改了集合，遍历会抛异常；
                     // 跳过本次即可：主档仍是上一次成功的，原子写保证不会有半截档，3 秒后自动重试
-                    Debug.LogWarning($"后台保存跳过一次，等待下次自动保存: {e.Message}");
                 }
                 finally
                 {
@@ -103,14 +102,8 @@ public class StoreController : XSingleton<StoreController>
                 }
             });
         }
-        catch (System.Exception e)
+        catch (System.Exception)
         {
-            Debug.LogError($"保存数据失败: {e.Message}");
-            Debug.LogError($"异常类型: {e.GetType().Name}");
-            Debug.LogError($"堆栈跟踪: {e.StackTrace}");
-
-            // 检查各个单例对象是否存在
-            Debug.LogError($"PlayerData.S 存在: {PlayerData.S != null}");
         }
     }
 
@@ -172,7 +165,6 @@ public class StoreController : XSingleton<StoreController>
             存档名 + ".json");
 
         File.Copy(SavePath, 导出路径, true);
-        Debug.Log($"导出存档成功->{导出路径}");
         return 导出路径;
     }
 
@@ -725,14 +717,11 @@ public class StoreController : XSingleton<StoreController>
         // 依次尝试：主档 → 备份档（.bak，断电/损坏时的救命稻草）→ 全新档
         if (TryLoad(SavePath))
         {
-            Debug.Log("加载数据完成");
             return;
         }
 
-        Debug.LogWarning("主档读取失败，尝试备份恢复");
-        if (TryLoad(BakPath))
+        if (TryLoad(BakPath)
         {
-            Debug.LogWarning("已从备份(.bak)恢复存档");
             // 立即把恢复的数据写回主档，避免下次启动再次走备份
             SaveStoreData(StoreData);
             return;
@@ -741,7 +730,6 @@ public class StoreController : XSingleton<StoreController>
         StoreData = new StoreDefine.StoreData();
         StoreData.Player.CopyFromRuntime(PlayerData.S);
         SaveStoreData(StoreData);
-        Debug.LogWarning("主档与备份均不可用，首次创建存档");
     }
 
     /// <summary>
@@ -765,10 +753,8 @@ public class StoreController : XSingleton<StoreController>
             StoreData.Player.ApplyToRuntime(PlayerData.S);
             return true;
         }
-        catch (Exception e)
+        catch (Exception)
         {
-            // Unity 下 Console.WriteLine 不可见，统一走 Debug.LogError
-            Debug.LogError($"读取存档失败({path}): {e.Message}");
             return false;
         }
     }

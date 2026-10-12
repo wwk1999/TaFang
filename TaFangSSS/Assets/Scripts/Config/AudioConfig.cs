@@ -152,7 +152,6 @@ public class AudioConfig : MonoBehaviour
             return ResourcesConfig.盘古audio;
 
         default:
-            Debug.LogWarning($"未找到战斗音效类型: {type}");
             return null;
     }
 }

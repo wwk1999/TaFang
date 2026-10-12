@@ -20,7 +20,7 @@ public class UI隐藏工具 : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         // 点击到Image本身，不做隐藏（或你可以选择其他逻辑）
-        Debug.Log("点击到了Image本身");
+        // Debug.Log("点击到了Image本身");
         // 例如你可以让目标显示
         if (targetObject != null)
             targetObject.SetActive(true);
@@ -38,7 +38,7 @@ public class UI隐藏工具 : MonoBehaviour, IPointerClickHandler
                 if (targetObject != null)
                 {
                     targetObject.SetActive(false);
-                    Debug.Log("点击在UI外，隐藏目标");
+                    // Debug.Log("点击在UI外，隐藏目标");
                 }
             }
             else
@@ -67,7 +67,7 @@ public class UI隐藏工具 : MonoBehaviour, IPointerClickHandler
                 if (!hitThisImage && targetObject != null)
                 {
                     targetObject.SetActive(false);
-                    Debug.Log("点击了其他UI，隐藏目标");
+                    // Debug.Log("点击了其他UI，隐藏目标");
                 }
             }
         }

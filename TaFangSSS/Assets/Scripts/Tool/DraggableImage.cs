@@ -35,7 +35,6 @@ public class DraggableRectTransform : MonoBehaviour, IDragHandler, IBeginDragHan
 
         if (canvas == null)
         {
-            Debug.LogError("DraggableRectTransform: 找不到Canvas，请确保对象在Canvas下。");
         }
     }
 

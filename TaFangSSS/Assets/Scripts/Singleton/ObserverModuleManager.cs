@@ -49,9 +49,8 @@ public class ObserverModuleManager : XSingleton<ObserverModuleManager>
             {
                 observers[i](args);
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
-                Debug.LogError($"异常堆栈: {ex.StackTrace}");
             }
         }
     }

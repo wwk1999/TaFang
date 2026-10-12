@@ -550,9 +550,8 @@ public class MainWindow : MonoBehaviour
                 Application.OpenURL("file:///" + 导出目录.Replace("\\", "/"));
                 ObserverModuleManager.S.SendEvent("SendUIToast", "存档已导出到桌面");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Debug.LogError($"导出存档失败: {e.Message}");
                 ObserverModuleManager.S.SendEvent("SendUIToast", "导出存档失败");
             }
         });

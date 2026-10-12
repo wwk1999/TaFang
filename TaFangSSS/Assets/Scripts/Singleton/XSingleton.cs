@@ -50,7 +50,6 @@ public class XSingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (_instance)
         {
-            Debug.LogError($"Had create {_instance}");
         }
 
         _instance = this as T;
