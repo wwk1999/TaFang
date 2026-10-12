@@ -145,7 +145,7 @@ public class 法器打造panel : MonoBehaviour
 
     public void 刷新法器打造Panel(object[] obj)
     {
-        数量进度条.maxValue = Get最大打造数量();
+        数量进度条.maxValue = Mathf.Max(0, Get最大打造数量());
         数量进度条.value = 0;
         Show法器打造Panel();
     }
@@ -233,12 +233,19 @@ public class 法器打造panel : MonoBehaviour
         数量进度条.onValueChanged.AddListener(数量进度条监听);
         打造Button.onClick.AddListener(() =>
         {
-            if (打造数量 == 0)
+            if (打造数量 <= 0)
             {
                 ObserverModuleManager.S.SendEvent("SendUIToast","请选择打造数量");
                 return;
             }
-            数量进度条.maxValue = Get最大打造数量();
+            int 可打造数量 = Get最大打造数量();
+            if (可打造数量 <= 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","材料不足,无法打造");
+                return;
+            }
+            打造数量 = Math.Min(打造数量, 可打造数量);
+            数量进度条.maxValue = 可打造数量;
             法器打造Item 法器打造Item = new 法器打造Item();
             法器打造Item.count = 打造数量;
             法器打造Item.进度 = 0;

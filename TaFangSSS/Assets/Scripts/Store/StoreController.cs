@@ -359,7 +359,7 @@ public class StoreController : XSingleton<StoreController>
                 List<PropType> 材料 = 法器Config.Get打造法器材料(PlayerData.S.打造List[0].法器Type);
                 foreach (var item in 材料)
                 {
-                    if (PlayerData.S.PropListDic[item] <= 0)
+                    if (PlayerData.S.PropListDic[item] < 1f)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToast","材料不足，法器打造终止");
                         PlayerData.S.打造List.Clear();
@@ -841,6 +841,16 @@ public class StoreController : XSingleton<StoreController>
             if (data?.Player == null) return false;
             StoreData = data;
             StoreData.Player.ApplyToRuntime(PlayerData.S);
+            // 历史存档可能存在负数资源（如石白=-2导致打造数量显示为负），读档时统一清理
+            var 负数keys = new List<PropType>();
+            foreach (var kv in PlayerData.S.PropListDic)
+            {
+                if (kv.Value < 0) 负数keys.Add(kv.Key);
+            }
+            foreach (var key in 负数keys)
+            {
+                PlayerData.S.PropListDic[key] = 0;
+            }
             return true;
         }
         catch (Exception)

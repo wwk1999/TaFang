@@ -25,6 +25,14 @@ public class 法器材料分解弹窗 : MonoBehaviour
     {
         分解按钮.onClick.AddListener(() =>
         {
+            // 校验实际持有量，防止把材料扣成负数
+            int 持有数量 = Mathf.FloorToInt(PlayerData.S.PropListDic[PropType]);
+            if (持有数量 <= 0 || count > 持有数量)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","材料数量不足,无法分解");
+                gameObject.SetActive(false);
+                return;
+            }
             PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]] * count;
             PlayerData.S.PropListDic[PropType] -= count;
             ObserverModuleManager.S.SendEvent("SendUIToast","分解成功");
@@ -36,8 +44,11 @@ public class 法器材料分解弹窗 : MonoBehaviour
         {
             gameObject.SetActive(false);
         });
-        数量Slider.maxValue = PlayerData.S.PropListDic[PropType];
+        // 先设minValue再设maxValue，并夹住下限为1，避免UGUI把maxValue强行抬到minValue导致0个材料也能分解
+        float 持有 = PlayerData.S.PropListDic[PropType];
         数量Slider.minValue = 1;
+        数量Slider.maxValue = Mathf.Max(1f, Mathf.Floor(持有));
+        分解按钮.interactable = 持有 >= 1f;
         数量.text = "1";
         数量Slider.onValueChanged.AddListener(OnSliderValueChanged);
         获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]]*count).ToString();
@@ -47,9 +58,13 @@ public class 法器材料分解弹窗 : MonoBehaviour
     private void OnEnable()
     {
         获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]]*count).ToString();
-        数量Slider.maxValue = PlayerData.S.PropListDic[PropType];
+        // 先设minValue再设maxValue，并夹住下限为1，避免UGUI把maxValue强行抬到minValue导致0个材料也能分解
+        float 持有 = PlayerData.S.PropListDic[PropType];
         数量Slider.minValue = 1;
+        数量Slider.maxValue = Mathf.Max(1f, Mathf.Floor(持有));
+        分解按钮.interactable = 持有 >= 1f;
         数量.text = "1";
+        count = 1;
     }
 
     void OnSliderValueChanged(float value)

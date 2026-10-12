@@ -33,6 +33,13 @@ public class 突破确认弹窗 : MonoBehaviour
         确认Button.onClick.AddListener(() =>
         {
             long need = JingJieConfig.突破材料Dic[PlayerData.S.当前轮回境界][(int)(QualityType-1)];
+            // 点击时二次校验，防止打开确认弹窗到点击确认之间功德被其他系统消耗
+            if (PlayerData.S.PropListDic[PropType.功德] < need)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","功德不足");
+                gameObject.SetActive(false);
+                return;
+            }
             PlayerData.S.PropListDic[PropType.功德] -= need;
             PlayerData.S.当前轮回突破Dic[PlayerData.S.当前轮回境界] = QualityType;
             PlayerData.S.Set灵物数量(PlayerData.S.当前轮回境界,QualityType,PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界,QualityType)-1);
