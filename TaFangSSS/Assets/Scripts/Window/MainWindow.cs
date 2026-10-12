@@ -218,7 +218,7 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.是否第一次游戏 = false;
         }
 
-        if (PlayerData.S.历史最高境界 >= JingJieType.金仙 && !PlayerData.S.是否加入愿望单)
+        if (PlayerData.S.历史最高境界 >= JingJieType.大乘 && !PlayerData.S.是否加入愿望单)
         {
             愿望单提示.gameObject.SetActive(true);
         }
