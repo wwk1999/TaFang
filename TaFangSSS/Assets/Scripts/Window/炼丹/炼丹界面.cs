@@ -112,7 +112,7 @@ public class 炼丹界面 : MonoBehaviour
         炼丹经验条.maxValue = 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
         炼丹经验条.value = PlayerData.S.炼丹经验;
         当前经验.text=PlayerData.S.炼丹经验.ToString("F0");
-        最大经验.text=丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级].ToString();
+        最大经验.text=PlayerData.S.格式化数字(丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级]);
         炼制进度条.maxValue = 1;
         炼制进度条.value = 0;
         炼制百分比.text = "0%";
@@ -164,7 +164,7 @@ public class 炼丹界面 : MonoBehaviour
         炼丹经验条.maxValue = 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
         炼丹经验条.value = PlayerData.S.炼丹经验;
         当前经验.text=PlayerData.S.炼丹经验.ToString();
-        最大经验.text=丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级].ToString();
+        最大经验.text=PlayerData.S.格式化数字(丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级]);
         丹药类型 当前炼制丹药类型 = 丹药Config.丹药类型Dic[PlayerData.S.当前炼制丹药Type];
         float 需要时间 = 0;
         switch (当前炼制丹药类型)
@@ -198,7 +198,7 @@ public class 炼丹界面 : MonoBehaviour
         炼丹经验条.maxValue = 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
         炼丹经验条.value = PlayerData.S.炼丹经验;
         当前经验.text=PlayerData.S.炼丹经验.ToString("F0");
-        最大经验.text=丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级].ToString();
+        最大经验.text=PlayerData.S.格式化数字(丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级]);
         float 需要时间 = 丹药Config.Get炼制丹药需要时间(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
         炼制进度条.maxValue = 需要时间;
         炼制进度条.value = PlayerData.S.当前炼制秒数;

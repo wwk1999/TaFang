@@ -419,7 +419,13 @@ public class StoreController : XSingleton<StoreController>
                         PlayerData.S.Get灵药数量(item.灵药Type, item.QualityType) - 1);
                 }
                PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType,PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType)+1);
-               
+               PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
+               if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
+               {
+                   PlayerData.S.炼丹经验 -= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
+                   PlayerData.S.炼丹等级++;
+               }
+               ObserverModuleManager.S.SendEvent("炼制刷新");
                 PlayerData.S.丹药炼制List[0].count--;
                 PlayerData.S.丹药炼制List[0].进度 = 0;
                 if (PlayerData.S.丹药炼制List[0].count <= 0)
