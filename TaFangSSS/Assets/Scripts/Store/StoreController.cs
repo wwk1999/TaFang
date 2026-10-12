@@ -88,7 +88,6 @@ public class StoreController : XSingleton<StoreController>
                         File.Move(tmpPath, savePath);
                     }
 
-                    Debug.Log($"保存数据成功->{savePath}");
                     // 注意：这里不要每次保存都打日志——3 秒一条，挂机一晚 1 万+ 条，
                     // 编辑器 Console 全量缓存，也是内存膨胀源
                 }
@@ -111,7 +110,7 @@ public class StoreController : XSingleton<StoreController>
             Debug.LogError($"堆栈跟踪: {e.StackTrace}");
 
             // 检查各个单例对象是否存在
-            Debug.Log($"PlayerData.S 存在: {PlayerData.S != null}");
+            Debug.LogError($"PlayerData.S 存在: {PlayerData.S != null}");
         }
     }
 
