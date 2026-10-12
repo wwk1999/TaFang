@@ -62,8 +62,6 @@ public class PlayerData : XSingleton<PlayerData>
     public List<仙石> 仙石列表 = new List<仙石>();
     public int 炼丹等级 = 1;
     public float 炼丹经验 = 0;
-    public 丹药Type 当前炼制丹药Type = 丹药Type.None;
-    public QualityType 当前炼制丹药品质 = QualityType.None;
     public int 剩余炼制数量;
     public float 当前炼制秒数;
     public List<法器打造Item> 打造List=new List<法器打造Item>();

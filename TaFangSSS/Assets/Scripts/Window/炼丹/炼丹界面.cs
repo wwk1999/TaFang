@@ -136,10 +136,10 @@ public class 炼丹界面 : MonoBehaviour
     public void 炼制中Show()
     {
         当前选择炼制数量 = 0;
-        Show灵药(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质);
+        Show灵药(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType);
         Show丹方列表();
-        丹药信息.丹药Type = PlayerData.S.当前炼制丹药Type;
-        丹药信息.QualityType = PlayerData.S.当前炼制丹药品质;
+        丹药信息.丹药Type = PlayerData.S.丹药炼制List[0].丹药Type;
+        丹药信息.QualityType = PlayerData.S.丹药炼制List[0].丹药QualityType;
         丹药信息.SetItem();
         黄.isOn = PlayerData.S.丹药灵药筛选Dic[QualityType.黄品];
         玄.isOn = PlayerData.S.丹药灵药筛选Dic[QualityType.玄品];
@@ -165,21 +165,21 @@ public class 炼丹界面 : MonoBehaviour
         炼丹经验条.value = PlayerData.S.炼丹经验;
         当前经验.text=PlayerData.S.炼丹经验.ToString();
         最大经验.text=PlayerData.S.格式化数字(丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级]);
-        丹药类型 当前炼制丹药类型 = 丹药Config.丹药类型Dic[PlayerData.S.当前炼制丹药Type];
+        丹药类型 当前炼制丹药类型 = 丹药Config.丹药类型Dic[HeroWindowController.S.当前炼丹显示Type];
         float 需要时间 = 0;
         switch (当前炼制丹药类型)
         {
             case 丹药类型.战斗丹药:
-                需要时间 = 属性config.每年秒数 * 丹药Config.战斗丹药炼制时间Dic[PlayerData.S.当前炼制丹药品质];
+                需要时间 = 属性config.每年秒数 * 丹药Config.战斗丹药炼制时间Dic[HeroWindowController.S.当前炼丹显示QualityType];
                 break;
             case 丹药类型.辅助丹药:
-                需要时间 = 属性config.每年秒数 * 丹药Config.辅助丹药炼制时间Dic[PlayerData.S.当前炼制丹药品质];
+                需要时间 = 属性config.每年秒数 * 丹药Config.辅助丹药炼制时间Dic[HeroWindowController.S.当前炼丹显示QualityType];
                 break;
             case 丹药类型.根基丹药:
-                需要时间 = 属性config.每年秒数 * 丹药Config.根基丹药炼制时间Dic[PlayerData.S.当前炼制丹药品质];
+                需要时间 = 属性config.每年秒数 * 丹药Config.根基丹药炼制时间Dic[HeroWindowController.S.当前炼丹显示QualityType];
                 break;
             case 丹药类型.造化丹药:
-                需要时间 = 属性config.每年秒数 * 丹药Config.造化丹药炼制时间Dic[PlayerData.S.当前炼制丹药品质];
+                需要时间 = 属性config.每年秒数 * 丹药Config.造化丹药炼制时间Dic[HeroWindowController.S.当前炼丹显示QualityType];
                 break;
         }
         炼制进度条.maxValue = 需要时间;
@@ -199,7 +199,7 @@ public class 炼丹界面 : MonoBehaviour
         炼丹经验条.value = PlayerData.S.炼丹经验;
         当前经验.text=PlayerData.S.炼丹经验.ToString("F0");
         最大经验.text=PlayerData.S.格式化数字(丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级]);
-        float 需要时间 = 丹药Config.Get炼制丹药需要时间(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
+        float 需要时间 = 丹药Config.Get炼制丹药需要时间(HeroWindowController.S.当前炼丹显示Type, HeroWindowController.S.当前炼丹显示QualityType);
         炼制进度条.maxValue = 需要时间;
         炼制进度条.value = PlayerData.S.当前炼制秒数;
         炼制百分比.text = (MathF.Min(PlayerData.S.当前炼制秒数 / 需要时间*100f,100f)).ToString("F1")+"%";
@@ -248,7 +248,7 @@ public class 炼丹界面 : MonoBehaviour
         // 当前选择炼制数量 与 炼制数量 文本（单一数据源）；炼制过程中不可调整
         加Button.onClick.AddListener(() =>
         {
-            if (PlayerData.S.当前炼制丹药Type != 丹药Type.None) return;
+            if (HeroWindowController.S.当前炼丹显示Type != 丹药Type.None) return;
             int max = (int)炼制数量Slider.maxValue;
             if (当前选择炼制数量 >= max) return;
             炼制数量Slider.value = 当前选择炼制数量 + 1;
@@ -260,7 +260,7 @@ public class 炼丹界面 : MonoBehaviour
         });
         减button.onClick.AddListener(() =>
         {
-            if (PlayerData.S.当前炼制丹药Type != 丹药Type.None) return;
+            if (HeroWindowController.S.当前炼丹显示Type != 丹药Type.None) return;
             if (当前选择炼制数量 <= 0) return;
             炼制数量Slider.value = 当前选择炼制数量 - 1;
         });

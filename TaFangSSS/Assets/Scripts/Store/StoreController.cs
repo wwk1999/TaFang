@@ -419,7 +419,7 @@ public class StoreController : XSingleton<StoreController>
                         PlayerData.S.Get灵药数量(item.灵药Type, item.QualityType) - 1);
                 }
                PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType,PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType)+1);
-               PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
+               PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
                if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
                {
                    PlayerData.S.炼丹经验 -= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
@@ -449,44 +449,7 @@ public class StoreController : XSingleton<StoreController>
         return value;
     }
 
-    public void 炼制丹药()
-    {
-        if (PlayerData.S.当前炼制丹药Type != 丹药Type.None)
-        {
-            PlayerData.S.当前炼制秒数++;
-            ObserverModuleManager.S.SendEvent("炼制刷新");
-            if (PlayerData.S.当前炼制秒数 >= 丹药Config.Get炼制丹药需要时间(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质))
-            {
-                var value = 丹药Config.Get炼制灵药(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
-                foreach (var item in value)
-                {
-                    PlayerData.S.Set灵药数量(item.灵药Type,item.QualityType,PlayerData.S.Get灵药数量(item.灵药Type,item.QualityType)-1);
-                }
-
-                int 炼丹数量 = 1;
-                float 增加炼丹数量random=Random.Range(0f, 100f);
-                if (增加炼丹数量random < 道场Config.供奉总属性.概率增加炼丹数量)
-                {
-                    炼丹数量 = 2;
-                }
-                PlayerData.S.Set丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质,PlayerData.S.Get丹药数量(PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质)+炼丹数量);
-                PlayerData.S.当前炼制秒数 = 0;
-                PlayerData.S.剩余炼制数量--;
-                PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.当前炼制丹药Type, PlayerData.S.当前炼制丹药品质);
-                if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
-                {
-                    PlayerData.S.炼丹经验 -= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
-                    PlayerData.S.炼丹等级++;
-                }
-                if (PlayerData.S.剩余炼制数量 == 0)
-                {
-                    ObserverModuleManager.S.SendEvent("炼制结束",PlayerData.S.当前炼制丹药Type,PlayerData.S.当前炼制丹药品质);
-                    ObserverModuleManager.S.SendEvent("SendUIToast","丹药炼制完成");
-                    PlayerData.S.当前炼制丹药Type = 丹药Type.None;
-                }
-            }
-        }
-    }
+  
     public void 通天塔单次掉落(int i)
     {
         var list = 通天塔Config.Get通天塔掉落(i);
