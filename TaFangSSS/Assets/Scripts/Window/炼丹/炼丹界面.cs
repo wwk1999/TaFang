@@ -113,7 +113,7 @@ public class 炼丹界面 : MonoBehaviour
         炼丹经验条.value = PlayerData.S.炼丹经验;
         当前经验.text=PlayerData.S.炼丹经验.ToString("F0");
         最大经验.text=PlayerData.S.格式化数字(丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级]);
-        炼制进度条.maxValue = 1;
+        炼制进度条.maxValue = 0;
         炼制进度条.value = 0;
         炼制百分比.text = "0%";
     }
@@ -248,7 +248,7 @@ public class 炼丹界面 : MonoBehaviour
         // 当前选择炼制数量 与 炼制数量 文本（单一数据源）；炼制过程中不可调整
         加Button.onClick.AddListener(() =>
         {
-            if (HeroWindowController.S.当前炼丹显示Type != 丹药Type.None) return;
+            if (HeroWindowController.S.当前炼丹显示Type == 丹药Type.None) return;
             int max = (int)炼制数量Slider.maxValue;
             if (当前选择炼制数量 >= max) return;
             炼制数量Slider.value = 当前选择炼制数量 + 1;
@@ -260,7 +260,7 @@ public class 炼丹界面 : MonoBehaviour
         });
         减button.onClick.AddListener(() =>
         {
-            if (HeroWindowController.S.当前炼丹显示Type != 丹药Type.None) return;
+            if (HeroWindowController.S.当前炼丹显示Type == 丹药Type.None) return;
             if (当前选择炼制数量 <= 0) return;
             炼制数量Slider.value = 当前选择炼制数量 - 1;
         });
@@ -284,6 +284,14 @@ public class 炼丹界面 : MonoBehaviour
             丹药炼制Item 丹药炼制Item = new 丹药炼制Item();
             丹药炼制Item.count = 当前选择炼制数量;
             丹药炼制Item.进度 = 0;
+            丹药炼制Item.黄 = 黄.isOn;
+            丹药炼制Item.玄 = 玄.isOn;
+            丹药炼制Item.地 = 地.isOn;
+            丹药炼制Item.天 = 天.isOn;
+            丹药炼制Item.宇 = 宇.isOn;
+            丹药炼制Item.宙 = 宙.isOn;
+            丹药炼制Item.洪 = 洪.isOn;
+            丹药炼制Item.荒 = 荒.isOn;
             丹药炼制Item.丹药Type = HeroWindowController.S.当前炼丹显示Type;
             丹药炼制Item.丹药QualityType = HeroWindowController.S.当前炼丹显示QualityType;
             炼制数量Slider.value = 0;
@@ -305,7 +313,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.黄品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         玄.onValueChanged.AddListener((value) =>
@@ -313,7 +321,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.玄品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);            
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);            
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         地.onValueChanged.AddListener((value) =>
@@ -321,7 +329,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.地品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         天.onValueChanged.AddListener((value) =>
@@ -329,7 +337,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.天品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         宇.onValueChanged.AddListener((value) =>
@@ -337,7 +345,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.宇品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         宙.onValueChanged.AddListener((value) =>
@@ -345,7 +353,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.宙品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         洪.onValueChanged.AddListener((value) =>
@@ -353,7 +361,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.洪品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         荒.onValueChanged.AddListener((value) =>
@@ -361,7 +369,7 @@ public class 炼丹界面 : MonoBehaviour
             PlayerData.S.丹药灵药筛选Dic[QualityType.荒品]=value;
             当前选择炼制数量 = 0;
             炼制数量Slider.value = 0;
-            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
+            炼制数量Slider.maxValue = 丹药Config.Get最大炼制数量(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType,黄.isOn,玄.isOn,地.isOn,天.isOn,宇.isOn,宙.isOn,洪.isOn,荒.isOn);
             Show灵药(HeroWindowController.S.当前炼丹显示Type,HeroWindowController.S.当前炼丹显示QualityType);
         });
         炼制数量Slider.onValueChanged.AddListener((value) =>

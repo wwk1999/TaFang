@@ -141,6 +141,14 @@ public class 丹药炼制Item
 {
     public 丹药Type 丹药Type;
     public QualityType 丹药QualityType;
+    public bool 黄;
+    public bool 玄;
+    public bool 地;
+    public bool 天;
+    public bool 宇;
+    public bool 宙;
+    public bool 洪;
+    public bool 荒;
     public int count;
     public float 进度;
 }
@@ -489,19 +497,44 @@ public class 丹药Config
         { QualityType.荒品, 1000000 },
     };
 
-    public static int Get最大炼制数量(丹药Type type, QualityType qualityType)
+    public static int Get最大炼制数量(丹药Type type, QualityType qualityType,bool 黄,bool 玄,bool 地,bool 天,bool 宇,bool 宙,bool 洪,bool 荒)
     {
         var list = 丹方Dic[type];
         int min=int.MaxValue;
         for (int i = 0; i < 4; i++)
         {
             int count = 0;
-            for (int j = 1; j <= 8; j++)
+            if (黄 && QualityType.黄品 >= qualityType) 
             {
-                if (PlayerData.S.丹药灵药筛选Dic[(QualityType)j]&&(QualityType)j>=qualityType)
-                {
-                    count+=PlayerData.S.Get灵药数量(list[i], (QualityType)j);
-                }
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.黄品);
+            }
+            if (玄 && QualityType.玄品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.玄品);
+            }
+            if (地 && QualityType.地品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.地品);
+            }
+            if (天 && QualityType.天品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.天品);
+            }
+            if (宇 && QualityType.宇品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.宇品);
+            }
+            if (宙 && QualityType.宙品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.宙品);
+            }
+            if (洪 && QualityType.洪品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.洪品);
+            }
+            if (荒 && QualityType.荒品 >= qualityType) 
+            {
+                count+=PlayerData.S.Get灵药数量(list[i], QualityType.荒品);
             }
             if(count < min)min = count;
         }

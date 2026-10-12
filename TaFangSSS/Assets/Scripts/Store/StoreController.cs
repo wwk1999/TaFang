@@ -393,21 +393,111 @@ public class StoreController : XSingleton<StoreController>
         {
             if (PlayerData.S.丹药炼制List[0].进度 >= 100)
             {
-                var 灵药list=丹药Config.Get炼制灵药(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
-                foreach (var item in 灵药list)
+                foreach (var item in 丹药Config.丹方Dic[PlayerData.S.丹药炼制List[0].丹药Type])
                 {
-                    if (PlayerData.S.Get灵药数量(item.灵药Type,item.QualityType) <= 0)
+                    if (PlayerData.S.丹药炼制List[0].黄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.黄品)
                     {
-                        ObserverModuleManager.S.SendEvent("SendUIToast","灵药不足，丹药炼制终止");
-                        PlayerData.S.丹药炼制List.Clear();
-                        return;
+                        if (PlayerData.S.Get灵药数量(item, QualityType.黄品) > 0)
+                        {
+                            continue;
+                        }
                     }
+                    if (PlayerData.S.丹药炼制List[0].玄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.玄品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.玄品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    if (PlayerData.S.丹药炼制List[0].地 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.地品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.地品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    if (PlayerData.S.丹药炼制List[0].天 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.天品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.天品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    if (PlayerData.S.丹药炼制List[0].宇 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宇品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.宇品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    if (PlayerData.S.丹药炼制List[0].宙 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宙品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.宙品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    if (PlayerData.S.丹药炼制List[0].洪 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.洪品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.洪品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    if (PlayerData.S.丹药炼制List[0].荒 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.荒品)
+                    {
+                        if (PlayerData.S.Get灵药数量(item, QualityType.荒品) > 0)
+                        {
+                            continue;
+                        }
+                    }
+                    ObserverModuleManager.S.SendEvent("SendUIToast","灵药数量不足,炼制终止");
+                    PlayerData.S.丹药炼制List.Clear();
+                    return;
                 }
 
-                foreach (var item in 灵药list)
+                foreach (var item in 丹药Config.丹方Dic[PlayerData.S.丹药炼制List[0].丹药Type])
                 {
-                    PlayerData.S.Set灵药数量(item.灵药Type, item.QualityType,
-                        PlayerData.S.Get灵药数量(item.灵药Type, item.QualityType) - 1);
+                    if (PlayerData.S.丹药炼制List[0].黄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.黄品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.黄品, PlayerData.S.Get灵药数量(item, QualityType.黄品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].玄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.玄品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.玄品, PlayerData.S.Get灵药数量(item, QualityType.玄品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].地 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.地品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.地品, PlayerData.S.Get灵药数量(item, QualityType.地品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].天 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.天品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.天品, PlayerData.S.Get灵药数量(item, QualityType.天品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].宇 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宇品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.宇品, PlayerData.S.Get灵药数量(item, QualityType.宇品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].宙 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宙品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.宙品, PlayerData.S.Get灵药数量(item, QualityType.宙品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].洪 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.洪品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.洪品, PlayerData.S.Get灵药数量(item, QualityType.洪品)-1);
+                        continue;
+                    }
+                    if (PlayerData.S.丹药炼制List[0].荒 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.荒品)
+                    {
+                        PlayerData.S.Set灵药数量(item, QualityType.荒品, PlayerData.S.Get灵药数量(item, QualityType.荒品)-1);
+                        continue;
+                    }
                 }
                PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType,PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType)+1);
                PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
@@ -720,7 +810,7 @@ public class StoreController : XSingleton<StoreController>
             return;
         }
 
-        if (TryLoad(BakPath)
+        if (TryLoad(BakPath))
         {
             // 立即把恢复的数据写回主档，避免下次启动再次走备份
             SaveStoreData(StoreData);
