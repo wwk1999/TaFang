@@ -137,6 +137,13 @@ public class 丹药属性
         return a * scalar;
     }
 }
+public class 丹药炼制Item
+{
+    public 丹药Type 丹药Type;
+    public QualityType 丹药QualityType;
+    public int count;
+    public float 进度;
+}
 public enum 丹药Type
 {
     None,

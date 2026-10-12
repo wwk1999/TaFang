@@ -28,7 +28,6 @@ public class 炼丹界面 : MonoBehaviour
     public TextMeshProUGUI 炼制数量;
     public Button 炼制Button;
     public TextMeshProUGUI 炼制ButtonText;
-    public TextMeshProUGUI 剩余;
     public Toggle 黄;
     public Toggle 玄;
     public Toggle 地;
@@ -40,6 +39,7 @@ public class 炼丹界面 : MonoBehaviour
     public 丹药信息 丹药信息;
     private int 当前选择炼制数量 = 0;
 
+    public GameObject 炼制区域;
     public void Show灵药(丹药Type type, QualityType QualityType)
     {
         foreach (Transform item in 所选灵药Content.transform)
@@ -105,7 +105,6 @@ public class 炼丹界面 : MonoBehaviour
         洪.interactable = QualityType<=QualityType.洪品;
         荒.interactable = QualityType<=QualityType.荒品;
 
-        剩余.gameObject.SetActive(false);
         炼制ButtonText.text = "开始炼制";
         炼制数量Slider.value = 0;
         炼制数量.text = "0";
@@ -159,9 +158,6 @@ public class 炼丹界面 : MonoBehaviour
         洪.interactable = false;
         荒.interactable = false;
 
-        剩余.gameObject.SetActive(true);
-        剩余.text="剩余数量:"+PlayerData.S.剩余炼制数量;
-        炼制ButtonText.text = "炼制中...";
         炼制数量Slider.value = 0;
         炼制数量.text = "0";
         炼丹等级.text = "炼丹等级Lv" + PlayerData.S.炼丹等级 + ":";
@@ -207,7 +203,6 @@ public class 炼丹界面 : MonoBehaviour
         炼制进度条.maxValue = 需要时间;
         炼制进度条.value = PlayerData.S.当前炼制秒数;
         炼制百分比.text = (MathF.Min(PlayerData.S.当前炼制秒数 / 需要时间*100f,100f)).ToString("F1")+"%";
-        剩余.text="剩余数量:"+PlayerData.S.剩余炼制数量;
     }
 
     public void 炼制结束(object[] obj)
@@ -216,8 +211,35 @@ public class 炼丹界面 : MonoBehaviour
         QualityType  qualityType=(QualityType)obj[1];
         非炼制Show(type, qualityType);
     }
+    
+    public void Show丹药炼制区域()
+    {
+        foreach (Transform item in 炼制区域.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        int index = 0;
+        foreach (var item in PlayerData.S.丹药炼制List)
+        {
+            var 打造item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/炼丹item"), 炼制区域.transform).GetComponent<炼丹item>();
+            打造item.丹药Type = item.丹药Type;
+            打造item.丹药QualityType = item.丹药QualityType;
+            打造item.count = item.count;
+            打造item.进度 = item.进度;
+            打造item.index = index;
+            打造item.SetItem();
+            index++;
+        }
+    }
+    public void 刷新丹药炼制区域(object[] obj)
+    {
+        Show丹药炼制区域();
+    }
+    
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新丹药炼制区域",刷新丹药炼制区域);
         ObserverModuleManager.S.RegisterEvent("炼制结束",炼制结束);
         ObserverModuleManager.S.RegisterEvent("炼制刷新",炼制刷新);
         ObserverModuleManager.S.RegisterEvent("刷新炼丹界面",刷新炼丹界面);
@@ -256,11 +278,22 @@ public class 炼丹界面 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","当前炼丹房等级不足,请前往领主府升级炼丹房");
                 return;
             }
+            
+           
+            
+            丹药炼制Item 丹药炼制Item = new 丹药炼制Item();
+            丹药炼制Item.count = 当前选择炼制数量;
+            丹药炼制Item.进度 = 0;
+            丹药炼制Item.丹药Type = HeroWindowController.S.当前炼丹显示Type;
+            丹药炼制Item.丹药QualityType = HeroWindowController.S.当前炼丹显示QualityType;
+            炼制数量Slider.value = 0;
+            当前选择炼制数量 = 0;
+            PlayerData.S.丹药炼制List.Add(丹药炼制Item);
 
-            PlayerData.S.当前炼制丹药Type = HeroWindowController.S.当前炼丹显示Type;
-            PlayerData.S.当前炼制丹药品质 = HeroWindowController.S.当前炼丹显示QualityType;
-            PlayerData.S.剩余炼制数量 = 当前选择炼制数量;
-            ObserverModuleManager.S.SendEvent("SendUIToast","开始炼制丹药");
+            //PlayerData.S.当前炼制丹药Type = HeroWindowController.S.当前炼丹显示Type;
+            //PlayerData.S.当前炼制丹药品质 = HeroWindowController.S.当前炼丹显示QualityType;
+            //PlayerData.S.剩余炼制数量 = 当前选择炼制数量;
+            //ObserverModuleManager.S.SendEvent("SendUIToast","开始炼制丹药");
             炼制中Show();
         });
         exitbutton.onClick.AddListener(() =>
@@ -342,6 +375,7 @@ public class 炼丹界面 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新丹药炼制区域",刷新丹药炼制区域);
         ObserverModuleManager.S.UnRegisterEvent("炼制结束",炼制结束);
         ObserverModuleManager.S.UnRegisterEvent("炼制刷新",炼制刷新);
         ObserverModuleManager.S.UnRegisterEvent("刷新炼丹界面",刷新炼丹界面);
@@ -364,7 +398,7 @@ public class 炼丹界面 : MonoBehaviour
     {
         HeroWindowController.S.当前炼丹显示Type = 丹药Type.火焰伤害;
         HeroWindowController.S.当前炼丹显示QualityType = QualityType.黄品;
-        if (PlayerData.S.当前炼制丹药Type == 丹药Type.None)
+        if (PlayerData.S.丹药炼制List==null||PlayerData.S.丹药炼制List.Count<=0)
         {
             非炼制Show(丹药Type.火焰伤害,QualityType.黄品);
         }

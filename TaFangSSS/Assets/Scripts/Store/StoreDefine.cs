@@ -836,6 +836,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
 };
         
         public List<法器打造Item> 打造List=new List<法器打造Item>();
+        public List<丹药炼制Item> 丹药炼制List=new List<丹药炼制Item>();
 
          public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
     {
@@ -4024,7 +4025,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             坊市自动购买法器配置 = runtime.坊市自动购买法器配置;
             消耗传道次数 =  runtime.消耗传道次数;
             传道所有 =  runtime.传道所有;
-
+            丹药炼制List = runtime.丹药炼制List;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4148,6 +4149,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.坊市自动购买法器配置 = 坊市自动购买法器配置;
             runtime.消耗传道次数 = 消耗传道次数;
             runtime.传道所有 =  传道所有;
+            runtime.丹药炼制List = 丹药炼制List;
 
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None

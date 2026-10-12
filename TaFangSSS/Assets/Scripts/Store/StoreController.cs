@@ -325,6 +325,7 @@ public class StoreController : XSingleton<StoreController>
         {
             法器打造当前时间 = 0;
             打造法器();
+            炼制丹药1();
         }
         if (当前增加修为时间 >= 增加修为时间)//每秒
         {
@@ -341,7 +342,7 @@ public class StoreController : XSingleton<StoreController>
             {
                 PlayerData.S.长生道体年数++;
             }
-            炼制丹药();
+            //炼制丹药();
             
             增加道场资源();
         }
@@ -393,6 +394,46 @@ public class StoreController : XSingleton<StoreController>
             }
         }
         ObserverModuleManager.S.SendEvent("刷新法器打造区域");
+    }
+    
+    public void 炼制丹药1()
+    {
+        if (PlayerData.S.丹药炼制List.Count > 0)
+        {
+            if (PlayerData.S.丹药炼制List[0].进度 >= 100)
+            {
+                var 灵药list=丹药Config.Get炼制灵药(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
+                foreach (var item in 灵药list)
+                {
+                    if (PlayerData.S.Get灵药数量(item.灵药Type,item.QualityType) <= 0)
+                    {
+                        ObserverModuleManager.S.SendEvent("SendUIToast","灵药不足，丹药炼制终止");
+                        PlayerData.S.丹药炼制List.Clear();
+                        return;
+                    }
+                }
+
+                foreach (var item in 灵药list)
+                {
+                    PlayerData.S.Set灵药数量(item.灵药Type, item.QualityType,
+                        PlayerData.S.Get灵药数量(item.灵药Type, item.QualityType) - 1);
+                }
+               PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType,PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType)+1);
+               
+                PlayerData.S.丹药炼制List[0].count--;
+                PlayerData.S.丹药炼制List[0].进度 = 0;
+                if (PlayerData.S.丹药炼制List[0].count <= 0)
+                {
+                    PlayerData.S.丹药炼制List.RemoveAt(0);
+                }
+            }
+            else
+            {
+                float 炼制需要秒数 = 丹药Config.Get炼制丹药需要时间(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType);
+                PlayerData.S.丹药炼制List[0].进度 += 10f / 炼制需要秒数;
+            }
+        }
+        ObserverModuleManager.S.SendEvent("刷新丹药炼制区域");
     }
 
     public float Get法器打造时间()

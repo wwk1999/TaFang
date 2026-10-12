@@ -103,6 +103,12 @@ public class 胜利弹窗 : MonoBehaviour
                 PlayerData.S.Get灵物数量(item.JingJieType, item.QualityType) + 1);
         }
 
+        PlayerData.S.PropListDic[PropType.轮回石] += 1;
+        var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        item1.Type = PropType.轮回石;
+        item1.count = 1;
+        item1.SetItem();
         if (value.灵魂 > 0)
         {
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)

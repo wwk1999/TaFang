@@ -67,6 +67,7 @@ public class PlayerData : XSingleton<PlayerData>
     public int 剩余炼制数量;
     public float 当前炼制秒数;
     public List<法器打造Item> 打造List=new List<法器打造Item>();
+    public List<丹药炼制Item> 丹药炼制List=new List<丹药炼制Item>();
 
    
 
