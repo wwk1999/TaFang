@@ -2141,7 +2141,9 @@ public class FightController : XSingleton<FightController>
             普通怪物Time = 符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].CreateNormalMonsterTime;
             普通怪物最大数量=符文之地Config.符文之地信息Dic[LevelConfig.当前符文之地Type].NormalMonsterCount;
         }
-        if (当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
+        // 战斗结束（胜利/失败）后停止刷怪：挂机时胜利后仍无限出怪被击杀，
+        // 每杀触发胜利检查+事件链，整晚托管分配碎片化堆积导致返回战斗时 OOM 闪退
+        if (!战斗结束 && 当前创建普通怪物时间 >= 普通怪物Time&&NormalMonsterCount<普通怪物最大数量)
         {
             // 配额在 CreateNormalMonster 内部 Dequeue 成功后才扣：
             // 原来先 ++ 再生成，对象池空时生成被跳过但配额白扣，

@@ -1701,7 +1701,9 @@ public class MonsterBase : MonoBehaviour
          ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
          // >= 而非 ==：精英里程碑重复值可能多生成精英使总击杀越过关卡总数，
          // == 会错过胜利窗口，同样造成卡死
-         if (FightController.S.KillMonsterCount >= 总数量)
+         // 战斗结束门控：胜利后场上可能还有活怪（挂机一晚每杀一只都会重启胜利协程+结算事件，
+         // 托管分配碎片化堆积，返回战斗时 UI 一次性激活触发大块分配导致原生 OOM 闪退）
+         if (!FightController.S.战斗结束 && FightController.S.KillMonsterCount >= 总数量)
          {
             FightController.S.战斗结束 = true;
             FightController.S.StartCoroutine(Show胜利弹窗());

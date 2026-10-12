@@ -28,6 +28,12 @@ public class Entrance : MonoBehaviour
    }
    public void 围栏受击(object[] obj)
    {
+       // 战斗结束（胜利/失败）后墙不再受击：挂机时胜利后活怪继续攻墙，
+       // 可能在胜利弹窗已出的情况下又触发失败冻结 timeScale
+       if (FightController.S.战斗结束)
+       {
+           return;
+       }
        if (FightController.S.城墙无敌Time > 0)
        {
            return;
