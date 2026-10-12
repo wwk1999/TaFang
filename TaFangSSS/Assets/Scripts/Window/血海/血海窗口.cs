@@ -61,6 +61,7 @@ public class 血海窗口 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("刷新血海关卡列表",刷新血海关卡列表);
       ObserverModuleManager.S.UnRegisterEvent("血海按钮点击",血海按钮点击);
       ObserverModuleManager.S.UnRegisterEvent("刷新血海窗口",刷新血海窗口);
       ObserverModuleManager.S.UnRegisterEvent("显示血海英雄派遣弹窗",显示血海英雄派遣弹窗);
@@ -81,8 +82,15 @@ public class 血海窗口 : MonoBehaviour
          PlayerData.S.血海寻宝Dic[HeroWindowController.S.当前血海层数].重复 = false;
       }
    }
+
+   public void 刷新血海关卡列表(object[] obj)
+   {
+      Show关卡列表();
+   }
    private void Awake()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新血海关卡列表",刷新血海关卡列表);
+
       ObserverModuleManager.S.RegisterEvent("血海按钮点击",血海按钮点击);
       ObserverModuleManager.S.RegisterEvent("刷新血海窗口",刷新血海窗口);
       ObserverModuleManager.S.RegisterEvent("显示血海英雄派遣弹窗",显示血海英雄派遣弹窗);
@@ -128,7 +136,7 @@ public class 血海窗口 : MonoBehaviour
          寻宝按钮.interactable = false;
          Show关卡列表();
          ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
-
+         
       });
    }
 

@@ -72,6 +72,7 @@ public class 符文熔炼选择itemImage : MonoBehaviour,IPointerEnterHandler, I
         // 在Canvas下创建弹窗
         currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
         符文信息弹窗 弹窗 = currentPopup.GetComponent<符文信息弹窗>();
+        弹窗.GetComponent<RectTransform>().pivot = new Vector2(0f, 0.5f);
         弹窗.符文 = 符文熔炼选择item.符文;
         弹窗.SetItem();
         UpdatePopupPosition(mousePosition);

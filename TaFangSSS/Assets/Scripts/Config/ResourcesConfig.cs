@@ -10,6 +10,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 星星;
     public static Sprite 月亮;
     public static Sprite 太阳;
+    public static Sprite 钻石;
     
     public static Sprite 轮回石;
     
@@ -7359,6 +7360,7 @@ public class ResourcesConfig : MonoBehaviour
         星星=Resources.Load<Sprite>("Sprite/星级icon/星星");
         月亮=Resources.Load<Sprite>("Sprite/星级icon/月亮");
         太阳=Resources.Load<Sprite>("Sprite/星级icon/太阳");
+        钻石=Resources.Load<Sprite>("Sprite/星级icon/钻石");
 
         轮回石=Resources.Load<Sprite>("Sprite/DaoJu/轮回石");
         铁白=Resources.Load<Sprite>("Sprite/法器材料/铁白");

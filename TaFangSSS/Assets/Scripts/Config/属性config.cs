@@ -534,12 +534,12 @@ public class 属性config
      {
           float 装备属性增幅 = 1f + EquipConfig.装备附加属性数值Dic[附加属性Type.装备基础属性增幅]() ;
           float 装备基础属性 = 0;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.头盔]]/100f ;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.护手]]/100f ;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.戒指]]/100f ;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.鞋子]]/100f ;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.项链]]/100f ;
-          装备基础属性 += EquipConfig.装备基础攻击Dic[PlayerData.S.EquipLevelDic[EquipType.衣服]]/100f ;
+          装备基础属性 += EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[EquipType.头盔])/100f ;
+          装备基础属性 += EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[EquipType.护手])/100f ;
+          装备基础属性 += EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[EquipType.戒指])/100f ;
+          装备基础属性 += EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[EquipType.鞋子])/100f ;
+          装备基础属性 += EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[EquipType.项链])/100f ;
+          装备基础属性 += EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[EquipType.衣服])/100f ;
           return 装备基础属性 * 装备属性增幅;
      }
 

@@ -73,11 +73,30 @@ public class 功法星级
     public int 星星;
     public int 月亮;
     public int 太阳;
+    public int 钻石;
 }
 
 public class 功法Config
 {
 
+    public static Dictionary<功法星级Type, float> 星级增幅Dic = new Dictionary<功法星级Type, float>()
+    {
+        { 功法星级Type.钻石, 100000 },
+        { 功法星级Type.太阳, 3000 },
+        { 功法星级Type.月亮, 200 },
+        { 功法星级Type.星星, 20 },
+    };
+
+    public static float Get功法星级总增幅(int level)
+    {
+        功法星级 功法星级 = Get功法星级(level);
+        float count = 0;
+        count += 功法星级.钻石 * 星级增幅Dic[功法星级Type.钻石];
+        count += 功法星级.太阳 * 星级增幅Dic[功法星级Type.太阳];
+        count += 功法星级.月亮 * 星级增幅Dic[功法星级Type.月亮];
+        count += 功法星级.星星 * 星级增幅Dic[功法星级Type.星星];
+        return count;
+    }
     public static 功法星级 Get功法星级(int level)
     {
         if (level < 0)
@@ -88,9 +107,11 @@ public class 功法Config
         // 按你的规则：
         // 1个月亮 = 5级
         // 1个太阳 = 25级
-        int 太阳 = level / 25;
-        int 剩余 = level % 25;
+        int 钻石 = level / 125;
+        int 剩余 = level % 125;
 
+        int 太阳 = 剩余 / 25;
+        剩余 = 剩余 % 25;
         int 月亮 = 剩余 / 5;
         剩余 = 剩余 % 5;
 
@@ -100,7 +121,8 @@ public class 功法Config
         {
             太阳 = 太阳,
             月亮 = 月亮,
-            星星 = 星星
+            星星 = 星星,
+            钻石=钻石,
         };
     }
     public static int Get功法升级经验(int level)
@@ -367,8 +389,6 @@ public class 功法Config
 
         功法属性Item item = 功法属性Dic[type];
         float value = item.count;
-        Color c = new Color(1/255f, 95/255f, 0f); // 橙色
-        string hex = ColorUtility.ToHtmlStringRGB(c);
         switch (type)
         {
             // 战士系列 - 攻击距离
@@ -380,7 +400,7 @@ public class 功法Config
             case 功法Type.战士红:
             case 功法Type.战士橙:
             case 功法Type.战士彩:
-                return $"战士攻击距离+<color=green>{value}</color>";
+                return $"战士攻击距离+{value}";
 
             // 法师系列 - 暴击伤害
             case 功法Type.法师白:
@@ -392,7 +412,7 @@ public class 功法Config
             case 功法Type.法师橙:
             case 功法Type.法师彩:
                 
-                return $"法师暴击伤害+<color=green>{value}%</color>";
+                return $"法师暴击伤害+{value}%";
 
             // 辅助系列 - 辅助效果
             case 功法Type.辅助白:
@@ -403,7 +423,7 @@ public class 功法Config
             case 功法Type.辅助红:
             case 功法Type.辅助橙:
             case 功法Type.辅助彩:
-                return $"辅助效果+<color=green>{value}%</color>";
+                return $"辅助效果+{value}%";
 
             // 控制系列 - 控制效果
             case 功法Type.控制白:
@@ -414,7 +434,7 @@ public class 功法Config
             case 功法Type.控制红:
             case 功法Type.控制橙:
             case 功法Type.控制彩:
-                return $"控制效果+<color=green>{value}%</color>";
+                return $"控制效果+{value}%";
 
             // 射手系列 - 冷却缩减
             case 功法Type.射手白:
@@ -425,7 +445,7 @@ public class 功法Config
             case 功法Type.射手红:
             case 功法Type.射手橙:
             case 功法Type.射手彩:
-                return $"射手冷却缩减+<color=green>{value}%</color>";
+                return $"射手冷却缩减+{value}%";
 
             default:
                 return "";
@@ -442,6 +462,18 @@ public class 功法Config
         { QualityType.宙品, 100 },
         { QualityType.洪品, 250 },
         { QualityType.荒品, 1500 },
+    };
+    
+    public static Dictionary<QualityType, float> 功法最高星级Dic = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 5 },
+        { QualityType.玄品, 10 },
+        { QualityType.地品, 15 },
+        { QualityType.天品, 20 },
+        { QualityType.宇品, 25 },
+        { QualityType.宙品, 30 },
+        { QualityType.洪品, 35 },
+        { QualityType.荒品, 9999999 },
     };
     
     //增加被辅助英雄伤害

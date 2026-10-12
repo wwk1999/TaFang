@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class 法器打造Item
@@ -397,10 +398,10 @@ public class 法器Config
         { QualityType.玄品 ,0.02f},
         { QualityType.地品 ,0.05f},
         { QualityType.天品 ,0.12f},
-        { QualityType.宇品 ,0.3f},
-        { QualityType.宙品 ,1f},
-        { QualityType.洪品 ,3f},
-        { QualityType.荒品 ,15f},
+        { QualityType.宇品 ,0.25f},
+        { QualityType.宙品 ,0.5f},
+        { QualityType.洪品 ,1.5f},
+        { QualityType.荒品 ,6f},
     };
 
     /// <summary>
@@ -431,6 +432,22 @@ public class 法器Config
         }
 
         return result;
+    }
+    
+    public static int Get最大打造数量(法器Type type)
+    {
+        // 未选中具体法器时打造数量为0
+        if (type == 法器Type.None) return 0;
+
+        // 每件法器需要每种材料各1个，最大打造数取所有材料持有量的最小值
+        int 最大数量 = int.MaxValue;
+        foreach (var propType in Get打造法器材料(type))
+        {
+            PlayerData.S.PropListDic.TryGetValue(propType, out float count);
+            最大数量 = Math.Min(最大数量, Mathf.FloorToInt(count));
+        }
+
+        return 最大数量 == int.MaxValue ? 0 : 最大数量;
     }
     public static Dictionary<法器类型, List<法器材料Type>> 法器材料Dic = new Dictionary<法器类型, List<法器材料Type>>()
     {

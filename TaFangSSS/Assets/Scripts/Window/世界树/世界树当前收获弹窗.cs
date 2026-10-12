@@ -65,7 +65,7 @@ public class 世界树当前收获弹窗 : MonoBehaviour
             }
             ObserverModuleManager.S.SendEvent("刷新世界树窗口");
             ObserverModuleManager.S.SendEvent("世界树英雄派遣Item刷新");
-
+            ObserverModuleManager.S.SendEvent("刷新世界树关卡列表");
             gameObject.SetActive(false);
         });
     }

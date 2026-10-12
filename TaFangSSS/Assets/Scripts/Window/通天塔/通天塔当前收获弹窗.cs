@@ -66,6 +66,7 @@ public class 通天塔当前收获弹窗 : MonoBehaviour
             }
             ObserverModuleManager.S.SendEvent("刷新通天塔窗口");
             ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");
+            ObserverModuleManager.S.SendEvent("刷新通天塔关卡列表");
             gameObject.SetActive(false);
         });
     }

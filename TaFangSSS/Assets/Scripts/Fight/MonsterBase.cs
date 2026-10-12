@@ -1462,7 +1462,7 @@ public class MonsterBase : MonoBehaviour
          float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[heroData.功法Type]];
          功法伤害加成 += heroData.功法等级 * 每重奖励 / 100f
             * (1f + FightController.S.缓存体质总属性.功法每层效果 / 100f)
-            * (1f + heroData.功法星级 * 0.2f);
+            * (1f + 功法Config.Get功法星级总增幅(heroData.功法星级)/100f);
       }
       // 辅助英雄功法加成（与主英雄功法相加，多个辅助一起加）
       if (瑶池冰辅助 > 0)

@@ -89,7 +89,7 @@ public class 世界树Config
                 需要人数 = 3,
                 需要英雄品质 = QualityType.None,
                 需要英雄星级 = 0,
-                需要英雄元素 = YuanSuType.火,
+                需要英雄元素 = YuanSuType.电,
                 需要英雄职业 = ZhiYeType.None,
                 需要境界=3,
             }

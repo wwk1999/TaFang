@@ -14,7 +14,9 @@ public class 法器打造panel : MonoBehaviour
     public Button 鞋子Button;
     public Button 头盔Button;
     public GameObject 背包;
-    
+    public Button 加Button;
+    public Button 减Button;
+
 
     public Image icon;
     public Image 艺术字;
@@ -197,6 +199,18 @@ public class 法器打造panel : MonoBehaviour
             HeroWindowController.S.法器打造法器类型 = 法器类型.武器;
             HeroWindowController.S.法器打造法器Type = 法器Type.None;
             Show法器打造Panel();
+        });
+        加Button.onClick.AddListener(() =>
+        {
+            打造数量++;
+            打造数量 = Math.Min(打造数量, Get最大打造数量());
+            数量进度条.value = 打造数量;
+        });
+        减Button.onClick.AddListener(() =>
+        {
+            打造数量--;
+            打造数量 = Math.Max(打造数量, 0);
+            数量进度条.value = 打造数量;
         });
         头盔Button.onClick.AddListener(() =>
         {

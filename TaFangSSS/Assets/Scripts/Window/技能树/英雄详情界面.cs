@@ -215,6 +215,14 @@ public class 英雄详情界面 : MonoBehaviour
         }
 
         功法星级 功法星级 = 功法Config.Get功法星级(PlayerData.S.HeroDataDic[当前heroType].功法星级);
+        for (int i = 0; i < 功法星级.钻石; i++)
+        {
+            var item = Instantiate(Resources.Load("Prefabs/Window/技能树/功法星级item"), 功法星级content.transform)
+                .GetComponent<功法星级item>();
+            item.功法星级Type=功法星级Type.钻石;
+            item.SetItem();
+        }
+        
         for (int i = 0; i < 功法星级.太阳; i++)
         {
             var item = Instantiate(Resources.Load("Prefabs/Window/技能树/功法星级item"), 功法星级content.transform)
@@ -268,20 +276,19 @@ public class 英雄详情界面 : MonoBehaviour
         当前层数.text = PlayerData.S.HeroDataDic[当前heroType].功法等级.ToString();
         ZhiYeType zhiYeType = 功法Config.功法职业Dic[功法Type];
         float 辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]];
-        float 总最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级*(1f+0.2f*功法星级);
-        float 总辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级*(1f+0.2f*功法星级);
+        float 总最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级*(1f+功法Config.Get功法星级总增幅(PlayerData.S.HeroDataDic[当前heroType].功法星级)/100f);
+        float 总辅助值 = 功法Config.辅助功法升级奖励Dic[功法Config.功法TypeQualityDic[功法Type]]*功法等级*(1f+功法Config.Get功法星级总增幅(PlayerData.S.HeroDataDic[当前heroType].功法星级)/100f);
         float 最终伤害 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[功法Type]];
         Color c = new Color(1/255f, 95/255f, 0f); // 橙色
-        string hex = ColorUtility.ToHtmlStringRGB(c);
         if (zhiYeType == ZhiYeType.辅助)
         {
-            当前加成.text=$"被辅助英雄伤害+<color=#{hex}>{总辅助值}%</color>";
-            每重增幅.text = $"被辅助英雄伤害+<color=#{hex}>{辅助值}%</color>";
+            当前加成.text=$"被辅助英雄伤害+{PlayerData.S.格式化数字(总辅助值)}%";
+            每重增幅.text = $"被辅助英雄伤害+{辅助值}%";
         }
         else
         {
-            当前加成.text = $"英雄最终伤害+<color=#{hex}>{总最终伤害}%</color>";
-            每重增幅.text = $"英雄最终伤害+<color=#{hex}>{最终伤害}%</color>";
+            当前加成.text = $"英雄最终伤害+{PlayerData.S.格式化数字(总最终伤害)}%";
+            每重增幅.text = $"英雄最终伤害+{最终伤害}%";
         }
 
         升星需要功法Icon.gameObject.SetActive(功法星级%5==0&&功法星级>0);
@@ -574,7 +581,13 @@ public class 英雄详情界面 : MonoBehaviour
         {
             int 功法星级 = PlayerData.S.HeroDataDic[当前heroType].功法星级;
             功法Type 功法Type = PlayerData.S.HeroDataDic[当前heroType].功法Type;
-            if (PlayerData.S.PropListDic[PropType.功法经验] < 功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]])
+            QualityType 功法QualityType = 功法Config.功法TypeQualityDic[功法Type];
+            if (PlayerData.S.HeroDataDic[当前heroType].功法星级 >= 功法Config.功法最高星级Dic[功法QualityType])
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","功法已达最高星级");
+                return;
+            }
+            if (PlayerData.S.PropListDic[PropType.功法经验] < 功法Config.功法升星经验[功法QualityType])
             {
                 ObserverModuleManager.S.SendEvent("SendUIToast","功法经验不足");
                 return;
@@ -588,7 +601,7 @@ public class 英雄详情界面 : MonoBehaviour
                     return;
                 }
             }
-            PlayerData.S.PropListDic[PropType.功法经验] -= 功法Config.功法升星经验[功法Config.功法TypeQualityDic[功法Type]];
+            PlayerData.S.PropListDic[PropType.功法经验] -= 功法Config.功法升星经验[功法QualityType];
             if (功法星级 % 5 == 0 && 功法星级 > 0)
             {
                 PlayerData.S.功法数量Dic[功法Type] -= 1;

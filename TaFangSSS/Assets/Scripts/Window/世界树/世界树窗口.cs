@@ -61,6 +61,7 @@ public class 世界树窗口 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("刷新世界树关卡列表",刷新关卡列表);
       ObserverModuleManager.S.UnRegisterEvent("世界树按钮点击",世界树按钮点击);
       ObserverModuleManager.S.UnRegisterEvent("刷新世界树窗口",刷新世界树窗口);
       ObserverModuleManager.S.UnRegisterEvent("显示世界树英雄派遣弹窗",显示世界树英雄派遣弹窗);
@@ -81,8 +82,14 @@ public class 世界树窗口 : MonoBehaviour
          PlayerData.S.世界树寻宝Dic[HeroWindowController.S.当前世界树层数].重复 = false;
       }
    }
+
+   public void 刷新关卡列表(object[] obj)
+   {
+      Show关卡列表();
+   }
    private void Awake()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新关卡列表",刷新关卡列表);
       ObserverModuleManager.S.RegisterEvent("世界树按钮点击",世界树按钮点击);
       ObserverModuleManager.S.RegisterEvent("刷新世界树窗口",刷新世界树窗口);
       ObserverModuleManager.S.RegisterEvent("显示世界树英雄派遣弹窗",显示世界树英雄派遣弹窗);

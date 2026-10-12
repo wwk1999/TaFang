@@ -2044,7 +2044,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                 主线关卡Type.混沌虚空,
                 new HashSet<LevelDiaoLuo>()
                 {
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
                     new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
                     new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
                     new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },

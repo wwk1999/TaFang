@@ -199,15 +199,10 @@
              材料Item.材料数量 = 800;
              材料Item.灵气数量 = 30000000;
          }
-         else if (level <= 100)
+         else 
          {
              材料Item.材料数量 = 1200;
              材料Item.灵气数量 = 120000000;
-         }
-         else
-         {
-             材料Item.材料数量 = 1200000;
-             材料Item.灵气数量 = 1200000000;
          }
 
          return 材料Item;
@@ -460,6 +455,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.头盔] / 100f);
                  if (item.无暇)
                  {
                      value *= 2;
@@ -482,6 +478,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.戒指] / 100f);
                  if (item.无暇)
                  {
                      value *= 2;
@@ -507,6 +504,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.项链] / 100f);
                  if (item.无暇)
                  {
                      value *= 2;
@@ -532,6 +530,8 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.鞋子] / 100f);
+
                  if (item.无暇)
                  {
                      value *= 2;
@@ -557,6 +557,8 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.护手] / 100f);
+
                  if (item.无暇)
                  {
                      value *= 2;
@@ -581,6 +583,8 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.衣服] / 100f);
+
                  if (item.无暇)
                  {
                      value *= 2;
@@ -831,7 +835,19 @@
          
      };
 
-     public static Dictionary<int, int> 装备基础攻击Dic = new Dictionary<int, int>()
+
+     public static int Get装备基础攻击力(int level)
+     {
+         if (level <= 100)
+         {
+             return 装备基础攻击1Dic[level];
+         }
+         else
+         {
+             return 装备基础攻击1Dic[100] + (level - 100) * 80;
+         }
+     }
+     public static Dictionary<int, int> 装备基础攻击1Dic = new Dictionary<int, int>()
      {
          {1, 1},
          {2, 2},

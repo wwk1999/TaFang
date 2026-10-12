@@ -10,6 +10,7 @@ public class 打造item : MonoBehaviour,IPointerClickHandler
 {
     public Image bg;
     public Image icon;
+    public Image mask;
     public TextMeshProUGUI counttext;
     [NonSerialized] public 法器Type 法器Type;
     [NonSerialized] public int count;
@@ -17,6 +18,7 @@ public class 打造item : MonoBehaviour,IPointerClickHandler
     [NonSerialized] public int index;
     public void SetItem()
     {
+        mask.sprite=ResourcesConfig.Get法器Sprite(法器Type);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器Type]);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
         counttext.text = count.ToString();

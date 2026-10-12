@@ -62,6 +62,7 @@ public class 通天塔窗口 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.UnRegisterEvent("刷新通天塔关卡列表",刷新通天塔关卡列表);
       ObserverModuleManager.S.UnRegisterEvent("通天塔按钮点击",通天塔按钮点击);
       ObserverModuleManager.S.UnRegisterEvent("刷新通天塔窗口",刷新通天塔窗口);
       ObserverModuleManager.S.UnRegisterEvent("显示通天塔英雄派遣弹窗",显示通天塔英雄派遣弹窗);
@@ -82,8 +83,14 @@ public class 通天塔窗口 : MonoBehaviour
          PlayerData.S.通天塔寻宝Dic[HeroWindowController.S.当前通天塔层数].重复 = false;
       }
    }
+
+   public void 刷新通天塔关卡列表(object[] obj)
+   {
+      Show关卡列表();
+   }
    private void Awake()
    {
+      ObserverModuleManager.S.RegisterEvent("刷新通天塔关卡列表",刷新通天塔关卡列表);
       ObserverModuleManager.S.RegisterEvent("通天塔按钮点击",通天塔按钮点击);
       ObserverModuleManager.S.RegisterEvent("刷新通天塔窗口",刷新通天塔窗口);
       ObserverModuleManager.S.RegisterEvent("显示通天塔英雄派遣弹窗",显示通天塔英雄派遣弹窗);

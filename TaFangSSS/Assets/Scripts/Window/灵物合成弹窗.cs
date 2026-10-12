@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,8 +43,64 @@ public class 灵物合成弹窗 : MonoBehaviour
         {
             foreach (var item in JingJieConfig.JingJieNameDic)
             {
-                if(PlayerData.S)
+                foreach (var quality in PropConfig.QualityNameDic)
+                {
+                    int count = 0;
+                    switch (quality.Key)
+                    {
+                        case QualityType.黄品:
+                            if (玄)
+                            {
+                                count=PlayerData.S.Get灵物数量(item.Key,quality.Key)/10;
+                            }
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key,PlayerData.S.Get灵物数量(item.Key,quality.Key)-10*count);
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key+1,PlayerData.S.Get灵物数量(item.Key,quality.Key+1)+count);
+                            break;
+                        case QualityType.玄品:
+                            if (地)
+                            {
+                                count=PlayerData.S.Get灵物数量(item.Key,quality.Key)/10;
+                            }
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key,PlayerData.S.Get灵物数量(item.Key,quality.Key)-10*count);
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key+1,PlayerData.S.Get灵物数量(item.Key,quality.Key+1)+count);
+                            break;
+                        case QualityType.地品:
+                            if (天)
+                            {
+                                count=PlayerData.S.Get灵物数量(item.Key,quality.Key)/10;
+                            }
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key,PlayerData.S.Get灵物数量(item.Key,quality.Key)-10*count);
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key+1,PlayerData.S.Get灵物数量(item.Key,quality.Key+1)+count);
+                            break;
+                        case QualityType.天品:
+                            if (宇)
+                            {
+                                count=PlayerData.S.Get灵物数量(item.Key,quality.Key)/10;
+                            }
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key,PlayerData.S.Get灵物数量(item.Key,quality.Key)-10*count);
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key+1,PlayerData.S.Get灵物数量(item.Key,quality.Key+1)+count);
+                            break;
+                        case QualityType.宇品:
+                            if (宙)
+                            {
+                                count=PlayerData.S.Get灵物数量(item.Key,quality.Key)/10;
+                            }
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key,PlayerData.S.Get灵物数量(item.Key,quality.Key)-10*count);
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key+1,PlayerData.S.Get灵物数量(item.Key,quality.Key+1)+count);
+                            break;
+                        case QualityType.宙品:
+                            if (洪)
+                            {
+                                count=PlayerData.S.Get灵物数量(item.Key,quality.Key)/10;
+                            }
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key,PlayerData.S.Get灵物数量(item.Key,quality.Key)-10*count);
+                            PlayerData.S.Set灵物数量(item.Key,quality.Key+1,PlayerData.S.Get灵物数量(item.Key,quality.Key+1)+count);
+                            break;
+                    }
+                }
             }
+            ObserverModuleManager.S.SendEvent("刷新背包");
+            gameObject.SetActive(false);
         });
         maskButton.onClick.AddListener(() =>
         {

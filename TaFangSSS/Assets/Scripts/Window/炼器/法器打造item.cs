@@ -11,7 +11,8 @@ public class 法器打造item : MonoBehaviour
    public Image icon;
    public TextMeshProUGUI name;
    public GameObject gou;
-
+   public TextMeshProUGUI count;
+   public GameObject mask;
    [NonSerialized] public 法器Type 法器Type;
 
    public void 刷新法器打造Panel(object[] obj)
@@ -41,5 +42,8 @@ public class 法器打造item : MonoBehaviour
       icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
       name.text = 法器Config.法器名Dic[法器Type];
       gou.gameObject.SetActive(false);
+      int count1=法器Config.Get最大打造数量(法器Type);
+      count.text = count1.ToString();
+      mask.gameObject.SetActive(count1==0);
    }
 }

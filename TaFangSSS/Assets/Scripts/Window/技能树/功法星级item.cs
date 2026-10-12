@@ -10,6 +10,7 @@ public enum 功法星级Type
     星星,
     月亮,
     太阳,
+    钻石,
 }
 public class 功法星级item : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class 功法星级item : MonoBehaviour
                 break;
             case 功法星级Type.太阳:
                 image.sprite = ResourcesConfig.太阳;
+                break;
+            case 功法星级Type.钻石:
+                image.sprite = ResourcesConfig.钻石;
                 break;
         }
     }
