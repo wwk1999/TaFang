@@ -250,8 +250,8 @@ public class 炼丹界面 : MonoBehaviour
                 return;
             }
 
-            if (PlayerData.S.当前炼制丹药品质 != QualityType.None
-                && PlayerData.S.当前炼制丹药品质 > 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].最高炼制QualityType)
+            if (HeroWindowController.S.当前炼丹显示QualityType != QualityType.None
+                && HeroWindowController.S.当前炼丹显示QualityType > 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].最高炼制QualityType)
             {
                 ObserverModuleManager.S.SendEvent("SendUIToast","当前炼丹房等级不足,请前往领主府升级炼丹房");
                 return;
