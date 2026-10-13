@@ -178,8 +178,18 @@ public class 仙石Config
             float min=法器Config.法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].min;
             float max=法器Config.法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].max;
             法器附加属性值 法器附加属性值 = new 法器附加属性值();
+            var 无暇random=Random.Range(0,100f);
+            if (无暇random < 1f)
+            {
+                法器附加属性值.无暇 = true;
+                法器附加属性值.count=max;
+            }
+            else
+            {
+                法器附加属性值.无暇 = false;
+                法器附加属性值.count=Random.Range(min,max);;
+            }
             法器附加属性值.法器附加属性Type = (法器附加属性Type)type;
-            法器附加属性值.count=Random.Range(min,max)/数量;
             list.Add(法器附加属性值);
         }
         return list;

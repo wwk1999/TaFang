@@ -22,6 +22,7 @@ public enum 主页地图Type
 public class MainWindow : MonoBehaviour
 {
     public GameObject 愿望单提示;
+    public TextMeshProUGUI 愿望单提示Text;
 
     public Button 新手攻略Button;
     public GameObject 新手攻略;
@@ -218,8 +219,14 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.是否第一次游戏 = false;
         }
 
-        if (PlayerData.S.历史最高境界 >= JingJieType.大乘 && !PlayerData.S.是否加入愿望单)
+        if (PlayerData.S.历史最高境界 >= JingJieType.玄仙 && !PlayerData.S.是否加入愿望单)
         {
+            愿望单提示Text.text = "玄仙以上加入愿望单掉宝率+20%";
+            愿望单提示.gameObject.SetActive(true);
+        }
+        else  if (PlayerData.S.历史最高境界 >= JingJieType.大乘 && !PlayerData.S.是否加入愿望单)
+        {
+            愿望单提示Text.text = "都大乘了,加下愿望单吧,感谢！";
             愿望单提示.gameObject.SetActive(true);
         }
         else

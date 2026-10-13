@@ -458,42 +458,51 @@ public class StoreController : XSingleton<StoreController>
 
                 foreach (var item in 丹药Config.丹方Dic[PlayerData.S.丹药炼制List[0].丹药Type])
                 {
-                    if (PlayerData.S.丹药炼制List[0].黄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.黄品)
+                    // 扣减条件必须与上方校验一致：只扣数量>0的品质，否则会扣出负数
+                    if (PlayerData.S.丹药炼制List[0].黄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.黄品
+                        && PlayerData.S.Get灵药数量(item, QualityType.黄品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.黄品, PlayerData.S.Get灵药数量(item, QualityType.黄品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].玄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.玄品)
+                    if (PlayerData.S.丹药炼制List[0].玄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.玄品
+                        && PlayerData.S.Get灵药数量(item, QualityType.玄品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.玄品, PlayerData.S.Get灵药数量(item, QualityType.玄品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].地 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.地品)
+                    if (PlayerData.S.丹药炼制List[0].地 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.地品
+                        && PlayerData.S.Get灵药数量(item, QualityType.地品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.地品, PlayerData.S.Get灵药数量(item, QualityType.地品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].天 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.天品)
+                    if (PlayerData.S.丹药炼制List[0].天 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.天品
+                        && PlayerData.S.Get灵药数量(item, QualityType.天品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.天品, PlayerData.S.Get灵药数量(item, QualityType.天品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].宇 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宇品)
+                    if (PlayerData.S.丹药炼制List[0].宇 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宇品
+                        && PlayerData.S.Get灵药数量(item, QualityType.宇品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.宇品, PlayerData.S.Get灵药数量(item, QualityType.宇品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].宙 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宙品)
+                    if (PlayerData.S.丹药炼制List[0].宙 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宙品
+                        && PlayerData.S.Get灵药数量(item, QualityType.宙品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.宙品, PlayerData.S.Get灵药数量(item, QualityType.宙品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].洪 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.洪品)
+                    if (PlayerData.S.丹药炼制List[0].洪 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.洪品
+                        && PlayerData.S.Get灵药数量(item, QualityType.洪品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.洪品, PlayerData.S.Get灵药数量(item, QualityType.洪品)-1);
                         continue;
                     }
-                    if (PlayerData.S.丹药炼制List[0].荒 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.荒品)
+                    if (PlayerData.S.丹药炼制List[0].荒 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.荒品
+                        && PlayerData.S.Get灵药数量(item, QualityType.荒品) > 0)
                     {
                         PlayerData.S.Set灵药数量(item, QualityType.荒品, PlayerData.S.Get灵药数量(item, QualityType.荒品)-1);
                         continue;
@@ -850,6 +859,16 @@ public class StoreController : XSingleton<StoreController>
             foreach (var key in 负数keys)
             {
                 PlayerData.S.PropListDic[key] = 0;
+            }
+            // 灵药Dic同样清理（旧版炼丹扣减无>0校验会扣出负数，导致炼制数量Slider的maxValue为负而崩溃）
+            var 负数灵药keys = new List<string>();
+            foreach (var kv in PlayerData.S.灵药Dic)
+            {
+                if (kv.Value < 0) 负数灵药keys.Add(kv.Key);
+            }
+            foreach (var key in 负数灵药keys)
+            {
+                PlayerData.S.灵药Dic[key] = 0;
             }
             return true;
         }

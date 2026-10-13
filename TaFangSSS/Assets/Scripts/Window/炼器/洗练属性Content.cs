@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class 洗练属性Content : MonoBehaviour
     [NonSerialized] public bool 是否带锁=false;
     [NonSerialized] public List<法器附加属性值> list;
     [NonSerialized] public 仙石Type 仙石Type = 仙石Type.None;
+    [NonSerialized]public QualityType QualityType;
     public GameObject content;
 
     public void SetItem()
@@ -33,6 +35,7 @@ public class 洗练属性Content : MonoBehaviour
                 .GetComponent<法器洗练词条Item>();
             词条item.法器附加属性值 = item;
             词条item.是否有锁 = 是否带锁;
+            词条item.QualityType = QualityType;
             词条item.SetItem();
         }
     }

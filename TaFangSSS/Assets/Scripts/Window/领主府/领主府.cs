@@ -211,7 +211,7 @@ public class 领主府 : MonoBehaviour
                break;
             
             case 建筑Type.领主府:
-               if (!道场Config.领主府配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type + 1]))
+               if (!道场Config.领主府配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 1))
                {
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;

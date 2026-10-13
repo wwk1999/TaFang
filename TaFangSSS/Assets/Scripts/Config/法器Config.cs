@@ -258,6 +258,7 @@ public class 法器附加属性值
     public 法器附加属性Type 法器附加属性Type;
     public float count;
     public bool 锁 = false;
+    public bool 无暇 = false;
 }
 
 public class 法器
@@ -2030,8 +2031,18 @@ public class 法器Config
             float min=法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].min;
             float max=法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].max;
             法器附加属性值 法器附加属性值 = new 法器附加属性值();
+            var 无暇random=Random.Range(0,100f);
+            if (无暇random < 1f)
+            {
+                法器附加属性值.无暇 = true;
+                法器附加属性值.count=max;
+            }
+            else
+            {
+                法器附加属性值.无暇 = false;
+                法器附加属性值.count=Random.Range(min,max);;
+            }
             法器附加属性值.法器附加属性Type = (法器附加属性Type)type;
-            法器附加属性值.count=Random.Range(min,max);
             list.Add(法器附加属性值);
         }
         return list;

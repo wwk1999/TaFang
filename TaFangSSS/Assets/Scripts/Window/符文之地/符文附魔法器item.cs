@@ -22,6 +22,10 @@ public class 符文附魔法器item : MonoBehaviour
       bg.onClick.AddListener(() =>
       {
          HeroWindowController.S.当前符文附魔法器 = 法器;
+         if (法器.符文 != null && 法器.符文.type != 符文Type.None)
+         {
+            HeroWindowController.S.当前符文附魔符文 = 法器.符文;
+         }
          ObserverModuleManager.S.SendEvent("刷新符文附魔Panel");
       });
    }

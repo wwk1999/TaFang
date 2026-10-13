@@ -159,7 +159,7 @@ public class FightWindow : MonoBehaviour
 
     public void Set关卡层数()
     {
-        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
         {
             层数.gameObject.SetActive(true);
             层数count.text = LevelConfig.战斗混沌虚空层数.ToString();

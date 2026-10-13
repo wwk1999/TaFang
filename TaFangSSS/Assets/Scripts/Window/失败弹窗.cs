@@ -39,6 +39,7 @@ public class 失败弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        刷新战斗丹药();
         重复挑战Time = 0;
         ObserverModuleManager.S.SendEvent("停止元始音效");
         // 与胜利弹窗一致：未开重复挑战时按钮显示"再战一次"，开启时由 Update 显示倒计时
@@ -47,6 +48,42 @@ public class 失败弹窗 : MonoBehaviour
             战斗Text.text = "再战一次";
         }
     }
+    
+     public void 刷新战斗丹药()
+   {
+       PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType,Math.Max(0,
+           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType)-1));
+       PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType,Math.Max(0,
+           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType)-1));
+       PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType,Math.Max(0,
+           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType)-1));
+       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType) == 0)
+       {
+           PlayerData.S.战斗选择丹药Dic[1].丹药Type = 丹药Type.None;
+       }
+      
+       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType) == 0)
+       {
+           PlayerData.S.战斗选择丹药Dic[2].丹药Type = 丹药Type.None;
+       }
+      
+       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType) == 0)
+       {
+           PlayerData.S.战斗选择丹药Dic[3].丹药Type = 丹药Type.None;
+       }
+       ObserverModuleManager.S.SendEvent("设置丹药区域");
+       FightController.S.战斗丹药属性 = 丹药Config.Get战斗丹药属性();
+       FightController.S.丹药物理伤害 = FightController.S.战斗丹药属性.物理伤害;
+       FightController.S.丹药黑暗伤害 = FightController.S.战斗丹药属性.黑暗伤害;
+       FightController.S.丹药火焰伤害 = FightController.S.战斗丹药属性.火焰伤害;
+       FightController.S.丹药雷电伤害 = FightController.S.战斗丹药属性.雷电伤害;
+       FightController.S.丹药冰霜伤害 = FightController.S.战斗丹药属性.冰霜伤害;
+       FightController.S.丹药战士伤害 = FightController.S.战斗丹药属性.战士伤害;
+       FightController.S.丹药法师伤害 = FightController.S.战斗丹药属性.法师伤害;
+       FightController.S.丹药控制伤害 = FightController.S.战斗丹药属性.控制伤害;
+       FightController.S.丹药射手伤害 = FightController.S.战斗丹药属性.射手伤害;
+       FightController.S.丹药最终伤害 = FightController.S.战斗丹药属性.最终伤害;
+   }
     
     private void Update()
     {

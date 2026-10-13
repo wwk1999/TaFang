@@ -88,6 +88,8 @@ public class 法器洗练panel : MonoBehaviour
             洗练后词条.list = HeroWindowController.S.洗练后词条;
             洗练后词条.是否带锁 = true;
             洗练前词条.是否带锁 = true;
+            洗练前词条.QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
+            洗练后词条.QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
             洗练前词条.SetItem();
             洗练后词条.SetItem();
         }
@@ -225,6 +227,7 @@ public class 法器洗练panel : MonoBehaviour
                 法器附加属性值 法器附加属性值 = new 法器附加属性值();
                 法器附加属性值.锁 = item.锁;
                 法器附加属性值.count = item.count;
+                法器附加属性值.无暇 = item.无暇;
                 法器附加属性值.法器附加属性Type = item.法器附加属性Type;
                 list.Add(法器附加属性值);
             }
@@ -251,10 +254,20 @@ public class 法器洗练panel : MonoBehaviour
                             法器附加属性Type = item.法器附加属性Type,
                             QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
                         }].max;
-                item.count = Random.Range(min, max);
+                
+                var 无暇random=Random.Range(0,100);
+                if (无暇random < 1f)
+                {
+                    item.无暇=true;
+                    item.count = max;
+                }
+                else
+                {
+                    item.无暇=false;
+                    item.count = Random.Range(min, max);
+                }
             }
         }
-
         HeroWindowController.S.洗练后词条 = list;
         PlayerData.S.PropListDic[PropType.法器粉尘] -= 需要粉尘;
         ObserverModuleManager.S.SendEvent("SendUIToast", "洗练成功");
