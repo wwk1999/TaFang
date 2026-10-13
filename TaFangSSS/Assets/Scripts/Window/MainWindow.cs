@@ -221,12 +221,12 @@ public class MainWindow : MonoBehaviour
 
         if (PlayerData.S.历史最高境界 >= JingJieType.玄仙 && !PlayerData.S.是否加入愿望单)
         {
-            愿望单提示Text.text = "玄仙以上加入愿望单掉宝率+20%";
+            愿望单提示Text.text = "加入愿望单掉宝率+20%";
             愿望单提示.gameObject.SetActive(true);
         }
         else  if (PlayerData.S.历史最高境界 >= JingJieType.大乘 && !PlayerData.S.是否加入愿望单)
         {
-            愿望单提示Text.text = "都大乘了,加下愿望单吧,感谢！";
+            愿望单提示Text.text = "加入愿望单掉宝率+20%";
             愿望单提示.gameObject.SetActive(true);
         }
         else

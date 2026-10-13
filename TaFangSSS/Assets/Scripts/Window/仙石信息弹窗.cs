@@ -27,6 +27,8 @@ public class 仙石信息弹窗 : MonoBehaviour
             var 附加属性item=Instantiate(Resources.Load("Prefabs/Window/法器附加属性item"),content.transform).GetComponent<法器附加属性item>();
             附加属性item.法器附加属性Type = item.法器附加属性Type;
             附加属性item.count=item.count;
+            附加属性item.无暇=item.无暇;
+            附加属性item.QualityType=仙石.quality;
             附加属性item.SetItem();
         }
     }

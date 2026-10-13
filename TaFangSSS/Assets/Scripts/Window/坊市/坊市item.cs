@@ -185,7 +185,7 @@ public class 坊市item : MonoBehaviour
         
         if (丹方Type != 丹药Type.None)
         {
-            if (PlayerData.S.Get丹方解锁(丹方Type, QualityType))
+            if (PlayerData.S.Get丹方解锁(丹方Type, QualityType)||PlayerData.S.Get丹方数量(丹方Type, QualityType)>0)
             {
                 售空.gameObject.SetActive(true);
                 标签text.text = "已拥有";

@@ -272,16 +272,17 @@ public class 胜利弹窗 : MonoBehaviour
         float 轮回石数量 = 0;
         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
         {
-            if (LevelConfig.战斗混沌虚空层数 >= 600)
+            if (LevelConfig.战斗混沌虚空层数 >= 1000)
             {
-                轮回石数量= 5;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 300)
+                轮回石数量= 5+(LevelConfig.战斗混沌虚空层数-1000)/500;
+            }
+            else if (LevelConfig.战斗混沌虚空层数 >= 500)
             {
                 轮回石数量= 4;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 150)
+            }else if (LevelConfig.战斗混沌虚空层数 >= 200)
             {
                 轮回石数量= 3;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 80)
+            }else if (LevelConfig.战斗混沌虚空层数 >= 50)
             {
                 轮回石数量= 2;
             }else

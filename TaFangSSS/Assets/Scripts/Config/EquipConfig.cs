@@ -145,12 +145,12 @@
      public static Dictionary<QualityType, List<float>> 强化词条概率Dic = new Dictionary<QualityType, List<float>>()
      {
          { QualityType.玄品, new List<float>() { 100 } },
-         { QualityType.地品, new List<float>() { 70,30 } },
-         { QualityType.天品, new List<float>() { 50,30,20 } },
-         { QualityType.宇品, new List<float>() { 30,30,25,15 } },
-         { QualityType.宙品, new List<float>() { 10,30,30,20,10} },
-         { QualityType.洪品, new List<float>() { 0,25,30,25,15,5} },
-         { QualityType.荒品, new List<float>() { 0,20,25,25,20,7,3} },
+         { QualityType.地品, new List<float>() { 60,40 } },
+         { QualityType.天品, new List<float>() { 30,50,20 } },
+         { QualityType.宇品, new List<float>() { 0,55,25,20 } },
+         { QualityType.宙品, new List<float>() { 0,0,55,30,15} },
+         { QualityType.洪品, new List<float>() { 0,0,0,55,30,15} },
+         { QualityType.荒品, new List<float>() { 0,0,0,45,20,25,10} },
      };
 
      public static 材料Item Get强化材料(int level)
@@ -394,6 +394,7 @@
          { 附加属性Type.城墙血量, () => Get装备附加属性数值(附加属性Type.城墙血量) },
      };
 
+     public static float 装备每等级词条效果 = 2;
      public static float Get装备附加属性数值(附加属性Type type)
      {
          float count = 0;
@@ -455,7 +456,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
-                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.头盔] / 100f);
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.头盔]*装备每等级词条效果 / 100f);
                  if (item.无暇)
                  {
                      value *= 2;
@@ -478,7 +479,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
-                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.戒指] / 100f);
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.戒指]*装备每等级词条效果 / 100f);
                  if (item.无暇)
                  {
                      value *= 2;
@@ -504,7 +505,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
-                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.项链] / 100f);
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.项链]*装备每等级词条效果 / 100f);
                  if (item.无暇)
                  {
                      value *= 2;
@@ -530,7 +531,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
-                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.鞋子] / 100f);
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.鞋子]*装备每等级词条效果 / 100f);
 
                  if (item.无暇)
                  {
@@ -557,7 +558,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
-                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.护手] / 100f);
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.护手]*装备每等级词条效果 / 100f);
 
                  if (item.无暇)
                  {
@@ -583,7 +584,7 @@
              if (item.附加属性Type == type)
              {
                  float value = item.count / 100f;
-                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.衣服] / 100f);
+                 value *= (1f + PlayerData.S.EquipLevelDic[EquipType.衣服]*装备每等级词条效果 / 100f);
 
                  if (item.无暇)
                  {
@@ -611,13 +612,14 @@
              附加属性Type.装备基础属性增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
+
              }
          },
          
@@ -625,13 +627,13 @@
              附加属性Type.射手伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -639,13 +641,13 @@
              附加属性Type.战士伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -653,13 +655,13 @@
              附加属性Type.控制伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -667,13 +669,13 @@
              附加属性Type.法师伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -681,13 +683,13 @@
              附加属性Type.暴击率,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 8f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 8f,maxCount = 15f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 25f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 20f,maxCount = 40f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 30f,maxCount = 60f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 50f,maxCount = 100f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 100f,maxCount = 160f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 20f,maxCount = 35f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 35f,maxCount = 60f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 60f,maxCount = 100f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 100f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 150f,maxCount = 300f},
              }
          },
 
@@ -696,13 +698,13 @@
              附加属性Type.普通怪伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 8f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 8f,maxCount = 15f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 25f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 20f,maxCount = 40f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 30f,maxCount = 60f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 50f,maxCount = 100f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 100f,maxCount = 160f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 70 },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 70,maxCount = 120f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 120f,maxCount = 200f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 200f,maxCount = 500f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 500,maxCount = 1200f},
              }
          },
          
@@ -710,13 +712,13 @@
              附加属性Type.最终伤害,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 8f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 8f,maxCount = 15f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 25f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 20f,maxCount = 40f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 30f,maxCount = 60f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 50f,maxCount = 100f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 100f,maxCount = 160f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 70 },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 70,maxCount = 120f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 120f,maxCount = 200f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 200f,maxCount = 500f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 500,maxCount = 1200f},
              }
          },
          
@@ -724,13 +726,13 @@
              附加属性Type.精英怪伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 8f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 8f,maxCount = 15f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 25f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 20f,maxCount = 40f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 30f,maxCount = 60f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 50f,maxCount = 100f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 100f,maxCount = 160f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 70 },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 70,maxCount = 120f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 120f,maxCount = 200f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 200f,maxCount = 500f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 500,maxCount = 1200f},
              }
          },
          
@@ -738,13 +740,13 @@
              附加属性Type.首领伤害增幅,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 8f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 8f,maxCount = 15f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 25f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 20f,maxCount = 40f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 30f,maxCount = 60f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 50f,maxCount = 100f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 100f,maxCount = 160f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 70 },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 70,maxCount = 120f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 120f,maxCount = 200f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 200f,maxCount = 500f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 500,maxCount = 1200f},
              }
          },
          
@@ -752,13 +754,13 @@
              附加属性Type.物理伤害,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -766,13 +768,13 @@
              附加属性Type.火焰伤害,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -780,13 +782,13 @@
              附加属性Type.冰霜伤害,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -794,13 +796,13 @@
              附加属性Type.雷电伤害,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -808,13 +810,13 @@
              附加属性Type.黑暗伤害,
              new List<附加属性Item>()
              {
-                 new 附加属性Item() { Type = QualityType.玄品, minCount = 5f,maxCount = 10f},
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 120f,maxCount = 200f},
+                 new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          
@@ -823,13 +825,12 @@
              new List<附加属性Item>()
              {
                  new 附加属性Item() { Type = QualityType.玄品, minCount = 10f,maxCount = 20f },
-                 new 附加属性Item() { Type = QualityType.地品, minCount = 15f,maxCount = 30f },
-                 new 附加属性Item() { Type = QualityType.天品, minCount = 25f,maxCount = 50f },
-                 new 附加属性Item() { Type = QualityType.宇品, minCount = 40f,maxCount = 80f },
-                 new 附加属性Item() { Type = QualityType.宙品, minCount = 70f,maxCount = 120f },
-                 new 附加属性Item() { Type = QualityType.洪品, minCount = 100f,maxCount = 160f},
-                 new 附加属性Item() { Type = QualityType.荒品, minCount = 150f,maxCount = 250f},
-
+                 new 附加属性Item() { Type = QualityType.地品, minCount = 20f,maxCount = 40f },
+                 new 附加属性Item() { Type = QualityType.天品, minCount = 40f,maxCount = 80f },
+                 new 附加属性Item() { Type = QualityType.宇品, minCount = 80f,maxCount = 150f },
+                 new 附加属性Item() { Type = QualityType.宙品, minCount = 150f,maxCount = 300f },
+                 new 附加属性Item() { Type = QualityType.洪品, minCount = 300f,maxCount = 600f},
+                 new 附加属性Item() { Type = QualityType.荒品, minCount = 600,maxCount = 1500f},
              }
          },
          

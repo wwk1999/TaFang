@@ -487,8 +487,8 @@ public class 强化弹窗 : MonoBehaviour
       强化后等级.text = "+" + (PlayerData.S.EquipLevelDic[equipType]+1);
       当前攻击力.text = "攻击力+" + EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[equipType]);
       强化后攻击力.text = "攻击力+" + EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[equipType]+1);
-      当前词条效果.text = "词条效果+" + PlayerData.S.EquipLevelDic[equipType];
-      强化后词条效果.text = "词条效果+" + (PlayerData.S.EquipLevelDic[equipType]+1).ToString();
+      当前词条效果.text = "词条效果+" + 2*PlayerData.S.EquipLevelDic[equipType]+"%";
+      强化后词条效果.text = "词条效果+" + (2*(PlayerData.S.EquipLevelDic[equipType]+1))+"%";
       绿附加属性.JieSuoQualityType = QualityType.玄品;
       绿附加属性.EquipType = equipType;
       绿附加属性.IsQiangHua = IsQiangHua;

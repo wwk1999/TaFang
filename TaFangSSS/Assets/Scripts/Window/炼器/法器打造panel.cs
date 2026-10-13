@@ -28,9 +28,11 @@ public class 法器打造panel : MonoBehaviour
     public GameObject 材料区域;
     public Image 材料1bg;
     public Image 材料1icon;
+    public TextMeshProUGUI 材料1Count;
     public Image 材料2bg;
     public Image 材料2icon;
-
+    public TextMeshProUGUI 材料2Count;
+    
     private int 打造数量 = 0;
     public void Show左Panel()
     {
@@ -96,6 +98,8 @@ public class 法器打造panel : MonoBehaviour
         材料1bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[0]);
         材料2bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[1]);
         材料1icon.sprite = ResourcesConfig.GetPropSprite(list[0]);
+        材料1Count.text = PlayerData.S.PropListDic[list[0]].ToString();
+        材料2Count.text = PlayerData.S.PropListDic[list[1]].ToString();
         材料2icon.sprite = ResourcesConfig.GetPropSprite(list[1]);
         icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.法器打造法器Type);
         艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.法器品质Dic[HeroWindowController.S.法器打造法器Type]);

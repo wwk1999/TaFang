@@ -78,12 +78,13 @@ public class 仙石重铸panel : MonoBehaviour
             粉尘Count.text = 仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality].ToString();
             洗练前词条.list = HeroWindowController.S.重铸panel当前仙石.list;
             洗练前词条.仙石Type = HeroWindowController.S.重铸panel当前仙石.type;
-            洗练前词条.QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
-            洗练后词条.QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
+            洗练前词条.QualityType = HeroWindowController.S.重铸panel当前仙石.quality;
+            洗练前词条.SetItem();
+            洗练后词条.QualityType = HeroWindowController.S.重铸panel当前仙石.quality;
             洗练后词条.list = HeroWindowController.S.仙石重铸后词条;
             洗练后词条.仙石Type = HeroWindowController.S.重铸后仙石Type;
-            洗练前词条.SetItem();
             洗练后词条.SetItem();
+            
         }
     }
     

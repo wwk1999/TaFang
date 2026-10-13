@@ -724,13 +724,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.火焰伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.火焰伤害 = 20; break;
-                case QualityType.地品: 丹药属性.火焰伤害 = 30; break;
-                case QualityType.天品: 丹药属性.火焰伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.火焰伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.火焰伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.火焰伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.火焰伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.火焰伤害 = 25; break;
+                case QualityType.地品: 丹药属性.火焰伤害 = 50; break;
+                case QualityType.天品: 丹药属性.火焰伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.火焰伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.火焰伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.火焰伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.火焰伤害 = 3000; break;
             }
             break;
 
@@ -738,13 +738,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.冰霜伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.冰霜伤害 = 20; break;
-                case QualityType.地品: 丹药属性.冰霜伤害 = 30; break;
-                case QualityType.天品: 丹药属性.冰霜伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.冰霜伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.冰霜伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.冰霜伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.冰霜伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.冰霜伤害 = 25; break;
+                case QualityType.地品: 丹药属性.冰霜伤害 = 50; break;
+                case QualityType.天品: 丹药属性.冰霜伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.冰霜伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.冰霜伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.冰霜伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.冰霜伤害 = 3000; break;
             }
             break;
 
@@ -752,13 +752,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.雷电伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.雷电伤害 = 20; break;
-                case QualityType.地品: 丹药属性.雷电伤害 = 30; break;
-                case QualityType.天品: 丹药属性.雷电伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.雷电伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.雷电伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.雷电伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.雷电伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.雷电伤害 = 25; break;
+                case QualityType.地品: 丹药属性.雷电伤害 = 50; break;
+                case QualityType.天品: 丹药属性.雷电伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.雷电伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.雷电伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.雷电伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.雷电伤害 = 3000; break;
             }
             break;
 
@@ -766,13 +766,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.黑暗伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.黑暗伤害 = 20; break;
-                case QualityType.地品: 丹药属性.黑暗伤害 = 30; break;
-                case QualityType.天品: 丹药属性.黑暗伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.黑暗伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.黑暗伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.黑暗伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.黑暗伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.黑暗伤害 = 25; break;
+                case QualityType.地品: 丹药属性.黑暗伤害 = 50; break;
+                case QualityType.天品: 丹药属性.黑暗伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.黑暗伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.黑暗伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.黑暗伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.黑暗伤害 = 3000; break;
             }
             break;
 
@@ -780,13 +780,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.物理伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.物理伤害 = 20; break;
-                case QualityType.地品: 丹药属性.物理伤害 = 30; break;
-                case QualityType.天品: 丹药属性.物理伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.物理伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.物理伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.物理伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.物理伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.物理伤害 = 25; break;
+                case QualityType.地品: 丹药属性.物理伤害 = 50; break;
+                case QualityType.天品: 丹药属性.物理伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.物理伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.物理伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.物理伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.物理伤害 = 3000; break;
             }
             break;
 
@@ -794,13 +794,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.战士伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.战士伤害 = 20; break;
-                case QualityType.地品: 丹药属性.战士伤害 = 30; break;
-                case QualityType.天品: 丹药属性.战士伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.战士伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.战士伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.战士伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.战士伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.战士伤害 = 25; break;
+                case QualityType.地品: 丹药属性.战士伤害 = 50; break;
+                case QualityType.天品: 丹药属性.战士伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.战士伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.战士伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.战士伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.战士伤害 = 3000; break;
             }
             break;
 
@@ -808,13 +808,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.射手伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.射手伤害 = 20; break;
-                case QualityType.地品: 丹药属性.射手伤害 = 30; break;
-                case QualityType.天品: 丹药属性.射手伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.射手伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.射手伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.射手伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.射手伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.射手伤害 = 25; break;
+                case QualityType.地品: 丹药属性.射手伤害 = 50; break;
+                case QualityType.天品: 丹药属性.射手伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.射手伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.射手伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.射手伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.射手伤害 = 3000; break;
             }
             break;
 
@@ -822,13 +822,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.法师伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.法师伤害 = 20; break;
-                case QualityType.地品: 丹药属性.法师伤害 = 30; break;
-                case QualityType.天品: 丹药属性.法师伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.法师伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.法师伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.法师伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.法师伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.法师伤害 = 25; break;
+                case QualityType.地品: 丹药属性.法师伤害 = 50; break;
+                case QualityType.天品: 丹药属性.法师伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.法师伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.法师伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.法师伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.法师伤害 = 3000; break;
             }
             break;
 
@@ -838,13 +838,13 @@ public class 丹药Config
             switch (qualityType)
             {
                 case QualityType.黄品: 丹药属性.控制伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.控制伤害 = 20; break;
-                case QualityType.地品: 丹药属性.控制伤害 = 30; break;
-                case QualityType.天品: 丹药属性.控制伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.控制伤害 = 80; break;
-                case QualityType.宙品: 丹药属性.控制伤害 = 120; break;
-                case QualityType.洪品: 丹药属性.控制伤害 = 180; break;
-                case QualityType.荒品: 丹药属性.控制伤害 = 300; break;
+                case QualityType.玄品: 丹药属性.控制伤害 = 25; break;
+                case QualityType.地品: 丹药属性.控制伤害 = 50; break;
+                case QualityType.天品: 丹药属性.控制伤害 = 100; break;
+                case QualityType.宇品: 丹药属性.控制伤害 = 200; break;
+                case QualityType.宙品: 丹药属性.控制伤害 = 500; break;
+                case QualityType.洪品: 丹药属性.控制伤害 = 1000; break;
+                case QualityType.荒品: 丹药属性.控制伤害 = 3000; break;
             }
             break;
 
@@ -854,12 +854,12 @@ public class 丹药Config
             {
                 case QualityType.黄品: 丹药属性.最终伤害 = 5; break;
                 case QualityType.玄品: 丹药属性.最终伤害 = 10; break;
-                case QualityType.地品: 丹药属性.最终伤害 = 20; break;
-                case QualityType.天品: 丹药属性.最终伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.最终伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.最终伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.最终伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.最终伤害 = 180; break;
+                case QualityType.地品: 丹药属性.最终伤害 = 25; break;
+                case QualityType.天品: 丹药属性.最终伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.最终伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.最终伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.最终伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.最终伤害 = 2000; break;
             }
             break;
 
@@ -869,12 +869,12 @@ public class 丹药Config
             {
                 case QualityType.黄品: 丹药属性.英雄最终伤害 = 5; break;
                 case QualityType.玄品: 丹药属性.英雄最终伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄最终伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄最终伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄最终伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄最终伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄最终伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄最终伤害 = 180; break;
+                case QualityType.地品: 丹药属性.英雄最终伤害 = 25; break;
+                case QualityType.天品: 丹药属性.英雄最终伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.英雄最终伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.英雄最终伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.英雄最终伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.英雄最终伤害 = 2000; break;
             }
             break;
 
@@ -883,82 +883,82 @@ public class 丹药Config
             {
                 case QualityType.黄品: 丹药属性.英雄暴击伤害 = 5; break;
                 case QualityType.玄品: 丹药属性.英雄暴击伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄暴击伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄暴击伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄暴击伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄暴击伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄暴击伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄暴击伤害 = 180; break;
+                case QualityType.地品: 丹药属性.英雄暴击伤害 = 25; break;
+                case QualityType.天品: 丹药属性.英雄暴击伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.英雄暴击伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.英雄暴击伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.英雄暴击伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.英雄暴击伤害 = 2000; break;
             }
             break;
 
         case 丹药Type.英雄火焰伤害:
             switch (qualityType)
             {
-                case QualityType.黄品: 丹药属性.英雄火焰伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄火焰伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄火焰伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄火焰伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄火焰伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄火焰伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄火焰伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄火焰伤害 = 180; break;
+                case QualityType.黄品: 丹药属性.火焰伤害 = 5; break;
+                case QualityType.玄品: 丹药属性.火焰伤害 = 10; break;
+                case QualityType.地品: 丹药属性.火焰伤害 = 25; break;
+                case QualityType.天品: 丹药属性.火焰伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.火焰伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.火焰伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.火焰伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.火焰伤害 = 2000; break;
             }
             break;
 
         case 丹药Type.英雄冰霜伤害:
             switch (qualityType)
             {
-                case QualityType.黄品: 丹药属性.英雄冰霜伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄冰霜伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄冰霜伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄冰霜伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄冰霜伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄冰霜伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄冰霜伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄冰霜伤害 = 180; break;
+                case QualityType.黄品: 丹药属性.冰霜伤害 = 5; break;
+                case QualityType.玄品: 丹药属性.冰霜伤害 = 10; break;
+                case QualityType.地品: 丹药属性.冰霜伤害 = 25; break;
+                case QualityType.天品: 丹药属性.冰霜伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.冰霜伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.冰霜伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.冰霜伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.冰霜伤害 = 2000; break;
             }
             break;
 
         case 丹药Type.英雄雷电伤害:
             switch (qualityType)
             {
-                case QualityType.黄品: 丹药属性.英雄雷电伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄雷电伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄雷电伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄雷电伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄雷电伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄雷电伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄雷电伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄雷电伤害 = 180; break;
+                case QualityType.黄品: 丹药属性.雷电伤害 = 5; break;
+                case QualityType.玄品: 丹药属性.雷电伤害 = 10; break;
+                case QualityType.地品: 丹药属性.雷电伤害 = 25; break;
+                case QualityType.天品: 丹药属性.雷电伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.雷电伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.雷电伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.雷电伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.雷电伤害 = 2000; break;
             }
             break;
 
         case 丹药Type.英雄黑暗伤害:
             switch (qualityType)
             {
-                case QualityType.黄品: 丹药属性.英雄黑暗伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄黑暗伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄黑暗伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄黑暗伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄黑暗伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄黑暗伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄黑暗伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄黑暗伤害 = 180; break;
+                case QualityType.黄品: 丹药属性.黑暗伤害 = 5; break;
+                case QualityType.玄品: 丹药属性.黑暗伤害 = 10; break;
+                case QualityType.地品: 丹药属性.黑暗伤害 = 25; break;
+                case QualityType.天品: 丹药属性.黑暗伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.黑暗伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.黑暗伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.黑暗伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.黑暗伤害 = 2000; break;
             }
             break;
 
         case 丹药Type.英雄物理伤害:
             switch (qualityType)
             {
-                case QualityType.黄品: 丹药属性.英雄物理伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄物理伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄物理伤害 = 20; break;
-                case QualityType.天品: 丹药属性.英雄物理伤害 = 30; break;
-                case QualityType.宇品: 丹药属性.英雄物理伤害 = 50; break;
-                case QualityType.宙品: 丹药属性.英雄物理伤害 = 80; break;
-                case QualityType.洪品: 丹药属性.英雄物理伤害 = 120; break;
-                case QualityType.荒品: 丹药属性.英雄物理伤害 = 180; break;
+                case QualityType.黄品: 丹药属性.物理伤害 = 5; break;
+                case QualityType.玄品: 丹药属性.物理伤害 = 10; break;
+                case QualityType.地品: 丹药属性.物理伤害 = 25; break;
+                case QualityType.天品: 丹药属性.物理伤害 = 50; break;
+                case QualityType.宇品: 丹药属性.物理伤害 = 100; break;
+                case QualityType.宙品: 丹药属性.物理伤害 = 200; break;
+                case QualityType.洪品: 丹药属性.物理伤害 = 500; break;
+                case QualityType.荒品: 丹药属性.物理伤害 = 2000; break;
             }
             break;
 

@@ -25,6 +25,8 @@ public class 法器信息弹窗 : MonoBehaviour
          var 附加属性item=Instantiate(Resources.Load("Prefabs/Window/法器附加属性item"),content.transform).GetComponent<法器附加属性item>();
          附加属性item.法器附加属性Type = item.法器附加属性Type;
          附加属性item.count=item.count;
+         附加属性item.无暇=item.无暇;
+         附加属性item.QualityType=法器Config.法器品质Dic[法器.法器Type];
          附加属性item.SetItem();
       }
 
@@ -60,6 +62,10 @@ public class 法器信息弹窗 : MonoBehaviour
             item.SetItem();
          }
       }
+      
+      var 魂器 = Instantiate(Resources.Load("Prefabs/Window/法器魂器"), content.transform).GetComponent<法器魂器>();
+      魂器.法器 = 法器;
+      魂器.SetItem();
       
       var 法器孔item = Instantiate(Resources.Load("Prefabs/Window/法器孔item"), content.transform).GetComponent<法器孔item>();
       法器孔item.list = 法器.仙石list;

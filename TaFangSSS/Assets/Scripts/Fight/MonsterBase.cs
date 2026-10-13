@@ -1613,6 +1613,53 @@ public class MonsterBase : MonoBehaviour
          }
       }
    }
+   
+   public void 增加魂器经验()
+   {
+      foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+      {
+         if (item == HeroType.None) continue;
+         if (PlayerData.S.HeroDataDic[item].武器 != null&&PlayerData.S.HeroDataDic[item].武器.法器Type!=法器Type.None)
+         {
+            PlayerData.S.HeroDataDic[item].武器.魂器经验+=1;
+            if (PlayerData.S.HeroDataDic[item].武器.魂器经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].武器.魂器等级))
+            {
+               PlayerData.S.HeroDataDic[item].武器.魂器经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].武器.魂器等级);
+               PlayerData.S.HeroDataDic[item].武器.魂器等级++;
+            }
+         }
+         if (PlayerData.S.HeroDataDic[item].衣服 != null&&PlayerData.S.HeroDataDic[item].衣服.法器Type!=法器Type.None)
+         {
+            PlayerData.S.HeroDataDic[item].衣服.魂器经验+=1;
+            if (PlayerData.S.HeroDataDic[item].衣服.魂器经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].衣服.魂器等级))
+            {
+               PlayerData.S.HeroDataDic[item].衣服.魂器经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].衣服.魂器等级);
+               PlayerData.S.HeroDataDic[item].衣服.魂器等级++;
+            }
+         }
+         
+         if (PlayerData.S.HeroDataDic[item].鞋子 != null&&PlayerData.S.HeroDataDic[item].鞋子.法器Type!=法器Type.None)
+         {
+            PlayerData.S.HeroDataDic[item].鞋子.魂器经验+=1;
+            if (PlayerData.S.HeroDataDic[item].鞋子.魂器经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].鞋子.魂器等级))
+            {
+               PlayerData.S.HeroDataDic[item].鞋子.魂器经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].鞋子.魂器等级);
+               PlayerData.S.HeroDataDic[item].鞋子.魂器等级++;
+            }
+         }
+         
+         if (PlayerData.S.HeroDataDic[item].头盔 != null&&PlayerData.S.HeroDataDic[item].头盔.法器Type!=法器Type.None)
+         {
+            PlayerData.S.HeroDataDic[item].头盔.魂器经验+=1;
+            if (PlayerData.S.HeroDataDic[item].头盔.魂器经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].头盔.魂器等级))
+            {
+               PlayerData.S.HeroDataDic[item].头盔.魂器经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].头盔.魂器等级);
+               PlayerData.S.HeroDataDic[item].头盔.魂器等级++;
+            }
+         }
+         
+      }
+   }
 
    public int 计算怪物总数(int 小怪数量, int 精英怪数量)
    {
@@ -1712,6 +1759,7 @@ public class MonsterBase : MonoBehaviour
          ObserverModuleManager.S.SendEvent("符文减少神通冷却",heroType);
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
       增加功法经验();
+      增加魂器经验();
       if (heroType == HeroType.盘古)
       {
          FightController.S.盘古击杀次数++;

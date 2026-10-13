@@ -27,7 +27,9 @@ public class 法器洗练panel : MonoBehaviour
     [NonSerialized] public int 页数num = 1;
     public GameObject 箭头;
     public GameObject 粉尘Icon;
-
+    public TextMeshProUGUI 洗练前无暇;
+    public TextMeshProUGUI 洗练后无暇;
+    
     public void Show右Panel()
     {
         if (HeroWindowController.S.洗练panel当前法器 == null)
@@ -59,10 +61,26 @@ public class 法器洗练panel : MonoBehaviour
             nameText.text = 法器Config.法器名Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
             icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.洗练panel当前法器.法器Type);
             int count = 0;
+            int 洗练后无暇count = 0;
+            int 洗练前无暇count = 0;
+            if (HeroWindowController.S.洗练panel当前法器 != null && HeroWindowController.S.洗练panel当前法器.list.Count > 0)
+            {
+                foreach (var item in HeroWindowController.S.洗练panel当前法器.list)
+                {
+                    if (item.无暇)
+                    {
+                        洗练前无暇count++;
+                    }
+                }
+            }
             if (HeroWindowController.S.洗练后词条 != null&&HeroWindowController.S.洗练后词条.Count>0)
             {
                 foreach (var item in HeroWindowController.S.洗练后词条)
                 {
+                    if (item.无暇)
+                    {
+                        洗练后无暇count++;
+                    }
                     if (item.锁)
                     {
                         count++;
@@ -78,6 +96,17 @@ public class 法器洗练panel : MonoBehaviour
                         count++;
                     }
                 }
+            }
+
+            洗练前无暇.text = 洗练前无暇count.ToString();
+            if (HeroWindowController.S.洗练后词条 != null && HeroWindowController.S.洗练后词条.Count > 0)
+            {
+                洗练后无暇.gameObject.SetActive(true);
+                洗练后无暇.text = 洗练后无暇count.ToString();
+            }
+            else
+            {
+                洗练后无暇.gameObject.SetActive(false);
             }
 
 
@@ -183,7 +212,7 @@ public class 法器洗练panel : MonoBehaviour
         }
     }
 
-    public void 洗练()
+    public void 洗练() 
     {
         int count1 = 0;
         if (HeroWindowController.S.洗练后词条 != null&&HeroWindowController.S.洗练后词条.Count>0)
