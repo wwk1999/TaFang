@@ -10,6 +10,13 @@ using Random = UnityEngine.Random;
 
 public class 法器洗练panel : MonoBehaviour
 {
+    public Button 英雄筛选Button;
+    public GameObject 英雄筛选;
+    public GameObject 英雄筛选Content;
+
+    public Button 英雄筛选mask;
+
+
     public 洗练确认保留弹窗 洗练确认保留弹窗;
     public GameObject Content;
     public Button 左Button;
@@ -124,6 +131,57 @@ public class 法器洗练panel : MonoBehaviour
         }
     }
 
+    public void Show英雄法器(HeroType heroType)
+    {
+        foreach (Transform item in Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        页数num = 1;
+        页数.text = 页数num.ToString();
+        if (heroType == HeroType.None)
+        {
+            Show左Panel();
+            return;
+        }
+        GameObject prefab = Resources.Load("Prefabs/Window/炼器/洗练法器item") as GameObject;
+
+        if (PlayerData.S.HeroDataDic[heroType].武器 != null)
+        {
+            var 武器 = Instantiate(prefab, Content.transform)
+                .GetComponent<洗练法器item>();
+            武器.法器 = PlayerData.S.HeroDataDic[heroType].武器;
+            武器.法器.HeroType = heroType;
+            武器.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].头盔 != null)
+        {
+            var 头盔 = Instantiate(prefab, Content.transform)
+                .GetComponent<洗练法器item>();
+            头盔.法器 = PlayerData.S.HeroDataDic[heroType].头盔;
+            头盔.法器.HeroType = heroType;
+            头盔.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].衣服 != null)
+        {
+            var 衣服 = Instantiate(prefab, Content.transform)
+                .GetComponent<洗练法器item>();
+            衣服.法器 = PlayerData.S.HeroDataDic[heroType].衣服;
+            衣服.法器.HeroType = heroType;
+            衣服.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].鞋子 != null)
+        {
+            var 鞋子 = Instantiate(prefab, Content.transform)
+                .GetComponent<洗练法器item>();
+            鞋子.法器 = PlayerData.S.HeroDataDic[heroType].鞋子;
+            鞋子.法器.HeroType = heroType;
+            鞋子.SetItem();
+        }
+    }
     public void Show左Panel()
     {
         foreach (Transform item in Content.transform)
@@ -148,8 +206,31 @@ public class 法器洗练panel : MonoBehaviour
         Show右Panel();
     }
 
+    public void Set出战英雄筛选()
+    {
+        foreach (Transform Item in 英雄筛选Content.transform)
+        {
+            Destroy(Item.gameObject);
+        }
+        var 出战英雄筛选Item1 = Instantiate(Resources.Load("Prefabs/Window/炼器/法器洗练英雄筛选Item"), 英雄筛选Content.transform)
+            .GetComponent<法器洗练英雄筛选Item>();
+        出战英雄筛选Item1.HeroType = HeroType.None;
+        出战英雄筛选Item1.SetItem();
+
+        foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+        {
+            if (item != HeroType.None)
+            {
+                var 出战英雄筛选Item = Instantiate(Resources.Load("Prefabs/Window/炼器/法器洗练英雄筛选Item"), 英雄筛选Content.transform)
+                    .GetComponent<法器洗练英雄筛选Item>();
+                出战英雄筛选Item.HeroType = item;
+                出战英雄筛选Item.SetItem();
+            }
+        }
+    }
     private void OnEnable()
     {
+        Set出战英雄筛选();
         洗练确认保留弹窗.gameObject.SetActive(false);
         HeroWindowController.S.洗练panel当前法器 = null;
         页数num = 1;
@@ -158,6 +239,7 @@ public class 法器洗练panel : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("法器洗练英雄筛选", 法器洗练英雄筛选);
         ObserverModuleManager.S.UnRegisterEvent("法器词条洗练锁", 法器词条洗练锁);
         ObserverModuleManager.S.UnRegisterEvent("显示洗练保留确认弹窗", 显示洗练保留确认弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新洗练Panel", 刷新洗练Panel);
@@ -324,8 +406,17 @@ public class 法器洗练panel : MonoBehaviour
         洗练确认保留弹窗.gameObject.SetActive(true);
     }
 
+    public void 法器洗练英雄筛选(object[] obj)
+    {
+        英雄筛选mask.gameObject.SetActive(false);
+        英雄筛选.gameObject.SetActive(false);
+        HeroType heroType=(HeroType)obj[0];
+        Show英雄法器(heroType);
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("法器洗练英雄筛选", 法器洗练英雄筛选);
+
         ObserverModuleManager.S.RegisterEvent("法器词条洗练锁", 法器词条洗练锁);
         ObserverModuleManager.S.RegisterEvent("显示洗练保留确认弹窗", 显示洗练保留确认弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新洗练Panel", 刷新洗练Panel);
@@ -334,6 +425,16 @@ public class 法器洗练panel : MonoBehaviour
         {
             洗练();
             Show右Panel();
+        });
+        英雄筛选Button.onClick.AddListener(() =>
+        {
+            英雄筛选mask.gameObject.SetActive(true);
+            英雄筛选.gameObject.SetActive(true);
+        });
+        英雄筛选mask.onClick.AddListener(() =>
+        {
+            英雄筛选mask.gameObject.SetActive(false);
+            英雄筛选.gameObject.SetActive(false);
         });
         保留Button.onClick.AddListener(() => { 保留(); });
         左Button.onClick.AddListener(() =>

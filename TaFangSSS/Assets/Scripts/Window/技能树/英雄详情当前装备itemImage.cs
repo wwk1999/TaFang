@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 英雄详情当前装备itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 英雄详情当前装备itemImage : MonoBehaviour, IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
    [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -115,6 +116,31 @@ public class 英雄详情当前装备itemImage : MonoBehaviour, IPointerEnterHan
         {
             // 如果转换失败，使用屏幕坐标直接设置
             rectTransform.position = mousePosition + popupOffset;
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            if (英雄详情当前装备item.法器 == null) return;
+            switch (法器Config.法器类型Dic[英雄详情当前装备item.法器.法器Type])
+            {
+                case 法器类型.头盔:
+                    PlayerData.S.HeroDataDic[英雄详情当前装备item.法器.HeroType].头盔 = null;
+                    break;
+                case 法器类型.衣服:
+                    PlayerData.S.HeroDataDic[英雄详情当前装备item.法器.HeroType].衣服 = null;
+                    break;
+                case 法器类型.武器:
+                    PlayerData.S.HeroDataDic[英雄详情当前装备item.法器.HeroType].武器 = null;
+                    break;
+                case 法器类型.鞋子:
+                    PlayerData.S.HeroDataDic[英雄详情当前装备item.法器.HeroType].鞋子 = null;
+                    break;
+            }
+            英雄详情当前装备item.法器.HeroType = HeroType.None;
+            ObserverModuleManager.S.SendEvent("刷新英雄详情界面");
         }
     }
 }

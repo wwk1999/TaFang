@@ -15,13 +15,16 @@ public class 法器符文信息 : MonoBehaviour
     {
         name.text = 符文Config.符文名Dic[符文.type];
         desc.text = 符文Config.符文效果Dic[符文.type];
-        if (HeroWindowController.S.熔炼后符文.type == 符文Type.击杀怪物获得神通能量)
+        if (HeroWindowController.S.熔炼后符文 != null)
         {
-            count.text = 符文.count.ToString("F2");
-        }
-        else
-        {
-            count.text = 符文.count.ToString("F1")+"%";
+            if (HeroWindowController.S.熔炼后符文.type == 符文Type.击杀怪物获得神通能量)
+            {
+                count.text = 符文.count.ToString("F2");
+            }
+            else
+            {
+                count.text = 符文.count.ToString("F1") + "%";
+            }
         }
     }
 }

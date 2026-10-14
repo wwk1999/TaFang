@@ -139,22 +139,38 @@ public class 英雄详情界面 : MonoBehaviour
         var 武器 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
             .GetComponent<英雄详情当前装备item>();
         武器.法器 = PlayerData.S.HeroDataDic[当前heroType].武器;
+        if (武器.法器 != null)
+        {
+           武器.法器.HeroType = 当前heroType; 
+        }
         武器.SetItem();
         
         var 衣服 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
             .GetComponent<英雄详情当前装备item>();
         衣服.法器 = PlayerData.S.HeroDataDic[当前heroType].衣服;
+        if (衣服.法器 != null)
+        {
+            衣服.法器.HeroType = 当前heroType; 
+        }
         衣服.SetItem();
         
         var 鞋子 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
             .GetComponent<英雄详情当前装备item>();
         鞋子.法器 = PlayerData.S.HeroDataDic[当前heroType].鞋子;
+        if (鞋子.法器 != null)
+        {
+          鞋子.法器.HeroType = 当前heroType;  
+        }
         鞋子.SetItem();
         
         
         var 头盔 = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情当前装备item"), 当前法器Content.transform)
             .GetComponent<英雄详情当前装备item>();
         头盔.法器 = PlayerData.S.HeroDataDic[当前heroType].头盔;
+        if (头盔.法器 != null)
+        {
+            头盔.法器.HeroType = 当前heroType;
+        }
         头盔.SetItem();
         
     }
