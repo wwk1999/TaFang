@@ -107,6 +107,7 @@ public class 符文
     public 符文Type type;
     public QualityType quality;
     public float count;
+    bool 锁=false;
 }
 public class 符文Config
 {
