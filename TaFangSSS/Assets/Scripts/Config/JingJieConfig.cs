@@ -35,11 +35,11 @@ public class JingJieConfig : MonoBehaviour
         new Dictionary<JingJieType, int>()
 
         {
-            { JingJieType.合体,55},
-            { JingJieType.大乘,110},
-            { JingJieType.天仙,165},
-            { JingJieType.玄仙,220},
-            { JingJieType.金仙,275},
+            { JingJieType.合体,50},
+            { JingJieType.大乘,100},
+            { JingJieType.天仙,150},
+            { JingJieType.玄仙,200},
+            { JingJieType.金仙,250},
             { JingJieType.太乙金仙,1000},
             { JingJieType.大罗金仙,5000},
             { JingJieType.准圣,8000},

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 符文GridImage : MonoBehaviour,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 符文GridImage : MonoBehaviour,IPointerClickHandler,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -109,6 +109,15 @@ public class 符文GridImage : MonoBehaviour,IPointerEnterHandler, IPointerExitH
         {
             // 如果转换失败，使用屏幕坐标直接设置
             rectTransform.position = mousePosition + popupOffset;
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            符文Grid.符文.锁 = !符文Grid.符文.锁;
+            符文Grid.SetItem();
         }
     }
 }

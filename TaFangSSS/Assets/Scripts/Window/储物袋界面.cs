@@ -49,6 +49,8 @@ public class 储物袋界面 : MonoBehaviour
    public Button 仙石Btn;
    public Button 分解Btn;
    public Button 合成Btn;
+   public Button 熔炼Btn;
+   public 符文熔炼所有弹窗 符文熔炼所有弹窗;
 
    public Button 神物Btn;
    public Button 灵药Btn;
@@ -327,6 +329,10 @@ public class 储物袋界面 : MonoBehaviour
       {
          灵物合成弹窗.gameObject.SetActive(true);
       });
+      熔炼Btn.onClick.AddListener(() =>
+      {
+         符文熔炼所有弹窗.gameObject.SetActive(true);
+      });
       分解Btn.onClick.AddListener(() =>
       {
          if (显示类型 == 5)
@@ -549,6 +555,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(true);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -588,6 +595,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -628,6 +636,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -834,6 +843,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -870,6 +880,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮亮;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -954,6 +965,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(true);
+      熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1006,6 +1018,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(true);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1064,6 +1077,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(true);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1093,6 +1107,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(true);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1123,6 +1138,7 @@ public class 储物袋界面 : MonoBehaviour
    {
       分解Btn.gameObject.SetActive(false);
       合成Btn.gameObject.SetActive(false);
+      熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       道纹Btn.image.sprite = ResourcesConfig.按钮暗;

@@ -103,7 +103,7 @@ public class 人物item : MonoBehaviour
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.射手 &&
             PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
         {
-            value/=(1f+功法Config.功法属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count/100f);
+            value/=(1f+功法Config.功法基础属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count/100f);
         }
         float random=Random.Range(0.8f,1.2f);
         return value*random;
@@ -829,7 +829,7 @@ public class 人物item : MonoBehaviour
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.战士 &&
             PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
         {
-            scale+=功法Config.功法属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count;
+            scale+=功法Config.功法基础属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count;
         }
         攻击范围Tri.transform.localScale = new Vector3(scale, scale, scale);
         switch (HeroConfig.HeroQualityDic[heroType])

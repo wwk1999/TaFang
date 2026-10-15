@@ -68,11 +68,11 @@ public class 城墙界面 : MonoBehaviour
 
     public void Show()
     {
-        灵气count.text = $"<color=green>{PlayerData.S.PropListDic[PropType.灵魂]}</color>/{城墙Config.Get城墙升级灵气()}";
+        灵气count.text = $"{PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂])}/{PlayerData.S.格式化数字(城墙Config.Get城墙升级灵气())}";
         Icon.sprite = ResourcesConfig.Get城墙Icon();
         name.text = 城墙Config.Get城墙名();
         level.text = PlayerData.S.城墙等级.ToString();
-        hp.text = 城墙Config.Get城墙最大生命值().ToString();
+        hp.text = PlayerData.S.格式化数字(城墙Config.Get城墙最大生命值());
         defense.text = 城墙Config.Get城墙防御().ToString();
         quality.text = 城墙Config.Get城墙Quality().ToString();
         quality.colorGradientPreset = ResourcesConfig.Get品质TMP(城墙Config.Get城墙Quality());

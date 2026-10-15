@@ -1589,113 +1589,113 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
   // 南天门 (第16关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.南天门, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 100000000, Attack = 6000, Defense = 3000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 200000000, Attack = 6000, Defense = 3000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.南天门, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 1000000000, Attack = 12000, Defense = 5000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 2000000000, Attack = 12000, Defense = 5000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.南天门, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 10000000000, Attack = 30000, Defense = 9000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 20000000000, Attack = 30000, Defense = 9000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
 
   // 瑶池仙境 (第17关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 200000000, Attack = 8000, Defense = 4000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 400000000, Attack = 8000, Defense = 4000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 2000000000, Attack = 15000, Defense = 6000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 4000000000, Attack = 15000, Defense = 6000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.瑶池仙境, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 20000000000, Attack = 40000, Defense = 12000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 40000000000, Attack = 40000, Defense = 12000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
 
   // 斩妖台 (第18关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 500000000, Attack = 10000, Defense = 5000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 1000000000, Attack = 10000, Defense = 5000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 5000000000, Attack = 20000, Defense = 8000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 10000000000, Attack = 20000, Defense = 8000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.斩妖台, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 50000000000, Attack = 50000, Defense = 15000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+    new MonsterAttribute() { Hp = 100000000000, Attack = 50000, Defense = 15000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
   },
 
   // 御马监 (第19关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.御马监, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 3000000000, Attack = 20000, Defense = 10000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+    new MonsterAttribute() { Hp = 6000000000, Attack = 20000, Defense = 10000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.御马监, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 30000000000, Attack = 40000, Defense = 15000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+    new MonsterAttribute() { Hp = 60000000000, Attack = 40000, Defense = 15000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.御马监, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 300000000000, Attack = 100000, Defense = 30000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+    new MonsterAttribute() { Hp = 600000000000, Attack = 100000, Defense = 30000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
   },
 
   // 蟠桃园 (第20关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.蟠桃园, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 10000000000, Attack = 30000, Defense = 12000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+    new MonsterAttribute() { Hp = 20000000000, Attack = 30000, Defense = 12000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.蟠桃园, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 100000000000, Attack = 60000, Defense = 18000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+    new MonsterAttribute() { Hp = 200000000000, Attack = 60000, Defense = 18000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.蟠桃园, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 1000000000000, Attack = 120000, Defense = 40000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+    new MonsterAttribute() { Hp = 2000000000000, Attack = 120000, Defense = 40000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
   },
 
   // 兜率宫 (第21关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.兜率宫, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 60000000000, Attack = 60000, Defense = 25000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 120000000000, Attack = 60000, Defense = 25000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.兜率宫, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 600000000000, Attack = 120000, Defense = 35000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 1200000000000, Attack = 120000, Defense = 35000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.兜率宫, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 6000000000000, Attack = 250000, Defense = 80000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 12000000000000, Attack = 250000, Defense = 80000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
 
   // 紫微宫 (第22关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 120000000000, Attack = 80000, Defense = 30000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 240000000000, Attack = 80000, Defense = 30000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 1200000000000, Attack = 150000, Defense = 50000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 2400000000000, Attack = 150000, Defense = 50000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.紫微宫, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 12000000000000, Attack = 300000, Defense = 100000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 24000000000000, Attack = 300000, Defense = 100000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
 
   // 昊天殿 (第23关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 400000000000, Attack = 120000, Defense = 40000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 800000000000, Attack = 120000, Defense = 40000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 4000000000000, Attack = 200000, Defense = 60000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 8000000000000, Attack = 200000, Defense = 60000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.昊天殿, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 40000000000000, Attack = 400000, Defense = 120000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+    new MonsterAttribute() { Hp = 80000000000000, Attack = 400000, Defense = 120000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
   },
 
   // ==================== 登天路 & 六重天/四重天/三清境/大罗天（第24~33关）====================

@@ -546,7 +546,7 @@ public class MonsterBase : MonoBehaviour
       if (_ctx.职业.zhiYeType == ZhiYeType.法师 &&
           PlayerData.S.HeroDataDic[heroType].功法Type != 功法Type.None)
       {
-         float 暴击伤害 = 功法Config.功法属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count;
+         float 暴击伤害 = 功法Config.功法基础属性Dic[PlayerData.S.HeroDataDic[heroType].功法Type].count;
          damage *= (1 + 暴击伤害 / 100f);
       }
 

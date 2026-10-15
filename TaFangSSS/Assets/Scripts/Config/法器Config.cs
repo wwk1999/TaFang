@@ -521,13 +521,13 @@ public class 法器Config
 
         if (count >= 8)
         {
-            无暇加成 = 1;
+            无暇加成 = EquipConfig.无暇套装加成3/100f;
         }else if (count >= 6)
         {
-            无暇加成 = 0.5f;
+            无暇加成 = EquipConfig.无暇套装加成2/100f;
         }else if (count >= 4)
         {
-            无暇加成 = 0.2f;
+            无暇加成 = EquipConfig.无暇套装加成1/100f;
         }
         foreach (var item in 法器.list)
         {
@@ -537,7 +537,7 @@ public class 法器Config
                 case 法器附加属性Type.暴击率:
                     if (item.无暇)
                     {
-                        法器属性.暴击率 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.暴击率 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -547,7 +547,7 @@ public class 法器Config
                 case 法器附加属性Type.暴击伤害:
                     if (item.无暇)
                     {
-                        法器属性.暴击伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.暴击伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -557,7 +557,7 @@ public class 法器Config
                 case 法器附加属性Type.火焰伤害:
                     if (item.无暇)
                     {
-                        法器属性.火焰伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.火焰伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -567,7 +567,7 @@ public class 法器Config
                 case 法器附加属性Type.雷电伤害:
                     if (item.无暇)
                     {
-                        法器属性.雷电伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.雷电伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -577,7 +577,7 @@ public class 法器Config
                 case 法器附加属性Type.黑暗伤害:
                     if (item.无暇)
                     {
-                        法器属性.黑暗伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.黑暗伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -587,7 +587,7 @@ public class 法器Config
                 case 法器附加属性Type.冰霜伤害:
                     if (item.无暇)
                     {
-                        法器属性.冰霜伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.冰霜伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -597,7 +597,7 @@ public class 法器Config
                 case 法器附加属性Type.物理伤害:
                     if (item.无暇)
                     {
-                        法器属性.物理伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.物理伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -607,7 +607,7 @@ public class 法器Config
                 case 法器附加属性Type.最终伤害:
                     if (item.无暇)
                     {
-                        法器属性.最终伤害 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.最终伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -617,7 +617,7 @@ public class 法器Config
                 case 法器附加属性Type.普通怪增伤:
                     if (item.无暇)
                     {
-                        法器属性.普通怪增伤 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.普通怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -627,7 +627,7 @@ public class 法器Config
                 case 法器附加属性Type.精英怪增伤:
                     if (item.无暇)
                     {
-                        法器属性.精英怪增伤 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.精英怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -637,7 +637,7 @@ public class 法器Config
                 case 法器附加属性Type.首领怪增伤:
                     if (item.无暇)
                     {
-                        法器属性.首领怪增伤 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.首领怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -647,7 +647,7 @@ public class 法器Config
                 case 法器附加属性Type.火焰穿透:
                     if (item.无暇)
                     {
-                        法器属性.火焰穿透 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.火焰穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -657,7 +657,7 @@ public class 法器Config
                 case 法器附加属性Type.雷电穿透:
                     if (item.无暇)
                     {
-                        法器属性.雷电穿透 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.雷电穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -667,7 +667,7 @@ public class 法器Config
                 case 法器附加属性Type.物理穿透:
                     if (item.无暇)
                     {
-                        法器属性.物理穿透 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.物理穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -677,7 +677,7 @@ public class 法器Config
                 case 法器附加属性Type.冰霜穿透:
                     if (item.无暇)
                     {
-                        法器属性.冰霜穿透 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.冰霜穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -687,7 +687,7 @@ public class 法器Config
                 case 法器附加属性Type.黑暗穿透:
                     if (item.无暇)
                     {
-                        法器属性.黑暗穿透 += item.count*2*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
+                        法器属性.黑暗穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
                     }
                     else
                     {
@@ -711,7 +711,7 @@ public class 法器Config
                     case 法器附加属性Type.暴击率:
                         if (item.无暇)
                         {
-                            法器属性.暴击率 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.暴击率 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -721,7 +721,7 @@ public class 法器Config
                     case 法器附加属性Type.暴击伤害:
                         if (item.无暇)
                         {
-                            法器属性.暴击伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.暴击伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -731,7 +731,7 @@ public class 法器Config
                     case 法器附加属性Type.火焰伤害:
                         if (item.无暇)
                         {
-                            法器属性.火焰伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.火焰伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -741,7 +741,7 @@ public class 法器Config
                     case 法器附加属性Type.雷电伤害:
                         if (item.无暇)
                         {
-                            法器属性.雷电伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.雷电伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -751,7 +751,7 @@ public class 法器Config
                     case 法器附加属性Type.黑暗伤害:
                         if (item.无暇)
                         {
-                            法器属性.黑暗伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.黑暗伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -761,7 +761,7 @@ public class 法器Config
                     case 法器附加属性Type.冰霜伤害:
                         if (item.无暇)
                         {
-                            法器属性.冰霜伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.冰霜伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -771,7 +771,7 @@ public class 法器Config
                     case 法器附加属性Type.物理伤害:
                         if (item.无暇)
                         {
-                            法器属性.物理伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.物理伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -781,7 +781,7 @@ public class 法器Config
                     case 法器附加属性Type.最终伤害:
                         if (item.无暇)
                         {
-                            法器属性.最终伤害 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.最终伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -791,7 +791,7 @@ public class 法器Config
                     case 法器附加属性Type.普通怪增伤:
                         if (item.无暇)
                         {
-                            法器属性.普通怪增伤 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.普通怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -801,7 +801,7 @@ public class 法器Config
                     case 法器附加属性Type.精英怪增伤:
                         if (item.无暇)
                         {
-                            法器属性.精英怪增伤 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.精英怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -811,7 +811,7 @@ public class 法器Config
                     case 法器附加属性Type.首领怪增伤:
                         if (item.无暇)
                         {
-                            法器属性.首领怪增伤 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.首领怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -821,7 +821,7 @@ public class 法器Config
                     case 法器附加属性Type.火焰穿透:
                         if (item.无暇)
                         {
-                            法器属性.火焰穿透 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.火焰穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -831,7 +831,7 @@ public class 法器Config
                     case 法器附加属性Type.雷电穿透:
                         if (item.无暇)
                         {
-                            法器属性.雷电穿透 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.雷电穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -841,7 +841,7 @@ public class 法器Config
                     case 法器附加属性Type.物理穿透:
                         if (item.无暇)
                         {
-                            法器属性.物理穿透 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.物理穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -851,7 +851,7 @@ public class 法器Config
                     case 法器附加属性Type.冰霜穿透:
                         if (item.无暇)
                         {
-                            法器属性.冰霜穿透 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.冰霜穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {
@@ -861,7 +861,7 @@ public class 法器Config
                     case 法器附加属性Type.黑暗穿透:
                         if (item.无暇)
                         {
-                            法器属性.黑暗穿透 += item.count*2*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
+                            法器属性.黑暗穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
                         }
                         else
                         {

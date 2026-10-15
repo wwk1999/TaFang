@@ -385,9 +385,9 @@ public class 功法Config
 
     public static string Get功法基础属性String(功法Type type)
     {
-        if (!功法属性Dic.ContainsKey(type)) return "";
+        if (!功法基础属性Dic.ContainsKey(type)) return "";
 
-        功法属性Item item = 功法属性Dic[type];
+        功法属性Item item = 功法基础属性Dic[type];
         float value = item.count;
         switch (type)
         {
@@ -498,7 +498,7 @@ public class 功法Config
         float 每重奖励 = 辅助功法升级奖励Dic[功法TypeQualityDic[数据.功法Type]];
         return 数据.功法等级 * 每重奖励 / 100f;
     }
-    public static Dictionary<功法Type, 功法属性Item> 功法属性Dic = new Dictionary<功法Type, 功法属性Item>()
+    public static Dictionary<功法Type, 功法属性Item> 功法基础属性Dic = new Dictionary<功法Type, 功法属性Item>()
     {
         { 功法Type.战士白, new 功法属性Item() { 功法属性Type = 功法属性Type.攻击距离, count = 0.5f } },
         { 功法Type.战士绿, new 功法属性Item() { 功法属性Type = 功法属性Type.攻击距离, count = 0.7f } },
@@ -510,13 +510,13 @@ public class 功法Config
         { 功法Type.战士彩, new 功法属性Item() { 功法属性Type = 功法属性Type.攻击距离, count = 4 } },
 
         { 功法Type.法师白, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 10f } },
-        { 功法Type.法师绿, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 15f } },
-        { 功法Type.法师蓝, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 25f } },
-        { 功法Type.法师紫, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 40f } },
-        { 功法Type.法师橙, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 70 } },
-        { 功法Type.法师粉, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 110 } },
-        { 功法Type.法师红, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 180 } },
-        { 功法Type.法师彩, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 300 } },
+        { 功法Type.法师绿, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 20f } },
+        { 功法Type.法师蓝, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 50f } },
+        { 功法Type.法师紫, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 100f } },
+        { 功法Type.法师橙, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 200 } },
+        { 功法Type.法师粉, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 500 } },
+        { 功法Type.法师红, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 2000 } },
+        { 功法Type.法师彩, new 功法属性Item() { 功法属性Type = 功法属性Type.暴击伤害, count = 10000 } },
 
         { 功法Type.辅助白, new 功法属性Item() { 功法属性Type = 功法属性Type.辅助效果, count = 5f } },
         { 功法Type.辅助绿, new 功法属性Item() { 功法属性Type = 功法属性Type.辅助效果, count = 10f } },
@@ -538,12 +538,12 @@ public class 功法Config
 
         { 功法Type.射手白, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 5f } },
         { 功法Type.射手绿, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 10f } },
-        { 功法Type.射手蓝, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 18f } },
-        { 功法Type.射手紫, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 30f } },
-        { 功法Type.射手橙, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 50f } },
-        { 功法Type.射手粉, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 80f } },
-        { 功法Type.射手红, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 120f } },
-        { 功法Type.射手彩, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 200f } },
+        { 功法Type.射手蓝, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 15f } },
+        { 功法Type.射手紫, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 20f } },
+        { 功法Type.射手橙, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 30f } },
+        { 功法Type.射手粉, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 50f } },
+        { 功法Type.射手红, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 80f } },
+        { 功法Type.射手彩, new 功法属性Item() { 功法属性Type = 功法属性Type.冷却缩减, count = 120f } },
     };
 
     public static Dictionary<QualityType, int> 传道消耗Dic = new Dictionary<QualityType, int>()

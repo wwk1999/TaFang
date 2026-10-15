@@ -26,6 +26,35 @@ public class 符文熔炼所有弹窗 : MonoBehaviour
         圣文Toggle.isOn = 圣;
         道文Toggle.isOn = 道;
     }
+    /// <summary>
+    /// 批量熔炼某品质符文：只熔炼未锁定的，每4个熔成1个同品质新符文，剩余1~3个保留原样。
+    /// 返回熔炼出的新符文数量。
+    /// </summary>
+    private int 批量熔炼(List<符文> list, 符文品质Type 品质)
+    {
+        int 未锁数量 = 0;
+        foreach (var item in list)
+        {
+            if (!item.锁) 未锁数量++;
+        }
+        int 新符文数 = 未锁数量 / 4;
+        if (新符文数 == 0) return 0;
+        // 从后往前移除 新符文数*4 个未锁符文
+        int 待移除 = 新符文数 * 4;
+        for (int i = list.Count - 1; i >= 0 && 待移除 > 0; i--)
+        {
+            if (!list[i].锁)
+            {
+                list.RemoveAt(i);
+                待移除--;
+            }
+        }
+        for (int i = 0; i < 新符文数; i++)
+        {
+            list.Add(符文之地Config.Get品质符文(品质));
+        }
+        return 新符文数;
+    }
     private void OnEnable()
     {
         SetToggle();
@@ -39,10 +68,20 @@ public class 符文熔炼所有弹窗 : MonoBehaviour
         });
         熔炼Button.onClick.AddListener(() =>
         {
-            if (灵)
+            int 新符文总数 = 0;
+            if (灵) 新符文总数 += 批量熔炼(PlayerData.S.符文灵文List, 符文品质Type.灵文);
+            if (仙) 新符文总数 += 批量熔炼(PlayerData.S.符文仙文List, 符文品质Type.仙文);
+            if (帝) 新符文总数 += 批量熔炼(PlayerData.S.符文帝文List, 符文品质Type.帝文);
+            if (圣) 新符文总数 += 批量熔炼(PlayerData.S.符文圣文List, 符文品质Type.圣文);
+            if (道) 新符文总数 += 批量熔炼(PlayerData.S.符文道文List, 符文品质Type.道文);
+            if (新符文总数 == 0)
             {
-                int count = PlayerData.S.符文灵文List.Count/4;
+                ObserverModuleManager.S.SendEvent("SendUIToast","没有可熔炼的符文(需勾选品质且有4个以上未锁符文)");
+                return;
             }
+            ObserverModuleManager.S.SendEvent("SendUIToast",$"熔炼完成，获得{新符文总数}个新符文");
+            ObserverModuleManager.S.SendEvent("刷新背包");
+            gameObject.SetActive(false);
         });
         灵文Toggle.onValueChanged.AddListener((value) =>
         {

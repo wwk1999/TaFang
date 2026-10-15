@@ -20,7 +20,6 @@
      public float minCount;
      public float maxCount;
  }
-
  public class 附加属性
  {
      public 附加属性Type 附加属性Type;
@@ -66,8 +65,10 @@
 
  public class EquipConfig
  {
-     
-
+     public static float 无暇词条加成 = 300;
+     public static float 无暇套装加成1 = 50;
+     public static float 无暇套装加成2 = 100;
+     public static float 无暇套装加成3 = 300;
      public static string Get排序String(附加属性Type type)
      {
          switch (type)
@@ -459,17 +460,17 @@
                  value *= (1f + PlayerData.S.EquipLevelDic[EquipType.头盔]*装备每等级词条效果 / 100f);
                  if (item.无暇)
                  {
-                     value *= 2;
+                     value *= (1+无暇词条加成 / 100f);
                  }
                  if (头盔无暇count >= 7)
                  {
-                     value *= 2f;
+                     value *= (1f+无暇套装加成3/100f);
                  }else if (头盔无暇count >= 5)
                  {
-                     value *= 1.5f;
+                     value *= (1f+无暇套装加成2/100f);
                  }else if (头盔无暇count >= 3)
                  {
-                     value *= 1.2f;
+                     value *= (1f+无暇套装加成1/100f);
                  }
                  count += value;
              }
@@ -482,17 +483,17 @@
                  value *= (1f + PlayerData.S.EquipLevelDic[EquipType.戒指]*装备每等级词条效果 / 100f);
                  if (item.无暇)
                  {
-                     value *= 2;
+                     value *= (1f+无暇词条加成/100f);
                  }
                  if (戒指无暇count >= 7)
                  {
-                     value *= 2f;
+                     value *= (1f + 无暇套装加成3 / 100f);
                  }else if (戒指无暇count >= 5)
                  {
-                     value *= 1.5f;
+                     value *= (1f + 无暇套装加成2 / 100f);
                  }else if (戒指无暇count >= 3)
                  {
-                     value *= 1.2f;
+                     value *= (1f + 无暇套装加成1 / 100f);
                  }
                  count += value;
              }
@@ -508,17 +509,17 @@
                  value *= (1f + PlayerData.S.EquipLevelDic[EquipType.项链]*装备每等级词条效果 / 100f);
                  if (item.无暇)
                  {
-                     value *= 2;
+                     value *= (1f + 无暇词条加成 / 100f);
                  }
                  if (项链无暇count >= 7)
                  {
-                     value *= 2f;
+                     value *= (1f + 无暇套装加成3 / 100f);
                  }else if (项链无暇count >= 5)
                  {
-                     value *= 1.5f;
+                     value *= (1f + 无暇套装加成2 / 100f);
                  }else if (项链无暇count >= 3)
                  {
-                     value *= 1.2f;
+                     value *= (1f + 无暇套装加成1 / 100f);
                  }
                  count += value;
              }
@@ -535,17 +536,17 @@
 
                  if (item.无暇)
                  {
-                     value *= 2;
+                     value *= (1f + 无暇词条加成 / 100f);
                  }
                  if (鞋子无暇count >= 7)
                  {
-                     value *= 2f;
+                     value *= (1f + 无暇套装加成3 / 100f);
                  }else if (鞋子无暇count >= 5)
                  {
-                     value *= 1.5f;
+                     value *= (1f + 无暇套装加成2 / 100f);
                  }else if (鞋子无暇count >= 3)
                  {
-                     value *= 1.2f;
+                     value *= (1f + 无暇套装加成1 / 100f);
                  }
                  count += value;
              }
@@ -562,17 +563,17 @@
 
                  if (item.无暇)
                  {
-                     value *= 2;
+                     value *= (1f + 无暇词条加成 / 100f);
                  }
                  if (护手无暇count >= 7)
                  {
-                     value *= 2f;
+                     value *= (1f + 无暇套装加成3 / 100f);
                  }else if (护手无暇count >= 5)
                  {
-                     value *= 1.5f;
+                     value *= (1f + 无暇套装加成2 / 100f);
                  }else if (护手无暇count >= 3)
                  {
-                     value *= 1.2f;
+                     value *= (1f + 无暇套装加成1 / 100f);
                  }
                  count += value;
              }
@@ -588,17 +589,17 @@
 
                  if (item.无暇)
                  {
-                     value *= 2;
+                     value *= (1f + 无暇词条加成 / 100f);
                  }
                  if (衣服无暇count >= 7)
                  {
-                     value *= 2f;
+                     value *= (1f + 无暇套装加成3 / 100f);
                  }else if (衣服无暇count >= 5)
                  {
-                     value *= 1.5f;
+                     value *= (1f + 无暇套装加成2 / 100f);
                  }else if (衣服无暇count >= 3)
                  {
-                     value *= 1.2f;
+                     value *= (1f + 无暇套装加成1 / 100f);
                  }
                  count += value;
              }
