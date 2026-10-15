@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +9,11 @@ using UnityEngine.UI;
 
 public class 符文附魔panel : MonoBehaviour
 {
+    public Button 英雄筛选Button;
+    public GameObject 英雄筛选;
+    public GameObject 英雄筛选Content;
+    public Button 英雄筛选mask;
+    
     public 符文确认附魔弹窗 符文确认附魔弹窗;
     public Button 法器Button;
     public Button 符文Button;
@@ -31,8 +37,31 @@ public class 符文附魔panel : MonoBehaviour
     [NonSerialized]public int 页数num = 1;
     [NonSerialized]public bool 显示法器 = true;
 
+    public void Set出战英雄筛选()
+    {
+        foreach (Transform Item in 英雄筛选Content.transform)
+        {
+            Destroy(Item.gameObject);
+        }
+        var 出战英雄筛选Item1 = Instantiate(Resources.Load("Prefabs/Window/炼器/符文附魔英雄筛选Item"), 英雄筛选Content.transform)
+            .GetComponent<符文附魔英雄筛选Item>();
+        出战英雄筛选Item1.HeroType = HeroType.None;
+        出战英雄筛选Item1.SetItem();
+
+        foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+        {
+            if (item != HeroType.None)
+            {
+                var 出战英雄筛选Item = Instantiate(Resources.Load("Prefabs/Window/炼器/符文附魔英雄筛选Item"), 英雄筛选Content.transform)
+                    .GetComponent<符文附魔英雄筛选Item>();
+                出战英雄筛选Item.HeroType = item;
+                出战英雄筛选Item.SetItem();
+            }
+        }
+    }
     private void OnEnable()
     {
+        Set出战英雄筛选();
         HeroWindowController.S.当前符文附魔法器 = null;
         HeroWindowController.S.当前符文附魔符文=null;
         页数num = 1;
@@ -44,6 +73,7 @@ public class 符文附魔panel : MonoBehaviour
     {
         if (显示法器)
         {
+            英雄筛选Button.gameObject.SetActive(true);
             法器Button.image.sprite = ResourcesConfig.按钮黑;
             法器Button.transform.localScale = Vector3.one;
             法器白.gameObject.SetActive(true);
@@ -57,6 +87,7 @@ public class 符文附魔panel : MonoBehaviour
         }
         else
         {
+            英雄筛选Button.gameObject.SetActive(false);
             法器Button.image.sprite = ResourcesConfig.按钮白;
             法器Button.transform.localScale = new Vector3(-1, 1, 1);
             法器白.gameObject.SetActive(false);
@@ -78,9 +109,49 @@ public class 符文附魔panel : MonoBehaviour
         }
         else
         {
-            int count = PlayerData.S.符文道文List.Count + PlayerData.S.符文圣文List.Count
-                + PlayerData.S.符文帝文List.Count + PlayerData.S.符文仙文List.Count
-                + PlayerData.S.符文灵文List.Count;
+            int count = 0;
+            if (HeroWindowController.S.当前符文附魔排序Type == 符文Type.None)
+            {
+                count = PlayerData.S.符文道文List.Count + PlayerData.S.符文圣文List.Count+ PlayerData.S.符文帝文List.Count + PlayerData.S.符文仙文List.Count+ PlayerData.S.符文灵文List.Count;
+            }
+            else
+            {
+                foreach (var item in PlayerData.S.符文道文List)
+                {
+                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                    {
+                        count++;
+                    }
+                }
+                foreach (var item in PlayerData.S.符文帝文List)
+                {
+                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                    {
+                        count++;
+                    }
+                }
+                foreach (var item in PlayerData.S.符文圣文List)
+                {
+                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                    {
+                        count++;
+                    }
+                }
+                foreach (var item in PlayerData.S.符文仙文List)
+                {
+                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                    {
+                        count++;
+                    }
+                }
+                foreach (var item in PlayerData.S.符文灵文List)
+                {
+                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                    {
+                        count++;
+                    }
+                }
+            }
             return Mathf.Max(1, Mathf.CeilToInt(count / 40f));
         }
     }
@@ -92,12 +163,84 @@ public class 符文附魔panel : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("符文附魔英雄筛选", 符文附魔英雄筛选);
         ObserverModuleManager.S.UnRegisterEvent("刷新符文附魔Panel",刷新符文附魔Panel);
     }
+    public void 符文附魔英雄筛选(object[] obj)
+    {
+        英雄筛选mask.gameObject.SetActive(false);
+        英雄筛选.gameObject.SetActive(false);
+        HeroType heroType=(HeroType)obj[0];
+        Show英雄法器(heroType);
+    }
+    
+    
+    public void Show英雄法器(HeroType heroType)
+    {
+        foreach (Transform item in content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        页数num = 1;
+        页数.text = 页数num.ToString();
+        if (heroType == HeroType.None)
+        {
+            Show左panel();
+            return;
+        }
+        GameObject prefab = Resources.Load("Prefabs/Window/符文之地/符文附魔法器item") as GameObject;
 
+        if (PlayerData.S.HeroDataDic[heroType].武器 != null)
+        {
+            var 武器 = Instantiate(prefab, content.transform)
+                .GetComponent<符文附魔法器item>();
+            武器.法器 = PlayerData.S.HeroDataDic[heroType].武器;
+            武器.法器.HeroType = heroType;
+            武器.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].头盔 != null)
+        {
+            var 头盔 = Instantiate(prefab, content.transform)
+                .GetComponent<符文附魔法器item>();
+            头盔.法器 = PlayerData.S.HeroDataDic[heroType].头盔;
+            头盔.法器.HeroType = heroType;
+            头盔.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].衣服 != null)
+        {
+            var 衣服 = Instantiate(prefab, content.transform)
+                .GetComponent<符文附魔法器item>();
+            衣服.法器 = PlayerData.S.HeroDataDic[heroType].衣服;
+            衣服.法器.HeroType = heroType;
+            衣服.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].鞋子 != null)
+        {
+            var 鞋子 = Instantiate(prefab, content.transform)
+                .GetComponent<符文附魔法器item>();
+            鞋子.法器 = PlayerData.S.HeroDataDic[heroType].鞋子;
+            鞋子.法器.HeroType = heroType;
+            鞋子.SetItem();
+        }
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("符文附魔英雄筛选", 符文附魔英雄筛选);
+
         ObserverModuleManager.S.RegisterEvent("刷新符文附魔Panel",刷新符文附魔Panel);
+        英雄筛选Button.onClick.AddListener(() =>
+        {
+            英雄筛选mask.gameObject.SetActive(true);
+            英雄筛选.gameObject.SetActive(true);
+        });
+        英雄筛选mask.onClick.AddListener(() =>
+        {
+            英雄筛选mask.gameObject.SetActive(false);
+            英雄筛选.gameObject.SetActive(false);
+        });
         左箭头.onClick.AddListener(() =>
         {
             if (页数num > 1) 
@@ -200,6 +343,63 @@ public class 符文附魔panel : MonoBehaviour
             name.colorGradientPreset =
                 ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[HeroWindowController.S.当前符文附魔法器.法器Type]);
         }
+    }
+
+    public void Show符文排序(符文Type type)
+    {
+        if (type == 符文Type.None)
+        {
+            页数num = 1;
+            Show背包();
+            return;
+        }
+        
+        
+        foreach (Transform item in content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        // 翻页钳制：无论哪种模式，页数num 都不能超过当前模式的总页数，避免翻出空白页
+        int 最大页数 = Get最大页数();
+        if (页数num > 最大页数) 页数num = 最大页数;
+        if (页数num < 1) 页数num = 1;
+        页数.text = 页数num.ToString();
+       
+        
+            // 品质从高到低依次显示：道文(荒品) → 圣文(洪品) → 帝文(宙品) → 仙文(宇品) → 灵文(地品)
+            List<List<符文>> 符文Lists = new List<List<符文>>()
+            {
+                PlayerData.S.符文道文List,
+                PlayerData.S.符文圣文List,
+                PlayerData.S.符文帝文List,
+                PlayerData.S.符文仙文List,
+                PlayerData.S.符文灵文List,
+            };
+            int count = 0;
+            int start = 40 * (页数num - 1);
+            int end = 页数num * 40;
+            foreach (var list in 符文Lists)
+            {
+                foreach (var 符文item in list)
+                {
+                    if (count >= start && count < end)
+                    {
+                        var item = Instantiate(Resources.Load("Prefabs/Window/符文之地/符文附魔符文item"), content.transform)
+                            .GetComponent<符文附魔符文item>();
+                        item.符文 = 符文item;
+                        item.SetItem();
+                        if (HeroWindowController.S.当前符文附魔符文 != null && item.符文 == HeroWindowController.S.当前符文附魔符文)
+                        {
+                            item.gou.SetActive(true);
+                        }
+                        else
+                        {
+                            item.gou.SetActive(false);
+                        }
+                    }
+                    count++;
+                }
+            }
     }
     
     public void Show左panel()

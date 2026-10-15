@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,13 @@ using UnityEngine.EventSystems;
 
 public class 仙石镶嵌panel : MonoBehaviour
 {
+    public Button 英雄筛选Button;
+    public GameObject 英雄筛选;
+    public GameObject 英雄筛选Content;
+    public Button 英雄筛选mask;
+    
+    public GameObject 排序;
+    public GameObject 筛选;
     public Button 排序按钮;
     public Button 筛选按钮;
     public GameObject 筛选区域;
@@ -42,8 +50,32 @@ public class 仙石镶嵌panel : MonoBehaviour
     [NonSerialized]public int 页数num = 1;
     [NonSerialized]public bool 显示法器 = true;
 
+    public void Set出战英雄筛选()
+    {
+        foreach (Transform Item in 英雄筛选Content.transform)
+        {
+            Destroy(Item.gameObject);
+        }
+        var 出战英雄筛选Item1 = Instantiate(Resources.Load("Prefabs/Window/炼器/仙石镶嵌英雄筛选Item"), 英雄筛选Content.transform)
+            .GetComponent<仙石镶嵌英雄筛选Item>();
+        出战英雄筛选Item1.HeroType = HeroType.None;
+        出战英雄筛选Item1.SetItem();
+
+        foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
+        {
+            if (item != HeroType.None)
+            {
+                var 出战英雄筛选Item = Instantiate(Resources.Load("Prefabs/Window/炼器/仙石镶嵌英雄筛选Item"), 英雄筛选Content.transform)
+                    .GetComponent<仙石镶嵌英雄筛选Item>();
+                出战英雄筛选Item.HeroType = item;
+                出战英雄筛选Item.SetItem();
+            }
+        }
+    }
+    
     private void OnEnable()
     {
+        Set出战英雄筛选();
         HeroWindowController.S.仙石=null;
         页数num = 1;
         显示法器 = true;
@@ -115,6 +147,7 @@ public class 仙石镶嵌panel : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("仙石镶嵌英雄筛选", 仙石镶嵌英雄筛选);
         ObserverModuleManager.S.UnRegisterEvent("隐藏筛选选项",隐藏筛选选项);
         ObserverModuleManager.S.UnRegisterEvent("隐藏排序选项",隐藏排序选项);
         ObserverModuleManager.S.UnRegisterEvent("显示仙石镶嵌确认弹窗",显示仙石镶嵌确认弹窗);
@@ -187,8 +220,70 @@ public class 仙石镶嵌panel : MonoBehaviour
         排序区域.gameObject.SetActive(false);
         下拉区域Mask.gameObject.SetActive(false);
     }
+    public void 仙石镶嵌英雄筛选(object[] obj)
+    {
+        英雄筛选mask.gameObject.SetActive(false);
+        英雄筛选.gameObject.SetActive(false);
+        HeroType heroType=(HeroType)obj[0];
+        Show英雄法器(heroType);
+    }
+    
+    
+    public void Show英雄法器(HeroType heroType)
+    {
+        foreach (Transform item in content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        页数num = 1;
+        页数.text = 页数num.ToString();
+        if (heroType == HeroType.None)
+        {
+            Show左panel();
+            return;
+        }
+        GameObject prefab = Resources.Load("Prefabs/Window/炼器/洗练法器item") as GameObject;
+
+        if (PlayerData.S.HeroDataDic[heroType].武器 != null)
+        {
+            var 武器 = Instantiate(prefab, content.transform)
+                .GetComponent<洗练法器item>();
+            武器.法器 = PlayerData.S.HeroDataDic[heroType].武器;
+            武器.法器.HeroType = heroType;
+            武器.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].头盔 != null)
+        {
+            var 头盔 = Instantiate(prefab, content.transform)
+                .GetComponent<洗练法器item>();
+            头盔.法器 = PlayerData.S.HeroDataDic[heroType].头盔;
+            头盔.法器.HeroType = heroType;
+            头盔.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].衣服 != null)
+        {
+            var 衣服 = Instantiate(prefab, content.transform)
+                .GetComponent<洗练法器item>();
+            衣服.法器 = PlayerData.S.HeroDataDic[heroType].衣服;
+            衣服.法器.HeroType = heroType;
+            衣服.SetItem();
+        }
+        
+        if (PlayerData.S.HeroDataDic[heroType].鞋子 != null)
+        {
+            var 鞋子 = Instantiate(prefab, content.transform)
+                .GetComponent<洗练法器item>();
+            鞋子.法器 = PlayerData.S.HeroDataDic[heroType].鞋子;
+            鞋子.法器.HeroType = heroType;
+            鞋子.SetItem();
+        }
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("仙石镶嵌英雄筛选", 仙石镶嵌英雄筛选);
+
         ObserverModuleManager.S.RegisterEvent("隐藏筛选选项",隐藏筛选选项);
         ObserverModuleManager.S.RegisterEvent("隐藏排序选项",隐藏排序选项);
         ObserverModuleManager.S.RegisterEvent("显示仙石镶嵌确认弹窗",显示仙石镶嵌确认弹窗);
@@ -201,6 +296,16 @@ public class 仙石镶嵌panel : MonoBehaviour
         {
             排序区域.gameObject.SetActive(true);
             下拉区域Mask.gameObject.SetActive(true);
+        });
+        英雄筛选Button.onClick.AddListener(() =>
+        {
+            英雄筛选mask.gameObject.SetActive(true);
+            英雄筛选.gameObject.SetActive(true);
+        });
+        英雄筛选mask.onClick.AddListener(() =>
+        {
+            英雄筛选mask.gameObject.SetActive(false);
+            英雄筛选.gameObject.SetActive(false);
         });
         筛选按钮.onClick.AddListener(() =>
         {
@@ -263,8 +368,9 @@ public class 仙石镶嵌panel : MonoBehaviour
     {
         if (显示法器)
         {
-            排序按钮.gameObject.SetActive(false);
-            筛选按钮.gameObject.SetActive(false);
+            英雄筛选Button.gameObject.SetActive(true);
+            排序.gameObject.SetActive(false);
+            筛选.gameObject.SetActive(false);
             法器Button.image.sprite = ResourcesConfig.按钮黑;
             法器Button.transform.localScale = Vector3.one;
             法器白.gameObject.SetActive(true);
@@ -278,8 +384,9 @@ public class 仙石镶嵌panel : MonoBehaviour
         }
         else
         {
-            排序按钮.gameObject.SetActive(true);
-            筛选按钮.gameObject.SetActive(true);
+            英雄筛选Button.gameObject.SetActive(false);
+            排序.gameObject.SetActive(true);
+            筛选.gameObject.SetActive(true);
             法器Button.image.sprite = ResourcesConfig.按钮白;
             法器Button.transform.localScale = new Vector3(-1, 1, 1);
             法器白.gameObject.SetActive(false);

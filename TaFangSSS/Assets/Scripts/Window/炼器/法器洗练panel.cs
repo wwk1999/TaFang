@@ -13,7 +13,6 @@ public class 法器洗练panel : MonoBehaviour
     public Button 英雄筛选Button;
     public GameObject 英雄筛选;
     public GameObject 英雄筛选Content;
-
     public Button 英雄筛选mask;
 
 

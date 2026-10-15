@@ -26,7 +26,6 @@ public class 符文附魔符文item : MonoBehaviour
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
         icon.sprite = ResourcesConfig.Get符文Sprite(符文.type,符文Config.Quality对应符文品质[符文.quality]);
         name.text = 符文Config.符文名Dic[符文.type];
-        name.colorGradientPreset = ResourcesConfig.Get品质TMP(符文.quality);
         gou.SetActive(false);
     }
 }

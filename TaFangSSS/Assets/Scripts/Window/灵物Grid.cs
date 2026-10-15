@@ -13,10 +13,12 @@ public class 灵物Grid : MonoBehaviour
     public Image bg;
     public Image icon;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI 境界;
     public TextMeshProUGUI count;
 
     public void SetItem()
     {
+        境界.text=JingJieConfig.JingJieNameDic[JingJieType];
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite = ResourcesConfig.Get突破灵物(JingJieType, QualityType);
         name.text = 灵物突破Config.突破灵物名Dic[JingJieType];
