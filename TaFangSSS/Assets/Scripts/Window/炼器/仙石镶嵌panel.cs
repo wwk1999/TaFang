@@ -242,12 +242,12 @@ public class 仙石镶嵌panel : MonoBehaviour
             Show左panel();
             return;
         }
-        GameObject prefab = Resources.Load("Prefabs/Window/炼器/洗练法器item") as GameObject;
+        GameObject prefab = Resources.Load("Prefabs/Window/炼器/镶嵌法器item") as GameObject;
 
         if (PlayerData.S.HeroDataDic[heroType].武器 != null)
         {
             var 武器 = Instantiate(prefab, content.transform)
-                .GetComponent<洗练法器item>();
+                .GetComponent<镶嵌法器item>();
             武器.法器 = PlayerData.S.HeroDataDic[heroType].武器;
             武器.法器.HeroType = heroType;
             武器.SetItem();
@@ -256,7 +256,7 @@ public class 仙石镶嵌panel : MonoBehaviour
         if (PlayerData.S.HeroDataDic[heroType].头盔 != null)
         {
             var 头盔 = Instantiate(prefab, content.transform)
-                .GetComponent<洗练法器item>();
+                .GetComponent<镶嵌法器item>();
             头盔.法器 = PlayerData.S.HeroDataDic[heroType].头盔;
             头盔.法器.HeroType = heroType;
             头盔.SetItem();
@@ -265,7 +265,7 @@ public class 仙石镶嵌panel : MonoBehaviour
         if (PlayerData.S.HeroDataDic[heroType].衣服 != null)
         {
             var 衣服 = Instantiate(prefab, content.transform)
-                .GetComponent<洗练法器item>();
+                .GetComponent<镶嵌法器item>();
             衣服.法器 = PlayerData.S.HeroDataDic[heroType].衣服;
             衣服.法器.HeroType = heroType;
             衣服.SetItem();
@@ -274,7 +274,7 @@ public class 仙石镶嵌panel : MonoBehaviour
         if (PlayerData.S.HeroDataDic[heroType].鞋子 != null)
         {
             var 鞋子 = Instantiate(prefab, content.transform)
-                .GetComponent<洗练法器item>();
+                .GetComponent<镶嵌法器item>();
             鞋子.法器 = PlayerData.S.HeroDataDic[heroType].鞋子;
             鞋子.法器.HeroType = heroType;
             鞋子.SetItem();
