@@ -536,6 +536,7 @@ public class StoreController : XSingleton<StoreController>
     {
         float value=法器Config.法器打造时间[法器Config.法器品质Dic[PlayerData.S.打造List[0].法器Type]] * 属性config.每年秒数;
         value /= (1f + 道场Config.供奉总属性.炼器速度/100f);
+        value /=(1f+体质Config.当前体质总属性.炼器速度/100f);
         return value;
     }
 

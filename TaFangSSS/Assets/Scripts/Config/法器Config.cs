@@ -1118,26 +1118,26 @@ public class 法器Config
     
     public static Dictionary<QualityType, int> 法器分解Dic = new Dictionary<QualityType, int>()
     {
-        { QualityType.黄品 ,50},
-        { QualityType.玄品 ,150},
-        { QualityType.地品 ,500},
-        { QualityType.天品 ,1500},
-        { QualityType.宇品 ,5000},
-        { QualityType.宙品 ,15000},
-        { QualityType.洪品 ,50000},
-        { QualityType.荒品 ,250000},
+        { QualityType.黄品 ,100},
+        { QualityType.玄品 ,300},
+        { QualityType.地品 ,1000},
+        { QualityType.天品 ,3000},
+        { QualityType.宇品 ,10000},
+        { QualityType.宙品 ,30000},
+        { QualityType.洪品 ,100000},
+        { QualityType.荒品 ,500000},
     };
     
     public static Dictionary<QualityType, int> 法器材料分解粉尘Dic = new Dictionary<QualityType, int>()
     {
-        { QualityType.黄品 ,5},
-        { QualityType.玄品 ,15},
-        { QualityType.地品 ,50},
-        { QualityType.天品 ,150},
-        { QualityType.宇品 ,500},
-        { QualityType.宙品 ,1500},
-        { QualityType.洪品 ,5000},
-        { QualityType.荒品 ,25000},
+        { QualityType.黄品 ,20},
+        { QualityType.玄品 ,60},
+        { QualityType.地品 ,200},
+        { QualityType.天品 ,600},
+        { QualityType.宇品 ,2000},
+        { QualityType.宙品 ,6000},
+        { QualityType.洪品 ,20000},
+        { QualityType.荒品 ,100000},
     };
     public static Dictionary<法器Type, ZhiYeType> 法器职业Dic = new Dictionary<法器Type, ZhiYeType>()
 {

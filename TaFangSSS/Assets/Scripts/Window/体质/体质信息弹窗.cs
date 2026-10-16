@@ -202,6 +202,14 @@ public class 体质信息弹窗 : MonoBehaviour
             item.count = 体质属性.法器效果加成;
             item.SetItem();
         }
+        if (体质属性.炼器速度 != 0)
+        {
+            var item = Instantiate(Resources.Load("Prefabs/Window/体质/体质属性item"), content.transform)
+                .GetComponent<体质属性item>();
+            item.name = "炼器速度加成：";
+            item.count = 体质属性.炼器速度;
+            item.SetItem();
+        }
 
         if (体质属性.轮回系数 != 0)
         {

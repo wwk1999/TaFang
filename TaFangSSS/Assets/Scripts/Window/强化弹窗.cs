@@ -445,7 +445,7 @@ public class 强化弹窗 : MonoBehaviour
          材料bg.sprite = ResourcesConfig.道具背景框橙;
          材料image.sprite = ResourcesConfig.洗练石;
          当前数量.text = PlayerData.S.PropListDic[PropType.洗练石].ToString();
-         
+         所有灵魂Count.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
          强化需要数量.text = (EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].材料数量*Math.Pow(2,锁count)).ToString();
          需要灵魂Count.text=(EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(equipType)].灵气数量*Math.Pow(2,锁count)).ToString();
       }
