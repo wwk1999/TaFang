@@ -26,6 +26,13 @@ public class 功法分解弹窗 : MonoBehaviour
     {
         分解按钮.onClick.AddListener(() =>
         {
+            // 兜底校验：以点击瞬间的实时库存为准，不足则拦截，杜绝扣成负数
+            int 当前数量 = PlayerData.S.功法数量Dic[功法Type];
+            if (count <= 0 || count > 当前数量)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","功法数量不足");
+                return;
+            }
             PlayerData.S.PropListDic[PropType.功法经验] += 功法Config.功法分解经验[功法Config.功法TypeQualityDic[功法Type]] * count;
             PlayerData.S.功法数量Dic[功法Type] -= count;
             ObserverModuleManager.S.SendEvent("SendUIToast","分解成功");
@@ -70,6 +77,10 @@ public class 功法分解弹窗 : MonoBehaviour
         if (PlayerData.S.功法数量Dic[功法Type] == 1)
         {
             数量Slider.value=数量Slider.maxValue;
+            // 只剩1本时分解数量固定为1，必须同步重置 count，
+            // 否则会沿用上一次分解的残留数量（上次分解60本，这次1本也按60扣成负数）
+            count = 1;
+            数量.text = "1";
             return;
         }
         int newCount=(int)value;
@@ -80,9 +91,11 @@ public class 功法分解弹窗 : MonoBehaviour
     }
     public void SetItem()
     {
+        // 每次打开重置分解数量，防止沿用上一次会话的残留值
+        count = 1;
         数量.text = "1";
-        int count = PlayerData.S.功法数量Dic[功法Type];
-        if (count > 1)
+        int 当前数量 = PlayerData.S.功法数量Dic[功法Type];
+        if (当前数量 > 1)
         {
             数量Slider.value = 数量Slider.minValue;
         }

@@ -24,6 +24,13 @@ public class 功法确认装备弹窗 : MonoBehaviour
       });
       确认按钮.onClick.AddListener(() =>
       {
+         // 库存检查：弹窗打开期间库存可能已被其他操作消耗，
+         // 无校验直接扣会扣成负数，负数在背包里永不显示（传道抽到+1仍是负数不可见）
+         if (PlayerData.S.功法数量Dic[HeroWindowController.S.当前选择功法] < 1)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","功法数量不足");
+            return;
+         }
          PlayerData.S.HeroDataDic[heroType].功法Type = HeroWindowController.S.当前选择功法;
          PlayerData.S.HeroDataDic[heroType].功法等级 = 1;
          PlayerData.S.HeroDataDic[heroType].功法星级 = 0;

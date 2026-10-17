@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class 法器洗练panel : MonoBehaviour
 {
+    public 法器洗练无暇提示弹窗 法器洗练无暇提示弹窗;
     public Button 英雄筛选Button;
     public GameObject 英雄筛选;
     public GameObject 英雄筛选Content;
@@ -27,7 +28,9 @@ public class 法器洗练panel : MonoBehaviour
     public TextMeshProUGUI nameText;
     public Button 保留Button;
     public Button 洗练Button;
-    public TextMeshProUGUI 粉尘Count;
+    public TextMeshProUGUI 当前粉尘Count;
+    public TextMeshProUGUI 需要粉尘Count;
+
     public 洗练属性Content 洗练前词条;
     public 洗练属性Content 洗练后词条;
     [NonSerialized] public int 页数num = 1;
@@ -46,7 +49,9 @@ public class 法器洗练panel : MonoBehaviour
             保留Button.gameObject.SetActive(false);
             洗练Button.gameObject.SetActive(false);
             箭头.gameObject.SetActive(false);
-            粉尘Count.gameObject.SetActive(false);
+            当前粉尘Count.gameObject.SetActive(false);
+            需要粉尘Count.gameObject.SetActive(false);
+
             粉尘Icon.gameObject.SetActive(false);
             洗练前词条.gameObject.SetActive(false);
             洗练后词条.gameObject.SetActive(false);
@@ -59,7 +64,8 @@ public class 法器洗练panel : MonoBehaviour
             保留Button.gameObject.SetActive(true);
             洗练Button.gameObject.SetActive(true);
             箭头.gameObject.SetActive(true);
-            粉尘Count.gameObject.SetActive(true);
+            当前粉尘Count.gameObject.SetActive(true);
+            需要粉尘Count.gameObject.SetActive(true);
             粉尘Icon.gameObject.SetActive(true);
             洗练前词条.gameObject.SetActive(true);
             洗练后词条.gameObject.SetActive(true);
@@ -118,7 +124,8 @@ public class 法器洗练panel : MonoBehaviour
 
             float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
                          MathF.Pow(2, count);
-            粉尘Count.text = 需要粉尘.ToString();
+            需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
+            当前粉尘Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
             洗练前词条.list = HeroWindowController.S.洗练panel当前法器.list;
             洗练后词条.list = HeroWindowController.S.洗练后词条;
             洗练后词条.是否带锁 = true;
@@ -238,6 +245,7 @@ public class 法器洗练panel : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("法器洗练无暇确定洗练", 法器洗练无暇确定洗练);
         ObserverModuleManager.S.UnRegisterEvent("法器洗练英雄筛选", 法器洗练英雄筛选);
         ObserverModuleManager.S.UnRegisterEvent("法器词条洗练锁", 法器词条洗练锁);
         ObserverModuleManager.S.UnRegisterEvent("显示洗练保留确认弹窗", 显示洗练保留确认弹窗);
@@ -272,7 +280,8 @@ public class 法器洗练panel : MonoBehaviour
 
         float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
                      MathF.Pow(2, count);
-        粉尘Count.text = 需要粉尘.ToString();
+        需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
+        当前粉尘Count.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
     }
 
     public void 洗练法器点击(object[] obj)
@@ -342,9 +351,103 @@ public class 法器洗练panel : MonoBehaviour
                 list.Add(法器附加属性值);
             }
         }
+        bool 是否有未锁无暇=false;
+        foreach (var item in list)
+        {
+            if (item.无暇 && !item.锁)
+            {
+                是否有未锁无暇=true;
+                法器洗练无暇提示弹窗.gameObject.SetActive(true);
+                return;
+            }
+        }
 
+        foreach (var item in list)
+        {
+            if (!item.锁)
+            {
+                item.法器附加属性Type = (法器附加属性Type)Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
+                float min = 法器Config
+                    .法器Minmaxes[
+                        new 法器附加属性品质type()
+                        {
+                            法器附加属性Type = item.法器附加属性Type,
+                            QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
+                        }].min;
+                float max = 法器Config
+                    .法器Minmaxes[
+                        new 法器附加属性品质type()
+                        {
+                            法器附加属性Type = item.法器附加属性Type,
+                            QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
+                        }].max;
+                
+                var 无暇random=Random.Range(0,100);
+                if (无暇random < 1f)
+                {
+                    item.无暇=true;
+                    item.count = max;
+                }
+                else
+                {
+                    item.无暇=false;
+                    item.count = Random.Range(min, max);
+                }
+            }
+        }
+        HeroWindowController.S.洗练后词条 = list;
+        PlayerData.S.PropListDic[PropType.法器粉尘] -= 需要粉尘;
+        ObserverModuleManager.S.SendEvent("SendUIToast", "洗练成功");
+    }
+     public void 无暇提示洗练() 
+    {
+        int count1 = 0;
+        if (HeroWindowController.S.洗练后词条 != null&&HeroWindowController.S.洗练后词条.Count>0)
+        {
+            foreach (var item in HeroWindowController.S.洗练后词条)
+            {
+                if (item.锁)
+                {
+                    count1++;
+                }
+            }
+        }
+        else
+        {
+            foreach (var item in HeroWindowController.S.洗练panel当前法器.list)
+            {
+                if (item.锁)
+                {
+                    count1++;
+                }
+            }
+        }
 
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
+                     MathF.Pow(2, count1);
+        if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "法器粉尘数量不足,可分解法器获取");
+            return;
+        }
 
+        List<法器附加属性值> list = new List<法器附加属性值>();
+        if (HeroWindowController.S.洗练后词条 != null && HeroWindowController.S.洗练后词条.Count > 0)
+        {
+            list = HeroWindowController.S.洗练后词条;
+        }
+        else
+        {
+            foreach (var item in HeroWindowController.S.洗练panel当前法器.list)
+            {
+                法器附加属性值 法器附加属性值 = new 法器附加属性值();
+                法器附加属性值.锁 = item.锁;
+                法器附加属性值.count = item.count;
+                法器附加属性值.无暇 = item.无暇;
+                法器附加属性值.法器附加属性Type = item.法器附加属性Type;
+                list.Add(法器附加属性值);
+            }
+        }
         foreach (var item in list)
         {
             if (!item.锁)
@@ -412,8 +515,16 @@ public class 法器洗练panel : MonoBehaviour
         HeroType heroType=(HeroType)obj[0];
         Show英雄法器(heroType);
     }
+
+    public void 法器洗练无暇确定洗练(object[] obj)
+    {
+        无暇提示洗练();
+        Show右Panel();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("法器洗练无暇确定洗练", 法器洗练无暇确定洗练);
+
         ObserverModuleManager.S.RegisterEvent("法器洗练英雄筛选", 法器洗练英雄筛选);
 
         ObserverModuleManager.S.RegisterEvent("法器词条洗练锁", 法器词条洗练锁);

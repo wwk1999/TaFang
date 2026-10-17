@@ -506,8 +506,8 @@ public class 属性config
     public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害);
     public float 伤害减免 => 1-(1-_道宝.伤害减免)*(1-城墙Config.伤害减免/100f);
 
-    public float 神通最大值 => 100;
-    public float 神通能量恢复速度 => 1;
+    public float 神通最大值 => 150;
+    public float 神通能量恢复速度 => 2;
     
     
     

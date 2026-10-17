@@ -185,34 +185,34 @@ public class 符文之地Config
     public static Dictionary<符文之地Type, SmallLevelInfo> 符文之地信息Dic = new Dictionary<符文之地Type, SmallLevelInfo>()
     {
         {
-            符文之地Type.青木林, new SmallLevelInfo() { NormalMonsterCount = 200, CreateNormalMonsterTime = 0.5f, EliteMonsterCount = 1 }
+            符文之地Type.青木林, new SmallLevelInfo() { NormalMonsterCount = 200, CreateNormalMonsterTime = 0.5f, EliteMonsterCount = 5 }
         },
         {
-            符文之地Type.赤炎窟, new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.45f, EliteMonsterCount = 1 }
+            符文之地Type.赤炎窟, new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.45f, EliteMonsterCount = 6 }
         },
         {
-            符文之地Type.黑风谷, new SmallLevelInfo() { NormalMonsterCount = 300, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 1 }
+            符文之地Type.黑风谷, new SmallLevelInfo() { NormalMonsterCount = 300, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 7 }
         },
         {
-            符文之地Type.玄水深渊, new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.35f, EliteMonsterCount = 2 }
+            符文之地Type.玄水深渊, new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 8 }
         },
         {
-            符文之地Type.紫雷泽, new SmallLevelInfo() { NormalMonsterCount = 300, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+            符文之地Type.紫雷泽, new SmallLevelInfo() { NormalMonsterCount = 300, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
         },
         {
-            符文之地Type.白骨荒原, new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+            符文之地Type.白骨荒原, new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 11 }
         },
         {
-            符文之地Type.金戈壁, new SmallLevelInfo() { NormalMonsterCount = 400, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+            符文之地Type.金戈壁, new SmallLevelInfo() { NormalMonsterCount = 400, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
         },
         {
-            符文之地Type.幻梦泽, new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 2 }
+            符文之地Type.幻梦泽, new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
         },
         {
-            符文之地Type.混沌墟, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+            符文之地Type.混沌墟, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 14 }
         },
         {
-            符文之地Type.天道台, new SmallLevelInfo() { NormalMonsterCount = 550, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+            符文之地Type.天道台, new SmallLevelInfo() { NormalMonsterCount = 550, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 15 }
         },
     };
     

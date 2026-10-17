@@ -24,6 +24,7 @@ public class 坊市丹方信息弹窗 : MonoBehaviour
       bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(丹药QualityType);
       icon.sprite = ResourcesConfig.Get丹方icon(丹药Type, 丹药QualityType);
       name.text = 丹药Config.丹方名Dic[丹药Type];
+      name.colorGradientPreset = ResourcesConfig.Get品质TMP(丹药QualityType);
       类型.text = 丹药Config.丹药类型String[丹药Config.丹药类型Dic[丹药Type]];
       info.text = 丹药Config.丹方DescDic[丹药Type];
       等级.text = 丹药Config.Get炼制丹药等级(丹药Type,丹药QualityType).ToString();

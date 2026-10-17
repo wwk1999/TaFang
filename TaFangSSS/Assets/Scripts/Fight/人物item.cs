@@ -616,7 +616,7 @@ public class 人物item : MonoBehaviour
         {
            mySequence.AppendInterval(0.5f); 
         }
-        mySequence.Append(transform.DOMove(finalPos, 0.2f));
+        mySequence.Append(transform.DOMove(finalPos, 0.1f));
         mySequence.AppendCallback(() =>
         {
             if (放大缩小)
@@ -804,7 +804,7 @@ public class 人物item : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("停止元始音效");
             }
         });
-        mySequence.Append(transform.DOMove(原始Pos, 0.2f));
+        mySequence.Append(transform.DOMove(原始Pos, 0.1f));
         mySequence.AppendCallback(() =>
         {
             上场 = false;
@@ -818,7 +818,7 @@ public class 人物item : MonoBehaviour
             上场 = false;
             是否在神通 = false;
             if (Vector2.Distance(transform.position, 原始Pos) > 0.01f)
-                transform.DOMove(原始Pos, 0.2f);
+                transform.DOMove(原始Pos, 0.1f);
         });
     }
 

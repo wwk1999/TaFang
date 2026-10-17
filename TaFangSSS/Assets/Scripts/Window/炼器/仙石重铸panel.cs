@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class 仙石重铸panel : MonoBehaviour
 {
+    public 仙石重铸无暇提示弹窗 仙石重铸无暇提示弹窗;
+
     public 重铸确认保留弹窗 重铸确认保留弹窗;
     public GameObject Content;
     public Button 左Button;
@@ -20,7 +22,9 @@ public class 仙石重铸panel : MonoBehaviour
     public TextMeshProUGUI nameText;
     public Button 保留Button;
     public Button 重铸Button;
-    public TextMeshProUGUI 粉尘Count;
+    public TextMeshProUGUI 当前粉尘Count;
+    public TextMeshProUGUI 最大粉尘Count;
+
     public 洗练属性Content 洗练前词条;
     public 洗练属性Content 洗练后词条;
     [NonSerialized] public int 页数num=1;
@@ -55,7 +59,9 @@ public class 仙石重铸panel : MonoBehaviour
             保留Button.gameObject.SetActive(false);
             重铸Button.gameObject.SetActive(false);
             箭头.gameObject.SetActive(false);
-            粉尘Count.gameObject.SetActive(false);
+            当前粉尘Count.gameObject.SetActive(false);
+            最大粉尘Count.gameObject.SetActive(false);
+
             粉尘Icon.gameObject.SetActive(false);
             洗练前词条.gameObject.SetActive(false);
             洗练后词条.gameObject.SetActive(false);
@@ -68,14 +74,16 @@ public class 仙石重铸panel : MonoBehaviour
             保留Button.gameObject.SetActive(true);
             重铸Button.gameObject.SetActive(true);
             箭头.gameObject.SetActive(true);
-            粉尘Count.gameObject.SetActive(true);
+            当前粉尘Count.gameObject.SetActive(true);
+            最大粉尘Count.gameObject.SetActive(true);
             粉尘Icon.gameObject.SetActive(true);
             洗练前词条.gameObject.SetActive(true);
             洗练后词条.gameObject.SetActive(true);
             艺术字.sprite = ResourcesConfig.Get艺术字(HeroWindowController.S.重铸panel当前仙石.quality);
             nameText.text = 仙石Config.仙石名Dic[HeroWindowController.S.重铸panel当前仙石.type];
             icon.sprite = ResourcesConfig.Get仙石Sprite(HeroWindowController.S.重铸panel当前仙石.type,HeroWindowController.S.重铸panel当前仙石.quality);
-            粉尘Count.text = 仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality].ToString();
+            最大粉尘Count.text = PlayerData.S.格式化数字(仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality]);
+            当前粉尘Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.仙石精华]);
             洗练前词条.list = HeroWindowController.S.重铸panel当前仙石.list;
             洗练前词条.仙石Type = HeroWindowController.S.重铸panel当前仙石.type;
             洗练前词条.QualityType = HeroWindowController.S.重铸panel当前仙石.quality;
@@ -106,8 +114,15 @@ public class 仙石重铸panel : MonoBehaviour
     {
         Show();
     }
+
+    public void 仙石重铸无暇确定洗练(object[] obj)
+    {
+        无暇提示重铸();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("仙石重铸无暇确定洗练",仙石重铸无暇确定洗练);
+
         ObserverModuleManager.S.RegisterEvent("刷新重铸Panel",刷新重铸Panel);
         ObserverModuleManager.S.RegisterEvent("重铸仙石点击",重铸仙石点击);
         左Button.onClick.AddListener(() =>
@@ -148,14 +163,43 @@ public class 仙石重铸panel : MonoBehaviour
             ObserverModuleManager.S.SendEvent("SendUIToast","仙石精华不足,可分解仙石获取");
             return;
         }
+
+        if (HeroWindowController.S.仙石重铸后词条 != null && HeroWindowController.S.仙石重铸后词条.Count > 0)
+        {
+            foreach (var item in HeroWindowController.S.仙石重铸后词条)
+            {
+                if (item.无暇 && !item.锁)
+                {
+                    仙石重铸无暇提示弹窗.gameObject.SetActive(true);
+                    return;
+                }
+            }
+        }
         仙石Type type=(仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);
         HeroWindowController.S.重铸后仙石Type = type;
         List<法器附加属性值> list = 仙石Config.Get仙石附加属性(HeroWindowController.S.重铸panel当前仙石.quality);
         HeroWindowController.S.仙石重铸后词条=list;
+        PlayerData.S.PropListDic[PropType.仙石精华] -= 仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality];
+        Show();
+    }
+    
+    public void 无暇提示重铸()
+    {
+        if (PlayerData.S.PropListDic[PropType.仙石精华] < 仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality])
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","仙石精华不足,可分解仙石获取");
+            return;
+        }
+        仙石Type type=(仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);
+        HeroWindowController.S.重铸后仙石Type = type;
+        List<法器附加属性值> list = 仙石Config.Get仙石附加属性(HeroWindowController.S.重铸panel当前仙石.quality);
+        HeroWindowController.S.仙石重铸后词条=list;
+        PlayerData.S.PropListDic[PropType.仙石精华] -= 仙石Config.仙石重铸消耗Dic[HeroWindowController.S.重铸panel当前仙石.quality];
         Show();
     }
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("仙石重铸无暇确定洗练",仙石重铸无暇确定洗练);
         ObserverModuleManager.S.UnRegisterEvent("刷新重铸Panel",刷新重铸Panel);
         ObserverModuleManager.S.UnRegisterEvent("重铸仙石点击",重铸仙石点击);
     }

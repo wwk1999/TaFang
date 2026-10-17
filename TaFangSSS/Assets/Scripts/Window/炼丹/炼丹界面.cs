@@ -297,11 +297,6 @@ public class 炼丹界面 : MonoBehaviour
             炼制数量Slider.value = 0;
             当前选择炼制数量 = 0;
             PlayerData.S.丹药炼制List.Add(丹药炼制Item);
-
-            //PlayerData.S.当前炼制丹药Type = HeroWindowController.S.当前炼丹显示Type;
-            //PlayerData.S.当前炼制丹药品质 = HeroWindowController.S.当前炼丹显示QualityType;
-            //PlayerData.S.剩余炼制数量 = 当前选择炼制数量;
-            //ObserverModuleManager.S.SendEvent("SendUIToast","开始炼制丹药");
             炼制中Show();
         });
         exitbutton.onClick.AddListener(() =>

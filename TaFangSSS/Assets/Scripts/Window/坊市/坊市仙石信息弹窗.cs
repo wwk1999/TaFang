@@ -21,6 +21,7 @@ public class 坊市仙石信息弹窗 : MonoBehaviour
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(仙石QualityType);
         icon.sprite = ResourcesConfig.Get仙石Sprite(仙石Type, 仙石QualityType);
         name.text = 仙石Config.仙石名Dic[仙石Type];
+        name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石QualityType);
         品质.text = PropConfig.QualityNameDic[仙石QualityType];
         词条数量.text = "1-3";
     }

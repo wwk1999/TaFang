@@ -62,7 +62,13 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 自动拒绝灵品供奉=false;
         public bool 自动拒绝仙品供奉=false;
         public bool 自动拒绝圣品供奉=false;
-        
+        public bool 领主荒无暇提示 = true;
+        public bool 领主洪无暇提示 = true;
+        public bool 领主宙无暇提示 = true;
+        public bool 领主宇无暇提示 = true;
+        public bool 领主天无暇提示 = true;
+        public bool 领主地无暇提示 = true;
+        public bool 领主玄无暇提示 = true;
         public Dictionary<法器Type, bool> 坊市自动购买法器配置 = new Dictionary<法器Type, bool>()
 {
     { 法器Type.None, false },
@@ -4024,6 +4030,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             消耗传道次数 =  runtime.消耗传道次数;
             传道所有 =  runtime.传道所有;
             丹药炼制List = runtime.丹药炼制List;
+            
+            领主荒无暇提示 = runtime.领主荒无暇提示;
+            领主洪无暇提示 = runtime.领主洪无暇提示;
+            领主宙无暇提示 = runtime.领主宙无暇提示;
+            领主宇无暇提示 = runtime.领主宇无暇提示;
+            领主天无暇提示 = runtime.领主天无暇提示;
+            领主地无暇提示 = runtime.领主地无暇提示;
+            领主玄无暇提示 = runtime.领主玄无暇提示;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4146,7 +4160,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.消耗传道次数 = 消耗传道次数;
             runtime.传道所有 =  传道所有;
             runtime.丹药炼制List = 丹药炼制List;
-
+            
+            runtime.领主荒无暇提示 = 领主荒无暇提示;
+            runtime.领主洪无暇提示 = 领主洪无暇提示;
+            runtime.领主宙无暇提示 = 领主宙无暇提示;
+            runtime.领主宇无暇提示 = 领主宇无暇提示;
+            runtime.领主天无暇提示 = 领主天无暇提示;
+            runtime.领主地无暇提示 = 领主地无暇提示;
+            runtime.领主玄无暇提示 = 领主玄无暇提示;
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException

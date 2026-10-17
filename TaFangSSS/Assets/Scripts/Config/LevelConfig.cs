@@ -288,11 +288,11 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.练气, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 1 }
+        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 1 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.练气, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 1 }
+        new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 1 }
     },
     
     
@@ -321,15 +321,15 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.筑基, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 6 }
+        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 6 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.筑基, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 7 }
+        new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 7 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.筑基, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 8 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 8 }
     },
     
     
@@ -349,23 +349,23 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.天品 },
-        new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.6f, EliteMonsterCount = 5 }
+        new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 5 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.5f, EliteMonsterCount = 6 }
+        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 6 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 7 }
+        new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 7 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 8 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 8 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金丹, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 9 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 9 }
     },
     
     
@@ -381,28 +381,28 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.地品 },
-        new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.6f, EliteMonsterCount = 5 }
+        new SmallLevelInfo() { NormalMonsterCount = 250, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 5 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.天品 },
-        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.5f, EliteMonsterCount = 6 }
+        new SmallLevelInfo() { NormalMonsterCount = 350, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 6 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.4f, EliteMonsterCount = 7 }
+        new SmallLevelInfo() { NormalMonsterCount = 450, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 7 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 8 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 8 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 9 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 9 }
     },
     
     {
         new 洞天关卡Item() { JingJieType = JingJieType.元婴, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 10 }
     },
     
     
@@ -429,20 +429,20 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.化神, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 8 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 8 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.化神, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 9 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 9 }
     },
     
     {
         new 洞天关卡Item() { JingJieType = JingJieType.化神, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 10 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.化神, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 11 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 11 }
     },
     
     
@@ -468,20 +468,20 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.合体, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 9 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 9 }
     },
     
     {
         new 洞天关卡Item() { JingJieType = JingJieType.合体, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 10 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.合体, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 11 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 11 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.合体, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 12 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
     },
     
     
@@ -509,19 +509,19 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     
     {
         new 洞天关卡Item() { JingJieType = JingJieType.大乘, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 10 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.大乘, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 11 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 11 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.大乘, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 12 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.大乘, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 13 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 13 }
     },
     
     
@@ -547,19 +547,19 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.天仙, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 11 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.25f, EliteMonsterCount = 11 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.天仙, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 12 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 12 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.天仙, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 13 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 13 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.天仙, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 14 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 14 }
     },
     
     
@@ -582,23 +582,23 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     
     {
         new 洞天关卡Item() { JingJieType = JingJieType.玄仙, qualityType = QualityType.天品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 10 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.玄仙, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 11 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 11 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.玄仙, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 12 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.玄仙, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 13 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 13 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.玄仙, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 14 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 14 }
     },
     
     
@@ -615,28 +615,28 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金仙, qualityType = QualityType.地品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 9 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.2f, EliteMonsterCount = 9 }
     },
     
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金仙, qualityType = QualityType.天品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 10 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金仙, qualityType = QualityType.宇品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 11 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 11 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金仙, qualityType = QualityType.宙品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 12 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 12 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金仙, qualityType = QualityType.洪品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 13 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 13 }
     },
     {
         new 洞天关卡Item() { JingJieType = JingJieType.金仙, qualityType = QualityType.荒品 },
-        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 14 }
+        new SmallLevelInfo() { NormalMonsterCount = 600, CreateNormalMonsterTime = 0.15f, EliteMonsterCount = 14 }
     },
     
     
@@ -1351,8 +1351,8 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
              break;
          // 洗练石和高级招募卷：每20层 min/max +1
          case PropType.洗练石:
-             result.min += 加成层数 / 50;
-             result.max += 加成层数 / 50;
+             result.min += 加成层数 / 20;
+             result.max += 加成层数 / 20;
              break;
      }
 

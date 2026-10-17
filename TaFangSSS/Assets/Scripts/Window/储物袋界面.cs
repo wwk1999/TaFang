@@ -288,6 +288,7 @@ public class 储物袋界面 : MonoBehaviour
       }
    }
 
+   
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("显示法器材料分解弹窗",显示法器材料分解弹窗);

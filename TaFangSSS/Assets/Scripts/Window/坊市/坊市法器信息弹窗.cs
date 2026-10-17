@@ -22,6 +22,7 @@ public class 坊市法器信息弹窗 : MonoBehaviour
       bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器Type]);
       icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
       name.text = 法器Config.法器名Dic[法器Type];
+      name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[法器Type]);
       职业.text = HeroConfig.Get职业Name(法器Config.法器职业Dic[法器Type]);
       基础伤害.text = 法器Config.法器基础属性Dic[法器Config.法器品质Dic[法器Type]].ToString();
       QualityType qualityType=法器Config.法器品质Dic[法器Type];

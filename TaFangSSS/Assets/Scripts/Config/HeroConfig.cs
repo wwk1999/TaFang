@@ -906,18 +906,18 @@ namespace Config
             { HeroType.碧霄, new List<float>() { 350 } },
             { HeroType.琼霄, new List<float>() { 250, 1 } },
 
-            { HeroType.羲和, new List<float>() { 300, 100, 3 } },
-            { HeroType.常羲, new List<float>() { 300, 20, 2 } },
-            { HeroType.后羿, new List<float>() { 300 } },
-            { HeroType.云霄, new List<float>() { 300 } },
+            { HeroType.羲和, new List<float>() { 500, 100, 3 } },
+            { HeroType.常羲, new List<float>() { 500, 20, 2 } },
+            { HeroType.后羿, new List<float>() { 500 } },
+            { HeroType.云霄, new List<float>() { 500 } },
 
             { HeroType.女娲, new List<float>() { 20, 3 } },
-            { HeroType.老子, new List<float>() { 1000 ,5} },
-            { HeroType.元始, new List<float>() { 1000 ,3} },
-            { HeroType.通天, new List<float>() { 800 } },
+            { HeroType.老子, new List<float>() { 3000 ,5} },
+            { HeroType.元始, new List<float>() { 3000 ,3} },
+            { HeroType.通天, new List<float>() { 1000 } },
 
-            { HeroType.鸿钧, new List<float>() { 5000 } },
-            { HeroType.盘古, new List<float>() { 5000 } },
+            { HeroType.鸿钧, new List<float>() { 20000 } },
+            { HeroType.盘古, new List<float>() { 20000 } },
 
         };
 
@@ -1113,18 +1113,18 @@ namespace Config
             { HeroType.碧霄, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 500,name="太阴冰轮阵"} },
             { HeroType.琼霄, new 英雄神通配置Item(){cd = 15,能量 = 18,damage = 350,name="封天锁地"} },
 
-            { HeroType.羲和, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 700,name="九天炎符阵"} },
-            { HeroType.常羲, new 英雄神通配置Item(){cd = 25,能量 = 25,damage = 750,name="万里冰封"} },
-            { HeroType.后羿, new 英雄神通配置Item(){cd = 18,能量 = 18,damage = 600,name="诛天神矢"} },
-            { HeroType.云霄, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 700,name="太一寒光斩"} },
+            { HeroType.羲和, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 2500,name="九天炎符阵"} },
+            { HeroType.常羲, new 英雄神通配置Item(){cd = 25,能量 = 25,damage = 2500,name="万里冰封"} },
+            { HeroType.后羿, new 英雄神通配置Item(){cd = 18,能量 = 18,damage = 1000,name="诛天神矢"} },
+            { HeroType.云霄, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 3000,name="太一寒光斩"} },
 
             { HeroType.女娲, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 100,name="诸天净世阵"} },
-            { HeroType.老子, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 5000,name="太清玄冰域"} },
-            { HeroType.通天, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 6000,name="诛仙剑阵"} },
-            { HeroType.元始, new 英雄神通配置Item(){cd = 25,能量 = 25,damage = 5500,name="焚天九曜光"}},
+            { HeroType.老子, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 12000,name="太清玄冰域"} },
+            { HeroType.通天, new 英雄神通配置Item(){cd = 18,能量 = 20,damage = 15000,name="诛仙剑阵"} },
+            { HeroType.元始, new 英雄神通配置Item(){cd = 25,能量 = 25,damage = 12000,name="焚天九曜光"}},
 
-            { HeroType.盘古, new 英雄神通配置Item(){cd = 30,能量 = 30,damage = 20000,name="开天辟地"} },
-            { HeroType.鸿钧, new 英雄神通配置Item(){cd = 25,能量 = 20,damage = 20000,name="混沌灭世炎"} },
+            { HeroType.盘古, new 英雄神通配置Item(){cd = 30,能量 = 30,damage = 100000,name="开天辟地"} },
+            { HeroType.鸿钧, new 英雄神通配置Item(){cd = 25,能量 = 20,damage = 100000,name="混沌灭世炎"} },
 
         };
         

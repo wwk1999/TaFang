@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class 强化弹窗 : MonoBehaviour
 {
+   public 无暇提示弹窗 无暇提示弹窗;
    public Button 概率Button;
    public 洗练概率弹窗 概率弹窗;
    public Button ExitButton;
@@ -50,10 +51,150 @@ public class 强化弹窗 : MonoBehaviour
    public 强化装备item 鞋子;
    public 强化装备item 戒指;
    public 强化装备item 项链;
+
+   public GameObject 无暇提示;
+   public Toggle 荒无暇提示Toggle;
+   public Toggle 洪无暇提示Toggle;
+   public Toggle 宙无暇提示Toggle;
+   public Toggle 宇无暇提示Toggle;
+   public Toggle 天无暇提示Toggle;
+   public Toggle 地无暇提示Toggle;
+   public Toggle 玄无暇提示Toggle;
    
    [NonSerialized] public bool IsQiangHua=true;
    [NonSerialized] public EquipType equipType=EquipType.衣服;
+
+   public void Set无暇Toggle()
+   {
+      荒无暇提示Toggle.isOn = PlayerData.S.领主荒无暇提示;
+      洪无暇提示Toggle.isOn = PlayerData.S.领主洪无暇提示;
+      宙无暇提示Toggle.isOn = PlayerData.S.领主宙无暇提示;
+      宇无暇提示Toggle.isOn = PlayerData.S.领主宇无暇提示;
+      天无暇提示Toggle.isOn = PlayerData.S.领主天无暇提示;
+      地无暇提示Toggle.isOn = PlayerData.S.领主地无暇提示;
+      玄无暇提示Toggle.isOn = PlayerData.S.领主玄无暇提示;
+   }
    public void 洗练()
+   {
+      if (EquipConfig.GetEquipQuality(equipType) < QualityType.玄品)
+      {
+         ObserverModuleManager.S.SendEvent("SendUIToast","玄品之上才可以洗练");
+         return;
+      }
+      QualityType equipQualityType=EquipConfig.GetEquipQuality(equipType);
+
+      bool 是否有未锁无暇 = false;
+      int index1 = 0;
+      foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
+      {
+         if (item1.无暇 && !item1.IsSuo && equipQualityType >= (QualityType)(index1 + 2))
+         {
+            switch (item1.QualityType)
+            {
+               case QualityType.玄品:
+                  if (PlayerData.S.领主玄无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+               case QualityType.地品:
+                  if (PlayerData.S.领主地无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+               case QualityType.天品:
+                  if (PlayerData.S.领主天无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+               case QualityType.宇品:
+                  if (PlayerData.S.领主宇无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+               case QualityType.宙品:
+                  if (PlayerData.S.领主宙无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+               case QualityType.洪品:
+                  if (PlayerData.S.领主洪无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+               case QualityType.荒品:
+                  if (PlayerData.S.领主荒无暇提示)
+                  {
+                     无暇提示弹窗.gameObject.SetActive(true);
+                     return;
+                  }
+                  break;
+            }
+         }
+         index1++;
+      }
+      int 锁count = 0;
+      foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
+      {
+         if (item1.IsSuo )
+         {
+            锁count++;
+         }
+      }
+      int level=PlayerData.S.EquipLevelDic[equipType];
+      var item = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(level)];
+      int cailiao = item.材料数量*(int)Math.Pow(2,锁count);
+      int lingqi = item.灵气数量*(int)Math.Pow(2,锁count);
+      if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
+      {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
+         ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
+         return;
+      }
+      if (PlayerData.S.PropListDic[PropType.洗练石] < cailiao)
+      {
+         ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
+
+         ObserverModuleManager.S.SendEvent("SendUIToast","材料不足");
+         return;
+      }
+
+      int index = 0;
+      PlayerData.S.PropListDic[PropType.灵魂] -= lingqi;
+      PlayerData.S.PropListDic[PropType.洗练石] -= cailiao;
+      
+      foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
+      {
+         if (!item1.IsSuo&&equipQualityType>=(QualityType)(index+2))
+         {
+            词条Item citiao = EquipConfig.Get词条(EquipConfig.GetEquipQuality(equipType));
+            {
+               item1.QualityType = citiao.QualityType;
+               item1.附加属性Type = citiao.附加属性Type;
+               item1.count = citiao.count;
+               item1.无暇 = citiao.无暇;
+            }
+            index++;
+         }
+      }
+      ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+      Set属性Panel();
+      Set材料();
+   }
+   
+   public void 无暇提示弹窗洗练()
    {
       if (EquipConfig.GetEquipQuality(equipType) < QualityType.玄品)
       {
@@ -92,6 +233,7 @@ public class 强化弹窗 : MonoBehaviour
       PlayerData.S.PropListDic[PropType.灵魂] -= lingqi;
       PlayerData.S.PropListDic[PropType.洗练石] -= cailiao;
       QualityType equipQualityType=EquipConfig.GetEquipQuality(equipType);
+    
       foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
       {
          if (!item1.IsSuo&&equipQualityType>=(QualityType)(index+2))
@@ -301,15 +443,50 @@ public class 强化弹窗 : MonoBehaviour
 
    private void OnDestroy()
    {
+      ObserverModuleManager.S.RegisterEvent("无暇确定洗练",无暇确定洗练);
       ObserverModuleManager.S.UnRegisterEvent("刷新材料",刷新材料);
       ObserverModuleManager.S.UnRegisterEvent("强化装备Item点击",强化装备Item点击);
    }
 
+   public void 无暇确定洗练(object[] obj)
+   {
+      无暇提示弹窗洗练();
+      Set材料();
+   }
    private void Start()
    {
+      ObserverModuleManager.S.RegisterEvent("无暇确定洗练",无暇确定洗练);
       ObserverModuleManager.S.RegisterEvent("刷新材料",刷新材料);
       ObserverModuleManager.S.RegisterEvent("强化装备Item点击",强化装备Item点击);
       ObserverModuleManager.S.SendEvent("强化弹窗装备点击",equipType);
+      荒无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主荒无暇提示 = 荒无暇提示Toggle.isOn;
+      });
+      洪无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主洪无暇提示 = 洪无暇提示Toggle.isOn;
+      });
+      宙无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主宙无暇提示 = 宙无暇提示Toggle.isOn;
+      });
+      宇无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主宇无暇提示 = 宇无暇提示Toggle.isOn;
+      });
+      天无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主天无暇提示 = 天无暇提示Toggle.isOn;
+      });
+      地无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主地无暇提示 = 地无暇提示Toggle.isOn;
+      });
+      玄无暇提示Toggle.onValueChanged.AddListener(delegate
+      {
+         PlayerData.S.领主玄无暇提示 = 玄无暇提示Toggle.isOn;
+      });
       概率Button.onClick.AddListener(() =>
       {
          概率弹窗.EquipQualityType = EquipConfig.GetEquipQuality(PlayerData.S.EquipLevelDic[equipType]);
@@ -352,6 +529,7 @@ public class 强化弹窗 : MonoBehaviour
    {
       if (IsQiangHua)
       {
+         无暇提示.gameObject.SetActive(false);
          概率Button.gameObject.SetActive(false);
          材料强化Button.gameObject.SetActive(true);
          材料洗练Button.gameObject.SetActive(false);
@@ -430,6 +608,7 @@ public class 强化弹窗 : MonoBehaviour
       }
       else
       {
+         无暇提示.gameObject.SetActive(true);
          int 锁count = 0;
          foreach (var item1 in PlayerData.S.装备附加属性Dic[equipType])
          {
@@ -540,6 +719,7 @@ public class 强化弹窗 : MonoBehaviour
    }
    private void OnEnable()
    {
+      Set无暇Toggle();
       Set装备();
       Set强化Info();
       Set属性Panel();

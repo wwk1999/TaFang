@@ -13,6 +13,7 @@ public class 灵药item : MonoBehaviour
     public Image bg;
     public Image icon;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI Count;
 
     public void SetItem()
     {
@@ -21,6 +22,7 @@ public class 灵药item : MonoBehaviour
             icon.gameObject.SetActive(false);
             bg.sprite = ResourcesConfig.加号背景框1;
             name.text = "";
+            Count.text = "";
         }
         else
         {
@@ -28,6 +30,7 @@ public class 灵药item : MonoBehaviour
             icon.sprite=ResourcesConfig.Get灵药Icon(灵药Type, QualityType);
             bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
             name.text = 丹药Config.灵药名Dic[灵药Type];
+            Count.text = PlayerData.S.Get灵药数量(灵药Type, QualityType).ToString();
         }
     }
 }
