@@ -69,6 +69,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 道场炼器室;
     public static Sprite 道场领主府;
     public static Sprite 道场聚贤阁;
+    public static Sprite 道场仙女阁;
+    public static Sprite 道场灵兽坊;
 
     
     public static Sprite 红按钮;
@@ -103,7 +105,8 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 玉;
     public static Sprite 德;
     public static Sprite 坊;
-
+    public static Sprite 兽;
+    public static Sprite 仙;
     
     public static Sprite 女供奉1;
     public static Sprite 女供奉2;
@@ -7190,6 +7193,10 @@ public class ResourcesConfig : MonoBehaviour
                 return 器;
             case 建筑Type.坊市:
                 return 坊;
+            case 建筑Type.灵兽坊:
+                return 兽;
+            case 建筑Type.仙女阁:
+                return 仙;
             case 建筑Type.地脉:
                 return 玉;
             case 建筑Type.聚贤阁:
@@ -7246,6 +7253,10 @@ public class ResourcesConfig : MonoBehaviour
                 return 道场坊市;
             case 建筑Type.聚贤阁:
                 return 道场聚贤阁;
+            case 建筑Type.灵兽坊:
+                return 道场灵兽坊;
+            case 建筑Type.仙女阁:
+                return 道场仙女阁;
             case 建筑Type.地脉:
                 return 道场地脉;
             case 建筑Type.领主府:
@@ -7414,6 +7425,8 @@ public class ResourcesConfig : MonoBehaviour
         道场矿场=Resources.Load<Sprite>("Sprite/道场/矿场");
         道场玄铁洞=Resources.Load<Sprite>("Sprite/道场/玄铁洞");
         道场聚贤阁=Resources.Load<Sprite>("Sprite/道场/聚贤阁");
+        道场仙女阁=Resources.Load<Sprite>("Sprite/道场/仙女阁");
+        道场灵兽坊=Resources.Load<Sprite>("Sprite/道场/灵兽坊");
         道场功德碑=Resources.Load<Sprite>("Sprite/道场/功德碑");
         道场地脉=Resources.Load<Sprite>("Sprite/道场/地脉");
         道场领主府=Resources.Load<Sprite>("Sprite/道场/领主府");
@@ -7453,7 +7466,8 @@ public class ResourcesConfig : MonoBehaviour
         贤=Resources.Load<Sprite>("Sprite/领主府/数值icon/贤");
         铁=Resources.Load<Sprite>("Sprite/领主府/数值icon/铁");
         坊=Resources.Load<Sprite>("Sprite/领主府/数值icon/坊");
-
+        仙=Resources.Load<Sprite>("Sprite/领主府/数值icon/仙");
+        兽=Resources.Load<Sprite>("Sprite/领主府/数值icon/兽");
         
         女供奉1=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/1");
         女供奉2=Resources.Load<Sprite>("Sprite/RenWu/供奉/女/2");

@@ -198,6 +198,19 @@ public class 领主府 : MonoBehaviour
                需要玉髓 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要玉髓;
                break;
             
+            case 建筑Type.灵兽坊:
+               if (!道场Config.灵兽坊配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 2))
+               {
+                  ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
+                  return;
+               }
+               需要灵气 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要灵气;
+               需要矿石 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要矿石;
+               需要玄铁 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要玄铁;
+               需要玉髓 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要玉髓;
+               break;
+            
+            
             case 建筑Type.坊市:
                if (!道场Config.坊市配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]+2))
                {
@@ -491,6 +504,12 @@ public class 领主府 : MonoBehaviour
                添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
+         case 建筑Type.灵兽坊:
+         {
+            var 配置 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]];
+            添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+            break;
+         }
          case 建筑Type.炼丹室:
             {
                var 配置 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]];
@@ -641,6 +660,35 @@ public class 领主府 : MonoBehaviour
                .GetComponent<概率升级效果item>();
             升级招募概率列表1.list = 道场Config.聚贤阁配置[1+PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].高级招募概率;
             升级招募概率列表1.SetItem();
+            break;
+         
+         case 建筑Type.灵兽坊:
+            var 当前灵兽丹数量 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前灵兽丹数量.count = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].灵兽蛋数量+"/道年";
+            当前灵兽丹数量.info = "灵兽蛋生成数量";
+            当前灵兽丹数量.SetItem();
+            
+            var 孵化池数量 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            孵化池数量.count = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].孵化池数量.ToString();
+            孵化池数量.info = "孵化池数量";
+            孵化池数量.SetItem();
+            
+            
+            
+            var 当前灵兽丹数量1 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前灵兽丹数量1.count = 道场Config.灵兽坊配置[1+PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].灵兽蛋数量+"/道年";
+            当前灵兽丹数量1.info = "灵兽蛋生成数量";
+            当前灵兽丹数量1.SetItem();
+            
+            var 孵化池数量1 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            孵化池数量1.count = 道场Config.灵兽坊配置[1+PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].孵化池数量.ToString();
+            孵化池数量1.info = "孵化池数量";
+            孵化池数量1.SetItem();
+
             break;
          
          case 建筑Type.坊市:

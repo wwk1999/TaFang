@@ -86,6 +86,8 @@ public class PlayerData : XSingleton<PlayerData>
         { 建筑Type.炼器室, 0 },
         { 建筑Type.聚贤阁, 0 },
         { 建筑Type.坊市, 0 },
+        { 建筑Type.灵兽坊, 0 },
+        { 建筑Type.仙女阁, 0 },
     };
 
     public bool 自动拒绝凡品供奉=false;

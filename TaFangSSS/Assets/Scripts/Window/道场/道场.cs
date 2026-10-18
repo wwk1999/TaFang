@@ -55,6 +55,30 @@ public class 道场 : MonoBehaviour
                 WindowController.S.打开窗口(WindowController.S.领主府Window);
             }
         });
+        
+        灵兽坊.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] == 0)
+            {
+                if (PlayerData.S.历史最高境界 >= JingJieType.筑基)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] = 1;
+                    }
+                   // WindowController.S.打开窗口(WindowController.S.领主府Window);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                    return;
+                }
+            }
+            else
+            {
+                //WindowController.S.打开窗口(WindowController.S.领主府Window);
+            }
+        });
         聚贤阁.onClick.AddListener(() =>
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] == 0)

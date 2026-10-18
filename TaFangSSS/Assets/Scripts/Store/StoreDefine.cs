@@ -855,6 +855,8 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
         { 建筑Type.炼器室, 0 },
         { 建筑Type.聚贤阁, 0 },
         { 建筑Type.坊市, 0 },
+        { 建筑Type.灵兽坊, 0 },
+        { 建筑Type.仙女阁, 0 },
     };
 
       
