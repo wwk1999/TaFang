@@ -237,6 +237,7 @@ public class StoreController : XSingleton<StoreController>
         float 玄铁速度 = 道场Config.Get玄铁速度();
         float 玉髓速度 = 道场Config.Get玉髓速度();
         float 功德速度 = 道场Config.Get功德速度();
+        float 灵兽蛋速度 = 道场Config.Get灵兽蛋速度();
         float 矿石增加玄铁random = Random.Range(0, 100f);
         if (矿石增加玄铁random < 道场Config.供奉总属性.获得矿石概率获得玄铁)
         {
@@ -273,7 +274,7 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.PropListDic[PropType.玄铁] += 玉髓速度 / 属性config.每年秒数;
         }
 
-
+        PlayerData.S.灵兽蛋数量+=灵兽蛋速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.矿石] += 矿石速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.玄铁] += 玄铁速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.玉髓] += 玉髓速度 / 属性config.每年秒数;

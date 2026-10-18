@@ -7,6 +7,59 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 火1;
+    public static Sprite 火2;
+    public static Sprite 火3;
+    public static Sprite 火4;
+    public static Sprite 火5;
+    public static Sprite 火6;
+    public static Sprite 火7;
+    public static Sprite 火8;
+    
+    
+    public static Sprite 电1;
+    public static Sprite 电2;
+    public static Sprite 电3;
+    public static Sprite 电4;
+    public static Sprite 电5;
+    public static Sprite 电6;
+    public static Sprite 电7;
+    public static Sprite 电8;
+    
+    
+    public static Sprite 物1;
+    public static Sprite 物2;
+    public static Sprite 物3;
+    public static Sprite 物4;
+    public static Sprite 物5;
+    public static Sprite 物6;
+    public static Sprite 物7;
+    public static Sprite 物8;
+    
+    
+    public static Sprite 冰1;
+    public static Sprite 冰2;
+    public static Sprite 冰3;
+    public static Sprite 冰4;
+    public static Sprite 冰5;
+    public static Sprite 冰6;
+    public static Sprite 冰7;
+    public static Sprite 冰8;
+    
+    
+    
+    public static Sprite 暗1;
+    public static Sprite 暗2;
+    public static Sprite 暗3;
+    public static Sprite 暗4;
+    public static Sprite 暗5;
+    public static Sprite 暗6;
+    public static Sprite 暗7;
+    public static Sprite 暗8;
+    
+    public static Sprite 公;
+    public static Sprite 母;
+    
     public static Sprite 星星;
     public static Sprite 月亮;
     public static Sprite 太阳;
@@ -7366,8 +7419,119 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get灵兽Sprite(灵兽Type 灵兽Type)
+    {
+        switch (灵兽Type)
+        {
+            // 火焰系
+            case 灵兽Type.火1: return 火1;
+            case 灵兽Type.火2: return 火2;
+            case 灵兽Type.火3: return 火3;
+            case 灵兽Type.火4: return 火4;
+            case 灵兽Type.火5: return 火5;
+            case 灵兽Type.火6: return 火6;
+            case 灵兽Type.火7: return 火7;
+            case 灵兽Type.火8: return 火8;
+
+            // 雷电系
+            case 灵兽Type.电1: return 电1;
+            case 灵兽Type.电2: return 电2;
+            case 灵兽Type.电3: return 电3;
+            case 灵兽Type.电4: return 电4;
+            case 灵兽Type.电5: return 电5;
+            case 灵兽Type.电6: return 电6;
+            case 灵兽Type.电7: return 电7;
+            case 灵兽Type.电8: return 电8;
+
+            // 物理系
+            case 灵兽Type.物1: return 物1;
+            case 灵兽Type.物2: return 物2;
+            case 灵兽Type.物3: return 物3;
+            case 灵兽Type.物4: return 物4;
+            case 灵兽Type.物5: return 物5;
+            case 灵兽Type.物6: return 物6;
+            case 灵兽Type.物7: return 物7;
+            case 灵兽Type.物8: return 物8;
+
+            // 冰霜系
+            case 灵兽Type.冰1: return 冰1;
+            case 灵兽Type.冰2: return 冰2;
+            case 灵兽Type.冰3: return 冰3;
+            case 灵兽Type.冰4: return 冰4;
+            case 灵兽Type.冰5: return 冰5;
+            case 灵兽Type.冰6: return 冰6;
+            case 灵兽Type.冰7: return 冰7;
+            case 灵兽Type.冰8: return 冰8;
+
+            // 黑暗系
+            case 灵兽Type.暗1: return 暗1;
+            case 灵兽Type.暗2: return 暗2;
+            case 灵兽Type.暗3: return 暗3;
+            case 灵兽Type.暗4: return 暗4;
+            case 灵兽Type.暗5: return 暗5;
+            case 灵兽Type.暗6: return 暗6;
+            case 灵兽Type.暗7: return 暗7;
+            case 灵兽Type.暗8: return 暗8;
+
+            default: return null;
+        }
+    }
     public static void Init()
     {
+        火1=Resources.Load<Sprite>("Sprite/灵兽icon/火1");
+        火2=Resources.Load<Sprite>("Sprite/灵兽icon/火2");
+        火3=Resources.Load<Sprite>("Sprite/灵兽icon/火3");
+        火4=Resources.Load<Sprite>("Sprite/灵兽icon/火4");
+        火5=Resources.Load<Sprite>("Sprite/灵兽icon/火5");
+        火6=Resources.Load<Sprite>("Sprite/灵兽icon/火6");
+        火7=Resources.Load<Sprite>("Sprite/灵兽icon/火7");
+        火8=Resources.Load<Sprite>("Sprite/灵兽icon/火8");
+        
+        
+        冰1=Resources.Load<Sprite>("Sprite/灵兽icon/冰1");
+        冰2=Resources.Load<Sprite>("Sprite/灵兽icon/冰2");
+        冰3=Resources.Load<Sprite>("Sprite/灵兽icon/冰3");
+        冰4=Resources.Load<Sprite>("Sprite/灵兽icon/冰4");
+        冰5=Resources.Load<Sprite>("Sprite/灵兽icon/冰5");
+        冰6=Resources.Load<Sprite>("Sprite/灵兽icon/冰6");
+        冰7=Resources.Load<Sprite>("Sprite/灵兽icon/冰7");
+        冰8=Resources.Load<Sprite>("Sprite/灵兽icon/冰8");
+        
+        
+        物1=Resources.Load<Sprite>("Sprite/灵兽icon/物1");
+        物2=Resources.Load<Sprite>("Sprite/灵兽icon/物2");
+        物3=Resources.Load<Sprite>("Sprite/灵兽icon/物3");
+        物4=Resources.Load<Sprite>("Sprite/灵兽icon/物4");
+        物5=Resources.Load<Sprite>("Sprite/灵兽icon/物5");
+        物6=Resources.Load<Sprite>("Sprite/灵兽icon/物6");
+        物7=Resources.Load<Sprite>("Sprite/灵兽icon/物7");
+        物8=Resources.Load<Sprite>("Sprite/灵兽icon/物8");
+        
+        
+        暗1=Resources.Load<Sprite>("Sprite/灵兽icon/暗1");
+        暗2=Resources.Load<Sprite>("Sprite/灵兽icon/暗2");
+        暗3=Resources.Load<Sprite>("Sprite/灵兽icon/暗3");
+        暗4=Resources.Load<Sprite>("Sprite/灵兽icon/暗4");
+        暗5=Resources.Load<Sprite>("Sprite/灵兽icon/暗5");
+        暗6=Resources.Load<Sprite>("Sprite/灵兽icon/暗6");
+        暗7=Resources.Load<Sprite>("Sprite/灵兽icon/暗7");
+        暗8=Resources.Load<Sprite>("Sprite/灵兽icon/暗8");
+        
+        
+        电1=Resources.Load<Sprite>("Sprite/灵兽icon/电1");
+        电2=Resources.Load<Sprite>("Sprite/灵兽icon/电2");
+        电3=Resources.Load<Sprite>("Sprite/灵兽icon/电3");
+        电4=Resources.Load<Sprite>("Sprite/灵兽icon/电4");
+        电5=Resources.Load<Sprite>("Sprite/灵兽icon/电5");
+        电6=Resources.Load<Sprite>("Sprite/灵兽icon/电6");
+        电7=Resources.Load<Sprite>("Sprite/灵兽icon/电7");
+        电8=Resources.Load<Sprite>("Sprite/灵兽icon/电8");
+
+        公=Resources.Load<Sprite>("Sprite/灵兽icon/公");
+        母=Resources.Load<Sprite>("Sprite/灵兽icon/母");
+        
+        
         星星=Resources.Load<Sprite>("Sprite/星级icon/星星");
         月亮=Resources.Load<Sprite>("Sprite/星级icon/月亮");
         太阳=Resources.Load<Sprite>("Sprite/星级icon/太阳");

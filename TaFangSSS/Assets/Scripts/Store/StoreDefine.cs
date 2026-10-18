@@ -44,7 +44,7 @@ public class StoreDefine : XSingleton<StoreController>
             HeroType.丹童
         };
         public bool 是否首次配置神通 = false;
-
+        public float 灵兽蛋数量 = 10;
         public int CurrentBianDui = 1;
         public float 道龄S = 0;
         public int 道龄年;
@@ -4040,6 +4040,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             领主天无暇提示 = runtime.领主天无暇提示;
             领主地无暇提示 = runtime.领主地无暇提示;
             领主玄无暇提示 = runtime.领主玄无暇提示;
+            灵兽蛋数量 = runtime.灵兽蛋数量;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4170,6 +4171,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.领主天无暇提示 = 领主天无暇提示;
             runtime.领主地无暇提示 = 领主地无暇提示;
             runtime.领主玄无暇提示 = 领主玄无暇提示;
+            runtime.灵兽蛋数量 = 灵兽蛋数量;
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException

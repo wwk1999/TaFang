@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8779253265456661881}
   - component: {fileID: 4730277151799581055}
   - component: {fileID: 4147735888335922296}
-  - component: {fileID: 596178739910255225}
+  - component: {fileID: 2835544310509310680}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &596178739910255225
+--- !u!114 &2835544310509310680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,13 +89,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 1281953130970073932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a34894c4e75f1f4093b25666e1965ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popupPrefabPath: "Prefabs/Window/\u4ED9\u77F3\u4FE1\u606F\u5F39\u7A97"
-  popupOffset: {x: 0, y: 0}
-  destroyOnExit: 1
-  "\u9576\u5D4C\u4ED9\u77F3item": {fileID: 2296833152830827330}
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 4147735888335922296}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2762814342983825064
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3936540104831210012}
-  - component: {fileID: 2296833152830827330}
+  - component: {fileID: 6219178057397563868}
   m_Layer: 0
   m_Name: "\u7075\u517Ditem"
   m_TagString: Untagged
@@ -568,7 +596,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2296833152830827330
+--- !u!114 &6219178057397563868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -577,9 +605,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8187908423759214668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4509c0a0b04c084195fad89c5597a1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 51ae80bd70c3bbc4a939b61a709f42d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 4147735888335922296}
+  bg: {fileID: 2835544310509310680}
   icon: {fileID: 511591675845862884}
   name: {fileID: 2274608393105403691}
+  "\u6027\u522B": {fileID: 4430406717022871279}
+  "\u5143\u7D20": {fileID: 7549556704112482172}

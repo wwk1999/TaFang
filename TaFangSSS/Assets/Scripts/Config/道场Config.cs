@@ -125,6 +125,7 @@ public class 供奉总属性
     public float 功德速度;
     public float 炼丹速度;
     public float 炼器速度;
+    public float 灵兽蛋速度;
     public float 坊市刷新次数时间缩减;
     public float 高级招募卷掉率;
 
@@ -186,6 +187,8 @@ public class 供奉
     public float 器;
     public float 丹;
     public float 坊;
+    public float 兽;
+    public float 仙;
     public List<供奉特性> 特性list=new List<供奉特性>();
 }
 public class 道场Config
@@ -267,6 +270,12 @@ public class 道场Config
         value *= (1f + 道宝Config.羁绊功德/100f);
         return value;
     }
+    public static float Get灵兽蛋速度()
+    {
+        float value = 灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].灵兽蛋数量;
+        value *= (1f + 供奉总属性.灵兽蛋速度 / 100f);
+        return value;
+    }
     public static void 更新供奉总属性()
     {
         float 矿 = 0;
@@ -277,6 +286,7 @@ public class 道场Config
         float 丹 = 0;
         float 器 = 0;
         float 坊 = 0;
+        float 兽 = 0;
         float 特性采矿速度=0;
         float 特性采铁速度=0;
         float 特性地脉产玉髓速度=0;
@@ -305,7 +315,7 @@ public class 道场Config
             玉 += item.玉;
             贤 += item.贤;
             德 += item.德;
-            
+            兽 += item.兽;
             if (item.特性list != null)
             {
                 foreach (var 特效item in item.特性list )
@@ -370,6 +380,7 @@ public class 道场Config
                 }
             }
         }
+        供奉总属性.灵兽蛋速度 = 兽;
         供奉总属性.矿场速度 = 矿 * (1f + 特性采矿速度 / 100f);
         供奉总属性.玄铁速度 = 铁 * (1f + 特性采铁速度 / 100f);
         供奉总属性.地脉速度 = 玉 * (1f + 特性地脉产玉髓速度 / 100f);
