@@ -36,6 +36,49 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 是否首次进入英雄界面 = false;
         public bool 是否首次进入关卡 = false;
         public bool 是否首次通关关卡 = false;
+        
+        public bool 灵兽分解性别所有 = false;
+        public bool 灵兽分解性别公 = false;
+        public bool 灵兽分解性别母 = false;
+    
+        public bool 灵兽分解元素所有 = false;
+        public bool 灵兽分解元素火 = false;
+        public bool 灵兽分解元素冰 = false;
+        public bool 灵兽分解元素电 = false;
+        public bool 灵兽分解元素物 = false;
+        public bool 灵兽分解元素暗 = false;
+
+
+        public bool 灵兽分解阶段所有 = false;
+        public bool 灵兽分解阶段1 = false;
+        public bool 灵兽分解阶段2 = false;
+        public bool 灵兽分解阶段3 = false;
+        public bool 灵兽分解阶段4 = false;
+        public bool 灵兽分解阶段5 = false;
+        public bool 灵兽分解阶段6 = false;
+        public bool 灵兽分解阶段7 = false;
+        public bool 灵兽分解阶段8 = false;
+    
+        public bool 灵兽分解品级所有 = false;
+        public bool 灵兽分解品级1 = false;
+        public bool 灵兽分解品级2 = false;
+        public bool 灵兽分解品级3 = false;
+        public bool 灵兽分解品级4 = false;
+        public bool 灵兽分解品级5 = false;
+        public bool 灵兽分解品级6 = false;
+        public bool 灵兽分解品级7 = false;
+        public bool 灵兽分解品级8 = false;
+    
+    
+        public bool 灵兽分解血脉所有 = false;
+        public bool 灵兽分解血脉1 = false;
+        public bool 灵兽分解血脉2 = false;
+        public bool 灵兽分解血脉3 = false;
+        public bool 灵兽分解血脉4 = false;
+        public bool 灵兽分解血脉5 = false;
+        public bool 灵兽分解血脉6 = false;
+        public bool 灵兽分解血脉7 = false;
+        public bool 灵兽分解血脉8 = false;
         // Replace：反序列化时用存档里的列表整体替换，而不是往字段默认值[丹童]里追加
         // （Newtonsoft 默认 Auto 会复用初始化器创建的集合并 Add，导致丹童每次读档都被加回来）
         [JsonProperty(ObjectCreationHandling = ObjectCreationHandling.Replace)]
@@ -4176,6 +4219,9 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.领主玄无暇提示 = 领主玄无暇提示;
             runtime.灵兽蛋数量 = 灵兽蛋数量;
             runtime.灵兽列表 = 灵兽列表;
+            
+            
+            
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException

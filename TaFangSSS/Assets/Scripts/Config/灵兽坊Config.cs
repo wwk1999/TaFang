@@ -213,7 +213,7 @@ public class 灵兽坊Config
             index++;
         }
         灵兽.血脉Type = 血脉Type;
-        灵兽.阶段Type = 阶段Type.None;
+        灵兽.阶段Type = 阶段Type.幼生期;
         灵兽.道龄 = 0;
         float 最大资质 = 品级最大资质[qualityType] * 血脉倍数[(int)(灵兽.血脉Type - 1)];
         灵兽.最终伤害 = Random.Range(0f, 最大资质);

@@ -99,10 +99,19 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void Show灵兽背包()
     {
-        foreach (Transform item in 灵兽背包.transform)
+        // 先剔除对象池中已被销毁的引用，否则复用时会访问到已销毁的 灵兽item 抛异常
+        灵兽item池.RemoveAll(item => item == null);
+        // 清理残留：只销毁不属于本池的遗留 item，不能全清（会连带销毁池内正在复用的 item）
+        for (int i = 灵兽背包.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(item.gameObject);
+            var 子物体 = 灵兽背包.transform.GetChild(i);
+            var 子item = 子物体.GetComponent<灵兽item>();
+            if (子item != null && !灵兽item池.Contains(子item))
+            {
+                Destroy(子物体.gameObject);
+            }
         }
+
         // 筛选条件或列表数量变化时才重扫，翻页时直接用缓存，O(28) 常量开销
         int 列表总数 = PlayerData.S.灵兽列表.Count;
         if (需要重新筛选

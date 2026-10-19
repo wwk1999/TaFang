@@ -77,6 +77,49 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 领主地无暇提示 = true;
     public bool 领主玄无暇提示 = true;
 
+    public bool 灵兽分解性别所有 = false;
+    public bool 灵兽分解性别公 = false;
+    public bool 灵兽分解性别母 = false;
+    
+    public bool 灵兽分解元素所有 = false;
+    public bool 灵兽分解元素火 = false;
+    public bool 灵兽分解元素冰 = false;
+    public bool 灵兽分解元素电 = false;
+    public bool 灵兽分解元素物 = false;
+    public bool 灵兽分解元素暗 = false;
+
+
+    public bool 灵兽分解阶段所有 = false;
+    public bool 灵兽分解阶段1 = false;
+    public bool 灵兽分解阶段2 = false;
+    public bool 灵兽分解阶段3 = false;
+    public bool 灵兽分解阶段4 = false;
+    public bool 灵兽分解阶段5 = false;
+    public bool 灵兽分解阶段6 = false;
+    public bool 灵兽分解阶段7 = false;
+    public bool 灵兽分解阶段8 = false;
+    
+    public bool 灵兽分解品级所有 = false;
+    public bool 灵兽分解品级1 = false;
+    public bool 灵兽分解品级2 = false;
+    public bool 灵兽分解品级3 = false;
+    public bool 灵兽分解品级4 = false;
+    public bool 灵兽分解品级5 = false;
+    public bool 灵兽分解品级6 = false;
+    public bool 灵兽分解品级7 = false;
+    public bool 灵兽分解品级8 = false;
+    
+    
+    public bool 灵兽分解血脉所有 = false;
+    public bool 灵兽分解血脉1 = false;
+    public bool 灵兽分解血脉2 = false;
+    public bool 灵兽分解血脉3 = false;
+    public bool 灵兽分解血脉4 = false;
+    public bool 灵兽分解血脉5 = false;
+    public bool 灵兽分解血脉6 = false;
+    public bool 灵兽分解血脉7 = false;
+    public bool 灵兽分解血脉8 = false;
+
     public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
     {
         { 建筑Type.领主府, 0 },
