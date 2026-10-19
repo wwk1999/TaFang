@@ -129,6 +129,11 @@ public class 灵兽坊Config
     {
         return 品级洗髓消耗[qualityType] * 阶段洗髓倍数[阶段Type];
     }
+    
+    public static float Get灵兽进化消耗(QualityType qualityType, 阶段Type 阶段Type)
+    {
+        return 品级进化消耗[qualityType] * 阶段进化倍数[阶段Type];
+    }
 
     public static Dictionary<QualityType, float> 品级洗髓消耗 = new Dictionary<QualityType, float>()
     {
@@ -142,6 +147,29 @@ public class 灵兽坊Config
         { QualityType.荒品 ,10000},
     };
     public static Dictionary<阶段Type, float> 阶段洗髓倍数 = new Dictionary<阶段Type, float>()
+    {
+        { 阶段Type.幼生期, 1 },
+        { 阶段Type.成长期 ,2},
+        { 阶段Type.完全体 ,4},
+        { 阶段Type.脱变期 ,8},
+        { 阶段Type.灵化期 ,15},
+        { 阶段Type.归元体 ,40},
+        { 阶段Type.通神体 ,120},
+        { 阶段Type.本源体 ,1000},
+    };
+    
+    public static Dictionary<QualityType, float> 品级进化消耗 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 1000},
+        { QualityType.玄品 ,2000},
+        { QualityType.地品 ,4000},
+        { QualityType.天品 ,8000},
+        { QualityType.宇品 ,15000},
+        { QualityType.宙品 ,40000},
+        { QualityType.洪品 ,120000},
+        { QualityType.荒品 ,1000000},
+    };
+    public static Dictionary<阶段Type, float> 阶段进化倍数 = new Dictionary<阶段Type, float>()
     {
         { 阶段Type.幼生期, 1 },
         { 阶段Type.成长期 ,2},

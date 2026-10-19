@@ -54,6 +54,7 @@ public class 灵兽坊界面 : MonoBehaviour
     public GameObject 最终伤害无暇;
     public Button 最终伤害洗髓Button;
     public TextMeshProUGUI 洗髓消耗Count;
+    public TextMeshProUGUI 进化消耗Count;
 
     public TextMeshProUGUI 暴击伤害当前;
     public TextMeshProUGUI 暴击伤害最大;
@@ -80,11 +81,12 @@ public class 灵兽坊界面 : MonoBehaviour
     private QualityType 缓存品级筛选 = (QualityType)(-1);
     private 血脉Type 缓存血脉筛选 = (血脉Type)(-1);
     private 阶段Type 缓存阶段筛选 = (阶段Type)(-1);
-    public 性别 性别筛选 = global::性别.None;
-    public QualityType 品级筛选 = QualityType.None;
-    public 血脉Type 血脉筛选 = 血脉Type.None;
-    public 阶段Type 阶段筛选 = 阶段Type.None;
-    public YuanSuType 元素筛选 = YuanSuType.None;
+    private YuanSuType 缓存元素筛选 = (YuanSuType)(-1);
+    private 性别 性别筛选 = global::性别.None;
+    private QualityType 品级筛选 = QualityType.None;
+    private 血脉Type 血脉筛选 = 血脉Type.None;
+    private 阶段Type 阶段筛选 = 阶段Type.None;
+    private YuanSuType 元素筛选 = YuanSuType.None;
 
     public void Show灵蛋信息()
     {
@@ -97,6 +99,10 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void Show灵兽背包()
     {
+        foreach (Transform item in 灵兽背包.transform)
+        {
+            Destroy(item.gameObject);
+        }
         // 筛选条件或列表数量变化时才重扫，翻页时直接用缓存，O(28) 常量开销
         int 列表总数 = PlayerData.S.灵兽列表.Count;
         if (需要重新筛选
@@ -104,7 +110,8 @@ public class 灵兽坊界面 : MonoBehaviour
             || 缓存性别筛选 != 性别筛选
             || 缓存品级筛选 != 品级筛选
             || 缓存血脉筛选 != 血脉筛选
-            || 缓存阶段筛选 != 阶段筛选)
+            || 缓存阶段筛选 != 阶段筛选
+            || 缓存元素筛选 != 元素筛选)
         {
             筛选列表.Clear();
             var 灵兽列表 = PlayerData.S.灵兽列表;
@@ -115,6 +122,7 @@ public class 灵兽坊界面 : MonoBehaviour
                 if (品级筛选 != QualityType.None && item.QualityType != 品级筛选) continue;
                 if (血脉筛选 != 血脉Type.None && item.血脉Type != 血脉筛选) continue;
                 if (阶段筛选 != 阶段Type.None && item.阶段Type != 阶段筛选) continue;
+                if (元素筛选 != YuanSuType.None && item.元素Type != 元素筛选) continue;
                 筛选列表.Add(item);
             }
             缓存列表总数 = 列表总数;
@@ -122,6 +130,7 @@ public class 灵兽坊界面 : MonoBehaviour
             缓存品级筛选 = 品级筛选;
             缓存血脉筛选 = 血脉筛选;
             缓存阶段筛选 = 阶段筛选;
+            缓存元素筛选 = 元素筛选;
             需要重新筛选 = false;
         }
 
@@ -188,7 +197,9 @@ public class 灵兽坊界面 : MonoBehaviour
         暴击伤害最大.text = 最大资质.ToString();
         暴击伤害无暇.gameObject.SetActive(HeroWindowController.S.当前选择灵兽.暴击伤害无暇);
         暴击伤害Image.fillAmount = HeroWindowController.S.当前选择灵兽.暴击伤害 / 最大资质;
-        洗髓消耗Count.text = 灵兽坊Config.Get灵兽洗髓消耗(qualityType, HeroWindowController.S.当前选择灵兽.阶段Type).ToString();
+        洗髓消耗Count.text = PlayerData.S.格式化数字(灵兽坊Config.Get灵兽洗髓消耗(qualityType, HeroWindowController.S.当前选择灵兽.阶段Type));
+        进化消耗Count.text = PlayerData.S.格式化数字(灵兽坊Config.Get灵兽进化消耗(qualityType, HeroWindowController.S.当前选择灵兽.阶段Type));
+
     }
 
     private void OnEnable()
@@ -240,6 +251,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("灵兽Item点击",灵兽Item点击);
         ObserverModuleManager.S.UnRegisterEvent("灵兽元素筛选",灵兽元素筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽性别筛选",灵兽性别筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽品级筛选",灵兽品级筛选);
@@ -247,8 +259,14 @@ public class 灵兽坊界面 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("灵兽阶段筛选",灵兽阶段筛选);
     }
 
+    public void 灵兽Item点击(object[] obj)
+    {
+        Show灵兽信息();
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("灵兽Item点击",灵兽Item点击);
         ObserverModuleManager.S.RegisterEvent("灵兽元素筛选",灵兽元素筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽性别筛选",灵兽性别筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽品级筛选",灵兽品级筛选);
@@ -256,6 +274,119 @@ public class 灵兽坊界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("灵兽阶段筛选",灵兽阶段筛选);
 
         Init筛选();
+        进化Button.onClick.AddListener(() =>
+        {
+            if (HeroWindowController.S.当前选择灵兽.阶段Type == 阶段Type.本源体)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","已达最大阶段");
+                return;
+            }
+            if (!HeroWindowController.S.当前选择灵兽.最终伤害无暇 || !HeroWindowController.S.当前选择灵兽.元素伤害无暇 ||
+                !HeroWindowController.S.当前选择灵兽.暴击伤害无暇)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","资质全无暇才可以进化");
+                return;
+            }
+
+            if (PlayerData.S.PropListDic[PropType.血晶] < 灵兽坊Config.Get灵兽进化消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                    HeroWindowController.S.当前选择灵兽.阶段Type))
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","血晶不足");
+                return;
+            }
+            PlayerData.S.PropListDic[PropType.血晶] -= 灵兽坊Config.Get灵兽进化消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                HeroWindowController.S.当前选择灵兽.阶段Type);
+            HeroWindowController.S.当前选择灵兽.阶段Type++;
+            HeroWindowController.S.当前选择灵兽.最终伤害无暇 = false;
+            HeroWindowController.S.当前选择灵兽.最终伤害无暇 = false;
+            HeroWindowController.S.当前选择灵兽.最终伤害无暇 = false;
+
+            Show灵兽信息();
+        });
+        最终伤害洗髓Button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.PropListDic[PropType.血晶] < 灵兽坊Config.Get灵兽洗髓消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                    HeroWindowController.S.当前选择灵兽.阶段Type))
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","血晶不足");
+                return;
+            }
+            PlayerData.S.PropListDic[PropType.血晶] -= 灵兽坊Config.Get灵兽洗髓消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                    HeroWindowController.S.当前选择灵兽.阶段Type);
+            float 最大资质 = 灵兽坊Config.品级最大资质[HeroWindowController.S.当前选择灵兽.QualityType] * 灵兽坊Config.血脉倍数[(int)(HeroWindowController.S.当前选择灵兽.血脉Type - 1)];
+            float random=Random.Range(0, 100f);
+            if (random < 1f)
+            {
+                HeroWindowController.S.当前选择灵兽.最终伤害无暇 = true;
+                HeroWindowController.S.当前选择灵兽.最终伤害 = 最大资质;
+            }
+            else
+            {
+                HeroWindowController.S.当前选择灵兽.最终伤害无暇 = false;
+                HeroWindowController.S.当前选择灵兽.最终伤害 = Random.Range(0,最大资质);
+            }
+            Show灵兽信息();
+        });
+        
+        暴击伤害洗髓Button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.PropListDic[PropType.血晶] < 灵兽坊Config.Get灵兽洗髓消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                    HeroWindowController.S.当前选择灵兽.阶段Type))
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","血晶不足");
+                return;
+            }
+            PlayerData.S.PropListDic[PropType.血晶] -= 灵兽坊Config.Get灵兽洗髓消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                HeroWindowController.S.当前选择灵兽.阶段Type);
+            float 最大资质 = 灵兽坊Config.品级最大资质[HeroWindowController.S.当前选择灵兽.QualityType] * 灵兽坊Config.血脉倍数[(int)(HeroWindowController.S.当前选择灵兽.血脉Type - 1)];
+            float random=Random.Range(0, 100f);
+            if (random < 1f)
+            {
+                HeroWindowController.S.当前选择灵兽.暴击伤害无暇 = true;
+                HeroWindowController.S.当前选择灵兽.暴击伤害 = 最大资质;
+            }
+            else
+            {
+                HeroWindowController.S.当前选择灵兽.暴击伤害无暇 = false;
+                HeroWindowController.S.当前选择灵兽.暴击伤害 = Random.Range(0,最大资质);
+            }
+            Show灵兽信息();
+        });
+        
+        元素伤害洗髓Button.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.PropListDic[PropType.血晶] < 灵兽坊Config.Get灵兽洗髓消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                    HeroWindowController.S.当前选择灵兽.阶段Type))
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","血晶不足");
+                return;
+            }
+            PlayerData.S.PropListDic[PropType.血晶] -= 灵兽坊Config.Get灵兽洗髓消耗(HeroWindowController.S.当前选择灵兽.QualityType,
+                HeroWindowController.S.当前选择灵兽.阶段Type);
+            float 最大资质 = 灵兽坊Config.品级最大资质[HeroWindowController.S.当前选择灵兽.QualityType] * 灵兽坊Config.血脉倍数[(int)(HeroWindowController.S.当前选择灵兽.血脉Type - 1)];
+            float random=Random.Range(0, 100f);
+            if (random < 1f)
+            {
+                HeroWindowController.S.当前选择灵兽.元素伤害无暇 = true;
+                HeroWindowController.S.当前选择灵兽.元素伤害 = 最大资质;
+            }
+            else
+            {
+                HeroWindowController.S.当前选择灵兽.元素伤害无暇 = false;
+                HeroWindowController.S.当前选择灵兽.元素伤害 = Random.Range(0,最大资质);
+            }
+            Show灵兽信息();
+        });
+        翻页加.onClick.AddListener(() =>
+        {
+            背包页数++;
+            Show灵兽背包();
+        });
+        翻页减.onClick.AddListener(() =>
+        {
+            背包页数--;
+            Show灵兽背包();
+        });
         减Button.onClick.AddListener(() =>
         {
             当前砸蛋数量--;

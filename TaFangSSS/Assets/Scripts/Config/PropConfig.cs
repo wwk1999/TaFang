@@ -108,6 +108,7 @@ namespace Config
         砂彩,
         
         轮回石,
+        血晶,
     }
     public enum PropType
     {
@@ -232,6 +233,7 @@ namespace Config
         砂彩,
         
         轮回石,
+        血晶,
     }
 
     public enum QualityType
@@ -462,6 +464,8 @@ namespace Config
             return ResourcesConfig.砂彩;
         case 道具信息Type.轮回石:
             return ResourcesConfig.轮回石;
+        case 道具信息Type.血晶:
+            return ResourcesConfig.血晶;
         case 道具信息Type.道宝紫:
         case 道具信息Type.道宝橙:
         case 道具信息Type.道宝粉:
@@ -537,7 +541,7 @@ namespace Config
             { 道具信息Type.砂红, QualityType.洪品 },
             { 道具信息Type.砂彩, QualityType.荒品 },
             { 道具信息Type.轮回石, QualityType.地品 },
-            
+            { 道具信息Type.血晶, QualityType.地品 },
             { 道具信息Type.功德, QualityType.宇品 },
             { 道具信息Type.头盔锻造石, QualityType.地品 },
             { 道具信息Type.射手经验值, QualityType.地品 },
@@ -642,6 +646,7 @@ namespace Config
             { 道具信息Type.砂红, PropType.砂红 },
             { 道具信息Type.砂彩, PropType.砂彩 },
             { 道具信息Type.轮回石, PropType.轮回石 },
+            { 道具信息Type.血晶, PropType.血晶 },
         };
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
@@ -722,6 +727,7 @@ namespace Config
             { PropType.砂红, 道具信息Type.砂红 },
             { PropType.砂彩, 道具信息Type.砂彩 },
             { PropType.轮回石, 道具信息Type.轮回石 },
+            { PropType.血晶, 道具信息Type.血晶 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -768,7 +774,7 @@ namespace Config
             { 道具信息Type.砂红, "鸿蒙砂" },
             { 道具信息Type.砂彩, "混沌砂" },
             { 道具信息Type.轮回石, "轮回石" },
-            
+            { 道具信息Type.血晶, "血晶" },
             { 道具信息Type.法器粉尘, "法器粉尘" },
             { 道具信息Type.功德, "功德" },
             { 道具信息Type.头盔锻造石, "头盔锻造石" },
@@ -910,6 +916,7 @@ namespace Config
             { 道具信息Type.砂红, "打造英雄法器的关键材料,三十三重天350层后掉落" },
             { 道具信息Type.砂彩, "打造英雄法器的关键材料,三十三重天800层后掉落" },
             { 道具信息Type.轮回石, "轮回转世的关键材料,主线,符文,神物关卡掉落,三十三重天50层掉落2,200层3,500层4,1000层5," },
+            { 道具信息Type.血晶, "灵兽洗髓和进化的关键材料,分解灵兽获得" },
         };
 
         
@@ -1009,6 +1016,8 @@ namespace Config
                     return ResourcesConfig.砂彩;
                 case PropType.轮回石:
                     return ResourcesConfig.轮回石;
+                case PropType.血晶:
+                    return ResourcesConfig.血晶;
                 case PropType.法器粉尘:
                     return ResourcesConfig.法器粉尘;
                 case PropType.全职业经验值:
@@ -1278,6 +1287,7 @@ namespace Config
             { PropType.砂红, "鸿蒙砂" },
             { PropType.砂彩, "混沌砂" },
             { PropType.轮回石, "轮回石" },
+            { PropType.血晶, "血晶" },
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()

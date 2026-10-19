@@ -66,7 +66,7 @@ public class 道场 : MonoBehaviour
                     {
                         PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] = 1;
                     }
-                   // WindowController.S.打开窗口(WindowController.S.领主府Window);
+                    WindowController.S.打开窗口(WindowController.S.灵兽坊Window);
                 }
                 else
                 {
@@ -76,7 +76,7 @@ public class 道场 : MonoBehaviour
             }
             else
             {
-                //WindowController.S.打开窗口(WindowController.S.领主府Window);
+                WindowController.S.打开窗口(WindowController.S.灵兽坊Window);
             }
         });
         聚贤阁.onClick.AddListener(() =>

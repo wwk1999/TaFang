@@ -4406,6 +4406,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { PropType.砂红, 0 },
         { PropType.砂彩, 0 },
         { PropType.轮回石, 0 },
+        { PropType.血晶, 0 },
     };
 
    

@@ -66,7 +66,7 @@ public class ResourcesConfig : MonoBehaviour
     public static Sprite 钻石;
     
     public static Sprite 轮回石;
-    
+    public static Sprite 血晶;
     
     public static Sprite 铁白;
     public static Sprite 铁绿;
@@ -3689,6 +3689,8 @@ public class ResourcesConfig : MonoBehaviour
             
             case PropType.轮回石:
                 return 轮回石;
+            case PropType.血晶:
+                return 血晶;
         }
 
         return null;
@@ -7538,6 +7540,7 @@ public class ResourcesConfig : MonoBehaviour
         钻石=Resources.Load<Sprite>("Sprite/星级icon/钻石");
 
         轮回石=Resources.Load<Sprite>("Sprite/DaoJu/轮回石");
+        血晶=Resources.Load<Sprite>("Sprite/DaoJu/血晶");
         铁白=Resources.Load<Sprite>("Sprite/法器材料/铁白");
         铁绿=Resources.Load<Sprite>("Sprite/法器材料/铁绿");
         铁蓝=Resources.Load<Sprite>("Sprite/法器材料/铁蓝");

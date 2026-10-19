@@ -3921,6 +3921,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
         { PropType.砂红, 0 },
         { PropType.砂彩, 0 },
         { PropType.轮回石, 0 },
+        { PropType.血晶, 0 },
     };
 
        

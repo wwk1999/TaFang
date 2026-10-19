@@ -259,6 +259,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.炼丹Window.gameObject.SetActive(false);
         WindowController.S.领主府Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/领主府/领主府界面"));
         WindowController.S.领主府Window.gameObject.SetActive(false);
+        WindowController.S.灵兽坊Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/灵兽坊/灵兽坊界面"));
+        WindowController.S.灵兽坊Window.gameObject.SetActive(false);
     }
 
     public void SetBuff()
