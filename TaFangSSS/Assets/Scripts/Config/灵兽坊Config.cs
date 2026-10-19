@@ -98,6 +98,8 @@ public class 灵兽
     public float 最终伤害;
     public float 暴击伤害;
     public float 元素伤害;
+    public bool 锁;
+    public HeroType HeroType;
 }
 public class 灵兽坊Config
 {

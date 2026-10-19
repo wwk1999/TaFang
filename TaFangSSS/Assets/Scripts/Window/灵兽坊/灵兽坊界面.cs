@@ -266,6 +266,12 @@ public class 灵兽坊界面 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("灵兽品级筛选",灵兽品级筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽血脉筛选",灵兽血脉筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽阶段筛选",灵兽阶段筛选);
+        ObserverModuleManager.S.UnRegisterEvent("刷新灵兽背包",刷新灵兽背包);
+    }
+
+    public void 刷新灵兽背包(object[] obj)
+    {
+        Show灵兽背包();
     }
 
     public void 灵兽Item点击(object[] obj)
@@ -281,6 +287,7 @@ public class 灵兽坊界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("灵兽品级筛选",灵兽品级筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽血脉筛选",灵兽血脉筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽阶段筛选",灵兽阶段筛选);
+        ObserverModuleManager.S.RegisterEvent("刷新灵兽背包",刷新灵兽背包);
 
         Init筛选();
         进化Button.onClick.AddListener(() =>
