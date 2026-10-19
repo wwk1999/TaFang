@@ -146,6 +146,17 @@ public class 灵兽坊Config
         { QualityType.洪品 ,1200},
         { QualityType.荒品 ,10000},
     };
+    public static Dictionary<QualityType, float> 灵兽分解 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 10 },
+        { QualityType.玄品 ,20},
+        { QualityType.地品 ,40},
+        { QualityType.天品 ,80},
+        { QualityType.宇品 ,150},
+        { QualityType.宙品 ,400},
+        { QualityType.洪品 ,1200},
+        { QualityType.荒品 ,10000},
+    };
     public static Dictionary<阶段Type, float> 阶段洗髓倍数 = new Dictionary<阶段Type, float>()
     {
         { 阶段Type.幼生期, 1 },
