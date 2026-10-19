@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,6 +74,8 @@ public class 灵兽坊界面 : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+
+        var 灵兽item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽item"), 灵兽背包.transform).GetComponent<灵兽item>();
         
     }
 
