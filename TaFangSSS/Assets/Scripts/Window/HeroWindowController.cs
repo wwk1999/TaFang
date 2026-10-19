@@ -106,6 +106,9 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized]public 法器附加属性Type 当前仙石排序附加属性Type;
     [NonSerialized]public 符文Type 当前符文附魔排序Type;
 
+
+    [NonSerialized] public 灵兽 当前选择灵兽=new 灵兽();
+
     //法器的基础属性包含在最终伤害里
     public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type, ZhiYeType zhiYeType)
     {

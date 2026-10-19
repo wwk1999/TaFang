@@ -36,6 +36,7 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 是否首次配置神通 = false;
 
     public float 灵兽蛋数量 = 10;
+    public List<灵兽> 灵兽列表 = new List<灵兽>();
     public float Exp;
     public int 当前出战编队 = 1;
     public int 长生道体年数 = 0;

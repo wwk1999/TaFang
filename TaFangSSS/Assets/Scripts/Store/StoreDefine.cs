@@ -1219,6 +1219,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
         public List<坊市物品> 坊市物品列表 = new List<坊市物品>();
         public List<法器> 法器列表 = new List<法器>();
         public List<仙石> 仙石列表 = new List<仙石>();
+        public List<灵兽> 灵兽列表 = new List<灵兽>();
         public int 炼丹等级 = 1;
         public float 炼丹经验 = 0;
         public int 长生道体年数 = 0;
@@ -4041,6 +4042,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             领主地无暇提示 = runtime.领主地无暇提示;
             领主玄无暇提示 = runtime.领主玄无暇提示;
             灵兽蛋数量 = runtime.灵兽蛋数量;
+            灵兽列表 = runtime.灵兽列表;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4172,6 +4174,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.领主地无暇提示 = 领主地无暇提示;
             runtime.领主玄无暇提示 = 领主玄无暇提示;
             runtime.灵兽蛋数量 = 灵兽蛋数量;
+            runtime.灵兽列表 = 灵兽列表;
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException
