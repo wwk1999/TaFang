@@ -14,13 +14,13 @@ public class 灵兽血脉筛选Item : MonoBehaviour
 
     public void SetItem()
     {
-        if (QualityType == this.QualityType.None)
+        if (血脉Type == 血脉Type.None)
         {
             text.text = "所有";
         }
         else
         {
-            text.text = PropConfig.QualityNameDic[QualityType];
+            text.text = 灵兽坊Config.血脉Name[血脉Type];
         }
     }
 
@@ -28,7 +28,7 @@ public class 灵兽血脉筛选Item : MonoBehaviour
     {
         btn.onClick.AddListener(() =>
         {
-            ObserverModuleManager.S.SendEvent("灵兽品级筛选",QualityType);
+            ObserverModuleManager.S.SendEvent("灵兽血脉筛选",血脉Type);
         });
     }
 }

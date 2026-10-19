@@ -23,15 +23,17 @@ public class 灵兽坊界面 : MonoBehaviour
     public Button 品级;
     public Button 血脉;
     public Button 阶段筛选Button;
+    public Button 元素筛选Button;
     public GameObject 性别下拉区域;
     public GameObject 品级下拉区域;
     public GameObject 血脉下拉区域;
     public GameObject 阶段下拉区域;
-    
+    public GameObject 元素下拉区域;
     public GameObject 性别下拉区域Content;
     public GameObject 品级下拉区域Content;
     public GameObject 血脉下拉区域Content;
     public GameObject 阶段下拉区域Content;
+    public GameObject 元素下拉区域Content;
     public Button 下拉区域mask;
     public Button 翻页加;
     public Button 翻页减;
@@ -77,9 +79,12 @@ public class 灵兽坊界面 : MonoBehaviour
     private 性别 缓存性别筛选 = (性别)(-1);
     private QualityType 缓存品级筛选 = (QualityType)(-1);
     private 血脉Type 缓存血脉筛选 = (血脉Type)(-1);
+    private 阶段Type 缓存阶段筛选 = (阶段Type)(-1);
     public 性别 性别筛选 = global::性别.None;
     public QualityType 品级筛选 = QualityType.None;
     public 血脉Type 血脉筛选 = 血脉Type.None;
+    public 阶段Type 阶段筛选 = 阶段Type.None;
+    public YuanSuType 元素筛选 = YuanSuType.None;
 
     public void Show灵蛋信息()
     {
@@ -98,7 +103,8 @@ public class 灵兽坊界面 : MonoBehaviour
             || 缓存列表总数 != 列表总数
             || 缓存性别筛选 != 性别筛选
             || 缓存品级筛选 != 品级筛选
-            || 缓存血脉筛选 != 血脉筛选)
+            || 缓存血脉筛选 != 血脉筛选
+            || 缓存阶段筛选 != 阶段筛选)
         {
             筛选列表.Clear();
             var 灵兽列表 = PlayerData.S.灵兽列表;
@@ -108,12 +114,14 @@ public class 灵兽坊界面 : MonoBehaviour
                 if (性别筛选 != global::性别.None && item.性别 != 性别筛选) continue;
                 if (品级筛选 != QualityType.None && item.QualityType != 品级筛选) continue;
                 if (血脉筛选 != 血脉Type.None && item.血脉Type != 血脉筛选) continue;
+                if (阶段筛选 != 阶段Type.None && item.阶段Type != 阶段筛选) continue;
                 筛选列表.Add(item);
             }
             缓存列表总数 = 列表总数;
             缓存性别筛选 = 性别筛选;
             缓存品级筛选 = 品级筛选;
             缓存血脉筛选 = 血脉筛选;
+            缓存阶段筛选 = 阶段筛选;
             需要重新筛选 = false;
         }
 
@@ -213,20 +221,41 @@ public class 灵兽坊界面 : MonoBehaviour
         下拉区域mask.gameObject.SetActive(false);
         Show灵兽背包();
     }
+    
+    public void 灵兽阶段筛选(object[] obj)
+    {
+        阶段筛选=(阶段Type)obj[0];
+        阶段下拉区域.gameObject.SetActive(false);
+        下拉区域mask.gameObject.SetActive(false);
+        Show灵兽背包();
+    }
+    
+    public void 灵兽元素筛选(object[] obj)
+    {
+        元素筛选=(YuanSuType)obj[0];
+        元素下拉区域.gameObject.SetActive(false);
+        下拉区域mask.gameObject.SetActive(false);
+        Show灵兽背包();
+    }
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("灵兽元素筛选",灵兽元素筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽性别筛选",灵兽性别筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽品级筛选",灵兽品级筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽血脉筛选",灵兽血脉筛选);
+        ObserverModuleManager.S.UnRegisterEvent("灵兽阶段筛选",灵兽阶段筛选);
     }
 
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("灵兽元素筛选",灵兽元素筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽性别筛选",灵兽性别筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽品级筛选",灵兽品级筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽血脉筛选",灵兽血脉筛选);
+        ObserverModuleManager.S.RegisterEvent("灵兽阶段筛选",灵兽阶段筛选);
 
+        Init筛选();
         减Button.onClick.AddListener(() =>
         {
             当前砸蛋数量--;
@@ -265,15 +294,82 @@ public class 灵兽坊界面 : MonoBehaviour
             下拉区域mask.gameObject.SetActive(true);
             血脉下拉区域.gameObject.SetActive(true);
         });
+        阶段筛选Button.onClick.AddListener(() =>
+        {
+            下拉区域mask.gameObject.SetActive(true);
+            阶段下拉区域.gameObject.SetActive(true);
+        });
+        元素筛选Button.onClick.AddListener(() =>
+        {
+            下拉区域mask.gameObject.SetActive(true);
+            元素下拉区域.gameObject.SetActive(true);
+        });
         下拉区域mask.onClick.AddListener(() =>
         {
             性别下拉区域.gameObject.SetActive(false);
             品级下拉区域.gameObject.SetActive(false);
             血脉下拉区域.gameObject.SetActive(false);
+            阶段下拉区域.gameObject.SetActive(false);
+            元素下拉区域.gameObject.SetActive(false);
             下拉区域mask.gameObject.SetActive(false);
         });
     }
 
+    public void Init筛选()
+    {
+        foreach (Transform item in 性别下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 品级下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 血脉下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 阶段下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 元素下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(性别)).Length; i++)
+        {
+           var 性别筛选item=Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽性别筛选Item"),性别下拉区域Content.transform).GetComponent<灵兽性别筛选Item>();
+           性别筛选item.性别 = (性别)i;
+           性别筛选item.SetItem();
+        }
+        for (int i = 0; i < Enum.GetValues(typeof(血脉Type)).Length; i++)
+        {
+            var 血脉筛选item=Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽血脉筛选Item"),血脉下拉区域Content.transform).GetComponent<灵兽血脉筛选Item>();
+            血脉筛选item.血脉Type = (血脉Type)i;
+            血脉筛选item.SetItem();
+        }
+        for (int i = 0; i < Enum.GetValues(typeof(阶段Type)).Length; i++)
+        {
+            var 阶段筛选item=Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽阶段筛选Item"),阶段下拉区域Content.transform).GetComponent<灵兽阶段筛选Item>();
+            阶段筛选item.阶段Type = (阶段Type)i;
+            阶段筛选item.SetItem();
+        }
+        for (int i = 0; i < Enum.GetValues(typeof(YuanSuType)).Length; i++)
+        {
+            var 元素筛选item=Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽元素筛选Item"),元素下拉区域Content.transform).GetComponent<灵兽元素筛选Item>();
+            元素筛选item.YuanSuType = (YuanSuType)i;
+            元素筛选item.SetItem();
+        }
+        for (int i = 0; i < Enum.GetValues(typeof(QualityType)).Length; i++)
+        {
+            var 品级筛选item=Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽品质筛选Item"),品级下拉区域Content.transform).GetComponent<灵兽品级筛选Item>();
+            品级筛选item.QualityType = (QualityType)i;
+            品级筛选item.SetItem();
+        }
+        
+    }
     public IEnumerator 砸蛋()
     {
         Dictionary<灵兽Type, int> 砸蛋字典 = new Dictionary<灵兽Type, int>();
