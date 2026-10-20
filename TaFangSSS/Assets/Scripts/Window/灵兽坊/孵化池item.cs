@@ -24,6 +24,7 @@ public class 孵化池item : MonoBehaviour
     [NonSerialized] public 孵化池 孵化池;
     public void SetItem()
     {
+        button.image.sprite = ResourcesConfig.建筑item暗;
         孵化中OBj.SetActive(孵化池.孵化中);
         进度条.fillAmount = 孵化池.当前道年 / 孵化池.需要道年;
         count.text = (孵化池.当前道年 / 孵化池.需要道年).ToString("F1") + "%";

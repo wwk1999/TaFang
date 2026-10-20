@@ -751,11 +751,14 @@ public class 灵兽坊界面 : MonoBehaviour
     public Image 父icon;
     public TextMeshProUGUI 父Name;
     public TextMeshProUGUI 父血脉;
+    public GameObject 父Content;
 
     public Button 母bg;
     public Image 母icon;
     public TextMeshProUGUI 母Name;
     public TextMeshProUGUI 母血脉;
+    public GameObject 母Content;
+    public GameObject 父母信息Content;
 
     public Image 孵化进度条;
     public TextMeshProUGUI 孵化百分比;
@@ -777,6 +780,11 @@ public class 灵兽坊界面 : MonoBehaviour
     public Button 孵化翻页加;
     public TextMeshProUGUI num;
 
+    private 性别 孵化性别筛选;
+    private QualityType 孵化品级筛选;
+    private 血脉Type 孵化血脉筛选;
+    private 阶段Type 孵化阶段筛选;
+
     public int Get孵化中孵化池数量()
     {
         int count = 0;
@@ -797,6 +805,63 @@ public class 灵兽坊界面 : MonoBehaviour
     }
 
     public void Show孵化池列表()
+    {
+        foreach (Transform item in 孵化池列表.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in PlayerData.S.孵化池列表)
+        {
+            var 孵化池 = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/孵化池item"),孵化池列表.transform).GetComponent<孵化池item>();
+            孵化池.孵化池 = item.Value;
+            孵化池.SetItem();
+        }
+    }
+
+    public void Show父母信息()
+    {
+        if (HeroWindowController.S.当前选择孵化池 == null)
+        {
+            父母信息Content.gameObject.SetActive(false);
+        }
+        else
+        {
+            父母信息Content.gameObject.SetActive(true);
+            if (HeroWindowController.S.当前选择孵化池.父 == null)
+            {
+                父Content.gameObject.SetActive(false);
+            }
+            else
+            {
+                父Content.gameObject.SetActive(true);
+                父bg.image.sprite =
+                    ResourcesConfig.Get道具背景框SpriteByQuality(灵兽坊Config.灵兽品质[HeroWindowController.S.当前选择孵化池.父.灵兽Type]);
+                父icon.sprite = ResourcesConfig.Get灵兽Sprite(HeroWindowController.S.当前选择孵化池.父.灵兽Type);
+                父Name.text = 灵兽坊Config.灵兽名[HeroWindowController.S.当前选择孵化池.父.灵兽Type];
+                父血脉.text=灵兽坊Config.血脉Name[HeroWindowController.S.当前选择孵化池.父.血脉Type];
+            }
+            
+            if (HeroWindowController.S.当前选择孵化池.母 == null)
+            {
+                母Content.gameObject.SetActive(false);
+            }
+            else
+            {
+                母Content.gameObject.SetActive(true);
+                母bg.image.sprite =
+                    ResourcesConfig.Get道具背景框SpriteByQuality(灵兽坊Config.灵兽品质[HeroWindowController.S.当前选择孵化池.母.灵兽Type]);
+                母icon.sprite = ResourcesConfig.Get灵兽Sprite(HeroWindowController.S.当前选择孵化池.母.灵兽Type);
+                母Name.text = 灵兽坊Config.灵兽名[HeroWindowController.S.当前选择孵化池.母.灵兽Type];
+                母血脉.text=灵兽坊Config.血脉Name[HeroWindowController.S.当前选择孵化池.母.血脉Type];
+            }
+
+            孵化进度条.fillAmount = HeroWindowController.S.当前选择孵化池.当前道年 / HeroWindowController.S.当前选择孵化池.需要道年;
+            孵化百分比.text = (HeroWindowController.S.当前选择孵化池.当前道年 / HeroWindowController.S.当前选择孵化池.需要道年).ToString("F1");
+        }
+    }
+
+    public void Show孵化灵兽背包()
     {
         
     }

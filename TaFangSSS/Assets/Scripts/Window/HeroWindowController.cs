@@ -108,6 +108,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
 
 
     [NonSerialized] public 灵兽 当前选择灵兽=new 灵兽();
+    [NonSerialized] public 孵化池 当前选择孵化池=new 孵化池();
 
     //法器的基础属性包含在最终伤害里
     public List<法器> Get排序法器(法器类型 法器类型, 附加属性Type 附加属性Type, ZhiYeType zhiYeType)
