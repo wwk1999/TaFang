@@ -116,6 +116,94 @@ public class 灵兽
 }
 public class 灵兽坊Config
 {
+    public static float Get灵兽孵化时间(灵兽 a,灵兽 b)
+    {
+        QualityType qualityType = a.QualityType;
+        血脉Type 血脉1 = a.血脉Type;
+        血脉Type 血脉2 = b.血脉Type;
+        float 时间=品级孵化时间[qualityType];
+        float scale = 血脉孵化时间基础倍数[血脉1] + 血脉孵化时间基础倍数[血脉2];
+        return 时间 * scale;
+    }
+
+    public static void Get孵化灵兽(灵兽 a, 灵兽 b)
+    {
+        灵兽 灵兽 = new 灵兽();
+        灵兽Type 灵兽Type = a.灵兽Type;
+        
+    }
+    public static 血脉Type Get孵化血脉Type(灵兽 a,灵兽 b)
+    {
+        血脉Type 血脉1 = a.血脉Type;
+        血脉Type 血脉2 = b.血脉Type;
+        float count = (血脉孵化基础倍数[血脉1] + 血脉孵化基础倍数[血脉2])/2f;
+        float random = Random.Range(0.5f, 2f);
+        float value = random * count;
+        if (value > 血脉孵化基础倍数[血脉Type.至尊])
+        {
+            return 血脉Type.至尊;
+        }else  if (value > 血脉孵化基础倍数[血脉Type.绝品])
+        {
+            return 血脉Type.绝品;
+        }
+        else  if (value > 血脉孵化基础倍数[血脉Type.完美])
+        {
+            return 血脉Type.完美;
+        }
+        else  if (value > 血脉孵化基础倍数[血脉Type.卓越])
+        {
+            return 血脉Type.卓越;
+        }
+        else  if (value > 血脉孵化基础倍数[血脉Type.变异])
+        {
+            return 血脉Type.变异;
+        }
+        else  if (value > 血脉孵化基础倍数[血脉Type.上品])
+        {
+            return 血脉Type.上品;
+        }
+        else  if (value > 血脉孵化基础倍数[血脉Type.良品])
+        {
+            return 血脉Type.良品;
+        }
+        else 
+        {
+            return 血脉Type.凡品;
+        }
+    }
+    public static Dictionary<血脉Type, float> 血脉孵化基础倍数 = new Dictionary<血脉Type, float>()
+    {
+        { 血脉Type.凡品, 10f },
+        { 血脉Type.良品, 20f },
+        { 血脉Type.上品, 30f },
+        { 血脉Type.变异, 50f },
+        { 血脉Type.卓越, 80f },
+        { 血脉Type.完美, 120f },
+        { 血脉Type.绝品, 200f },
+        { 血脉Type.至尊, 370f },
+    };
+    public static Dictionary<血脉Type, float> 血脉孵化时间基础倍数 = new Dictionary<血脉Type, float>()
+    {
+        { 血脉Type.凡品 ,0.5f},
+        { 血脉Type.良品 ,0.7f},
+        { 血脉Type.上品 ,0.9f},
+        { 血脉Type.变异 ,1.2f},
+        { 血脉Type.卓越 ,1.5f},
+        { 血脉Type.完美 ,2f},
+        { 血脉Type.绝品 ,3f},
+        { 血脉Type.至尊 ,5f},
+    };
+    public static Dictionary<QualityType, float> 品级孵化时间 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品 ,0.1f},
+        { QualityType.玄品 ,0.2f},
+        { QualityType.地品 ,0.3f},
+        { QualityType.天品 ,0.5f},
+        { QualityType.宇品 ,0.7f},
+        { QualityType.宙品 ,1f},
+        { QualityType.洪品 ,1.3f},
+        { QualityType.荒品 ,2f},
+    };
     public static Dictionary<血脉Type, string> 血脉Name = new Dictionary<血脉Type, string>()
     {
         { 血脉Type.凡品 ,"凡品"},

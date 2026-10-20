@@ -231,6 +231,21 @@ public class StoreController : XSingleton<StoreController>
         }
     }
 
+    public void 灵兽孵化()
+    {
+        foreach (var item in PlayerData.S.孵化池列表)
+        {
+            if (item.Value.孵化中)
+            {
+                item.Value.当前道年 += 1 / 属性config.每年秒数;
+                if (item.Value.当前道年 >= item.Value.需要道年)
+                {
+                    1
+                }
+            }
+        }
+        
+    }
     public void 增加道场资源()
     {
         float 矿石速度 = 道场Config.Get矿石速度();

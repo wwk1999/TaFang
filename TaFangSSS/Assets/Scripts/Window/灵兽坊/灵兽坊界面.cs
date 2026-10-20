@@ -340,6 +340,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void On孵化性别筛选(object[] obj)
     {
+        孵化背包页数 = 1;
         孵化性别筛选 = (性别)obj[0];
         孵化性别下拉区域.gameObject.SetActive(false);
         孵化mask.gameObject.SetActive(false);
@@ -348,6 +349,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void On孵化品级筛选(object[] obj)
     {
+        孵化背包页数 = 1;
         孵化品级筛选 = (QualityType)obj[0];
         孵化品级下拉区域.gameObject.SetActive(false);
         孵化mask.gameObject.SetActive(false);
@@ -356,6 +358,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void On孵化血脉筛选(object[] obj)
     {
+        孵化背包页数 = 1;
         孵化血脉筛选 = (血脉Type)obj[0];
         孵化血脉下拉区域.gameObject.SetActive(false);
         孵化mask.gameObject.SetActive(false);
@@ -364,6 +367,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void On孵化阶段筛选(object[] obj)
     {
+        孵化背包页数 = 1;
         孵化阶段筛选 = (阶段Type)obj[0];
         孵化阶段下拉区域.gameObject.SetActive(false);
         孵化mask.gameObject.SetActive(false);
@@ -465,8 +469,14 @@ public class 灵兽坊界面 : MonoBehaviour
                 HeroWindowController.S.当前选择孵化池.母 != null &&
                 HeroWindowController.S.当前选择孵化池.父.灵兽Type == HeroWindowController.S.当前选择孵化池.母.灵兽Type)
             {
+                HeroWindowController.S.当前选择孵化池.孵化中 = true;
                 HeroWindowController.S.当前选择孵化池.父.是否在孵化 = true;
                 HeroWindowController.S.当前选择孵化池.母.是否在孵化 = true;
+                HeroWindowController.S.当前选择孵化池.当前道年 = 0;
+                HeroWindowController.S.当前选择孵化池.需要道年 = 灵兽坊Config.Get灵兽孵化时间(HeroWindowController.S.当前选择孵化池.父,
+                    HeroWindowController.S.当前选择孵化池.母);
+                孵化需要重新筛选 = true;
+                Show孵化灵兽背包();
             }
             else
             {
@@ -1133,6 +1143,7 @@ public class 灵兽坊界面 : MonoBehaviour
             for (int i = 0; i < 列表总数; i++)
             {
                 var item = 灵兽列表[i];
+                if (item.是否在孵化) continue;
                 if (孵化性别筛选 != global::性别.None && item.性别 != 孵化性别筛选) continue;
                 if (孵化品级筛选 != QualityType.None && item.QualityType != 孵化品级筛选) continue;
                 if (孵化血脉筛选 != 血脉Type.None && item.血脉Type != 孵化血脉筛选) continue;
