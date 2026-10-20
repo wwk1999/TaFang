@@ -129,8 +129,44 @@ public class 灵兽坊Config
     public static void Get孵化灵兽(灵兽 a, 灵兽 b)
     {
         灵兽 灵兽 = new 灵兽();
-        灵兽Type 灵兽Type = a.灵兽Type;
-        
+        灵兽.灵兽Type = a.灵兽Type;
+        灵兽.QualityType = 灵兽品质[灵兽.灵兽Type];
+        灵兽.元素Type = 灵兽元素[灵兽.灵兽Type];
+        int 性别random = Random.Range(0, 2);
+        if (性别random == 1)
+        {
+            灵兽.性别 = 性别.公;
+        }
+        else
+        {
+            灵兽.性别 = 性别.母;
+        }
+        灵兽.血脉Type = Get孵化血脉Type(a, b);
+        灵兽.阶段Type = 阶段Type.幼生期;
+        灵兽.道龄 = 0;
+        float 最大资质 = 品级最大资质[灵兽.QualityType] * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+        灵兽.最终伤害 = Random.Range(0f, 最大资质);
+        灵兽.元素伤害 = Random.Range(0f, 最大资质);
+        灵兽.暴击伤害 = Random.Range(0f, 最大资质);
+        float 最终伤害无暇random = Random.Range(0, 100f);
+        float 暴击伤害无暇random = Random.Range(0, 100f);
+        float 元素伤害无暇random = Random.Range(0, 100f);
+        if (最终伤害无暇random < 1f)
+        {
+            灵兽.最终伤害无暇 = true;
+            灵兽.最终伤害 = 最大资质;
+        }
+        if (暴击伤害无暇random < 1f)
+        {
+            灵兽.暴击伤害无暇 = true;
+            灵兽.暴击伤害 = 最大资质;
+        }
+        if (元素伤害无暇random < 1f)
+        {
+            灵兽.元素伤害无暇 = true;
+            灵兽.元素伤害 = 最大资质;
+        }
+        PlayerData.S.灵兽列表.Add(灵兽);
     }
     public static 血脉Type Get孵化血脉Type(灵兽 a,灵兽 b)
     {

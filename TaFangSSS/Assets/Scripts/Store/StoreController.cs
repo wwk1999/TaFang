@@ -240,7 +240,7 @@ public class StoreController : XSingleton<StoreController>
                 item.Value.当前道年 += 1 / 属性config.每年秒数;
                 if (item.Value.当前道年 >= item.Value.需要道年)
                 {
-                    1
+                    灵兽坊Config.Get孵化灵兽(item.Value.父, item.Value.母);
                 }
             }
         }
