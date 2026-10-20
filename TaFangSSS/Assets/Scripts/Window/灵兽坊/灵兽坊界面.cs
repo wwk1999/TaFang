@@ -372,6 +372,9 @@ public class 灵兽坊界面 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("孵化灵兽点击",孵化灵兽点击);
+        ObserverModuleManager.S.UnRegisterEvent("灵兽Item锁",灵兽Item锁);
+        ObserverModuleManager.S.UnRegisterEvent("孵化池点击",孵化池点击);
         ObserverModuleManager.S.UnRegisterEvent("无暇确定洗练", 无暇确定洗练);
         ObserverModuleManager.S.UnRegisterEvent("灵兽Item点击", 灵兽Item点击);
         ObserverModuleManager.S.UnRegisterEvent("灵兽元素筛选", 灵兽元素筛选);
@@ -421,8 +424,26 @@ public class 灵兽坊界面 : MonoBehaviour
             Show孵化灵兽背包();
         }
     }
+
+    public void 孵化池点击(object[] obj)
+    {
+        Show父母信息();
+    }
+
+    public void 灵兽Item锁(object[] obj)
+    {
+        Show灵兽背包();
+    }
+
+    public void 孵化灵兽点击(object[] obj)
+    {
+        Show父母信息();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("孵化灵兽点击",孵化灵兽点击);
+        ObserverModuleManager.S.RegisterEvent("灵兽Item锁",灵兽Item锁);
+        ObserverModuleManager.S.RegisterEvent("孵化池点击",孵化池点击);
         ObserverModuleManager.S.RegisterEvent("无暇确定洗练", 无暇确定洗练);
         ObserverModuleManager.S.RegisterEvent("灵兽Item点击", 灵兽Item点击);
         ObserverModuleManager.S.RegisterEvent("灵兽元素筛选", 灵兽元素筛选);
@@ -973,7 +994,7 @@ public class 灵兽坊界面 : MonoBehaviour
     private int 孵化背包页数 = 1;
     private const int 每页孵化灵兽数 = 20;
     private readonly List<灵兽> 孵化筛选列表 = new List<灵兽>();
-    private readonly List<灵兽item> 孵化item池 = new List<灵兽item>();
+    private readonly List<孵化灵兽item> 孵化item池 = new List<孵化灵兽item>();
     // 指派/取消指派灵兽给孵化池（HeroType 变化但列表数量不变）时置 true，强制下次重扫排序
     private bool 孵化需要重新筛选 = true;
     private int 缓存孵化列表总数 = -1;
@@ -1053,8 +1074,16 @@ public class 灵兽坊界面 : MonoBehaviour
                 母血脉.text=灵兽坊Config.血脉Name[HeroWindowController.S.当前选择孵化池.母.血脉Type];
             }
 
-            孵化进度条.fillAmount = HeroWindowController.S.当前选择孵化池.当前道年 / HeroWindowController.S.当前选择孵化池.需要道年;
-            孵化百分比.text = (HeroWindowController.S.当前选择孵化池.当前道年 / HeroWindowController.S.当前选择孵化池.需要道年).ToString("F1");
+            if (HeroWindowController.S.当前选择孵化池.需要道年 == 0)
+            {
+                孵化进度条.fillAmount = 0;
+                孵化百分比.text = "0%";
+            }
+            else
+            {
+                孵化进度条.fillAmount = HeroWindowController.S.当前选择孵化池.当前道年 / HeroWindowController.S.当前选择孵化池.需要道年;
+                孵化百分比.text = (HeroWindowController.S.当前选择孵化池.当前道年 / HeroWindowController.S.当前选择孵化池.需要道年).ToString("F1");
+            }
         }
     }
 
@@ -1066,7 +1095,7 @@ public class 灵兽坊界面 : MonoBehaviour
         for (int i = 孵化灵兽背包.transform.childCount - 1; i >= 0; i--)
         {
             var 子物体 = 孵化灵兽背包.transform.GetChild(i);
-            var 子item = 子物体.GetComponent<灵兽item>();
+            var 子item = 子物体.GetComponent<孵化灵兽item>();
             if (子item != null && !孵化item池.Contains(子item))
             {
                 Destroy(子物体.gameObject);
@@ -1124,7 +1153,7 @@ public class 灵兽坊界面 : MonoBehaviour
         // 对象池：只实例化一次，之后翻页仅复用刷新数据
         while (孵化item池.Count < 每页孵化灵兽数)
         {
-            var 新item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽item"), 孵化灵兽背包.transform).GetComponent<灵兽item>();
+            var 新item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/孵化灵兽item"), 孵化灵兽背包.transform).GetComponent<孵化灵兽item>();
             孵化item池.Add(新item);
         }
 

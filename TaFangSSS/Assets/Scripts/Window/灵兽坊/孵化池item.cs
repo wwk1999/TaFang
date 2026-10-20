@@ -22,12 +22,43 @@ public class 孵化池item : MonoBehaviour
     public Image 进度条;
     public TextMeshProUGUI count;
     [NonSerialized] public 孵化池 孵化池;
+
+    public void 孵化池点击(object[] obj)
+    {
+        if (HeroWindowController.S.当前选择孵化池 == 孵化池)
+        {
+            button.image.sprite = ResourcesConfig.建筑item亮;
+        }
+        else
+        {
+            button.image.sprite = ResourcesConfig.建筑item暗;
+        }
+    }
+    private void Start()
+    {
+        ObserverModuleManager.S.RegisterEvent("孵化池点击",孵化池点击);
+        button.onClick.AddListener(() =>
+            {
+                HeroWindowController.S.当前选择孵化池 = 孵化池;
+                ObserverModuleManager.S.SendEvent("孵化池点击",孵化池);
+            }
+        );
+    }
+
     public void SetItem()
     {
         button.image.sprite = ResourcesConfig.建筑item暗;
         孵化中OBj.SetActive(孵化池.孵化中);
-        进度条.fillAmount = 孵化池.当前道年 / 孵化池.需要道年;
-        count.text = (孵化池.当前道年 / 孵化池.需要道年).ToString("F1") + "%";
+        if (孵化池.需要道年 == 0)
+        {
+            进度条.fillAmount = 0;
+            count.text = "0%";
+        }
+        else
+        {
+            进度条.fillAmount = 孵化池.当前道年 / 孵化池.需要道年;
+            count.text = (孵化池.当前道年 / 孵化池.需要道年).ToString("F1") + "%";
+        }
         if (孵化池.父 != null)
         {
             父Content.SetActive(true);
