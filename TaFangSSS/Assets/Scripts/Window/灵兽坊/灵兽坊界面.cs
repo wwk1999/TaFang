@@ -495,6 +495,16 @@ public class 灵兽坊界面 : MonoBehaviour
             背包页数--;
             Show灵兽背包();
         });
+        孵化翻页加.onClick.AddListener(() =>
+        {
+            孵化背包页数++;
+            Show孵化灵兽背包();
+        });
+        孵化翻页减.onClick.AddListener(() =>
+        {
+            孵化背包页数--;
+            Show孵化灵兽背包();
+        });
         减Button.onClick.AddListener(() =>
         {
             当前砸蛋数量--;
@@ -785,6 +795,18 @@ public class 灵兽坊界面 : MonoBehaviour
     private 血脉Type 孵化血脉筛选;
     private 阶段Type 孵化阶段筛选;
 
+    private int 孵化背包页数 = 1;
+    private const int 每页孵化灵兽数 = 20;
+    private readonly List<灵兽> 孵化筛选列表 = new List<灵兽>();
+    private readonly List<灵兽item> 孵化item池 = new List<灵兽item>();
+    // 指派/取消指派灵兽给孵化池（HeroType 变化但列表数量不变）时置 true，强制下次重扫排序
+    public bool 孵化需要重新筛选 = true;
+    private int 缓存孵化列表总数 = -1;
+    private 性别 缓存孵化性别筛选 = (性别)(-1);
+    private QualityType 缓存孵化品级筛选 = (QualityType)(-1);
+    private 血脉Type 缓存孵化血脉筛选 = (血脉Type)(-1);
+    private 阶段Type 缓存孵化阶段筛选 = (阶段Type)(-1);
+
     public int Get孵化中孵化池数量()
     {
         int count = 0;
@@ -863,6 +885,87 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void Show孵化灵兽背包()
     {
-        
+        // 先剔除对象池中已被销毁的引用
+        孵化item池.RemoveAll(item => item == null);
+        // 清理不属于本池的残留 item
+        for (int i = 孵化灵兽背包.transform.childCount - 1; i >= 0; i--)
+        {
+            var 子物体 = 孵化灵兽背包.transform.GetChild(i);
+            var 子item = 子物体.GetComponent<灵兽item>();
+            if (子item != null && !孵化item池.Contains(子item))
+            {
+                Destroy(子物体.gameObject);
+            }
+        }
+
+        // 筛选条件或列表数量变化时才重扫，翻页时直接用缓存
+        int 列表总数 = PlayerData.S.灵兽列表.Count;
+        if (孵化需要重新筛选
+            || 缓存孵化列表总数 != 列表总数
+            || 缓存孵化性别筛选 != 孵化性别筛选
+            || 缓存孵化品级筛选 != 孵化品级筛选
+            || 缓存孵化血脉筛选 != 孵化血脉筛选
+            || 缓存孵化阶段筛选 != 孵化阶段筛选)
+        {
+            孵化筛选列表.Clear();
+            var 灵兽列表 = PlayerData.S.灵兽列表;
+            for (int i = 0; i < 列表总数; i++)
+            {
+                var item = 灵兽列表[i];
+                if (孵化性别筛选 != global::性别.None && item.性别 != 孵化性别筛选) continue;
+                if (孵化品级筛选 != QualityType.None && item.QualityType != 孵化品级筛选) continue;
+                if (孵化血脉筛选 != 血脉Type.None && item.血脉Type != 孵化血脉筛选) continue;
+                if (孵化阶段筛选 != 阶段Type.None && item.阶段Type != 孵化阶段筛选) continue;
+                孵化筛选列表.Add(item);
+            }
+
+            缓存孵化列表总数 = 列表总数;
+            缓存孵化性别筛选 = 孵化性别筛选;
+            缓存孵化品级筛选 = 孵化品级筛选;
+            缓存孵化血脉筛选 = 孵化血脉筛选;
+            缓存孵化阶段筛选 = 孵化阶段筛选;
+            孵化需要重新筛选 = false;
+
+            // 排序：已指派英雄（HeroType != None）的排最前，组内按品级从高到低（荒品→黄品）
+            孵化筛选列表.Sort((a, b) =>
+            {
+                bool a装备 = a.HeroType != HeroType.None;
+                bool b装备 = b.HeroType != HeroType.None;
+                if (a装备 != b装备)
+                {
+                    return a装备 ? -1 : 1;
+                }
+
+                return b.QualityType.CompareTo(a.QualityType);
+            });
+        }
+
+        int 总页数 = Mathf.Max(1, Mathf.CeilToInt((float)孵化筛选列表.Count / 每页孵化灵兽数));
+        孵化背包页数 = Mathf.Clamp(孵化背包页数, 1, 总页数);
+
+        int 开始索引 = (孵化背包页数 - 1) * 每页孵化灵兽数;
+        int 本页数量 = Mathf.Min(每页孵化灵兽数, 孵化筛选列表.Count - 开始索引);
+
+        // 对象池：只实例化一次，之后翻页仅复用刷新数据
+        while (孵化item池.Count < 每页孵化灵兽数)
+        {
+            var 新item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽item"), 孵化灵兽背包.transform).GetComponent<灵兽item>();
+            孵化item池.Add(新item);
+        }
+
+        for (int i = 0; i < 每页孵化灵兽数; i++)
+        {
+            var item = 孵化item池[i];
+            if (i < 本页数量)
+            {
+                item.gameObject.SetActive(true);
+                item.灵兽 = 孵化筛选列表[开始索引 + i];
+                item.SetItem();
+            }
+            else
+            {
+                item.gameObject.SetActive(false);
+            }
+        }
     }
 }
