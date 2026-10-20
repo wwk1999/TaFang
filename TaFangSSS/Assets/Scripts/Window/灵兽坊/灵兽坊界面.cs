@@ -11,8 +11,11 @@ using Random = UnityEngine.Random;
 public class 灵兽坊界面 : MonoBehaviour
 {
     public 灵兽洗髓无暇提示弹窗 灵兽洗髓无暇提示弹窗;
+    private bool 当前显示灵兽 = true;
     public Button 灵兽Button;
     public Button 孵化Button;
+    public GameObject 灵兽Panel;
+    public GameObject 孵化Panel;
     public TextMeshProUGUI 灵蛋count;
     public Button 减Button;
     public Button 加Button;
@@ -97,6 +100,19 @@ public class 灵兽坊界面 : MonoBehaviour
     private 阶段Type 阶段筛选 = 阶段Type.None;
     private YuanSuType 元素筛选 = YuanSuType.None;
 
+
+    public void Set切换Button()
+    {
+        if (当前显示灵兽)
+        {
+            灵兽Button.image.sprite = ResourcesConfig.红按钮;
+            孵化Button.image.sprite = ResourcesConfig.黑按钮;
+        }else 
+        {
+            灵兽Button.image.sprite = ResourcesConfig.黑按钮;
+            孵化Button.image.sprite = ResourcesConfig.红按钮;
+        }
+    }
     public void Show当前血晶()
     {
         当前血晶.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.血晶]);
@@ -278,11 +294,8 @@ public class 灵兽坊界面 : MonoBehaviour
 
     private void OnEnable()
     {
-        HeroWindowController.S.当前选择灵兽 = null;
-        当前砸蛋数量 = 0;
-        Show灵蛋信息();
-        Show灵兽背包();
-        Show灵兽信息();
+        当前显示灵兽 = true;
+        Show界面();
     }
 
     public void 灵兽性别筛选(object[] obj)
@@ -384,6 +397,30 @@ public class 灵兽坊界面 : MonoBehaviour
         Show灵兽信息();
     }
 
+    public void Show界面()
+    {
+        Set切换Button();
+        if (当前显示灵兽)
+        {
+            灵兽Panel.gameObject.SetActive(true);
+            孵化Panel.gameObject.SetActive(false);
+            HeroWindowController.S.当前选择灵兽 = null;
+            当前砸蛋数量 = 0;
+            Show灵蛋信息();
+            Show灵兽背包();
+            Show灵兽信息();
+        }
+        else
+        {
+            灵兽Panel.gameObject.SetActive(false);
+            孵化Panel.gameObject.SetActive(true);
+            HeroWindowController.S.当前选择孵化池 = null;
+            Show孵化信息();
+            Show孵化池列表();
+            Show父母信息();
+            Show孵化灵兽背包();
+        }
+    }
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("无暇确定洗练", 无暇确定洗练);
@@ -401,6 +438,16 @@ public class 灵兽坊界面 : MonoBehaviour
 
         Init筛选();
         Init孵化筛选();
+        灵兽Button.onClick.AddListener(() =>
+        {
+            当前显示灵兽 = true;
+            Show界面();
+        });
+        孵化Button.onClick.AddListener(() =>
+        {
+            当前显示灵兽 = false;
+            Show界面();
+        });
         最终伤害锁.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前选择灵兽.最终伤害锁 = !HeroWindowController.S.当前选择灵兽.最终伤害锁;
@@ -928,7 +975,7 @@ public class 灵兽坊界面 : MonoBehaviour
     private readonly List<灵兽> 孵化筛选列表 = new List<灵兽>();
     private readonly List<灵兽item> 孵化item池 = new List<灵兽item>();
     // 指派/取消指派灵兽给孵化池（HeroType 变化但列表数量不变）时置 true，强制下次重扫排序
-    public bool 孵化需要重新筛选 = true;
+    private bool 孵化需要重新筛选 = true;
     private int 缓存孵化列表总数 = -1;
     private 性别 缓存孵化性别筛选 = (性别)(-1);
     private QualityType 缓存孵化品级筛选 = (QualityType)(-1);
