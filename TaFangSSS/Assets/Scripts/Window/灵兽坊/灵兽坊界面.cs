@@ -459,6 +459,21 @@ public class 灵兽坊界面 : MonoBehaviour
 
         Init筛选();
         Init孵化筛选();
+        开始孵化Button.onClick.AddListener(() =>
+        {
+            if (HeroWindowController.S.当前选择孵化池 != null && HeroWindowController.S.当前选择孵化池.父 != null &&
+                HeroWindowController.S.当前选择孵化池.母 != null &&
+                HeroWindowController.S.当前选择孵化池.父.灵兽Type == HeroWindowController.S.当前选择孵化池.母.灵兽Type)
+            {
+                HeroWindowController.S.当前选择孵化池.父.是否在孵化 = true;
+                HeroWindowController.S.当前选择孵化池.母.是否在孵化 = true;
+            }
+            else
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","请选择父母灵兽并且种类要相同");
+                return;
+            }
+        });
         灵兽Button.onClick.AddListener(() =>
         {
             当前显示灵兽 = true;
@@ -965,6 +980,8 @@ public class 灵兽坊界面 : MonoBehaviour
     public Image 孵化进度条;
     public TextMeshProUGUI 孵化百分比;
     public Button 结束孵化Button;
+    public Button 开始孵化Button;
+
 
     public Button 孵化性别Button;
     public Button 孵化品级Button;
@@ -984,7 +1001,7 @@ public class 灵兽坊界面 : MonoBehaviour
     public GameObject 孵化灵兽背包;
     public Button 孵化翻页减;
     public Button 孵化翻页加;
-    public TextMeshProUGUI num;
+    public TextMeshProUGUI 孵化num;
 
     private 性别 孵化性别筛选;
     private QualityType 孵化品级筛选;
@@ -1171,5 +1188,6 @@ public class 灵兽坊界面 : MonoBehaviour
                 item.gameObject.SetActive(false);
             }
         }
+        孵化num.text=孵化背包页数.ToString();
     }
 }

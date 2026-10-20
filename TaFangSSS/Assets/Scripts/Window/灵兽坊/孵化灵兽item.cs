@@ -12,7 +12,6 @@ public class 孵化灵兽item : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI name;
     public Image 性别;
-    public Image 锁;
     public GameObject 头像;
     public Image 头像Image;
     [NonSerialized] public 灵兽 灵兽;
@@ -38,15 +37,33 @@ public class 孵化灵兽item : MonoBehaviour
                 }
                 else
                 {
-                    if (灵兽.性别 == global::性别.公)
+                    if (!灵兽.是否在孵化)
                     {
-                        HeroWindowController.S.当前选择孵化池.父 = 灵兽;
+                        if ((int)灵兽.血脉Type > (int)灵兽.阶段Type)
+                        {
+                            ObserverModuleManager.S.SendEvent("SendUIToast",
+                                $"{灵兽坊Config.血脉Name[灵兽.血脉Type]}血脉需要{灵兽坊Config.阶段Name[(阶段Type)灵兽.血脉Type]}阶段才可孵化");
+                            return;
+                        }
+                        else
+                        {
+                            if (灵兽.性别 == global::性别.公)
+                            {
+                                HeroWindowController.S.当前选择孵化池.父 = 灵兽;
+                            }
+                            else
+                            {
+                                HeroWindowController.S.当前选择孵化池.母 = 灵兽;
+                            }
+
+                            ObserverModuleManager.S.SendEvent("孵化灵兽点击");
+                        }
                     }
                     else
                     {
-                        HeroWindowController.S.当前选择孵化池.母 = 灵兽;
+                        ObserverModuleManager.S.SendEvent("SendUIToast", "当前灵兽正在孵化中");
+                        return;
                     }
-                    ObserverModuleManager.S.SendEvent("孵化灵兽点击");
                 }
             }
         });
@@ -67,6 +84,5 @@ public class 孵化灵兽item : MonoBehaviour
         {
             性别.sprite = ResourcesConfig.公;
         }
-        锁.gameObject.SetActive(灵兽.锁);
     }
 }

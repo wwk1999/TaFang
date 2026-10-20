@@ -39,6 +39,11 @@ public class 孵化池item : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("孵化池点击",孵化池点击);
         button.onClick.AddListener(() =>
             {
+                if (!孵化池.孵化中)
+                {
+                    孵化池.父 = null;
+                    孵化池.母 = null;
+                }
                 HeroWindowController.S.当前选择孵化池 = 孵化池;
                 ObserverModuleManager.S.SendEvent("孵化池点击",孵化池);
             }
