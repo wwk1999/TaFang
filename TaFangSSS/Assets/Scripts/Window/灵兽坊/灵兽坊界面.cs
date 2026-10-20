@@ -325,6 +325,38 @@ public class 灵兽坊界面 : MonoBehaviour
         Show灵兽背包();
     }
 
+    public void On孵化性别筛选(object[] obj)
+    {
+        孵化性别筛选 = (性别)obj[0];
+        孵化性别下拉区域.gameObject.SetActive(false);
+        孵化mask.gameObject.SetActive(false);
+        Show孵化灵兽背包();
+    }
+
+    public void On孵化品级筛选(object[] obj)
+    {
+        孵化品级筛选 = (QualityType)obj[0];
+        孵化品级下拉区域.gameObject.SetActive(false);
+        孵化mask.gameObject.SetActive(false);
+        Show孵化灵兽背包();
+    }
+
+    public void On孵化血脉筛选(object[] obj)
+    {
+        孵化血脉筛选 = (血脉Type)obj[0];
+        孵化血脉下拉区域.gameObject.SetActive(false);
+        孵化mask.gameObject.SetActive(false);
+        Show孵化灵兽背包();
+    }
+
+    public void On孵化阶段筛选(object[] obj)
+    {
+        孵化阶段筛选 = (阶段Type)obj[0];
+        孵化阶段下拉区域.gameObject.SetActive(false);
+        孵化mask.gameObject.SetActive(false);
+        Show孵化灵兽背包();
+    }
+
     private void OnDestroy()
     {
         ObserverModuleManager.S.UnRegisterEvent("无暇确定洗练", 无暇确定洗练);
@@ -335,6 +367,10 @@ public class 灵兽坊界面 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("灵兽血脉筛选", 灵兽血脉筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵兽阶段筛选", 灵兽阶段筛选);
         ObserverModuleManager.S.UnRegisterEvent("刷新灵兽背包", 刷新灵兽背包);
+        ObserverModuleManager.S.UnRegisterEvent("孵化性别筛选", On孵化性别筛选);
+        ObserverModuleManager.S.UnRegisterEvent("孵化品级筛选", On孵化品级筛选);
+        ObserverModuleManager.S.UnRegisterEvent("孵化血脉筛选", On孵化血脉筛选);
+        ObserverModuleManager.S.UnRegisterEvent("孵化阶段筛选", On孵化阶段筛选);
     }
 
     public void 刷新灵兽背包(object[] obj)
@@ -358,8 +394,13 @@ public class 灵兽坊界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("灵兽血脉筛选", 灵兽血脉筛选);
         ObserverModuleManager.S.RegisterEvent("灵兽阶段筛选", 灵兽阶段筛选);
         ObserverModuleManager.S.RegisterEvent("刷新灵兽背包", 刷新灵兽背包);
+        ObserverModuleManager.S.RegisterEvent("孵化性别筛选", On孵化性别筛选);
+        ObserverModuleManager.S.RegisterEvent("孵化品级筛选", On孵化品级筛选);
+        ObserverModuleManager.S.RegisterEvent("孵化血脉筛选", On孵化血脉筛选);
+        ObserverModuleManager.S.RegisterEvent("孵化阶段筛选", On孵化阶段筛选);
 
         Init筛选();
+        Init孵化筛选();
         最终伤害锁.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前选择灵兽.最终伤害锁 = !HeroWindowController.S.当前选择灵兽.最终伤害锁;
@@ -559,6 +600,34 @@ public class 灵兽坊界面 : MonoBehaviour
             元素下拉区域.gameObject.SetActive(false);
             下拉区域mask.gameObject.SetActive(false);
         });
+        孵化性别Button.onClick.AddListener(() =>
+        {
+            孵化mask.gameObject.SetActive(true);
+            孵化性别下拉区域.gameObject.SetActive(true);
+        });
+        孵化品级Button.onClick.AddListener(() =>
+        {
+            孵化mask.gameObject.SetActive(true);
+            孵化品级下拉区域.gameObject.SetActive(true);
+        });
+        孵化血脉Button.onClick.AddListener(() =>
+        {
+            孵化mask.gameObject.SetActive(true);
+            孵化血脉下拉区域.gameObject.SetActive(true);
+        });
+        孵化阶段Button.onClick.AddListener(() =>
+        {
+            孵化mask.gameObject.SetActive(true);
+            孵化阶段下拉区域.gameObject.SetActive(true);
+        });
+        孵化mask.onClick.AddListener(() =>
+        {
+            孵化性别下拉区域.gameObject.SetActive(false);
+            孵化品级下拉区域.gameObject.SetActive(false);
+            孵化血脉下拉区域.gameObject.SetActive(false);
+            孵化阶段下拉区域.gameObject.SetActive(false);
+            孵化mask.gameObject.SetActive(false);
+        });
     }
 
     public void 无暇确定洗练(object[] obj)
@@ -698,6 +767,61 @@ public class 灵兽坊界面 : MonoBehaviour
 
     }
 
+    public void Init孵化筛选()
+    {
+        foreach (Transform item in 孵化性别下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (Transform item in 孵化品级下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (Transform item in 孵化血脉下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (Transform item in 孵化阶段下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(性别)).Length; i++)
+        {
+            var 性别筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/孵化性别筛选Item"), 孵化性别下拉区域Content.transform)
+                .GetComponent<孵化性别筛选Item>();
+            性别筛选item.性别 = (性别)i;
+            性别筛选item.SetItem();
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(QualityType)).Length; i++)
+        {
+            var 品级筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/孵化品级筛选Item"), 孵化品级下拉区域Content.transform)
+                .GetComponent<孵化品级筛选Item>();
+            品级筛选item.QualityType = (QualityType)i;
+            品级筛选item.SetItem();
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(血脉Type)).Length; i++)
+        {
+            var 血脉筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/孵化血脉筛选Item"), 孵化血脉下拉区域Content.transform)
+                .GetComponent<孵化血脉筛选Item>();
+            血脉筛选item.血脉Type = (血脉Type)i;
+            血脉筛选item.SetItem();
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(阶段Type)).Length; i++)
+        {
+            var 阶段筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/孵化阶段筛选Item"), 孵化阶段下拉区域Content.transform)
+                .GetComponent<孵化阶段筛选Item>();
+            阶段筛选item.阶段Type = (阶段Type)i;
+            阶段筛选item.SetItem();
+        }
+    }
+
     public IEnumerator 砸蛋()
     {
         Dictionary<灵兽Type, int> 砸蛋字典 = new Dictionary<灵兽Type, int>();
@@ -783,6 +907,10 @@ public class 灵兽坊界面 : MonoBehaviour
     public GameObject 孵化品级下拉区域;
     public GameObject 孵化血脉下拉区域;
     public GameObject 孵化阶段下拉区域;
+    public GameObject 孵化性别下拉区域Content;
+    public GameObject 孵化品级下拉区域Content;
+    public GameObject 孵化血脉下拉区域Content;
+    public GameObject 孵化阶段下拉区域Content;
     
     public Button 孵化mask;
     public GameObject 孵化灵兽背包;
