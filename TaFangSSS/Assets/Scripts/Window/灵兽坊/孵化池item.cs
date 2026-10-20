@@ -34,8 +34,21 @@ public class 孵化池item : MonoBehaviour
             button.image.sprite = ResourcesConfig.建筑item暗;
         }
     }
+
+    public void 灵兽孵化(object[] obj)
+    {
+        SetItem();
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("灵兽孵化",灵兽孵化);
+        ObserverModuleManager.S.UnRegisterEvent("孵化池点击",孵化池点击);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("灵兽孵化",灵兽孵化);
         ObserverModuleManager.S.RegisterEvent("孵化池点击",孵化池点击);
         button.onClick.AddListener(() =>
             {
@@ -62,7 +75,7 @@ public class 孵化池item : MonoBehaviour
         else
         {
             进度条.fillAmount = 孵化池.当前道年 / 孵化池.需要道年;
-            count.text = (孵化池.当前道年 / 孵化池.需要道年).ToString("F1") + "%";
+            count.text = (孵化池.当前道年 / 孵化池.需要道年*100f).ToString("F1") + "%";
         }
         if (孵化池.父 != null)
         {

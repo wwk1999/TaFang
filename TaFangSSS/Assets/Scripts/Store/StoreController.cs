@@ -241,10 +241,11 @@ public class StoreController : XSingleton<StoreController>
                 if (item.Value.当前道年 >= item.Value.需要道年)
                 {
                     灵兽坊Config.Get孵化灵兽(item.Value.父, item.Value.母);
+                    item.Value.当前道年 = 0;
                 }
             }
         }
-        
+        ObserverModuleManager.S.SendEvent("灵兽孵化");
     }
     public void 增加道场资源()
     {
@@ -352,6 +353,7 @@ public class StoreController : XSingleton<StoreController>
             //炼制丹药();
             
             增加道场资源();
+            灵兽孵化();
         }
         if (CurrentTime >= StoreTime)
         {

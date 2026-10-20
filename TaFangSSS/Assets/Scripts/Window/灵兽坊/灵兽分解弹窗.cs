@@ -200,7 +200,7 @@ public class 灵兽分解弹窗 : MonoBehaviour
     private bool 匹配(灵兽 灵兽)
     {
         // 锁定的、已装备给英雄的灵兽不分解
-        if (灵兽.锁 || 灵兽.HeroType != HeroType.None)
+        if (灵兽.锁 || 灵兽.HeroType != HeroType.None||灵兽.是否在孵化)
         {
             return false;
         }
