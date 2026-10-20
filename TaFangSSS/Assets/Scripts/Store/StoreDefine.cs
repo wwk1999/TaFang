@@ -31,6 +31,11 @@ public class StoreDefine : XSingleton<StoreController>
         public string Name = "修仙者";
         public JingJieType 历史最高境界 = JingJieType.练气;
         public JingJieType 当前轮回境界 = JingJieType.练气;
+        public Dictionary<int, 孵化池> 孵化池列表 = new Dictionary<int, 孵化池>()
+        {
+            {1,new 孵化池(){index = 1}}
+        };
+
         public float Exp;
         public bool 是否首次进入游戏 = false;
         public bool 是否首次进入英雄界面 = false;
@@ -4123,6 +4128,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             灵兽分解血脉6 = runtime.灵兽分解血脉6;
             灵兽分解血脉7 = runtime.灵兽分解血脉7;
             灵兽分解血脉8 = runtime.灵兽分解血脉8;
+            孵化池列表 =runtime.孵化池列表;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4291,6 +4297,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.灵兽分解血脉6 = 灵兽分解血脉6;
             runtime.灵兽分解血脉7 = 灵兽分解血脉7;
             runtime.灵兽分解血脉8 = 灵兽分解血脉8;
+            runtime.孵化池列表 = 孵化池列表;
             
             
             

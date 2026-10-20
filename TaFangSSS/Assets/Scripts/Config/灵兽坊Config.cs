@@ -83,6 +83,15 @@ public enum 阶段Type
     本源体
 }
 
+public class 孵化池
+{
+    public int index;
+    public float 当前道年;
+    public float 需要道年;
+    public 灵兽 父;
+    public 灵兽 母;
+    public bool 孵化中;
+}
 public class 灵兽
 {
     public 灵兽Type 灵兽Type;
@@ -98,8 +107,12 @@ public class 灵兽
     public float 最终伤害;
     public float 暴击伤害;
     public float 元素伤害;
+    public bool 最终伤害锁;
+    public bool 暴击伤害锁;
+    public bool 元素伤害锁;
     public bool 锁;
     public HeroType HeroType;
+    public bool 是否在孵化;
 }
 public class 灵兽坊Config
 {

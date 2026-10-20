@@ -1299,7 +1299,7 @@ namespace Config
             { PropType.玄铁, QualityType.地品 },
             { PropType.玉髓, QualityType.地品 },
             { PropType.轮回石, QualityType.地品 },
-            
+            { PropType.血晶, QualityType.地品 },
             { PropType.石白, QualityType.黄品 },
             { PropType.石绿, QualityType.玄品 },
             { PropType.石蓝, QualityType.地品 },

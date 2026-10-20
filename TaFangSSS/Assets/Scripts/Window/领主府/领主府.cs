@@ -262,6 +262,10 @@ public class 领主府 : MonoBehaviour
          PlayerData.S.PropListDic[PropType.玄铁]-= 需要玄铁;
          PlayerData.S.PropListDic[PropType.玉髓] -= 需要玉髓;
          PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]++;
+         if (HeroWindowController.S.当前显示建筑Type == 建筑Type.灵兽坊)
+         {
+            PlayerData.S.孵化池列表.Add(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type],new 孵化池(){index=PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]});
+         }
          ObserverModuleManager.S.SendEvent("SendUIToast","升级建筑成功");
          ObserverModuleManager.S.SendEvent("刷新领主府");
       });

@@ -120,6 +120,8 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 灵兽分解血脉7 = false;
     public bool 灵兽分解血脉8 = false;
 
+    public Dictionary<int, 孵化池> 孵化池列表 = new Dictionary<int, 孵化池>() {{1,new 孵化池(){index = 1}} };
+
     public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
     {
         { 建筑Type.领主府, 0 },

@@ -180,6 +180,7 @@ public class 灵兽分解弹窗 : MonoBehaviour
         });
 
         ObserverModuleManager.S.SendEvent("刷新灵兽背包");
+        HeroWindowController.S.当前选择灵兽 = null;
         gameObject.SetActive(false);
     }
 
@@ -198,6 +199,11 @@ public class 灵兽分解弹窗 : MonoBehaviour
     // 五个类别同时满足才算命中；某类别勾了「所有」则该类别全通过，否则只看细分类别
     private bool 匹配(灵兽 灵兽)
     {
+        // 锁定的、已装备给英雄的灵兽不分解
+        if (灵兽.锁 || 灵兽.HeroType != HeroType.None)
+        {
+            return false;
+        }
         return 匹配性别(灵兽.性别)
             && 匹配元素(灵兽.元素Type)
             && 匹配阶段(灵兽.阶段Type)
