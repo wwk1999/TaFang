@@ -7,6 +7,36 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 仙子icon1;
+    public static Sprite 仙子icon2;
+    public static Sprite 仙子icon3;
+    public static Sprite 仙子icon4;
+    public static Sprite 仙子icon5;
+    public static Sprite 仙子icon6;
+    public static Sprite 仙子icon7;
+    public static Sprite 仙子icon8;
+    public static Sprite 仙子icon9;
+    public static Sprite 仙子icon10;
+    public static Sprite 仙子icon11;
+    public static Sprite 仙子icon12;
+    public static Sprite 仙子icon13;
+    public static Sprite 仙子icon14;
+    
+    public static Sprite 仙子头像1;
+    public static Sprite 仙子头像2;
+    public static Sprite 仙子头像3;
+    public static Sprite 仙子头像4;
+    public static Sprite 仙子头像5;
+    public static Sprite 仙子头像6;
+    public static Sprite 仙子头像7;
+    public static Sprite 仙子头像8;
+    public static Sprite 仙子头像9;
+    public static Sprite 仙子头像10;
+    public static Sprite 仙子头像11;
+    public static Sprite 仙子头像12;
+    public static Sprite 仙子头像13;
+    public static Sprite 仙子头像14;
+    
     public static Sprite 火1;
     public static Sprite 火2;
     public static Sprite 火3;
@@ -7481,6 +7511,37 @@ public class ResourcesConfig : MonoBehaviour
     }
     public static void Init()
     {
+        仙子icon1=Resources.Load<Sprite>("Sprite/仙子icon/1");
+        仙子icon2=Resources.Load<Sprite>("Sprite/仙子icon/2");
+        仙子icon3=Resources.Load<Sprite>("Sprite/仙子icon/3");
+        仙子icon4=Resources.Load<Sprite>("Sprite/仙子icon/4");
+        仙子icon5=Resources.Load<Sprite>("Sprite/仙子icon/5");
+        仙子icon6=Resources.Load<Sprite>("Sprite/仙子icon/6");
+        仙子icon7=Resources.Load<Sprite>("Sprite/仙子icon/7");
+        仙子icon8=Resources.Load<Sprite>("Sprite/仙子icon/8");
+        仙子icon9=Resources.Load<Sprite>("Sprite/仙子icon/9");
+        仙子icon10=Resources.Load<Sprite>("Sprite/仙子icon/10");
+        仙子icon11=Resources.Load<Sprite>("Sprite/仙子icon/11");
+        仙子icon12=Resources.Load<Sprite>("Sprite/仙子icon/12");
+        仙子icon13=Resources.Load<Sprite>("Sprite/仙子icon/13");
+        仙子icon14=Resources.Load<Sprite>("Sprite/仙子icon/14");
+        
+        
+        仙子头像1=Resources.Load<Sprite>("Sprite/仙子头像/1");
+        仙子头像2=Resources.Load<Sprite>("Sprite/仙子头像/2");
+        仙子头像3=Resources.Load<Sprite>("Sprite/仙子头像/3");
+        仙子头像4=Resources.Load<Sprite>("Sprite/仙子头像/4");
+        仙子头像5=Resources.Load<Sprite>("Sprite/仙子头像/5");
+        仙子头像6=Resources.Load<Sprite>("Sprite/仙子头像/6");
+        仙子头像7=Resources.Load<Sprite>("Sprite/仙子头像/7");
+        仙子头像8=Resources.Load<Sprite>("Sprite/仙子头像/8");
+        仙子头像9=Resources.Load<Sprite>("Sprite/仙子头像/9");
+        仙子头像10=Resources.Load<Sprite>("Sprite/仙子头像/10");
+        仙子头像11=Resources.Load<Sprite>("Sprite/仙子头像/11");
+        仙子头像12=Resources.Load<Sprite>("Sprite/仙子头像/12");
+        仙子头像13=Resources.Load<Sprite>("Sprite/仙子头像/13");
+        仙子头像14=Resources.Load<Sprite>("Sprite/仙子头像/14");
+        
         火1=Resources.Load<Sprite>("Sprite/灵兽icon/火1");
         火2=Resources.Load<Sprite>("Sprite/灵兽icon/火2");
         火3=Resources.Load<Sprite>("Sprite/灵兽icon/火3");
