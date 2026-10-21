@@ -393,6 +393,10 @@ public class 英雄详情界面 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("刷新英雄详情界面",刷新英雄详情界面);
         ObserverModuleManager.S.UnRegisterEvent("刷新技能面板",刷新技能面板);
         ObserverModuleManager.S.UnRegisterEvent("英雄详情英雄点击",英雄详情英雄点击);
+        ObserverModuleManager.S.UnRegisterEvent("灵兽性别筛选", 灵兽性别筛选);
+        ObserverModuleManager.S.UnRegisterEvent("灵兽品级筛选", 灵兽品级筛选);
+        ObserverModuleManager.S.UnRegisterEvent("灵兽血脉筛选", 灵兽血脉筛选);
+        ObserverModuleManager.S.UnRegisterEvent("灵兽阶段筛选", 灵兽阶段筛选);
     }
 
     public void 刷新技能面板(object[] obj)
@@ -515,6 +519,53 @@ public class 英雄详情界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("刷新英雄详情界面",刷新英雄详情界面);
         ObserverModuleManager.S.RegisterEvent("刷新技能面板",刷新技能面板);
         ObserverModuleManager.S.RegisterEvent("英雄详情英雄点击",英雄详情英雄点击);
+        ObserverModuleManager.S.RegisterEvent("灵兽性别筛选", 灵兽性别筛选);
+        ObserverModuleManager.S.RegisterEvent("灵兽品级筛选", 灵兽品级筛选);
+        ObserverModuleManager.S.RegisterEvent("灵兽血脉筛选", 灵兽血脉筛选);
+        ObserverModuleManager.S.RegisterEvent("灵兽阶段筛选", 灵兽阶段筛选);
+        Init灵兽筛选();
+        性别Button.onClick.AddListener(() =>
+        {
+            灵兽筛选mask.gameObject.SetActive(true);
+            性别下拉区域.gameObject.SetActive(true);
+        });
+        品级Button.onClick.AddListener(() =>
+        {
+            灵兽筛选mask.gameObject.SetActive(true);
+            品级下拉区域.gameObject.SetActive(true);
+        });
+        血脉Button.onClick.AddListener(() =>
+        {
+            灵兽筛选mask.gameObject.SetActive(true);
+            血脉下拉区域.gameObject.SetActive(true);
+        });
+        阶段Button.onClick.AddListener(() =>
+        {
+            灵兽筛选mask.gameObject.SetActive(true);
+            阶段下拉区域.gameObject.SetActive(true);
+        });
+        灵兽筛选mask.onClick.AddListener(() =>
+        {
+            性别下拉区域.gameObject.SetActive(false);
+            品级下拉区域.gameObject.SetActive(false);
+            血脉下拉区域.gameObject.SetActive(false);
+            阶段下拉区域.gameObject.SetActive(false);
+            灵兽筛选mask.gameObject.SetActive(false);
+        });
+        灵兽bg.onClick.AddListener(() =>
+        {
+            卸下灵兽();
+        });
+        灵兽左翻页.onClick.AddListener(() =>
+        {
+            灵兽页数--;
+            Show灵兽背包();
+        });
+        灵兽右翻页.onClick.AddListener(() =>
+        {
+            灵兽页数++;
+            Show灵兽背包();
+        });
         左Button.onClick.AddListener(() =>
         {
             if (法器背包当前页数 > 1)
@@ -911,6 +962,8 @@ public class 英雄详情界面 : MonoBehaviour
     
     
     public GameObject 灵兽Panel;
+    public GameObject 灵兽信息content;
+
     public Image 灵兽icon;
     public Button 灵兽bg;
     public TextMeshProUGUI 灵兽Name;
@@ -944,9 +997,239 @@ public class 英雄详情界面 : MonoBehaviour
     private QualityType 品级筛选;
     private 血脉Type 血脉筛选;
     private 阶段Type 阶段筛选;
-    
+    private readonly List<灵兽> 灵兽筛选列表 = new List<灵兽>();
+    private int 灵兽页数 = 1;
+    public TextMeshProUGUI 灵兽num;
+    private const int 每页灵兽数 = 18;
+    public Button 灵兽右翻页;
+    public Button 灵兽左翻页;
+    public GameObject 无;
+
     public void Show灵兽()
     {
+        Show灵兽信息();
+        Show灵兽背包();
+    }
+
+    /// <summary>
+    /// 上方信息区：显示当前英雄已装备的灵兽（一个英雄同时只能携带一只灵兽）
+    /// </summary>
+    public void Show灵兽信息()
+    {
         
+        灵兽  当前灵兽 = PlayerData.S.HeroDataDic[当前heroType].灵兽;
+
+        bool 有灵兽 = 当前灵兽 != null && 当前灵兽.灵兽Type != 灵兽Type.None;
+        if (!有灵兽)
+        {
+            灵兽信息content.gameObject.SetActive(false);
+            无.gameObject.SetActive(true);
+            return;
+        }
+        无.gameObject.SetActive(false);
+        灵兽信息content.gameObject.SetActive(true);
+        灵兽bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(当前灵兽.QualityType);
+        灵兽icon.sprite = ResourcesConfig.Get灵兽Sprite(当前灵兽.灵兽Type);
+        灵兽Name.text = 灵兽坊Config.灵兽名[当前灵兽.灵兽Type];
+        灵兽Name.colorGradientPreset = ResourcesConfig.Get品质TMP(灵兽坊Config.灵兽品质[当前灵兽.灵兽Type]);
+        阶段.text = 灵兽坊Config.阶段Name[当前灵兽.阶段Type];
+        血脉.text = 灵兽坊Config.血脉Name[当前灵兽.血脉Type];
+        desc.text = 灵兽坊Config.灵兽介绍[当前灵兽.灵兽Type];
+        道龄.text = 当前灵兽.道龄 + "年";
+        最终伤害资质.text = PlayerData.S.格式化数字(当前灵兽.最终伤害);
+        暴击伤害资质.text = PlayerData.S.格式化数字(当前灵兽.暴击伤害);
+        元素伤害资质.text = PlayerData.S.格式化数字(当前灵兽.元素伤害);
+        最终伤害增幅.text = "+" + PlayerData.S.格式化数字(灵兽坊Config.Get灵兽最终伤害总增幅(当前灵兽)) + "%";
+        暴击伤害增幅.text = "+" + PlayerData.S.格式化数字(灵兽坊Config.Get灵兽暴击伤害总增幅(当前灵兽)) + "%";
+        元素伤害增幅.text = "+" + PlayerData.S.格式化数字(灵兽坊Config.Get灵兽元素伤害总增幅(当前灵兽)) + "%";
+    }
+
+    /// <summary>
+    /// 卸下当前英雄携带的灵兽（点击信息区灵兽框触发）
+    /// </summary>
+    public void 卸下灵兽()
+    {
+        if (PlayerData.S.HeroDataDic[当前heroType].灵兽 == null) return;
+        PlayerData.S.HeroDataDic[当前heroType].灵兽.HeroType = HeroType.None;
+        PlayerData.S.HeroDataDic[当前heroType].灵兽 = null;
+        Show灵兽信息();
+        Show灵兽背包();
+    }
+
+    /// <summary>
+    /// 灵兽背包：按性别/品级/血脉/阶段筛选，已装备（HeroType != None）的排最前，组内按品级从高到低
+    /// </summary>
+    public void Show灵兽背包()
+    {
+        foreach (Transform item in 灵兽背包.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        Show灵兽筛选文字();
+
+        灵兽筛选列表.Clear();
+        var 灵兽列表 = PlayerData.S.灵兽列表;
+        for (int i = 0; i < 灵兽列表.Count; i++)
+        {
+            var item = 灵兽列表[i];
+            if (性别 != global::性别.None && item.性别 != 性别) continue;
+            if (品级筛选 != QualityType.None && item.QualityType != 品级筛选) continue;
+            if (血脉筛选 != 血脉Type.None && item.血脉Type != 血脉筛选) continue;
+            if (阶段筛选 != 阶段Type.None && item.阶段Type != 阶段筛选) continue;
+            灵兽筛选列表.Add(item);
+        }
+
+        灵兽筛选列表.Sort((a, b) =>
+        {
+            bool a装备 = a.HeroType != HeroType.None;
+            bool b装备 = b.HeroType != HeroType.None;
+            if (a装备 != b装备)
+            {
+                return a装备 ? -1 : 1;
+            }
+
+            return b.QualityType.CompareTo(a.QualityType);
+        });
+
+        int 总页数 = Mathf.Max(1, Mathf.CeilToInt((float)灵兽筛选列表.Count / 每页灵兽数));
+        灵兽页数 = Mathf.Clamp(灵兽页数, 1, 总页数);
+
+        int 开始索引 = (灵兽页数 - 1) * 每页灵兽数;
+        int 本页数量 = Mathf.Min(每页灵兽数, 灵兽筛选列表.Count - 开始索引);
+
+        for (int i = 0; i < 本页数量; i++)
+        {
+            var 灵兽item = Instantiate(Resources.Load("Prefabs/Window/技能树/英雄详情灵兽item"), 灵兽背包.transform)
+                .GetComponent<英雄详情灵兽item>();
+            灵兽item.灵兽 = 灵兽筛选列表[开始索引 + i];
+            灵兽item.HeroType = 当前heroType;
+            灵兽item.SetItem();
+        }
+
+        灵兽num.text = 灵兽页数.ToString();
+    }
+
+    // 筛选按钮上的文字：类型名 + 当前筛选值（无筛选显示“所有”）
+    private void Show灵兽筛选文字()
+    {
+        var 性别Text = 性别Button.GetComponentInChildren<TextMeshProUGUI>();
+        if (性别Text != null)
+        {
+            性别Text.text = "性别：" + (性别 == global::性别.None ? "所有" : (性别 == global::性别.公 ? "公" : "母"));
+        }
+
+        var 品级Text = 品级Button.GetComponentInChildren<TextMeshProUGUI>();
+        if (品级Text != null)
+        {
+            品级Text.text = "品级：" + (品级筛选 == QualityType.None ? "所有" : PropConfig.QualityNameDic[品级筛选]);
+        }
+
+        var 血脉Text = 血脉Button.GetComponentInChildren<TextMeshProUGUI>();
+        if (血脉Text != null)
+        {
+            血脉Text.text = "血脉：" + (血脉筛选 == 血脉Type.None ? "所有" : 灵兽坊Config.血脉Name[血脉筛选]);
+        }
+
+        var 阶段Text = 阶段Button.GetComponentInChildren<TextMeshProUGUI>();
+        if (阶段Text != null)
+        {
+            阶段Text.text = "阶段：" + (阶段筛选 == 阶段Type.None ? "所有" : 灵兽坊Config.阶段Name[阶段筛选]);
+        }
+    }
+
+    public void Init灵兽筛选()
+    {
+        foreach (Transform item in 性别下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (Transform item in 品级下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (Transform item in 血脉下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (Transform item in 阶段下拉区域Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(global::性别)).Length; i++)
+        {
+            var 性别筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽性别筛选Item"), 性别下拉区域Content.transform)
+                .GetComponent<灵兽性别筛选Item>();
+            性别筛选item.性别 = (global::性别)i;
+            性别筛选item.SetItem();
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(QualityType)).Length; i++)
+        {
+            var 品级筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽品质筛选Item"), 品级下拉区域Content.transform)
+                .GetComponent<灵兽品级筛选Item>();
+            品级筛选item.QualityType = (QualityType)i;
+            品级筛选item.SetItem();
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(血脉Type)).Length; i++)
+        {
+            var 血脉筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽血脉筛选Item"), 血脉下拉区域Content.transform)
+                .GetComponent<灵兽血脉筛选Item>();
+            血脉筛选item.血脉Type = (血脉Type)i;
+            血脉筛选item.SetItem();
+        }
+
+        for (int i = 0; i < Enum.GetValues(typeof(阶段Type)).Length; i++)
+        {
+            var 阶段筛选item = Instantiate(Resources.Load("Prefabs/Window/灵兽坊/灵兽阶段筛选Item"), 阶段下拉区域Content.transform)
+                .GetComponent<灵兽阶段筛选Item>();
+            阶段筛选item.阶段Type = (阶段Type)i;
+            阶段筛选item.SetItem();
+        }
+    }
+
+    // 与灵兽坊共用筛选事件，窗口未激活时不响应，避免两个窗口的筛选状态互相污染
+    public void 灵兽性别筛选(object[] obj)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        性别 = (global::性别)obj[0];
+        灵兽页数 = 1;
+        性别下拉区域.gameObject.SetActive(false);
+        灵兽筛选mask.gameObject.SetActive(false);
+        Show灵兽背包();
+    }
+
+    public void 灵兽品级筛选(object[] obj)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        品级筛选 = (QualityType)obj[0];
+        灵兽页数 = 1;
+        品级下拉区域.gameObject.SetActive(false);
+        灵兽筛选mask.gameObject.SetActive(false);
+        Show灵兽背包();
+    }
+
+    public void 灵兽血脉筛选(object[] obj)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        血脉筛选 = (血脉Type)obj[0];
+        灵兽页数 = 1;
+        血脉下拉区域.gameObject.SetActive(false);
+        灵兽筛选mask.gameObject.SetActive(false);
+        Show灵兽背包();
+    }
+
+    public void 灵兽阶段筛选(object[] obj)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        阶段筛选 = (阶段Type)obj[0];
+        灵兽页数 = 1;
+        阶段下拉区域.gameObject.SetActive(false);
+        灵兽筛选mask.gameObject.SetActive(false);
+        Show灵兽背包();
     }
 }

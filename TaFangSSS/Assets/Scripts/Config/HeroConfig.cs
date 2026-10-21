@@ -18,6 +18,7 @@ namespace Config
         public 法器 衣服 = null;
         public 法器 头盔 = null;
         public 法器 鞋子 = null;
+        public 灵兽 灵兽 = null;
     }
 
     public class HeroZhiYeYuanSu

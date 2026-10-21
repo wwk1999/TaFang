@@ -296,6 +296,14 @@ public class StoreController : XSingleton<StoreController>
         PlayerData.S.PropListDic[PropType.玉髓] += 玉髓速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.功德] += 功德速度 / 属性config.每年秒数;
     }
+
+    public void 增加灵兽道龄()
+    {
+        foreach (var item in PlayerData.S.灵兽列表)
+        {
+            item.道龄++;
+        }
+    }
     private void Update()
     {
         timer+=Time.unscaledDeltaTime;
@@ -319,6 +327,7 @@ public class StoreController : XSingleton<StoreController>
         }
         if (PlayerData.S.道龄S >= 属性config.每年秒数)
         {
+            增加灵兽道龄();
             每道年供奉申请();
             减少辅助丹药时间();
             ObserverModuleManager.S.SendEvent("刷新主页Buff");

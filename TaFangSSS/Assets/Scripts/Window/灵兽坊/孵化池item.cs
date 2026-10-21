@@ -65,7 +65,14 @@ public class 孵化池item : MonoBehaviour
 
     public void SetItem()
     {
-        button.image.sprite = ResourcesConfig.建筑item暗;
+        if (HeroWindowController.S.当前选择孵化池!=null&&HeroWindowController.S.当前选择孵化池.index == 孵化池.index)
+        {
+            button.image.sprite = ResourcesConfig.建筑item亮;
+        }
+        else
+        {
+           button.image.sprite = ResourcesConfig.建筑item暗; 
+        }
         孵化中OBj.SetActive(孵化池.孵化中);
         if (孵化池.需要道年 == 0)
         {

@@ -332,6 +332,8 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void 灵兽性别筛选(object[] obj)
     {
+        // 与英雄详情界面共用筛选事件，窗口未激活时不响应，避免两个窗口的筛选状态互相污染
+        if (!gameObject.activeInHierarchy) return;
         性别筛选 = (性别)obj[0];
         性别下拉区域.gameObject.SetActive(false);
         下拉区域mask.gameObject.SetActive(false);
@@ -340,6 +342,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void 灵兽品级筛选(object[] obj)
     {
+        if (!gameObject.activeInHierarchy) return;
         品级筛选 = (QualityType)obj[0];
         品级下拉区域.gameObject.SetActive(false);
         下拉区域mask.gameObject.SetActive(false);
@@ -348,6 +351,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void 灵兽血脉筛选(object[] obj)
     {
+        if (!gameObject.activeInHierarchy) return;
         血脉筛选 = (血脉Type)obj[0];
         血脉下拉区域.gameObject.SetActive(false);
         下拉区域mask.gameObject.SetActive(false);
@@ -356,6 +360,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void 灵兽阶段筛选(object[] obj)
     {
+        if (!gameObject.activeInHierarchy) return;
         阶段筛选 = (阶段Type)obj[0];
         阶段下拉区域.gameObject.SetActive(false);
         下拉区域mask.gameObject.SetActive(false);

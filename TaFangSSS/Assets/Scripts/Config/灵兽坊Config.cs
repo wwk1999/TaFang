@@ -116,6 +116,18 @@ public class 灵兽
 }
 public class 灵兽坊Config
 {
+    public static float Get灵兽最终伤害总增幅(灵兽 灵兽)
+    {
+        return 灵兽.最终伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+    }
+    public static float Get灵兽暴击伤害总增幅(灵兽 灵兽)
+    {
+        return 灵兽.暴击伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+    }
+    public static float Get灵兽元素伤害总增幅(灵兽 灵兽)
+    {
+        return 灵兽.元素伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+    }
     public static float Get灵兽孵化时间(灵兽 a,灵兽 b)
     {
         QualityType qualityType = a.QualityType;
