@@ -130,6 +130,7 @@ public class 灵兽坊界面 : MonoBehaviour
     public void Show灵兽背包()
     {
         Show当前血晶();
+        Show筛选文字();
         // 先剔除对象池中已被销毁的引用，否则复用时会访问到已销毁的 灵兽item 抛异常
         灵兽item池.RemoveAll(item => item == null);
         // 清理残留：只销毁不属于本池的遗留 item，不能全清（会连带销毁池内正在复用的 item）
@@ -199,6 +200,54 @@ public class 灵兽坊界面 : MonoBehaviour
                 item.gameObject.SetActive(false);
             }
         }
+    }
+
+    // 筛选按钮上的文字：类型名 + 当前筛选值（无筛选显示“所有”）
+    private void Show筛选文字()
+    {
+        性别筛选Text.text = "性别：" + 性别文字(性别筛选);
+        品级筛选Text.text = "品级：" + 品级文字(品级筛选);
+        血脉筛选Text.text = "血脉：" + 血脉文字(血脉筛选);
+        阶段筛选Text.text = "阶段：" + 阶段文字(阶段筛选);
+        元素筛选Text.text = "元素：" + 元素文字(元素筛选);
+    }
+
+    private void Show孵化筛选文字()
+    {
+        孵化性别筛选Text.text = "性别：" + 性别文字(孵化性别筛选);
+        孵化品级筛选Text.text = "品级：" + 品级文字(孵化品级筛选);
+        孵化血脉筛选Text.text = "血脉：" + 血脉文字(孵化血脉筛选);
+        孵化阶段筛选Text.text = "阶段：" + 阶段文字(孵化阶段筛选);
+    }
+
+    private static string 性别文字(global::性别 值)
+    {
+        if (值 == global::性别.None)
+        {
+            return "所有";
+        }
+
+        return 值 == global::性别.公 ? "公" : "母";
+    }
+
+    private static string 品级文字(QualityType 值)
+    {
+        return 值 == QualityType.None ? "所有" : PropConfig.QualityNameDic[值];
+    }
+
+    private static string 血脉文字(血脉Type 值)
+    {
+        return 值 == 血脉Type.None ? "所有" : 灵兽坊Config.血脉Name[值];
+    }
+
+    private static string 阶段文字(阶段Type 值)
+    {
+        return 值 == 阶段Type.None ? "所有" : 灵兽坊Config.阶段Name[值];
+    }
+
+    private static string 元素文字(YuanSuType 值)
+    {
+        return 值 == YuanSuType.None ? "所有" : HeroConfig.Get元素string(值);
     }
 
     public void Show灵兽信息()
@@ -1014,7 +1063,6 @@ public class 灵兽坊界面 : MonoBehaviour
     public TextMeshProUGUI 孵化品级筛选Text;
     public TextMeshProUGUI 孵化血脉筛选Text;
     public TextMeshProUGUI 孵化阶段筛选Text;
-    public TextMeshProUGUI 孵化元素筛选Text;
 
     public GameObject 孵化性别下拉区域;
     public GameObject 孵化品级下拉区域;
@@ -1142,6 +1190,7 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public void Show孵化灵兽背包()
     {
+        Show孵化筛选文字();
         // 先剔除对象池中已被销毁的引用
         孵化item池.RemoveAll(item => item == null);
         // 清理不属于本池的残留 item
