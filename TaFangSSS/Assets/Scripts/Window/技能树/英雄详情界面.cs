@@ -939,6 +939,11 @@ public class 英雄详情界面 : MonoBehaviour
     public GameObject 血脉下拉区域Content;
     public GameObject 阶段下拉区域Content;
     public Button 灵兽筛选mask;
+
+    private 性别 性别;
+    private QualityType 品级筛选;
+    private 血脉Type 血脉筛选;
+    private 阶段Type 阶段筛选;
     
     public void Show灵兽()
     {
