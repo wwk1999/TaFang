@@ -7509,6 +7509,64 @@ public class ResourcesConfig : MonoBehaviour
             default: return null;
         }
     }
+
+    public static Sprite Get仙子Icon(仙子Type 仙子Type)
+    {
+        switch (仙子Type)
+        {
+            case 仙子Type.伤害:
+                return 仙子icon1;
+            case 仙子Type.合欢:
+                return 仙子icon13;
+            case 仙子Type.灵兽:
+                return 仙子icon9;
+            case 仙子Type.炼器:
+                return 仙子icon14;
+            case 仙子Type.炼丹:
+                return 仙子icon12;
+            case 仙子Type.掉宝:
+                return 仙子icon11;
+            case 仙子Type.时间流速:
+                return 仙子icon3;
+            case 仙子Type.轮回:
+                return 仙子icon4;
+            case 仙子Type.功法:
+                return 仙子icon8;
+            case 仙子Type.符文:
+                return 仙子icon10;
+        }
+
+        return null;
+    }
+    
+    public static Sprite Get仙子头像(仙子Type 仙子Type)
+    {
+        switch (仙子Type)
+        {
+            case 仙子Type.伤害:
+                return 仙子头像1;
+            case 仙子Type.合欢:
+                return 仙子头像13;
+            case 仙子Type.灵兽:
+                return 仙子头像9;
+            case 仙子Type.炼器:
+                return 仙子头像14;
+            case 仙子Type.炼丹:
+                return 仙子头像12;
+            case 仙子Type.掉宝:
+                return 仙子头像11;
+            case 仙子Type.时间流速:
+                return 仙子头像3;
+            case 仙子Type.轮回:
+                return 仙子头像4;
+            case 仙子Type.功法:
+                return 仙子头像8;
+            case 仙子Type.符文:
+                return 仙子头像10;
+        }
+
+        return null;
+    }
     public static void Init()
     {
         仙子icon1=Resources.Load<Sprite>("Sprite/仙子icon/1");
