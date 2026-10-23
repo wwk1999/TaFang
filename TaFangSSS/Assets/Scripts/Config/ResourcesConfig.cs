@@ -7,6 +7,34 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 作物品质背景框白;
+    public static Sprite 作物品质背景框绿;
+    public static Sprite 作物品质背景框蓝;
+    public static Sprite 作物品质背景框紫;
+    public static Sprite 作物品质背景框橙;
+    public static Sprite 作物品质背景框粉;
+    public static Sprite 作物品质背景框红;
+    public static Sprite 作物品质背景框彩;
+
+    
+    public static Sprite 播种;
+    public static Sprite 成熟icon;
+    
+    public static Sprite 土地默认;
+    public static Sprite 黑土地;
+    public static Sprite 紫土地;
+    public static Sprite 金土地;
+    public static Sprite 红土地;
+    
+    public static Sprite 土地默认亮;
+    public static Sprite 黑土地亮;
+    public static Sprite 紫土地亮;
+    public static Sprite 金土地亮;
+    public static Sprite 红土地亮;
+    
+    public static Sprite 土地禁用;
+
+    
    public static Sprite 紫云英幼苗;
 public static Sprite 紫云英成长;
 public static Sprite 紫云英成熟;
@@ -8103,8 +8131,98 @@ public static Sprite Get灵植变异收获Sprite(灵植Type 灵植Type)
     }
 }
 
+public static Sprite Get土地Sprite(土地Type 土地Type)
+{
+    switch (土地Type)
+    {
+        case 土地Type.普通土地:
+            return 土地默认;
+        case 土地Type.黑土地:
+            return 黑土地;
+        case 土地Type.紫土地:
+            return 紫土地;
+        case 土地Type.金土地:
+            return 金土地;
+        case 土地Type.红土地:
+            return 红土地;
+    }
+
+    return null;
+}
+
+public static Sprite Get土地亮Sprite(土地Type 土地Type)
+{
+    switch (土地Type)
+    {
+        case 土地Type.普通土地:
+            return 土地默认亮;
+        case 土地Type.黑土地:
+            return 黑土地亮;
+        case 土地Type.紫土地:
+            return 紫土地亮;
+        case 土地Type.金土地:
+            return 金土地亮;
+        case 土地Type.红土地:
+            return 红土地亮;
+    }
+
+    return null;
+}
+
+    public static Sprite Get作物品质背景框(QualityType qualityType)
+    {
+        switch (qualityType)
+        {
+            case QualityType.黄品:
+                return 作物品质背景框白;
+            case QualityType.玄品:
+                return 作物品质背景框绿;
+            case QualityType.地品:
+                return 作物品质背景框蓝;
+            case QualityType.天品:
+                return 作物品质背景框紫;
+            case QualityType.宇品:
+                return 作物品质背景框橙;
+            case QualityType.宙品:
+                return 作物品质背景框粉;
+            case QualityType.洪品:
+                return 作物品质背景框红;
+            case QualityType.荒品:
+                return 作物品质背景框彩;
+        }
+
+        return null;
+    }
     public static void Init()
     {
+        作物品质背景框白=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/白");
+        作物品质背景框绿=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/绿");
+        作物品质背景框蓝=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/蓝");
+        作物品质背景框紫=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/紫");
+        作物品质背景框橙=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/橙");
+        作物品质背景框粉=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/粉");
+        作物品质背景框红=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/红");
+        作物品质背景框彩=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/彩");
+
+        
+        
+        成熟icon=Resources.Load<Sprite>("Sprite/灵植icon/成熟");
+        播种=Resources.Load<Sprite>("Sprite/灵植icon/播种");
+        
+        土地默认=Resources.Load<Sprite>("Sprite/灵植icon/土地默认/普通土地_默认");
+        黑土地=Resources.Load<Sprite>("Sprite/灵植icon/土地默认/黑土地_默认");
+        紫土地=Resources.Load<Sprite>("Sprite/灵植icon/土地默认/紫土地_默认");
+        金土地=Resources.Load<Sprite>("Sprite/灵植icon/土地默认/金土地_默认");
+        红土地=Resources.Load<Sprite>("Sprite/灵植icon/土地默认/红土地_默认");
+        
+        土地默认亮=Resources.Load<Sprite>("Sprite/灵植icon/土地选中/普通土地_选中");
+        黑土地亮=Resources.Load<Sprite>("Sprite/灵植icon/土地选中/黑土地_选中");
+        紫土地亮=Resources.Load<Sprite>("Sprite/灵植icon/土地选中/紫土地_选中");
+        金土地亮=Resources.Load<Sprite>("Sprite/灵植icon/土地选中/金土地_选中");
+        红土地亮=Resources.Load<Sprite>("Sprite/灵植icon/土地选中/红土地_选中");
+
+        土地禁用=Resources.Load<Sprite>("Sprite/灵植icon/共用_未解锁覆盖");
+        
         紫云英幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[0];
         紫云英成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[1];
         紫云英成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[2];

@@ -120,6 +120,30 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 灵兽分解血脉7 = false;
     public bool 灵兽分解血脉8 = false;
 
+    public Dictionary<int, 土地> 灵植土地列表 = new Dictionary<int, 土地>()
+    {
+        {1,new 土地(){index = 1,土地Type =土地Type.普通土地,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {2,new 土地(){index = 2,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {3,new 土地(){index = 3,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {4,new 土地(){index = 4,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {5,new 土地(){index = 5,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {6,new 土地(){index = 6,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {7,new 土地(){index = 7,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {8,new 土地(){index = 8,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {9,new 土地(){index = 9,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {10,new 土地(){index = 10,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {11,new 土地(){index = 11,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {12,new 土地(){index = 12,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {13,new 土地(){index = 13,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {14,new 土地(){index = 14,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {15,new 土地(){index = 15,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {16,new 土地(){index = 16,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {17,new 土地(){index = 17,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {18,new 土地(){index = 18,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {19,new 土地(){index = 19,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+        {20,new 土地(){index = 20,土地Type =土地Type.未解锁,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999,肥料List = null}},
+
+    };
     public Dictionary<int, 孵化池> 孵化池列表 = new Dictionary<int, 孵化池>() {{1,new 孵化池(){index = 1}} };
 
     public Dictionary<建筑Type, int> 建筑等级Dic = new Dictionary<建筑Type, int>()
@@ -135,6 +159,7 @@ public class PlayerData : XSingleton<PlayerData>
         { 建筑Type.坊市, 0 },
         { 建筑Type.灵兽坊, 0 },
         { 建筑Type.仙女阁, 0 },
+        { 建筑Type.灵植园, 0 },
     };
 
     public bool 自动拒绝凡品供奉=false;

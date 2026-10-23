@@ -18,6 +18,7 @@ public enum 建筑Type
     坊市,
     灵兽坊,
     仙女阁,
+    灵植园,
 }
 
 public enum 升级材料Type

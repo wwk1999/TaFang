@@ -16,6 +16,7 @@ public class 道场 : MonoBehaviour
     public Button 炼丹室;
     public Button 炼器室;
     public Button 灵兽坊;
+    public Button 灵植园;
     public Button 双修殿;
     public GameObject 坊市窗口;
     private void Start()
@@ -30,6 +31,7 @@ public class 道场 : MonoBehaviour
         炼器室.image.alphaHitTestMinimumThreshold = 0.1f;
         双修殿.image.alphaHitTestMinimumThreshold = 0.1f;
         灵兽坊.image.alphaHitTestMinimumThreshold = 0.1f;
+        灵植园.image.alphaHitTestMinimumThreshold = 0.1f;
         功德碑.image.alphaHitTestMinimumThreshold = 0.1f;
 
         领主府.onClick.AddListener(() =>
@@ -77,6 +79,30 @@ public class 道场 : MonoBehaviour
             else
             {
                 WindowController.S.打开窗口(WindowController.S.灵兽坊Window);
+            }
+        });
+        
+        灵植园.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.灵植园] == 0)
+            {
+                if (PlayerData.S.历史最高境界 >= JingJieType.筑基)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.灵植园] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.灵植园] = 1;
+                    }
+                    WindowController.S.打开窗口(WindowController.S.灵植园Window);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                    return;
+                }
+            }
+            else
+            {
+                WindowController.S.打开窗口(WindowController.S.灵植园Window);
             }
         });
         聚贤阁.onClick.AddListener(() =>
