@@ -24,7 +24,7 @@ public class 土地item : MonoBehaviour
    [NonSerialized] public int index;
    public void SetItem()
    {
-      土地Image.image.alphaHitTestMinimumThreshold = 0.1f;
+      土地Image.image.alphaHitTestMinimumThreshold = 0.3f;
       土地 土地 = PlayerData.S.灵植土地列表[index];
       if (土地.土地Type == 土地Type.未解锁)
       {
