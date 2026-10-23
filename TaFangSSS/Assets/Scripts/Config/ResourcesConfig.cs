@@ -7,6 +7,262 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+   public static Sprite 紫云英幼苗;
+public static Sprite 紫云英成长;
+public static Sprite 紫云英成熟;
+public static Sprite 紫云英变异;
+public static Sprite 紫云英种子;
+public static Sprite 紫云英收获;
+public static Sprite 紫云英变异收获;
+
+public static Sprite 曜日葵幼苗;
+public static Sprite 曜日葵成长;
+public static Sprite 曜日葵成熟;
+public static Sprite 曜日葵变异;
+public static Sprite 曜日葵种子;
+public static Sprite 曜日葵收获;
+public static Sprite 曜日葵变异收获;
+
+public static Sprite 幻音铃幼苗;
+public static Sprite 幻音铃成长;
+public static Sprite 幻音铃成熟;
+public static Sprite 幻音铃变异;
+public static Sprite 幻音铃种子;
+public static Sprite 幻音铃收获;
+public static Sprite 幻音铃变异收获;
+
+public static Sprite 幻紫玫幼苗;
+public static Sprite 幻紫玫成长;
+public static Sprite 幻紫玫成熟;
+public static Sprite 幻紫玫变异;
+public static Sprite 幻紫玫种子;
+public static Sprite 幻紫玫收获;
+public static Sprite 幻紫玫变异收获;
+
+public static Sprite 九幽紫幼苗;
+public static Sprite 九幽紫成长;
+public static Sprite 九幽紫成熟;
+public static Sprite 九幽紫变异;
+public static Sprite 九幽紫种子;
+public static Sprite 九幽紫收获;
+public static Sprite 九幽紫变异收获;
+
+public static Sprite 赤焰百合幼苗;
+public static Sprite 赤焰百合成长;
+public static Sprite 赤焰百合成熟;
+public static Sprite 赤焰百合变异;
+public static Sprite 赤焰百合种子;
+public static Sprite 赤焰百合收获;
+public static Sprite 赤焰百合变异收获;
+
+public static Sprite 碧海螺幼苗;
+public static Sprite 碧海螺成长;
+public static Sprite 碧海螺成熟;
+public static Sprite 碧海螺变异;
+public static Sprite 碧海螺种子;
+public static Sprite 碧海螺收获;
+public static Sprite 碧海螺变异收获;
+
+public static Sprite 粉面佛莲幼苗;
+public static Sprite 粉面佛莲成长;
+public static Sprite 粉面佛莲成熟;
+public static Sprite 粉面佛莲变异;
+public static Sprite 粉面佛莲种子;
+public static Sprite 粉面佛莲收获;
+public static Sprite 粉面佛莲变异收获;
+
+public static Sprite 紫幽草幼苗;
+public static Sprite 紫幽草成长;
+public static Sprite 紫幽草成熟;
+public static Sprite 紫幽草变异;
+public static Sprite 紫幽草种子;
+public static Sprite 紫幽草收获;
+public static Sprite 紫幽草变异收获;
+
+public static Sprite 三生花幼苗;
+public static Sprite 三生花成长;
+public static Sprite 三生花成熟;
+public static Sprite 三生花变异;
+public static Sprite 三生花种子;
+public static Sprite 三生花收获;
+public static Sprite 三生花变异收获;
+
+public static Sprite 向阳花幼苗;
+public static Sprite 向阳花成长;
+public static Sprite 向阳花成熟;
+public static Sprite 向阳花变异;
+public static Sprite 向阳花种子;
+public static Sprite 向阳花收获;
+public static Sprite 向阳花变异收获;
+
+public static Sprite 白玉玲幼苗;
+public static Sprite 白玉玲成长;
+public static Sprite 白玉玲成熟;
+public static Sprite 白玉玲变异;
+public static Sprite 白玉玲种子;
+public static Sprite 白玉玲收获;
+public static Sprite 白玉玲变异收获;
+
+public static Sprite 赤阳花幼苗;
+public static Sprite 赤阳花成长;
+public static Sprite 赤阳花成熟;
+public static Sprite 赤阳花变异;
+public static Sprite 赤阳花种子;
+public static Sprite 赤阳花收获;
+public static Sprite 赤阳花变异收获;
+
+public static Sprite 寒星兰幼苗;
+public static Sprite 寒星兰成长;
+public static Sprite 寒星兰成熟;
+public static Sprite 寒星兰变异;
+public static Sprite 寒星兰种子;
+public static Sprite 寒星兰收获;
+public static Sprite 寒星兰变异收获;
+
+public static Sprite 赤霞花幼苗;
+public static Sprite 赤霞花成长;
+public static Sprite 赤霞花成熟;
+public static Sprite 赤霞花变异;
+public static Sprite 赤霞花种子;
+public static Sprite 赤霞花收获;
+public static Sprite 赤霞花变异收获;
+
+public static Sprite 惊雷子幼苗;
+public static Sprite 惊雷子成长;
+public static Sprite 惊雷子成熟;
+public static Sprite 惊雷子变异;
+public static Sprite 惊雷子种子;
+public static Sprite 惊雷子收获;
+public static Sprite 惊雷子变异收获;
+
+public static Sprite 幽兰铃幼苗;
+public static Sprite 幽兰铃成长;
+public static Sprite 幽兰铃成熟;
+public static Sprite 幽兰铃变异;
+public static Sprite 幽兰铃种子;
+public static Sprite 幽兰铃收获;
+public static Sprite 幽兰铃变异收获;
+
+public static Sprite 空谷幽兰幼苗;
+public static Sprite 空谷幽兰成长;
+public static Sprite 空谷幽兰成熟;
+public static Sprite 空谷幽兰变异;
+public static Sprite 空谷幽兰种子;
+public static Sprite 空谷幽兰收获;
+public static Sprite 空谷幽兰变异收获;
+
+public static Sprite 醉仙球幼苗;
+public static Sprite 醉仙球成长;
+public static Sprite 醉仙球成熟;
+public static Sprite 醉仙球变异;
+public static Sprite 醉仙球种子;
+public static Sprite 醉仙球收获;
+public static Sprite 醉仙球变异收获;
+
+public static Sprite 醉仙菌幼苗;
+public static Sprite 醉仙菌成长;
+public static Sprite 醉仙菌成熟;
+public static Sprite 醉仙菌变异;
+public static Sprite 醉仙菌种子;
+public static Sprite 醉仙菌收获;
+public static Sprite 醉仙菌变异收获;
+
+public static Sprite 太素花幼苗;
+public static Sprite 太素花成长;
+public static Sprite 太素花成熟;
+public static Sprite 太素花变异;
+public static Sprite 太素花种子;
+public static Sprite 太素花收获;
+public static Sprite 太素花变异收获;
+
+public static Sprite 灵犀铃幼苗;
+public static Sprite 灵犀铃成长;
+public static Sprite 灵犀铃成熟;
+public static Sprite 灵犀铃变异;
+public static Sprite 灵犀铃种子;
+public static Sprite 灵犀铃收获;
+public static Sprite 灵犀铃变异收获;
+
+public static Sprite 血菩提幼苗;
+public static Sprite 血菩提成长;
+public static Sprite 血菩提成熟;
+public static Sprite 血菩提变异;
+public static Sprite 血菩提种子;
+public static Sprite 血菩提收获;
+public static Sprite 血菩提变异收获;
+
+public static Sprite 紫晶铃幼苗;
+public static Sprite 紫晶铃成长;
+public static Sprite 紫晶铃成熟;
+public static Sprite 紫晶铃变异;
+public static Sprite 紫晶铃种子;
+public static Sprite 紫晶铃收获;
+public static Sprite 紫晶铃变异收获;
+
+public static Sprite 招财草幼苗;
+public static Sprite 招财草成长;
+public static Sprite 招财草成熟;
+public static Sprite 招财草变异;
+public static Sprite 招财草种子;
+public static Sprite 招财草收获;
+public static Sprite 招财草变异收获;
+
+public static Sprite 粉霞仙幼苗;
+public static Sprite 粉霞仙成长;
+public static Sprite 粉霞仙成熟;
+public static Sprite 粉霞仙变异;
+public static Sprite 粉霞仙种子;
+public static Sprite 粉霞仙收获;
+public static Sprite 粉霞仙变异收获;
+
+public static Sprite 黄龙掌幼苗;
+public static Sprite 黄龙掌成长;
+public static Sprite 黄龙掌成熟;
+public static Sprite 黄龙掌变异;
+public static Sprite 黄龙掌种子;
+public static Sprite 黄龙掌收获;
+public static Sprite 黄龙掌变异收获;
+
+public static Sprite 玄冰魄幼苗;
+public static Sprite 玄冰魄成长;
+public static Sprite 玄冰魄成熟;
+public static Sprite 玄冰魄变异;
+public static Sprite 玄冰魄种子;
+public static Sprite 玄冰魄收获;
+public static Sprite 玄冰魄变异收获;
+
+public static Sprite 修罗花幼苗;
+public static Sprite 修罗花成长;
+public static Sprite 修罗花成熟;
+public static Sprite 修罗花变异;
+public static Sprite 修罗花种子;
+public static Sprite 修罗花收获;
+public static Sprite 修罗花变异收获;
+
+public static Sprite 金乌葵幼苗;
+public static Sprite 金乌葵成长;
+public static Sprite 金乌葵成熟;
+public static Sprite 金乌葵变异;
+public static Sprite 金乌葵种子;
+public static Sprite 金乌葵收获;
+public static Sprite 金乌葵变异收获;
+
+public static Sprite 幻樱木幼苗;
+public static Sprite 幻樱木成长;
+public static Sprite 幻樱木成熟;
+public static Sprite 幻樱木变异;
+public static Sprite 幻樱木种子;
+public static Sprite 幻樱木收获;
+public static Sprite 幻樱木变异收获;
+
+public static Sprite 白玉莲幼苗;
+public static Sprite 白玉莲成长;
+public static Sprite 白玉莲成熟;
+public static Sprite 白玉莲变异;
+public static Sprite 白玉莲种子;
+public static Sprite 白玉莲收获;
+public static Sprite 白玉莲变异收获;
+    
     public static Sprite 仙子icon1;
     public static Sprite 仙子icon2;
     public static Sprite 仙子icon3;
@@ -7567,8 +7823,547 @@ public class ResourcesConfig : MonoBehaviour
 
         return null;
     }
+
+    public static Sprite Get灵植幼苗Sprite(灵植Type 灵植Type)
+    {
+        switch (灵植Type)
+        {
+            case 灵植Type.紫云英: return 紫云英幼苗;
+            case 灵植Type.曜日葵: return 曜日葵幼苗;
+            case 灵植Type.幻音铃: return 幻音铃幼苗;
+            case 灵植Type.幻紫玫: return 幻紫玫幼苗;
+            case 灵植Type.九幽紫: return 九幽紫幼苗;
+            case 灵植Type.赤焰百合: return 赤焰百合幼苗;
+            case 灵植Type.碧海螺: return 碧海螺幼苗;
+            case 灵植Type.粉面佛莲: return 粉面佛莲幼苗;
+            case 灵植Type.紫幽草: return 紫幽草幼苗;
+            case 灵植Type.三生花: return 三生花幼苗;
+            case 灵植Type.向阳花: return 向阳花幼苗;
+            case 灵植Type.白玉玲: return 白玉玲幼苗;
+            case 灵植Type.赤阳花: return 赤阳花幼苗;
+            case 灵植Type.寒星兰: return 寒星兰幼苗;
+            case 灵植Type.赤霞花: return 赤霞花幼苗;
+            case 灵植Type.惊雷子: return 惊雷子幼苗;
+            case 灵植Type.幽兰铃: return 幽兰铃幼苗;
+            case 灵植Type.空谷幽兰: return 空谷幽兰幼苗;
+            case 灵植Type.醉仙球: return 醉仙球幼苗;
+            case 灵植Type.醉仙菌: return 醉仙菌幼苗;
+            case 灵植Type.太素花: return 太素花幼苗;
+            case 灵植Type.灵犀铃: return 灵犀铃幼苗;
+            case 灵植Type.血菩提: return 血菩提幼苗;
+            case 灵植Type.紫晶铃: return 紫晶铃幼苗;
+            case 灵植Type.招财草: return 招财草幼苗;
+            case 灵植Type.粉霞仙: return 粉霞仙幼苗;
+            case 灵植Type.黄龙掌: return 黄龙掌幼苗;
+            case 灵植Type.玄冰魄: return 玄冰魄幼苗;
+            case 灵植Type.修罗花: return 修罗花幼苗;
+            case 灵植Type.金乌葵: return 金乌葵幼苗;
+            case 灵植Type.幻樱木: return 幻樱木幼苗;
+            case 灵植Type.白玉莲: return 白玉莲幼苗;
+            default: return null;
+        }
+    }
+    public static Sprite Get灵植成长Sprite(灵植Type 灵植Type)
+{
+    switch (灵植Type)
+    {
+        case 灵植Type.紫云英: return 紫云英成长;
+        case 灵植Type.曜日葵: return 曜日葵成长;
+        case 灵植Type.幻音铃: return 幻音铃成长;
+        case 灵植Type.幻紫玫: return 幻紫玫成长;
+        case 灵植Type.九幽紫: return 九幽紫成长;
+        case 灵植Type.赤焰百合: return 赤焰百合成长;
+        case 灵植Type.碧海螺: return 碧海螺成长;
+        case 灵植Type.粉面佛莲: return 粉面佛莲成长;
+        case 灵植Type.紫幽草: return 紫幽草成长;
+        case 灵植Type.三生花: return 三生花成长;
+        case 灵植Type.向阳花: return 向阳花成长;
+        case 灵植Type.白玉玲: return 白玉玲成长;
+        case 灵植Type.赤阳花: return 赤阳花成长;
+        case 灵植Type.寒星兰: return 寒星兰成长;
+        case 灵植Type.赤霞花: return 赤霞花成长;
+        case 灵植Type.惊雷子: return 惊雷子成长;
+        case 灵植Type.幽兰铃: return 幽兰铃成长;
+        case 灵植Type.空谷幽兰: return 空谷幽兰成长;
+        case 灵植Type.醉仙球: return 醉仙球成长;
+        case 灵植Type.醉仙菌: return 醉仙菌成长;
+        case 灵植Type.太素花: return 太素花成长;
+        case 灵植Type.灵犀铃: return 灵犀铃成长;
+        case 灵植Type.血菩提: return 血菩提成长;
+        case 灵植Type.紫晶铃: return 紫晶铃成长;
+        case 灵植Type.招财草: return 招财草成长;
+        case 灵植Type.粉霞仙: return 粉霞仙成长;
+        case 灵植Type.黄龙掌: return 黄龙掌成长;
+        case 灵植Type.玄冰魄: return 玄冰魄成长;
+        case 灵植Type.修罗花: return 修罗花成长;
+        case 灵植Type.金乌葵: return 金乌葵成长;
+        case 灵植Type.幻樱木: return 幻樱木成长;
+        case 灵植Type.白玉莲: return 白玉莲成长;
+        default: return null;
+    }
+}
+
+public static Sprite Get灵植成熟Sprite(灵植Type 灵植Type)
+{
+    switch (灵植Type)
+    {
+        case 灵植Type.紫云英: return 紫云英成熟;
+        case 灵植Type.曜日葵: return 曜日葵成熟;
+        case 灵植Type.幻音铃: return 幻音铃成熟;
+        case 灵植Type.幻紫玫: return 幻紫玫成熟;
+        case 灵植Type.九幽紫: return 九幽紫成熟;
+        case 灵植Type.赤焰百合: return 赤焰百合成熟;
+        case 灵植Type.碧海螺: return 碧海螺成熟;
+        case 灵植Type.粉面佛莲: return 粉面佛莲成熟;
+        case 灵植Type.紫幽草: return 紫幽草成熟;
+        case 灵植Type.三生花: return 三生花成熟;
+        case 灵植Type.向阳花: return 向阳花成熟;
+        case 灵植Type.白玉玲: return 白玉玲成熟;
+        case 灵植Type.赤阳花: return 赤阳花成熟;
+        case 灵植Type.寒星兰: return 寒星兰成熟;
+        case 灵植Type.赤霞花: return 赤霞花成熟;
+        case 灵植Type.惊雷子: return 惊雷子成熟;
+        case 灵植Type.幽兰铃: return 幽兰铃成熟;
+        case 灵植Type.空谷幽兰: return 空谷幽兰成熟;
+        case 灵植Type.醉仙球: return 醉仙球成熟;
+        case 灵植Type.醉仙菌: return 醉仙菌成熟;
+        case 灵植Type.太素花: return 太素花成熟;
+        case 灵植Type.灵犀铃: return 灵犀铃成熟;
+        case 灵植Type.血菩提: return 血菩提成熟;
+        case 灵植Type.紫晶铃: return 紫晶铃成熟;
+        case 灵植Type.招财草: return 招财草成熟;
+        case 灵植Type.粉霞仙: return 粉霞仙成熟;
+        case 灵植Type.黄龙掌: return 黄龙掌成熟;
+        case 灵植Type.玄冰魄: return 玄冰魄成熟;
+        case 灵植Type.修罗花: return 修罗花成熟;
+        case 灵植Type.金乌葵: return 金乌葵成熟;
+        case 灵植Type.幻樱木: return 幻樱木成熟;
+        case 灵植Type.白玉莲: return 白玉莲成熟;
+        default: return null;
+    }
+}
+
+public static Sprite Get灵植变异Sprite(灵植Type 灵植Type)
+{
+    switch (灵植Type)
+    {
+        case 灵植Type.紫云英: return 紫云英变异;
+        case 灵植Type.曜日葵: return 曜日葵变异;
+        case 灵植Type.幻音铃: return 幻音铃变异;
+        case 灵植Type.幻紫玫: return 幻紫玫变异;
+        case 灵植Type.九幽紫: return 九幽紫变异;
+        case 灵植Type.赤焰百合: return 赤焰百合变异;
+        case 灵植Type.碧海螺: return 碧海螺变异;
+        case 灵植Type.粉面佛莲: return 粉面佛莲变异;
+        case 灵植Type.紫幽草: return 紫幽草变异;
+        case 灵植Type.三生花: return 三生花变异;
+        case 灵植Type.向阳花: return 向阳花变异;
+        case 灵植Type.白玉玲: return 白玉玲变异;
+        case 灵植Type.赤阳花: return 赤阳花变异;
+        case 灵植Type.寒星兰: return 寒星兰变异;
+        case 灵植Type.赤霞花: return 赤霞花变异;
+        case 灵植Type.惊雷子: return 惊雷子变异;
+        case 灵植Type.幽兰铃: return 幽兰铃变异;
+        case 灵植Type.空谷幽兰: return 空谷幽兰变异;
+        case 灵植Type.醉仙球: return 醉仙球变异;
+        case 灵植Type.醉仙菌: return 醉仙菌变异;
+        case 灵植Type.太素花: return 太素花变异;
+        case 灵植Type.灵犀铃: return 灵犀铃变异;
+        case 灵植Type.血菩提: return 血菩提变异;
+        case 灵植Type.紫晶铃: return 紫晶铃变异;
+        case 灵植Type.招财草: return 招财草变异;
+        case 灵植Type.粉霞仙: return 粉霞仙变异;
+        case 灵植Type.黄龙掌: return 黄龙掌变异;
+        case 灵植Type.玄冰魄: return 玄冰魄变异;
+        case 灵植Type.修罗花: return 修罗花变异;
+        case 灵植Type.金乌葵: return 金乌葵变异;
+        case 灵植Type.幻樱木: return 幻樱木变异;
+        case 灵植Type.白玉莲: return 白玉莲变异;
+        default: return null;
+    }
+}
+
+public static Sprite Get灵植种子Sprite(灵植Type 灵植Type)
+{
+    switch (灵植Type)
+    {
+        case 灵植Type.紫云英: return 紫云英种子;
+        case 灵植Type.曜日葵: return 曜日葵种子;
+        case 灵植Type.幻音铃: return 幻音铃种子;
+        case 灵植Type.幻紫玫: return 幻紫玫种子;
+        case 灵植Type.九幽紫: return 九幽紫种子;
+        case 灵植Type.赤焰百合: return 赤焰百合种子;
+        case 灵植Type.碧海螺: return 碧海螺种子;
+        case 灵植Type.粉面佛莲: return 粉面佛莲种子;
+        case 灵植Type.紫幽草: return 紫幽草种子;
+        case 灵植Type.三生花: return 三生花种子;
+        case 灵植Type.向阳花: return 向阳花种子;
+        case 灵植Type.白玉玲: return 白玉玲种子;
+        case 灵植Type.赤阳花: return 赤阳花种子;
+        case 灵植Type.寒星兰: return 寒星兰种子;
+        case 灵植Type.赤霞花: return 赤霞花种子;
+        case 灵植Type.惊雷子: return 惊雷子种子;
+        case 灵植Type.幽兰铃: return 幽兰铃种子;
+        case 灵植Type.空谷幽兰: return 空谷幽兰种子;
+        case 灵植Type.醉仙球: return 醉仙球种子;
+        case 灵植Type.醉仙菌: return 醉仙菌种子;
+        case 灵植Type.太素花: return 太素花种子;
+        case 灵植Type.灵犀铃: return 灵犀铃种子;
+        case 灵植Type.血菩提: return 血菩提种子;
+        case 灵植Type.紫晶铃: return 紫晶铃种子;
+        case 灵植Type.招财草: return 招财草种子;
+        case 灵植Type.粉霞仙: return 粉霞仙种子;
+        case 灵植Type.黄龙掌: return 黄龙掌种子;
+        case 灵植Type.玄冰魄: return 玄冰魄种子;
+        case 灵植Type.修罗花: return 修罗花种子;
+        case 灵植Type.金乌葵: return 金乌葵种子;
+        case 灵植Type.幻樱木: return 幻樱木种子;
+        case 灵植Type.白玉莲: return 白玉莲种子;
+        default: return null;
+    }
+}
+
+public static Sprite Get灵植收获Sprite(灵植Type 灵植Type)
+{
+    switch (灵植Type)
+    {
+        case 灵植Type.紫云英: return 紫云英收获;
+        case 灵植Type.曜日葵: return 曜日葵收获;
+        case 灵植Type.幻音铃: return 幻音铃收获;
+        case 灵植Type.幻紫玫: return 幻紫玫收获;
+        case 灵植Type.九幽紫: return 九幽紫收获;
+        case 灵植Type.赤焰百合: return 赤焰百合收获;
+        case 灵植Type.碧海螺: return 碧海螺收获;
+        case 灵植Type.粉面佛莲: return 粉面佛莲收获;
+        case 灵植Type.紫幽草: return 紫幽草收获;
+        case 灵植Type.三生花: return 三生花收获;
+        case 灵植Type.向阳花: return 向阳花收获;
+        case 灵植Type.白玉玲: return 白玉玲收获;
+        case 灵植Type.赤阳花: return 赤阳花收获;
+        case 灵植Type.寒星兰: return 寒星兰收获;
+        case 灵植Type.赤霞花: return 赤霞花收获;
+        case 灵植Type.惊雷子: return 惊雷子收获;
+        case 灵植Type.幽兰铃: return 幽兰铃收获;
+        case 灵植Type.空谷幽兰: return 空谷幽兰收获;
+        case 灵植Type.醉仙球: return 醉仙球收获;
+        case 灵植Type.醉仙菌: return 醉仙菌收获;
+        case 灵植Type.太素花: return 太素花收获;
+        case 灵植Type.灵犀铃: return 灵犀铃收获;
+        case 灵植Type.血菩提: return 血菩提收获;
+        case 灵植Type.紫晶铃: return 紫晶铃收获;
+        case 灵植Type.招财草: return 招财草收获;
+        case 灵植Type.粉霞仙: return 粉霞仙收获;
+        case 灵植Type.黄龙掌: return 黄龙掌收获;
+        case 灵植Type.玄冰魄: return 玄冰魄收获;
+        case 灵植Type.修罗花: return 修罗花收获;
+        case 灵植Type.金乌葵: return 金乌葵收获;
+        case 灵植Type.幻樱木: return 幻樱木收获;
+        case 灵植Type.白玉莲: return 白玉莲收获;
+        default: return null;
+    }
+}
+
+public static Sprite Get灵植变异收获Sprite(灵植Type 灵植Type)
+{
+    switch (灵植Type)
+    {
+        case 灵植Type.紫云英: return 紫云英变异收获;
+        case 灵植Type.曜日葵: return 曜日葵变异收获;
+        case 灵植Type.幻音铃: return 幻音铃变异收获;
+        case 灵植Type.幻紫玫: return 幻紫玫变异收获;
+        case 灵植Type.九幽紫: return 九幽紫变异收获;
+        case 灵植Type.赤焰百合: return 赤焰百合变异收获;
+        case 灵植Type.碧海螺: return 碧海螺变异收获;
+        case 灵植Type.粉面佛莲: return 粉面佛莲变异收获;
+        case 灵植Type.紫幽草: return 紫幽草变异收获;
+        case 灵植Type.三生花: return 三生花变异收获;
+        case 灵植Type.向阳花: return 向阳花变异收获;
+        case 灵植Type.白玉玲: return 白玉玲变异收获;
+        case 灵植Type.赤阳花: return 赤阳花变异收获;
+        case 灵植Type.寒星兰: return 寒星兰变异收获;
+        case 灵植Type.赤霞花: return 赤霞花变异收获;
+        case 灵植Type.惊雷子: return 惊雷子变异收获;
+        case 灵植Type.幽兰铃: return 幽兰铃变异收获;
+        case 灵植Type.空谷幽兰: return 空谷幽兰变异收获;
+        case 灵植Type.醉仙球: return 醉仙球变异收获;
+        case 灵植Type.醉仙菌: return 醉仙菌变异收获;
+        case 灵植Type.太素花: return 太素花变异收获;
+        case 灵植Type.灵犀铃: return 灵犀铃变异收获;
+        case 灵植Type.血菩提: return 血菩提变异收获;
+        case 灵植Type.紫晶铃: return 紫晶铃变异收获;
+        case 灵植Type.招财草: return 招财草变异收获;
+        case 灵植Type.粉霞仙: return 粉霞仙变异收获;
+        case 灵植Type.黄龙掌: return 黄龙掌变异收获;
+        case 灵植Type.玄冰魄: return 玄冰魄变异收获;
+        case 灵植Type.修罗花: return 修罗花变异收获;
+        case 灵植Type.金乌葵: return 金乌葵变异收获;
+        case 灵植Type.幻樱木: return 幻樱木变异收获;
+        case 灵植Type.白玉莲: return 白玉莲变异收获;
+        default: return null;
+    }
+}
+
     public static void Init()
     {
+        紫云英幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[0];
+        紫云英成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[1];
+        紫云英成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[2];
+        紫云英变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[3];
+        紫云英种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[0];
+        紫云英收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[4];
+        紫云英变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[8];
+        
+        曜日葵幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[4];
+        曜日葵成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[5];
+        曜日葵成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[6];
+        曜日葵变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[7];
+        曜日葵种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[1];
+        曜日葵收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[5];
+        曜日葵变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[9];
+        
+        幻音铃幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[8];
+        幻音铃成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[9];
+        幻音铃成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[10];
+        幻音铃变异=Resources.Load<Sprite>("Sprite/灵植icon/image");
+        幻音铃种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[2];
+        幻音铃收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[6];
+        幻音铃变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[10];
+        
+        幻紫玫幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[12];
+        幻紫玫成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[13];
+        幻紫玫成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[14];
+        幻紫玫变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/1")[15];
+        幻紫玫种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[3];
+        幻紫玫收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[7];
+        幻紫玫变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子1")[11];
+        
+        九幽紫幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[0];
+        九幽紫成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[1];
+        九幽紫成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[2];
+        九幽紫变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[3];
+        九幽紫种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[0];
+        九幽紫收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[4];
+        九幽紫变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[8];
+        
+        赤焰百合幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[4];
+        赤焰百合成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[5];
+        赤焰百合成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[6];
+        赤焰百合变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[7];
+        赤焰百合种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[1];
+        赤焰百合收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[5];
+        赤焰百合变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[9];
+        
+        碧海螺幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[8];
+        碧海螺成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[9];
+        碧海螺成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[10];
+        碧海螺变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[11];
+        碧海螺种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[2];
+        碧海螺收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[6];
+        碧海螺变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[10];
+        
+        粉面佛莲幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[12];
+        粉面佛莲成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[13];
+        粉面佛莲成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[14];
+        粉面佛莲变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/2")[15];
+        粉面佛莲种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[3];
+        粉面佛莲收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[7];
+        粉面佛莲变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子2")[11];
+        
+        紫幽草幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[8];
+        紫幽草成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[9];
+        紫幽草成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[10];
+        紫幽草变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[11];
+        紫幽草种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子3")[2];
+        紫幽草收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子3")[6];
+        紫幽草变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子3")[10];
+        
+        三生花幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[12];
+        三生花成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[13];
+        三生花成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[14];
+        三生花变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/3")[15];
+        三生花种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子3")[3];
+        三生花收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子3")[7];
+        三生花变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子3")[11];
+        
+        向阳花幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[0];
+        向阳花成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[1];
+        向阳花成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[2];
+        向阳花变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[3];
+        向阳花种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[0];
+        向阳花收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[4];
+        向阳花变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[8];
+        
+        白玉玲幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[8];
+        白玉玲成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[9];
+        白玉玲成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[10];
+        白玉玲变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[11];
+        白玉玲种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[2];
+        白玉玲收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[6];
+        白玉玲变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[10];
+        
+        赤阳花幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[12];
+        赤阳花成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[13];
+        赤阳花成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[14];
+        赤阳花变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/4")[15];
+        赤阳花种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[3];
+        赤阳花收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[7];
+        赤阳花变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子4")[11];
+        
+        寒星兰幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[0];
+        寒星兰成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[1];
+        寒星兰成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[2];
+        寒星兰变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[3];
+        寒星兰种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[0];
+        寒星兰收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[4];
+        寒星兰变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[8];
+        
+        赤霞花幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[4];
+        赤霞花成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[5];
+        赤霞花成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[6];
+        赤霞花变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[7];
+        赤霞花种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[1];
+        赤霞花收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[5];
+        赤霞花变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[9];
+        
+        惊雷子幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[8];
+        惊雷子成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[9];
+        惊雷子成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[10];
+        惊雷子变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[11];
+        惊雷子种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[2];
+        惊雷子收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[6];
+        惊雷子变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[10];
+        
+        幽兰铃幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[12];
+        幽兰铃成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[13];
+        幽兰铃成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[14];
+        幽兰铃变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/5")[15];
+        幽兰铃种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[3];
+        幽兰铃收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[7];
+        幽兰铃变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子5")[11];
+        
+        空谷幽兰幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[0];
+        空谷幽兰成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[1];
+        空谷幽兰成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[2];
+        空谷幽兰变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[3];
+        空谷幽兰种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[0];
+        空谷幽兰收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[4];
+        空谷幽兰变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[8];
+        
+        醉仙球幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[4];
+        醉仙球成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[5];
+        醉仙球成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[6];
+        醉仙球变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[7];
+        醉仙球种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[1];
+        醉仙球收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[5];
+        醉仙球变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[9];
+        
+        醉仙菌幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[8];
+        醉仙菌成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[9];
+        醉仙菌成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[10];
+        醉仙菌变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[11];
+        醉仙菌种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[2];
+        醉仙菌收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[6];
+        醉仙菌变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[10];
+        
+        太素花幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[12];
+        太素花成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[13];
+        太素花成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[14];
+        太素花变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/6")[15];
+        太素花种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[3];
+        太素花收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[7];
+        太素花变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子6")[11];
+        
+        
+        灵犀铃幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[0];
+        灵犀铃成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[1];
+        灵犀铃成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[2];
+        灵犀铃变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[3];
+        灵犀铃种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[0];
+        灵犀铃收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[4];
+        灵犀铃变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[8];
+        
+        血菩提幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[4];
+        血菩提成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[5];
+        血菩提成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[6];
+        血菩提变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[7];
+        血菩提种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[1];
+        血菩提收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[5];
+        血菩提变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[9];
+        
+        紫晶铃幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[8];
+        紫晶铃成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[9];
+        紫晶铃成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[10];
+        紫晶铃变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[11];
+        紫晶铃种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[2];
+        紫晶铃收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[6];
+        紫晶铃变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[10];
+        
+        招财草幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[12];
+        招财草成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[13];
+        招财草成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[14];
+        招财草变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/7")[15];
+        招财草种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[3];
+        招财草收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[7];
+        招财草变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子7")[11];
+        
+        
+        粉霞仙幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[0];
+        粉霞仙成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[1];
+        粉霞仙成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[2];
+        粉霞仙变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[3];
+        粉霞仙种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[0];
+        粉霞仙收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[4];
+        粉霞仙变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[8];
+        
+        黄龙掌幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[4];
+        黄龙掌成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[5];
+        黄龙掌成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[6];
+        黄龙掌变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[7];
+        黄龙掌种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[1];
+        黄龙掌收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[5];
+        黄龙掌变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[9];
+        
+        玄冰魄幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[8];
+        玄冰魄成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[9];
+        玄冰魄成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[10];
+        玄冰魄变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[11];
+        玄冰魄种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[2];
+        玄冰魄收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[6];
+        玄冰魄变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[10];
+        
+        修罗花幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[12];
+        修罗花成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[13];
+        修罗花成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[14];
+        修罗花变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/8")[15];
+        修罗花种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[3];
+        修罗花收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[7];
+        修罗花变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子8")[11];
+        
+        金乌葵幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[0];
+        金乌葵成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[1];
+        金乌葵成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[2];
+        金乌葵变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[3];
+        金乌葵种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[0];
+        金乌葵收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[4];
+        金乌葵变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[8];
+        
+        幻樱木幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[4];
+        幻樱木成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[5];
+        幻樱木成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[6];
+        幻樱木变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[7];
+        幻樱木种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[1];
+        幻樱木收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[5];
+        幻樱木变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[9];
+        
+        白玉莲幼苗=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[8];
+        白玉莲成长=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[9];
+        白玉莲成熟=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[10];
+        白玉莲变异=Resources.LoadAll<Sprite>("Sprite/灵植icon/9")[11];
+        白玉莲种子=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[2];
+        白玉莲收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[6];
+        白玉莲变异收获=Resources.LoadAll<Sprite>("Sprite/灵植icon/种子9")[10];
+        
+        
         仙子icon1=Resources.Load<Sprite>("Sprite/仙子icon/1");
         仙子icon2=Resources.Load<Sprite>("Sprite/仙子icon/2");
         仙子icon3=Resources.Load<Sprite>("Sprite/仙子icon/3");
