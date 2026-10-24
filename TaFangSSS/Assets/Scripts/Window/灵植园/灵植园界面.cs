@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,8 +11,19 @@ public class 灵植园界面 : MonoBehaviour
     public Button 退出按钮;
     public Button 返回领地按钮;
     public GameObject 土地;
+    public TextMeshProUGUI 青石;
+    public Button 种植Button;
+    public Button 施肥Button;
+    public Button 背包Button;
+    public Button 铲除Button;
+    public Button 商店Button;
+    
 
 
+    public void Set青石()
+    {
+        青石.text=PlayerData.S.格式化数字(PlayerData.S.青石).ToString();
+    }
     private void Start()
     {
         退出按钮.onClick.AddListener(() =>

@@ -113,6 +113,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 灵兽 英雄详情当前显示灵兽=new 灵兽();
     
     [NonSerialized] public 肥料Type 当前选择肥料=肥料Type.None;
+    [NonSerialized] public QualityType 当前选择肥料品质=QualityType.None;
     [NonSerialized] public 灵植Type 当前选择灵植=灵植Type.None;
 
 
