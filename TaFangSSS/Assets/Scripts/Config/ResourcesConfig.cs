@@ -7,6 +7,53 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 灵植背包格子空;
+    public static Sprite 灵植背包格子白;
+    public static Sprite 灵植背包格子绿;
+    public static Sprite 灵植背包格子蓝;
+    public static Sprite 灵植背包格子紫;
+    public static Sprite 灵植背包格子橙;
+    public static Sprite 灵植背包格子粉;
+    public static Sprite 灵植背包格子红;
+    public static Sprite 灵植背包格子彩;
+    
+    
+    public static Sprite 提速肥料白;
+    public static Sprite 提速肥料绿;
+    public static Sprite 提速肥料蓝;
+    public static Sprite 提速肥料紫;
+    public static Sprite 提速肥料橙;
+    public static Sprite 提速肥料粉;
+    public static Sprite 提速肥料红;
+    public static Sprite 提速肥料彩;
+    
+    public static Sprite 增产肥料白;
+    public static Sprite 增产肥料绿;
+    public static Sprite 增产肥料蓝;
+    public static Sprite 增产肥料紫;
+    public static Sprite 增产肥料橙;
+    public static Sprite 增产肥料粉;
+    public static Sprite 增产肥料红;
+    public static Sprite 增产肥料彩;
+    
+    public static Sprite 延时肥料白;
+    public static Sprite 延时肥料绿;
+    public static Sprite 延时肥料蓝;
+    public static Sprite 延时肥料紫;
+    public static Sprite 延时肥料橙;
+    public static Sprite 延时肥料粉;
+    public static Sprite 延时肥料红;
+    public static Sprite 延时肥料彩;
+    
+    public static Sprite 异化肥料白;
+    public static Sprite 异化肥料绿;
+    public static Sprite 异化肥料蓝;
+    public static Sprite 异化肥料紫;
+    public static Sprite 异化肥料橙;
+    public static Sprite 异化肥料粉;
+    public static Sprite 异化肥料红;
+    public static Sprite 异化肥料彩;
+    
     public static Sprite 作物品质背景框白;
     public static Sprite 作物品质背景框绿;
     public static Sprite 作物品质背景框蓝;
@@ -8193,8 +8240,145 @@ public static Sprite Get土地亮Sprite(土地Type 土地Type)
 
         return null;
     }
+
+    public static Sprite Get肥料Icon(肥料Type 肥料Type, QualityType QualityType)
+{
+    switch (肥料Type)
+    {
+        case 肥料Type.提速:
+            switch (QualityType)
+            {
+                case QualityType.黄品: return 提速肥料白;
+                case QualityType.玄品: return 提速肥料绿;
+                case QualityType.地品: return 提速肥料蓝;
+                case QualityType.天品: return 提速肥料紫;
+                case QualityType.宇品: return 提速肥料橙;
+                case QualityType.宙品: return 提速肥料粉;
+                case QualityType.洪品: return 提速肥料红;
+                case QualityType.荒品: return 提速肥料彩;
+                default: return null;
+            }
+
+        case 肥料Type.增产:
+            switch (QualityType)
+            {
+                case QualityType.黄品: return 增产肥料白;
+                case QualityType.玄品: return 增产肥料绿;
+                case QualityType.地品: return 增产肥料蓝;
+                case QualityType.天品: return 增产肥料紫;
+                case QualityType.宇品: return 增产肥料橙;
+                case QualityType.宙品: return 增产肥料粉;
+                case QualityType.洪品: return 增产肥料红;
+                case QualityType.荒品: return 增产肥料彩;
+                default: return null;
+            }
+
+        case 肥料Type.延时:
+            switch (QualityType)
+            {
+                case QualityType.黄品: return 延时肥料白;
+                case QualityType.玄品: return 延时肥料绿;
+                case QualityType.地品: return 延时肥料蓝;
+                case QualityType.天品: return 延时肥料紫;
+                case QualityType.宇品: return 延时肥料橙;
+                case QualityType.宙品: return 延时肥料粉;
+                case QualityType.洪品: return 延时肥料红;
+                case QualityType.荒品: return 延时肥料彩;
+                default: return null;
+            }
+
+        case 肥料Type.异化:
+            switch (QualityType)
+            {
+                case QualityType.黄品: return 异化肥料白;
+                case QualityType.玄品: return 异化肥料绿;
+                case QualityType.地品: return 异化肥料蓝;
+                case QualityType.天品: return 异化肥料紫;
+                case QualityType.宇品: return 异化肥料橙;
+                case QualityType.宙品: return 异化肥料粉;
+                case QualityType.洪品: return 异化肥料红;
+                case QualityType.荒品: return 异化肥料彩;
+                default: return null;
+            }
+
+        default:
+            return null;
+    }
+}
+
+    public static Sprite Get灵植背包格子(QualityType type)
+    {
+        switch (type)
+        {
+            case QualityType.黄品:
+                return 灵植背包格子白;
+            case QualityType.玄品:
+                return 灵植背包格子绿;
+            case QualityType.地品:
+                return 灵植背包格子蓝;
+            case QualityType.天品:
+                return 灵植背包格子紫;
+            case QualityType.宇品:
+                return 灵植背包格子橙;
+            case QualityType.宙品:
+                return 灵植背包格子粉;
+            case QualityType.洪品:
+                return 灵植背包格子红;
+            case QualityType.荒品:
+                return 灵植背包格子彩;
+        }
+        return null;
+    }
     public static void Init()
     {
+        灵植背包格子空=Resources.LoadAll("Sprite/灵植icon/背包格子/空");
+
+        灵植背包格子白=Resources.LoadAll("Sprite/灵植icon/背包格子/白");
+        灵植背包格子绿=Resources.LoadAll("Sprite/灵植icon/背包格子/绿");
+        灵植背包格子蓝=Resources.LoadAll("Sprite/灵植icon/背包格子/蓝");
+        灵植背包格子紫=Resources.LoadAll("Sprite/灵植icon/背包格子/紫");
+        灵植背包格子橙=Resources.LoadAll("Sprite/灵植icon/背包格子/橙");
+        灵植背包格子粉=Resources.LoadAll("Sprite/灵植icon/背包格子/粉");
+        灵植背包格子红=Resources.LoadAll("Sprite/灵植icon/背包格子/红");
+        灵植背包格子彩=Resources.LoadAll("Sprite/灵植icon/背包格子/彩");
+        
+        提速肥料白=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[0];
+        提速肥料绿=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[1];
+        提速肥料蓝=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[2];
+        提速肥料紫=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[3];
+        提速肥料橙=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[4];
+        提速肥料粉=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[5];
+        提速肥料红=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[6];
+        提速肥料彩=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[7];
+        
+        增产肥料白=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[0];
+        增产肥料绿=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[1];
+        增产肥料蓝=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[2];
+        增产肥料紫=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[3];
+        增产肥料橙=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[4];
+        增产肥料粉=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[5];
+        增产肥料红=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[6];
+        增产肥料彩=Resources.LoadAll<Sprite>("Sprite/肥料icon/增产")[7];
+        
+        延时肥料白=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[0];
+        延时肥料绿=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[1];
+        延时肥料蓝=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[2];
+        延时肥料紫=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[3];
+        延时肥料橙=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[4];
+        延时肥料粉=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[5];
+        延时肥料红=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[6];
+        延时肥料彩=Resources.LoadAll<Sprite>("Sprite/肥料icon/延时")[7];
+        
+        异化肥料白=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[0];
+        异化肥料绿=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[1];
+        异化肥料蓝=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[2];
+        异化肥料紫=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[3];
+        异化肥料橙=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[4];
+        异化肥料粉=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[5];
+        异化肥料红=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[6];
+        异化肥料彩=Resources.LoadAll<Sprite>("Sprite/肥料icon/异化")[7];
+        
+        
         作物品质背景框白=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/白");
         作物品质背景框绿=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/绿");
         作物品质背景框蓝=Resources.Load<Sprite>("Sprite/灵植icon/作物品质框/蓝");

@@ -20,7 +20,10 @@ public class 土地item : MonoBehaviour
    public TextMeshProUGUI 进度Count;
    public Image 成熟icon;
    public GameObject 肥料List;
-
+   public Image 提速;
+   public Image 增产;
+   public Image 异化;
+   public Image 延时;
    [NonSerialized] public int index;
    public void SetItem()
    {
@@ -39,6 +42,16 @@ public class 土地item : MonoBehaviour
          进度条imamg.fillAmount = 土地.当前time / 土地.所需time;
          进度Count.text = (土地.当前time / 土地.所需time * 100f).ToString("F1");
          肥料List.SetActive(true);
+         提速.gameObject.SetActive(土地.提速肥料!=QualityType.None);
+         增产.gameObject.SetActive(土地.增产肥料!=QualityType.None);
+         异化.gameObject.SetActive(土地.异化肥料!=QualityType.None);
+         延时.gameObject.SetActive(土地.延时肥料!=QualityType.None);
+
+         提速.sprite = ResourcesConfig.Get肥料Icon(肥料Type.提速, 土地.提速肥料);
+         延时.sprite = ResourcesConfig.Get肥料Icon(肥料Type.延时, 土地.延时肥料);
+         增产.sprite = ResourcesConfig.Get肥料Icon(肥料Type.增产, 土地.增产肥料);
+         异化.sprite = ResourcesConfig.Get肥料Icon(肥料Type.异化, 土地.异化肥料);
+
          土地Image.image.sprite = ResourcesConfig.Get土地Sprite(土地.土地Type);
          if (土地.灵植Type == 灵植Type.None)
          {

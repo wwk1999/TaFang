@@ -69,16 +69,19 @@ public class 土地
     public bool 变异;
     public float 当前time;
     public float 所需time;
-    public List<肥料Type> 肥料List;
+    public QualityType 提速肥料;
+    public QualityType 增产肥料;
+    public QualityType 延时肥料;
+    public QualityType 异化肥料;
 }
 
 public enum 肥料Type
 {
     None,
-    增速肥料,
-    增产肥料,
-    异变肥料,
-    延时肥料,
+    提速,
+    增产,
+    异化,
+    延时,
 }
 public class 灵植园Config
 {
