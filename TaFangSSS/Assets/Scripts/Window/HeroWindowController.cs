@@ -116,6 +116,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 肥料Type 当前选择肥料=肥料Type.None;
     [NonSerialized] public QualityType 当前选择肥料品质=QualityType.None;
     [NonSerialized] public 灵植Type 当前选择灵植=灵植Type.None;
+    [NonSerialized] public bool 是否铲除;
 
     // 当前自定义光标贴图（从图集抠出来的小图），替换时销毁避免泄漏
     private static Texture2D 当前光标贴图;

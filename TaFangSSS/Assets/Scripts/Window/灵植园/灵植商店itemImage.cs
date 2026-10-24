@@ -36,6 +36,7 @@ public class 灵植商店itemImage : MonoBehaviour,IPointerClickHandler
         }
 
         PlayerData.S.青石 -= 总价;
+        ObserverModuleManager.S.SendEvent("Set青石");
 
         if (灵植商店item.灵植Type != 灵植Type.None)
         {

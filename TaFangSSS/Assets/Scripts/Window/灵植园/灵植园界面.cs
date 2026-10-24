@@ -23,7 +23,7 @@ public class 灵植园界面 : MonoBehaviour
     public 灵植商店窗口 灵植商店窗口;
 
 
-    public void Set青石()
+    public void Set青石(object[] obj)
     {
         青石.text=PlayerData.S.格式化数字(PlayerData.S.青石).ToString();
     }
@@ -31,29 +31,30 @@ public class 灵植园界面 : MonoBehaviour
 
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("Set青石", Set青石);
         种植Button.onClick.AddListener(() =>
         {
-            HeroWindowController.S.重置鼠标();
+            HeroWindowController.S.重置选择状态();
             种植窗口.gameObject.SetActive(true);
         });
         施肥Button.onClick.AddListener(() =>
         {
-            HeroWindowController.S.重置鼠标();
+            HeroWindowController.S.重置选择状态();
             肥料窗口.gameObject.SetActive(true);
         });
         商店Button.onClick.AddListener(() =>
         {
-            HeroWindowController.S.重置鼠标();
+            HeroWindowController.S.重置选择状态();
             灵植商店窗口.gameObject.SetActive(true);
         });
         退出按钮.onClick.AddListener(() =>
         {
-            HeroWindowController.S.重置鼠标();
+            HeroWindowController.S.重置选择状态();
             gameObject.SetActive(false);
         });
         返回领地按钮.onClick.AddListener(() =>
         {
-            HeroWindowController.S.重置鼠标();
+            HeroWindowController.S.重置选择状态();
             gameObject.SetActive(false);
         });
     }
@@ -74,9 +75,14 @@ public class 灵植园界面 : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("Set青石", Set青石);
+    }
+
     private void OnEnable()
     {
-        Set青石();
+        Set青石(null);
         刷新土地();
     }
 }

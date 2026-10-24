@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ResourcesConfig : MonoBehaviour
 {
+    public static Sprite 铲除;
+    
     public static Sprite 灵植背包格子空;
     public static Sprite 灵植背包格子白;
     public static Sprite 灵植背包格子绿;
@@ -8331,6 +8333,7 @@ public static Sprite Get土地亮Sprite(土地Type 土地Type)
     }
     public static void Init()
     {
+        铲除=Resources.Load<Sprite>("Sprite/灵植icon/铲除");
         灵植背包格子空=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/空");
 
         灵植背包格子白=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/白");
