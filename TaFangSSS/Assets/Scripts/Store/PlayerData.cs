@@ -2469,6 +2469,8 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { "异化_洪品", 0 },
         { "异化_荒品", 0 },
     };
+
+    public float 青石 = 0;
     public Dictionary<string, int> 丹药Dic = new Dictionary<string, int>()
 {
     // 火焰伤害

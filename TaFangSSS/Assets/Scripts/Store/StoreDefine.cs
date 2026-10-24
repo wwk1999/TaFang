@@ -71,6 +71,7 @@ public class StoreDefine : XSingleton<StoreController>
             { 灵植Type.幻樱木, 0 },
             { 灵植Type.白玉莲, 0 },
         };
+        public static float 青石 = 0;
         public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
         {
             { "提速_黄品", 0 },
@@ -4231,6 +4232,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             灵植土地列表 = runtime.灵植土地列表;
             种子Dic = runtime.种子Dic;
             肥料数量Dic = runtime.肥料数量Dic;
+            青石 = runtime.青石;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4403,7 +4405,7 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.孵化池列表 = 孵化池列表;
             runtime.种子Dic = 种子Dic;
             runtime.肥料数量Dic = 肥料数量Dic;
-            
+            runtime.青石 = 青石;
             
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None

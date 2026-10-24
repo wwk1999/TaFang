@@ -111,6 +111,9 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 孵化池 当前选择孵化池=new 孵化池();
     
     [NonSerialized] public 灵兽 英雄详情当前显示灵兽=new 灵兽();
+    
+    [NonSerialized] public 肥料Type 当前选择肥料=肥料Type.None;
+    [NonSerialized] public 灵植Type 当前选择灵植=灵植Type.None;
 
 
     //法器的基础属性包含在最终伤害里
