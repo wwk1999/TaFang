@@ -49,6 +49,7 @@ public class 土地item : MonoBehaviour
             if (PlayerData.S.种子Dic[当前选择灵植] <= 0)
             {
                ObserverModuleManager.S.SendEvent("SendUIToast", "种子数量不足");
+               HeroWindowController.S.重置选择状态();
                return;
             }
 
@@ -91,6 +92,7 @@ public class 土地item : MonoBehaviour
             if (PlayerData.S.Get肥料数量(当前选择肥料, 品质) <= 0)
             {
                ObserverModuleManager.S.SendEvent("SendUIToast", "肥料数量不足");
+               HeroWindowController.S.重置选择状态();
                return;
             }
 

@@ -20,7 +20,7 @@ public class 种植item : MonoBehaviour
         {
             HeroWindowController.S.当前选择灵植 = 灵植Tyep;
             HeroWindowController.设置光标(icon.sprite);
-            gameObject.SetActive(false);
+            GetComponentInParent<种植窗口>()?.gameObject.SetActive(false);
         });
     }
 

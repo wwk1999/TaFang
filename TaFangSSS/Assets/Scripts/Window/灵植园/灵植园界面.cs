@@ -76,6 +76,7 @@ public class 灵植园界面 : MonoBehaviour
 
     private void OnEnable()
     {
+        Set青石();
         刷新土地();
     }
 }

@@ -145,15 +145,20 @@ public class HeroWindowController:XSingleton<HeroWindowController>
         Cursor.SetCursor(tex, new Vector2(tex.width * 0.5f, tex.height * 0.5f), CursorMode.Auto);
     }
 
+    public void 重置选择状态()
+    {
+        当前选择肥料 = 肥料Type.None;
+        当前选择肥料品质 = QualityType.None;
+        当前选择灵植 = 灵植Type.None;
+        设置光标(null);
+    }
+
     public void 重置鼠标()
     {
         if (Input.GetMouseButtonDown(1))
         {
             if (当前选择肥料 == 肥料Type.None && 当前选择灵植 == 灵植Type.None) return;
-            当前选择肥料 = 肥料Type.None;
-            当前选择肥料品质 = QualityType.None;
-            当前选择灵植 = 灵植Type.None;
-            设置光标(null);
+            重置选择状态();
         }
     }
     private void Update()
