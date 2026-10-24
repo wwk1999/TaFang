@@ -15,6 +15,15 @@ public class 肥料item : MonoBehaviour
     [NonSerialized] public 肥料Type 肥料Tyep;
     [NonSerialized] public QualityType QualityType;
 
+    private void Start()
+    {
+        bg.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        }
+        )
+    }
+
     public void SetItem()
     {
         bg.image.sprite = ResourcesConfig.Get作物品质背景框(QualityType);
