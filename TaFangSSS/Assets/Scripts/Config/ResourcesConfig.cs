@@ -8331,16 +8331,16 @@ public static Sprite Get土地亮Sprite(土地Type 土地Type)
     }
     public static void Init()
     {
-        灵植背包格子空=Resources.LoadAll("Sprite/灵植icon/背包格子/空");
+        灵植背包格子空=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/空");
 
-        灵植背包格子白=Resources.LoadAll("Sprite/灵植icon/背包格子/白");
-        灵植背包格子绿=Resources.LoadAll("Sprite/灵植icon/背包格子/绿");
-        灵植背包格子蓝=Resources.LoadAll("Sprite/灵植icon/背包格子/蓝");
-        灵植背包格子紫=Resources.LoadAll("Sprite/灵植icon/背包格子/紫");
-        灵植背包格子橙=Resources.LoadAll("Sprite/灵植icon/背包格子/橙");
-        灵植背包格子粉=Resources.LoadAll("Sprite/灵植icon/背包格子/粉");
-        灵植背包格子红=Resources.LoadAll("Sprite/灵植icon/背包格子/红");
-        灵植背包格子彩=Resources.LoadAll("Sprite/灵植icon/背包格子/彩");
+        灵植背包格子白=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/白");
+        灵植背包格子绿=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/绿");
+        灵植背包格子蓝=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/蓝");
+        灵植背包格子紫=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/紫");
+        灵植背包格子橙=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/橙");
+        灵植背包格子粉=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/粉");
+        灵植背包格子红=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/红");
+        灵植背包格子彩=Resources.Load<Sprite>("Sprite/灵植icon/背包格子/彩");
         
         提速肥料白=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[0];
         提速肥料绿=Resources.LoadAll<Sprite>("Sprite/肥料icon/提速")[1];

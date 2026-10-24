@@ -68,6 +68,8 @@ public class PlayerData : XSingleton<PlayerData>
     public float 当前炼制秒数;
     public List<法器打造Item> 打造List=new List<法器打造Item>();
     public List<丹药炼制Item> 丹药炼制List=new List<丹药炼制Item>();
+    
+    
 
     public bool 领主荒无暇提示 = true;
     public bool 领主洪无暇提示 = true;
@@ -2393,6 +2395,80 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     {"英雄最终伤害_洪品", 0},
     {"英雄最终伤害_荒品", 0},
 };
+
+    public Dictionary<灵植Type, int> 种子Dic = new Dictionary<灵植Type, int>()
+    {
+        { 灵植Type.紫云英, 0 },
+        { 灵植Type.曜日葵, 0 },
+        { 灵植Type.幻音铃, 0 },
+        { 灵植Type.幻紫玫, 0 },
+        { 灵植Type.九幽紫, 0 },
+        { 灵植Type.赤焰百合, 0 },
+        { 灵植Type.碧海螺, 0 },
+        { 灵植Type.粉面佛莲, 0 },
+        { 灵植Type.紫幽草, 0 },
+        { 灵植Type.三生花, 0 },
+        { 灵植Type.向阳花, 0 },
+        { 灵植Type.白玉玲, 0 },
+        { 灵植Type.赤阳花, 0 },
+        { 灵植Type.寒星兰, 0 },
+        { 灵植Type.赤霞花, 0 },
+        { 灵植Type.惊雷子, 0 },
+        { 灵植Type.幽兰铃, 0 },
+        { 灵植Type.空谷幽兰, 0 },
+        { 灵植Type.醉仙球, 0 },
+        { 灵植Type.醉仙菌, 0 },
+        { 灵植Type.太素花, 0 },
+        { 灵植Type.灵犀铃, 0 },
+        { 灵植Type.血菩提, 0 },
+        { 灵植Type.紫晶铃, 0 },
+        { 灵植Type.招财草, 0 },
+        { 灵植Type.粉霞仙, 0 },
+        { 灵植Type.黄龙掌, 0 },
+        { 灵植Type.玄冰魄, 0 },
+        { 灵植Type.修罗花, 0 },
+        { 灵植Type.金乌葵, 0 },
+        { 灵植Type.幻樱木, 0 },
+        { 灵植Type.白玉莲, 0 },
+    };
+    public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
+    {
+        { "提速_黄品", 0 },
+        { "提速_玄品", 0 },
+        { "提速_地品", 0 },
+        { "提速_天品", 0 },
+        { "提速_宇品", 0 },
+        { "提速_宙品", 0 },
+        { "提速_洪品", 0 },
+        { "提速_荒品", 0 },
+        
+        { "增产_黄品", 0 },
+        { "增产_玄品", 0 },
+        { "增产_地品", 0 },
+        { "增产_天品", 0 },
+        { "增产_宇品", 0 },
+        { "增产_宙品", 0 },
+        { "增产_洪品", 0 },
+        { "增产_荒品", 0 },
+        
+        { "延时_黄品", 0 },
+        { "延时_玄品", 0 },
+        { "延时_地品", 0 },
+        { "延时_天品", 0 },
+        { "延时_宇品", 0 },
+        { "延时_宙品", 0 },
+        { "延时_洪品", 0 },
+        { "延时_荒品", 0 },
+        
+        { "异化_黄品", 0 },
+        { "异化_玄品", 0 },
+        { "异化_地品", 0 },
+        { "异化_天品", 0 },
+        { "异化_宇品", 0 },
+        { "异化_宙品", 0 },
+        { "异化_洪品", 0 },
+        { "异化_荒品", 0 },
+    };
     public Dictionary<string, int> 丹药Dic = new Dictionary<string, int>()
 {
     // 火焰伤害
@@ -3007,6 +3083,18 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         return 0;
     }
     
+    public int Get肥料数量(肥料Type type, QualityType qualityType)
+    {
+        string key = type.ToString() + "_" + qualityType.ToString();
+    
+        if (肥料数量Dic.TryGetValue(key, out int count))
+        {
+            return count;
+        }
+    
+        return 0;
+    }
+    
     public bool Get坊市丹药自动购买(丹药Type type, QualityType qualityType)
     {
         string key = type.ToString() + "_" + qualityType.ToString();
@@ -3118,6 +3206,22 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         // 负数钳 0：服用弹窗数量滑条曾沿用过上次值，吃 1 颗按 60 颗扣成负数
         string key = type.ToString() + "_" + qualityType.ToString();
         丹药Dic[key] = Math.Max(0, count);
+    }
+    
+    public void Set肥料数量(肥料Type type, QualityType qualityType, int count)
+    {
+        // 写入边界防线：None 一律拒收。战斗丹药槽默认就是 {None,None}，
+        // 槽位空着时"取下/消耗"会把 "None_None" 写进字典，背包里出现 None 物品
+        //（读档时虽被清理，但本次会话内一直显示）。正常购买/炼制/服用永远不会传 None
+        if (type == 肥料Type.None || qualityType == QualityType.None)
+        {
+            return;
+        }
+        // 索引器写入：老存档反序列化会整体替换字典，新增丹药（如掉宝率_寻龙丹）的
+        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
+        // 负数钳 0：服用弹窗数量滑条曾沿用过上次值，吃 1 颗按 60 颗扣成负数
+        string key = type.ToString() + "_" + qualityType.ToString();
+        肥料数量Dic[key] = Math.Max(0, count);
     }
 
     public void Set辅助丹药Buff(丹药Type type, QualityType qualityType, int count)

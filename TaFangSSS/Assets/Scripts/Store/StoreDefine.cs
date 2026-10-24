@@ -35,6 +35,80 @@ public class StoreDefine : XSingleton<StoreController>
         {
             {1,new 孵化池(){index = 1}}
         };
+        
+        public Dictionary<灵植Type, int> 种子Dic = new Dictionary<灵植Type, int>()
+        {
+            { 灵植Type.紫云英, 0 },
+            { 灵植Type.曜日葵, 0 },
+            { 灵植Type.幻音铃, 0 },
+            { 灵植Type.幻紫玫, 0 },
+            { 灵植Type.九幽紫, 0 },
+            { 灵植Type.赤焰百合, 0 },
+            { 灵植Type.碧海螺, 0 },
+            { 灵植Type.粉面佛莲, 0 },
+            { 灵植Type.紫幽草, 0 },
+            { 灵植Type.三生花, 0 },
+            { 灵植Type.向阳花, 0 },
+            { 灵植Type.白玉玲, 0 },
+            { 灵植Type.赤阳花, 0 },
+            { 灵植Type.寒星兰, 0 },
+            { 灵植Type.赤霞花, 0 },
+            { 灵植Type.惊雷子, 0 },
+            { 灵植Type.幽兰铃, 0 },
+            { 灵植Type.空谷幽兰, 0 },
+            { 灵植Type.醉仙球, 0 },
+            { 灵植Type.醉仙菌, 0 },
+            { 灵植Type.太素花, 0 },
+            { 灵植Type.灵犀铃, 0 },
+            { 灵植Type.血菩提, 0 },
+            { 灵植Type.紫晶铃, 0 },
+            { 灵植Type.招财草, 0 },
+            { 灵植Type.粉霞仙, 0 },
+            { 灵植Type.黄龙掌, 0 },
+            { 灵植Type.玄冰魄, 0 },
+            { 灵植Type.修罗花, 0 },
+            { 灵植Type.金乌葵, 0 },
+            { 灵植Type.幻樱木, 0 },
+            { 灵植Type.白玉莲, 0 },
+        };
+        public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
+        {
+            { "提速_黄品", 0 },
+            { "提速_玄品", 0 },
+            { "提速_地品", 0 },
+            { "提速_天品", 0 },
+            { "提速_宇品", 0 },
+            { "提速_宙品", 0 },
+            { "提速_洪品", 0 },
+            { "提速_荒品", 0 },
+        
+            { "增产_黄品", 0 },
+            { "增产_玄品", 0 },
+            { "增产_地品", 0 },
+            { "增产_天品", 0 },
+            { "增产_宇品", 0 },
+            { "增产_宙品", 0 },
+            { "增产_洪品", 0 },
+            { "增产_荒品", 0 },
+        
+            { "延时_黄品", 0 },
+            { "延时_玄品", 0 },
+            { "延时_地品", 0 },
+            { "延时_天品", 0 },
+            { "延时_宇品", 0 },
+            { "延时_宙品", 0 },
+            { "延时_洪品", 0 },
+            { "延时_荒品", 0 },
+        
+            { "异化_黄品", 0 },
+            { "异化_玄品", 0 },
+            { "异化_地品", 0 },
+            { "异化_天品", 0 },
+            { "异化_宇品", 0 },
+            { "异化_宙品", 0 },
+            { "异化_洪品", 0 },
+            { "异化_荒品", 0 },
+        };
 
         public Dictionary<int, 土地> 灵植土地列表 = new Dictionary<int, 土地>()
     {
@@ -4155,6 +4229,8 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             灵兽分解血脉8 = runtime.灵兽分解血脉8;
             孵化池列表 =runtime.孵化池列表;
             灵植土地列表 = runtime.灵植土地列表;
+            种子Dic = runtime.种子Dic;
+            肥料数量Dic = runtime.肥料数量Dic;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4325,7 +4401,8 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.灵兽分解血脉7 = 灵兽分解血脉7;
             runtime.灵兽分解血脉8 = 灵兽分解血脉8;
             runtime.孵化池列表 = 孵化池列表;
-            
+            runtime.种子Dic = 种子Dic;
+            runtime.肥料数量Dic = 肥料数量Dic;
             
             
 
