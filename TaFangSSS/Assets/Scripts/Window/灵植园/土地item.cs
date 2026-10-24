@@ -25,6 +25,12 @@ public class 土地item : MonoBehaviour
    public Image 异化;
    public Image 延时;
    [NonSerialized] public int index;
+
+   private void Start()
+   {
+      
+   }
+
    public void SetItem()
    {
       土地Image.image.alphaHitTestMinimumThreshold = 0.3f;

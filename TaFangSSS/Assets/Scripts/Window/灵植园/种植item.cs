@@ -14,6 +14,19 @@ public class 种植item : MonoBehaviour
     public TextMeshProUGUI count;
     [NonSerialized] public 灵植Type 灵植Tyep;
 
+    private void Start()
+    {
+        bg.onClick.AddListener(() =>
+        {
+            HeroWindowController.S.当前选择灵植 = 灵植Tyep;
+            var 种子icon = icon.sprite;
+            Cursor.SetCursor(种子icon.texture,
+                new Vector2(种子icon.texture.width * 0.5f, 种子icon.texture.height * 0.5f),
+                CursorMode.Auto);
+            gameObject.SetActive(false);
+        });
+    }
+
     public void SetItem()
     {
         bg.image.sprite = ResourcesConfig.Get作物品质背景框(灵植园Config.灵植品质Dic[灵植Tyep]);
