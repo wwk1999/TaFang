@@ -28,6 +28,18 @@ public class 灵植商店窗口 : MonoBehaviour
 
     private void Start()
     {
+        种子Button.onClick.AddListener(() =>
+        {
+            页数 = 1;
+            是否在种子 = true;
+            Show();
+        });
+        肥料Button.onClick.AddListener(() =>
+        {
+            页数 = 1;
+            是否在种子 = false;
+            Show();
+        });
         maskButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
@@ -53,6 +65,7 @@ public class 灵植商店窗口 : MonoBehaviour
     public void Show()
     {
         text.text = 页数.ToString();
+        Set按钮();
         if (是否在种子)
         {
             Show种子();

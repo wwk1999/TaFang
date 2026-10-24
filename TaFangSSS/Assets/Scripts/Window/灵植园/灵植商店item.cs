@@ -20,17 +20,19 @@ public class 灵植商店item : MonoBehaviour
     {
         if (灵植Type != 灵植Type.None)
         {
-            bg.image.sprite = ResourcesConfig.Get作物品质背景框(灵植园Config.灵植品质Dic[灵植Type]);
+            bg.image.sprite = ResourcesConfig.Get灵植背包格子(灵植园Config.灵植品质Dic[灵植Type]);
             name.text = 灵植园Config.灵植名[灵植Type];
             count.text = 灵植园Config.灵植价格Dic[灵植Type].ToString();
             icon.sprite = ResourcesConfig.Get灵植种子Sprite(灵植Type);
+            icon.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         }
         else
         {
-            bg.image.sprite = ResourcesConfig.Get作物品质背景框(quality);
+            bg.image.sprite = ResourcesConfig.Get灵植背包格子(quality);
             name.text = 灵植园Config.肥料名[肥料Type];
             count.text = 灵植园Config.Get肥料价格(肥料Type,quality).ToString();
             icon.sprite = ResourcesConfig.Get肥料Icon(肥料Type,quality);
+            icon.transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 }

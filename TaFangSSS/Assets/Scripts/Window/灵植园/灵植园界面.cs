@@ -18,6 +18,9 @@ public class 灵植园界面 : MonoBehaviour
     public Button 铲除Button;
     public Button 商店Button;
     
+    public 种植窗口 种植窗口;
+    public 肥料窗口 肥料窗口;
+    public 灵植商店窗口 灵植商店窗口;
 
 
     public void Set青石()
@@ -26,6 +29,18 @@ public class 灵植园界面 : MonoBehaviour
     }
     private void Start()
     {
+        种植Button.onClick.AddListener(() =>
+        {
+            种植窗口.gameObject.SetActive(true);
+        });
+        施肥Button.onClick.AddListener(() =>
+        {
+            肥料窗口.gameObject.SetActive(true);
+        });
+        商店Button.onClick.AddListener(() =>
+        {
+            灵植商店窗口.gameObject.SetActive(true);
+        });
         退出按钮.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
