@@ -27,26 +27,33 @@ public class 灵植园界面 : MonoBehaviour
     {
         青石.text=PlayerData.S.格式化数字(PlayerData.S.青石).ToString();
     }
+    
+
     private void Start()
     {
         种植Button.onClick.AddListener(() =>
         {
+            HeroWindowController.S.重置鼠标();
             种植窗口.gameObject.SetActive(true);
         });
         施肥Button.onClick.AddListener(() =>
         {
+            HeroWindowController.S.重置鼠标();
             肥料窗口.gameObject.SetActive(true);
         });
         商店Button.onClick.AddListener(() =>
         {
+            HeroWindowController.S.重置鼠标();
             灵植商店窗口.gameObject.SetActive(true);
         });
         退出按钮.onClick.AddListener(() =>
         {
+            HeroWindowController.S.重置鼠标();
             gameObject.SetActive(false);
         });
         返回领地按钮.onClick.AddListener(() =>
         {
+            HeroWindowController.S.重置鼠标();
             gameObject.SetActive(false);
         });
     }
