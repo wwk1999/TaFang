@@ -19,9 +19,13 @@ public class 肥料item : MonoBehaviour
     {
         bg.onClick.AddListener(() =>
         {
+            HeroWindowController.S.当前选择肥料 = 肥料Tyep;
+            var 肥料icon = icon.sprite;
+            Cursor.SetCursor(肥料icon.texture,
+                new Vector2(肥料icon.texture.width * 0.5f, 肥料icon.texture.height * 0.5f),
+                CursorMode.Auto);
             gameObject.SetActive(false);
-        }
-        )
+        });
     }
 
     public void SetItem()

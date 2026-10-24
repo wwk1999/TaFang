@@ -14,6 +14,7 @@ public class 肥料窗口 : MonoBehaviour
     private void OnEnable()
     {
         HeroWindowController.S.当前选择肥料 = 肥料Type.None;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         Show背包();
     }
 
