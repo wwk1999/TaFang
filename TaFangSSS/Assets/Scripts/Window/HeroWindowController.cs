@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 
 public enum 当前显示关卡类型
 {
@@ -115,6 +116,34 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 肥料Type 当前选择肥料=肥料Type.None;
     [NonSerialized] public QualityType 当前选择肥料品质=QualityType.None;
     [NonSerialized] public 灵植Type 当前选择灵植=灵植Type.None;
+
+    // 当前自定义光标贴图（从图集抠出来的小图），替换时销毁避免泄漏
+    private static Texture2D 当前光标贴图;
+
+    /// <summary>
+    /// 把 sprite 在图集中的区域抠出来设为鼠标光标；传 null 恢复默认光标
+    /// </summary>
+    public static void 设置光标(Sprite sprite)
+    {
+        if (当前光标贴图 != null)
+        {
+            Destroy(当前光标贴图);
+            当前光标贴图 = null;
+        }
+
+        if (sprite == null)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            return;
+        }
+
+        var rect = sprite.textureRect;
+        var tex = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGBA32, false);
+        tex.SetPixels(sprite.texture.GetPixels((int)rect.x, (int)rect.y, (int)rect.width, (int)rect.height));
+        tex.Apply();
+        当前光标贴图 = tex;
+        Cursor.SetCursor(tex, new Vector2(tex.width * 0.5f, tex.height * 0.5f), CursorMode.Auto);
+    }
 
 
     //法器的基础属性包含在最终伤害里

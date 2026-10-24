@@ -14,7 +14,7 @@ public class 种植窗口 : MonoBehaviour
     private void OnEnable()
     {
         HeroWindowController.S.当前选择灵植 = 灵植Type.None;
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        HeroWindowController.设置光标(null);
         Show背包();
     }
 

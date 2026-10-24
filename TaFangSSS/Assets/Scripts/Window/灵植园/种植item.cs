@@ -19,10 +19,7 @@ public class 种植item : MonoBehaviour
         bg.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前选择灵植 = 灵植Tyep;
-            var 种子icon = icon.sprite;
-            Cursor.SetCursor(种子icon.texture,
-                new Vector2(种子icon.texture.width * 0.5f, 种子icon.texture.height * 0.5f),
-                CursorMode.Auto);
+            HeroWindowController.设置光标(icon.sprite);
             gameObject.SetActive(false);
         });
     }
