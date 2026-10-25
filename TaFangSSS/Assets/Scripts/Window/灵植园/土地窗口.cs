@@ -17,6 +17,8 @@ public class 土地窗口 : MonoBehaviour
     public TextMeshProUGUI[] 升级后数值;
 
     public Button 升级Button;
+    public TextMeshProUGUI 需要等级;
+    public TextMeshProUGUI 需要青石;
 
     private int 当前index = 1;
 
@@ -32,6 +34,12 @@ public class 土地窗口 : MonoBehaviour
     public void 打开(int index)
     {
         当前index = index;
+        // 红土地是最高等级，没有可升级的下一级，不弹窗只提示
+        if (PlayerData.S.灵植土地列表[index].土地Type == 土地Type.红土地)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "红土地已是最高等级");
+            return;
+        }
         gameObject.SetActive(true);
         SetItem();
     }
@@ -63,7 +71,47 @@ public class 土地窗口 : MonoBehaviour
         Set数值(当前数值, 当前数值配置);
         Set数值(升级后数值, 下一级数值配置);
 
+        Set消耗(有下一级, 下一级类型);
+
         升级Button.interactable = 有下一级;
+    }
+
+    /// <summary>
+    /// 升级到下一级所需的灵植园建筑等级与青石消耗
+    /// </summary>
+    private void Set消耗(bool 有下一级, 土地Type 下一级类型)
+    {
+        if (!有下一级)
+        {
+            if (需要等级 != null) 需要等级.text = "已达到最高等级";
+            if (需要青石 != null) 需要青石.text = "";
+            return;
+        }
+
+        if (需要等级 != null)
+        {
+            需要等级.text = 获取所需灵植园等级(下一级类型).ToString();
+        }
+
+        if (需要青石 != null)
+        {
+            float 消耗 = 灵植园Config.土地升级消耗[下一级类型 - 1];
+            需要青石.text = PlayerData.S.格式化数字(消耗);
+        }
+    }
+
+    /// <summary>
+    /// 反查：要使土地最高等级达到目标类型，至少需要的灵植园建筑等级
+    /// </summary>
+    private static int 获取所需灵植园等级(土地Type 目标类型)
+    {
+        for (int 等级 = 0; 等级 <= 21; 等级++)
+        {
+            if (!道场Config.灵植园配置.ContainsKey(等级)) continue;
+            if (道场Config.灵植园配置[等级].土地最高等级 >= 目标类型) return 等级;
+        }
+
+        return 21;
     }
 
     /// <summary>
