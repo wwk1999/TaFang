@@ -69,17 +69,22 @@ public class 土地item : MonoBehaviour
       当前土地.延时肥料 = QualityType.None;
       当前土地.异化肥料 = QualityType.None;
       SetItem();
-      收获动画.gameObject.SetActive(true);
-      收获动画.Play("收获",0,0);
+      if (收获协程 != null) StopCoroutine(收获协程);
+      收获协程 = StartCoroutine(播放收获动画());
    }
 
-   private void Update()
+   private Coroutine 收获协程;
+
+   private IEnumerator 播放收获动画()
    {
-      // 收获动画播放完毕后自动隐藏，恢复该土地的正常刷新
-      if (收获动画.gameObject.activeSelf && 收获动画.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-      {
-         收获动画.gameObject.SetActive(false);
-      }
+      收获动画.gameObject.SetActive(true);
+      收获动画.Play("收获",0,0);
+      // 等一帧让 Animator 进入收获状态，再按片段实际时长隐藏，避免首帧读到上一轮状态被误判为播完
+      yield return null;
+      float 时长 = 收获动画.GetCurrentAnimatorStateInfo(0).length;
+      yield return new WaitForSeconds(时长 > 0 ? 时长 : 1f);
+      收获动画.gameObject.SetActive(false);
+      收获协程 = null;
    }
    private void Start()
    {
