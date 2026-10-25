@@ -39,6 +39,14 @@ public class 土地item : MonoBehaviour
       float 青石 = 灵植园Config.灵植收获青石Dic[当前土地.灵植Type];
       float 经验 = 灵植园Config.灵植收获经验Dic[当前土地.灵植Type];
       float 产量 = 灵植园Config.灵植产量Dic[当前土地.灵植Type];
+      if (当前土地.增产肥料 != QualityType.None)
+      {
+         产量 *= 1 + 灵植园Config.增产肥料数值[当前土地.增产肥料] / 100f;
+      }
+      if (当前土地.延时肥料 != QualityType.None)
+      {
+         产量 *= 1 + 灵植园Config.延时肥料数值[当前土地.延时肥料];
+      }
       青石count.text = 青石.ToString("F0");
       收获count.text = 产量.ToString("F0");
       经验count.text = 经验.ToString("F0");
@@ -155,6 +163,12 @@ public class 土地item : MonoBehaviour
                return;
             }
 
+            if (当前土地.植物成长阶段Type != 植物成长阶段Type.播种)
+            {
+               ObserverModuleManager.S.SendEvent("SendUIToast", "只能在播种阶段施肥");
+               return;
+            }
+
             bool 已施肥 = false;
             switch (当前选择肥料)
             {
@@ -184,7 +198,7 @@ public class 土地item : MonoBehaviour
                case 肥料Type.提速: 当前土地.提速肥料 = 品质; break;
                case 肥料Type.增产: 当前土地.增产肥料 = 品质; break;
                case 肥料Type.异化: 当前土地.异化肥料 = 品质; break;
-               case 肥料Type.延时: 当前土地.延时肥料 = 品质; break;
+               case 肥料Type.延时: 当前土地.延时肥料 = 品质; 当前土地.所需time *= 1 + 灵植园Config.延时肥料数值[品质]; break;
             }
 
             ObserverModuleManager.S.SendEvent("SendUIToast", "施肥成功");
