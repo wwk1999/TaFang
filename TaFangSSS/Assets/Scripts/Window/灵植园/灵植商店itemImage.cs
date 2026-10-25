@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -38,16 +39,20 @@ public class 灵植商店itemImage : MonoBehaviour,IPointerClickHandler
         PlayerData.S.青石 -= 总价;
         ObserverModuleManager.S.SendEvent("Set青石");
 
+        string 物品名;
         if (灵植商店item.灵植Type != 灵植Type.None)
         {
             PlayerData.S.种子Dic[灵植商店item.灵植Type] += 数量;
+            物品名 = 灵植园Config.灵植名[灵植商店item.灵植Type];
         }
         else
         {
             var 肥料数量 = PlayerData.S.Get肥料数量(灵植商店item.肥料Type, 灵植商店item.quality);
             PlayerData.S.Set肥料数量(灵植商店item.肥料Type, 灵植商店item.quality, 肥料数量 + 数量);
+            物品名 = PropConfig.QualityNameDic[灵植商店item.quality] + 灵植园Config.肥料名[灵植商店item.肥料Type];
         }
 
-        ObserverModuleManager.S.SendEvent("SendUIToast", "购买成功");
+        string 数量后缀 = 数量 > 1 ? $" X{数量}" : "";
+        ObserverModuleManager.S.SendEvent("SendUIToast", $"购买成功：{物品名}{数量后缀}");
     }
 }
