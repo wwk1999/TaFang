@@ -93,18 +93,38 @@ public class 灵植园界面 : MonoBehaviour
         });
     }
 
+    private readonly Dictionary<int, 土地item> 土地itemDic = new Dictionary<int, 土地item>();
+
     public void 刷新土地()
+    {
+        if (土地itemDic.Count != PlayerData.S.灵植土地列表.Count)
+        {
+            初始化土地();
+            return;
+        }
+
+        foreach (var item in 土地itemDic)
+        {
+            // 正在播放收获动画的土地不刷新，避免动画被隐藏
+            if (item.Value.收获动画.gameObject.activeSelf) continue;
+            item.Value.SetItem();
+        }
+    }
+
+    private void 初始化土地()
     {
         foreach (Transform item in 土地.transform)
         {
             Destroy(item.gameObject);
         }
+        土地itemDic.Clear();
 
         foreach (var item in PlayerData.S.灵植土地列表)
         {
             var 土地item = Instantiate(Resources.Load("Prefabs/Window/灵植园/土地item"),土地.transform).GetComponent<土地item>();
             土地item.index = item.Value.index;
             土地item.transform.localPosition = new Vector3(灵植园Config.植物位置Dic[item.Value.index].min,灵植园Config.植物位置Dic[item.Value.index].max,1);
+            土地itemDic[item.Value.index] = 土地item;
             土地item.SetItem();
         }
     }

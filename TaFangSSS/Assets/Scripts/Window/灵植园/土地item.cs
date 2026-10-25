@@ -59,8 +59,6 @@ public class 土地item : MonoBehaviour
          PlayerData.S.普通收获Dic[当前土地.灵植Type] += (int)产量;
          收获Image.sprite = ResourcesConfig.Get灵植收获Sprite(当前土地.灵植Type);
       }
-      收获动画.gameObject.SetActive(true);
-      收获动画.Play("收获",0,0);
       当前土地.灵植Type = 灵植Type.None;
       当前土地.植物成长阶段Type = 植物成长阶段Type.None;
       当前土地.变异 = false;
@@ -71,6 +69,17 @@ public class 土地item : MonoBehaviour
       当前土地.延时肥料 = QualityType.None;
       当前土地.异化肥料 = QualityType.None;
       SetItem();
+      收获动画.gameObject.SetActive(true);
+      收获动画.Play("收获",0,0);
+   }
+
+   private void Update()
+   {
+      // 收获动画播放完毕后自动隐藏，恢复该土地的正常刷新
+      if (收获动画.gameObject.activeSelf && 收获动画.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+      {
+         收获动画.gameObject.SetActive(false);
+      }
    }
    private void Start()
    {
