@@ -92,6 +92,27 @@ public class 土地数值
     public float 青石加成;
     public float 经验加成;
 }
+
+public class 灵植效果
+{
+    public float 战士伤害;
+    public float 射手伤害;
+    public float 控制伤害;
+    public float 法师伤害;
+    public float 黑暗伤害;
+    public float 火焰伤害;
+    public float 雷电伤害;
+    public float 物理伤害;
+    public float 冰霜伤害;
+    public float 职业伤害;
+    public float 元素伤害;
+    
+    public float 掉宝率;
+    public float 灵气增幅;
+    public float 功德增幅;
+    public float 跟脚倍数;
+    public float 真灵倍数;
+}
 public class 灵植园Config
 {
     /// <summary>每种灵植（普通/变异各自独立）最多可服用次数</summary>
