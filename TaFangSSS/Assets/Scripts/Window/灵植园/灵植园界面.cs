@@ -32,6 +32,7 @@ public class 灵植园界面 : MonoBehaviour
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("Set青石", Set青石);
+        ObserverModuleManager.S.RegisterEvent("刷新灵植园", 灵植生长刷新);
         种植Button.onClick.AddListener(() =>
         {
             HeroWindowController.S.重置选择状态();
@@ -84,6 +85,12 @@ public class 灵植园界面 : MonoBehaviour
     private void OnDestroy()
     {
         ObserverModuleManager.S.UnRegisterEvent("Set青石", Set青石);
+        ObserverModuleManager.S.UnRegisterEvent("刷新灵植园", 灵植生长刷新);
+    }
+
+    public void 灵植生长刷新(object[] obj)
+    {
+        刷新土地();
     }
 
     private void OnEnable()

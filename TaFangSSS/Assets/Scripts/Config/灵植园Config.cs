@@ -92,6 +92,54 @@ public class 灵植园Config
         { 肥料Type.异化 ,"异化肥"},
         { 肥料Type.延时 ,"延时肥"},
     };
+
+    public static Dictionary<QualityType, float> 提速肥料数值 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 10 },
+        { QualityType.玄品, 20 },
+        { QualityType.地品, 30 },
+        { QualityType.天品, 40 },
+        { QualityType.宇品, 50 },
+        { QualityType.宙品, 70 },
+        { QualityType.洪品, 100 },
+        { QualityType.荒品, 150 },
+    };
+    
+    public static Dictionary<QualityType, float> 增产肥料数值 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 5 },
+        { QualityType.玄品, 10 },
+        { QualityType.地品, 15 },
+        { QualityType.天品, 20 },
+        { QualityType.宇品, 30 },
+        { QualityType.宙品, 40 },
+        { QualityType.洪品, 60 },
+        { QualityType.荒品, 100 },
+    };
+    
+    public static Dictionary<QualityType, float> 异化肥料数值 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 5 },
+        { QualityType.玄品, 10 },
+        { QualityType.地品, 15 },
+        { QualityType.天品, 20 },
+        { QualityType.宇品, 30 },
+        { QualityType.宙品, 40 },
+        { QualityType.洪品, 60 },
+        { QualityType.荒品, 100 },
+    };
+    
+    public static Dictionary<QualityType, float> 延时肥料数值 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 0.3f },
+        { QualityType.玄品, 0.5f },
+        { QualityType.地品, 1 },
+        { QualityType.天品, 2 },
+        { QualityType.宇品, 4 },
+        { QualityType.宙品, 8 },
+        { QualityType.洪品, 15 },
+        { QualityType.荒品, 30 },
+    };
     public static Dictionary<灵植Type, string> 灵植名 = new Dictionary<灵植Type, string>()
     {
         { 灵植Type.紫云英, "紫云英" },

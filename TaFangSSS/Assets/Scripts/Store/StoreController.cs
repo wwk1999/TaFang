@@ -247,6 +247,38 @@ public class StoreController : XSingleton<StoreController>
         }
         ObserverModuleManager.S.SendEvent("灵兽孵化");
     }
+    public void 灵植生长()
+    {
+        foreach (var item in PlayerData.S.灵植土地列表)
+        {
+            var 土地 = item.Value;
+            if (土地.灵植Type == 灵植Type.None) continue;
+            if (土地.植物成长阶段Type == 植物成长阶段Type.成熟) continue;
+
+            土地.当前time += 1 / 属性config.每年秒数;
+            float 进度 = 土地.当前time / 土地.所需time;
+            if (进度 >= 1f)
+            {
+                土地.当前time = 土地.所需time;
+                土地.植物成长阶段Type = 植物成长阶段Type.成熟;
+                // 成熟瞬间 1% 几率异化
+                if (Random.Range(0, 100f) < 1f)
+                {
+                    土地.变异 = true;
+                }
+            }
+            else if (进度 >= 0.66f)
+            {
+                土地.植物成长阶段Type = 植物成长阶段Type.成长;
+            }
+            else if (进度 >= 0.33f)
+            {
+                土地.植物成长阶段Type = 植物成长阶段Type.幼苗;
+            }
+        }
+        ObserverModuleManager.S.SendEvent("刷新灵植园");
+    }
+
     public void 增加道场资源()
     {
         float 矿石速度 = 道场Config.Get矿石速度();
@@ -363,6 +395,7 @@ public class StoreController : XSingleton<StoreController>
             
             增加道场资源();
             灵兽孵化();
+            灵植生长();
         }
         if (CurrentTime >= StoreTime)
         {

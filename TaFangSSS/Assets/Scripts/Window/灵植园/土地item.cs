@@ -24,8 +24,35 @@ public class 土地item : MonoBehaviour
    public Image 增产;
    public Image 异化;
    public Image 延时;
+   public Animator 收获动画;
+   public TextMeshProUGUI 青石count;
+   public TextMeshProUGUI 收获count;
+   public TextMeshProUGUI 经验count;
+
+   public Image 收获Image;
    [NonSerialized] public int index;
 
+
+   public void 收获()
+   {
+      土地 当前土地 = PlayerData.S.灵植土地列表[index];
+      float 青石 = 灵植园Config.灵植收获青石Dic[当前土地.灵植Type];
+      float 经验 = 灵植园Config.灵植收获经验Dic[当前土地.灵植Type];
+      float 产量 = 灵植园Config.灵植产量Dic[当前土地.灵植Type];
+      青石count.text = 青石.ToString("F0");
+      收获count.text = 产量.ToString("F0");
+      经验count.text = 经验.ToString("F0");
+      if (当前土地.变异)
+      {
+         收获Image.sprite = ResourcesConfig.Get灵植变异收获Sprite(当前土地.灵植Type);
+      }
+      else
+      {
+         收获Image.sprite = ResourcesConfig.Get灵植收获Sprite(当前土地.灵植Type);
+      }
+      收获动画.gameObject.SetActive(true);
+      收获动画.Play("收获",0,0);
+   }
    private void Start()
    {
       土地Image.onClick.AddListener(() =>
@@ -138,6 +165,7 @@ public class 土地item : MonoBehaviour
 
    public void SetItem()
    {
+      收获动画.gameObject.SetActive(false);
       土地Image.image.alphaHitTestMinimumThreshold = 0.3f;
       土地 土地 = PlayerData.S.灵植土地列表[index];
       if (土地.土地Type == 土地Type.未解锁)
@@ -151,7 +179,7 @@ public class 土地item : MonoBehaviour
       {
          成熟icon.gameObject.SetActive(土地.植物成长阶段Type==植物成长阶段Type.成熟);
          进度条imamg.fillAmount = 土地.当前time / 土地.所需time;
-         进度Count.text = (土地.当前time / 土地.所需time * 100f).ToString("F1");
+         进度Count.text = (土地.当前time / 土地.所需time * 100f).ToString("F1")+"%";
          肥料List.SetActive(true);
          提速.gameObject.SetActive(土地.提速肥料!=QualityType.None);
          增产.gameObject.SetActive(土地.增产肥料!=QualityType.None);

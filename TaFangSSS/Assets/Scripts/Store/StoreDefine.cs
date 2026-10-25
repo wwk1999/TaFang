@@ -71,7 +71,7 @@ public class StoreDefine : XSingleton<StoreController>
             { 灵植Type.幻樱木, 0 },
             { 灵植Type.白玉莲, 0 },
         };
-        public static float 青石 = 0;
+        public float 青石 = 0;
         public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
         {
             { "提速_黄品", 0 },
