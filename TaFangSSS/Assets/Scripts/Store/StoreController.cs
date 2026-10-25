@@ -338,6 +338,14 @@ public class StoreController : XSingleton<StoreController>
         PlayerData.S.PropListDic[PropType.玄铁] += 玄铁速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.玉髓] += 玉髓速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.功德] += 功德速度 / 属性config.每年秒数;
+
+        // 灵植园每道年产出青石：按建筑等级取每道年青石数，每秒折算
+        int 灵植园等级 = PlayerData.S.建筑等级Dic[建筑Type.灵植园];
+        if (灵植园等级 > 0 && 道场Config.灵植园配置.ContainsKey(灵植园等级))
+        {
+            PlayerData.S.青石 += 道场Config.灵植园配置[灵植园等级].每道年青石数 / 属性config.每年秒数;
+            ObserverModuleManager.S.SendEvent("Set青石");
+        }
     }
 
     public void 增加灵兽道龄()
