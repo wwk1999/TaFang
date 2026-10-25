@@ -103,10 +103,11 @@ public class StoreController : XSingleton<StoreController>
                     // 注意：这里不要每次保存都打日志——3 秒一条，挂机一晚 1 万+ 条，
                     // 编辑器 Console 全量缓存，也是内存膨胀源
                 }
-                catch (System.Exception)
+                catch (System.Exception e)
                 {
                     // 后台序列化期间玩家买仙石/吃丹药等修改了集合，遍历会抛异常；
                     // 跳过本次即可：主档仍是上一次成功的，原子写保证不会有半截档，3 秒后自动重试
+                    Debug.LogWarning($"[存盘失败] 后台序列化异常: {e.Message}");
                 }
                 finally
                 {
@@ -114,8 +115,9 @@ public class StoreController : XSingleton<StoreController>
                 }
             });
         }
-        catch (System.Exception)
+        catch (System.Exception e)
         {
+            Debug.LogError($"[存盘失败] SaveStoreData 异常: {e}");
         }
     }
 
@@ -915,6 +917,7 @@ public class StoreController : XSingleton<StoreController>
         // 依次尝试：主档 → 备份档（.bak，断电/损坏时的救命稻草）→ 全新档
         if (TryLoad(SavePath))
         {
+            Debug.Log($"[读档] 主档加载成功: {SavePath}");
             // 读档成功后立即清掉主档/备份档可能带的只读属性：
             // 旧版本玩家手动拷入的存档常是只读，导致后续 File.Replace 全部失败、进度不保存。
             // 这里在加载阶段就自愈，玩家更新到新版本后启动一次即可恢复正常保存。
@@ -923,14 +926,17 @@ public class StoreController : XSingleton<StoreController>
             return;
         }
 
+        Debug.LogWarning($"[读档] 主档加载失败，尝试备份档: {BakPath}");
         if (TryLoad(BakPath))
         {
+            Debug.Log($"[读档] 备份档加载成功，写回主档");
             清除存档只读属性(BakPath);
             // 立即把恢复的数据写回主档，避免下次启动再次走备份
             SaveStoreData(StoreData);
             return;
         }
 
+        Debug.LogError($"[读档] 主档与备份档均加载失败，创建全新存档！主档存在={File.Exists(SavePath)}, 备份档存在={File.Exists(BakPath)}");
         StoreData = new StoreDefine.StoreData();
         StoreData.Player.CopyFromRuntime(PlayerData.S);
         SaveStoreData(StoreData);
@@ -998,8 +1004,10 @@ public class StoreController : XSingleton<StoreController>
             }
             return true;
         }
-        catch (Exception)
+        catch (Exception e)
         {
+            // 读档失败时打出异常与文件信息，定位是 JSON 结构问题还是某个字段反序列化报错
+            Debug.LogError($"[读档失败] path={path}, size={(File.Exists(path) ? new FileInfo(path).Length : -1)}字节, 异常={e}");
             return false;
         }
     }

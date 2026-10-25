@@ -3181,6 +3181,11 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     {
         var 次数Dic = 变异 ? 变异服用次数Dic : 普通服用次数Dic;
         var 收获Dic = 变异 ? 变异收获Dic : 普通收获Dic;
+        if (次数Dic == null || 收获Dic == null)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "数据异常");
+            return false;
+        }
 
         if (!次数Dic.TryGetValue(type, out int 已服用次数)) 已服用次数 = 0;
         if (已服用次数 >= 灵植园Config.最大服用次数)

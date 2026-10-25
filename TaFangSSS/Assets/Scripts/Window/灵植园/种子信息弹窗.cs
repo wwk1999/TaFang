@@ -77,9 +77,8 @@ public class 种子信息弹窗 : MonoBehaviour
         收获经验.text = 灵植园Config.灵植收获经验Dic[灵植Tyep].ToString("F0");
 
         // 服用次数（普通/变异各自独立计数）
-        int 已服用 = 是否变异
-            ? PlayerData.S.变异服用次数Dic[灵植Tyep]
-            : PlayerData.S.普通服用次数Dic[灵植Tyep];
+        var 次数Dic = 是否变异 ? PlayerData.S.变异服用次数Dic : PlayerData.S.普通服用次数Dic;
+        int 已服用 = 次数Dic != null && 次数Dic.TryGetValue(灵植Tyep, out int c) ? c : 0;
         服用次数.text = 已服用 + " / " + 灵植园Config.最大服用次数;
 
         // 服用效果：取该灵植的所有非零效果，按"名称 +X%"拼接展示
