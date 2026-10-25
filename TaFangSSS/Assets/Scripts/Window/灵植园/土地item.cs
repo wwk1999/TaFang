@@ -206,6 +206,14 @@ public class 土地item : MonoBehaviour
             return;
          }
 
+         // 没有选择种子/肥料/铲除时，点击土地打开土地属性与升级窗口
+         var 界面 = GetComponentInParent<灵植园界面>();
+         if (界面 != null && 界面.土地窗口 != null)
+         {
+            界面.土地窗口.打开(index);
+            return;
+         }
+
          ObserverModuleManager.S.SendEvent("SendUIToast", "请先选择种子或肥料");
       });
    }
