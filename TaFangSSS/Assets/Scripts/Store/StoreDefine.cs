@@ -71,6 +71,78 @@ public class StoreDefine : XSingleton<StoreController>
             { 灵植Type.幻樱木, 0 },
             { 灵植Type.白玉莲, 0 },
         };
+        public int 灵植园等级=1;
+        public float 灵植园经验=0;
+        public Dictionary<灵植Type, float> 普通收获Dic = new Dictionary<灵植Type, float>()
+        {
+            { 灵植Type.紫云英, 0 },
+            { 灵植Type.曜日葵, 0 },
+            { 灵植Type.幻音铃, 0 },
+            { 灵植Type.幻紫玫, 0 },
+            { 灵植Type.九幽紫, 0 },
+            { 灵植Type.赤焰百合, 0 },
+            { 灵植Type.碧海螺, 0 },
+            { 灵植Type.粉面佛莲, 0 },
+            { 灵植Type.紫幽草, 0 },
+            { 灵植Type.三生花, 0 },
+            { 灵植Type.向阳花, 0 },
+            { 灵植Type.白玉玲, 0 },
+            { 灵植Type.赤阳花, 0 },
+            { 灵植Type.寒星兰, 0 },
+            { 灵植Type.赤霞花, 0 },
+            { 灵植Type.惊雷子, 0 },
+            { 灵植Type.幽兰铃, 0 },
+            { 灵植Type.空谷幽兰, 0 },
+            { 灵植Type.醉仙球, 0 },
+            { 灵植Type.醉仙菌, 0 },
+            { 灵植Type.太素花, 0 },
+            { 灵植Type.灵犀铃, 0 },
+            { 灵植Type.血菩提, 0 },
+            { 灵植Type.紫晶铃, 0 },
+            { 灵植Type.招财草, 0 },
+            { 灵植Type.粉霞仙, 0 },
+            { 灵植Type.黄龙掌, 0 },
+            { 灵植Type.玄冰魄, 0 },
+            { 灵植Type.修罗花, 0 },
+            { 灵植Type.金乌葵, 0 },
+            { 灵植Type.幻樱木, 0 },
+            { 灵植Type.白玉莲, 0 },
+        };
+        public Dictionary<灵植Type, float> 变异收获Dic = new Dictionary<灵植Type, float>()
+        {
+            { 灵植Type.紫云英, 0 },
+            { 灵植Type.曜日葵, 0 },
+            { 灵植Type.幻音铃, 0 },
+            { 灵植Type.幻紫玫, 0 },
+            { 灵植Type.九幽紫, 0 },
+            { 灵植Type.赤焰百合, 0 },
+            { 灵植Type.碧海螺, 0 },
+            { 灵植Type.粉面佛莲, 0 },
+            { 灵植Type.紫幽草, 0 },
+            { 灵植Type.三生花, 0 },
+            { 灵植Type.向阳花, 0 },
+            { 灵植Type.白玉玲, 0 },
+            { 灵植Type.赤阳花, 0 },
+            { 灵植Type.寒星兰, 0 },
+            { 灵植Type.赤霞花, 0 },
+            { 灵植Type.惊雷子, 0 },
+            { 灵植Type.幽兰铃, 0 },
+            { 灵植Type.空谷幽兰, 0 },
+            { 灵植Type.醉仙球, 0 },
+            { 灵植Type.醉仙菌, 0 },
+            { 灵植Type.太素花, 0 },
+            { 灵植Type.灵犀铃, 0 },
+            { 灵植Type.血菩提, 0 },
+            { 灵植Type.紫晶铃, 0 },
+            { 灵植Type.招财草, 0 },
+            { 灵植Type.粉霞仙, 0 },
+            { 灵植Type.黄龙掌, 0 },
+            { 灵植Type.玄冰魄, 0 },
+            { 灵植Type.修罗花, 0 },
+            { 灵植Type.金乌葵, 0 },
+            { 灵植Type.幻樱木, 0 },
+            { 灵植Type.白玉莲, 0 },
+        };
         public float 青石 = 0;
         public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
         {
@@ -4231,8 +4303,12 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             孵化池列表 =runtime.孵化池列表;
             灵植土地列表 = runtime.灵植土地列表;
             种子Dic = runtime.种子Dic;
+            普通收获Dic = runtime.普通收获Dic;
+            变异收获Dic = runtime.变异收获Dic;
             肥料数量Dic = runtime.肥料数量Dic;
             青石 = runtime.青石;
+            灵植园等级=runtime.灵植园等级;
+            灵植园经验=runtime.灵植园经验;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -4404,8 +4480,12 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.灵兽分解血脉8 = 灵兽分解血脉8;
             runtime.孵化池列表 = 孵化池列表;
             runtime.种子Dic = 种子Dic;
+            runtime.普通收获Dic = 普通收获Dic;
+            runtime.变异收获Dic = 变异收获Dic;
             runtime.肥料数量Dic = 肥料数量Dic;
             runtime.青石 = 青石;
+            runtime.灵植园等级=灵植园等级;
+            runtime.灵植园经验=灵植园经验;
             
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None

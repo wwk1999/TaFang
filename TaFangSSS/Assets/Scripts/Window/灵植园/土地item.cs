@@ -42,16 +42,35 @@ public class 土地item : MonoBehaviour
       青石count.text = 青石.ToString("F0");
       收获count.text = 产量.ToString("F0");
       经验count.text = 经验.ToString("F0");
+      PlayerData.S.青石 += 青石;
+      PlayerData.S.灵植园经验 += 经验;
+      if (PlayerData.S.灵植园经验 >= 灵植园Config.灵植园等级经验[PlayerData.S.灵植园等级])
+      {
+         PlayerData.S.灵植园经验 -= 灵植园Config.灵植园等级经验[PlayerData.S.灵植园等级];
+         PlayerData.S.灵植园等级++;
+      }
       if (当前土地.变异)
       {
+         PlayerData.S.变异收获Dic[当前土地.灵植Type] += (int)产量;
          收获Image.sprite = ResourcesConfig.Get灵植变异收获Sprite(当前土地.灵植Type);
       }
       else
       {
+         PlayerData.S.普通收获Dic[当前土地.灵植Type] += (int)产量;
          收获Image.sprite = ResourcesConfig.Get灵植收获Sprite(当前土地.灵植Type);
       }
       收获动画.gameObject.SetActive(true);
       收获动画.Play("收获",0,0);
+      当前土地.灵植Type = 灵植Type.None;
+      当前土地.植物成长阶段Type = 植物成长阶段Type.None;
+      当前土地.变异 = false;
+      当前土地.当前time = 0;
+      当前土地.所需time = 9999999;
+      当前土地.提速肥料 = QualityType.None;
+      当前土地.增产肥料 = QualityType.None;
+      当前土地.延时肥料 = QualityType.None;
+      当前土地.异化肥料 = QualityType.None;
+      SetItem();
    }
    private void Start()
    {

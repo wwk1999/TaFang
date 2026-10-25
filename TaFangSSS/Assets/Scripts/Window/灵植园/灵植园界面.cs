@@ -17,7 +17,8 @@ public class 灵植园界面 : MonoBehaviour
     public Button 背包Button;
     public Button 铲除Button;
     public Button 商店Button;
-    
+    public Button 一键收获Button;
+
     public 种植窗口 种植窗口;
     public 肥料窗口 肥料窗口;
     public 灵植商店窗口 灵植商店窗口;
