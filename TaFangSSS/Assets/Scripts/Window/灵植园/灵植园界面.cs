@@ -47,6 +47,12 @@ public class 灵植园界面 : MonoBehaviour
             HeroWindowController.S.重置选择状态();
             灵植商店窗口.gameObject.SetActive(true);
         });
+        铲除Button.onClick.AddListener(() =>
+        {
+            HeroWindowController.S.重置选择状态();
+            HeroWindowController.S.是否铲除 = true;
+            HeroWindowController.设置光标(ResourcesConfig.铲除);
+        });
         退出按钮.onClick.AddListener(() =>
         {
             HeroWindowController.S.重置选择状态();

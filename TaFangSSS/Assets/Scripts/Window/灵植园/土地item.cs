@@ -38,6 +38,28 @@ public class 土地item : MonoBehaviour
          }
 
          var 当前选择灵植 = HeroWindowController.S.当前选择灵植;
+         if (HeroWindowController.S.是否铲除)
+         {
+            if (当前土地.灵植Type == 灵植Type.None)
+            {
+               ObserverModuleManager.S.SendEvent("SendUIToast", "这块土地没有植物");
+               return;
+            }
+
+            当前土地.灵植Type = 灵植Type.None;
+            当前土地.植物成长阶段Type = 植物成长阶段Type.播种;
+            当前土地.当前time = 0;
+            当前土地.所需time = 0;
+            当前土地.变异 = false;
+            当前土地.提速肥料 = QualityType.None;
+            当前土地.增产肥料 = QualityType.None;
+            当前土地.异化肥料 = QualityType.None;
+            当前土地.延时肥料 = QualityType.None;
+            ObserverModuleManager.S.SendEvent("SendUIToast", "铲除成功");
+            GetComponentInParent<灵植园界面>().刷新土地();
+            return;
+         }
+
          if (当前选择灵植 != 灵植Type.None)
          {
             if (当前土地.灵植Type != 灵植Type.None)

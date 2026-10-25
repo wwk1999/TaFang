@@ -19,6 +19,7 @@ public class 种植item : MonoBehaviour
         bg.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前选择灵植 = 灵植Tyep;
+            HeroWindowController.S.是否铲除 = false;
             HeroWindowController.设置光标(icon.sprite);
             GetComponentInParent<种植窗口>()?.gameObject.SetActive(false);
         });

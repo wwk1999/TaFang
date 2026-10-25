@@ -151,6 +151,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
         当前选择肥料 = 肥料Type.None;
         当前选择肥料品质 = QualityType.None;
         当前选择灵植 = 灵植Type.None;
+        是否铲除 = false;
         设置光标(null);
     }
 
@@ -158,7 +159,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (当前选择肥料 == 肥料Type.None && 当前选择灵植 == 灵植Type.None) return;
+            if (当前选择肥料 == 肥料Type.None && 当前选择灵植 == 灵植Type.None&&是否铲除 == false) return;
             重置选择状态();
         }
     }

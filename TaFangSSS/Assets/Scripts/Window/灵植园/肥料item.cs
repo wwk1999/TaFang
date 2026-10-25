@@ -21,6 +21,7 @@ public class 肥料item : MonoBehaviour
         {
             HeroWindowController.S.当前选择肥料 = 肥料Tyep;
             HeroWindowController.S.当前选择肥料品质 = QualityType;
+            HeroWindowController.S.是否铲除 = false;
             HeroWindowController.设置光标(icon.sprite);
             GetComponentInParent<肥料窗口>()?.gameObject.SetActive(false);
         });
