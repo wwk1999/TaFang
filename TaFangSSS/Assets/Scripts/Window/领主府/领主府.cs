@@ -211,6 +211,19 @@ public class 领主府 : MonoBehaviour
                break;
             
             
+            case 建筑Type.灵植园:
+               if (!道场Config.灵植园配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 2))
+               {
+                  ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
+                  return;
+               }
+               需要灵气 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要灵气;
+               需要矿石 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要矿石;
+               需要玄铁 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要玄铁;
+               需要玉髓 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要玉髓;
+               break;
+            
+            
             case 建筑Type.坊市:
                if (!道场Config.坊市配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]+2))
                {
@@ -265,6 +278,10 @@ public class 领主府 : MonoBehaviour
          if (HeroWindowController.S.当前显示建筑Type == 建筑Type.灵兽坊)
          {
             PlayerData.S.孵化池列表.Add(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type],new 孵化池(){index=PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]});
+         }
+         if (HeroWindowController.S.当前显示建筑Type == 建筑Type.灵植园)
+         {
+            灵植园Config.同步土地解锁();
          }
          ObserverModuleManager.S.SendEvent("SendUIToast","升级建筑成功");
          ObserverModuleManager.S.SendEvent("刷新领主府");
@@ -532,6 +549,12 @@ public class 领主府 : MonoBehaviour
                添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
+         case 建筑Type.灵植园:
+            {
+               var 配置 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
          case 建筑Type.坊市:
             {
                var 配置 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]];
@@ -693,6 +716,44 @@ public class 领主府 : MonoBehaviour
             孵化池数量1.info = "孵化池数量";
             孵化池数量1.SetItem();
 
+            break;
+         
+         case 建筑Type.灵植园:
+            var 当前土地个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前土地个数.info = "已解锁土地个数";
+            当前土地个数.count = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].土地个数.ToString();
+            当前土地个数.SetItem();
+
+            var 升级土地个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级土地个数.info = "已解锁土地个数";
+            升级土地个数.count = 道场Config.灵植园配置[1+PlayerData.S.建筑等级Dic[建筑Type.灵植园]].土地个数.ToString();
+            升级土地个数.SetItem();
+
+            var 当前土地最高等级 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前土地最高等级.info = "可开辟土地品阶";
+            当前土地最高等级.count = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].土地最高等级.ToString();
+            当前土地最高等级.SetItem();
+
+            var 升级土地最高等级 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级土地最高等级.info = "可开辟土地品阶";
+            升级土地最高等级.count = 道场Config.灵植园配置[1+PlayerData.S.建筑等级Dic[建筑Type.灵植园]].土地最高等级.ToString();
+            升级土地最高等级.SetItem();
+
+            var 当前每道年青石数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前每道年青石数.info = "每道年青石产出";
+            当前每道年青石数.count = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].每道年青石数.ToString();
+            当前每道年青石数.SetItem();
+
+            var 升级每道年青石数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级每道年青石数.info = "每道年青石产出";
+            升级每道年青石数.count = 道场Config.灵植园配置[1+PlayerData.S.建筑等级Dic[建筑Type.灵植园]].每道年青石数.ToString();
+            升级每道年青石数.SetItem();
             break;
          
          case 建筑Type.坊市:

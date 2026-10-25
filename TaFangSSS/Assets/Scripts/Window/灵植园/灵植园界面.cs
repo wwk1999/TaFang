@@ -142,6 +142,7 @@ public class 灵植园界面 : MonoBehaviour
 
     private void OnEnable()
     {
+        灵植园Config.同步土地解锁();
         Set青石(null);
         刷新土地();
     }

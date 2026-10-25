@@ -487,6 +487,7 @@ public static Sprite 白玉莲变异收获;
     public static Sprite 道场聚贤阁;
     public static Sprite 道场仙女阁;
     public static Sprite 道场灵兽坊;
+    public static Sprite 道场灵植园;
 
     
     public static Sprite 红按钮;
@@ -7673,6 +7674,8 @@ public static Sprite 白玉莲变异收获;
                 return 道场聚贤阁;
             case 建筑Type.灵兽坊:
                 return 道场灵兽坊;
+            case 建筑Type.灵植园:
+                return 道场灵植园;
             case 建筑Type.仙女阁:
                 return 道场仙女阁;
             case 建筑Type.地脉:
@@ -8813,6 +8816,7 @@ public static Sprite Get土地亮Sprite(土地Type 土地Type)
         道场聚贤阁=Resources.Load<Sprite>("Sprite/道场/聚贤阁");
         道场仙女阁=Resources.Load<Sprite>("Sprite/道场/仙女阁");
         道场灵兽坊=Resources.Load<Sprite>("Sprite/道场/灵兽坊");
+        道场灵植园=Resources.Load<Sprite>("Sprite/道场/灵植园");
         道场功德碑=Resources.Load<Sprite>("Sprite/道场/功德碑");
         道场地脉=Resources.Load<Sprite>("Sprite/道场/地脉");
         道场领主府=Resources.Load<Sprite>("Sprite/道场/领主府");

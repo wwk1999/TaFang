@@ -719,4 +719,22 @@ public class 灵植园Config
         {19,new minmax(){min = 500,max = -159}},
         {20,new minmax(){min = 658,max = -79}},
     };
+
+    /// <summary>
+    /// 按领主府「灵植园」建筑等级同步土地解锁：每级解锁一块土地
+    /// </summary>
+    public static void 同步土地解锁()
+    {
+        int 等级 = PlayerData.S.建筑等级Dic[建筑Type.灵植园];
+        if (!道场Config.灵植园配置.ContainsKey(等级)) return;
+        int 土地个数 = 道场Config.灵植园配置[等级].土地个数;
+        foreach (var item in PlayerData.S.灵植土地列表)
+        {
+            if (item.Value.index > 土地个数) continue;
+            if (item.Value.土地Type == 土地Type.未解锁)
+            {
+                item.Value.土地Type = 土地Type.普通土地;
+            }
+        }
+    }
 }
