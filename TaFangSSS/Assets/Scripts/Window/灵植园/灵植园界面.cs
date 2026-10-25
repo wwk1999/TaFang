@@ -55,6 +55,32 @@ public class 灵植园界面 : MonoBehaviour
             HeroWindowController.S.是否铲除 = true;
             HeroWindowController.设置光标(ResourcesConfig.铲除);
         });
+        一键收获Button.onClick.AddListener(() =>
+        {
+            HeroWindowController.S.重置选择状态();
+
+            bool 有收获 = false;
+            foreach (Transform item in 土地.transform)
+            {
+                var 土地item = item.GetComponent<土地item>();
+                if (土地item == null) continue;
+
+                var 数据 = PlayerData.S.灵植土地列表[土地item.index];
+                if (数据.灵植Type == 灵植Type.None) continue;
+                if (数据.植物成长阶段Type != 植物成长阶段Type.成熟) continue;
+
+                土地item.收获();
+                有收获 = true;
+            }
+
+            if (!有收获)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast", "没有可收获的灵植");
+                return;
+            }
+
+            ObserverModuleManager.S.SendEvent("Set青石");
+        });
         退出按钮.onClick.AddListener(() =>
         {
             HeroWindowController.S.重置选择状态();
