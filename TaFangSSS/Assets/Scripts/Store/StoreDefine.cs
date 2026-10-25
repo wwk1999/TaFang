@@ -143,6 +143,8 @@ public class StoreDefine : XSingleton<StoreController>
             { 灵植Type.幻樱木, 0 },
             { 灵植Type.白玉莲, 0 },
         };
+        public Dictionary<灵植Type, int> 普通服用次数Dic = 灵植园Config.创建服用次数Dic();
+        public Dictionary<灵植Type, int> 变异服用次数Dic = 灵植园Config.创建服用次数Dic();
         public float 青石 = 0;
         public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
         {
@@ -4305,6 +4307,8 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             种子Dic = runtime.种子Dic;
             普通收获Dic = runtime.普通收获Dic;
             变异收获Dic = runtime.变异收获Dic;
+            普通服用次数Dic = runtime.普通服用次数Dic;
+            变异服用次数Dic = runtime.变异服用次数Dic;
             肥料数量Dic = runtime.肥料数量Dic;
             青石 = runtime.青石;
             灵植园等级=runtime.灵植园等级;
@@ -4482,6 +4486,8 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.种子Dic = 种子Dic;
             runtime.普通收获Dic = 普通收获Dic;
             runtime.变异收获Dic = 变异收获Dic;
+            runtime.普通服用次数Dic = 普通服用次数Dic;
+            runtime.变异服用次数Dic = 变异服用次数Dic;
             runtime.肥料数量Dic = 肥料数量Dic;
             runtime.青石 = 青石;
             runtime.灵植园等级=灵植园等级;

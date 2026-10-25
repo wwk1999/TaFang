@@ -94,6 +94,23 @@ public class 土地数值
 }
 public class 灵植园Config
 {
+    /// <summary>每种灵植（普通/变异各自独立）最多可服用次数</summary>
+    public const int 最大服用次数 = 100;
+
+    /// <summary>
+    /// 创建全灵植类型的服用次数记录字典（普通/变异各自一份）
+    /// </summary>
+    public static Dictionary<灵植Type, int> 创建服用次数Dic()
+    {
+        var dic = new Dictionary<灵植Type, int>();
+        foreach (灵植Type t in System.Enum.GetValues(typeof(灵植Type)))
+        {
+            if (t == 灵植Type.None) continue;
+            dic[t] = 0;
+        }
+        return dic;
+    }
+
     public static Dictionary<土地Type, 土地数值> 土地数值 = new Dictionary<土地Type, 土地数值>()
     {
         { 土地Type.普通土地, new 土地数值() { 速度 = 0, 增产 = 0, 异化 = 0, 青石加成 = 0, 经验加成 = 0 } },

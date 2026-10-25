@@ -2502,6 +2502,9 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         { 灵植Type.白玉莲, 0 },
     };
 
+    public Dictionary<灵植Type, int> 普通服用次数Dic = 灵植园Config.创建服用次数Dic();
+    public Dictionary<灵植Type, int> 变异服用次数Dic = 灵植园Config.创建服用次数Dic();
+
     public int 灵植园等级=1;
     public float 灵植园经验=0;
     public Dictionary<string, int> 肥料数量Dic = new Dictionary<string, int>()
@@ -3168,6 +3171,33 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
         }
     
         return 0;
+    }
+
+    /// <summary>
+    /// 服用一份灵植收获物。普通/变异分别计数，每种最多服用 灵植园Config.最大服用次数 次。
+    /// 返回是否服用成功（扣除 1 个收获物 + 对应服用次数 +1）。
+    /// </summary>
+    public bool 服用灵植(灵植Type type, bool 变异)
+    {
+        var 次数Dic = 变异 ? 变异服用次数Dic : 普通服用次数Dic;
+        var 收获Dic = 变异 ? 变异收获Dic : 普通收获Dic;
+
+        if (!次数Dic.TryGetValue(type, out int 已服用次数)) 已服用次数 = 0;
+        if (已服用次数 >= 灵植园Config.最大服用次数)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "已达最大服用次数");
+            return false;
+        }
+
+        if (!收获Dic.TryGetValue(type, out float 数量) || 数量 <= 0)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "数量不足");
+            return false;
+        }
+
+        收获Dic[type] = 数量 - 1;
+        次数Dic[type] = 已服用次数 + 1;
+        return true;
     }
     
     public bool Get坊市丹药自动购买(丹药Type type, QualityType qualityType)
