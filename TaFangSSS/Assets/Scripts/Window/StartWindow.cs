@@ -89,7 +89,8 @@ public class StartWindow : MonoBehaviour
          {
             GameObject obj=Instantiate(Resources.Load("Prefabs/Window/设置界面"),canvas.transform)as GameObject;
             obj.transform.SetAsLastSibling();
-            WindowController.强制刷新画布排序(obj);
+            // 注意：开始场景没有 WindowController，不能调用会触发 WindowController.S 单例创建的接口，
+            // 否则会把 MainWindow 提前实例化显示在开始界面上。
          }
       );
       退出Btn.onClick.AddListener(() =>

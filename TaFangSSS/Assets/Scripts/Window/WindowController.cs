@@ -27,7 +27,9 @@ public class WindowController : XSingleton<WindowController>
    public void Init()
    {
       MainWindow=Instantiate(Resources.Load<GameObject>("Prefabs/Window/MainWindow"));
-      MainWindow.SetActive(true);
+      // 仅在主场景（UIScene）默认显示主界面；开始界面等其它场景若意外触发单例创建，
+      // 不自动弹出主界面 HUD，避免覆盖开始界面。
+      MainWindow.SetActive(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "UIScene");
    }
 
    /// <summary>
