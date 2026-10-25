@@ -26,6 +26,23 @@ public class 灵植背包item : MonoBehaviour
     [NonSerialized] public QualityType QualityType;
     [NonSerialized] public bool 是否变异;
 
+    private void Start()
+    {
+        bg.onClick.AddListener(() =>
+        {
+            // 种子 / 作物点击弹出信息弹窗；肥料暂无信息弹窗
+            if (物品类型 == 灵植背包物品Type.肥料) return;
+
+            var 界面 = GetComponentInParent<灵植园界面>();
+            if (界面 == null || 界面.种子信息弹窗 == null) return;
+
+            界面.种子信息弹窗.打开(
+                灵植Tyep,
+                是否变异,
+                物品类型 == 灵植背包物品Type.种子);
+        });
+    }
+
     public void SetItem()
     {
         switch (物品类型)

@@ -24,6 +24,7 @@ public class 灵植园界面 : MonoBehaviour
     public 灵植商店窗口 灵植商店窗口;
     public 灵植背包窗口 灵植背包窗口;
     public 土地窗口 土地窗口;
+    public 种子信息弹窗 种子信息弹窗;
 
 
     public void Set青石(object[] obj)
@@ -151,6 +152,7 @@ public class 灵植园界面 : MonoBehaviour
     {
         灵植园Config.同步土地解锁();
         if (土地窗口 != null) 土地窗口.gameObject.SetActive(false);
+        if (种子信息弹窗 != null) 种子信息弹窗.gameObject.SetActive(false);
         Set青石(null);
         刷新土地();
     }
