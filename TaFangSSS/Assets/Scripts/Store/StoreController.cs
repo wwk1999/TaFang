@@ -33,6 +33,13 @@ public class StoreController : XSingleton<StoreController>
     {
         try
         {
+            // 先检查是否有后台落盘在进行：忙则跳过本次序列化，
+            // 避免主线程白白卡几百毫秒又丢弃结果
+            if (Interlocked.CompareExchange(ref 正在后台保存, 1, 0) != 0)
+            {
+                return;
+            }
+
             StoreData = data ?? StoreData ?? new StoreDefine.StoreData();
             StoreData.Player.CopyFromRuntime(PlayerData.S);
             var settings = new JsonSerializerSettings
@@ -41,50 +48,51 @@ public class StoreController : XSingleton<StoreController>
                 Formatting = Newtonsoft.Json.Formatting.None,
                 Converters = { new BigDoubleJsonConverter() }
             };
-            var snapshot = StoreData; // 捕获局部引用，防止下次保存重建 StoreData 后闭包取错对象
 
-            // 路径必须在主线程解析成局部变量：SavePath 等是属性，每次访问都会
-            // 触发 Application.persistentDataPath——它只允许主线程访问，
-            // 后台线程一碰就抛 UnityException，导致每次保存都被跳过
+            // 序列化必须在主线程完成：CopyFromRuntime 里所有字典/列表都是共享引用，
+            // 后台序列化时主线程若修改集合（购买/收获/服用）会抛 Collection was modified，
+            // 被 catch 静默吞掉 → 存盘失败 → 退出后进度丢失。
+            // 改为主线程序列化到 MemoryStream，后台只负责落盘，彻底避免并发修改。
+            byte[] jsonBytes;
+            using (var ms = new System.IO.MemoryStream())
+            using (var streamWriter = new StreamWriter(ms))
+            using (var jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                var serializer = JsonSerializer.Create(settings);
+                serializer.Serialize(jsonWriter, StoreData);
+                jsonWriter.Flush();
+                streamWriter.Flush();
+                jsonBytes = ms.ToArray();
+            }
+
+            // 序列化结果为空（异常或数据全空）则不落盘，避免用空文件覆盖正常存档
+            if (jsonBytes == null || jsonBytes.Length == 0)
+            {
+                Debug.LogError("[存盘失败] 序列化结果为空，跳过落盘");
+                Volatile.Write(ref 正在后台保存, 0);
+                return;
+            }
+
             var savePath = SavePath;
             var tmpPath = TmpPath;
             var bakPath = BakPath;
 
-            // 上一次后台保存还没落盘就跳过本次：自动保存 3 秒一次，
-            // 跳过一次无感，下一次保存的本来就是更新的数据
-            if (Interlocked.CompareExchange(ref 正在后台保存, 1, 0) != 0)
-            {
-                return;
-            }
-
-            // 序列化 + 落盘是耗时大头（仙石几万颗时主线程要卡几百毫秒），
-            // 挪到后台线程；主线程只剩 CopyFromRuntime 引用快照，毫秒级
             Task.Run(() =>
             {
                 try
                 {
-                    // 流式写入：不再先把存档序列化成一个 2.8MB+ 的大字符串。
-                    // 旧写法 SerializeObject 每次分配 存档字符串 + PreserveReferences
-                    // 元数据字典 + StringBuilder 扩容缓冲，单次 10~20MB，
-                    // 每 3 秒一次；Mono 的 Boehm GC 不压缩堆、空闲内存不归还 OS，
-                    // 挂机一晚堆就碎片化膨胀到 GB 级。
-                    // JsonTextWriter 直接写文件流：输出与 SerializeObject 逐字节一致
-                    var serializer = JsonSerializer.Create(settings);
-                    using (var fs = new FileStream(tmpPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (var streamWriter = new StreamWriter(fs))
-                    using (var jsonWriter = new JsonTextWriter(streamWriter))
+                    File.WriteAllBytes(tmpPath, jsonBytes);
+
+                    // 落盘校验：临时文件大小必须 > 0，否则不替换主档，防止空文件覆盖正常存档
+                    var tmpInfo = new FileInfo(tmpPath);
+                    if (tmpInfo.Length == 0)
                     {
-                        serializer.Serialize(jsonWriter, snapshot);
-                        jsonWriter.Flush();
-                        streamWriter.Flush();
-                        fs.Flush(true); // 刷到磁盘，防止断电丢 OS 缓冲
+                        Debug.LogError("[存盘失败] 临时文件为空，跳过替换主档");
+                        return;
                     }
+
                     if (File.Exists(savePath))
                     {
-                        // 玩家换电脑手动拷入的存档常带只读属性（从 U 盘/云端/邮件来的文件），
-                        // File.Replace 不会自动清除只读位，会抛 UnauthorizedAccessException 被静默吞掉，
-                        // 导致每 30 秒的自动保存全部失败、退出后进度回退到导入时的状态。
-                        // 这里先把主档和备份档的属性重置为 Normal，保证写入能成功。
                         if ((File.GetAttributes(savePath) & FileAttributes.ReadOnly) != 0)
                         {
                             File.SetAttributes(savePath, FileAttributes.Normal);
@@ -93,21 +101,26 @@ public class StoreController : XSingleton<StoreController>
                         {
                             File.SetAttributes(bakPath, FileAttributes.Normal);
                         }
-                        File.Replace(tmpPath, savePath, bakPath, true);
+                        try
+                        {
+                            File.Replace(tmpPath, savePath, bakPath, true);
+                        }
+                        catch (System.Exception replaceEx)
+                        {
+                            // File.Replace 在杀毒/云盘锁文件时可能失败；退化为 Copy 覆盖，
+                            // 确保主档至少被更新（备份可能不更新，但主档是最新的）
+                            Debug.LogWarning($"[存盘] File.Replace 失败，退化为 Copy 覆盖: {replaceEx.Message}");
+                            File.Copy(tmpPath, savePath, true);
+                        }
                     }
                     else
                     {
                         File.Move(tmpPath, savePath);
                     }
-
-                    // 注意：这里不要每次保存都打日志——3 秒一条，挂机一晚 1 万+ 条，
-                    // 编辑器 Console 全量缓存，也是内存膨胀源
                 }
                 catch (System.Exception e)
                 {
-                    // 后台序列化期间玩家买仙石/吃丹药等修改了集合，遍历会抛异常；
-                    // 跳过本次即可：主档仍是上一次成功的，原子写保证不会有半截档，3 秒后自动重试
-                    Debug.LogWarning($"[存盘失败] 后台序列化异常: {e.Message}");
+                    Debug.LogWarning($"[存盘失败] 后台落盘异常: {e.Message}");
                 }
                 finally
                 {
@@ -117,6 +130,7 @@ public class StoreController : XSingleton<StoreController>
         }
         catch (System.Exception e)
         {
+            Volatile.Write(ref 正在后台保存, 0);
             Debug.LogError($"[存盘失败] SaveStoreData 异常: {e}");
         }
     }
@@ -155,10 +169,83 @@ public class StoreController : XSingleton<StoreController>
 
     private void OnApplicationQuit()
     {
-        // 退出前主动保存一次，避免两次自动保存（30s）之间的进度丢失；
-        // 同时这一次保存也会清掉导入存档可能带的只读属性，确保落盘成功。
-        SaveStoreData();
-        等待后台保存完成();
+        // 退出前同步存盘一次，确保最后进度落盘。
+        // 直接走同步落盘（不走后台 Task.Run），避免进程被杀时后台任务来不及写完。
+        try
+        {
+            // 关键：用 G() 而非 S()。XSingleton 在 Editor 的 OnApplicationQuit 里
+            // 会 DestroyImmediate 单例，若 PlayerData 已被销毁，S() 会自动 new 一个
+            // 全默认值的 PlayerData，把默认值写进存档 → 下次进游戏进度从 0 开始。
+            // G() 不自动创建，已销毁则返回 null，此时沿用 StoreData 里上一次定时存盘的快照。
+            var playerData = PlayerData.G();
+            if (playerData != null)
+            {
+                StoreData = StoreData ?? new StoreDefine.StoreData();
+                StoreData.Player.CopyFromRuntime(playerData);
+            }
+            else if (StoreData == null)
+            {
+                // 既没有 PlayerData 也没有 StoreData，无法存盘
+                Debug.LogWarning("[退出存盘] PlayerData 与 StoreData 均为空，跳过存盘");
+                return;
+            }
+
+            var settings = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                Formatting = Newtonsoft.Json.Formatting.None,
+                Converters = { new BigDoubleJsonConverter() }
+            };
+            byte[] jsonBytes;
+            using (var ms = new System.IO.MemoryStream())
+            using (var streamWriter = new StreamWriter(ms))
+            using (var jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                var serializer = JsonSerializer.Create(settings);
+                serializer.Serialize(jsonWriter, StoreData);
+                jsonWriter.Flush();
+                streamWriter.Flush();
+                jsonBytes = ms.ToArray();
+            }
+            if (jsonBytes == null || jsonBytes.Length == 0)
+            {
+                Debug.LogError("[退出存盘] 序列化结果为空，跳过");
+                return;
+            }
+            var savePath = SavePath;
+            var tmpPath = TmpPath;
+            var bakPath = BakPath;
+            File.WriteAllBytes(tmpPath, jsonBytes);
+            if (new FileInfo(tmpPath).Length == 0)
+            {
+                Debug.LogError("[退出存盘] 临时文件为空，跳过替换");
+                return;
+            }
+            if (File.Exists(savePath))
+            {
+                if ((File.GetAttributes(savePath) & FileAttributes.ReadOnly) != 0)
+                    File.SetAttributes(savePath, FileAttributes.Normal);
+                if (File.Exists(bakPath) && (File.GetAttributes(bakPath) & FileAttributes.ReadOnly) != 0)
+                    File.SetAttributes(bakPath, FileAttributes.Normal);
+                try
+                {
+                    File.Replace(tmpPath, savePath, bakPath, true);
+                }
+                catch (System.Exception replaceEx)
+                {
+                    Debug.LogWarning($"[退出存盘] File.Replace 失败，退化为 Copy: {replaceEx.Message}");
+                    File.Copy(tmpPath, savePath, true);
+                }
+            }
+            else
+            {
+                File.Move(tmpPath, savePath);
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"[退出存盘失败] {e}");
+        }
     }
 
     /// <summary>

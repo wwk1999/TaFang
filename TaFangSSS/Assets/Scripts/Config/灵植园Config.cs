@@ -123,7 +123,7 @@ public class 灵植效果
 }
 public class 灵植园Config
 {
-    
+    public static float 变异倍数 = 30;
     public static Dictionary<灵植Type, 灵植效果> 灵植效果 = new Dictionary<灵植Type, 灵植效果>()
     {
         { 灵植Type.紫云英, new 灵植效果(){战士伤害=1} },
@@ -388,6 +388,49 @@ public class 灵植园Config
         { 灵植Type.白玉莲, 100 },
     };
 
+    public static Dictionary<灵植Type, float> 灵植好感度Dic = new Dictionary<灵植Type, float>()
+    {
+        { 灵植Type.紫云英, 10 },
+        { 灵植Type.曜日葵, 12f },
+        { 灵植Type.幻音铃, 15f },
+        { 灵植Type.幻紫玫, 20f },
+        
+        { 灵植Type.九幽紫, 30f },
+        { 灵植Type.赤焰百合, 40f },
+        { 灵植Type.碧海螺, 50f },
+        { 灵植Type.粉面佛莲, 60f },
+        { 灵植Type.紫幽草, 60f },
+        
+        { 灵植Type.三生花, 80f },
+        { 灵植Type.向阳花, 100f },
+        { 灵植Type.白玉玲, 120f },
+        { 灵植Type.赤阳花, 150f },
+        { 灵植Type.寒星兰, 130f },
+        
+        { 灵植Type.赤霞花, 170f },
+        { 灵植Type.惊雷子, 200f },
+        { 灵植Type.幽兰铃, 250f },
+        { 灵植Type.空谷幽兰, 300f },
+        
+        { 灵植Type.醉仙球, 350f },
+        { 灵植Type.醉仙菌, 400f },
+        { 灵植Type.太素花, 500f },
+        { 灵植Type.灵犀铃, 600f },
+        { 灵植Type.血菩提, 700f },
+        
+        { 灵植Type.紫晶铃, 800f },
+        { 灵植Type.招财草, 800f },
+        { 灵植Type.粉霞仙, 1000f },
+        { 灵植Type.黄龙掌, 1200f },
+        { 灵植Type.玄冰魄, 1400f },
+        
+        { 灵植Type.修罗花, 1500f },
+        { 灵植Type.金乌葵, 2000f },
+        { 灵植Type.幻樱木, 2500f },
+        
+        { 灵植Type.白玉莲, 5000f },
+    };
+    
     public static Dictionary<灵植Type, float> 灵植成熟时间Dic = new Dictionary<灵植Type, float>()
     {
         { 灵植Type.紫云英, 1 },
