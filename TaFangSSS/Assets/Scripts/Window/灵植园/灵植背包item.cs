@@ -48,6 +48,7 @@ public class 灵植背包item : MonoBehaviour
         icon.sprite = ResourcesConfig.Get灵植种子Sprite(灵植Tyep);
         name.text = 灵植园Config.灵植名[灵植Tyep];
         count.text = PlayerData.S.格式化数字(PlayerData.S.种子Dic[灵植Tyep]);
+        icon.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     private void Set肥料()
@@ -56,6 +57,7 @@ public class 灵植背包item : MonoBehaviour
         icon.sprite = ResourcesConfig.Get肥料Icon(肥料Tyep, QualityType);
         name.text = 灵植园Config.肥料名[肥料Tyep];
         count.text = PlayerData.S.格式化数字(PlayerData.S.Get肥料数量(肥料Tyep, QualityType));
+        icon.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
     }
 
     private void Set作物()
@@ -71,5 +73,6 @@ public class 灵植背包item : MonoBehaviour
             ? PlayerData.S.变异收获Dic[灵植Tyep]
             : PlayerData.S.普通收获Dic[灵植Tyep];
         count.text = PlayerData.S.格式化数字(数量);
+        icon.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
     }
 }

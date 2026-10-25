@@ -22,6 +22,7 @@ public class 灵植园界面 : MonoBehaviour
     public 种植窗口 种植窗口;
     public 肥料窗口 肥料窗口;
     public 灵植商店窗口 灵植商店窗口;
+    public 灵植背包窗口 灵植背包窗口;
 
 
     public void Set青石(object[] obj)
@@ -48,6 +49,11 @@ public class 灵植园界面 : MonoBehaviour
         {
             HeroWindowController.S.重置选择状态();
             灵植商店窗口.gameObject.SetActive(true);
+        });
+        背包Button.onClick.AddListener(() =>
+        {
+            HeroWindowController.S.重置选择状态();
+            灵植背包窗口.gameObject.SetActive(true);
         });
         铲除Button.onClick.AddListener(() =>
         {
