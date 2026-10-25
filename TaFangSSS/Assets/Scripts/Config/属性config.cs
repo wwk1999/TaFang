@@ -124,6 +124,54 @@ public class 属性config
      }
      
 
+     /// <summary>
+     /// 灵植服用效果汇总：所有灵植叠加（普通次数×单次效果 + 变异次数×单次效果×变异倍数），
+     /// 单位均为百分比（如 10 表示 +10%）。与其他模块的相同属性为独立乘区（相乘）。
+     /// </summary>
+     public class 灵植属性
+     {
+          private static float 汇总(Func<灵植效果, float> 取值)
+          {
+               float total = 0;
+               foreach (var kv in 灵植园Config.灵植效果)
+               {
+                    float 单次 = 取值(kv.Value);
+                    if (单次 == 0f) continue;
+                    int 普通次数 = PlayerData.S.普通服用次数Dic != null && PlayerData.S.普通服用次数Dic.TryGetValue(kv.Key, out int c1) ? c1 : 0;
+                    int 变异次数 = PlayerData.S.变异服用次数Dic != null && PlayerData.S.变异服用次数Dic.TryGetValue(kv.Key, out int c2) ? c2 : 0;
+                    total += 单次 * (普通次数 + 变异次数 * 灵植园Config.变异倍数);
+               }
+               return total;
+          }
+
+          public float 城墙生命值 => 汇总(e => e.城墙生命值);
+          public float 城墙防御 => 汇总(e => e.城墙防御);
+          public float 暴击率 => 汇总(e => e.暴击率);
+          public float 暴击伤害 => 汇总(e => e.暴击伤害);
+          public float 最终伤害 => 汇总(e => e.最终伤害);
+          public float 战士伤害 => 汇总(e => e.战士伤害);
+          public float 射手伤害 => 汇总(e => e.射手伤害);
+          public float 控制伤害 => 汇总(e => e.控制伤害);
+          public float 法师伤害 => 汇总(e => e.法师伤害);
+          public float 黑暗伤害 => 汇总(e => e.黑暗伤害);
+          public float 火焰伤害 => 汇总(e => e.火焰伤害);
+          public float 雷电伤害 => 汇总(e => e.雷电伤害);
+          public float 物理伤害 => 汇总(e => e.物理伤害);
+          public float 冰霜伤害 => 汇总(e => e.冰霜伤害);
+          public float 职业伤害 => 汇总(e => e.职业伤害);
+          public float 元素伤害 => 汇总(e => e.元素伤害);
+          public float 掉宝率 => 汇总(e => e.掉宝率);
+          public float 灵气增幅 => 汇总(e => e.灵气增幅);
+          public float 功德增幅 => 汇总(e => e.功德增幅);
+          public float 跟脚 => 汇总(e => e.跟脚);
+          public float 真灵 => 汇总(e => e.真灵);
+          public float 时间流速 => 汇总(e => e.时间流速);
+          public float 修炼速度 => 汇总(e => e.修炼速度);
+     }
+
+     public static 灵植属性 灵植总属性 = new 灵植属性();
+
+
      public class 领主总属性
 {
     // 创建装备属性和道纹属性的实例
@@ -455,17 +503,18 @@ public class 属性config
     }
     
     
-    public float 暴击伤害 => 200 + Get英雄暴击伤害增幅()+_神物.暴击爆伤*100;
+    public float 暴击伤害 => 200 + Get英雄暴击伤害增幅()+_神物.暴击爆伤*100 + 灵植总属性.暴击伤害;
     public BigDouble 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
     public float 二次暴击 => _神物.二次暴击;
     public float 轮回次数加伤 => _神物.轮回次数加伤;
     public float 轮回系数 => _神物.轮回系数;
-    public float 时间流速加快 => _神物.时间流速加快+体质Config.当前体质总属性.时间流速加成/100f;
+    public float 时间流速加快 => (1+_神物.时间流速加快)*(1+体质Config.当前体质总属性.时间流速加成/100f) *(1+ 灵植总属性.时间流速/100f)-1;
 
-    private float 纯战士伤害增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅*(1+_神物.全职业增伤);
-    private float 纯法师伤害增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅*(1+_神物.全职业增伤);
-    private float 纯射手伤害增幅 => _装备.射手增幅 * _道纹.增加射手伤害*_道宝.射手增幅*(1+_神物.全职业增伤);
-    private float 纯控制伤害增幅 => _装备.控制增幅 * _道纹.增加控制伤害*(1+_神物.全职业增伤);
+    // 灵植为独立乘区；灵植"职业伤害"分别加到 战士/射手/控制/法师 4 种职业上
+    private float 纯战士伤害增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.战士伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯法师伤害增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.法师伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯射手伤害增幅 => _装备.射手增幅 * _道纹.增加射手伤害*_道宝.射手增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.射手伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯控制伤害增幅 => _装备.控制增幅 * _道纹.增加控制伤害*(1+_神物.全职业增伤)*(1f+灵植总属性.控制伤害/100f)*(1f+灵植总属性.职业伤害/100f);
     private float 纯辅助伤害增幅 => 1+_神物.全职业增伤;
     
     
@@ -476,11 +525,12 @@ public class 属性config
     
     public float 辅助增幅 => Get职业伤害增幅(ZhiYeType.辅助);
 
-    private float 纯物理伤害增幅 => _装备.物理伤害增幅 * _道纹.增加物理伤害*_道宝.物理伤害增幅*(1f+_神物.全元素增伤);
-    private float 纯火焰伤害增幅 => _装备.火焰伤害增幅 * _道纹.增加火焰伤害*_道宝.火焰伤害增幅*(1f+_神物.全元素增伤);
-    private float 纯冰霜伤害增幅 => _装备.冰霜伤害增幅 * _道纹.增加冰霜伤害*_道宝.冰霜伤害增幅*(1f+_神物.全元素增伤);
-    private float 纯雷电伤害增幅 => _装备.雷电伤害增幅 * _道纹.增加雷电伤害*_道宝.雷电伤害增幅*(1f+_神物.全元素增伤);
-    private float 纯黑暗伤害增幅 => _装备.黑暗伤害增幅 * _道纹.增加黑暗伤害*_道宝.黑暗伤害增幅*(1f+_神物.全元素增伤);
+    // 灵植为独立乘区；灵植"元素伤害"分别加到 物理/火焰/冰霜/雷电/黑暗 5 种元素上
+    private float 纯物理伤害增幅 => _装备.物理伤害增幅 * _道纹.增加物理伤害*_道宝.物理伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.物理伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯火焰伤害增幅 => _装备.火焰伤害增幅 * _道纹.增加火焰伤害*_道宝.火焰伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.火焰伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯冰霜伤害增幅 => _装备.冰霜伤害增幅 * _道纹.增加冰霜伤害*_道宝.冰霜伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.冰霜伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯雷电伤害增幅 => _装备.雷电伤害增幅 * _道纹.增加雷电伤害*_道宝.雷电伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.雷电伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯黑暗伤害增幅 => _装备.黑暗伤害增幅 * _道纹.增加黑暗伤害*_道宝.黑暗伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.黑暗伤害/100f)*(1f+灵植总属性.元素伤害/100f);
     public float 物理伤害增幅 => Get元素伤害增幅(YuanSuType.物理);//处理元素人人为我和我为人人
     public float 火焰伤害增幅 => Get元素伤害增幅(YuanSuType.火);
     public float 冰霜伤害增幅 => Get元素伤害增幅(YuanSuType.冰);
@@ -489,12 +539,12 @@ public class 属性config
     public float 普通怪伤害增幅 => _装备.普通怪伤害增幅 * _道纹.增加小怪伤害;
     public float 精英怪伤害增幅 => _装备.精英怪伤害增幅 * _道纹.增加精英怪和首领伤害;
     public float 首领伤害增幅 => _装备.首领伤害增幅 * _道纹.增加精英怪和首领伤害;
-    public float 城墙血量增幅 => _装备.城墙血量增幅*_道纹.城墙血量百分比; // 装备的是血量增幅
+    public float 城墙血量增幅 => _装备.城墙血量增幅*_道纹.城墙血量百分比*(1f+灵植总属性.城墙生命值/100f); // 装备的是血量增幅
     public float 城墙低血增加伤害 => _道纹.城墙低血增加伤害;
     public float 击杀精英怪城墙回血 => _道纹.击杀精英怪城墙回血;
     public float 城墙免疫伤害 => _道纹.城墙免疫伤害;
     public float 城墙满血时加伤害 => _道纹.城墙满血时加伤害;
-    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+_道宝.暴击率+_神物.暴击爆伤;
+    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+_道宝.暴击率+_神物.暴击爆伤+灵植总属性.暴击率/100f;
     public float 法师暴击率 => _道纹.法师暴击率;
     public float 英雄冷却缩减 => 0+_神物.冷却缩减;
     public float 控制冷却缩减 => _道纹.控制冷却缩减;
@@ -503,7 +553,7 @@ public class 属性config
     public float 战士对靠近城墙敌人伤害增高 => _道纹.战士对靠近城墙敌人伤害增高;
     public float 射手对远距离敌人伤害增高 => _道纹.射手对远距离敌人伤害增高;
     public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
-    public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害);
+    public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害)*(1f+灵植总属性.最终伤害/100f);
     public float 伤害减免 => 1-(1-_道宝.伤害减免)*(1-城墙Config.伤害减免/100f);
 
     public float 神通最大值 => 150;
@@ -554,7 +604,7 @@ public class 属性config
      public static float 显示修炼速度 => ((1f+PlayerData.S.关卡修炼速度加成/100f) * (1f+道宝Config.Get道宝总修炼速度()/100f)-1)*100f;
      public static float 丹药修炼速度 => Get丹药修炼速度();
 
-     public static float 总修炼速度加成 => (1 + 显示修炼速度/100f) * (1f + 丹药修炼速度 / 100f)*体质Config.体质修炼速度Dic[体质Config.体质品质Dic[PlayerData.S.当前体质]];
+     public static float 总修炼速度加成 => (1 + 显示修炼速度/100f) * (1f + 丹药修炼速度 / 100f)*体质Config.体质修炼速度Dic[体质Config.体质品质Dic[PlayerData.S.当前体质]]*(1f+灵植总属性.修炼速度/100f);
      public static float 每年秒数 => Get每秒数();
 
      public static float 丹药掉宝率 => Get丹药掉宝率();
@@ -563,7 +613,7 @@ public class 属性config
 
      public static float Get总掉宝率()
      {
-          float value=(1f+丹药掉宝率/100f)*(1f+体质Config.当前体质总属性.掉宝率/100f);
+          float value=(1f+丹药掉宝率/100f)*(1f+体质Config.当前体质总属性.掉宝率/100f)*(1f+灵植总属性.掉宝率/100f);
           if (PlayerData.S.是否加入愿望单)
           {
                value *= 1.2f;
@@ -584,7 +634,8 @@ public class 属性config
           return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
      }
 
-     public static float 灵气增幅 => (PlayerData.S.混沌虚空最大层数 - 1) / 100f;
+     // 灵气增幅：混沌虚空层数 + 灵植服用效果（各处灵魂/灵气获取按 1+灵气增幅 结算）
+     public static float 灵气增幅 => ((PlayerData.S.混沌虚空最大层数 - 1) / 100f+1) * (1+灵植总属性.灵气增幅/100f)-1;
      public static float Get丹药修炼速度()
      {
           float count = 0;

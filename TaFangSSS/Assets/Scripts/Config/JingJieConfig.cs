@@ -111,6 +111,8 @@ public class JingJieConfig : MonoBehaviour
     {
         BigDouble value = PlayerData.S.初始跟脚;
         value *= (1f + 丹药Config.Get造化丹药总值() / 100f);
+        // 灵植跟脚增幅：独立乘区
+        value *= (1f + 属性config.灵植总属性.跟脚 / 100f);
         foreach (var item in PlayerData.S.当前轮回突破Dic)
         {
             if (item.Value != QualityType.None)

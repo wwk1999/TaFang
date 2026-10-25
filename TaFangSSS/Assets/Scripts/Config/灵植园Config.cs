@@ -123,7 +123,7 @@ public class 灵植效果
 }
 public class 灵植园Config
 {
-    public static float 变异倍数 = 30;
+    public static float 变异倍数 = 10;
     public static Dictionary<灵植Type, 灵植效果> 灵植效果 = new Dictionary<灵植Type, 灵植效果>()
     {
         { 灵植Type.紫云英, new 灵植效果(){战士伤害=1} },

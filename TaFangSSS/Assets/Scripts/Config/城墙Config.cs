@@ -1466,7 +1466,8 @@ public class 城墙Config
             }
         }
 
-        return (int)(value * (1 + count));
+        // 灵植城墙防御增幅：独立乘区
+        return (int)(value * (1 + count) * (1f + 属性config.灵植总属性.城墙防御 / 100f));
     }
 
     public static List<float> 紫橙色道具升级奖励List = new List<float>()
