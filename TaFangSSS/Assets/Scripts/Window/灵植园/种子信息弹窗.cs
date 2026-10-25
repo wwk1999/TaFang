@@ -87,8 +87,9 @@ public class 种子信息弹窗 : MonoBehaviour
 
     /// <summary>
     /// 将 灵植效果 中所有非零字段拼成展示文本，每行一个，格式如 "战士伤害 +1%"
+    /// （作物信息弹窗也复用此方法）
     /// </summary>
-    private static string 获取服用效果文本(灵植Type type)
+    public static string 获取服用效果文本(灵植Type type)
     {
         if (!灵植园Config.灵植效果.TryGetValue(type, out 灵植效果 效果) || 效果 == null)
         {
