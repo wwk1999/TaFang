@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// 种子 → 种子信息弹窗，肥料 → 肥料信息弹窗，作物 → 作物信息弹窗。
 /// 弹窗跟随鼠标移动，移开销毁。
 /// </summary>
-public class 灵植背包itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 灵植背包itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler, IPointerClickHandler
 {
     [Header("弹窗设置")]
     [Tooltip("种子弹窗预制体路径（相对于Resources文件夹）")]
@@ -46,6 +46,55 @@ public class 灵植背包itemImage : MonoBehaviour, IPointerEnterHandler, IPoint
         {
             UpdatePopupPosition(eventData.position);
         }
+    }
+
+    /// <summary>
+    /// 右键点击作物：服用 1 个；按住 Shift 右键：服用 min(持有数量, 剩余可服用次数) 个
+    /// </summary>
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Right) return;
+
+        灵植背包item item = GetComponentInParent<灵植背包item>();
+        if (item == null || item.物品类型 != 灵植背包物品Type.作物) return;
+        if (item.灵植Tyep == 灵植Type.None) return;
+
+        var 次数Dic = item.是否变异 ? PlayerData.S.变异服用次数Dic : PlayerData.S.普通服用次数Dic;
+        var 收获Dic = item.是否变异 ? PlayerData.S.变异收获Dic : PlayerData.S.普通收获Dic;
+        int 已服用 = 次数Dic != null && 次数Dic.TryGetValue(item.灵植Tyep, out int c) ? c : 0;
+        int 剩余可服用 = 灵植园Config.最大服用次数 - 已服用;
+        float 持有数量 = 收获Dic != null && 收获Dic.TryGetValue(item.灵植Tyep, out float n) ? n : 0;
+
+        if (剩余可服用 <= 0)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "已达最大服用次数");
+            return;
+        }
+        if (持有数量 <= 0)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "数量不足");
+            return;
+        }
+
+        bool 批量 = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        int 服用数量 = 批量 ? (int)Mathf.Min(持有数量, 剩余可服用) : 1;
+
+        int 成功数量 = 0;
+        for (int i = 0; i < 服用数量; i++)
+        {
+            if (PlayerData.S.服用灵植(item.灵植Tyep, item.是否变异)) 成功数量++;
+            else break;
+        }
+        if (成功数量 <= 0) return;
+
+        string 物品名 = (item.是否变异 ? "变异·" : "") + 灵植园Config.灵植名[item.灵植Tyep];
+        string 数量后缀 = 成功数量 > 1 ? $" X{成功数量}" : "";
+        ObserverModuleManager.S.SendEvent("SendUIToast", $"服用成功：{物品名}{数量后缀}");
+
+        // 服用后数量/次数都变了，关掉悬停弹窗并刷新背包
+        DestroyPopup();
+        var 窗口 = GetComponentInParent<灵植背包窗口>();
+        if (窗口 != null) 窗口.Show背包();
     }
 
     private void ShowPopup(Vector2 mousePosition)
