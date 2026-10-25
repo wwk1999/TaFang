@@ -81,6 +81,18 @@ public class StoreController : XSingleton<StoreController>
                     }
                     if (File.Exists(savePath))
                     {
+                        // 玩家换电脑手动拷入的存档常带只读属性（从 U 盘/云端/邮件来的文件），
+                        // File.Replace 不会自动清除只读位，会抛 UnauthorizedAccessException 被静默吞掉，
+                        // 导致每 30 秒的自动保存全部失败、退出后进度回退到导入时的状态。
+                        // 这里先把主档和备份档的属性重置为 Normal，保证写入能成功。
+                        if ((File.GetAttributes(savePath) & FileAttributes.ReadOnly) != 0)
+                        {
+                            File.SetAttributes(savePath, FileAttributes.Normal);
+                        }
+                        if (File.Exists(bakPath) && (File.GetAttributes(bakPath) & FileAttributes.ReadOnly) != 0)
+                        {
+                            File.SetAttributes(bakPath, FileAttributes.Normal);
+                        }
                         File.Replace(tmpPath, savePath, bakPath, true);
                     }
                     else
@@ -141,6 +153,9 @@ public class StoreController : XSingleton<StoreController>
 
     private void OnApplicationQuit()
     {
+        // 退出前主动保存一次，避免两次自动保存（30s）之间的进度丢失；
+        // 同时这一次保存也会清掉导入存档可能带的只读属性，确保落盘成功。
+        SaveStoreData();
         等待后台保存完成();
     }
 
@@ -896,11 +911,17 @@ public class StoreController : XSingleton<StoreController>
         // 依次尝试：主档 → 备份档（.bak，断电/损坏时的救命稻草）→ 全新档
         if (TryLoad(SavePath))
         {
+            // 读档成功后立即清掉主档/备份档可能带的只读属性：
+            // 旧版本玩家手动拷入的存档常是只读，导致后续 File.Replace 全部失败、进度不保存。
+            // 这里在加载阶段就自愈，玩家更新到新版本后启动一次即可恢复正常保存。
+            清除存档只读属性(SavePath);
+            清除存档只读属性(BakPath);
             return;
         }
 
         if (TryLoad(BakPath))
         {
+            清除存档只读属性(BakPath);
             // 立即把恢复的数据写回主档，避免下次启动再次走备份
             SaveStoreData(StoreData);
             return;
@@ -909,6 +930,27 @@ public class StoreController : XSingleton<StoreController>
         StoreData = new StoreDefine.StoreData();
         StoreData.Player.CopyFromRuntime(PlayerData.S);
         SaveStoreData(StoreData);
+    }
+
+    /// <summary>
+    /// 清除指定存档文件的只读属性（若存在），保证后续 File.Replace 能成功写入。
+    /// 从其他电脑/U盘/云端拷入的存档常带只读位，会让保存静默失败。
+    /// </summary>
+    private static void 清除存档只读属性(string path)
+    {
+        try
+        {
+            if (!File.Exists(path)) return;
+            var attr = File.GetAttributes(path);
+            if ((attr & FileAttributes.ReadOnly) != 0)
+            {
+                File.SetAttributes(path, attr & ~FileAttributes.ReadOnly);
+            }
+        }
+        catch
+        {
+            // 无权限等情况忽略：保存阶段还会再尝试清一次，不影响读档
+        }
     }
 
     /// <summary>

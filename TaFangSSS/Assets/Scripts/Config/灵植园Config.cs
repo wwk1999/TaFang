@@ -83,8 +83,26 @@ public enum 肥料Type
     异化,
     延时,
 }
+
+public class 土地数值
+{
+    public float 速度;
+    public float 增产;
+    public float 异化;
+    public float 青石加成;
+    public float 经验加成;
+}
 public class 灵植园Config
 {
+    public static Dictionary<土地Type, 土地数值> 土地数值 = new Dictionary<土地Type, 土地数值>()
+    {
+        { 土地Type.普通土地, new 土地数值() { 速度 = 0, 增产 = 0, 异化 = 0, 青石加成 = 0, 经验加成 = 0 } },
+        { 土地Type.黑土地, new 土地数值() { 速度 = 30, 增产 = 0, 异化 = 0, 青石加成 = 0, 经验加成 = 0 } },
+        { 土地Type.紫土地, new 土地数值() { 速度 = 50, 增产 = 20, 异化 = 0, 青石加成 = 0, 经验加成 = 0 } },
+        { 土地Type.金土地, new 土地数值() { 速度 = 100, 增产 = 40, 异化 = 0, 青石加成 = 30, 经验加成 = 30 } },
+        { 土地Type.红土地, new 土地数值() { 速度 = 200, 增产 = 60, 异化 = 100, 青石加成 = 50, 经验加成 = 50 } },
+    };
+
     public static Dictionary<肥料Type, string> 肥料名 = new Dictionary<肥料Type, string>()
     {
         { 肥料Type.提速 ,"催生肥"},
@@ -127,6 +145,14 @@ public class 灵植园Config
         { QualityType.宙品, 40 },
         { QualityType.洪品, 60 },
         { QualityType.荒品, 100 },
+    };
+
+    public static Dictionary<土地Type, float> 土地升级消耗 = new Dictionary<土地Type, float>()
+    {
+        { 土地Type.普通土地 ,100},
+        { 土地Type.黑土地 ,1000},
+        { 土地Type.紫土地 ,10000},
+        { 土地Type.金土地 ,100000},
     };
     
     public static Dictionary<QualityType, float> 延时肥料数值 = new Dictionary<QualityType, float>()
@@ -276,40 +302,40 @@ public class 灵植园Config
         { 灵植Type.幻音铃, 1.5f },
         { 灵植Type.幻紫玫, 2f },
         
-        { 灵植Type.九幽紫, 1.5f },
-        { 灵植Type.赤焰百合, 2f },
-        { 灵植Type.碧海螺, 2.5f },
-        { 灵植Type.粉面佛莲, 3f },
+        { 灵植Type.九幽紫, 3f },
+        { 灵植Type.赤焰百合, 4f },
+        { 灵植Type.碧海螺, 5f },
+        { 灵植Type.粉面佛莲, 6f },
         
-        { 灵植Type.紫幽草, 2f },
-        { 灵植Type.三生花, 2.5f },
-        { 灵植Type.向阳花, 3f },
-        { 灵植Type.白玉玲, 4f },
+        { 灵植Type.紫幽草, 6f },
+        { 灵植Type.三生花, 8f },
+        { 灵植Type.向阳花, 10f },
+        { 灵植Type.白玉玲, 12f },
         
-        { 灵植Type.赤阳花, 3f },
-        { 灵植Type.寒星兰, 3.5f },
-        { 灵植Type.赤霞花, 4f },
-        { 灵植Type.惊雷子, 4.5f },
+        { 灵植Type.赤阳花, 15f },
+        { 灵植Type.寒星兰, 13f },
+        { 灵植Type.赤霞花, 17f },
+        { 灵植Type.惊雷子, 20f },
         
-        { 灵植Type.幽兰铃, 4f },
-        { 灵植Type.空谷幽兰, 4.5f },
-        { 灵植Type.醉仙球, 5f },
-        { 灵植Type.醉仙菌, 5.5f },
+        { 灵植Type.幽兰铃, 25f },
+        { 灵植Type.空谷幽兰, 30f },
+        { 灵植Type.醉仙球, 35f },
+        { 灵植Type.醉仙菌, 40f },
         
-        { 灵植Type.太素花, 6f },
-        { 灵植Type.灵犀铃, 7f },
-        { 灵植Type.血菩提, 8f },
-        { 灵植Type.紫晶铃, 10f },
+        { 灵植Type.太素花, 50f },
+        { 灵植Type.灵犀铃, 60f },
+        { 灵植Type.血菩提, 70f },
+        { 灵植Type.紫晶铃, 80f },
         
-        { 灵植Type.招财草, 12f },
-        { 灵植Type.粉霞仙, 15f },
-        { 灵植Type.黄龙掌, 18f },
-        { 灵植Type.玄冰魄, 20f },
+        { 灵植Type.招财草, 80f },
+        { 灵植Type.粉霞仙, 100f },
+        { 灵植Type.黄龙掌, 120f },
+        { 灵植Type.玄冰魄, 140f },
         
-        { 灵植Type.修罗花, 25f },
-        { 灵植Type.金乌葵, 30f },
-        { 灵植Type.幻樱木, 35f },
-        { 灵植Type.白玉莲, 40f },
+        { 灵植Type.修罗花, 150f },
+        { 灵植Type.金乌葵, 200f },
+        { 灵植Type.幻樱木, 250f },
+        { 灵植Type.白玉莲, 300f },
     };
     
     public static Dictionary<灵植Type, float> 灵植收获青石Dic = new Dictionary<灵植Type, float>()
@@ -319,40 +345,40 @@ public class 灵植园Config
         { 灵植Type.幻音铃, 30 },
         { 灵植Type.幻紫玫, 40 },
         
-        { 灵植Type.九幽紫, 30 },
-        { 灵植Type.赤焰百合, 40 },
-        { 灵植Type.碧海螺, 50 },
-        { 灵植Type.粉面佛莲, 60 },
+        { 灵植Type.九幽紫, 50 },
+        { 灵植Type.赤焰百合, 60 },
+        { 灵植Type.碧海螺, 70 },
+        { 灵植Type.粉面佛莲, 80 },
         
-        { 灵植Type.紫幽草, 40 },
-        { 灵植Type.三生花, 50 },
-        { 灵植Type.向阳花, 60 },
-        { 灵植Type.白玉玲, 80 },
+        { 灵植Type.紫幽草, 100 },
+        { 灵植Type.三生花, 120 },
+        { 灵植Type.向阳花, 140 },
+        { 灵植Type.白玉玲, 160 },
         
-        { 灵植Type.赤阳花, 60 },
-        { 灵植Type.寒星兰, 70 },
-        { 灵植Type.赤霞花, 80 },
-        { 灵植Type.惊雷子, 90 },
+        { 灵植Type.赤阳花, 200 },
+        { 灵植Type.寒星兰, 230 },
+        { 灵植Type.赤霞花, 260 },
+        { 灵植Type.惊雷子, 300 },
         
-        { 灵植Type.幽兰铃, 80 },
-        { 灵植Type.空谷幽兰, 90 },
-        { 灵植Type.醉仙球, 100 },
-        { 灵植Type.醉仙菌, 110 },
+        { 灵植Type.幽兰铃, 350 },
+        { 灵植Type.空谷幽兰, 400 },
+        { 灵植Type.醉仙球, 450 },
+        { 灵植Type.醉仙菌, 500 },
         
-        { 灵植Type.太素花, 120 },
-        { 灵植Type.灵犀铃, 140 },
-        { 灵植Type.血菩提, 160 },
-        { 灵植Type.紫晶铃, 200 },
+        { 灵植Type.太素花, 600 },
+        { 灵植Type.灵犀铃, 700 },
+        { 灵植Type.血菩提, 800 },
+        { 灵植Type.紫晶铃, 900 },
         
-        { 灵植Type.招财草, 240 },
-        { 灵植Type.粉霞仙, 300 },
-        { 灵植Type.黄龙掌, 360 },
-        { 灵植Type.玄冰魄, 400 },
+        { 灵植Type.招财草, 1000 },
+        { 灵植Type.粉霞仙, 1300 },
+        { 灵植Type.黄龙掌, 1600 },
+        { 灵植Type.玄冰魄, 1900 },
         
-        { 灵植Type.修罗花, 500 },
-        { 灵植Type.金乌葵, 600 },
-        { 灵植Type.幻樱木, 700 },
-        { 灵植Type.白玉莲, 800 },
+        { 灵植Type.修罗花, 2500 },
+        { 灵植Type.金乌葵, 3000 },
+        { 灵植Type.幻樱木, 3500 },
+        { 灵植Type.白玉莲, 4000 },
     };
 
     public static float Get肥料价格(肥料Type type, QualityType qualityType)
@@ -458,40 +484,40 @@ public class 灵植园Config
         { 灵植Type.幻音铃, 15 },
         { 灵植Type.幻紫玫, 20 },
         
-        { 灵植Type.九幽紫, 15 },
-        { 灵植Type.赤焰百合, 20 },
-        { 灵植Type.碧海螺, 25 },
-        { 灵植Type.粉面佛莲, 30 },
+        { 灵植Type.九幽紫, 25 },
+        { 灵植Type.赤焰百合, 30 },
+        { 灵植Type.碧海螺, 35 },
+        { 灵植Type.粉面佛莲, 40 },
         
-        { 灵植Type.紫幽草, 20 },
-        { 灵植Type.三生花, 25 },
-        { 灵植Type.向阳花, 30 },
-        { 灵植Type.白玉玲, 40 },
+        { 灵植Type.紫幽草, 50 },
+        { 灵植Type.三生花, 60 },
+        { 灵植Type.向阳花, 70 },
+        { 灵植Type.白玉玲, 80 },
         
-        { 灵植Type.赤阳花, 30 },
-        { 灵植Type.寒星兰, 35 },
-        { 灵植Type.赤霞花, 40 },
-        { 灵植Type.惊雷子, 45 },
+        { 灵植Type.赤阳花, 100 },
+        { 灵植Type.寒星兰, 115 },
+        { 灵植Type.赤霞花, 130 },
+        { 灵植Type.惊雷子, 150 },
         
-        { 灵植Type.幽兰铃, 40 },
-        { 灵植Type.空谷幽兰, 45 },
-        { 灵植Type.醉仙球, 50 },
-        { 灵植Type.醉仙菌, 55 },
+        { 灵植Type.幽兰铃, 175 },
+        { 灵植Type.空谷幽兰, 200 },
+        { 灵植Type.醉仙球, 225 },
+        { 灵植Type.醉仙菌, 250 },
         
-        { 灵植Type.太素花, 60 },
-        { 灵植Type.灵犀铃, 70 },
-        { 灵植Type.血菩提, 80 },
-        { 灵植Type.紫晶铃, 100 },
+        { 灵植Type.太素花, 300 },
+        { 灵植Type.灵犀铃, 350 },
+        { 灵植Type.血菩提, 400 },
+        { 灵植Type.紫晶铃, 450 },
         
-        { 灵植Type.招财草, 120 },
-        { 灵植Type.粉霞仙, 150 },
-        { 灵植Type.黄龙掌, 180 },
-        { 灵植Type.玄冰魄, 200 },
+        { 灵植Type.招财草, 500 },
+        { 灵植Type.粉霞仙, 650 },
+        { 灵植Type.黄龙掌, 800 },
+        { 灵植Type.玄冰魄, 950 },
         
-        { 灵植Type.修罗花, 250 },
-        { 灵植Type.金乌葵, 300 },
-        { 灵植Type.幻樱木, 350 },
-        { 灵植Type.白玉莲, 400 },
+        { 灵植Type.修罗花, 1250 },
+        { 灵植Type.金乌葵, 1500 },
+        { 灵植Type.幻樱木, 1750 },
+        { 灵植Type.白玉莲, 2000 },
     };
 
     public static Dictionary<int, float> 灵植园等级经验 = new Dictionary<int, float>()
@@ -617,40 +643,40 @@ public class 灵植园Config
         { 灵植Type.幻音铃, 30 },
         { 灵植Type.幻紫玫, 40 },
         
-        { 灵植Type.九幽紫, 30 },
-        { 灵植Type.赤焰百合, 40 },
-        { 灵植Type.碧海螺, 50 },
-        { 灵植Type.粉面佛莲, 60 },
+        { 灵植Type.九幽紫, 50 },
+        { 灵植Type.赤焰百合, 60 },
+        { 灵植Type.碧海螺, 70 },
+        { 灵植Type.粉面佛莲, 80 },
         
-        { 灵植Type.紫幽草, 40 },
-        { 灵植Type.三生花, 50 },
-        { 灵植Type.向阳花, 60 },
-        { 灵植Type.白玉玲, 80 },
+        { 灵植Type.紫幽草, 100 },
+        { 灵植Type.三生花, 120 },
+        { 灵植Type.向阳花, 140 },
+        { 灵植Type.白玉玲, 160 },
         
-        { 灵植Type.赤阳花, 60 },
-        { 灵植Type.寒星兰, 70 },
-        { 灵植Type.赤霞花, 80 },
-        { 灵植Type.惊雷子, 90 },
+        { 灵植Type.赤阳花, 200 },
+        { 灵植Type.寒星兰, 230 },
+        { 灵植Type.赤霞花, 260 },
+        { 灵植Type.惊雷子, 290 },
         
-        { 灵植Type.幽兰铃, 80 },
-        { 灵植Type.空谷幽兰, 90 },
-        { 灵植Type.醉仙球, 100 },
-        { 灵植Type.醉仙菌, 110 },
+        { 灵植Type.幽兰铃, 350 },
+        { 灵植Type.空谷幽兰, 400 },
+        { 灵植Type.醉仙球, 450 },
+        { 灵植Type.醉仙菌, 500 },
         
-        { 灵植Type.太素花, 120 },
-        { 灵植Type.灵犀铃, 140 },
-        { 灵植Type.血菩提, 160 },
-        { 灵植Type.紫晶铃, 200 },
+        { 灵植Type.太素花, 600 },
+        { 灵植Type.灵犀铃, 700 },
+        { 灵植Type.血菩提, 800 },
+        { 灵植Type.紫晶铃, 900 },
         
-        { 灵植Type.招财草, 240 },
-        { 灵植Type.粉霞仙, 300 },
-        { 灵植Type.黄龙掌, 360 },
-        { 灵植Type.玄冰魄, 400 },
+        { 灵植Type.招财草, 1000 },
+        { 灵植Type.粉霞仙, 1300 },
+        { 灵植Type.黄龙掌, 1600 },
+        { 灵植Type.玄冰魄, 1900 },
         
-        { 灵植Type.修罗花, 500 },
-        { 灵植Type.金乌葵, 600 },
-        { 灵植Type.幻樱木, 700 },
-        { 灵植Type.白玉莲, 800 },
+        { 灵植Type.修罗花, 2000 },
+        { 灵植Type.金乌葵, 2500 },
+        { 灵植Type.幻樱木, 3000 },
+        { 灵植Type.白玉莲, 3500 },
     };
     
     public static Dictionary<灵植Type, float> 灵植产量Dic = new Dictionary<灵植Type, float>()
