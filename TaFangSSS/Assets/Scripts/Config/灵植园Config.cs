@@ -345,28 +345,6 @@ public class 灵植园Config
         { 灵植Type.白玉莲, QualityType.荒品 },
     };
 
-    /// <summary>
-    /// 每种灵植服用后的效果描述（普通/变异通用），默认"无"，按策划表逐株填写。
-    /// 示例："战士伤害+1%"
-    /// </summary>
-    public static Dictionary<灵植Type, string> 灵植服用效果Dic = 创建服用效果Dic();
-
-    private static Dictionary<灵植Type, string> 创建服用效果Dic()
-    {
-        var dic = new Dictionary<灵植Type, string>();
-        foreach (灵植Type t in System.Enum.GetValues(typeof(灵植Type)))
-        {
-            if (t == 灵植Type.None) continue;
-            dic[t] = "无";
-        }
-        return dic;
-    }
-
-    public static string Get服用效果(灵植Type type)
-    {
-        return 灵植服用效果Dic.TryGetValue(type, out string 效果) ? 效果 : "无";
-    }
-
     public static Dictionary<灵植Type, int> 灵植解锁等级Dic = new Dictionary<灵植Type, int>()
     {
         { 灵植Type.紫云英, 1 },

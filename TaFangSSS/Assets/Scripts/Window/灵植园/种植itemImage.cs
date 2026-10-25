@@ -1,53 +1,116 @@
-using System.Collections;
 using Config;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// 挂在种植item的背景Button上，鼠标悬停时弹出种子信息弹窗，移开关闭。
-/// 依赖同物体上的 种植item 组件读取灵植类型。
+/// 挂在种植item的背景Button上，鼠标悬停时在鼠标位置弹出种子信息弹窗，跟随鼠标移动，移开销毁。
+/// 参考 BagGridImage 实现。
 /// </summary>
-public class 种植itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class 种植itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
-    private 种植item 种植item;
-    private Coroutine 关闭协程;
+    [Header("弹窗设置")]
+    [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
+    [SerializeField] private string popupPrefabPath = "Prefabs/Window/灵植园/种子信息弹窗";
 
-    private void Awake()
+    [Tooltip("弹窗偏移量（相对于鼠标位置）")]
+    [SerializeField] private Vector2 popupOffset = new Vector2(0, 0);
+
+    [Tooltip("是否在鼠标移出时立即销毁")]
+    [SerializeField] private bool destroyOnExit = true;
+
+    private GameObject currentPopup;
+    private Canvas targetCanvas;
+    private bool isHovering = false;
+
+    private void Start()
     {
-        种植item = GetComponent<种植item>();
+        targetCanvas = GetComponentInParent<Canvas>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (关闭协程 != null)
-        {
-            StopCoroutine(关闭协程);
-            关闭协程 = null;
-        }
-
-        if (种植item == null || 种植item.灵植Tyep == 灵植Type.None) return;
-
-        var 界面 = GetComponentInParent<灵植园界面>();
-        if (界面 == null || 界面.种子信息弹窗 == null) return;
-
-        界面.种子信息弹窗.打开(种植item.灵植Tyep, 是否变异: false, 是否种子: true);
+        isHovering = true;
+        ShowPopup(eventData.position);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        var 界面 = GetComponentInParent<灵植园界面>();
-        if (界面 == null || 界面.种子信息弹窗 == null) return;
-
-        // 延迟关闭，避免弹窗刚好生成在指针下方导致立刻触发 Exit 又关掉
-        if (关闭协程 != null) StopCoroutine(关闭协程);
-        关闭协程 = StartCoroutine(延迟关闭(界面.种子信息弹窗));
+        isHovering = false;
+        if (destroyOnExit)
+        {
+            DestroyPopup();
+        }
     }
 
-    private IEnumerator 延迟关闭(种子信息弹窗 弹窗)
+    public void OnPointerMove(PointerEventData eventData)
     {
-        yield return new WaitForSeconds(0.15f);
-        if (弹窗 != null) 弹窗.gameObject.SetActive(false);
-        关闭协程 = null;
+        if (isHovering && currentPopup != null)
+        {
+            UpdatePopupPosition(eventData.position);
+        }
+    }
+
+    private void DestroyPopup()
+    {
+        if (currentPopup != null)
+        {
+            Destroy(currentPopup);
+            currentPopup = null;
+        }
+    }
+
+    private void ShowPopup(Vector2 mousePosition)
+    {
+        种植item item = GetComponentInParent<种植item>();
+        if (item == null || item.灵植Tyep == 灵植Type.None) return;
+
+        DestroyPopup();
+
+        GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
+        if (popupPrefab == null) return;
+
+        currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+        种子信息弹窗 弹窗 = currentPopup.GetComponent<种子信息弹窗>();
+        弹窗.灵植Tyep = item.灵植Tyep;
+        弹窗.是否变异 = false;
+        弹窗.是否种子 = true;
+        弹窗.SetItem();
+
+        UpdatePopupPosition(mousePosition);
+        currentPopup.transform.SetAsLastSibling();
+    }
+
+    private void OnDisable()
+    {
+        DestroyPopup();
+    }
+
+    private void OnDestroy()
+    {
+        DestroyPopup();
+    }
+
+    private void UpdatePopupPosition(Vector2 mousePosition)
+    {
+        if (currentPopup == null) return;
+
+        RectTransform rectTransform = currentPopup.GetComponent<RectTransform>();
+        if (rectTransform == null) return;
+
+        Vector2 localPoint;
+        RectTransform canvasRect = targetCanvas.GetComponent<RectTransform>();
+
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvasRect,
+                mousePosition + popupOffset,
+                targetCanvas.worldCamera,
+                out localPoint))
+        {
+            rectTransform.localPosition = localPoint;
+        }
+        else
+        {
+            rectTransform.position = mousePosition + popupOffset;
+        }
     }
 }
-

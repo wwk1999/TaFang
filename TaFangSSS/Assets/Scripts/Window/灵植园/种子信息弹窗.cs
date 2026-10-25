@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Text;
 using Config;
 using TMPro;
 using UnityEngine;
@@ -9,10 +11,8 @@ using UnityEngine.UI;
 /// </summary>
 public class 种子信息弹窗 : MonoBehaviour
 {
-    public Button mask;
 
     public Image 图标;
-    public Image 品质框;          // 可选：品质背景框
     public TextMeshProUGUI 名称;
 
     public TextMeshProUGUI 生长时间;
@@ -26,10 +26,7 @@ public class 种子信息弹窗 : MonoBehaviour
     [NonSerialized] public bool 是否变异;
     [NonSerialized] public bool 是否种子;
 
-    private void Start()
-    {
-        if (mask != null) mask.onClick.AddListener(关闭);
-    }
+   
 
     /// <summary>
     /// 打开弹窗
@@ -70,7 +67,6 @@ public class 种子信息弹窗 : MonoBehaviour
         }
 
         // 名称 + 品质色
-        if (品质框 != null) 品质框.sprite = ResourcesConfig.Get作物品质背景框(品质);
         名称.text = (是否变异 ? "变异·" : "") + 灵植园Config.灵植名[灵植Tyep];
         名称.colorGradientPreset = ResourcesConfig.Get品质TMP(品质);
 
@@ -86,7 +82,58 @@ public class 种子信息弹窗 : MonoBehaviour
             : PlayerData.S.普通服用次数Dic[灵植Tyep];
         服用次数.text = 已服用 + " / " + 灵植园Config.最大服用次数;
 
-        // 服用效果
-        服用效果.text = 灵植园Config.Get服用效果(灵植Tyep);
+        // 服用效果：取该灵植的所有非零效果，按"名称 +X%"拼接展示
+        服用效果.text = 获取服用效果文本(灵植Tyep);
+    }
+
+    /// <summary>
+    /// 将 灵植效果 中所有非零字段拼成展示文本，每行一个，格式如 "战士伤害 +1%"
+    /// </summary>
+    private static string 获取服用效果文本(灵植Type type)
+    {
+        if (!灵植园Config.灵植效果.TryGetValue(type, out 灵植效果 效果) || 效果 == null)
+        {
+            return "无";
+        }
+
+        // 字段显示名（与灵植效果类字段一一对应）
+        var 列表 = new List<(string 名, float 值)>
+        {
+            ("城墙生命值", 效果.城墙生命值),
+            ("城墙防御", 效果.城墙防御),
+            ("暴击率", 效果.暴击率),
+            ("暴击伤害", 效果.暴击伤害),
+            ("最终伤害", 效果.最终伤害),
+            ("战士伤害", 效果.战士伤害),
+            ("射手伤害", 效果.射手伤害),
+            ("控制伤害", 效果.控制伤害),
+            ("法师伤害", 效果.法师伤害),
+            ("黑暗伤害", 效果.黑暗伤害),
+            ("火焰伤害", 效果.火焰伤害),
+            ("雷电伤害", 效果.雷电伤害),
+            ("物理伤害", 效果.物理伤害),
+            ("冰霜伤害", 效果.冰霜伤害),
+            ("职业伤害", 效果.职业伤害),
+            ("元素伤害", 效果.元素伤害),
+            ("掉宝率", 效果.掉宝率),
+            ("灵气增幅", 效果.灵气增幅),
+            ("功德增幅", 效果.功德增幅),
+            ("跟脚", 效果.跟脚),
+            ("真灵", 效果.真灵),
+            ("时间流速", 效果.时间流速),
+            ("修炼速度", 效果.修炼速度),
+        };
+
+        var sb = new StringBuilder();
+        foreach (var item in 列表)
+        {
+            if (Mathf.Abs(item.值) > 0.0001f)
+            {
+                string 符号 = item.值 >= 0 ? "+" : "";
+                sb.AppendLine($"{item.名} {符号}{item.值:0.##}%");
+            }
+        }
+
+        return sb.Length > 0 ? sb.ToString().TrimEnd() : "无";
     }
 }
