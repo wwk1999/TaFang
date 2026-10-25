@@ -28,7 +28,7 @@ public class 土地item : MonoBehaviour
    public TextMeshProUGUI 青石count;
    public TextMeshProUGUI 收获count;
    public TextMeshProUGUI 经验count;
-
+   public Canvas canvas;
    public Image 收获Image;
    [NonSerialized] public int index;
 
@@ -39,6 +39,7 @@ public class 土地item : MonoBehaviour
       float 青石 = 灵植园Config.灵植收获青石Dic[当前土地.灵植Type];
       float 经验 = 灵植园Config.灵植收获经验Dic[当前土地.灵植Type];
       float 产量 = 灵植园Config.灵植产量Dic[当前土地.灵植Type];
+      var 土地数值 = 灵植园Config.土地数值[当前土地.土地Type];
       if (当前土地.增产肥料 != QualityType.None)
       {
          产量 *= 1 + 灵植园Config.增产肥料数值[当前土地.增产肥料] / 100f;
@@ -47,6 +48,10 @@ public class 土地item : MonoBehaviour
       {
          产量 *= 1 + 灵植园Config.延时肥料数值[当前土地.延时肥料];
       }
+      // 土地加成与肥料加成为不同乘区
+      产量 *= 1 + 土地数值.增产 / 100f;
+      青石 *= 1 + 土地数值.青石加成 / 100f;
+      经验 *= 1 + 土地数值.经验加成 / 100f;
       青石count.text = 青石.ToString("F0");
       收获count.text = 产量.ToString("F0");
       经验count.text = 经验.ToString("F0");
@@ -220,6 +225,7 @@ public class 土地item : MonoBehaviour
 
    public void SetItem()
    {
+      canvas.sortingOrder = index + 3;
       收获动画.gameObject.SetActive(false);
       土地Image.image.alphaHitTestMinimumThreshold = 0.3f;
       土地 土地 = PlayerData.S.灵植土地列表[index];

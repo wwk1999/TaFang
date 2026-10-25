@@ -276,18 +276,22 @@ public class StoreController : XSingleton<StoreController>
                 生长速度 += 灵植园Config.提速肥料数值[土地.提速肥料] / 100f;
             }
 
+            // 土地速度加成与提速肥料为不同乘区
+            生长速度 *= 1 + 灵植园Config.土地数值[土地.土地Type].速度 / 100f;
+
             土地.当前time += 生长速度 / 属性config.每年秒数;
             float 进度 = 土地.当前time / 土地.所需time;
             if (进度 >= 1f)
             {
                 土地.当前time = 土地.所需time;
                 土地.植物成长阶段Type = 植物成长阶段Type.成熟;
-                // 成熟瞬间基础 1% 几率异化，异化肥按百分比提升
+                // 成熟瞬间基础 1% 几率异化，异化肥与土地异化加成分别为不同乘区
                 float 异化概率 = 1f;
                 if (土地.异化肥料 != QualityType.None)
                 {
                     异化概率 *= 1 + 灵植园Config.异化肥料数值[土地.异化肥料] / 100f;
                 }
+                异化概率 *= 1 + 灵植园Config.土地数值[土地.土地Type].异化 / 100f;
                 if (Random.Range(0, 100f) < 异化概率)
                 {
                     土地.变异 = true;
