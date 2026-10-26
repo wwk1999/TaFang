@@ -4509,6 +4509,25 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
                 丹方解锁Dic.Remove(key);
             }
 
+            // 读档迁移：旧版丹药库存 key 为「类型_品质」两段格式，数量统一并入 1 阶
+            //（新格式为「类型_品质_N阶」三段，坊市与炼丹产出的丹药默认就是 1 阶）
+            foreach (var key in 丹药Dic.Keys.Where(k => k.Split('_').Length == 2).ToList())
+            {
+                int 数量 = 丹药Dic[key];
+                丹药Dic.Remove(key);
+                string 新key = key + "_1阶";
+                丹药Dic[新key] = (丹药Dic.TryGetValue(新key, out int 已有) ? 已有 : 0) + 数量;
+            }
+
+            // 读档自愈：补齐新版新增的阶段 key（旧档只有 1 阶，2~9 阶缺省补 0）
+            foreach (var kv in PlayerData.生成丹药Dic())
+            {
+                if (!丹药Dic.ContainsKey(kv.Key))
+                {
+                    丹药Dic.Add(kv.Key, 0);
+                }
+            }
+
             // 读档自愈：功法数量钳制不为负。旧版装备弹窗无库存检查，
             // 重复装备会把数量扣成负数，而背包只显示 >0 的功法——
             // 负数会让玩家"重新抽到同一本也看不见"（-1+1=0 仍不显示）

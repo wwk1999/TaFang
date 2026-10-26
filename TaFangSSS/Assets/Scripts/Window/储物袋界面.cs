@@ -192,8 +192,10 @@ public class 储物袋界面 : MonoBehaviour
    {
       丹药Type type=(丹药Type)obj[0];
       QualityType qualityType = (QualityType)obj[1];
+      int 阶段 = (int)obj[2];
       服用辅助丹药弹窗.丹药Type = type;
       服用辅助丹药弹窗.QualityType = qualityType;
+      服用辅助丹药弹窗.阶段 = 阶段;
       服用辅助丹药弹窗.SetItem();
       服用辅助丹药弹窗.gameObject.SetActive(true);
    }
@@ -202,15 +204,19 @@ public class 储物袋界面 : MonoBehaviour
    {
       丹药Type type=(丹药Type)obj[0];
       QualityType qualityType = (QualityType)obj[1];
+      int 阶段 = (int)obj[2];
       根基丹药服用弹窗.丹药Type = type;
       根基丹药服用弹窗.QualityType = qualityType;
+      根基丹药服用弹窗.阶段 = 阶段;
       根基丹药服用弹窗.gameObject.SetActive(true);
    }
 
    public void 显示服用造化丹药确认弹窗(object[] obj)
    {
       QualityType qualityType=(QualityType)obj[0];
+      int 阶段 = (int)obj[1];
       确认服用造化丹药弹窗.qualityType = qualityType;
+      确认服用造化丹药弹窗.阶段 = 阶段;
       确认服用造化丹药弹窗.gameObject.SetActive(true);
    }
 
@@ -576,17 +582,22 @@ public class 储物袋界面 : MonoBehaviour
       {
          foreach (var item in 丹药Config.丹药名Dic)
          {
-            if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i) > 0)
+            // 各阶段库存独立，同类型同品质的丹药按 1~9 阶分别成格显示
+            for (int 阶段 = 1; 阶段 <= 9; 阶段++)
             {
-               if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
+               if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i, 阶段) > 0)
                {
-                  var baggrid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/丹药Grid"), BagContent.transform)
-                     .GetComponent<丹药grid>();
-                  baggrid.丹药Type = item.Key;
-                  baggrid.QualityType = (QualityType)i;
-                  baggrid.SetItem();
+                  if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
+                  {
+                     var baggrid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/丹药Grid"), BagContent.transform)
+                        .GetComponent<丹药grid>();
+                     baggrid.丹药Type = item.Key;
+                     baggrid.QualityType = (QualityType)i;
+                     baggrid.阶段 = 阶段;
+                     baggrid.SetItem();
+                  }
+                  count++;
                }
-               count++;
             }
          }
       }
@@ -819,9 +830,13 @@ public class 储物袋界面 : MonoBehaviour
       {
          for (int i = 1; i <= 8; i++)
          {
-            if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i) > 0)
+            // 各阶段库存独立，每一阶单独占格计数
+            for (int 阶段 = 1; 阶段 <= 9; 阶段++)
             {
-               count++;
+               if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i, 阶段) > 0)
+               {
+                  count++;
+               }
             }
          }
       }

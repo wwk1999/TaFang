@@ -57,6 +57,7 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         {
             gameObject.SetActive(false);
         });
+        //分解所有阶段的丹药
         分解Button.onClick.AddListener(() =>
         {
             switch (分解类型)
@@ -73,62 +74,65 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                             continue;
                         }
                         QualityType qualityType=PlayerData.S.Get丹药品质(item.Key);
+                        // 各阶段库存独立，分解时必须按 key 自身的阶段清零，
+                        // 否则 2~9 阶的丹药会被错误地清到 1 阶的库存上
+                        int 阶段=PlayerData.S.Get丹药阶段(item.Key);
                         switch (qualityType)
                         {
                             case QualityType.黄品:
                                 if (黄)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.玄品:
                                 if (玄)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.地品:
                                 if (地)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.天品:
                                 if (天)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.宇品:
                                 if (宇)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.宙品:
                                 if (宙)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.洪品:
                                 if (洪)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                             case QualityType.荒品:
                                 if (荒)
                                 {
                                     PlayerData.S.PropListDic[PropType.灵魂]+=丹药Config.Get丹药分解价格(PlayerData.S.Get丹药Type(item.Key),qualityType)*item.Value;
-                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0);
+                                    PlayerData.S.Set丹药数量(PlayerData.S.Get丹药Type(item.Key),qualityType,0,阶段);
                                 }
                                 break;
                         }

@@ -11,6 +11,7 @@ public class 确认服用造化丹药弹窗 : MonoBehaviour
     public Button 返回按钮;
     public Button 确认按钮;
     [NonSerialized]public QualityType qualityType;
+    [NonSerialized] public int 阶段 = 1;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class 确认服用造化丹药弹窗 : MonoBehaviour
             PlayerData.S.造化丹药List.Add(qualityType);
             PlayerData.S.当前轮回造化丹药QualityType = qualityType;
             ObserverModuleManager.S.SendEvent("SendUIToast","服用丹药成功");
-            PlayerData.S.Set丹药数量(丹药Type.加跟脚,qualityType,PlayerData.S.Get丹药数量(丹药Type.加跟脚,qualityType)-1);
+            PlayerData.S.Set丹药数量(丹药Type.加跟脚,qualityType,PlayerData.S.Get丹药数量(丹药Type.加跟脚,qualityType,阶段)-1,阶段);
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);
         });

@@ -14,6 +14,7 @@ public class 根基丹药服用弹窗 : MonoBehaviour
     public GameObject content;
     [NonSerialized] public 丹药Type 丹药Type;
     [NonSerialized]public QualityType QualityType;
+    [NonSerialized] public int 阶段 = 1;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class 根基丹药服用弹窗 : MonoBehaviour
                 return;
             }
             PlayerData.S.Set英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType,PlayerData.S.Get英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType)+1);
-            PlayerData.S.Set丹药数量(丹药Type,QualityType,PlayerData.S.Get丹药数量(丹药Type,QualityType)-1);
+            PlayerData.S.Set丹药数量(丹药Type,QualityType,PlayerData.S.Get丹药数量(丹药Type,QualityType,阶段)-1,阶段);
             ObserverModuleManager.S.SendEvent("刷新背包");
             ObserverModuleManager.S.SendEvent("SendUIToast","服用丹药成功");
             gameObject.SetActive(false);

@@ -10,6 +10,7 @@ public class 丹药grid : MonoBehaviour
 {
     [NonSerialized] public 丹药Type 丹药Type;
     [NonSerialized] public QualityType QualityType;
+    [NonSerialized] public int 阶段 = 1;
     public Button bg;
     public Image icon;
     public Image 艺术字;
@@ -23,11 +24,11 @@ public class 丹药grid : MonoBehaviour
             var 丹药类型=丹药Config.丹药类型Dic[丹药Type];
             if (丹药类型 == 丹药类型.辅助丹药)
             {
-                ObserverModuleManager.S.SendEvent("服用辅助丹药弹窗",丹药Type,QualityType);
+                ObserverModuleManager.S.SendEvent("服用辅助丹药弹窗",丹药Type,QualityType,阶段);
             }
             if (丹药类型 == 丹药类型.根基丹药)
             {
-                ObserverModuleManager.S.SendEvent("服用根基丹药",丹药Type,QualityType);
+                ObserverModuleManager.S.SendEvent("服用根基丹药",丹药Type,QualityType,阶段);
             }
             if (丹药类型 == 丹药类型.造化丹药)
             {
@@ -36,7 +37,7 @@ public class 丹药grid : MonoBehaviour
                     ObserverModuleManager.S.SendEvent("SendUIToast","当前轮回已经服用过造化丹");
                     return;
                 }
-                ObserverModuleManager.S.SendEvent("显示服用造化丹药确认弹窗",QualityType);
+                ObserverModuleManager.S.SendEvent("显示服用造化丹药确认弹窗",QualityType,阶段);
             }
         });
     }
@@ -46,7 +47,8 @@ public class 丹药grid : MonoBehaviour
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
         艺术字.sprite = ResourcesConfig.Get艺术字(QualityType);
-        name.text = 丹药Config.丹药名Dic[丹药Type];
-        count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType).ToString();
+        // 各阶段库存独立，同名丹药按阶段区分显示，如「火元丹·1阶」
+        name.text = 丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";
+        count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段).ToString();
     }
 }
