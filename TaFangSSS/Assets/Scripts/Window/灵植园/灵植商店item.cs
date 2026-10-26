@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class 灵植商店item : MonoBehaviour
 {
+    public GameObject mask;
+    public TextMeshProUGUI 解锁等级;
     public Button bg;
     public TextMeshProUGUI name;
     public TextMeshProUGUI count;
@@ -20,6 +22,8 @@ public class 灵植商店item : MonoBehaviour
     {
         if (灵植Type != 灵植Type.None)
         {
+            mask.gameObject.SetActive(灵植园Config.灵植解锁等级Dic[灵植Type]>PlayerData.S.灵植园等级);
+            解锁等级.text = 灵植园Config.灵植解锁等级Dic[灵植Type] + "级解锁";
             bg.image.sprite = ResourcesConfig.Get灵植背包格子(灵植园Config.灵植品质Dic[灵植Type]);
             name.text = 灵植园Config.灵植名[灵植Type];
             count.text = 灵植园Config.灵植价格Dic[灵植Type].ToString();
@@ -28,6 +32,7 @@ public class 灵植商店item : MonoBehaviour
         }
         else
         {
+            mask.gameObject.SetActive(false);
             bg.image.sprite = ResourcesConfig.Get灵植背包格子(quality);
             name.text = 灵植园Config.肥料名[肥料Type];
             count.text = 灵植园Config.Get肥料价格(肥料Type,quality).ToString();

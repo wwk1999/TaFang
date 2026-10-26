@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class 灵植园界面 : MonoBehaviour
 {
+    public TextMeshProUGUI 等级;
+    public Image 等级进度条;
+
     public Button 退出按钮;
     public Button 返回领地按钮;
     public GameObject 土地;
@@ -24,11 +27,12 @@ public class 灵植园界面 : MonoBehaviour
     public 灵植商店窗口 灵植商店窗口;
     public 灵植背包窗口 灵植背包窗口;
     public 土地窗口 土地窗口;
-    public 种子信息弹窗 种子信息弹窗;
 
-
+    
     public void Set青石(object[] obj)
     {
+        等级.text = "LV." + PlayerData.S.灵植园等级;
+        等级进度条.fillAmount = PlayerData.S.灵植园经验 / 灵植园Config.灵植园等级经验[PlayerData.S.灵植园等级];
         青石.text=PlayerData.S.格式化数字(PlayerData.S.青石).ToString();
     }
     
@@ -152,7 +156,6 @@ public class 灵植园界面 : MonoBehaviour
     {
         灵植园Config.同步土地解锁();
         if (土地窗口 != null) 土地窗口.gameObject.SetActive(false);
-        if (种子信息弹窗 != null) 种子信息弹窗.gameObject.SetActive(false);
         Set青石(null);
         刷新土地();
     }
