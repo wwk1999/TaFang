@@ -26,7 +26,8 @@ public class 丹药信息 : MonoBehaviour
 
     public void SetItem()
     {
-        name.text = 丹药Config.丹药名Dic[丹药Type];
+        // 炼丹产出的丹药默认 1 阶
+        name.text = 丹药Config.丹药名Dic[丹药Type] + "·1阶";
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
         bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite=ResourcesConfig.Get丹药icon(丹药Type,QualityType);

@@ -84,7 +84,7 @@ public class 坊市自动购买Item : MonoBehaviour
             {
                 btn.image.sprite = ResourcesConfig.toggle暗;
             }
-            text.text = PropConfig.QualityNameDic[QualityType] + 丹药Config.丹药名Dic[丹药Type];
+            text.text = PropConfig.QualityNameDic[QualityType] + 丹药Config.丹药名Dic[丹药Type] + "·1阶";
         }
         if (丹方Type != 丹药Type.None)
         {

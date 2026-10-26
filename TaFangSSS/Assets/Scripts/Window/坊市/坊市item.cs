@@ -174,7 +174,7 @@ public class 坊市item : MonoBehaviour
         
         if (丹药Type != 丹药Type.None)
         {
-            name.text = 丹药Config.丹药名Dic[丹药Type];
+            name.text = 丹药Config.丹药名Dic[丹药Type] + "·1阶";
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
             icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);

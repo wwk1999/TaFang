@@ -240,6 +240,7 @@ public enum 灵药Type
 
 public class 丹药Config
 {
+    public static float 丹药阶数倍数=2;
     public static 英雄根基丹药属性 Get英雄根基丹药属性(HeroType heroType)
     {
         英雄根基丹药属性 英雄根基丹药属性 = new 英雄根基丹药属性();

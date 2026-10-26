@@ -74,6 +74,7 @@ public class 丹药GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
         丹药信息弹窗 弹窗 = currentPopup.GetComponent<丹药信息弹窗>();
         弹窗.丹药Type = 丹药grid.丹药Type;
         弹窗.QualityType = 丹药grid.QualityType;
+        弹窗.阶段 = 丹药grid.阶段;
         弹窗.SetItem();
         // 设置弹窗的位置
         UpdatePopupPosition(mousePosition);

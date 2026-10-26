@@ -30,7 +30,7 @@ public class 战斗界面丹药tem : MonoBehaviour
             QualityType qualityType = PlayerData.S.战斗选择丹药Dic[index].QualityType;
             bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(qualityType);
             icon.sprite = ResourcesConfig.Get丹药icon(type, qualityType);
-            name.text = 丹药Config.丹药名Dic[type];
+            name.text = 丹药Config.丹药名Dic[type] + "·1阶";
             count.text = (PlayerData.S.Get丹药数量(type, qualityType)+1).ToString();
         }
     }

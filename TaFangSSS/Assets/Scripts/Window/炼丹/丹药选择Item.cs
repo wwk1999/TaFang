@@ -18,7 +18,7 @@ public class 丹药选择Item : MonoBehaviour
 
    public void SetItem()
    {
-      name.text = 丹药Config.丹药名Dic[丹药Type];
+      name.text = 丹药Config.丹药名Dic[丹药Type] + "·1阶";
       count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType).ToString();
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
       icon.sprite=ResourcesConfig.Get丹药icon(丹药Type,QualityType);

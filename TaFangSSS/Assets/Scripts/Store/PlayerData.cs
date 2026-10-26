@@ -2550,7 +2550,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     public Dictionary<string, int> 丹药Dic = 生成丹药Dic();
 
     /// <summary>
-    /// 生成全量丹药库存字典：遍历 丹药Type × QualityType × 1~9 阶，数量均为 0。
+    /// 生成全量丹药库存字典：遍历 丹药Type × QualityType × 允许的阶段，数量均为 0。
     /// key 格式：{丹药Type}_{品质}_{阶段}阶，如「火焰伤害_黄品_1阶」。
     /// 坊市与炼丹产出的丹药默认都是 1 阶，各阶段库存独立计数。
     /// </summary>
@@ -2563,13 +2563,23 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
             foreach (QualityType quality in Enum.GetValues(typeof(QualityType)))
             {
                 if (quality == QualityType.None) continue;
-                for (int 阶段 = 1; 阶段 <= 9; 阶段++)
+                for (int 阶段 = 1; 阶段 <= Get丹药最高阶段(quality); 阶段++)
                 {
                     dic[type + "_" + quality + "_" + 阶段 + "阶"] = 0;
                 }
             }
         }
         return dic;
+    }
+
+    /// <summary>
+    /// 各品质丹药允许的最高阶段：黄品 1 阶、玄品 2 阶……洪品 7 阶，
+    /// 与枚举值一一对应；荒品特殊，最高 9 阶。
+    /// </summary>
+    public static int Get丹药最高阶段(QualityType quality)
+    {
+        if (quality == QualityType.荒品) return 9;
+        return (int)quality;
     }
 
     public 丹药Type Get丹药Type(string str)

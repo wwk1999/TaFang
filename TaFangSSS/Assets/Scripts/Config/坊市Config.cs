@@ -296,7 +296,7 @@ public class 坊市Config
                     PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
                     PlayerData.S.Set丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
-                    ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹药名Dic[PlayerData.S.坊市物品列表[i].丹药Type],PlayerData.S.坊市物品列表[i].QualityType,1);
+                    ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹药名Dic[PlayerData.S.坊市物品列表[i].丹药Type] + "·1阶",PlayerData.S.坊市物品列表[i].QualityType,1);
 
                 }
             }

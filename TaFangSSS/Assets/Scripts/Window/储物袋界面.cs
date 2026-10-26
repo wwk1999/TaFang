@@ -582,8 +582,8 @@ public class 储物袋界面 : MonoBehaviour
       {
          foreach (var item in 丹药Config.丹药名Dic)
          {
-            // 各阶段库存独立，同类型同品质的丹药按 1~9 阶分别成格显示
-            for (int 阶段 = 1; 阶段 <= 9; 阶段++)
+            // 各阶段库存独立，同品质内按阶段从高到低成格显示
+            for (int 阶段 = PlayerData.Get丹药最高阶段((QualityType)i); 阶段 >= 1; 阶段--)
             {
                if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i, 阶段) > 0)
                {
@@ -831,7 +831,7 @@ public class 储物袋界面 : MonoBehaviour
          for (int i = 1; i <= 8; i++)
          {
             // 各阶段库存独立，每一阶单独占格计数
-            for (int 阶段 = 1; 阶段 <= 9; 阶段++)
+            for (int 阶段 = PlayerData.Get丹药最高阶段((QualityType)i); 阶段 >= 1; 阶段--)
             {
                if (PlayerData.S.Get丹药数量(item.Key, (QualityType)i, 阶段) > 0)
                {
