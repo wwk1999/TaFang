@@ -22,6 +22,7 @@ public class 储物袋界面 : MonoBehaviour
    public 确认服用造化丹药弹窗 确认服用造化丹药弹窗;
    public 服用辅助丹药弹窗 服用辅助丹药弹窗;
    public 根基丹药服用弹窗 根基丹药服用弹窗;
+   public 丹药升阶弹窗 丹药升阶弹窗;
    
    public 分解确认弹窗 分解确认弹窗;
    public Button 左箭头;
@@ -135,6 +136,15 @@ public class 储物袋界面 : MonoBehaviour
 
    public void 刷新背包(object[] obj)
    {
+      // 丹药升阶会消耗库存，当前页可能已超出实际页数，先回收到最后一页，避免停在空白页
+      if (显示类型 == 9)
+      {
+         int 最大页 = Mathf.Max(1, Get丹药最大页数());
+         if (页数Num > 最大页)
+         {
+            页数Num = 最大页;
+         }
+      }
       刷新背包();
    }
 
@@ -154,6 +164,7 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.UnRegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
       ObserverModuleManager.S.UnRegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.UnRegisterEvent("功法分解",功法分解);
+      ObserverModuleManager.S.UnRegisterEvent("丹药升阶",丹药升阶);
       ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹image", Show道纹image);
       ObserverModuleManager.S.UnRegisterEvent("Show道纹弹窗", Show道纹弹窗);
@@ -168,6 +179,30 @@ public class 储物袋界面 : MonoBehaviour
       功法分解弹窗.功法Type = type;
       功法分解弹窗.SetItem();
       功法分解弹窗.gameObject.SetActive(true);
+   }
+
+   public void 丹药升阶(object[] obj)
+   {
+      丹药Type type = (丹药Type)obj[0];
+      QualityType qualityType = (QualityType)obj[1];
+      int 阶段 = (int)obj[2];
+      // 升阶门槛：数量至少要够合成一次，不足只弹提示不开弹窗
+      if (PlayerData.S.Get丹药数量(type, qualityType, 阶段) < 丹药升阶弹窗.升阶消耗数量)
+      {
+         ObserverModuleManager.S.SendEvent("SendUIToast","丹药数量不足" + 丹药升阶弹窗.升阶消耗数量 + "个，无法升阶");
+         return;
+      }
+      // 品质已到顶时不再开放升阶（黄品最高 1 阶，永远无法升阶）
+      if (阶段 >= PlayerData.Get丹药最高阶段(qualityType))
+      {
+         ObserverModuleManager.S.SendEvent("SendUIToast","该丹药已是最高阶段");
+         return;
+      }
+      丹药升阶弹窗.丹药Type = type;
+      丹药升阶弹窗.QualityType = qualityType;
+      丹药升阶弹窗.阶段数 = 阶段;
+      丹药升阶弹窗.SetItem();
+      丹药升阶弹窗.gameObject.SetActive(true);
    }
 
    public void 显示确认分解弹窗(object[] obj)
@@ -283,6 +318,10 @@ public class 储物袋界面 : MonoBehaviour
          {
             根基丹药服用弹窗.gameObject.SetActive(false);
          }
+         else if (丹药升阶弹窗.gameObject.activeSelf)
+         {
+            丹药升阶弹窗.gameObject.SetActive(false);
+         }
          else if (丹方使用弹窗.gameObject.activeSelf)
          {
             丹方使用弹窗.gameObject.SetActive(false);
@@ -305,6 +344,7 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
       ObserverModuleManager.S.RegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.RegisterEvent("功法分解",功法分解);
+      ObserverModuleManager.S.RegisterEvent("丹药升阶",丹药升阶);
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.RegisterEvent("Show道纹image", Show道纹image);
       ObserverModuleManager.S.RegisterEvent("Show道纹弹窗", Show道纹弹窗);

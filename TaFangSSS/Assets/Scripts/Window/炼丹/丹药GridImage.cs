@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 丹药GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 丹药GridImage : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
      [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -87,6 +87,17 @@ public class 丹药GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private void OnDestroy()
     {
         DestroyPopup();
+    }
+
+    /// <summary>右键请求丹药升阶，数量门槛与提示由升阶逻辑统一拦截</summary>
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            // 先收起悬停信息弹窗，避免它盖在升阶弹窗上
+            DestroyPopup();
+            ObserverModuleManager.S.SendEvent("丹药升阶", 丹药grid.丹药Type, 丹药grid.QualityType, 丹药grid.阶段);
+        }
     }
     
     private void UpdatePopupPosition(Vector2 mousePosition)
