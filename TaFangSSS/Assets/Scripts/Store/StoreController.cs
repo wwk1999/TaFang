@@ -280,13 +280,20 @@ public class StoreController : XSingleton<StoreController>
 
     public void 减少辅助丹药时间()
     {
+        // 逐品质逐阶段衰减：每种辅助丹药只能服用一颗，实际最多一个 key 非零
         for (int i = 1; i <= 8; i++)
         {
-            PlayerData.S.Set辅助丹药Buff(丹药Type.修炼速度,(QualityType)i,Math.Max(0,PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度,(QualityType)i)-1));
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            PlayerData.S.Set辅助丹药Buff(丹药Type.掉宝率,(QualityType)i,Math.Max(0,PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率,(QualityType)i)-1));
+            for (int j = 1; j <= PlayerData.Get丹药最高阶段((QualityType)i); j++)
+            {
+                if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度,(QualityType)i,j) > 0)
+                {
+                    PlayerData.S.Set辅助丹药Buff(丹药Type.修炼速度,(QualityType)i,PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度,(QualityType)i,j)-1,j);
+                }
+                if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率,(QualityType)i,j) > 0)
+                {
+                    PlayerData.S.Set辅助丹药Buff(丹药Type.掉宝率,(QualityType)i,PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率,(QualityType)i,j)-1,j);
+                }
+            }
         }
     }
 

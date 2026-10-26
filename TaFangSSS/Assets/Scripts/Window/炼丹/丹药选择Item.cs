@@ -15,11 +15,12 @@ public class 丹药选择Item : MonoBehaviour
    public TextMeshProUGUI count;
    [NonSerialized] public 丹药Type 丹药Type;
    [NonSerialized] public QualityType QualityType;
+   [NonSerialized] public int 阶段 = 1;
 
    public void SetItem()
    {
-      name.text = 丹药Config.丹药名Dic[丹药Type] + "·1阶";
-      count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType).ToString();
+      name.text = 丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";
+      count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段).ToString();
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
       icon.sprite=ResourcesConfig.Get丹药icon(丹药Type,QualityType);
       gou.SetActive(false);
@@ -29,7 +30,8 @@ public class 丹药选择Item : MonoBehaviour
    {
       丹药Type 丹药Type1 = (丹药Type)obj[0];
       QualityType QualityType1 = (QualityType)obj[1];
-      if (丹药Type1 == 丹药Type && QualityType1 == QualityType)
+      int 阶段1 = (int)obj[2];
+      if (丹药Type1 == 丹药Type && QualityType1 == QualityType && 阶段1 == 阶段)
       {
          gou.SetActive(true);
       }
@@ -51,7 +53,8 @@ public class 丹药选择Item : MonoBehaviour
       {
          HeroWindowController.S.当前选择丹药Type = 丹药Type;
          HeroWindowController.S.当前选择丹药QualityType = QualityType;
-         ObserverModuleManager.S.SendEvent("丹药选择点击",丹药Type,QualityType);
+         HeroWindowController.S.当前选择丹药阶段 = 阶段;
+         ObserverModuleManager.S.SendEvent("丹药选择点击",丹药Type,QualityType,阶段);
       });
    }
 }

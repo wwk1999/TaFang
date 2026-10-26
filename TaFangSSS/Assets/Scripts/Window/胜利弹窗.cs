@@ -48,22 +48,22 @@ public class 胜利弹窗 : MonoBehaviour
      public void 刷新战斗丹药()
    {
        PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType,Math.Max(0,
-           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType)-1));
+           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段)-1), PlayerData.S.战斗选择丹药Dic[1].阶段);
        PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType,Math.Max(0,
-           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType)-1));
+           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段)-1), PlayerData.S.战斗选择丹药Dic[2].阶段);
        PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType,Math.Max(0,
-           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType)-1));
-       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType) == 0)
+           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段)-1), PlayerData.S.战斗选择丹药Dic[3].阶段);
+       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段) == 0)
        {
            PlayerData.S.战斗选择丹药Dic[1].丹药Type = 丹药Type.None;
        }
       
-       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType) == 0)
+       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段) == 0)
        {
            PlayerData.S.战斗选择丹药Dic[2].丹药Type = 丹药Type.None;
        }
       
-       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType) == 0)
+       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段) == 0)
        {
            PlayerData.S.战斗选择丹药Dic[3].丹药Type = 丹药Type.None;
        }

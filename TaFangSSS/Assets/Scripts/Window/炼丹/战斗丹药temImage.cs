@@ -12,7 +12,7 @@ public class 战斗丹药temImage : MonoBehaviour,IPointerClickHandler, IPointer
         {
             if (PlayerData.S.战斗选择丹药Dic[item.index].丹药Type != 丹药Type.None)
             {
-                PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[item.index].丹药Type,PlayerData.S.战斗选择丹药Dic[item.index].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[item.index].丹药Type,PlayerData.S.战斗选择丹药Dic[item.index].QualityType)+1);
+                PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[item.index].丹药Type,PlayerData.S.战斗选择丹药Dic[item.index].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[item.index].丹药Type,PlayerData.S.战斗选择丹药Dic[item.index].QualityType,PlayerData.S.战斗选择丹药Dic[item.index].阶段)+1,PlayerData.S.战斗选择丹药Dic[item.index].阶段);
                 PlayerData.S.战斗选择丹药Dic[item.index].丹药Type = 丹药Type.None;
                 ObserverModuleManager.S.SendEvent("刷新战斗丹药");
             }
@@ -90,6 +90,7 @@ public class 战斗丹药temImage : MonoBehaviour,IPointerClickHandler, IPointer
         丹药信息弹窗 弹窗 = currentPopup.GetComponent<丹药信息弹窗>();
         弹窗.丹药Type = PlayerData.S.战斗选择丹药Dic[item.index].丹药Type;
         弹窗.QualityType = PlayerData.S.战斗选择丹药Dic[item.index].QualityType;
+        弹窗.阶段 = PlayerData.S.战斗选择丹药Dic[item.index].阶段;
         弹窗.丹药显示Type = 丹药显示Type.战斗弹窗;
         弹窗.SetItem();
         // 设置弹窗的位置

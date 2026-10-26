@@ -626,9 +626,12 @@ public class 属性config
           float count = 0;
           for (int i = 1; i <= 8; i++)
           {
-               if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率, (QualityType)i) > 0)
+               for (int j = 1; j <= PlayerData.Get丹药最高阶段((QualityType)i); j++)
                {
-                    count += 丹药Config.Get丹药值(丹药Type.掉宝率, (QualityType)i);
+                    if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率, (QualityType)i, j) > 0)
+                    {
+                         count += 丹药Config.Get丹药值(丹药Type.掉宝率, (QualityType)i, j);
+                    }
                }
           }
           return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
@@ -641,9 +644,12 @@ public class 属性config
           float count = 0;
           for (int i = 1; i <= 8; i++)
           {
-               if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度, (QualityType)i) > 0)
+               for (int j = 1; j <= PlayerData.Get丹药最高阶段((QualityType)i); j++)
                {
-                    count += 丹药Config.Get丹药值(丹药Type.修炼速度, (QualityType)i);
+                    if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度, (QualityType)i, j) > 0)
+                    {
+                         count += 丹药Config.Get丹药值(丹药Type.修炼速度, (QualityType)i, j);
+                    }
                }
           }
 

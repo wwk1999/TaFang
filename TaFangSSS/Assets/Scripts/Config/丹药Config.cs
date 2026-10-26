@@ -204,6 +204,7 @@ public class 丹药
 {
     public 丹药Type 丹药Type = 丹药Type.None;
     public QualityType QualityType = QualityType.None;
+    public int 阶段 = 1;
 
     public override bool Equals(object obj)
     {
@@ -211,7 +212,7 @@ public class 丹药
             return false;
 
         丹药 other = (丹药)obj;
-        return 丹药Type == other.丹药Type && QualityType == other.QualityType;
+        return 丹药Type == other.丹药Type && QualityType == other.QualityType && 阶段 == other.阶段;
     }
 
     public override int GetHashCode()
@@ -219,6 +220,7 @@ public class 丹药
         int hash = 17;
         hash = hash * 31 + 丹药Type.GetHashCode();
         hash = hash * 31 + QualityType.GetHashCode();
+        hash = hash * 31 + 阶段.GetHashCode();
         return hash;
     }
 }
@@ -241,56 +243,22 @@ public enum 灵药Type
 public class 丹药Config
 {
     public static float 丹药阶数倍数=2;
+    /// <summary>每品质每阶数独立计数（各5次上限），数值按阶段翻倍</summary>
     public static 英雄根基丹药属性 Get英雄根基丹药属性(HeroType heroType)
     {
         英雄根基丹药属性 英雄根基丹药属性 = new 英雄根基丹药属性();
         for (int i = 1; i <= 8; i++)
         {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄冰霜伤害, (QualityType)i) > 0)
+            var quality = (QualityType)i;
+            for (int 阶段 = 1; 阶段 <= PlayerData.Get丹药最高阶段(quality); 阶段++)
             {
-                英雄根基丹药属性.冰霜伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄冰霜伤害, (QualityType)i)*Get丹药值(丹药Type.英雄冰霜伤害, (QualityType)i);
-            }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄火焰伤害, (QualityType)i) > 0)
-            {
-                英雄根基丹药属性.火焰伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄火焰伤害, (QualityType)i)*Get丹药值(丹药Type.英雄火焰伤害, (QualityType)i);
-            }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄雷电伤害, (QualityType)i) > 0)
-            {
-                英雄根基丹药属性.雷电伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄雷电伤害, (QualityType)i)*Get丹药值(丹药Type.英雄雷电伤害, (QualityType)i);
-            }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄物理伤害, (QualityType)i) > 0)
-            {
-                英雄根基丹药属性.物理伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄物理伤害, (QualityType)i)*Get丹药值(丹药Type.英雄物理伤害, (QualityType)i);
-            }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄黑暗伤害, (QualityType)i) > 0)
-            {
-                英雄根基丹药属性.黑暗伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄黑暗伤害, (QualityType)i)*Get丹药值(丹药Type.英雄黑暗伤害, (QualityType)i);
-            }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄最终伤害, (QualityType)i) > 0)
-            {
-                英雄根基丹药属性.最终伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄最终伤害, (QualityType)i)*Get丹药值(丹药Type.英雄最终伤害, (QualityType)i);
-            }
-        }
-        for (int i = 1; i <= 8; i++)
-        {
-            if (PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄暴击伤害, (QualityType)i) > 0)
-            {
-                英雄根基丹药属性.暴击伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄暴击伤害, (QualityType)i)*Get丹药值(丹药Type.英雄暴击伤害, (QualityType)i);
+                英雄根基丹药属性.冰霜伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄冰霜伤害, quality, 阶段) * Get丹药值(丹药Type.英雄冰霜伤害, quality, 阶段);
+                英雄根基丹药属性.火焰伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄火焰伤害, quality, 阶段) * Get丹药值(丹药Type.英雄火焰伤害, quality, 阶段);
+                英雄根基丹药属性.雷电伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄雷电伤害, quality, 阶段) * Get丹药值(丹药Type.英雄雷电伤害, quality, 阶段);
+                英雄根基丹药属性.物理伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄物理伤害, quality, 阶段) * Get丹药值(丹药Type.英雄物理伤害, quality, 阶段);
+                英雄根基丹药属性.黑暗伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄黑暗伤害, quality, 阶段) * Get丹药值(丹药Type.英雄黑暗伤害, quality, 阶段);
+                英雄根基丹药属性.最终伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄最终伤害, quality, 阶段) * Get丹药值(丹药Type.英雄最终伤害, quality, 阶段);
+                英雄根基丹药属性.暴击伤害 += PlayerData.S.Get英雄根基丹药服用(heroType, 丹药Type.英雄暴击伤害, quality, 阶段) * Get丹药值(丹药Type.英雄暴击伤害, quality, 阶段);
             }
         }
 
@@ -301,17 +269,17 @@ public class 丹药Config
         丹药属性 丹药属性 = new 丹药属性();
         if (PlayerData.S.战斗选择丹药Dic[1].丹药Type != 丹药Type.None)
         {
-            丹药属性 丹药属性1 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType);
+            丹药属性 丹药属性1 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段);
             丹药属性 +=丹药属性1;
         }
         if (PlayerData.S.战斗选择丹药Dic[2].丹药Type != 丹药Type.None)
         {
-            丹药属性 丹药属性2 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType);
+            丹药属性 丹药属性2 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段);
             丹药属性 += 丹药属性2;
         }
         if (PlayerData.S.战斗选择丹药Dic[3].丹药Type != 丹药Type.None)
         {
-            丹药属性 丹药属性3 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType);
+            丹药属性 丹药属性3 = Get丹药属性(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段);
             丹药属性 += 丹药属性3;
         }
         return 丹药属性*(1f+体质Config.当前体质总属性.丹药效果/100f);
@@ -715,7 +683,13 @@ public class 丹药Config
         { 丹药Type.英雄最终伤害, 丹药类型.根基丹药 },
     };
 
-    public static 丹药属性 Get丹药属性(丹药Type type, QualityType qualityType)
+    /// <summary>获取丹药属性。1阶为基础值，每升一阶翻 丹药阶数倍数 倍（2阶2倍、3阶4倍……）</summary>
+    public static 丹药属性 Get丹药属性(丹药Type type, QualityType qualityType, int 阶段 = 1)
+    {
+        return Get丹药属性基础(type, qualityType) * (float)Math.Pow(丹药阶数倍数, 阶段 - 1);
+    }
+
+    private static 丹药属性 Get丹药属性基础(丹药Type type, QualityType qualityType)
 {
     丹药属性 丹药属性 = new 丹药属性();
     switch (type)
@@ -1012,7 +986,13 @@ public class 丹药Config
     return 丹药属性;
 }
 
-    public static float Get丹药值(丹药Type type, QualityType qualityType)
+    /// <summary>获取丹药效果数值。1阶为基础值，每升一阶翻 丹药阶数倍数 倍</summary>
+    public static float Get丹药值(丹药Type type, QualityType qualityType, int 阶段 = 1)
+    {
+        return Get丹药值基础(type, qualityType) * (float)Math.Pow(丹药阶数倍数, 阶段 - 1);
+    }
+
+    private static float Get丹药值基础(丹药Type type, QualityType qualityType)
     {
         switch (type)
         {
@@ -1125,9 +1105,11 @@ public class 丹药Config
     public static float Get造化丹药总值()
     {
         float count = 0;
-        foreach (var item in PlayerData.S.造化丹药List)
+        for (int i = 0; i < PlayerData.S.造化丹药List.Count; i++)
         {
-            count += Get丹药值(丹药Type.加跟脚, item);
+            // 阶段列表与品质列表按索引一一对应，旧档缺阶段记录时按 1 阶计
+            int 阶段 = i < PlayerData.S.造化丹药阶段List.Count ? PlayerData.S.造化丹药阶段List[i] : 1;
+            count += Get丹药值(丹药Type.加跟脚, PlayerData.S.造化丹药List[i], 阶段);
         }
 
         return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
@@ -1187,9 +1169,9 @@ public class 丹药Config
         return 0;
     }
 
-    public static string Get丹药Desc(丹药Type 丹药Type, QualityType qualityType)
+    public static string Get丹药Desc(丹药Type 丹药Type, QualityType qualityType, int 阶段 = 1)
     {
-        string 丹药值 = Get丹药值(丹药Type, qualityType).ToString();
+        string 丹药值 = Get丹药值(丹药Type, qualityType, 阶段).ToString();
         switch (丹药Type)
         {
             case 丹药Type.火焰伤害:

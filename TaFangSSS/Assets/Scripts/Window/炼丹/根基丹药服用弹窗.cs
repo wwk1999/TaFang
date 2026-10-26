@@ -25,7 +25,7 @@ public class 根基丹药服用弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","请选择英雄");
                 return;
             }
-            PlayerData.S.Set英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType,PlayerData.S.Get英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType)+1);
+            PlayerData.S.Set英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType,PlayerData.S.Get英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType,阶段)+1,阶段);
             PlayerData.S.Set丹药数量(丹药Type,QualityType,PlayerData.S.Get丹药数量(丹药Type,QualityType,阶段)-1,阶段);
             ObserverModuleManager.S.SendEvent("刷新背包");
             ObserverModuleManager.S.SendEvent("SendUIToast","服用丹药成功");
@@ -53,7 +53,7 @@ public class 根基丹药服用弹窗 : MonoBehaviour
         {
             if (丹药Config.丹药元素类型Dic[丹药Type] == YuanSuType.None)
             {
-                if (PlayerData.S.Get英雄根基丹药服用(item.Key, 丹药Type, QualityType) < 5)
+                if (PlayerData.S.Get英雄根基丹药服用(item.Key, 丹药Type, QualityType, 阶段) < 5)
                 {
                     var 英雄item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/服用根基丹药英雄item"),content.transform).GetComponent<服用根基丹药英雄item>();
                     英雄item.HeroType = item.Key;
@@ -63,7 +63,7 @@ public class 根基丹药服用弹窗 : MonoBehaviour
             else
             {
                 if (HeroConfig.HeroZhiYeDic[item.Key].yuanSuType == 丹药Config.丹药元素类型Dic[丹药Type] &&
-                    PlayerData.S.Get英雄根基丹药服用(item.Key, 丹药Type, QualityType) < 5)
+                    PlayerData.S.Get英雄根基丹药服用(item.Key, 丹药Type, QualityType, 阶段) < 5)
                 {
                     var 英雄item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/服用根基丹药英雄item"),content.transform).GetComponent<服用根基丹药英雄item>();
                     英雄item.HeroType = item.Key;

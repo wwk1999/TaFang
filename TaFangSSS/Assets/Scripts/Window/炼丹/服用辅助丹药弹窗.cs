@@ -22,17 +22,39 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
     [NonSerialized] public QualityType QualityType;
     [NonSerialized] public int 阶段 = 1;
 
+    /// <summary>该类型辅助丹药是否已服用过（任何品质任何阶数，只能服用一颗）</summary>
+    private bool 已服用过()
+    {
+        for (int i = 1; i <= 8; i++)
+        {
+            for (int j = 1; j <= PlayerData.Get丹药最高阶段((QualityType)i); j++)
+            {
+                if (PlayerData.S.Get辅助丹药Buff(丹药Type, (QualityType)i, j) > 0)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private void Start()
     {
         服用按钮.onClick.AddListener(() =>
         {
-            if (count < 1)
+            // 每种辅助丹药只能服用一颗：任何品质任何阶数服用过后即拦截
+            if (已服用过())
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","请选择服用数量");
+                ObserverModuleManager.S.SendEvent("SendUIToast","每种辅助丹药只能服用一颗");
                 return;
             }
-            PlayerData.S.Set辅助丹药Buff(丹药Type, QualityType, PlayerData.S.Get辅助丹药Buff(丹药Type, QualityType) + count);
-            PlayerData.S.Set丹药数量(丹药Type, QualityType,PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段)-count, 阶段);
+            if (PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段) < 1)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","丹药数量不足");
+                return;
+            }
+            PlayerData.S.Set辅助丹药Buff(丹药Type, QualityType, 1, 阶段);
+            PlayerData.S.Set丹药数量(丹药Type, QualityType,PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段)-1, 阶段);
             ObserverModuleManager.S.SendEvent("SendUIToast","服用成功");
             ObserverModuleManager.S.SendEvent("刷新背包");
             ObserverModuleManager.S.SendEvent("刷新主页Buff");
@@ -42,62 +64,31 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
         {
             gameObject.SetActive(false);
         });
-        数量Slider.maxValue = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段);
-        if (PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段) <= 1)
-        {
-           数量Slider.minValue = 0; 
-        }
-        else
-        {
-            数量Slider.minValue = 1;
-        }
+        // 只能服用一颗，滑条固定为 1
+        数量Slider.minValue = 1;
+        数量Slider.maxValue = 1;
         数量Slider.onValueChanged.AddListener(OnSliderValueChanged);
     }
 
     private void OnEnable()
     {
-        数量Slider.maxValue = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段);
-        if (PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段) <= 1)
-        {
-            数量Slider.minValue = 0; 
-        }
-        else
-        {
-            数量Slider.minValue = 1;
-        }
+        数量Slider.minValue = 1;
+        数量Slider.maxValue = 1;
+        数量Slider.value = 1;
+        count = 1;
+        数量.text = "1";
     }
 
     void OnSliderValueChanged(float value)
     {
-        if (PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段) == 1)
-        {
-            // 恰好剩 1 颗时强制选中它。count 必须同步重置，
-            // 否则沿用上一次的服用数量（吃1颗却加60颗效果的根因）
-            数量Slider.value = 数量Slider.maxValue;
-            count = 1;
-            数量.text = "1";
-            return;
-        }
-        int newCount=(int)value;
-        数量Slider.value=newCount;
-        数量.text=newCount.ToString();
-        count=newCount;
+        数量Slider.value = 1;
+        数量.text = "1";
+        count = 1;
     }
     public void SetItem()
     {
         数量.text = "1";
-        // 重置服用数量字段。原代码这里声明了同名局部变量 int count，
-        // 把字段遮蔽了，导致字段保留上一次的值（60）没被重置
         count = 1;
-        int 背包数量 = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段);
-        if (背包数量 > 1)
-        {
-            数量Slider.value = 数量Slider.minValue;
-        }
-        else
-        {
-            数量Slider.value = 数量Slider.maxValue;
-        }
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
         name.text = 丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";

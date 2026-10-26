@@ -54,6 +54,6 @@ public class 丹药信息弹窗 : MonoBehaviour
         icon.sprite=ResourcesConfig.Get丹药icon(丹药Type,QualityType);
         name.text=丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";
         类型.text = 丹药Config.丹药类型String[丹药Config.丹药类型Dic[丹药Type]];
-        info.text = 丹药Config.Get丹药Desc(丹药Type, QualityType);
+        info.text = 丹药Config.Get丹药Desc(丹药Type, QualityType, 阶段);
     }
 }

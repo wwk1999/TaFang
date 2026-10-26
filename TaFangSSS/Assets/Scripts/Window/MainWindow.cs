@@ -274,25 +274,33 @@ public class MainWindow : MonoBehaviour
 
         for (int i = 8; i >= 1; i--)
         {
-            if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度, (QualityType)i) > 0)
+            for (int j = PlayerData.Get丹药最高阶段((QualityType)i); j >= 1; j--)
             {
-                var item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/BuffItem"), BuffContent.transform)
-                    .GetComponent<BuffItem>();
-                item.丹药type = 丹药Type.修炼速度;
-                item.QualityType = (QualityType)i;
-                item.SetItem();
+                if (PlayerData.S.Get辅助丹药Buff(丹药Type.修炼速度, (QualityType)i, j) > 0)
+                {
+                    var item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/BuffItem"), BuffContent.transform)
+                        .GetComponent<BuffItem>();
+                    item.丹药type = 丹药Type.修炼速度;
+                    item.QualityType = (QualityType)i;
+                    item.阶段 = j;
+                    item.SetItem();
+                }
             }
         }
-        
+
         for (int i = 8; i >= 1; i--)
         {
-            if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率, (QualityType)i) > 0)
+            for (int j = PlayerData.Get丹药最高阶段((QualityType)i); j >= 1; j--)
             {
-                var item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/BuffItem"), BuffContent.transform)
-                    .GetComponent<BuffItem>();
-                item.丹药type = 丹药Type.掉宝率;
-                item.QualityType = (QualityType)i;
-                item.SetItem();
+                if (PlayerData.S.Get辅助丹药Buff(丹药Type.掉宝率, (QualityType)i, j) > 0)
+                {
+                    var item = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/BuffItem"), BuffContent.transform)
+                        .GetComponent<BuffItem>();
+                    item.丹药type = 丹药Type.掉宝率;
+                    item.QualityType = (QualityType)i;
+                    item.阶段 = j;
+                    item.SetItem();
+                }
             }
         }
     }
