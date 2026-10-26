@@ -10,6 +10,7 @@ public class 坊市物品
     public 仙石Type 仙石Type;
     public 丹药Type 丹药Type;
     public 丹药Type 丹方Type;
+    public int 阶数=1;
     public QualityType QualityType;
     public bool 是否被购买 = false;
 }

@@ -2550,7 +2550,7 @@ public Dictionary<string, int> 辅助丹药BuffDic = new Dictionary<string, int>
     public Dictionary<string, int> 丹药Dic = new Dictionary<string, int>()
 {
     // 火焰伤害
-    {"火焰伤害_黄品", 0},
+    {"火焰伤害_黄品_1阶", 0},
     {"火焰伤害_玄品", 0},
     {"火焰伤害_地品", 0},
     {"火焰伤害_天品", 0},
