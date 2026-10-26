@@ -202,25 +202,38 @@ public class Entrance : MonoBehaviour
 
    public void 刷新战斗丹药()
    {
-       PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType,Math.Max(0,
-           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段)-1), PlayerData.S.战斗选择丹药Dic[1].阶段);
-       PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType,Math.Max(0,
-           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段)-1), PlayerData.S.战斗选择丹药Dic[2].阶段);
-       PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType,Math.Max(0,
-           PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段)-1), PlayerData.S.战斗选择丹药Dic[3].阶段);
-       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段) == 0)
+       刷新战斗丹药(true);
+   }
+
+   /// <summary>
+   /// 刷新战斗丹药显示与属性。消耗仅在结算（胜利/失败弹窗）时执行：
+   /// 进场调用传 false 不扣减，避免"进场扣一次、结算再扣一次"的双倍消耗，
+   /// 同时保证佩戴的最后一颗丹药在本场战斗中正常生效（先算属性，结算时才清槽）。
+   /// </summary>
+   public void 刷新战斗丹药(bool 消耗)
+   {
+       if (消耗)
        {
-           PlayerData.S.战斗选择丹药Dic[1].丹药Type = 丹药Type.None;
-       }
-      
-       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段) == 0)
-       {
-           PlayerData.S.战斗选择丹药Dic[2].丹药Type = 丹药Type.None;
-       }
-      
-       if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段) == 0)
-       {
-           PlayerData.S.战斗选择丹药Dic[3].丹药Type = 丹药Type.None;
+           PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType,Math.Max(0,
+               PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段)-1), PlayerData.S.战斗选择丹药Dic[1].阶段);
+           PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType,Math.Max(0,
+               PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段)-1), PlayerData.S.战斗选择丹药Dic[2].阶段);
+           PlayerData.S.Set丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType,Math.Max(0,
+               PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段)-1), PlayerData.S.战斗选择丹药Dic[3].阶段);
+           if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[1].丹药Type, PlayerData.S.战斗选择丹药Dic[1].QualityType, PlayerData.S.战斗选择丹药Dic[1].阶段) == 0)
+           {
+               PlayerData.S.战斗选择丹药Dic[1].丹药Type = 丹药Type.None;
+           }
+
+           if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[2].丹药Type, PlayerData.S.战斗选择丹药Dic[2].QualityType, PlayerData.S.战斗选择丹药Dic[2].阶段) == 0)
+           {
+               PlayerData.S.战斗选择丹药Dic[2].丹药Type = 丹药Type.None;
+           }
+
+           if (PlayerData.S.Get丹药数量(PlayerData.S.战斗选择丹药Dic[3].丹药Type, PlayerData.S.战斗选择丹药Dic[3].QualityType, PlayerData.S.战斗选择丹药Dic[3].阶段) == 0)
+           {
+               PlayerData.S.战斗选择丹药Dic[3].丹药Type = 丹药Type.None;
+           }
        }
        ObserverModuleManager.S.SendEvent("设置丹药区域");
        FightController.S.战斗丹药属性 = 丹药Config.Get战斗丹药属性();
@@ -239,7 +252,8 @@ public class Entrance : MonoBehaviour
    public void InitRenWu()
    {
       int index = 1;
-      刷新战斗丹药();
+      // 进场只刷新显示与属性，不消耗：消耗统一在结算（胜利/失败弹窗）执行
+      刷新战斗丹药(false);
       foreach (var item in PlayerData.S.出战英雄List[PlayerData.S.当前出战编队-1])
       {
           FightController.S.英雄符文属性[item] = 符文Config.Get英雄符文属性(item);

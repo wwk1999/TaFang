@@ -25,6 +25,12 @@ public class 根基丹药服用弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","请选择英雄");
                 return;
             }
+            // 库存校验：弹窗打开期间丹药可能被分解/升阶消耗，防止白加服用次数
+            if (PlayerData.S.Get丹药数量(丹药Type,QualityType,阶段) < 1)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","丹药数量不足");
+                return;
+            }
             PlayerData.S.Set英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType,PlayerData.S.Get英雄根基丹药服用(HeroWindowController.S.服用根基丹药英雄,丹药Type,QualityType,阶段)+1,阶段);
             PlayerData.S.Set丹药数量(丹药Type,QualityType,PlayerData.S.Get丹药数量(丹药Type,QualityType,阶段)-1,阶段);
             ObserverModuleManager.S.SendEvent("刷新背包");

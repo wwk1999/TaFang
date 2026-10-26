@@ -1133,19 +1133,21 @@ public class 丹药Config
         return 0;
     }
     
-    public static float Get丹药分解价格(丹药Type 丹药Type, QualityType qualityType)
+    public static float Get丹药分解价格(丹药Type 丹药Type, QualityType qualityType, int 阶段 = 1)
     {
         var 丹药类型 = 丹药类型Dic[丹药Type];
+        // 分解价格与属性一致按阶段翻倍：N阶 = 基础价 × 丹药阶数倍数^(N-1)
+        float 倍率 = (float)Math.Pow(丹药阶数倍数, 阶段 - 1);
         switch (丹药类型)
         {
             case 丹药类型.战斗丹药:
-                return 坊市Config.战斗丹药分解价格Dic[qualityType];
+                return 坊市Config.战斗丹药分解价格Dic[qualityType] * 倍率;
             case 丹药类型.辅助丹药:
-                return 坊市Config.辅助丹药分解价格Dic[qualityType];
+                return 坊市Config.辅助丹药分解价格Dic[qualityType] * 倍率;
             case 丹药类型.根基丹药:
-                return 坊市Config.根基丹药分解价格Dic[qualityType];
+                return 坊市Config.根基丹药分解价格Dic[qualityType] * 倍率;
             case 丹药类型.造化丹药:
-                return 坊市Config.造化丹药分解价格Dic[qualityType];
+                return 坊市Config.造化丹药分解价格Dic[qualityType] * 倍率;
         }
 
         return 0;

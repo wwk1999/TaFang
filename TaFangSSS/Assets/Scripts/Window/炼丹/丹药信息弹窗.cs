@@ -30,7 +30,7 @@ public class 丹药信息弹窗 : MonoBehaviour
     [NonSerialized] public 丹药显示Type 丹药显示Type = 丹药显示Type.背包;
     public void SetItem()
     {
-        价格.text = PlayerData.S.格式化数字(丹药Config.Get丹药分解价格(丹药Type, QualityType));
+        价格.text = PlayerData.S.格式化数字(丹药Config.Get丹药分解价格(丹药Type, QualityType, 阶段));
         switch (丹药显示Type)
         {
             case 丹药显示Type.背包:
