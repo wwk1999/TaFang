@@ -388,6 +388,19 @@ public class 法器材料
 public class 法器Config
 {
 
+    public static List<float> 法器打造品质概率 = new List<float>() { 10000, 3000, 1000, 500, 300, 100, 10f, 1f };
+
+    public static Dictionary<QualityType, float> 法器品质倍率 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品 ,1},
+        { QualityType.玄品 ,1.5f},
+        { QualityType.地品 ,2},
+        { QualityType.天品 ,3},
+        { QualityType.宇品 ,5},
+        { QualityType.宙品 ,10},
+        { QualityType.洪品 ,100},
+        { QualityType.荒品 ,1000},
+    };
     public static Dictionary<法器类型, string> 法器类型String = new Dictionary<法器类型, string>()
     {
         { 法器类型.头盔 ,"头盔"},
