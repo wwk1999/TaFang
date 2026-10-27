@@ -232,49 +232,25 @@ public class 符文之地Config
 
     public static Dictionary<符文之地Type, List<float>> 符文之地掉落概率Dic = new Dictionary<符文之地Type, List<float>>()
     {
-        { 符文之地Type.青木林, new List<float>(){30,0,0,0,0} },
-        { 符文之地Type.赤炎窟, new List<float>(){50,10,0,0,0} },
-        { 符文之地Type.黑风谷, new List<float>(){70,20,0,0,0} },
-        { 符文之地Type.玄水深渊, new List<float>(){90,30,5,0,0} },
-        { 符文之地Type.紫雷泽, new List<float>(){100,40,10,0,0} },
-        { 符文之地Type.白骨荒原, new List<float>(){100,60,15,0,0} },
-        { 符文之地Type.金戈壁, new List<float>(){100,80,20,3,0} },
-        { 符文之地Type.幻梦泽, new List<float>(){0,100,30,5,0} },
-        { 符文之地Type.混沌墟, new List<float>(){0,100,40,8,0} },
-        { 符文之地Type.天道台, new List<float>(){0,0,50,12,1} },
+        { 符文之地Type.青木林, new List<float>(){30,0,0,0,0,0,0,0} },
+        { 符文之地Type.赤炎窟, new List<float>(){50,10,0,0,0,0,0,0} },
+        { 符文之地Type.黑风谷, new List<float>(){70,20,0,0,0,0,0,0} },
+        { 符文之地Type.玄水深渊, new List<float>(){90,30,5,0,0,0,0,0} },
+        { 符文之地Type.紫雷泽, new List<float>(){100,40,10,0,0,0,0,0} },
+        { 符文之地Type.白骨荒原, new List<float>(){100,60,15,0,0,0,0,0} },
+        { 符文之地Type.金戈壁, new List<float>(){100,80,20,3,0,0,0,0} },
+        { 符文之地Type.幻梦泽, new List<float>(){0,100,30,5,0,0,0,0} },
+        { 符文之地Type.混沌墟, new List<float>(){0,100,40,8,0,0,0,0} },
+        { 符文之地Type.天道台, new List<float>(){0,0,50,12,1,0,0,0} },
     };
 
-    public static 符文 Get品质符文(符文品质Type 符文品质Type)
+    public static 符文 Get品质符文(QualityType quality)
     {
         符文 符文 = new 符文();
-        符文.quality = 符文Config.符文品质对应Quality[符文品质Type];
+        符文.quality = quality;
         符文.type = (符文Type)Random.Range(1, Enum.GetValues(typeof(符文Type)).Length);
-        float min = 0;
-        float max = 0;
-        switch (符文.quality)
-        {
-            case QualityType.地品:
-                min = 符文Config.符文配置Dic[符文.type][0].min;
-                max = 符文Config.符文配置Dic[符文.type][0].max;
-                break;
-            case QualityType.宇品:
-                min = 符文Config.符文配置Dic[符文.type][1].min;
-                max = 符文Config.符文配置Dic[符文.type][1].max;
-                break;
-            case QualityType.宙品:
-                min = 符文Config.符文配置Dic[符文.type][2].min;
-                max = 符文Config.符文配置Dic[符文.type][2].max;
-                break;
-            case QualityType.洪品:
-                min = 符文Config.符文配置Dic[符文.type][3].min;
-                max = 符文Config.符文配置Dic[符文.type][3].max;
-                break;
-            case QualityType.荒品:
-                min = 符文Config.符文配置Dic[符文.type][4].min;
-                max = 符文Config.符文配置Dic[符文.type][4].max;
-                break;
-        }
-        符文.count=Random.Range(min, max);
+        minmax mm = 符文Config.Get符文minmax(符文.type, quality);
+        符文.count = Random.Range(mm.min, mm.max);
         return 符文;
     }
 
@@ -289,34 +265,10 @@ public class 符文之地Config
             if (random < item)
             {
                 符文 符文 = new 符文();
-                符文.quality = 符文Config.符文品质对应Quality[(符文品质Type)(index + 1)];
+                符文.quality = (QualityType)(index + 1);
                 符文.type = (符文Type)Random.Range(1, Enum.GetValues(typeof(符文Type)).Length);
-                float min = 0;
-                float max = 0;
-                switch (符文.quality)
-                {
-                    case QualityType.地品:
-                        min = 符文Config.符文配置Dic[符文.type][0].min;
-                        max = 符文Config.符文配置Dic[符文.type][0].max;
-                        break;
-                    case QualityType.宇品:
-                        min = 符文Config.符文配置Dic[符文.type][1].min;
-                        max = 符文Config.符文配置Dic[符文.type][1].max;
-                        break;
-                    case QualityType.宙品:
-                        min = 符文Config.符文配置Dic[符文.type][2].min;
-                        max = 符文Config.符文配置Dic[符文.type][2].max;
-                        break;
-                    case QualityType.洪品:
-                        min = 符文Config.符文配置Dic[符文.type][3].min;
-                        max = 符文Config.符文配置Dic[符文.type][3].max;
-                        break;
-                    case QualityType.荒品:
-                        min = 符文Config.符文配置Dic[符文.type][4].min;
-                        max = 符文Config.符文配置Dic[符文.type][4].max;
-                        break;
-                }
-                符文.count=Random.Range(min, max);
+                minmax mm = 符文Config.Get符文minmax(符文.type, 符文.quality);
+                符文.count = Random.Range(mm.min, mm.max);
                 符文列表.Add(符文);
             }
             index++;

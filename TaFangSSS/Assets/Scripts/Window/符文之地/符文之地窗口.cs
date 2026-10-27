@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -68,40 +69,15 @@ public class 符文之地窗口 : MonoBehaviour
             MonsterItem.SetItem();
         }
 
-        if (符文之地Config.符文之地掉落概率Dic[Type][4] != 0)
+        // 掉落概率列表索引0~7对应黄~荒，从高到低展示有概率的品质
+        for (int i = 7; i >= 0; i--)
         {
-            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/符文之地/符文之地掉落Item"),掉落Content.transform).GetComponent<符文之地掉落Item>();
-            DiaoLuoItem.QualityType = 符文Config.符文品质对应Quality[符文品质Type.道文];
-            DiaoLuoItem.SetItem();
-        }
-
-        if (符文之地Config.符文之地掉落概率Dic[Type][3] != 0)
-        {
-            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/符文之地/符文之地掉落Item"),掉落Content.transform).GetComponent<符文之地掉落Item>();
-            DiaoLuoItem.QualityType = 符文Config.符文品质对应Quality[符文品质Type.圣文];
-            DiaoLuoItem.SetItem();
-        }
-        
-        if (符文之地Config.符文之地掉落概率Dic[Type][2] != 0)
-        {
-            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/符文之地/符文之地掉落Item"),掉落Content.transform).GetComponent<符文之地掉落Item>();
-            DiaoLuoItem.QualityType = 符文Config.符文品质对应Quality[符文品质Type.帝文];
-            DiaoLuoItem.SetItem();
-        }
-        
-        
-        if (符文之地Config.符文之地掉落概率Dic[Type][1] != 0)
-        {
-            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/符文之地/符文之地掉落Item"),掉落Content.transform).GetComponent<符文之地掉落Item>();
-            DiaoLuoItem.QualityType = 符文Config.符文品质对应Quality[符文品质Type.仙文];
-            DiaoLuoItem.SetItem();
-        }
-        
-        if (符文之地Config.符文之地掉落概率Dic[Type][0] != 0)
-        {
-            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/符文之地/符文之地掉落Item"),掉落Content.transform).GetComponent<符文之地掉落Item>();
-            DiaoLuoItem.QualityType = 符文Config.符文品质对应Quality[符文品质Type.灵文];
-            DiaoLuoItem.SetItem();
+            if (符文之地Config.符文之地掉落概率Dic[Type][i] != 0)
+            {
+                var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/符文之地/符文之地掉落Item"),掉落Content.transform).GetComponent<符文之地掉落Item>();
+                DiaoLuoItem.QualityType = (QualityType)(i + 1);
+                DiaoLuoItem.SetItem();
+            }
         }
         
         foreach (var item in 符文之地Config.符文之地掉落Dic[Type])

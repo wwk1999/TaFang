@@ -21,7 +21,7 @@ public class 熔炼Item : MonoBehaviour,IPointerClickHandler
         {      
             icon.gameObject.SetActive(true);  
             bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
-            icon.sprite=ResourcesConfig.Get符文Sprite(符文.type,符文Config.Quality对应符文品质[符文.quality]);
+            icon.sprite=ResourcesConfig.Get符文Sprite(符文.type,符文.quality);
         }
     }
 

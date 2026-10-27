@@ -1135,11 +1135,36 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
         { 3, new 丹药() { 丹药Type = 丹药Type.None, QualityType = QualityType.None } },
     };
 
-    public List<符文> 符文道文List = new List<符文>();
-    public List<符文> 符文圣文List = new List<符文>();
-    public List<符文> 符文帝文List = new List<符文>();
-    public List<符文> 符文仙文List = new List<符文>();
-    public List<符文> 符文灵文List = new List<符文>();
+    public List<符文> 符文黄品List = new List<符文>();
+    public List<符文> 符文玄品List = new List<符文>();
+    public List<符文> 符文地品List = new List<符文>();
+    public List<符文> 符文天品List = new List<符文>();
+    public List<符文> 符文宇品List = new List<符文>();
+    public List<符文> 符文宙品List = new List<符文>();
+    public List<符文> 符文洪品List = new List<符文>();
+    public List<符文> 符文荒品List = new List<符文>();
+
+    public List<符文> Get符文List(QualityType quality)
+    {
+        switch (quality)
+        {
+            case QualityType.黄品: return 符文黄品List;
+            case QualityType.玄品: return 符文玄品List;
+            case QualityType.地品: return 符文地品List;
+            case QualityType.天品: return 符文天品List;
+            case QualityType.宇品: return 符文宇品List;
+            case QualityType.宙品: return 符文宙品List;
+            case QualityType.洪品: return 符文洪品List;
+            case QualityType.荒品: return 符文荒品List;
+            default: return null;
+        }
+    }
+
+    public int Get符文总数()
+    {
+        return 符文黄品List.Count + 符文玄品List.Count + 符文地品List.Count + 符文天品List.Count
+             + 符文宇品List.Count + 符文宙品List.Count + 符文洪品List.Count + 符文荒品List.Count;
+    }
 
     
     // 按需写入的空字典：key 格式 {英雄}_{丹药Type}_{品质}_{N}阶，缺省即为未服用（0 次），

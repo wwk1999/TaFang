@@ -142,43 +142,18 @@ public class 符文附魔panel : MonoBehaviour
             int count = 0;
             if (HeroWindowController.S.当前符文附魔排序Type == 符文Type.None)
             {
-                count = PlayerData.S.符文道文List.Count + PlayerData.S.符文圣文List.Count+ PlayerData.S.符文帝文List.Count + PlayerData.S.符文仙文List.Count+ PlayerData.S.符文灵文List.Count;
+                count = PlayerData.S.Get符文总数();
             }
             else
             {
-                foreach (var item in PlayerData.S.符文道文List)
+                for (int q = 1; q <= 8; q++)
                 {
-                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                    foreach (var item in PlayerData.S.Get符文List((QualityType)q))
                     {
-                        count++;
-                    }
-                }
-                foreach (var item in PlayerData.S.符文帝文List)
-                {
-                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
-                    {
-                        count++;
-                    }
-                }
-                foreach (var item in PlayerData.S.符文圣文List)
-                {
-                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
-                    {
-                        count++;
-                    }
-                }
-                foreach (var item in PlayerData.S.符文仙文List)
-                {
-                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
-                    {
-                        count++;
-                    }
-                }
-                foreach (var item in PlayerData.S.符文灵文List)
-                {
-                    if (item.type == HeroWindowController.S.当前符文附魔排序Type)
-                    {
-                        count++;
+                        if (item.type == HeroWindowController.S.当前符文附魔排序Type)
+                        {
+                            count++;
+                        }
                     }
                 }
             }
@@ -342,7 +317,7 @@ public class 符文附魔panel : MonoBehaviour
             int 最大页数 = 0;
             if (显示法器 == false)
             {
-                最大页数=Mathf.CeilToInt((PlayerData.S.符文道文List.Count+PlayerData.S.符文圣文List.Count+PlayerData.S.符文帝文List.Count+PlayerData.S.符文仙文List.Count+PlayerData.S.符文灵文List.Count)/40f);
+                最大页数=Mathf.CeilToInt(PlayerData.S.Get符文总数()/40f);
             }
             else
             {
@@ -454,14 +429,17 @@ public class 符文附魔panel : MonoBehaviour
         if (页数num < 1) 页数num = 1;
         页数.text = 页数num.ToString();
        
-        // 按传入的 type 筛选，只显示匹配的符文（品质从高到低：道文→圣文→帝文→仙文→灵文）
+        // 按传入的 type 筛选，只显示匹配的符文（品质从高到低：荒→洪→宙→宇→天→地→玄→黄）
         List<List<符文>> 符文Lists = new List<List<符文>>()
         {
-            PlayerData.S.符文道文List,
-            PlayerData.S.符文圣文List,
-            PlayerData.S.符文帝文List,
-            PlayerData.S.符文仙文List,
-            PlayerData.S.符文灵文List,
+            PlayerData.S.符文荒品List,
+            PlayerData.S.符文洪品List,
+            PlayerData.S.符文宙品List,
+            PlayerData.S.符文宇品List,
+            PlayerData.S.符文天品List,
+            PlayerData.S.符文地品List,
+            PlayerData.S.符文玄品List,
+            PlayerData.S.符文黄品List,
         };
         int count = 0;
         int start = 40 * (页数num - 1);
@@ -538,14 +516,17 @@ public class 符文附魔panel : MonoBehaviour
                 Show符文排序(HeroWindowController.S.当前符文附魔排序Type);
                 return;
             }
-            // 品质从高到低依次显示：道文(荒品) → 圣文(洪品) → 帝文(宙品) → 仙文(宇品) → 灵文(地品)
+            // 品质从高到低依次显示：荒 → 洪 → 宙 → 宇 → 天 → 地 → 玄 → 黄
             List<List<符文>> 符文Lists = new List<List<符文>>()
             {
-                PlayerData.S.符文道文List,
-                PlayerData.S.符文圣文List,
-                PlayerData.S.符文帝文List,
-                PlayerData.S.符文仙文List,
-                PlayerData.S.符文灵文List,
+                PlayerData.S.符文荒品List,
+                PlayerData.S.符文洪品List,
+                PlayerData.S.符文宙品List,
+                PlayerData.S.符文宇品List,
+                PlayerData.S.符文天品List,
+                PlayerData.S.符文地品List,
+                PlayerData.S.符文玄品List,
+                PlayerData.S.符文黄品List,
             };
             int count = 0;
             int start = 40 * (页数num - 1);

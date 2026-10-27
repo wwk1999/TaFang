@@ -1,16 +1,6 @@
 using System.Collections.Generic;
 using Config;
 
-public enum 符文品质Type
-{
-    None,
-    灵文,
-    仙文,
-    帝文,
-    圣文,
-    道文,
-}
-
 public enum 符文Type
 {
     None,
@@ -111,23 +101,15 @@ public class 符文
 }
 public class 符文Config
 {
-    public static Dictionary<符文品质Type, QualityType> 符文品质对应Quality = new Dictionary<符文品质Type, QualityType>()
+    /// <summary>
+    /// 取符文数值范围：List索引 = (int)quality - 1，即 黄玄地天宇宙洪荒 对应 0~7
+    /// </summary>
+    public static minmax Get符文minmax(符文Type type, QualityType quality)
     {
-        { 符文品质Type.灵文, QualityType.地品 },
-        { 符文品质Type.仙文, QualityType.宇品 },
-        { 符文品质Type.帝文, QualityType.宙品 },
-        { 符文品质Type.圣文, QualityType.洪品 },
-        { 符文品质Type.道文, QualityType.荒品 },
-    };
-    
-    public static Dictionary<QualityType,符文品质Type> Quality对应符文品质 = new Dictionary<QualityType,符文品质Type>()
-    {
-        {  QualityType.地品,符文品质Type.灵文 },
-        {  QualityType.宇品,符文品质Type.仙文 },
-        { QualityType.宙品,符文品质Type.帝文 },
-        {  QualityType.洪品,符文品质Type.圣文 },
-        {  QualityType.荒品,符文品质Type.道文 },
-    };
+        int index = (int)quality - 1;
+        if (!符文配置Dic.TryGetValue(type, out var list) || index < 0 || index >= list.Count) return null;
+        return list[index];
+    }
 
     public static 符文属性 Get英雄符文属性(HeroType heroType)
     {
@@ -271,270 +253,303 @@ public class 符文Config
         { 符文Type.清除异常状态增伤, "敌人每有一个异常增伤,但会清除敌人异常" },
     };
 
+    // List索引 = (int)QualityType - 1，即 黄(0) 玄(1) 地(2) 天(3) 宇(4) 宙(5) 洪(6) 荒(7)
     public static Dictionary<符文Type, List<minmax>> 符文配置Dic = new Dictionary<符文Type, List<minmax>>()
     {
         {
             符文Type.击杀怪物获得神通能量, new List<minmax>()
             {
-                new minmax() { min = 0.16f, max = 0.24f }, new minmax() { min = 0.24f, max = 0.36f },
-                new minmax() { min = 0.4f, max = 0.6f }, new minmax() { min = 0.64f, max = 0.96f },
-                new minmax() { min = 1.2f, max = 1.8f }
+                new minmax() { min = 0.11f, max = 0.16f }, new minmax() { min = 0.13f, max = 0.2f },
+                new minmax() { min = 0.16f, max = 0.24f }, new minmax() { min = 0.2f, max = 0.29f },
+                new minmax() { min = 0.24f, max = 0.36f }, new minmax() { min = 0.4f, max = 0.6f },
+                new minmax() { min = 0.64f, max = 0.96f }, new minmax() { min = 1.2f, max = 1.8f }
             }
         },
         {
             符文Type.击杀怪物减少神通冷却, new List<minmax>()
             {
-                new minmax() { min = 0.8f, max = 1.2f }, new minmax() { min = 1.2f, max = 1.8f },
-                new minmax() { min = 1.6f, max = 2.4f }, new minmax() { min = 2.4f, max = 3.6f },
-                new minmax() { min = 4f, max = 6f }
+                new minmax() { min = 0.53f, max = 0.8f }, new minmax() { min = 0.65f, max = 0.98f },
+                new minmax() { min = 0.8f, max = 1.2f }, new minmax() { min = 0.98f, max = 1.47f },
+                new minmax() { min = 1.2f, max = 1.8f }, new minmax() { min = 1.6f, max = 2.4f },
+                new minmax() { min = 2.4f, max = 3.6f }, new minmax() { min = 4f, max = 6f }
             }
         },
         {
             符文Type.技能伤害减少神通伤害增加, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
         {
             符文Type.技能伤害增加不能释放神通, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
 
         {
             符文Type.献祭自身加强相邻英雄, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.火同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.冰同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.黑暗同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.雷电同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.物理同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.战士同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.射手同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.控制同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.法师同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.辅助同气连枝, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.辅助印记增伤, new List<minmax>()
             {
-                new minmax() { min = 10f, max = 20f }, new minmax() { min = 20f, max = 40f },
-                new minmax() { min = 40f, max = 100f }, new minmax() { min = 100f, max = 200f },
-                new minmax() { min = 200f, max = 500f }
+                new minmax() { min = 7f, max = 13f }, new minmax() { min = 8f, max = 16f },
+                new minmax() { min = 10f, max = 20f }, new minmax() { min = 12f, max = 24f },
+                new minmax() { min = 20f, max = 40f }, new minmax() { min = 40f, max = 100f },
+                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 500f }
             }
         },
 
         {
             符文Type.元素每有一个不同增伤, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.职业每有一个不同增伤, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
 
         {
             符文Type.对怪物的第一次伤害增加, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
         {
             符文Type.对怪物攻击次数越多越加伤害, new List<minmax>()
             {
-                new minmax() { min = 10f, max = 20f }, new minmax() { min = 20f, max = 40f },
-                new minmax() { min = 40f, max = 100f }, new minmax() { min = 100f, max = 200f },
-                new minmax() { min = 200f, max = 500f }
+                new minmax() { min = 7f, max = 13f }, new minmax() { min = 8f, max = 16f },
+                new minmax() { min = 10f, max = 20f }, new minmax() { min = 12f, max = 24f },
+                new minmax() { min = 20f, max = 40f }, new minmax() { min = 40f, max = 100f },
+                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 500f }
             }
         },
         {
             符文Type.加强碎甲效果, new List<minmax>()
             {
-                new minmax() { min = 16f, max = 24f }, new minmax() { min = 24f, max = 36f },
-                new minmax() { min = 40f, max = 60f }, new minmax() { min = 64f, max = 96f },
-                new minmax() { min = 120f, max = 180f }
+                new minmax() { min = 11f, max = 16f }, new minmax() { min = 13f, max = 20f },
+                new minmax() { min = 16f, max = 24f }, new minmax() { min = 20f, max = 29f },
+                new minmax() { min = 24f, max = 36f }, new minmax() { min = 40f, max = 60f },
+                new minmax() { min = 64f, max = 96f }, new minmax() { min = 120f, max = 180f }
             }
         },
         {
             符文Type.碎甲为0时加伤害, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
 
         {
             符文Type.每层火焰灼烧加伤, new List<minmax>()
             {
-                new minmax() { min = 10f, max = 20f }, new minmax() { min = 20f, max = 40f },
-                new minmax() { min = 40f, max = 100f }, new minmax() { min = 100f, max = 200f },
-                new minmax() { min = 200f, max = 500f }
+                new minmax() { min = 7f, max = 13f }, new minmax() { min = 8f, max = 16f },
+                new minmax() { min = 10f, max = 20f }, new minmax() { min = 12f, max = 24f },
+                new minmax() { min = 20f, max = 40f }, new minmax() { min = 40f, max = 100f },
+                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 500f }
             }
         },
 
         {
             符文Type.每层黑暗印记加伤, new List<minmax>()
             {
-                new minmax() { min = 10f, max = 20f }, new minmax() { min = 20f, max = 40f },
-                new minmax() { min = 40f, max = 100f }, new minmax() { min = 100f, max = 200f },
-                new minmax() { min = 200f, max = 500f }
+                new minmax() { min = 7f, max = 13f }, new minmax() { min = 8f, max = 16f },
+                new minmax() { min = 10f, max = 20f }, new minmax() { min = 12f, max = 24f },
+                new minmax() { min = 20f, max = 40f }, new minmax() { min = 40f, max = 100f },
+                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 500f }
             }
         },
         {
             符文Type.引爆时造成范围爆炸, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
 
         {
             符文Type.雷属性打易电状态加伤害, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
         {
             符文Type.增强易电效果, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
 
         {
             符文Type.取消冰冻每冰冻概率增伤, new List<minmax>()
             {
-                new minmax() { min = 10f, max = 20f }, new minmax() { min = 20f, max = 40f },
-                new minmax() { min = 40f, max = 100f }, new minmax() { min = 100f, max = 200f },
-                new minmax() { min = 200f, max = 500f }
+                new minmax() { min = 7f, max = 13f }, new minmax() { min = 8f, max = 16f },
+                new minmax() { min = 10f, max = 20f }, new minmax() { min = 12f, max = 24f },
+                new minmax() { min = 20f, max = 40f }, new minmax() { min = 40f, max = 100f },
+                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 500f }
             }
         },
         {
             符文Type.冰减速效果, new List<minmax>()
             {
-                new minmax() { min = 8f, max = 12f }, new minmax() { min = 12f, max = 20f },
-                new minmax() { min = 20f, max = 30f }, new minmax() { min = 30f, max = 50f },
-                new minmax() { min = 50f, max = 100f }
+                new minmax() { min = 5f, max = 8f }, new minmax() { min = 7f, max = 10f },
+                new minmax() { min = 8f, max = 12f }, new minmax() { min = 10f, max = 15f },
+                new minmax() { min = 12f, max = 20f }, new minmax() { min = 20f, max = 30f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f }
             }
         },
 
         {
             符文Type.每有一个异常状态增伤, new List<minmax>()
             {
-                new minmax() { min = 30f, max = 50f }, new minmax() { min = 50f, max = 100f },
-                new minmax() { min = 100f, max = 200f }, new minmax() { min = 200f, max = 400f },
-                new minmax() { min = 400f, max = 1000f }
+                new minmax() { min = 20f, max = 33f }, new minmax() { min = 24f, max = 41f },
+                new minmax() { min = 30f, max = 50f }, new minmax() { min = 37f, max = 61f },
+                new minmax() { min = 50f, max = 100f }, new minmax() { min = 100f, max = 200f },
+                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 1000f }
             }
         },
         {
             符文Type.没有异常状态增伤, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
         {
             符文Type.清除异常状态增伤, new List<minmax>()
             {
-                new minmax() { min = 80f, max = 120f }, new minmax() { min = 120f, max = 200f },
-                new minmax() { min = 200f, max = 400f }, new minmax() { min = 400f, max = 800f },
-                new minmax() { min = 800f, max = 2000f }
+                new minmax() { min = 53f, max = 80f }, new minmax() { min = 65f, max = 98f },
+                new minmax() { min = 80f, max = 120f }, new minmax() { min = 98f, max = 147f },
+                new minmax() { min = 120f, max = 200f }, new minmax() { min = 200f, max = 400f },
+                new minmax() { min = 400f, max = 800f }, new minmax() { min = 800f, max = 2000f }
             }
         },
     };

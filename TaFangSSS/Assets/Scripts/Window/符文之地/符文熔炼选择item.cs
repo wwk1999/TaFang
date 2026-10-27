@@ -60,7 +60,7 @@ public class 符文熔炼选择item : MonoBehaviour
     public void SetItem()
     {
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
-        icon.sprite=ResourcesConfig.Get符文Sprite(符文.type,符文Config.Quality对应符文品质[符文.quality]);
+        icon.sprite=ResourcesConfig.Get符文Sprite(符文.type,符文.quality);
         name.text = 符文Config.符文名Dic[符文.type];
         gou.SetActive(符文==HeroWindowController.S.符文熔炼选择1||符文==HeroWindowController.S.符文熔炼选择2||符文==HeroWindowController.S.符文熔炼选择3||符文==HeroWindowController.S.符文熔炼选择4);
     }

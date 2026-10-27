@@ -1065,9 +1065,7 @@ public class 储物袋界面 : MonoBehaviour
    
    public int Get符文最大页数()
    {
-      int count = PlayerData.S.符文道文List.Count + PlayerData.S.符文圣文List.Count
-         + PlayerData.S.符文帝文List.Count + PlayerData.S.符文仙文List.Count
-         + PlayerData.S.符文灵文List.Count;
+      int count = PlayerData.S.Get符文总数();
       return Mathf.CeilToInt(count / 54f);
    }
    public void Show符文()
@@ -1092,14 +1090,17 @@ public class 储物袋界面 : MonoBehaviour
          Destroy(item.gameObject);
       }
 
-      // 品质从高到低依次显示：道文 → 圣文 → 帝文 → 仙文 → 灵文
+      // 品质从高到低依次显示：荒 → 洪 → 宙 → 宇 → 天 → 地 → 玄 → 黄
       List<List<符文>> 符文Lists = new List<List<符文>>()
       {
-         PlayerData.S.符文道文List,
-         PlayerData.S.符文圣文List,
-         PlayerData.S.符文帝文List,
-         PlayerData.S.符文仙文List,
-         PlayerData.S.符文灵文List,
+         PlayerData.S.符文荒品List,
+         PlayerData.S.符文洪品List,
+         PlayerData.S.符文宙品List,
+         PlayerData.S.符文宇品List,
+         PlayerData.S.符文天品List,
+         PlayerData.S.符文地品List,
+         PlayerData.S.符文玄品List,
+         PlayerData.S.符文黄品List,
       };
       int count = 0;
       foreach (var list in 符文Lists)

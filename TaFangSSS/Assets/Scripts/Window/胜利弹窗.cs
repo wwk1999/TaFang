@@ -216,24 +216,7 @@ public class 胜利弹窗 : MonoBehaviour
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         foreach (var item in value.符文list)
         {
-            switch (item.quality)
-            {
-                case QualityType.地品:
-                    PlayerData.S.符文灵文List.Add(item);
-                    break;
-                case QualityType.宇品:
-                    PlayerData.S.符文仙文List.Add(item);
-                    break;
-                case QualityType.宙品:
-                    PlayerData.S.符文帝文List.Add(item);
-                    break;
-                case QualityType.洪品:
-                    PlayerData.S.符文圣文List.Add(item);
-                    break;
-                case QualityType.荒品:
-                    PlayerData.S.符文道文List.Add(item);
-                    break;
-            }
+            PlayerData.S.Get符文List(item.quality).Add(item);
 
             var 符文 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();

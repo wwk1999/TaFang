@@ -893,8 +893,8 @@ public class MainWindow : MonoBehaviour
         {
             for (int i = 0; i < 100; i++)
             {
-                符文 符文 = 符文之地Config.Get品质符文(符文品质Type.仙文);
-                PlayerData.S.符文仙文List.Add(符文);
+                符文 符文 = 符文之地Config.Get品质符文(QualityType.宇品);
+                PlayerData.S.Get符文List(符文.quality).Add(符文);
             }
             PlayerData.S.剩余传道次数 += 100;
 

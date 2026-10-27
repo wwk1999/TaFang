@@ -35,9 +35,7 @@ public class 符文熔炼panel : MonoBehaviour
     }
     public int Get最大页数()
     {
-        int count = PlayerData.S.符文道文List.Count + PlayerData.S.符文圣文List.Count
-                                                    + PlayerData.S.符文帝文List.Count + PlayerData.S.符文仙文List.Count
-                                                    + PlayerData.S.符文灵文List.Count;
+        int count = PlayerData.S.Get符文总数();
         return Mathf.Max(1, Mathf.CeilToInt(count / 48f));
     }
     
@@ -53,11 +51,14 @@ public class 符文熔炼panel : MonoBehaviour
         页数Text.text = 页数num.ToString();
         List<List<符文>> 符文Lists = new List<List<符文>>()
         {
-            PlayerData.S.符文道文List,
-            PlayerData.S.符文圣文List,
-            PlayerData.S.符文帝文List,
-            PlayerData.S.符文仙文List,
-            PlayerData.S.符文灵文List,
+            PlayerData.S.符文荒品List,
+            PlayerData.S.符文洪品List,
+            PlayerData.S.符文宙品List,
+            PlayerData.S.符文宇品List,
+            PlayerData.S.符文天品List,
+            PlayerData.S.符文地品List,
+            PlayerData.S.符文玄品List,
+            PlayerData.S.符文黄品List,
         };
         int count = 0;
         int start = 48 * (页数num - 1);
@@ -105,7 +106,7 @@ public class 符文熔炼panel : MonoBehaviour
             name.text = 符文Config.符文名Dic[HeroWindowController.S.熔炼后符文.type];
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(HeroWindowController.S.熔炼后符文.quality);
             icon.sprite = ResourcesConfig.Get符文Sprite(HeroWindowController.S.熔炼后符文.type,
-                符文Config.Quality对应符文品质[HeroWindowController.S.熔炼后符文.quality]);
+                HeroWindowController.S.熔炼后符文.quality);
             
             符文名.text = 符文Config.符文名Dic[HeroWindowController.S.熔炼后符文.type];
             符文名.colorGradientPreset = ResourcesConfig.Get品质TMP(HeroWindowController.S.熔炼后符文.quality);
@@ -160,7 +161,7 @@ public class 符文熔炼panel : MonoBehaviour
         {
             int 最大页数 = 0;
             
-            最大页数=Mathf.CeilToInt((PlayerData.S.符文道文List.Count+PlayerData.S.符文圣文List.Count+PlayerData.S.符文帝文List.Count+PlayerData.S.符文仙文List.Count+PlayerData.S.符文灵文List.Count)/48f);
+            最大页数=Mathf.CeilToInt(PlayerData.S.Get符文总数()/48f);
             if (页数num < 最大页数) 
             {
                 页数num++;
@@ -180,50 +181,14 @@ public class 符文熔炼panel : MonoBehaviour
             qualityType = (QualityType)Math.Min((int)qualityType, (int)HeroWindowController.S.符文熔炼选择2.quality);
             qualityType = (QualityType)Math.Min((int)qualityType, (int)HeroWindowController.S.符文熔炼选择3.quality);
             qualityType = (QualityType)Math.Min((int)qualityType, (int)HeroWindowController.S.符文熔炼选择4.quality);
-            符文 符文 = 符文之地Config.Get品质符文(符文Config.Quality对应符文品质[qualityType]);
-            switch (符文.quality)
-            {
-                case QualityType.地品:
-                    PlayerData.S.符文灵文List.Add(符文);
-                    break;
-                case QualityType.宇品:
-                    PlayerData.S.符文仙文List.Add(符文);
-                    break;
-                case QualityType.宙品:
-                    PlayerData.S.符文帝文List.Add(符文);
-                    break;
-                case QualityType.洪品:
-                    PlayerData.S.符文圣文List.Add(符文);
-                    break;
-                case QualityType.荒品:
-                    PlayerData.S.符文道文List.Add(符文);
-                    break;
-            }
+            符文 符文 = 符文之地Config.Get品质符文(qualityType);
+            PlayerData.S.Get符文List(符文.quality).Add(符文);
 
             HeroWindowController.S.熔炼后符文 = 符文;
-            PlayerData.S.符文灵文List.Remove(HeroWindowController.S.符文熔炼选择1);
-            PlayerData.S.符文仙文List.Remove(HeroWindowController.S.符文熔炼选择1);
-            PlayerData.S.符文帝文List.Remove(HeroWindowController.S.符文熔炼选择1);
-            PlayerData.S.符文圣文List.Remove(HeroWindowController.S.符文熔炼选择1);
-            PlayerData.S.符文道文List.Remove(HeroWindowController.S.符文熔炼选择1);
-
-            PlayerData.S.符文灵文List.Remove(HeroWindowController.S.符文熔炼选择2);
-            PlayerData.S.符文仙文List.Remove(HeroWindowController.S.符文熔炼选择2);
-            PlayerData.S.符文帝文List.Remove(HeroWindowController.S.符文熔炼选择2);
-            PlayerData.S.符文圣文List.Remove(HeroWindowController.S.符文熔炼选择2);
-            PlayerData.S.符文道文List.Remove(HeroWindowController.S.符文熔炼选择2);
-            
-            PlayerData.S.符文灵文List.Remove(HeroWindowController.S.符文熔炼选择3);
-            PlayerData.S.符文仙文List.Remove(HeroWindowController.S.符文熔炼选择3);
-            PlayerData.S.符文帝文List.Remove(HeroWindowController.S.符文熔炼选择3);
-            PlayerData.S.符文圣文List.Remove(HeroWindowController.S.符文熔炼选择3);
-            PlayerData.S.符文道文List.Remove(HeroWindowController.S.符文熔炼选择3);
-            
-            PlayerData.S.符文灵文List.Remove(HeroWindowController.S.符文熔炼选择4);
-            PlayerData.S.符文仙文List.Remove(HeroWindowController.S.符文熔炼选择4);
-            PlayerData.S.符文帝文List.Remove(HeroWindowController.S.符文熔炼选择4);
-            PlayerData.S.符文圣文List.Remove(HeroWindowController.S.符文熔炼选择4);
-            PlayerData.S.符文道文List.Remove(HeroWindowController.S.符文熔炼选择4);
+            PlayerData.S.Get符文List(HeroWindowController.S.符文熔炼选择1.quality).Remove(HeroWindowController.S.符文熔炼选择1);
+            PlayerData.S.Get符文List(HeroWindowController.S.符文熔炼选择2.quality).Remove(HeroWindowController.S.符文熔炼选择2);
+            PlayerData.S.Get符文List(HeroWindowController.S.符文熔炼选择3.quality).Remove(HeroWindowController.S.符文熔炼选择3);
+            PlayerData.S.Get符文List(HeroWindowController.S.符文熔炼选择4.quality).Remove(HeroWindowController.S.符文熔炼选择4);
             HeroWindowController.S.符文熔炼选择1 = null;
             HeroWindowController.S.符文熔炼选择2 = null;
             HeroWindowController.S.符文熔炼选择3 = null;

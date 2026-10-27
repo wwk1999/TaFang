@@ -46,7 +46,7 @@ public class 胜利弹窗item : MonoBehaviour
             Name.text = 符文Config.符文名Dic[符文Type];
             Name.colorGradientPreset = ResourcesConfig.Get品质TMP(符文QualityType);
             CountText.text = "";
-            image.sprite=ResourcesConfig.Get符文Sprite(符文Type,符文Config.Quality对应符文品质[符文QualityType]);
+            image.sprite=ResourcesConfig.Get符文Sprite(符文Type,符文QualityType);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(符文QualityType);
             return;
         }

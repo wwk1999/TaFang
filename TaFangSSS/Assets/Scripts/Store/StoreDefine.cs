@@ -928,11 +928,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
 
       
         
-        public List<符文> 符文道文List = new List<符文>();
-        public List<符文> 符文圣文List = new List<符文>();
-        public List<符文> 符文帝文List = new List<符文>();
-        public List<符文> 符文仙文List = new List<符文>();
-        public List<符文> 符文灵文List = new List<符文>();
+        public List<符文> 符文黄品List = new List<符文>();
+        public List<符文> 符文玄品List = new List<符文>();
+        public List<符文> 符文地品List = new List<符文>();
+        public List<符文> 符文天品List = new List<符文>();
+        public List<符文> 符文宇品List = new List<符文>();
+        public List<符文> 符文宙品List = new List<符文>();
+        public List<符文> 符文洪品List = new List<符文>();
+        public List<符文> 符文荒品List = new List<符文>();
         
         
         public Dictionary<HeroType, List<List<int>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<int>>>()
@@ -3204,11 +3207,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             英雄技能树Dic = runtime.英雄技能树Dic;
             主页地图Type = runtime.主页地图Type;
             符文之地最大关卡 = runtime.符文之地最大关卡;
-            符文仙文List = runtime.符文仙文List;
-            符文道文List = runtime.符文道文List;
-            符文圣文List = runtime.符文圣文List;
-            符文帝文List = runtime.符文帝文List;
-            符文灵文List = runtime.符文灵文List;
+            符文黄品List = runtime.符文黄品List;
+            符文玄品List = runtime.符文玄品List;
+            符文地品List = runtime.符文地品List;
+            符文天品List = runtime.符文天品List;
+            符文宇品List = runtime.符文宇品List;
+            符文宙品List = runtime.符文宙品List;
+            符文洪品List = runtime.符文洪品List;
+            符文荒品List = runtime.符文荒品List;
             当前供奉列表 = runtime.当前供奉列表;
             供奉申请列表 = runtime.供奉申请列表;
             供奉保留列表 = runtime.供奉保留列表;
@@ -3385,11 +3391,14 @@ public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<
             runtime.英雄技能树Dic = 英雄技能树Dic;
             runtime.主页地图Type = 主页地图Type;
             runtime.符文之地最大关卡 = 符文之地最大关卡;
-            runtime.符文仙文List = 符文仙文List;
-            runtime.符文道文List = 符文道文List;
-            runtime.符文圣文List = 符文圣文List;
-            runtime.符文帝文List = 符文帝文List;
-            runtime.符文灵文List = 符文灵文List;
+            runtime.符文黄品List = 符文黄品List;
+            runtime.符文玄品List = 符文玄品List;
+            runtime.符文地品List = 符文地品List;
+            runtime.符文天品List = 符文天品List;
+            runtime.符文宇品List = 符文宇品List;
+            runtime.符文宙品List = 符文宙品List;
+            runtime.符文洪品List = 符文洪品List;
+            runtime.符文荒品List = 符文荒品List;
             // 过滤存档中可能残留的 null 供奉，避免下游渲染/属性统计空引用
             runtime.当前供奉列表 = 过滤null供奉(当前供奉列表);
             runtime.供奉申请列表 = 过滤null供奉(供奉申请列表);

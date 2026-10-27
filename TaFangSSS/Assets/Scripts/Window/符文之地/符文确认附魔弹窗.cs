@@ -32,24 +32,8 @@ public class 符文确认附魔弹窗 : MonoBehaviour
         确认Button.onClick.AddListener(() =>
         {
             HeroWindowController.S.当前符文附魔法器.符文 = HeroWindowController.S.当前符文附魔符文;
-            switch (HeroWindowController.S.当前符文附魔法器.符文.quality)
-            {
-                case QualityType.地品:
-                    PlayerData.S.符文灵文List.Remove(HeroWindowController.S.当前符文附魔法器.符文);
-                    break;
-                case QualityType.宇品:
-                    PlayerData.S.符文仙文List.Remove(HeroWindowController.S.当前符文附魔法器.符文);
-                    break;
-                case QualityType.宙品:
-                    PlayerData.S.符文帝文List.Remove(HeroWindowController.S.当前符文附魔法器.符文);
-                    break;
-                case QualityType.洪品:
-                    PlayerData.S.符文圣文List.Remove(HeroWindowController.S.当前符文附魔法器.符文);
-                    break;
-                case QualityType.荒品:
-                    PlayerData.S.符文道文List.Remove(HeroWindowController.S.当前符文附魔法器.符文);
-                    break;
-            }
+            PlayerData.S.Get符文List(HeroWindowController.S.当前符文附魔法器.符文.quality)
+                .Remove(HeroWindowController.S.当前符文附魔法器.符文);
 
             HeroWindowController.S.当前符文附魔符文 = null;
             ObserverModuleManager.S.SendEvent("刷新符文附魔Panel");

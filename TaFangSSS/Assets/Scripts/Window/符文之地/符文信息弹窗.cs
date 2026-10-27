@@ -20,7 +20,7 @@ public class 符文信息弹窗 : MonoBehaviour
     public void SetItem()
     {
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
-        icon.sprite = ResourcesConfig.Get符文Sprite(符文.type, 符文Config.Quality对应符文品质[符文.quality]);
+        icon.sprite = ResourcesConfig.Get符文Sprite(符文.type, 符文.quality);
         name.text = 符文Config.符文名Dic[符文.type];
         品质.text=PropConfig.QualityNameDic[符文.quality];
         品质.colorGradientPreset = ResourcesConfig.Get品质TMP(符文.quality);

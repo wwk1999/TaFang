@@ -44,7 +44,7 @@ public class 符文掉宝概率弹窗 : MonoBehaviour
             {
                 var 概率item = Instantiate(Resources.Load("Prefabs/Window/概率Item"), Content.transform)
                     .GetComponent<招募概率item>();
-                概率item.QualityType=符文Config.符文品质对应Quality[(符文品质Type)index];
+                概率item.QualityType=(QualityType)index;
                 概率item.Count = item * 属性config.总掉宝率;
                 概率item.SetItem();
             }
