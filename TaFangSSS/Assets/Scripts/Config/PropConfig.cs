@@ -1328,6 +1328,16 @@ namespace Config
         };
 
         /// <summary>
+        /// 取道具名称：法器材料按阶数动态生成，其余按PropNameDic查表
+        /// </summary>
+        public static string GetPropName(PropType propType)
+        {
+            if (Prop是否为法器材料(propType)) return 法器Config.Get法器材料Name(GetProp法器材料Type(propType), GetProp阶数(propType));
+            if (PropNameDic.TryGetValue(propType, out var name)) return name;
+            return string.Empty;
+        }
+
+        /// <summary>
         /// 取道具的品质：法器材料按阶数折算品质档位，其余按PropQualityDic查表
         /// </summary>
         public static QualityType GetProp品质(PropType propType)
@@ -1361,15 +1371,14 @@ namespace Config
         }
 
         /// <summary>
-        /// 取道具信息描述：法器材料按阶数动态生成，其余查表
+        /// 取道具信息描述：法器材料按阶数生成风味描述，其余查表
         /// </summary>
         public static string Get道具信息Info(道具信息Type type)
         {
             if (道具信息InfoDic.TryGetValue(type, out var info) && !string.IsNullOrEmpty(info)) return info;
             if (道具信息ToPropType.TryGetValue(type, out var propType) && Prop是否为法器材料(propType))
             {
-                int 阶数 = GetProp阶数(propType);
-                return "打造" + 阶数 + "阶法器所需的材料。";
+                return 法器Config.Get法器材料描述(GetProp法器材料Type(propType), GetProp阶数(propType));
             }
             return string.Empty;
         }

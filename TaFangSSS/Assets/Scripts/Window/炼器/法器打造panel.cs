@@ -70,7 +70,6 @@ public class 法器打造panel : MonoBehaviour
         {
             var 打造item = Instantiate(Resources.Load("Prefabs/Window/炼器/打造item"), 打造区域.transform).GetComponent<打造item>();
             打造item.法器Type = item.法器Type;
-            打造item.品质 = item.品质;
             打造item.阶数 = item.阶数;
             打造item.count = item.count;
             打造item.进度 = item.进度;
@@ -252,17 +251,24 @@ public class 法器打造panel : MonoBehaviour
                 return;
             }
             打造数量 = Math.Min(打造数量, 可打造数量);
-            数量进度条.maxValue = 可打造数量;
+            List<PropType> 材料 = 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type, HeroWindowController.S.法器打造法器阶数);
+            // 加入打造队列时立即扣除材料，玩家可实时看到剩余材料数量
+            foreach (var propType in 材料)
+            {
+                PlayerData.S.PropListDic[propType] -= 打造数量;
+            }
             法器打造Item 法器打造Item = new 法器打造Item();
             法器打造Item.count = 打造数量;
             法器打造Item.进度 = 0;
             法器打造Item.法器Type = HeroWindowController.S.法器打造法器Type;
             法器打造Item.阶数 = HeroWindowController.S.法器打造法器阶数;
-            // 打造品质按万分比概率随机
-            法器打造Item.品质 = 法器Config.Random品质();
+            // 品质在打造完成时随机赋予，入队时先置空
+            法器打造Item.品质 = QualityType.None;
             数量进度条.value = 0;
             打造数量 = 0;
             PlayerData.S.打造List.Add(法器打造Item);
+            // 刷新左右面板，更新剩余材料数量与可打造数量
+            ObserverModuleManager.S.SendEvent("刷新法器打造Panel");
         });
     }
 }

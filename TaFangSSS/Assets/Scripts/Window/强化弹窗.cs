@@ -539,7 +539,7 @@ public class 强化弹窗 : MonoBehaviour
          {
             case EquipType.头盔:
                材料image.sprite = ResourcesConfig.头盔锻造石;
-               材料Name.text = PropConfig.PropNameDic[PropType.头盔锻造石];
+               材料Name.text = PropConfig.GetPropName(PropType.头盔锻造石);
                
                var item = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao = item.材料数量;
@@ -551,7 +551,7 @@ public class 强化弹窗 : MonoBehaviour
                break;
             case EquipType.鞋子:
                材料image.sprite = ResourcesConfig.鞋子锻造石;
-               材料Name.text = PropConfig.PropNameDic[PropType.鞋子锻造石];
+               材料Name.text = PropConfig.GetPropName(PropType.鞋子锻造石);
                var item1 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao1 = item1.材料数量;
                int lingqi1 = item1.灵气数量;
@@ -562,7 +562,7 @@ public class 强化弹窗 : MonoBehaviour
                break;
             case EquipType.护手:
                材料image.sprite = ResourcesConfig.护手锻造石;
-               材料Name.text = PropConfig.PropNameDic[PropType.护手锻造石];
+               材料Name.text = PropConfig.GetPropName(PropType.护手锻造石);
                var item2 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao2 = item2.材料数量;
                int lingqi2 = item2.灵气数量;
@@ -573,7 +573,7 @@ public class 强化弹窗 : MonoBehaviour
                break;
             case EquipType.衣服:
                材料image.sprite = ResourcesConfig.衣服锻造石;
-               材料Name.text = PropConfig.PropNameDic[PropType.衣服锻造石];
+               材料Name.text = PropConfig.GetPropName(PropType.衣服锻造石);
                var item3 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao3 = item3.材料数量;
                int lingqi3 = item3.灵气数量;
@@ -584,7 +584,7 @@ public class 强化弹窗 : MonoBehaviour
                break;
             case EquipType.戒指:
                材料image.sprite = ResourcesConfig.戒指锻造石;
-               材料Name.text = PropConfig.PropNameDic[PropType.戒指锻造石];
+               材料Name.text = PropConfig.GetPropName(PropType.戒指锻造石);
                var item4 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao4 = item4.材料数量;
                int lingqi4 = item4.灵气数量;
@@ -595,7 +595,7 @@ public class 强化弹窗 : MonoBehaviour
                break;
             case EquipType.项链:
                材料image.sprite = ResourcesConfig.项链锻造石;
-               材料Name.text = PropConfig.PropNameDic[PropType.项链锻造石];
+               材料Name.text = PropConfig.GetPropName(PropType.项链锻造石);
                var item5 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao5 = item5.材料数量;
                int lingqi5 = item5.灵气数量;
@@ -618,7 +618,7 @@ public class 强化弹窗 : MonoBehaviour
             }
          }
          概率Button.gameObject.SetActive(true);
-         材料Name.text = PropConfig.PropNameDic[PropType.洗练石];
+         材料Name.text = PropConfig.GetPropName(PropType.洗练石);
          材料强化Button.gameObject.SetActive(false);
          材料洗练Button.gameObject.SetActive(true);
          材料bg.sprite = ResourcesConfig.道具背景框橙;

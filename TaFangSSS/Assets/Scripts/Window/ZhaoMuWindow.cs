@@ -101,7 +101,7 @@ public class ZhaoMuWindow : MonoBehaviour
    {
       foreach (var item in list)
       {
-         ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.PropNameDic[item.Key],PropConfig.GetProp品质(item.Key),item.Value);
+         ObserverModuleManager.S.SendEvent("SendUIToast",PropConfig.GetPropName(item.Key),PropConfig.GetProp品质(item.Key),item.Value);
          yield return new WaitForSeconds(0.1f);
       }
    }

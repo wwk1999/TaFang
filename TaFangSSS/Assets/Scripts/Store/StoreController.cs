@@ -550,21 +550,10 @@ public class StoreController : XSingleton<StoreController>
         {
             if (PlayerData.S.打造List[0].进度 >= 100)
             {
-                List<PropType> 材料 = 法器Config.Get打造法器材料(PlayerData.S.打造List[0].法器Type, PlayerData.S.打造List[0].阶数);
-                foreach (var item in 材料)
-                {
-                    if (PlayerData.S.PropListDic[item] < 1f)
-                    {
-                        ObserverModuleManager.S.SendEvent("SendUIToast","材料不足，法器打造终止");
-                        PlayerData.S.打造List.Clear();
-                        return;
-                    }
-                }
-                foreach (var item in 材料)
-                {
-                    PlayerData.S.PropListDic[item]--;
-                }
-                PlayerData.S.法器列表.Add(法器Config.Get坊市法器(PlayerData.S.打造List[0].法器Type, PlayerData.S.打造List[0].品质, PlayerData.S.打造List[0].阶数));
+                法器打造Item 当前打造 = PlayerData.S.打造List[0];
+                // 材料在加入打造队列时已扣除；品质在打造完成时随机赋予
+                QualityType 成品品质 = 法器Config.Random品质(当前打造.阶数);
+                PlayerData.S.法器列表.Add(法器Config.Get坊市法器(当前打造.法器Type, 成品品质, 当前打造.阶数));
                 PlayerData.S.打造List[0].count--;
                 PlayerData.S.打造List[0].进度 = 0;
                 if (PlayerData.S.打造List[0].count <= 0)
@@ -728,7 +717,7 @@ public class StoreController : XSingleton<StoreController>
 
     public float Get法器打造时间()
     {
-        float value=法器Config.法器打造时间[PlayerData.S.打造List[0].品质] * 属性config.每年秒数;
+        float value=法器Config.法器打造时间[PlayerData.S.打造List[0].阶数] * 属性config.每年秒数;
         value /= (1f + 道场Config.供奉总属性.炼器速度/100f);
         value /=(1f+体质Config.当前体质总属性.炼器速度/100f);
         return value;

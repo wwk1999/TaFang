@@ -96,7 +96,7 @@ public class 胜利弹窗item : MonoBehaviour
             return;
         }
         
-        Name.text = PropConfig.PropNameDic[Type];
+        Name.text = PropConfig.GetPropName(Type);
         Name.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.GetProp品质(Type));
         CountText.text = PlayerData.S.格式化数字(count);
         image.sprite=ResourcesConfig.GetPropSprite(Type);

@@ -782,6 +782,86 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.青石 += 1000000;
             PlayerData.S.最大主线关卡++;
             PlayerData.S.混沌虚空最大层数++;
+            PlayerData.S.PropListDic[PropType.玉髓] += 100;
+            PlayerData.S.PropListDic[PropType.玉髓] *= 10;
+            
+            PlayerData.S.PropListDic[PropType.灵魂] += 100;
+            PlayerData.S.PropListDic[PropType.灵魂] *= 10;
+            
+            PlayerData.S.PropListDic[PropType.玄铁] += 100;
+            PlayerData.S.PropListDic[PropType.玄铁] *= 10;
+            
+            PlayerData.S.PropListDic[PropType.矿石] += 100;
+            PlayerData.S.PropListDic[PropType.矿石] *= 10;
+            
+            
+            PlayerData.S.PropListDic[PropType.石1] += 100;
+            PlayerData.S.PropListDic[PropType.石2] += 100;
+            PlayerData.S.PropListDic[PropType.石3] += 100;
+            PlayerData.S.PropListDic[PropType.石4] += 100;
+            PlayerData.S.PropListDic[PropType.石5] += 100;
+            PlayerData.S.PropListDic[PropType.石6] += 100;
+            PlayerData.S.PropListDic[PropType.石7] += 100;
+            PlayerData.S.PropListDic[PropType.石8] += 100;
+            PlayerData.S.PropListDic[PropType.石9] += 100;
+            PlayerData.S.PropListDic[PropType.石10] += 100;
+            PlayerData.S.PropListDic[PropType.石11] += 100;
+            PlayerData.S.PropListDic[PropType.石12] += 100;
+            PlayerData.S.PropListDic[PropType.石13] += 100;
+            PlayerData.S.PropListDic[PropType.石14] += 100;
+            PlayerData.S.PropListDic[PropType.石15] += 100;
+            PlayerData.S.PropListDic[PropType.石16] += 100;
+            
+            PlayerData.S.PropListDic[PropType.羽1] += 100;
+            PlayerData.S.PropListDic[PropType.羽2] += 100;
+            PlayerData.S.PropListDic[PropType.羽3] += 100;
+            PlayerData.S.PropListDic[PropType.羽4] += 100;
+            PlayerData.S.PropListDic[PropType.羽5] += 100;
+            PlayerData.S.PropListDic[PropType.羽6] += 100;
+            PlayerData.S.PropListDic[PropType.羽7] += 100;
+            PlayerData.S.PropListDic[PropType.羽8] += 100;
+            PlayerData.S.PropListDic[PropType.羽9] += 100;
+            PlayerData.S.PropListDic[PropType.羽10] += 100;
+            PlayerData.S.PropListDic[PropType.羽11] += 100;
+            PlayerData.S.PropListDic[PropType.羽12] += 100;
+            PlayerData.S.PropListDic[PropType.羽13] += 100;
+            PlayerData.S.PropListDic[PropType.羽14] += 100;
+            PlayerData.S.PropListDic[PropType.羽15] += 100;
+            PlayerData.S.PropListDic[PropType.羽16] += 100;
+            
+            PlayerData.S.PropListDic[PropType.铁1] += 100;
+            PlayerData.S.PropListDic[PropType.铁2] += 100;
+            PlayerData.S.PropListDic[PropType.铁3] += 100;
+            PlayerData.S.PropListDic[PropType.铁4] += 100;
+            PlayerData.S.PropListDic[PropType.铁5] += 100;
+            PlayerData.S.PropListDic[PropType.铁6] += 100;
+            PlayerData.S.PropListDic[PropType.铁7] += 100;
+            PlayerData.S.PropListDic[PropType.铁8] += 100;
+            PlayerData.S.PropListDic[PropType.铁9] += 100;
+            PlayerData.S.PropListDic[PropType.铁10] += 100;
+            PlayerData.S.PropListDic[PropType.铁11] += 100;
+            PlayerData.S.PropListDic[PropType.铁12] += 100;
+            PlayerData.S.PropListDic[PropType.铁13] += 100;
+            PlayerData.S.PropListDic[PropType.铁14] += 100;
+            PlayerData.S.PropListDic[PropType.铁15] += 100;
+            PlayerData.S.PropListDic[PropType.铁16] += 100;
+            
+            PlayerData.S.PropListDic[PropType.砂1] += 100;
+            PlayerData.S.PropListDic[PropType.砂2] += 100;
+            PlayerData.S.PropListDic[PropType.砂3] += 100;
+            PlayerData.S.PropListDic[PropType.砂4] += 100;
+            PlayerData.S.PropListDic[PropType.砂5] += 100;
+            PlayerData.S.PropListDic[PropType.砂6] += 100;
+            PlayerData.S.PropListDic[PropType.砂7] += 100;
+            PlayerData.S.PropListDic[PropType.砂8] += 100;
+            PlayerData.S.PropListDic[PropType.砂9] += 100;
+            PlayerData.S.PropListDic[PropType.砂10] += 100;
+            PlayerData.S.PropListDic[PropType.砂11] += 100;
+            PlayerData.S.PropListDic[PropType.砂12] += 100;
+            PlayerData.S.PropListDic[PropType.砂13] += 100;
+            PlayerData.S.PropListDic[PropType.砂14] += 100;
+            PlayerData.S.PropListDic[PropType.砂15] += 100;
+            PlayerData.S.PropListDic[PropType.砂16] += 100;
         });
         经验值Debug.onClick.AddListener(() =>
         {

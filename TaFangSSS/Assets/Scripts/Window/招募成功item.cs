@@ -26,7 +26,7 @@ public class 招募成功item : MonoBehaviour
       }
 
       艺术字.sprite = ResourcesConfig.Get艺术字(PropConfig.GetProp品质(propType));
-      name.text=PropConfig.PropNameDic[propType];
+      name.text=PropConfig.GetPropName(propType);
       image.sprite=PropConfig.GetPropSprite(propType);
       QualityType qualityType = PropConfig.GetProp品质(propType);
       switch (qualityType)

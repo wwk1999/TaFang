@@ -43,7 +43,7 @@ public class 灵物信息弹窗 : MonoBehaviour
             数量.gameObject.SetActive(true);
             bg.sprite = ResourcesConfig.Get道具背景框Sprite(ProType);
             icon.sprite = ResourcesConfig.GetPropSprite(ProType);
-            name.text = PropConfig.PropNameDic[ProType];
+            name.text = PropConfig.GetPropName(ProType);
             if (ProType == PropType.功德)
             {
                 数量.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][1].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][1].maxCount);

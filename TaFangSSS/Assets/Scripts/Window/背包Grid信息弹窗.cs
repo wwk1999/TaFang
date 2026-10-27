@@ -34,7 +34,7 @@ public class 背包Grid信息弹窗 : MonoBehaviour
         分解Tip.gameObject.SetActive(PropConfig.Prop是否为法器材料(PropType));
         bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite=ResourcesConfig.GetPropSprite(PropType);
-        name.text = PropConfig.PropNameDic[PropType];
+        name.text = PropConfig.GetPropName(PropType);
         quality.text=PropConfig.QualityNameDic[QualityType];
         quality.colorGradientPreset=ResourcesConfig.Get品质TMP(QualityType);
         info.text = PropConfig.Get道具信息Info(PropConfig.PropTypeTo道具信息[PropType]);
