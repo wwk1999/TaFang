@@ -122,8 +122,7 @@ public class 法器洗练panel : MonoBehaviour
             }
 
 
-            float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
-                         MathF.Pow(2, count);
+            float 需要粉尘 = 法器Config.Get法器洗练粉尘消耗(HeroWindowController.S.洗练panel当前法器, count);
             需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
             当前粉尘Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
             洗练前词条.list = HeroWindowController.S.洗练panel当前法器.list;
@@ -278,8 +277,7 @@ public class 法器洗练panel : MonoBehaviour
         }
 
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
-                     MathF.Pow(2, count);
+        float 需要粉尘 = 法器Config.Get法器洗练粉尘消耗(HeroWindowController.S.洗练panel当前法器, count);
         需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
         当前粉尘Count.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
     }
@@ -326,8 +324,7 @@ public class 法器洗练panel : MonoBehaviour
             }
         }
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
-                     MathF.Pow(2, count1);
+        float 需要粉尘 = 法器Config.Get法器洗练粉尘消耗(HeroWindowController.S.洗练panel当前法器, count1);
         if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
         {
             ObserverModuleManager.S.SendEvent("SendUIToast", "法器粉尘数量不足,可分解法器获取");
@@ -424,8 +421,7 @@ public class 法器洗练panel : MonoBehaviour
             }
         }
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
-                     MathF.Pow(2, count1);
+        float 需要粉尘 = 法器Config.Get法器洗练粉尘消耗(HeroWindowController.S.洗练panel当前法器, count1);
         if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
         {
             ObserverModuleManager.S.SendEvent("SendUIToast", "法器粉尘数量不足,可分解法器获取");

@@ -762,6 +762,18 @@ public class 领主府 : MonoBehaviour
             break;
          
          case 建筑Type.坊市:
+            var 当前最高购买阶数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前最高购买阶数.info = "最高购买法器阶数";
+            当前最高购买阶数.count = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].最高购买阶数 + "阶";
+            当前最高购买阶数.SetItem();
+
+            var 升级最高购买阶数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级最高购买阶数.info = "最高购买法器阶数";
+            升级最高购买阶数.count = 道场Config.坊市配置[1+PlayerData.S.建筑等级Dic[建筑Type.坊市]].最高购买阶数 + "阶";
+            升级最高购买阶数.SetItem();
+
             var 当前坊市概率列表 = Instantiate(Resources.Load("Prefabs/Window/领主府/概率升级效果item"), 当前效果content.transform)
                .GetComponent<概率升级效果item>();
             当前坊市概率列表.list = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].概率;

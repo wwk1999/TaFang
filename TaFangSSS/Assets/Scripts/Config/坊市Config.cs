@@ -246,6 +246,32 @@ public class 坊市Config
         return QualityType.黄品;
     }
 
+    /// <summary>当前坊市等级可购买的法器最高阶数（1~16），46级起可购买16阶</summary>
+    public static int Get法器最高购买阶数()
+    {
+        int 等级 = PlayerData.S.建筑等级Dic[建筑Type.坊市];
+        if (道场Config.坊市配置.TryGetValue(等级, out var 配置))
+        {
+            return Math.Min(16, Math.Max(1, 配置.最高购买阶数));
+        }
+        return 1;
+    }
+
+    /// <summary>法器售价（按阶数计价）</summary>
+    public static float Get法器价格(int 阶数)
+    {
+        阶数 = Math.Min(16, Math.Max(1, 阶数));
+        if (法器价格Dic.TryGetValue(阶数, out var value)) return value;
+        return 法器价格Dic[1];
+    }
+
+    /// <summary>法器对应品质（按阶数查表，坊市法器固定品质）</summary>
+    public static QualityType Get法器品质(int 阶数)
+    {
+        if (坊市法器品质Dic.TryGetValue(Math.Min(16, Math.Max(1, 阶数)), out var quality)) return quality;
+        return QualityType.黄品;
+    }
+
     public static void 刷新坊市列表()
     {
         PlayerData.S.坊市物品列表.Clear();
@@ -262,7 +288,7 @@ public class 坊市Config
                 if (PlayerData.S.Get坊市法器自动购买(PlayerData.S.坊市物品列表[i].法器Type))
                 {
                     var item = PlayerData.S.坊市物品列表[i];
-                    float value =法器价格Dic[item.QualityType] /
+                    float value = Get法器价格(item.阶数) /
                                   (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < value)
                     {
@@ -375,23 +401,25 @@ public class 坊市Config
     public static 坊市物品 Get坊市物品()
     {
         int 物品类型 = Random.Range(1, 5);
-        QualityType QualityType = Get坊市物品品质();
         坊市物品 坊市物品 = new 坊市物品();
-        坊市物品.QualityType = QualityType;
         switch (物品类型)
         {
             case 1:
-                // 随机法器Type（基础类型，不含品质），品质和阶数由坊市物品自身字段携带
+                // 法器：阶数受坊市等级限制，品质由阶数固定映射（不再随机）
                 坊市物品.法器Type = (法器Type)Random.Range(1, Enum.GetValues(typeof(法器Type)).Length);
-                坊市物品.阶数 = Random.Range(1, 17);
+                坊市物品.阶数 = Random.Range(1, Get法器最高购买阶数() + 1);
+                坊市物品.QualityType = Get法器品质(坊市物品.阶数);
                 break;
             case 2:
+                坊市物品.QualityType = Get坊市物品品质();
                 坊市物品.仙石Type = (仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);
                 break;
             case 3:
+                坊市物品.QualityType = Get坊市物品品质();
                 坊市物品.丹药Type=(丹药Type)Random.Range(1, Enum.GetValues(typeof(丹药Type)).Length);
                 break;
             case 4:
+                坊市物品.QualityType = Get坊市物品品质();
                 坊市物品.丹方Type=(丹药Type)Random.Range(1, Enum.GetValues(typeof(丹药Type)).Length);
                 break;
         }
