@@ -18,6 +18,8 @@ public class 法器信息弹窗 : MonoBehaviour
 
       var info = Instantiate(Resources.Load("Prefabs/Window/法器infoItem"), content.transform).GetComponent<法器infoItem>();
       info.法器Type = 法器.法器Type;
+      info.品质 = 法器.品质;
+      info.阶数 = 法器.阶数;
       info.SetItem();
 
       foreach (var item in 法器.list)
@@ -26,7 +28,7 @@ public class 法器信息弹窗 : MonoBehaviour
          附加属性item.法器附加属性Type = item.法器附加属性Type;
          附加属性item.count=item.count;
          附加属性item.无暇=item.无暇;
-         附加属性item.QualityType=法器Config.法器品质Dic[法器.法器Type];
+         附加属性item.QualityType=法器.品质;
          附加属性item.SetItem();
       }
 

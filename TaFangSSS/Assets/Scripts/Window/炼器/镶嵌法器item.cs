@@ -21,7 +21,7 @@ public class 镶嵌法器item : MonoBehaviour
       头像.SetActive(法器.HeroType!=HeroType.None);
       英雄头像.sprite = ResourcesConfig.GetHeroSprite(法器.HeroType);
       出战.SetActive(法器.HeroType!=HeroType.None);
-      bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
+      bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
       icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
       name.text = 法器Config.法器名Dic[法器.法器Type];
       gou.SetActive(HeroWindowController.S.仙石镶嵌panel当前法器==法器);

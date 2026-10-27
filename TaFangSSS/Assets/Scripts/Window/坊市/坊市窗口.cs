@@ -118,6 +118,7 @@ public class 坊市窗口 : MonoBehaviour
             var 坊市item = Instantiate(Resources.Load("Prefabs/Window/坊市/坊市item"), content.transform)
                 .GetComponent<坊市item>();
             坊市item.QualityType = item.QualityType;
+            坊市item.阶数 = item.阶数;
             坊市item.法器Type=item.法器Type;
             坊市item.仙石Type=item.仙石Type;
             坊市item.丹药Type=item.丹药Type;

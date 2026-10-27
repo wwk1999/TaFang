@@ -22,7 +22,7 @@ public class 英雄详情装备背包item : MonoBehaviour
         英雄icon.sprite=ResourcesConfig.GetHeroSprite(法器.HeroType);
         已装备icon.SetActive(法器.HeroType!=HeroType.None);
         gou.SetActive(false);
-        bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
+        bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
     }
 

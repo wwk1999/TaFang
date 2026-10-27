@@ -492,7 +492,7 @@ public class 仙石镶嵌panel : MonoBehaviour
             nameObj.gameObject.SetActive(true);
             孔content.SetActive(true);
             艺术字.gameObject.SetActive(true);
-            艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.法器品质Dic[当前法器.法器Type]);
+            艺术字.sprite = ResourcesConfig.Get艺术字(当前法器.品质);
             Icon.sprite = ResourcesConfig.Get法器Sprite(当前法器.法器Type);
             name.text = 法器Config.法器名Dic[当前法器.法器Type];
             foreach (Transform item in 孔content.transform)

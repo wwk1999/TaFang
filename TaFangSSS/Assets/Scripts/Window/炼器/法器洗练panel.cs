@@ -69,7 +69,7 @@ public class 法器洗练panel : MonoBehaviour
             粉尘Icon.gameObject.SetActive(true);
             洗练前词条.gameObject.SetActive(true);
             洗练后词条.gameObject.SetActive(true);
-            艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]);
+            艺术字.sprite = ResourcesConfig.Get艺术字(HeroWindowController.S.洗练panel当前法器.品质);
             nameText.text = 法器Config.法器名Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
             icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.洗练panel当前法器.法器Type);
             int count = 0;
@@ -122,7 +122,7 @@ public class 法器洗练panel : MonoBehaviour
             }
 
 
-            float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
+            float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
                          MathF.Pow(2, count);
             需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
             当前粉尘Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
@@ -130,8 +130,8 @@ public class 法器洗练panel : MonoBehaviour
             洗练后词条.list = HeroWindowController.S.洗练后词条;
             洗练后词条.是否带锁 = true;
             洗练前词条.是否带锁 = true;
-            洗练前词条.QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
-            洗练后词条.QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
+            洗练前词条.QualityType = HeroWindowController.S.洗练panel当前法器.品质;
+            洗练后词条.QualityType = HeroWindowController.S.洗练panel当前法器.品质;
             洗练前词条.SetItem();
             洗练后词条.SetItem();
         }
@@ -278,7 +278,7 @@ public class 法器洗练panel : MonoBehaviour
         }
 
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
                      MathF.Pow(2, count);
         需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
         当前粉尘Count.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
@@ -326,7 +326,7 @@ public class 法器洗练panel : MonoBehaviour
             }
         }
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
                      MathF.Pow(2, count1);
         if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
         {
@@ -367,19 +367,20 @@ public class 法器洗练panel : MonoBehaviour
             if (!item.锁)
             {
                 item.法器附加属性Type = (法器附加属性Type)Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
+                int 阶数 = HeroWindowController.S.洗练panel当前法器.阶数;
                 float min = 法器Config
                     .法器Minmaxes[
                         new 法器附加属性品质type()
                         {
                             法器附加属性Type = item.法器附加属性Type,
-                            QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
+                            阶数 = 阶数
                         }].min;
                 float max = 法器Config
                     .法器Minmaxes[
                         new 法器附加属性品质type()
                         {
                             法器附加属性Type = item.法器附加属性Type,
-                            QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
+                            阶数 = 阶数
                         }].max;
                 
                 var 无暇random=Random.Range(0,100);
@@ -423,7 +424,7 @@ public class 法器洗练panel : MonoBehaviour
             }
         }
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]] *
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
                      MathF.Pow(2, count1);
         if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
         {
@@ -453,19 +454,20 @@ public class 法器洗练panel : MonoBehaviour
             if (!item.锁)
             {
                 item.法器附加属性Type = (法器附加属性Type)Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
+                int 阶数 = HeroWindowController.S.洗练panel当前法器.阶数;
                 float min = 法器Config
                     .法器Minmaxes[
                         new 法器附加属性品质type()
                         {
                             法器附加属性Type = item.法器附加属性Type,
-                            QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
+                            阶数 = 阶数
                         }].min;
                 float max = 法器Config
                     .法器Minmaxes[
                         new 法器附加属性品质type()
                         {
                             法器附加属性Type = item.法器附加属性Type,
-                            QualityType = 法器Config.法器品质Dic[HeroWindowController.S.洗练panel当前法器.法器Type]
+                            阶数 = 阶数
                         }].max;
                 
                 var 无暇random=Random.Range(0,100);

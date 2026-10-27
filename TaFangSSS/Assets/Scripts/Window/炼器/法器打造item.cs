@@ -38,7 +38,7 @@ public class 法器打造item : MonoBehaviour
 
    public void SetItem()
    {
-      bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器Type]);
+      bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.黄品);
       icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
       name.text = 法器Config.法器名Dic[法器Type];
       gou.gameObject.SetActive(false);

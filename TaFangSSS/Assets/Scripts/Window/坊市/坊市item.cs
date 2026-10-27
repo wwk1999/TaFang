@@ -31,6 +31,7 @@ public class 坊市item : MonoBehaviour
     [NonSerialized] public 丹药Type 丹药Type;
     [NonSerialized] public 丹药Type 丹方Type;
     [NonSerialized] public QualityType QualityType;
+    [NonSerialized] public int 阶数;
     [NonSerialized]public bool 是否被购买 = false;
     [NonSerialized] public int index = 0;
     
@@ -42,7 +43,7 @@ public class 坊市item : MonoBehaviour
         {
             if (法器Type != 法器Type.None)
             {
-                var 价格 = 坊市Config.法器价格Dic[法器Config.法器品质Dic[法器Type]]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                var 价格 = 坊市Config.法器价格Dic[QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
                 if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                 {
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵气不足");
@@ -153,12 +154,12 @@ public class 坊市item : MonoBehaviour
         if (法器Type != 法器Type.None)
         {
             name.text = 法器Config.法器名Dic[法器Type];
-            name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[法器Type]);
+            name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
             icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
-            bg.sprite = ResourcesConfig.Get传道背景框(法器Config.法器品质Dic[法器Type]);
-            iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器Type]);
+            bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
+            iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
             desc.text = 法器Config.法器descDic[法器Type];
-            价格.text = PlayerData.S.格式化数字(坊市Config.法器价格Dic[法器Config.法器品质Dic[法器Type]]/(1f+道场Config.供奉总属性.坊市价格减少/100f));
+            价格.text = PlayerData.S.格式化数字(坊市Config.法器价格Dic[QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f));
         }
         
         if (仙石Type != 仙石Type.None)

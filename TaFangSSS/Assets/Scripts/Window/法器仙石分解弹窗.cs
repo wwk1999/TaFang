@@ -141,7 +141,7 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                 case 分解类型.法器:
                     PlayerData.S.法器列表.RemoveAll(法器 => 
                     {
-                        var 品质 = 法器Config.法器品质Dic[法器.法器Type];
+                        var 品质 = 法器.品质;
                         bool v= 法器.HeroType==HeroType.None&&((品质 == QualityType.黄品 && 黄) || 
                                (品质 == QualityType.玄品 && 玄) || 
                                (品质 == QualityType.地品 && 地) || 

@@ -19,12 +19,12 @@ public class 法器打造信息弹窗 : MonoBehaviour
 
    public void SetItem()
    {
-      bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器type]);
+      bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.黄品);
       icon.sprite = ResourcesConfig.Get法器Sprite(法器type);
       name.text = 法器Config.法器名Dic[法器type];
       职业.text="职业："+法器Config.法器职业Dic[法器type];
-      词条数量.text=((int)法器Config.法器品质Dic[法器type]).ToString();
-      伤害增幅.text = 法器Config.法器基础属性Dic[法器Config.法器品质Dic[法器type]] + "%";
-      孔数.text = "0-" + (int)法器Config.法器品质Dic[法器type];
+      词条数量.text="0";
+      伤害增幅.text = 法器Config.法器基础属性Dic[1] + "%";
+      孔数.text = "0";
    }
 }

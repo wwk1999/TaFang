@@ -7,210 +7,61 @@ using Random = UnityEngine.Random;
 public class 法器打造Item
 {
     public 法器Type 法器Type;
+    public QualityType 品质;
+    public int 阶数;
     public int count;
     public float 进度;
 }
+
+/// <summary>
+/// 法器基础类型（仅含职业+部位，不含品质和阶数）
+/// </summary>
 public enum 法器Type
 {
     None,
 
     // ============== 1. 战士 ==============
-    战士武器白,
-    战士武器绿,
-    战士武器蓝,
-    战士武器紫,
-    战士武器橙,
-    战士武器粉,
-    战士武器红,
-    战士武器彩,
-
-    战士头盔白,
-    战士头盔绿,
-    战士头盔蓝,
-    战士头盔紫,
-    战士头盔橙,
-    战士头盔粉,
-    战士头盔红,
-    战士头盔彩,
-
-    战士衣服白,
-    战士衣服绿,
-    战士衣服蓝,
-    战士衣服紫,
-    战士衣服橙,
-    战士衣服粉,
-    战士衣服红,
-    战士衣服彩,
-
-    战士鞋子白,
-    战士鞋子绿,
-    战士鞋子蓝,
-    战士鞋子紫,
-    战士鞋子橙,
-    战士鞋子粉,
-    战士鞋子红,
-    战士鞋子彩,
+    战士武器,
+    战士头盔,
+    战士衣服,
+    战士鞋子,
 
     // ============== 2. 控制 ==============
-    控制武器白,
-    控制武器绿,
-    控制武器蓝,
-    控制武器紫,
-    控制武器橙,
-    控制武器粉,
-    控制武器红,
-    控制武器彩,
-
-    控制头盔白,
-    控制头盔绿,
-    控制头盔蓝,
-    控制头盔紫,
-    控制头盔橙,
-    控制头盔粉,
-    控制头盔红,
-    控制头盔彩,
-
-    控制衣服白,
-    控制衣服绿,
-    控制衣服蓝,
-    控制衣服紫,
-    控制衣服橙,
-    控制衣服粉,
-    控制衣服红,
-    控制衣服彩,
-
-    控制鞋子白,
-    控制鞋子绿,
-    控制鞋子蓝,
-    控制鞋子紫,
-    控制鞋子橙,
-    控制鞋子粉,
-    控制鞋子红,
-    控制鞋子彩,
+    控制武器,
+    控制头盔,
+    控制衣服,
+    控制鞋子,
 
     // ============== 3. 辅助 ==============
-    辅助武器白,
-    辅助武器绿,
-    辅助武器蓝,
-    辅助武器紫,
-    辅助武器橙,
-    辅助武器粉,
-    辅助武器红,
-    辅助武器彩,
-
-    辅助头盔白,
-    辅助头盔绿,
-    辅助头盔蓝,
-    辅助头盔紫,
-    辅助头盔橙,
-    辅助头盔粉,
-    辅助头盔红,
-    辅助头盔彩,
-
-    辅助衣服白,
-    辅助衣服绿,
-    辅助衣服蓝,
-    辅助衣服紫,
-    辅助衣服橙,
-    辅助衣服粉,
-    辅助衣服红,
-    辅助衣服彩,
-
-    辅助鞋子白,
-    辅助鞋子绿,
-    辅助鞋子蓝,
-    辅助鞋子紫,
-    辅助鞋子橙,
-    辅助鞋子粉,
-    辅助鞋子红,
-    辅助鞋子彩,
+    辅助武器,
+    辅助头盔,
+    辅助衣服,
+    辅助鞋子,
 
     // ============== 4. 射手 ==============
-    射手武器白,
-    射手武器绿,
-    射手武器蓝,
-    射手武器紫,
-    射手武器橙,
-    射手武器粉,
-    射手武器红,
-    射手武器彩,
-
-    射手头盔白,
-    射手头盔绿,
-    射手头盔蓝,
-    射手头盔紫,
-    射手头盔橙,
-    射手头盔粉,
-    射手头盔红,
-    射手头盔彩,
-
-    射手衣服白,
-    射手衣服绿,
-    射手衣服蓝,
-    射手衣服紫,
-    射手衣服橙,
-    射手衣服粉,
-    射手衣服红,
-    射手衣服彩,
-
-    射手鞋子白,
-    射手鞋子绿,
-    射手鞋子蓝,
-    射手鞋子紫,
-    射手鞋子橙,
-    射手鞋子粉,
-    射手鞋子红,
-    射手鞋子彩,
+    射手武器,
+    射手头盔,
+    射手衣服,
+    射手鞋子,
 
     // ============== 5. 法师 ==============
-    法师武器白,
-    法师武器绿,
-    法师武器蓝,
-    法师武器紫,
-    法师武器橙,
-    法师武器粉,
-    法师武器红,
-    法师武器彩,
-
-    法师头盔白,
-    法师头盔绿,
-    法师头盔蓝,
-    法师头盔紫,
-    法师头盔橙,
-    法师头盔粉,
-    法师头盔红,
-    法师头盔彩,
-
-    法师衣服白,
-    法师衣服绿,
-    法师衣服蓝,
-    法师衣服紫,
-    法师衣服橙,
-    法师衣服粉,
-    法师衣服红,
-    法师衣服彩,
-
-    法师鞋子白,
-    法师鞋子绿,
-    法师鞋子蓝,
-    法师鞋子紫,
-    法师鞋子橙,
-    法师鞋子粉,
-    法师鞋子红,
-    法师鞋子彩,
+    法师武器,
+    法师头盔,
+    法师衣服,
+    法师鞋子,
 }
 
 public class 法器附加属性品质type
 {
-    public 法器附加属性Type 法器附加属性Type { get;set; }
-    public QualityType QualityType { get; set; }
-    
+    public 法器附加属性Type 法器附加属性Type { get; set; }
+    public int 阶数 { get; set; }
+
     public override bool Equals(object obj)
     {
         if (obj == null || GetType() != obj.GetType())
             return false;
         法器附加属性品质type other = (法器附加属性品质type)obj;
-        return 法器附加属性Type == other.法器附加属性Type && QualityType == other.QualityType;
+        return 法器附加属性Type == other.法器附加属性Type && 阶数 == other.阶数;
     }
 
     public override int GetHashCode()
@@ -219,11 +70,12 @@ public class 法器附加属性品质type
         {
             int hash = 17;
             hash = hash * 31 + 法器附加属性Type.GetHashCode();
-            hash = hash * 31 + QualityType.GetHashCode();
+            hash = hash * 31 + 阶数.GetHashCode();
             return hash;
         }
     }
 }
+
 public enum 法器附加属性Type
 {
     None,
@@ -253,6 +105,7 @@ public enum 法器类型
     头盔,
     鞋子,
 }
+
 public class 法器附加属性值
 {
     public 法器附加属性Type 法器附加属性Type;
@@ -264,9 +117,11 @@ public class 法器附加属性值
 public class 法器
 {
     public 法器Type 法器Type;
-    public List<法器附加属性值> list=new List<法器附加属性值>();
-    public List<仙石> 仙石list=new List<仙石>();
-    public HeroType HeroType=HeroType.None;
+    public QualityType 品质;
+    public int 阶数;
+    public List<法器附加属性值> list = new List<法器附加属性值>();
+    public List<仙石> 仙石list = new List<仙石>();
+    public HeroType HeroType = HeroType.None;
     public 符文 符文 = new 符文();
     public int 魂器等级;
     public float 魂器经验;
@@ -293,9 +148,7 @@ public class 法器属性
 
     public static 法器属性 operator +(法器属性 a, 法器属性 b)
     {
-        if (a == null) return b;
-        if (b == null) return a;
-        
+        if (a == null || b == null) return null;
         return new 法器属性
         {
             暴击率 = a.暴击率 + b.暴击率,
@@ -317,11 +170,9 @@ public class 法器属性
         };
     }
 
-    // 法器属性 * float
     public static 法器属性 operator *(法器属性 a, float scalar)
     {
         if (a == null) return null;
-
         return new 法器属性
         {
             暴击率 = a.暴击率 * scalar,
@@ -343,13 +194,11 @@ public class 法器属性
         };
     }
 
-    // float * 法器属性
     public static 法器属性 operator *(float scalar, 法器属性 a)
     {
         return a * scalar;
     }
 
-    // 所有字段归零：供热路径复用同一个实例，避免每次受击 new
     public void 清零()
     {
         暴击率 = 0;
@@ -383,13 +232,21 @@ public enum 法器材料Type
 public class 法器材料
 {
     public 法器材料Type 法器材料Type;
-    public QualityType QualityType;
+    public int 阶数;
 }
+
 public class 法器Config
 {
+    // ==================== 概率与倍率 ====================
 
+    /// <summary>
+    /// 法器打造品质概率（万分比，从荒品到黄品顺序）
+    /// </summary>
     public static List<float> 法器打造品质概率 = new List<float>() { 10000, 3000, 1000, 500, 300, 100, 10f, 1f };
 
+    /// <summary>
+    /// 法器品质倍率（基础值乘此倍率）
+    /// </summary>
     public static Dictionary<QualityType, float> 法器品质倍率 = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品 ,1},
@@ -401,6 +258,7 @@ public class 法器Config
         { QualityType.洪品 ,100},
         { QualityType.荒品 ,1000},
     };
+
     public static Dictionary<法器类型, string> 法器类型String = new Dictionary<法器类型, string>()
     {
         { 法器类型.头盔 ,"头盔"},
@@ -408,6 +266,7 @@ public class 法器Config
         { 法器类型.衣服 ,"衣服"},
         { 法器类型.鞋子 ,"鞋子"},
     };
+
     public static Dictionary<QualityType, float> 法器打造时间 = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品 ,0.01f},
@@ -420,51 +279,8 @@ public class 法器Config
         { QualityType.荒品 ,6f},
     };
 
-    /// <summary>
-    /// 品质对应材料图颜色字（黄玄地天宇宙洪荒→白绿蓝紫橙粉红彩）
-    /// </summary>
-    private static readonly string[] 材料颜色Arr = { "白", "绿", "蓝", "紫", "橙", "粉", "红", "彩" };
+    // ==================== 材料配置 ====================
 
-    /// <summary>
-    /// 获取打造指定法器所需的材料PropType列表（每件每种材料各1个，PropType枚举名=材料名+颜色，如铁白、砂紫）
-    /// </summary>
-    public static List<PropType> Get打造法器材料(法器Type type)
-    {
-        List<PropType> result = new List<PropType>();
-        if (!法器类型Dic.TryGetValue(type, out var 法器类型)) return result;
-        if (!法器品质Dic.TryGetValue(type, out var qualityType)) return result;
-        if (!法器材料Dic.TryGetValue(法器类型, out var 材料List)) return result;
-
-        int qualityIndex = (int)qualityType - 1;
-        if (qualityIndex < 0 || qualityIndex >= 材料颜色Arr.Length) return result;
-
-        foreach (var 材料类型 in 材料List)
-        {
-            string propName = 材料类型 + 材料颜色Arr[qualityIndex];
-            if (Enum.IsDefined(typeof(PropType), propName))
-            {
-                result.Add((PropType)Enum.Parse(typeof(PropType), propName));
-            }
-        }
-
-        return result;
-    }
-    
-    public static int Get最大打造数量(法器Type type)
-    {
-        // 未选中具体法器时打造数量为0
-        if (type == 法器Type.None) return 0;
-
-        // 每件法器需要每种材料各1个，最大打造数取所有材料持有量的最小值
-        int 最大数量 = int.MaxValue;
-        foreach (var propType in Get打造法器材料(type))
-        {
-            PlayerData.S.PropListDic.TryGetValue(propType, out float count);
-            最大数量 = Math.Min(最大数量, Mathf.FloorToInt(count));
-        }
-
-        return 最大数量 == int.MaxValue ? 0 : 最大数量;
-    }
     public static Dictionary<法器类型, List<法器材料Type>> 法器材料Dic = new Dictionary<法器类型, List<法器材料Type>>()
     {
         { 法器类型.武器 ,new List<法器材料Type>() { 法器材料Type.铁 ,法器材料Type.石}},
@@ -475,37 +291,91 @@ public class 法器Config
 
     public static Dictionary<法器材料Type, string[]> 材料名称 = new Dictionary<法器材料Type, string[]>()
     {
-        { 法器材料Type.铁, new[]{ "凡铁", "精铁", "玄铁", "寒铁", "地火精金", "星辰铁", "鸿蒙紫铁", "混沌神铁" } },
-        { 法器材料Type.砂, new[]{ "粗砂", "细砂", "灵砂", "星辰砂", "地脉砂", "玄天砂", "鸿蒙砂", "混沌砂" } },
-        { 法器材料Type.石, new[]{ "青石", "硬石", "灵玉", "玄龟石", "地脉晶", "星辰石", "鸿蒙石", "混沌石" } },
-        { 法器材料Type.羽, new[]{ "凡羽", "轻羽", "风灵羽", "云纹羽", "灵鹤羽", "鲲鹏羽", "鸿蒙羽", "混沌羽" } },
+        { 法器材料Type.铁, new[]{ "凡铁", "精铁", "玄铁", "寒铁", "地火精金", "星辰铁", "鸿蒙紫铁", "混沌神铁", "太虚玄铁", "鸿蒙精铁", "混沌原铁", "造化神铁", "太初玄铁", "先天道铁", "无极圣铁", "大道仙铁" } },
+        { 法器材料Type.砂, new[]{ "粗砂", "细砂", "灵砂", "星辰砂", "地脉砂", "玄天砂", "鸿蒙砂", "混沌砂", "太虚灵砂", "鸿蒙精砂", "混沌原砂", "造化神砂", "太初元砂", "先天道砂", "无极圣砂", "大道仙砂" } },
+        { 法器材料Type.石, new[]{ "青石", "硬石", "灵玉", "玄龟石", "地脉晶", "星辰石", "鸿蒙石", "混沌石", "太虚灵石", "鸿蒙晶石", "混沌原石", "造化神石", "太初元石", "先天道石", "无极圣石", "大道仙石" } },
+        { 法器材料Type.羽, new[]{ "凡羽", "轻羽", "风灵羽", "云纹羽", "灵鹤羽", "鲲鹏羽", "鸿蒙羽", "混沌羽", "太虚无羽", "鸿蒙精羽", "混沌原羽", "造化神羽", "太初元羽", "先天道羽", "无极圣羽", "大道仙羽" } },
     };
 
-    public static string Get法器材料Name(法器材料Type 法器材料Type, QualityType qualityType)
+    public static string Get法器材料Name(法器材料Type 法器材料Type, int 阶数)
     {
+        if (阶数 < 1 || 阶数 > 16) return string.Empty;
         if (材料名称.TryGetValue(法器材料Type, out var names))
         {
-            // QualityType.None=0，黄品=1 对应数组第0个，荒品=8 对应第7个
-            int index = (int)qualityType - 1;
-            if (index >= 0 && index < names.Length)
+            return names[阶数 - 1];
+        }
+        return string.Empty;
+    }
+
+    /// <summary>
+    /// 获取打造指定法器（按阶数）所需的材料PropType列表
+    /// 每种材料按阶数取 石N/铁N/羽N/砂N，每件每种材料各1个
+    /// </summary>
+    public static List<PropType> Get打造法器材料(法器Type type, int 阶数)
+    {
+        List<PropType> result = new List<PropType>();
+        if (!法器类型Dic.TryGetValue(type, out var 法器类型)) return result;
+        if (!法器材料Dic.TryGetValue(法器类型, out var 材料List)) return result;
+
+        foreach (var 材料类型 in 材料List)
+        {
+            string propName = 材料类型.ToString() + 阶数;
+            if (Enum.IsDefined(typeof(PropType), propName))
             {
-                return names[index];
+                result.Add((PropType)Enum.Parse(typeof(PropType), propName));
             }
         }
 
-        return string.Empty;
+        return result;
     }
-    public static Dictionary<QualityType, float> 法器基础属性Dic = new Dictionary<QualityType, float>()
+
+    public static int Get最大打造数量(法器Type type, int 阶数)
     {
-        { QualityType.黄品, 10 },
-        { QualityType.玄品, 20 },
-        { QualityType.地品, 30 },
-        { QualityType.天品, 50 },
-        { QualityType.宇品, 80 },
-        { QualityType.宙品, 120 },
-        { QualityType.洪品, 180 },
-        { QualityType.荒品, 300 },
+        if (type == 法器Type.None) return 0;
+        int 最大数量 = int.MaxValue;
+        foreach (var propType in Get打造法器材料(type, 阶数))
+        {
+            PlayerData.S.PropListDic.TryGetValue(propType, out float count);
+            最大数量 = Math.Min(最大数量, Mathf.FloorToInt(count));
+        }
+        return 最大数量 == int.MaxValue ? 0 : 最大数量;
+    }
+
+    // ==================== 基础属性 ====================
+
+    /// <summary>
+    /// 16阶法器的基础最终伤害值（品质倍率在外层乘）
+    /// </summary>
+    public static Dictionary<int, float> 法器基础属性Dic = new Dictionary<int, float>()
+    {
+        { 1, 10 },
+        { 2, 20 },
+        { 3, 30 },
+        { 4, 50 },
+        { 5, 80 },
+        { 6, 120 },
+        { 7, 180 },
+        { 8, 300 },
+        { 9, 450 },
+        { 10, 650 },
+        { 11, 900 },
+        { 12, 1200 },
+        { 13, 1600 },
+        { 14, 2100 },
+        { 15, 2800 },
+        { 16, 3600 },
     };
+
+    public static float Get法器基础伤害(int 阶数, QualityType 品质)
+    {
+        if (法器基础属性Dic.TryGetValue(阶数, out var 基础值) && 法器品质倍率.TryGetValue(品质, out var 倍率))
+        {
+            return 基础值 * 倍率;
+        }
+        return 0;
+    }
+
+    // ==================== 法器属性计算 ====================
 
     public static 法器属性 Get英雄法器属性(HeroType heroType)
     {
@@ -515,197 +385,81 @@ public class 法器Config
         法器属性 鞋子属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].鞋子);
         法器属性 武器属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].武器);
         法器属性 = 衣服属性 + 头盔属性 + 鞋子属性 + 武器属性;
-        return 法器属性*(1f+体质Config.当前体质总属性.法器效果加成/100f);
+        return 法器属性 * (1f + 体质Config.当前体质总属性.法器效果加成 / 100f);
     }
+
     public static 法器属性 Get法器属性(法器 法器)
     {
         法器属性 法器属性 = new 法器属性();
         if (法器 == null) return 法器属性;
-        法器属性.最终伤害 += 法器基础属性Dic[法器品质Dic[法器.法器Type]];
+
+        // 基础伤害 = 阶数基础值 × 品质倍率
+        法器属性.最终伤害 += Get法器基础伤害(法器.阶数, 法器.品质);
+
+        // 无暇套装加成
         int count = 0;
         float 无暇加成 = 0;
         foreach (var item in 法器.list)
         {
-            if (item.无暇)
-            {
-                count++;
-            }
+            if (item != null && item.无暇) count++;
         }
+        if (count >= 8) 无暇加成 = EquipConfig.无暇套装加成3 / 100f;
+        else if (count >= 6) 无暇加成 = EquipConfig.无暇套装加成2 / 100f;
+        else if (count >= 4) 无暇加成 = EquipConfig.无暇套装加成1 / 100f;
 
-        if (count >= 8)
-        {
-            无暇加成 = EquipConfig.无暇套装加成3/100f;
-        }else if (count >= 6)
-        {
-            无暇加成 = EquipConfig.无暇套装加成2/100f;
-        }else if (count >= 4)
-        {
-            无暇加成 = EquipConfig.无暇套装加成1/100f;
-        }
         foreach (var item in 法器.list)
         {
-            if(item==null)continue;
+            if (item == null) continue;
+            float 品质倍率 = 法器品质倍率[法器.品质];
             switch (item.法器附加属性Type)
             {
                 case 法器附加属性Type.暴击率:
-                    if (item.无暇)
-                    {
-                        法器属性.暴击率 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.暴击率 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }
+                    法器属性.暴击率 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.暴击伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.暴击伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.暴击伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.暴击伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.火焰伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.火焰伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.火焰伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.火焰伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.雷电伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.雷电伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.雷电伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.雷电伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.黑暗伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.黑暗伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.黑暗伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.黑暗伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.冰霜伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.冰霜伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.冰霜伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.冰霜伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.物理伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.物理伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.物理伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.物理伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.最终伤害:
-                    if (item.无暇)
-                    {
-                        法器属性.最终伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.最终伤害 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.最终伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.普通怪增伤:
-                    if (item.无暇)
-                    {
-                        法器属性.普通怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.普通怪增伤 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.普通怪增伤 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.精英怪增伤:
-                    if (item.无暇)
-                    {
-                        法器属性.精英怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.精英怪增伤 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.精英怪增伤 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.首领怪增伤:
-                    if (item.无暇)
-                    {
-                        法器属性.首领怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.首领怪增伤 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.首领怪增伤 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.火焰穿透:
-                    if (item.无暇)
-                    {
-                        法器属性.火焰穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.火焰穿透 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.火焰穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.雷电穿透:
-                    if (item.无暇)
-                    {
-                        法器属性.雷电穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.雷电穿透 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.雷电穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.物理穿透:
-                    if (item.无暇)
-                    {
-                        法器属性.物理穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.物理穿透 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.物理穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.冰霜穿透:
-                    if (item.无暇)
-                    {
-                        法器属性.冰霜穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.冰霜穿透 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.冰霜穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.黑暗穿透:
-                    if (item.无暇)
-                    {
-                        法器属性.黑暗穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1f+无暇加成)*(1f+法器.魂器等级/100f);  
-                    }
-                    else
-                    {
-                        法器属性.黑暗穿透 += item.count*(1f+无暇加成)*(1f+法器.魂器等级/100f);
-                    }                    
+                    法器属性.黑暗穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1f + 无暇加成) * (1f + 法器.魂器等级 / 100f);
                     break;
                 case 法器附加属性Type.None:
                 default:
@@ -713,389 +467,107 @@ public class 法器Config
             }
         }
 
+        // 仙石加成
         float 仙石效果 = 仙石Config.Get法器仙石效果(法器);
         foreach (var 仙石 in 法器.仙石list)
         {
-            if(仙石.type==仙石Type.None)continue;
+            if (仙石.type == 仙石Type.None) continue;
             foreach (var item in 仙石.list)
             {
+                if (item == null) continue;
+                float 品质倍率 = 法器品质倍率[法器.品质];
                 switch (item.法器附加属性Type)
                 {
                     case 法器附加属性Type.暴击率:
-                        if (item.无暇)
-                        {
-                            法器属性.暴击率 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.暴击率 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.暴击率 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.暴击伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.暴击伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.暴击伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.暴击伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.火焰伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.火焰伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.火焰伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.火焰伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.雷电伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.雷电伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.雷电伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.雷电伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.黑暗伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.黑暗伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.黑暗伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.黑暗伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.冰霜伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.冰霜伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.冰霜伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.冰霜伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.物理伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.物理伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.物理伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.物理伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.最终伤害:
-                        if (item.无暇)
-                        {
-                            法器属性.最终伤害 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.最终伤害 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.最终伤害 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.普通怪增伤:
-                        if (item.无暇)
-                        {
-                            法器属性.普通怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.普通怪增伤 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.普通怪增伤 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.精英怪增伤:
-                        if (item.无暇)
-                        {
-                            法器属性.精英怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.精英怪增伤 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.精英怪增伤 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.首领怪增伤:
-                        if (item.无暇)
-                        {
-                            法器属性.首领怪增伤 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.首领怪增伤 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.首领怪增伤 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.火焰穿透:
-                        if (item.无暇)
-                        {
-                            法器属性.火焰穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.火焰穿透 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.火焰穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.雷电穿透:
-                        if (item.无暇)
-                        {
-                            法器属性.雷电穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.雷电穿透 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.雷电穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.物理穿透:
-                        if (item.无暇)
-                        {
-                            法器属性.物理穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.物理穿透 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.物理穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.冰霜穿透:
-                        if (item.无暇)
-                        {
-                            法器属性.冰霜穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.冰霜穿透 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.冰霜穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
                     case 法器附加属性Type.黑暗穿透:
-                        if (item.无暇)
-                        {
-                            法器属性.黑暗穿透 += item.count*(1f+EquipConfig.无暇词条加成)*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
-                        else
-                        {
-                            法器属性.黑暗穿透 += item.count*(1+仙石效果/100f)*(1f+法器.魂器等级/100f);
-                        }
+                        法器属性.黑暗穿透 += item.count * 品质倍率 * (item.无暇 ? (1f + EquipConfig.无暇词条加成) : 1f) * (1 + 仙石效果 / 100f) * (1f + 法器.魂器等级 / 100f);
                         break;
-                    case 法器附加属性Type.None:
                     default:
                         break;
                 }
             }
         }
+
         return 法器属性;
     }
+
+    // ==================== 法器Type → 法器类型（部位） ====================
+
     public static Dictionary<法器Type, 法器类型> 法器类型Dic = new Dictionary<法器Type, 法器类型>()
-{
-    // ============== 1. 战士 ==============
-    // 战士武器
-    { 法器Type.战士武器白, 法器类型.武器 },
-    { 法器Type.战士武器绿, 法器类型.武器 },
-    { 法器Type.战士武器蓝, 法器类型.武器 },
-    { 法器Type.战士武器紫, 法器类型.武器 },
-    { 法器Type.战士武器橙, 法器类型.武器 },
-    { 法器Type.战士武器粉, 法器类型.武器 },
-    { 法器Type.战士武器红, 法器类型.武器 },
-    { 法器Type.战士武器彩, 法器类型.武器 },
-    
-    // 战士头盔
-    { 法器Type.战士头盔白, 法器类型.头盔 },
-    { 法器Type.战士头盔绿, 法器类型.头盔 },
-    { 法器Type.战士头盔蓝, 法器类型.头盔 },
-    { 法器Type.战士头盔紫, 法器类型.头盔 },
-    { 法器Type.战士头盔橙, 法器类型.头盔 },
-    { 法器Type.战士头盔粉, 法器类型.头盔 },
-    { 法器Type.战士头盔红, 法器类型.头盔 },
-    { 法器Type.战士头盔彩, 法器类型.头盔 },
-    
-    // 战士衣服
-    { 法器Type.战士衣服白, 法器类型.衣服 },
-    { 法器Type.战士衣服绿, 法器类型.衣服 },
-    { 法器Type.战士衣服蓝, 法器类型.衣服 },
-    { 法器Type.战士衣服紫, 法器类型.衣服 },
-    { 法器Type.战士衣服橙, 法器类型.衣服 },
-    { 法器Type.战士衣服粉, 法器类型.衣服 },
-    { 法器Type.战士衣服红, 法器类型.衣服 },
-    { 法器Type.战士衣服彩, 法器类型.衣服 },
-    
-    // 战士鞋子
-    { 法器Type.战士鞋子白, 法器类型.鞋子 },
-    { 法器Type.战士鞋子绿, 法器类型.鞋子 },
-    { 法器Type.战士鞋子蓝, 法器类型.鞋子 },
-    { 法器Type.战士鞋子紫, 法器类型.鞋子 },
-    { 法器Type.战士鞋子橙, 法器类型.鞋子 },
-    { 法器Type.战士鞋子粉, 法器类型.鞋子 },
-    { 法器Type.战士鞋子红, 法器类型.鞋子 },
-    { 法器Type.战士鞋子彩, 法器类型.鞋子 },
+    {
+        // 战士
+        { 法器Type.战士武器, 法器类型.武器 },
+        { 法器Type.战士头盔, 法器类型.头盔 },
+        { 法器Type.战士衣服, 法器类型.衣服 },
+        { 法器Type.战士鞋子, 法器类型.鞋子 },
+        // 控制
+        { 法器Type.控制武器, 法器类型.武器 },
+        { 法器Type.控制头盔, 法器类型.头盔 },
+        { 法器Type.控制衣服, 法器类型.衣服 },
+        { 法器Type.控制鞋子, 法器类型.鞋子 },
+        // 辅助
+        { 法器Type.辅助武器, 法器类型.武器 },
+        { 法器Type.辅助头盔, 法器类型.头盔 },
+        { 法器Type.辅助衣服, 法器类型.衣服 },
+        { 法器Type.辅助鞋子, 法器类型.鞋子 },
+        // 射手
+        { 法器Type.射手武器, 法器类型.武器 },
+        { 法器Type.射手头盔, 法器类型.头盔 },
+        { 法器Type.射手衣服, 法器类型.衣服 },
+        { 法器Type.射手鞋子, 法器类型.鞋子 },
+        // 法师
+        { 法器Type.法师武器, 法器类型.武器 },
+        { 法器Type.法师头盔, 法器类型.头盔 },
+        { 法器Type.法师衣服, 法器类型.衣服 },
+        { 法器Type.法师鞋子, 法器类型.鞋子 },
+    };
 
-    // ============== 2. 控制 ==============
-    // 控制武器
-    { 法器Type.控制武器白, 法器类型.武器 },
-    { 法器Type.控制武器绿, 法器类型.武器 },
-    { 法器Type.控制武器蓝, 法器类型.武器 },
-    { 法器Type.控制武器紫, 法器类型.武器 },
-    { 法器Type.控制武器橙, 法器类型.武器 },
-    { 法器Type.控制武器粉, 法器类型.武器 },
-    { 法器Type.控制武器红, 法器类型.武器 },
-    { 法器Type.控制武器彩, 法器类型.武器 },
-    
-    // 控制头盔
-    { 法器Type.控制头盔白, 法器类型.头盔 },
-    { 法器Type.控制头盔绿, 法器类型.头盔 },
-    { 法器Type.控制头盔蓝, 法器类型.头盔 },
-    { 法器Type.控制头盔紫, 法器类型.头盔 },
-    { 法器Type.控制头盔橙, 法器类型.头盔 },
-    { 法器Type.控制头盔粉, 法器类型.头盔 },
-    { 法器Type.控制头盔红, 法器类型.头盔 },
-    { 法器Type.控制头盔彩, 法器类型.头盔 },
-    
-    // 控制衣服
-    { 法器Type.控制衣服白, 法器类型.衣服 },
-    { 法器Type.控制衣服绿, 法器类型.衣服 },
-    { 法器Type.控制衣服蓝, 法器类型.衣服 },
-    { 法器Type.控制衣服紫, 法器类型.衣服 },
-    { 法器Type.控制衣服橙, 法器类型.衣服 },
-    { 法器Type.控制衣服粉, 法器类型.衣服 },
-    { 法器Type.控制衣服红, 法器类型.衣服 },
-    { 法器Type.控制衣服彩, 法器类型.衣服 },
-    
-    // 控制鞋子
-    { 法器Type.控制鞋子白, 法器类型.鞋子 },
-    { 法器Type.控制鞋子绿, 法器类型.鞋子 },
-    { 法器Type.控制鞋子蓝, 法器类型.鞋子 },
-    { 法器Type.控制鞋子紫, 法器类型.鞋子 },
-    { 法器Type.控制鞋子橙, 法器类型.鞋子 },
-    { 法器Type.控制鞋子粉, 法器类型.鞋子 },
-    { 法器Type.控制鞋子红, 法器类型.鞋子 },
-    { 法器Type.控制鞋子彩, 法器类型.鞋子 },
+    // ==================== 附加属性描述 ====================
 
-    // ============== 3. 辅助 ==============
-    // 辅助武器
-    { 法器Type.辅助武器白, 法器类型.武器 },
-    { 法器Type.辅助武器绿, 法器类型.武器 },
-    { 法器Type.辅助武器蓝, 法器类型.武器 },
-    { 法器Type.辅助武器紫, 法器类型.武器 },
-    { 法器Type.辅助武器橙, 法器类型.武器 },
-    { 法器Type.辅助武器粉, 法器类型.武器 },
-    { 法器Type.辅助武器红, 法器类型.武器 },
-    { 法器Type.辅助武器彩, 法器类型.武器 },
-    
-    // 辅助头盔
-    { 法器Type.辅助头盔白, 法器类型.头盔 },
-    { 法器Type.辅助头盔绿, 法器类型.头盔 },
-    { 法器Type.辅助头盔蓝, 法器类型.头盔 },
-    { 法器Type.辅助头盔紫, 法器类型.头盔 },
-    { 法器Type.辅助头盔橙, 法器类型.头盔 },
-    { 法器Type.辅助头盔粉, 法器类型.头盔 },
-    { 法器Type.辅助头盔红, 法器类型.头盔 },
-    { 法器Type.辅助头盔彩, 法器类型.头盔 },
-    
-    // 辅助衣服
-    { 法器Type.辅助衣服白, 法器类型.衣服 },
-    { 法器Type.辅助衣服绿, 法器类型.衣服 },
-    { 法器Type.辅助衣服蓝, 法器类型.衣服 },
-    { 法器Type.辅助衣服紫, 法器类型.衣服 },
-    { 法器Type.辅助衣服橙, 法器类型.衣服 },
-    { 法器Type.辅助衣服粉, 法器类型.衣服 },
-    { 法器Type.辅助衣服红, 法器类型.衣服 },
-    { 法器Type.辅助衣服彩, 法器类型.衣服 },
-    
-    // 辅助鞋子
-    { 法器Type.辅助鞋子白, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子绿, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子蓝, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子紫, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子橙, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子粉, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子红, 法器类型.鞋子 },
-    { 法器Type.辅助鞋子彩, 法器类型.鞋子 },
-
-    // ============== 4. 射手 ==============
-    // 射手武器
-    { 法器Type.射手武器白, 法器类型.武器 },
-    { 法器Type.射手武器绿, 法器类型.武器 },
-    { 法器Type.射手武器蓝, 法器类型.武器 },
-    { 法器Type.射手武器紫, 法器类型.武器 },
-    { 法器Type.射手武器橙, 法器类型.武器 },
-    { 法器Type.射手武器粉, 法器类型.武器 },
-    { 法器Type.射手武器红, 法器类型.武器 },
-    { 法器Type.射手武器彩, 法器类型.武器 },
-    
-    // 射手头盔
-    { 法器Type.射手头盔白, 法器类型.头盔 },
-    { 法器Type.射手头盔绿, 法器类型.头盔 },
-    { 法器Type.射手头盔蓝, 法器类型.头盔 },
-    { 法器Type.射手头盔紫, 法器类型.头盔 },
-    { 法器Type.射手头盔橙, 法器类型.头盔 },
-    { 法器Type.射手头盔粉, 法器类型.头盔 },
-    { 法器Type.射手头盔红, 法器类型.头盔 },
-    { 法器Type.射手头盔彩, 法器类型.头盔 },
-    
-    // 射手衣服
-    { 法器Type.射手衣服白, 法器类型.衣服 },
-    { 法器Type.射手衣服绿, 法器类型.衣服 },
-    { 法器Type.射手衣服蓝, 法器类型.衣服 },
-    { 法器Type.射手衣服紫, 法器类型.衣服 },
-    { 法器Type.射手衣服橙, 法器类型.衣服 },
-    { 法器Type.射手衣服粉, 法器类型.衣服 },
-    { 法器Type.射手衣服红, 法器类型.衣服 },
-    { 法器Type.射手衣服彩, 法器类型.衣服 },
-    
-    // 射手鞋子
-    { 法器Type.射手鞋子白, 法器类型.鞋子 },
-    { 法器Type.射手鞋子绿, 法器类型.鞋子 },
-    { 法器Type.射手鞋子蓝, 法器类型.鞋子 },
-    { 法器Type.射手鞋子紫, 法器类型.鞋子 },
-    { 法器Type.射手鞋子橙, 法器类型.鞋子 },
-    { 法器Type.射手鞋子粉, 法器类型.鞋子 },
-    { 法器Type.射手鞋子红, 法器类型.鞋子 },
-    { 法器Type.射手鞋子彩, 法器类型.鞋子 },
-
-    // ============== 5. 法师 ==============
-    // 法师武器
-    { 法器Type.法师武器白, 法器类型.武器 },
-    { 法器Type.法师武器绿, 法器类型.武器 },
-    { 法器Type.法师武器蓝, 法器类型.武器 },
-    { 法器Type.法师武器紫, 法器类型.武器 },
-    { 法器Type.法师武器橙, 法器类型.武器 },
-    { 法器Type.法师武器粉, 法器类型.武器 },
-    { 法器Type.法师武器红, 法器类型.武器 },
-    { 法器Type.法师武器彩, 法器类型.武器 },
-    
-    // 法师头盔
-    { 法器Type.法师头盔白, 法器类型.头盔 },
-    { 法器Type.法师头盔绿, 法器类型.头盔 },
-    { 法器Type.法师头盔蓝, 法器类型.头盔 },
-    { 法器Type.法师头盔紫, 法器类型.头盔 },
-    { 法器Type.法师头盔橙, 法器类型.头盔 },
-    { 法器Type.法师头盔粉, 法器类型.头盔 },
-    { 法器Type.法师头盔红, 法器类型.头盔 },
-    { 法器Type.法师头盔彩, 法器类型.头盔 },
-    
-    // 法师衣服
-    { 法器Type.法师衣服白, 法器类型.衣服 },
-    { 法器Type.法师衣服绿, 法器类型.衣服 },
-    { 法器Type.法师衣服蓝, 法器类型.衣服 },
-    { 法器Type.法师衣服紫, 法器类型.衣服 },
-    { 法器Type.法师衣服橙, 法器类型.衣服 },
-    { 法器Type.法师衣服粉, 法器类型.衣服 },
-    { 法器Type.法师衣服红, 法器类型.衣服 },
-    { 法器Type.法师衣服彩, 法器类型.衣服 },
-    
-    // 法师鞋子
-    { 法器Type.法师鞋子白, 法器类型.鞋子 },
-    { 法器Type.法师鞋子绿, 法器类型.鞋子 },
-    { 法器Type.法师鞋子蓝, 法器类型.鞋子 },
-    { 法器Type.法师鞋子紫, 法器类型.鞋子 },
-    { 法器Type.法师鞋子橙, 法器类型.鞋子 },
-    { 法器Type.法师鞋子粉, 法器类型.鞋子 },
-    { 法器Type.法师鞋子红, 法器类型.鞋子 },
-    { 法器Type.法师鞋子彩, 法器类型.鞋子 },
-};
     public static Dictionary<法器附加属性Type, string> 法器附加属性Desc = new Dictionary<法器附加属性Type, string>()
     {
         { 法器附加属性Type.None, "无属性" },
@@ -1117,6 +589,8 @@ public class 法器Config
         { 法器附加属性Type.黑暗穿透, "黑暗穿透" },
     };
 
+    // ==================== 消耗/分解（品质维度保持不变） ====================
+
     public static Dictionary<QualityType, int> 法器洗练消耗Dic = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,100},
@@ -1128,7 +602,7 @@ public class 法器Config
         { QualityType.洪品 ,100000},
         { QualityType.荒品 ,500000},
     };
-    
+
     public static Dictionary<QualityType, int> 法器分解Dic = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,100},
@@ -1140,7 +614,7 @@ public class 法器Config
         { QualityType.洪品 ,100000},
         { QualityType.荒品 ,500000},
     };
-    
+
     public static Dictionary<QualityType, int> 法器材料分解粉尘Dic = new Dictionary<QualityType, int>()
     {
         { QualityType.黄品 ,20},
@@ -1152,941 +626,195 @@ public class 法器Config
         { QualityType.洪品 ,20000},
         { QualityType.荒品 ,100000},
     };
+
+    // ==================== 法器职业 ====================
+
     public static Dictionary<法器Type, ZhiYeType> 法器职业Dic = new Dictionary<法器Type, ZhiYeType>()
-{
-    // ==================== 1. 战士 ====================
-    { 法器Type.战士武器白, ZhiYeType.战士 },
-    { 法器Type.战士武器绿, ZhiYeType.战士 },
-    { 法器Type.战士武器蓝, ZhiYeType.战士 },
-    { 法器Type.战士武器紫, ZhiYeType.战士 },
-    { 法器Type.战士武器橙, ZhiYeType.战士 },
-    { 法器Type.战士武器粉, ZhiYeType.战士 },
-    { 法器Type.战士武器红, ZhiYeType.战士 },
-    { 法器Type.战士武器彩, ZhiYeType.战士 },
+    {
+        { 法器Type.战士武器, ZhiYeType.战士 },
+        { 法器Type.战士头盔, ZhiYeType.战士 },
+        { 法器Type.战士衣服, ZhiYeType.战士 },
+        { 法器Type.战士鞋子, ZhiYeType.战士 },
 
-    { 法器Type.战士头盔白, ZhiYeType.战士 },
-    { 法器Type.战士头盔绿, ZhiYeType.战士 },
-    { 法器Type.战士头盔蓝, ZhiYeType.战士 },
-    { 法器Type.战士头盔紫, ZhiYeType.战士 },
-    { 法器Type.战士头盔橙, ZhiYeType.战士 },
-    { 法器Type.战士头盔粉, ZhiYeType.战士 },
-    { 法器Type.战士头盔红, ZhiYeType.战士 },
-    { 法器Type.战士头盔彩, ZhiYeType.战士 },
+        { 法器Type.控制武器, ZhiYeType.控制 },
+        { 法器Type.控制头盔, ZhiYeType.控制 },
+        { 法器Type.控制衣服, ZhiYeType.控制 },
+        { 法器Type.控制鞋子, ZhiYeType.控制 },
 
-    { 法器Type.战士衣服白, ZhiYeType.战士 },
-    { 法器Type.战士衣服绿, ZhiYeType.战士 },
-    { 法器Type.战士衣服蓝, ZhiYeType.战士 },
-    { 法器Type.战士衣服紫, ZhiYeType.战士 },
-    { 法器Type.战士衣服橙, ZhiYeType.战士 },
-    { 法器Type.战士衣服粉, ZhiYeType.战士 },
-    { 法器Type.战士衣服红, ZhiYeType.战士 },
-    { 法器Type.战士衣服彩, ZhiYeType.战士 },
+        { 法器Type.辅助武器, ZhiYeType.辅助 },
+        { 法器Type.辅助头盔, ZhiYeType.辅助 },
+        { 法器Type.辅助衣服, ZhiYeType.辅助 },
+        { 法器Type.辅助鞋子, ZhiYeType.辅助 },
 
-    { 法器Type.战士鞋子白, ZhiYeType.战士 },
-    { 法器Type.战士鞋子绿, ZhiYeType.战士 },
-    { 法器Type.战士鞋子蓝, ZhiYeType.战士 },
-    { 法器Type.战士鞋子紫, ZhiYeType.战士 },
-    { 法器Type.战士鞋子橙, ZhiYeType.战士 },
-    { 法器Type.战士鞋子粉, ZhiYeType.战士 },
-    { 法器Type.战士鞋子红, ZhiYeType.战士 },
-    { 法器Type.战士鞋子彩, ZhiYeType.战士 },
+        { 法器Type.射手武器, ZhiYeType.射手 },
+        { 法器Type.射手头盔, ZhiYeType.射手 },
+        { 法器Type.射手衣服, ZhiYeType.射手 },
+        { 法器Type.射手鞋子, ZhiYeType.射手 },
 
+        { 法器Type.法师武器, ZhiYeType.法师 },
+        { 法器Type.法师头盔, ZhiYeType.法师 },
+        { 法器Type.法师衣服, ZhiYeType.法师 },
+        { 法器Type.法师鞋子, ZhiYeType.法师 },
+    };
 
-    // ==================== 2. 控制 ====================
-    { 法器Type.控制武器白, ZhiYeType.控制 },
-    { 法器Type.控制武器绿, ZhiYeType.控制 },
-    { 法器Type.控制武器蓝, ZhiYeType.控制 },
-    { 法器Type.控制武器紫, ZhiYeType.控制 },
-    { 法器Type.控制武器橙, ZhiYeType.控制 },
-    { 法器Type.控制武器粉, ZhiYeType.控制 },
-    { 法器Type.控制武器红, ZhiYeType.控制 },
-    { 法器Type.控制武器彩, ZhiYeType.控制 },
+    // ==================== 法器描述（基础描述，不含品质） ====================
 
-    { 法器Type.控制头盔白, ZhiYeType.控制 },
-    { 法器Type.控制头盔绿, ZhiYeType.控制 },
-    { 法器Type.控制头盔蓝, ZhiYeType.控制 },
-    { 法器Type.控制头盔紫, ZhiYeType.控制 },
-    { 法器Type.控制头盔橙, ZhiYeType.控制 },
-    { 法器Type.控制头盔粉, ZhiYeType.控制 },
-    { 法器Type.控制头盔红, ZhiYeType.控制 },
-    { 法器Type.控制头盔彩, ZhiYeType.控制 },
-
-    { 法器Type.控制衣服白, ZhiYeType.控制 },
-    { 法器Type.控制衣服绿, ZhiYeType.控制 },
-    { 法器Type.控制衣服蓝, ZhiYeType.控制 },
-    { 法器Type.控制衣服紫, ZhiYeType.控制 },
-    { 法器Type.控制衣服橙, ZhiYeType.控制 },
-    { 法器Type.控制衣服粉, ZhiYeType.控制 },
-    { 法器Type.控制衣服红, ZhiYeType.控制 },
-    { 法器Type.控制衣服彩, ZhiYeType.控制 },
-
-    { 法器Type.控制鞋子白, ZhiYeType.控制 },
-    { 法器Type.控制鞋子绿, ZhiYeType.控制 },
-    { 法器Type.控制鞋子蓝, ZhiYeType.控制 },
-    { 法器Type.控制鞋子紫, ZhiYeType.控制 },
-    { 法器Type.控制鞋子橙, ZhiYeType.控制 },
-    { 法器Type.控制鞋子粉, ZhiYeType.控制 },
-    { 法器Type.控制鞋子红, ZhiYeType.控制 },
-    { 法器Type.控制鞋子彩, ZhiYeType.控制 },
-
-
-    // ==================== 3. 辅助 ====================
-    { 法器Type.辅助武器白, ZhiYeType.辅助 },
-    { 法器Type.辅助武器绿, ZhiYeType.辅助 },
-    { 法器Type.辅助武器蓝, ZhiYeType.辅助 },
-    { 法器Type.辅助武器紫, ZhiYeType.辅助 },
-    { 法器Type.辅助武器橙, ZhiYeType.辅助 },
-    { 法器Type.辅助武器粉, ZhiYeType.辅助 },
-    { 法器Type.辅助武器红, ZhiYeType.辅助 },
-    { 法器Type.辅助武器彩, ZhiYeType.辅助 },
-
-    { 法器Type.辅助头盔白, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔绿, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔蓝, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔紫, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔橙, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔粉, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔红, ZhiYeType.辅助 },
-    { 法器Type.辅助头盔彩, ZhiYeType.辅助 },
-
-    { 法器Type.辅助衣服白, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服绿, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服蓝, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服紫, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服橙, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服粉, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服红, ZhiYeType.辅助 },
-    { 法器Type.辅助衣服彩, ZhiYeType.辅助 },
-
-    { 法器Type.辅助鞋子白, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子绿, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子蓝, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子紫, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子橙, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子粉, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子红, ZhiYeType.辅助 },
-    { 法器Type.辅助鞋子彩, ZhiYeType.辅助 },
-
-
-    // ==================== 4. 射手 ====================
-    { 法器Type.射手武器白, ZhiYeType.射手 },
-    { 法器Type.射手武器绿, ZhiYeType.射手 },
-    { 法器Type.射手武器蓝, ZhiYeType.射手 },
-    { 法器Type.射手武器紫, ZhiYeType.射手 },
-    { 法器Type.射手武器橙, ZhiYeType.射手 },
-    { 法器Type.射手武器粉, ZhiYeType.射手 },
-    { 法器Type.射手武器红, ZhiYeType.射手 },
-    { 法器Type.射手武器彩, ZhiYeType.射手 },
-
-    { 法器Type.射手头盔白, ZhiYeType.射手 },
-    { 法器Type.射手头盔绿, ZhiYeType.射手 },
-    { 法器Type.射手头盔蓝, ZhiYeType.射手 },
-    { 法器Type.射手头盔紫, ZhiYeType.射手 },
-    { 法器Type.射手头盔橙, ZhiYeType.射手 },
-    { 法器Type.射手头盔粉, ZhiYeType.射手 },
-    { 法器Type.射手头盔红, ZhiYeType.射手 },
-    { 法器Type.射手头盔彩, ZhiYeType.射手 },
-
-    { 法器Type.射手衣服白, ZhiYeType.射手 },
-    { 法器Type.射手衣服绿, ZhiYeType.射手 },
-    { 法器Type.射手衣服蓝, ZhiYeType.射手 },
-    { 法器Type.射手衣服紫, ZhiYeType.射手 },
-    { 法器Type.射手衣服橙, ZhiYeType.射手 },
-    { 法器Type.射手衣服粉, ZhiYeType.射手 },
-    { 法器Type.射手衣服红, ZhiYeType.射手 },
-    { 法器Type.射手衣服彩, ZhiYeType.射手 },
-
-    { 法器Type.射手鞋子白, ZhiYeType.射手 },
-    { 法器Type.射手鞋子绿, ZhiYeType.射手 },
-    { 法器Type.射手鞋子蓝, ZhiYeType.射手 },
-    { 法器Type.射手鞋子紫, ZhiYeType.射手 },
-    { 法器Type.射手鞋子橙, ZhiYeType.射手 },
-    { 法器Type.射手鞋子粉, ZhiYeType.射手 },
-    { 法器Type.射手鞋子红, ZhiYeType.射手 },
-    { 法器Type.射手鞋子彩, ZhiYeType.射手 },
-
-
-    // ==================== 5. 法师 ====================
-    { 法器Type.法师武器白, ZhiYeType.法师 },
-    { 法器Type.法师武器绿, ZhiYeType.法师 },
-    { 法器Type.法师武器蓝, ZhiYeType.法师 },
-    { 法器Type.法师武器紫, ZhiYeType.法师 },
-    { 法器Type.法师武器橙, ZhiYeType.法师 },
-    { 法器Type.法师武器粉, ZhiYeType.法师 },
-    { 法器Type.法师武器红, ZhiYeType.法师 },
-    { 法器Type.法师武器彩, ZhiYeType.法师 },
-
-    { 法器Type.法师头盔白, ZhiYeType.法师 },
-    { 法器Type.法师头盔绿, ZhiYeType.法师 },
-    { 法器Type.法师头盔蓝, ZhiYeType.法师 },
-    { 法器Type.法师头盔紫, ZhiYeType.法师 },
-    { 法器Type.法师头盔橙, ZhiYeType.法师 },
-    { 法器Type.法师头盔粉, ZhiYeType.法师 },
-    { 法器Type.法师头盔红, ZhiYeType.法师 },
-    { 法器Type.法师头盔彩, ZhiYeType.法师 },
-
-    { 法器Type.法师衣服白, ZhiYeType.法师 },
-    { 法器Type.法师衣服绿, ZhiYeType.法师 },
-    { 法器Type.法师衣服蓝, ZhiYeType.法师 },
-    { 法器Type.法师衣服紫, ZhiYeType.法师 },
-    { 法器Type.法师衣服橙, ZhiYeType.法师 },
-    { 法器Type.法师衣服粉, ZhiYeType.法师 },
-    { 法器Type.法师衣服红, ZhiYeType.法师 },
-    { 法器Type.法师衣服彩, ZhiYeType.法师 },
-
-    { 法器Type.法师鞋子白, ZhiYeType.法师 },
-    { 法器Type.法师鞋子绿, ZhiYeType.法师 },
-    { 法器Type.法师鞋子蓝, ZhiYeType.法师 },
-    { 法器Type.法师鞋子紫, ZhiYeType.法师 },
-    { 法器Type.法师鞋子橙, ZhiYeType.法师 },
-    { 法器Type.法师鞋子粉, ZhiYeType.法师 },
-    { 法器Type.法师鞋子红, ZhiYeType.法师 },
-    { 法器Type.法师鞋子彩, ZhiYeType.法师 },
-};
     public static Dictionary<法器Type, string> 法器descDic = new Dictionary<法器Type, string>()
-{
-    // =======================================================
-    // 【战士】巨剑 (图11)、重盔 (图2)、重甲 (图5)、战靴 (图4)
-    // =======================================================
-    { 法器Type.战士武器白, "陨铁与流云铸就的制式巨剑，分量极沉，乃洪荒散修开山劈石之粗器。" },
-    { 法器Type.战士武器绿, "青木灵力如焰缠绕剑身，蕴含乙木破甲之力，劈砍间伴随凌厉木气。" },
-    { 法器Type.战士武器蓝, "极寒冰晶凝聚的阔剑，剑气刺骨，挥舞时能冻结周遭三尺气血。" },
-    { 法器Type.战士武器紫, "暗紫魔铁与雷晶铸造，周身带刺，挥动间紫电交织，可崩山裂石。" },
-    { 法器Type.战士武器橙, "赤金烈焰交织的大剑，刃如燃烧金乌，一击斩出，空气随之焦灼扭曲。" },
-    { 法器Type.战士武器粉, "看似娇艳的粉樱古剑，花瓣飞舞，实则杀人于无形，出剑极快。" },
-    { 法器Type.战士武器红, "暗红血煞凝聚的锯齿凶兵，煞气滔天，极易噬主，乃上古大劫遗留。" },
-    { 法器Type.战士武器彩, "剑身蕴含太极与七彩霞光，乃开天斧碎片所化，可斩断因果重开地水火风。" },
+    {
+        // 战士
+        { 法器Type.战士武器, "战士所使用的巨剑，分量极沉，有开天辟地之能。" },
+        { 法器Type.战士头盔, "战士所佩戴的重盔，坚固无比，能抵御致命一击。" },
+        { 法器Type.战士衣服, "战士所穿的重甲，铁甲铮铮，护体如盾。" },
+        { 法器Type.战士鞋子, "战士所着的战靴，踏地如雷，冲锋陷阵。" },
+        // 控制
+        { 法器Type.控制武器, "控制系修士所用法宝，能定魂镇魄，封印敌人。" },
+        { 法器Type.控制头盔, "控制系修士所戴兜帽，隐藏气息，洞察一切。" },
+        { 法器Type.控制衣服, "控制系修士所着法袍，符文流转，增益咒法威力。" },
+        { 法器Type.控制鞋子, "控制系修士所穿布靴，踏云乘风，来去无踪。" },
+        // 辅助
+        { 法器Type.辅助武器, "辅助系修士所持法杖，引天地灵气，护佑友军。" },
+        { 法器Type.辅助头盔, "辅助系修士所戴头冠，温润祥和，凝聚福泽。" },
+        { 法器Type.辅助衣服, "辅助系修士所穿法衣，灵力流转，治愈伤势。" },
+        { 法器Type.辅助鞋子, "辅助系修士所着云履，轻盈飘逸，日行千里。" },
+        // 射手
+        { 法器Type.射手武器, "射手所使用的法器，迅捷无比，百步穿杨。" },
+        { 法器Type.射手头盔, "射手所戴的轻盔，视野开阔，反应敏锐。" },
+        { 法器Type.射手衣服, "射手所穿的轻甲，防护灵巧，迅捷如风。" },
+        { 法器Type.射手鞋子, "射手所着的劲靴，脚步轻盈，身法如电。" },
+        // 法师
+        { 法器Type.法师武器, "法师所使用的法杖，引动天地灵气，施展法术。" },
+        { 法器Type.法师头盔, "法师所戴的法冠，凝聚神识，增强法威。" },
+        { 法器Type.法师衣服, "法师所穿的法袍，符文密布，引灵助法。" },
+        { 法器Type.法师鞋子, "法师所着的法履，踏空而行，灵气护体。" },
+    };
 
-    { 法器Type.战士头盔白, "银白钢铁打造的带翼面甲，基础防护扎实，为巫族低阶步兵统配。" },
-    { 法器Type.战士头盔绿, "翠绿木质角盔，两侧长出鹿角般灵气，可隐于山林加持防御。" },
-    { 法器Type.战士头盔蓝, "冰蓝飞翼战盔，镶嵌水灵宝石，戴之如处冰川，抵御寒冰系法术。" },
-    { 法器Type.战士头盔紫, "紫金双角的魔纹重盔，如深渊恶鬼之面，能震慑低阶妖兽心神。" },
-    { 法器Type.战士头盔橙, "赤金锻造之盔，两侧如大日火焰，威严无比，象征高阶武官身份。" },
-    { 法器Type.战士头盔粉, "粉红金属战盔，两侧飞鸟展翅，线条柔和却坚不可摧。" },
-    { 法器Type.战士头盔红, "暗红修罗铁盔布满棘刺，佩戴者将陷入狂暴嗜血的杀戮状态。" },
-    { 法器Type.战士头盔彩, "彩色水晶凝结，融合太极光晕，蕴含宇宙造化，万法自然不侵。" },
+    // ==================== 法器名称（基础名称，不含品质） ====================
 
-    { 法器Type.战士衣服白, "银灰百炼钢甲，结构扎实，表面留有划痕，提供纯粹的基础防御力。" },
-    { 法器Type.战士衣服绿, "青木树甲与青铜拼接，带有自然纹理，能小幅吸收木系法术伤害。" },
-    { 法器Type.战士衣服蓝, "冰蓝重甲，胸前镶嵌巨寒冰宝石，激战时能凝气护体，抵御火攻。" },
-    { 法器Type.战士衣服紫, "紫黑倒刺战甲，如恶魔之躯，不仅防御惊人，尚能反伤近身之敌。" },
-    { 法器Type.战士衣服橙, "赤金战甲带有威武狮头浮雕，光芒夺目，代表绝对的力量与防御。" },
-    { 法器Type.战士衣服粉, "粉色菱形晶格内甲，胸前镶爱心宝石，美丽华贵中暗藏守护之力。" },
-    { 法器Type.战士衣服红, "血红巨甲布满倒刺，如凝固鲜血浇筑，自带狂战士的毁天灭地气息。" },
-    { 法器Type.战士衣服彩, "带有七彩神光与羽翼元素的圣甲，蕴含五行本源，万邪难侵。" },
-
-    { 法器Type.战士鞋子白, "灰白硬皮与铁皮拼接的长靴，护腿带飞翼，适合长途行军征战。" },
-    { 法器Type.战士鞋子绿, "翠绿藤蔓与叶脉交织的护林靴，踏地无声，善于泥沼穿行。" },
-    { 法器Type.战士鞋子蓝, "寒冰战靴镶嵌蓝宝石，寒气逼人，行走间会留下凝而不化的霜痕。" },
-    { 法器Type.战士鞋子紫, "暗紫战靴边缘缠有烟雾纹路，能隐匿脚步声音，防妖物察觉。" },
-    { 法器Type.战士鞋子橙, "赤红烈焰战靴布满金纹，脚踏之处有灼热火环炸裂，气场极强。" },
-    { 法器Type.战士鞋子粉, "粉白羽翼战靴，材质极轻，能赋予穿戴者灵活的爆发机动性。" },
-    { 法器Type.战士鞋子红, "血液凝固般的厚重战靴，带有荆棘般刺骨护甲，令人心生恐惧。" },
-    { 法器Type.战士鞋子彩, "霓虹流光战靴如踏紫气，能瞬息跨越虚空，无视空间阻隔。" },
-
-    // =======================================================
-    // 【控制】铃铛、玉蓬、葫芦、镜子、法轮、伞、诏书、太极轮 (图7)、兜帽 (图10)、法袍 (图9)、鞋 (图8)
-    // =======================================================
-    { 法器Type.控制武器白, "八卦金属铃铛被云雾托举，摇动间发出清音，可驱除微末邪祟。" },
-    { 法器Type.控制武器绿, "翠绿如玉的莲蓬法器，缠绕生机灵气，能催生灵植并布下阵法。" },
-    { 法器Type.控制武器蓝, "水波流转的冰蓝葫芦，散发水气，能吸摄四周灵力化为己用。" },
-    { 法器Type.控制武器紫, "暗紫古镜铭刻神秘符文，能反射敌方攻击并照出其破绽。" },
-    { 法器Type.控制武器橙, "如大日降临的金色法轮，环绕烈焰，悬浮半空进行全方位防御。" },
-    { 法器Type.控制武器粉, "粉花纱衣构成的灵伞，伴随异香，撑开可抵挡邪魔与诅咒。" },
-    { 法器Type.控制武器红, "赤红古老卷轴，火光缭绕，展开可念动上古血咒焚毁万物。" },
-    { 法器Type.控制武器彩, "八芒星太极混沌法轮，五彩霞光闪耀，蕴含扭转因果的大道法则。" },
-
-    { 法器Type.控制头盔白, "灰白皮料兜帽带有云纹装饰，能将面部掩在阴影中隐匿修为。" },
-    { 法器Type.控制头盔绿, "翠绿叶脉兜帽，帽尖微挑，仿佛由自然精灵亲手编织的伪装。" },
-    { 法器Type.控制头盔蓝, "如海浪翻涌的蓝色兜帽，镶有水蓝宝石，亲和水系灵力。" },
-    { 法器Type.控制头盔紫, "暗紫宽檐兜帽，佩戴者面容被完全吞噬于黑暗之中，难测深浅。" },
-    { 法器Type.控制头盔橙, "金红火焰风帽，边缘波浪如烈火，带有灼热威严与毁灭之意。" },
-    { 法器Type.控制头盔粉, "粉色玫瑰花瓣层叠兜帽，轻拂幽香，散发着致命的迷情幻术。" },
-    { 法器Type.控制头盔红, "布满血色尖刺的兜帽，如嗜血妖物隐藏暗影，压迫感极强。" },
-    { 法器Type.控制头盔彩, "七彩流光折射的混沌兜帽，内藏无边幻境，直视会深陷其中。" },
-
-    { 法器Type.控制衣服白, "雪白披肩法袍，领口镶洁白宝石，蕴含着纯净的寒冰驱邪灵气。" },
-    { 法器Type.控制衣服绿, "层叠绿萝叶片般的披肩，充满自然气息，可抵御毒瘴与木邪。" },
-    { 法器Type.控制衣服蓝, "深蓝高领披肩，镶有晶莹蓝宝石，似海洋之心，防御水系攻击。" },
-    { 法器Type.控制衣服紫, "带有神秘兜帽的紫缎斗篷，坠饰华丽，可化解物理攻击于幽影。" },
-    { 法器Type.控制衣服橙, "金橙华贵法袍，带云纹飞翼装饰，内蕴灵火能温暖濒死之躯。" },
-    { 法器Type.控制衣服粉, "粉白短款法袍如桃花盛开，携香风拂面，可迷惑敌人的锁定。" },
-    { 法器Type.控制衣服红, "血色残阳法袍，宽大袖口散发煞气，能在战场汲取敌方血气。" },
-    { 法器Type.控制衣服彩, "融合虹光与金辉的万象法衣，星辰在表面流动，包罗万象。" },
-
-    { 法器Type.控制鞋子白, "灰白风纹布靴，侧面带飞翼纹饰，能借风势加快移动速度。" },
-    { 法器Type.控制鞋子绿, "翠绿长筒绿叶靴，靴口藤蔓缠绕，一步踏出泛起生机涟漪。" },
-    { 法器Type.控制鞋子蓝, "蔚蓝水纹战靴，镶有金边，行走时有水波荡漾，可踏浪而行。" },
-    { 法器Type.控制鞋子紫, "暗紫云纹长靴，靴筒带律动暗影，能让身法变幻莫测。" },
-    { 法器Type.控制鞋子橙, "金焰燃烧般的短靴，带古铜色纹路，能踏火而行抵御高温。" },
-    { 法器Type.控制鞋子粉, "粉红短靴配白色飞翼，轻盈灵动，极适合幻术游走与闪避。" },
-    { 法器Type.控制鞋子红, "暗红血光长靴，鞋头尖锐，布满邪异咒印，能扰乱敌方心智。" },
-    { 法器Type.控制鞋子彩, "霓虹云雾包裹的混沌法靴，脚踏虚空，可穿梭于法则缝隙。" },
-
-    // =======================================================
-    // 【辅助】同各类法器 (图7)、飞翼胸甲 (图1)、高跟长靴 (图17)、法师冠 (图6)
-    // =======================================================
-    { 法器Type.辅助武器白, "白玉八卦铃铛，云气盘旋，摇动间可唤来甘霖治愈微伤。" },
-    { 法器Type.辅助武器绿, "翠绿玉莲蓬伴随青叶飘落，能凝聚生机施加持续恢复。" },
-    { 法器Type.辅助武器蓝, "冰蓝双葫芦水流不断，储藏万载玄冰泉水，解百毒救万民。" },
-    { 法器Type.辅助武器紫, "紫圆镜法器四周带轮状纹饰，能反射负面状态净化邪祟。" },
-    { 法器Type.辅助武器橙, "圣洁辉煌金轮如第二个太阳，光芒四射，可撑开无敌护盾。" },
-    { 法器Type.辅助武器粉, "粉红暗纹油纸伞伴有落花飞舞，撑开可形成桃源结界庇护。" },
-    { 法器Type.辅助武器红, "赤红神魔卷轴，符文闪烁，召唤神光降临瞬间治愈重伤。" },
-    { 法器Type.辅助武器彩, "七彩太极轮盘法力通玄，汇聚天地祥瑞，可逆转命运之轮。" },
-
-    { 法器Type.辅助头盔白, "洁白飞翼羽冠，镶金银交错的纹路，散发着神圣温和光芒。" },
-    { 法器Type.辅助头盔绿, "翠绿叶冠带有向上尖角，能显著增加对毒气妖气的抗性。" },
-    { 法器Type.辅助头盔蓝, "冰晶凝结的蓝冠，尖锐精美，佩戴后洞悉寒水法则。" },
-    { 法器Type.辅助头盔紫, "半透明紫水晶雕琢的法冠，如紫莲盛开，暗藏神念守护。" },
-    { 法器Type.辅助头盔橙, "金焰法冠如苗燃烧，镶橙黄宝石，赐予坚韧的守护意志。" },
-    { 法器Type.辅助头盔粉, "粉红法冠如倾国仙花，带落花元素，能魅惑低阶凶兽。" },
-    { 法器Type.辅助头盔红, "暗红火焰形态法冠，晶体剔透，蕴含浴火重生的不死神性。" },
-    { 法器Type.辅助头盔彩, "七色水晶与霞光构成的法冠，星光闪烁，象征孕育万物。" },
-
-    { 法器Type.辅助衣服白, "华贵白羽披风胸甲，领口镶白钻，充满神圣治愈祈福气息。" },
-    { 法器Type.辅助衣服绿, "翠绿飞鸟翎羽护甲，生机盎然，能感知万物治愈微末创伤。" },
-    { 法器Type.辅助衣服蓝, "冰蓝战袍双肩如冰晶双翼，流光溢彩，免疫火系法力侵袭。" },
-    { 法器Type.辅助衣服紫, "如紫神鸟展翅的法衣，质感介于铁甲与丝绸之间，自带结界。" },
-    { 法器Type.辅助衣服橙, "赤金飞翼战袍如大鹏展翅，沐浴在神圣烈阳的光芒之中。" },
-    { 法器Type.辅助衣服粉, "粉水晶鳞甲战衣长有粉色羽翼，美轮美奂且具备守护之力。" },
-    { 法器Type.辅助衣服红, "暗红飞翼血甲如修罗天使，能分摊队友受到的致命一击。" },
-    { 法器Type.辅助衣服彩, "绽放彩虹光芒与飞翼的神圣灵衣，如玄女下凡，万法不侵。" },
-
-    { 法器Type.辅助鞋子白, "纯白长筒高跟靴，带金边与云纹，象征无瑕的仙家气象。" },
-    { 法器Type.辅助鞋子绿, "翠绿叶片长靴，鞋身有藤蔓缠绕，踏过枯木也能使之逢春。" },
-    { 法器Type.辅助鞋子蓝, "冰蓝星芒长靴，带有纯洁水滴装饰，踏步时能溅起水花。" },
-    { 法器Type.辅助鞋子紫, "暗紫飞翼高跟战靴，点缀银色星辰，能迷惑敌人视线。" },
-    { 法器Type.辅助鞋子橙, "耀眼赤金高跟长靴，如烈焰燃烧，带有火纹，威仪万千。" },
-    { 法器Type.辅助鞋子粉, "粉水晶花瓣制作的粉红长靴，带飞翼飘带，气质灵动。" },
-    { 法器Type.辅助鞋子红, "暗红皮靴带血色飞翼装饰，散发着强悍不屈的守护意志。" },
-    { 法器Type.辅助鞋子彩, "流光溢彩的七彩长靴如梦幻星云，踏出可引动法则共鸣。" },
-
-    // =======================================================
-    // 【射手】云纹弓 (图16)、飞翼皮盔 (图15)、轻甲/皮甲、轻靴/短靴 (图4、图12)
-    // =======================================================
-    { 法器Type.射手武器白, "白雾云纹缠绕的粗木弓，箭矢已搭，适合初阶猎手远程捕杀。" },
-    { 法器Type.射手武器绿, "翠绿古藤长弓两端生嫩叶，箭矢带木灵毒素与缠绕之力。" },
-    { 法器Type.射手武器蓝, "冰蓝水波灵弓，箭矢如冰锥，射击时带出湛蓝寒冰残影。" },
-    { 法器Type.射手武器紫, "深渊紫水晶锻造的邪异弓，中心镶嵌眼眸宝石，如注视猎物。" },
-    { 法器Type.射手武器橙, "烈阳赤金长弓，弓身十字，自带灼热射线射穿混沌妖物。" },
-    { 法器Type.射手武器粉, "樱花木粉色长弓，灵光荡漾，射出的箭矢轻盈极难闪避。" },
-    { 法器Type.射手武器红, "暗红龙形长弓如凝固龙血，隐藏狂暴火龙之怒，箭无虚发。" },
-    { 法器Type.射手武器彩, "七彩星河水晶凝聚的神弓，汇聚星辰之力，一箭可贯穿九重天。" },
-
-    { 法器Type.射手头盔白, "银色飞翼头盔，两侧铁羽舒展，是暗夜游侠的基础装备。" },
-    { 法器Type.射手头盔绿, "青绿飞翼头盔带草木图腾，可让射手隐匿于山林气息中。" },
-    { 法器Type.射手头盔蓝, "蔚蓝水翼头盔带有海浪纹理，增强在水域中的机动性。" },
-    { 法器Type.射手头盔紫, "紫水晶透亮的飞翼盔，如暗夜使者，极大提高夜间视野。" },
-    { 法器Type.射手头盔橙, "赤金橙羽翼盔如火鸟展翼，代表着游侠的射日绝技。" },
-    { 法器Type.射手头盔粉, "粉色羽毛与银盔结合的飞翼盔，灵动中带着致命的危险。" },
-    { 法器Type.射手头盔红, "暗红血羽头盔带红鬃，狂野不羁，可激发狂暴攻速。" },
-    { 法器Type.射手头盔彩, "太虚宇宙星辰光芒的飞翼盔，星光流转，可预判弹道轨迹。" },
-
-    { 法器Type.射手衣服白, "白皮质肩甲线条修长，适合快速张弓搭箭不受束缚。" },
-    { 法器Type.射手衣服绿, "青绿藤蔓与甲片结合的衣甲，能完美融入丛林潜行。" },
-    { 法器Type.射手衣服蓝, "冰蓝轻质鳞甲，防御灵活，能抵抗严寒与寒霜侵蚀。" },
-    { 法器Type.射手衣服紫, "紫魔法皮革胸甲带肩刺，抵御低阶诅咒与暗影侵蚀。" },
-    { 法器Type.射手衣服橙, "金橙神圣护肩与胸甲，闪耀神圣光辉驱散迷雾。" },
-    { 法器Type.射手衣服粉, "粉花瓣纹皮甲带爱心宝石，外表可爱但防御异常坚韧。" },
-    { 法器Type.射手衣服红, "暗红鲜血战甲带狰狞倒刺，穿戴者无惧生死进入狂暴。" },
-    { 法器Type.射手衣服彩, "彩色光泽流动的星辰皮甲，能吸收并化解远程伤害。" },
-
-    { 法器Type.射手鞋子白, "纯白短靴靴口带飞翼装饰，极为轻巧利于跑动中射击。" },
-    { 法器Type.射手鞋子绿, "翠绿长鞋布满精致叶片纹理，跑动时有绿叶飘扬。" },
-    { 法器Type.射手鞋子蓝, "冰蓝短靴带水纹飞翼，能在水面短暂漂浮如踏平地。" },
-    { 法器Type.射手鞋子紫, "紫夜行短靴带暗黑飞翼，消除脚步声，暗杀神器。" },
-    { 法器Type.射手鞋子橙, "金橙炽热战靴带火花纹路，可极大幅度增加奔跑爆发力。" },
-    { 法器Type.射手鞋子粉, "粉蝴蝶结飞翼高跟短靴，如蝴蝶般灵巧躲避重击。" },
-    { 法器Type.射手鞋子红, "暗红荆棘护甲战靴，疾跑中附带小范围流血效果。" },
-    { 法器Type.射手鞋子彩, "七色光辉与水晶的星辰短靴，踏出仿佛踩碎时空。" },
-
-    // =======================================================
-    // 【法师】云纹法杖 (图3)、尖角水晶帽 (图6)、法袍/披风 (图13、图9)、法靴 (图8、图17)
-    // =======================================================
-    { 法器Type.法师武器白, "灰白云朵法杖如流云盘旋，由陨石精炼，适合初习术法者。" },
-    { 法器Type.法师武器绿, "翠绿法杖杖首如木叶，带灵力环绕，能催动天地五行之木。" },
-    { 法器Type.法师武器蓝, "冰蓝锋利法杖如水晶长戟，散发着彻骨寒冰的毁灭之力。" },
-    { 法器Type.法师武器紫, "暗紫法杖杖首如闭口紫罗兰，能发动虚空深渊法术。" },
-    { 法器Type.法师武器橙, "金红烈焰法杖如喷发火球，轻易引动九天离火焚城。" },
-    { 法器Type.法师武器粉, "粉红莲苞法杖伴有花瓣飞舞，能施展极强心灵幻术。" },
-    { 法器Type.法师武器红, "暗红尖刺法杖如挑着妖兽心脏，散发嗜血深渊魔法。" },
-    { 法器Type.法师武器彩, "水晶球七彩光晕法杖，蕴含五行大道，可重开地水火风。" },
-
-    { 法器Type.法师头盔白, "灰白云纹法师尖顶帽，镶小宝石，稍稍稳固初学者心神。" },
-    { 法器Type.法师头盔绿, "翠绿尖帽边缘如风吹绿叶，满溢清新的乙木灵气。" },
-    { 法器Type.法师头盔蓝, "冰蓝法帽呈冰晶状，镶宝石，是极寒法术的引路者。" },
-    { 法器Type.法师头盔紫, "半透明紫色尖帽散幽光，增加咒法暗黑穿透力。" },
-    { 法器Type.法师头盔橙, "金橙法帽如火焰在空舞动，给予爆裂的火系法术增幅。" },
-    { 法器Type.法师头盔粉, "粉色花瓣形态飘逸法帽，增加魅惑与风系法术效果。" },
-    { 法器Type.法师头盔红, "暗红火云法帽如凝固血焰，拥有极高毁灭系法术共鸣。" },
-    { 法器Type.法师头盔彩, "流动无穷星辉的幻彩混沌冠，如凝视无垠星河，包罗万象。" },
-
-    { 法器Type.法师衣服白, "洁白无瑕云纹法袍，领口金丝结，充满仙家清修朴素感。" },
-    { 法器Type.法师衣服绿, "翠绿轻质法袍带绿叶肩领，能催动自然之力愈合法力反噬。" },
-    { 法器Type.法师衣服蓝, "流动水波蓝宝石的法袍，具极强水系亲和力。" },
-    { 法器Type.法师衣服紫, "华贵暗紫法袍带精致流苏，散发上位魔修的神秘气质。" },
-    { 法器Type.法师衣服橙, "金橙法袍双肩如火凤之翼，充满焚尽八荒的侵略性。" },
-    { 法器Type.法师衣服粉, "粉红法袍呈花苞形态，柔和且具备防御梦境幻术之能。" },
-    { 法器Type.法师衣服红, "暗红炽焰大袍布满尖刺，散发禁忌修罗血法的邪气。" },
-    { 法器Type.法师衣服彩, "七彩霞光水波混元袍，蕴含着洪荒包罗万象的大道真理。" },
-
-    { 法器Type.法师鞋子白, "灰白飞翼云纹长靴，质轻如纱，能助修士踏云而行。" },
-    { 法器Type.法师鞋子绿, "翠绿长靴带藤蔓装饰，行走泥沼也能借木气悬浮。" },
-    { 法器Type.法师鞋子蓝, "冰蓝星光长靴带水晶飞翼，施法时提供持续寒冰护盾。" },
-    { 法器Type.法师鞋子紫, "暗紫月华长靴带神秘飞翼，极大提升施法时的移动速度。" },
-    { 法器Type.法师鞋子橙, "耀眼赤金烈焰长靴，自带灼热光环驱散周围毒瘴。" },
-    { 法器Type.法师鞋子粉, "粉色素雅长靴带有纤细飞翼，步伐灵动可闪避诸多攻击。" },
-    { 法器Type.法师鞋子红, "暗红血色长靴纹路如干涸血脉，蕴含极致的杀伐速度。" },
-    { 法器Type.法师鞋子彩, "五彩星光包裹的传说之靴，带梦幻飞翼，一步跨越时空。" },
-};
     public static Dictionary<法器Type, string> 法器名Dic = new Dictionary<法器Type, string>()
     {
-        // ==================================================================================
-        // 【1. 战士】近战破甲 (图2重盔, 图5战甲, 图11巨剑, 图4战靴)
-        // ==================================================================================
-        { 法器Type.战士武器白, "百锻精铁剑" },
-        { 法器Type.战士武器绿, "青木惊蛰刃" },
-        { 法器Type.战士武器蓝, "寒渊玄铁戟" },
-        { 法器Type.战士武器紫, "紫电裂空锤" },
-        { 法器Type.战士武器橙, "金乌离火刀" },
-        { 法器Type.战士武器粉, "飞花落影剑" },
-        { 法器Type.战士武器红, "血煞修罗斩" },
-        { 法器Type.战士武器彩, "混沌开天斧钺" },
-
-        { 法器Type.战士头盔白, "玄钢铁面" },
-        { 法器Type.战士头盔绿, "苍木灵角盔" },
-        { 法器Type.战士头盔蓝, "北海冰翼盔" },
-        { 法器Type.战士头盔紫, "紫曜魔龙盔" },
-        { 法器Type.战士头盔橙, "炎狮赤金盔" },
-        { 法器Type.战士头盔粉, "粉晶红鸾盔" },
-        { 法器Type.战士头盔红, "血饮修罗盔" },
-        { 法器Type.战士头盔彩, "混沌太初神盔" },
-
-        { 法器Type.战士衣服白, "百炼铁鳞甲" },
-        { 法器Type.战士衣服绿, "青灵木叶甲" },
-        { 法器Type.战士衣服蓝, "极寒冰魄甲" },
-        { 法器Type.战士衣服紫, "紫渊魔甲" },
-        { 法器Type.战士衣服橙, "赤金狮王甲" },
-        { 法器Type.战士衣服粉, "粉钻罗刹甲" },
-        { 法器Type.战士衣服红, "煞神冥血甲" },
-        { 法器Type.战士衣服彩, "混沌五行玄甲" },
-
-        { 法器Type.战士鞋子白, "流风战靴" },
-        { 法器Type.战士鞋子绿, "踏林莽靴" },
-        { 法器Type.战士鞋子蓝, "沧溟飞鱼靴" },
-        { 法器Type.战士鞋子紫, "暗影虚空靴" },
-        { 法器Type.战士鞋子橙, "赤焰追风靴" },
-        { 法器Type.战士鞋子粉, "落樱踏月靴" },
-        { 法器Type.战士鞋子红, "修罗血蹄" },
-        { 法器Type.战士鞋子彩, "踏破乾坤靴" },
-
-        // ==================================================================================
-        // 【2. 控制】诅咒/封印 (图10兜帽, 图9/13法袍, 图7法器, 图8布靴)
-        // ==================================================================================
-        { 法器Type.控制武器白, "定魂铜铃" },
-        { 法器Type.控制武器绿, "幽水青莲蓬" },
-        { 法器Type.控制武器蓝, "玄冰镇魔葫芦" },
-        { 法器Type.控制武器紫, "紫曜照妖玄镜" },
-        { 法器Type.控制武器橙, "大日焚天轮" },
-        { 法器Type.控制武器粉, "红绡幻雨伞" },
-        { 法器Type.控制武器红, "血契亡灵诏书" },
-        { 法器Type.控制武器彩, "鸿蒙造化玉轮" },
-
-        { 法器Type.控制头盔白, "凝霜兜帽" },
-        { 法器Type.控制头盔绿, "林间隐者兜帽" },
-        { 法器Type.控制头盔蓝, "怒潮幽魂兜帽" },
-        { 法器Type.控制头盔紫, "噬魂幻影兜帽" },
-        { 法器Type.控制头盔橙, "赤阳炎魔兜帽" },
-        { 法器Type.控制头盔粉, "织梦仙子兜帽" },
-        { 法器Type.控制头盔红, "血影修罗兜帽" },
-        { 法器Type.控制头盔彩, "万象虚空兜帽" },
-
-        { 法器Type.控制衣服白, "寒霜符文袍" },
-        { 法器Type.控制衣服绿, "青木灵法袍" },
-        { 法器Type.控制衣服蓝, "沧澜水法袍" },
-        { 法器Type.控制衣服紫, "紫气东来袍" },
-        { 法器Type.控制衣服橙, "大日烈阳袍" },
-        { 法器Type.控制衣服粉, "粉荷幻影袍" },
-        { 法器Type.控制衣服红, "修罗血煞袍" },
-        { 法器Type.控制衣服彩, "混沌法则法袍" },
-
-        { 法器Type.控制鞋子白, "踏云布靴" },
-        { 法器Type.控制鞋子绿, "青蔓灵靴" },
-        { 法器Type.控制鞋子蓝, "沧浪云靴" },
-        { 法器Type.控制鞋子紫, "紫气玄光靴" },
-        { 法器Type.控制鞋子橙, "耀日金乌靴" },
-        { 法器Type.控制鞋子粉, "粉蝶飞花靴" },
-        { 法器Type.控制鞋子红, "幽冥血影靴" },
-        { 法器Type.控制鞋子彩, "大道无形靴" },
-
-        // ==================================================================================
-        // 【3. 辅助】治疗/护盾 (图7法器, 图1羽衣, 图17高靴, 图6法冠)
-        // ==================================================================================
-        { 法器Type.辅助武器白, "清心玉玲珑" },
-        { 法器Type.辅助武器绿, "翠玉生机蓬" },
-        { 法器Type.辅助武器蓝, "北海净水瓶" },
-        { 法器Type.辅助武器紫, "紫霞灵犀镜" },
-        { 法器Type.辅助武器橙, "轮回镇魂轮" },
-        { 法器Type.辅助武器粉, "九曲罗伞" },
-        { 法器Type.辅助武器红, "赦令万灵诏" },
-        { 法器Type.辅助武器彩, "万法归一玄轮" },
-
-        { 法器Type.辅助头盔白, "白羽流云冠" },
-        { 法器Type.辅助头盔绿, "青木长生冠" },
-        { 法器Type.辅助头盔蓝, "玄水寒星冠" },
-        { 法器Type.辅助头盔紫, "紫极幽昙冠" },
-        { 法器Type.辅助头盔橙, "大日真阳冠" },
-        { 法器Type.辅助头盔粉, "落霞飞花冠" },
-        { 法器Type.辅助头盔红, "业火至尊冠" },
-        { 法器Type.辅助头盔彩, "鸿蒙造物冠" },
-
-        { 法器Type.辅助衣服白, "灵霜羽衣" },
-        { 法器Type.辅助衣服绿, "翠羽霓裳" },
-        { 法器Type.辅助衣服蓝, "冰魄仙衣" },
-        { 法器Type.辅助衣服紫, "紫雷圣衣" },
-        { 法器Type.辅助衣服橙, "金乌仙裳" },
-        { 法器Type.辅助衣服粉, "落英桃花衣" },
-        { 法器Type.辅助衣服红, "血凤天衣" },
-        { 法器Type.辅助衣服彩, "五行混沌仙衣" },
-
-        { 法器Type.辅助鞋子白, "白玉灵履" },
-        { 法器Type.辅助鞋子绿, "青萝仙履" },
-        { 法器Type.辅助鞋子蓝, "冰晶琉璃履" },
-        { 法器Type.辅助鞋子紫, "紫魅幻光履" },
-        { 法器Type.辅助鞋子橙, "金焰凤尾履" },
-        { 法器Type.辅助鞋子粉, "粉蝶水晶履" },
-        { 法器Type.辅助鞋子红, "血凤赤足履" },
-        { 法器Type.辅助鞋子彩, "千幻太虚仙履" },
-
-        // ==================================================================================
-        // 【4. 射手】远程/敏捷 (图16弓箭, 图15翼盔, 图4/12轻靴)
-        // ==================================================================================
-        { 法器Type.射手武器白, "银丝风羽弓" },
-        { 法器Type.射手武器绿, "青藤绞杀弓" },
-        { 法器Type.射手武器蓝, "冰魄穿心弓" },
-        { 法器Type.射手武器紫, "暗夜诛神弓" },
-        { 法器Type.射手武器橙, "金乌射日弓" },
-        { 法器Type.射手武器粉, "落樱幻影弓" },
-        { 法器Type.射手武器红, "真龙噬魂弓" },
-        { 法器Type.射手武器彩, "九曜神光弓" },
-
-        { 法器Type.射手头盔白, "翎羽翼盔" },
-        { 法器Type.射手头盔绿, "翠翼疾风盔" },
-        { 法器Type.射手头盔蓝, "踏浪海灵盔" },
-        { 法器Type.射手头盔紫, "幽冥暗夜盔" },
-        { 法器Type.射手头盔橙, "烈日赤金盔" },
-        { 法器Type.射手头盔粉, "飞花灵雀盔" },
-        { 法器Type.射手头盔红, "炎龙赤霄盔" },
-        { 法器Type.射手头盔彩, "宙极星辰盔" },
-
-        { 法器Type.射手衣服白, "轻羽皮甲" },
-        { 法器Type.射手衣服绿, "翠林软甲" },
-        { 法器Type.射手衣服蓝, "冰鳞内甲" },
-        { 法器Type.射手衣服紫, "暗影迷踪甲" },
-        { 法器Type.射手衣服橙, "烈阳炎甲" },
-        { 法器Type.射手衣服粉, "桃心彩甲" },
-        { 法器Type.射手衣服红, "赤血龙鳞甲" },
-        { 法器Type.射手衣服彩, "星罗万象甲" },
-
-        { 法器Type.射手鞋子白, "风羽轻靴" },
-        { 法器Type.射手鞋子绿, "踏草飞靴" },
-        { 法器Type.射手鞋子蓝, "踏浪无痕靴" },
-        { 法器Type.射手鞋子紫, "追夜疾风靴" },
-        { 法器Type.射手鞋子橙, "炽火流星靴" },
-        { 法器Type.射手鞋子粉, "飞花逐月靴" },
-        { 法器Type.射手鞋子红, "赤血追魂靴" },
-        { 法器Type.射手鞋子彩, "踏星追光靴" },
-
-        // ==================================================================================
-        // 【5. 法师】法系爆发 (图3法杖, 图6法冠, 图13法袍, 图8/17法靴)
-        // ==================================================================================
-        { 法器Type.法师武器白, "流云陨铁杖" },
-        { 法器Type.法师武器绿, "青木灵蕴杖" },
-        { 法器Type.法师武器蓝, "冰魄玄晶杖" },
-        { 法器Type.法师武器紫, "紫曜虚空杖" },
-        { 法器Type.法师武器橙, "南明离火杖" },
-        { 法器Type.法师武器粉, "粉玉怜花杖" },
-        { 法器Type.法师武器红, "血饮修罗杖" },
-        { 法器Type.法师武器彩, "混沌五行珠杖" },
-
-        { 法器Type.法师头盔白, "白雾冠" },
-        { 法器Type.法师头盔绿, "木叶冠" },
-        { 法器Type.法师头盔蓝, "冰雪寒冠" },
-        { 法器Type.法师头盔紫, "紫雾幻灵冠" },
-        { 法器Type.法师头盔橙, "金乌烈焰冠" },
-        { 法器Type.法师头盔粉, "霞绡桃花冠" },
-        { 法器Type.法师头盔红, "业火至尊冠" },
-        { 法器Type.法师头盔彩, "星河曜日冠" },
-
-        { 法器Type.法师衣服白, "清虚道袍" },
-        { 法器Type.法师衣服绿, "碧波灵袍" },
-        { 法器Type.法师衣服蓝, "沧澜水袖" },
-        { 法器Type.法师衣服紫, "玄冥幽光袍" },
-        { 法器Type.法师衣服橙, "离火绛仙袍" },
-        { 法器Type.法师衣服粉, "桃夭霓裳" },
-        { 法器Type.法师衣服红, "修罗血袍" },
-        { 法器Type.法师衣服彩, "太极八卦混元袍" },
-
-        { 法器Type.法师鞋子白, "素云法靴" },
-        { 法器Type.法师鞋子绿, "青蔓法靴" },
-        { 法器Type.法师鞋子蓝, "沧澜灵靴" },
-        { 法器Type.法师鞋子紫, "紫玄法靴" },
-        { 法器Type.法师鞋子橙, "赤阳踏火靴" },
-        { 法器Type.法师鞋子粉, "粉荷踏波靴" },
-        { 法器Type.法师鞋子红, "血煞冥靴" },
-        { 法器Type.法师鞋子彩, "混沌神行靴" },
+        // 战士
+        { 法器Type.战士武器, "巨剑" },
+        { 法器Type.战士头盔, "重盔" },
+        { 法器Type.战士衣服, "重甲" },
+        { 法器Type.战士鞋子, "战靴" },
+        // 控制
+        { 法器Type.控制武器, "法器" },
+        { 法器Type.控制头盔, "兜帽" },
+        { 法器Type.控制衣服, "法袍" },
+        { 法器Type.控制鞋子, "布靴" },
+        // 辅助
+        { 法器Type.辅助武器, "法杖" },
+        { 法器Type.辅助头盔, "头冠" },
+        { 法器Type.辅助衣服, "法衣" },
+        { 法器Type.辅助鞋子, "云履" },
+        // 射手
+        { 法器Type.射手武器, "猎弓" },
+        { 法器Type.射手头盔, "轻盔" },
+        { 法器Type.射手衣服, "轻甲" },
+        { 法器Type.射手鞋子, "劲靴" },
+        // 法师
+        { 法器Type.法师武器, "魔杖" },
+        { 法器Type.法师头盔, "法冠" },
+        { 法器Type.法师衣服, "灵袍" },
+        { 法器Type.法师鞋子, "法履" },
     };
-    
-    public static Dictionary<QualityType, List<法器Type>> 法器品质列表Dic = new Dictionary<QualityType, List<法器Type>>()
-{
-    // ==================== 1. 黄品 (对应原先的 白色) ====================
-    {
-        QualityType.黄品, new List<法器Type>()
-        {
-            法器Type.战士武器白, 法器Type.战士头盔白, 法器Type.战士衣服白, 法器Type.战士鞋子白,
-            法器Type.控制武器白, 法器Type.控制头盔白, 法器Type.控制衣服白, 法器Type.控制鞋子白,
-            法器Type.辅助武器白, 法器Type.辅助头盔白, 法器Type.辅助衣服白, 法器Type.辅助鞋子白,
-            法器Type.射手武器白, 法器Type.射手头盔白, 法器Type.射手衣服白, 法器Type.射手鞋子白,
-            法器Type.法师武器白, 法器Type.法师头盔白, 法器Type.法师衣服白, 法器Type.法师鞋子白
-        }
-    },
 
-    // ==================== 2. 玄品 (对应原先的 绿色) ====================
-    {
-        QualityType.玄品, new List<法器Type>()
-        {
-            法器Type.战士武器绿, 法器Type.战士头盔绿, 法器Type.战士衣服绿, 法器Type.战士鞋子绿,
-            法器Type.控制武器绿, 法器Type.控制头盔绿, 法器Type.控制衣服绿, 法器Type.控制鞋子绿,
-            法器Type.辅助武器绿, 法器Type.辅助头盔绿, 法器Type.辅助衣服绿, 法器Type.辅助鞋子绿,
-            法器Type.射手武器绿, 法器Type.射手头盔绿, 法器Type.射手衣服绿, 法器Type.射手鞋子绿,
-            法器Type.法师武器绿, 法器Type.法师头盔绿, 法器Type.法师衣服绿, 法器Type.法师鞋子绿
-        }
-    },
+    // ==================== 法器品质与阶数随机 ====================
 
-    // ==================== 3. 地品 (对应原先的 蓝色) ====================
+    /// <summary>
+    /// 按概率随机品质（万分比，先抽荒品再往下）
+    /// </summary>
+    public static QualityType Random品质()
     {
-        QualityType.地品, new List<法器Type>()
+        float random = Random.Range(0, 10000f);
+        float accumulate = 0;
+        QualityType[] qualities = { QualityType.荒品, QualityType.洪品, QualityType.宙品, QualityType.宇品, QualityType.天品, QualityType.地品, QualityType.玄品, QualityType.黄品 };
+        for (int i = 0; i < qualities.Length; i++)
         {
-            法器Type.战士武器蓝, 法器Type.战士头盔蓝, 法器Type.战士衣服蓝, 法器Type.战士鞋子蓝,
-            法器Type.控制武器蓝, 法器Type.控制头盔蓝, 法器Type.控制衣服蓝, 法器Type.控制鞋子蓝,
-            法器Type.辅助武器蓝, 法器Type.辅助头盔蓝, 法器Type.辅助衣服蓝, 法器Type.辅助鞋子蓝,
-            法器Type.射手武器蓝, 法器Type.射手头盔蓝, 法器Type.射手衣服蓝, 法器Type.射手鞋子蓝,
-            法器Type.法师武器蓝, 法器Type.法师头盔蓝, 法器Type.法师衣服蓝, 法器Type.法师鞋子蓝
+            accumulate += 法器打造品质概率[i];
+            if (random < accumulate) return qualities[i];
         }
-    },
-
-    // ==================== 4. 天品 (对应原先的 紫色) ====================
-    {
-        QualityType.天品, new List<法器Type>()
-        {
-            法器Type.战士武器紫, 法器Type.战士头盔紫, 法器Type.战士衣服紫, 法器Type.战士鞋子紫,
-            法器Type.控制武器紫, 法器Type.控制头盔紫, 法器Type.控制衣服紫, 法器Type.控制鞋子紫,
-            法器Type.辅助武器紫, 法器Type.辅助头盔紫, 法器Type.辅助衣服紫, 法器Type.辅助鞋子紫,
-            法器Type.射手武器紫, 法器Type.射手头盔紫, 法器Type.射手衣服紫, 法器Type.射手鞋子紫,
-            法器Type.法师武器紫, 法器Type.法师头盔紫, 法器Type.法师衣服紫, 法器Type.法师鞋子紫
-        }
-    },
-
-    // ==================== 5. 宇品 (对应原先的 橙色) ====================
-    {
-        QualityType.宇品, new List<法器Type>()
-        {
-            法器Type.战士武器橙, 法器Type.战士头盔橙, 法器Type.战士衣服橙, 法器Type.战士鞋子橙,
-            法器Type.控制武器橙, 法器Type.控制头盔橙, 法器Type.控制衣服橙, 法器Type.控制鞋子橙,
-            法器Type.辅助武器橙, 法器Type.辅助头盔橙, 法器Type.辅助衣服橙, 法器Type.辅助鞋子橙,
-            法器Type.射手武器橙, 法器Type.射手头盔橙, 法器Type.射手衣服橙, 法器Type.射手鞋子橙,
-            法器Type.法师武器橙, 法器Type.法师头盔橙, 法器Type.法师衣服橙, 法器Type.法师鞋子橙
-        }
-    },
-
-    // ==================== 6. 宙品 (对应原先的 粉色) ====================
-    {
-        QualityType.宙品, new List<法器Type>()
-        {
-            法器Type.战士武器粉, 法器Type.战士头盔粉, 法器Type.战士衣服粉, 法器Type.战士鞋子粉,
-            法器Type.控制武器粉, 法器Type.控制头盔粉, 法器Type.控制衣服粉, 法器Type.控制鞋子粉,
-            法器Type.辅助武器粉, 法器Type.辅助头盔粉, 法器Type.辅助衣服粉, 法器Type.辅助鞋子粉,
-            法器Type.射手武器粉, 法器Type.射手头盔粉, 法器Type.射手衣服粉, 法器Type.射手鞋子粉,
-            法器Type.法师武器粉, 法器Type.法师头盔粉, 法器Type.法师衣服粉, 法器Type.法师鞋子粉
-        }
-    },
-
-    // ==================== 7. 洪品 (对应原先的 红色) ====================
-    {
-        QualityType.洪品, new List<法器Type>()
-        {
-            法器Type.战士武器红, 法器Type.战士头盔红, 法器Type.战士衣服红, 法器Type.战士鞋子红,
-            法器Type.控制武器红, 法器Type.控制头盔红, 法器Type.控制衣服红, 法器Type.控制鞋子红,
-            法器Type.辅助武器红, 法器Type.辅助头盔红, 法器Type.辅助衣服红, 法器Type.辅助鞋子红,
-            法器Type.射手武器红, 法器Type.射手头盔红, 法器Type.射手衣服红, 法器Type.射手鞋子红,
-            法器Type.法师武器红, 法器Type.法师头盔红, 法器Type.法师衣服红, 法器Type.法师鞋子红
-        }
-    },
-
-    // ==================== 8. 荒品 (对应原先的 彩色) ====================
-    {
-        QualityType.荒品, new List<法器Type>()
-        {
-            法器Type.战士武器彩, 法器Type.战士头盔彩, 法器Type.战士衣服彩, 法器Type.战士鞋子彩,
-            法器Type.控制武器彩, 法器Type.控制头盔彩, 法器Type.控制衣服彩, 法器Type.控制鞋子彩,
-            法器Type.辅助武器彩, 法器Type.辅助头盔彩, 法器Type.辅助衣服彩, 法器Type.辅助鞋子彩,
-            法器Type.射手武器彩, 法器Type.射手头盔彩, 法器Type.射手衣服彩, 法器Type.射手鞋子彩,
-            法器Type.法师武器彩, 法器Type.法师头盔彩, 法器Type.法师衣服彩, 法器Type.法师鞋子彩
-        }
+        return QualityType.黄品;
     }
-};
-    public static Dictionary<法器Type, QualityType> 法器品质Dic = new Dictionary<法器Type, QualityType>()
-{
-    // ==================== 1. 战士 ====================
-    { 法器Type.战士武器白, QualityType.黄品 },
-    { 法器Type.战士武器绿, QualityType.玄品 },
-    { 法器Type.战士武器蓝, QualityType.地品 },
-    { 法器Type.战士武器紫, QualityType.天品 },
-    { 法器Type.战士武器橙, QualityType.宇品 },
-    { 法器Type.战士武器粉, QualityType.宙品 },
-    { 法器Type.战士武器红, QualityType.洪品 },
-    { 法器Type.战士武器彩, QualityType.荒品 },
 
-    { 法器Type.战士头盔白, QualityType.黄品 },
-    { 法器Type.战士头盔绿, QualityType.玄品 },
-    { 法器Type.战士头盔蓝, QualityType.地品 },
-    { 法器Type.战士头盔紫, QualityType.天品 },
-    { 法器Type.战士头盔橙, QualityType.宇品 },
-    { 法器Type.战士头盔粉, QualityType.宙品 },
-    { 法器Type.战士头盔红, QualityType.洪品 },
-    { 法器Type.战士头盔彩, QualityType.荒品 },
+    // ==================== 掉落 ====================
 
-    { 法器Type.战士衣服白, QualityType.黄品 },
-    { 法器Type.战士衣服绿, QualityType.玄品 },
-    { 法器Type.战士衣服蓝, QualityType.地品 },
-    { 法器Type.战士衣服紫, QualityType.天品 },
-    { 法器Type.战士衣服橙, QualityType.宇品 },
-    { 法器Type.战士衣服粉, QualityType.宙品 },
-    { 法器Type.战士衣服红, QualityType.洪品 },
-    { 法器Type.战士衣服彩, QualityType.荒品 },
-
-    { 法器Type.战士鞋子白, QualityType.黄品 },
-    { 法器Type.战士鞋子绿, QualityType.玄品 },
-    { 法器Type.战士鞋子蓝, QualityType.地品 },
-    { 法器Type.战士鞋子紫, QualityType.天品 },
-    { 法器Type.战士鞋子橙, QualityType.宇品 },
-    { 法器Type.战士鞋子粉, QualityType.宙品 },
-    { 法器Type.战士鞋子红, QualityType.洪品 },
-    { 法器Type.战士鞋子彩, QualityType.荒品 },
-
-    // ==================== 2. 控制 ====================
-    { 法器Type.控制武器白, QualityType.黄品 },
-    { 法器Type.控制武器绿, QualityType.玄品 },
-    { 法器Type.控制武器蓝, QualityType.地品 },
-    { 法器Type.控制武器紫, QualityType.天品 },
-    { 法器Type.控制武器橙, QualityType.宇品 },
-    { 法器Type.控制武器粉, QualityType.宙品 },
-    { 法器Type.控制武器红, QualityType.洪品 },
-    { 法器Type.控制武器彩, QualityType.荒品 },
-
-    { 法器Type.控制头盔白, QualityType.黄品 },
-    { 法器Type.控制头盔绿, QualityType.玄品 },
-    { 法器Type.控制头盔蓝, QualityType.地品 },
-    { 法器Type.控制头盔紫, QualityType.天品 },
-    { 法器Type.控制头盔橙, QualityType.宇品 },
-    { 法器Type.控制头盔粉, QualityType.宙品 },
-    { 法器Type.控制头盔红, QualityType.洪品 },
-    { 法器Type.控制头盔彩, QualityType.荒品 },
-
-    { 法器Type.控制衣服白, QualityType.黄品 },
-    { 法器Type.控制衣服绿, QualityType.玄品 },
-    { 法器Type.控制衣服蓝, QualityType.地品 },
-    { 法器Type.控制衣服紫, QualityType.天品 },
-    { 法器Type.控制衣服橙, QualityType.宇品 },
-    { 法器Type.控制衣服粉, QualityType.宙品 },
-    { 法器Type.控制衣服红, QualityType.洪品 },
-    { 法器Type.控制衣服彩, QualityType.荒品 },
-
-    { 法器Type.控制鞋子白, QualityType.黄品 },
-    { 法器Type.控制鞋子绿, QualityType.玄品 },
-    { 法器Type.控制鞋子蓝, QualityType.地品 },
-    { 法器Type.控制鞋子紫, QualityType.天品 },
-    { 法器Type.控制鞋子橙, QualityType.宇品 },
-    { 法器Type.控制鞋子粉, QualityType.宙品 },
-    { 法器Type.控制鞋子红, QualityType.洪品 },
-    { 法器Type.控制鞋子彩, QualityType.荒品 },
-
-    // ==================== 3. 辅助 ====================
-    { 法器Type.辅助武器白, QualityType.黄品 },
-    { 法器Type.辅助武器绿, QualityType.玄品 },
-    { 法器Type.辅助武器蓝, QualityType.地品 },
-    { 法器Type.辅助武器紫, QualityType.天品 },
-    { 法器Type.辅助武器橙, QualityType.宇品 },
-    { 法器Type.辅助武器粉, QualityType.宙品 },
-    { 法器Type.辅助武器红, QualityType.洪品 },
-    { 法器Type.辅助武器彩, QualityType.荒品 },
-
-    { 法器Type.辅助头盔白, QualityType.黄品 },
-    { 法器Type.辅助头盔绿, QualityType.玄品 },
-    { 法器Type.辅助头盔蓝, QualityType.地品 },
-    { 法器Type.辅助头盔紫, QualityType.天品 },
-    { 法器Type.辅助头盔橙, QualityType.宇品 },
-    { 法器Type.辅助头盔粉, QualityType.宙品 },
-    { 法器Type.辅助头盔红, QualityType.洪品 },
-    { 法器Type.辅助头盔彩, QualityType.荒品 },
-
-    { 法器Type.辅助衣服白, QualityType.黄品 },
-    { 法器Type.辅助衣服绿, QualityType.玄品 },
-    { 法器Type.辅助衣服蓝, QualityType.地品 },
-    { 法器Type.辅助衣服紫, QualityType.天品 },
-    { 法器Type.辅助衣服橙, QualityType.宇品 },
-    { 法器Type.辅助衣服粉, QualityType.宙品 },
-    { 法器Type.辅助衣服红, QualityType.洪品 },
-    { 法器Type.辅助衣服彩, QualityType.荒品 },
-
-    { 法器Type.辅助鞋子白, QualityType.黄品 },
-    { 法器Type.辅助鞋子绿, QualityType.玄品 },
-    { 法器Type.辅助鞋子蓝, QualityType.地品 },
-    { 法器Type.辅助鞋子紫, QualityType.天品 },
-    { 法器Type.辅助鞋子橙, QualityType.宇品 },
-    { 法器Type.辅助鞋子粉, QualityType.宙品 },
-    { 法器Type.辅助鞋子红, QualityType.洪品 },
-    { 法器Type.辅助鞋子彩, QualityType.荒品 },
-
-    // ==================== 4. 射手 ====================
-    { 法器Type.射手武器白, QualityType.黄品 },
-    { 法器Type.射手武器绿, QualityType.玄品 },
-    { 法器Type.射手武器蓝, QualityType.地品 },
-    { 法器Type.射手武器紫, QualityType.天品 },
-    { 法器Type.射手武器橙, QualityType.宇品 },
-    { 法器Type.射手武器粉, QualityType.宙品 },
-    { 法器Type.射手武器红, QualityType.洪品 },
-    { 法器Type.射手武器彩, QualityType.荒品 },
-
-    { 法器Type.射手头盔白, QualityType.黄品 },
-    { 法器Type.射手头盔绿, QualityType.玄品 },
-    { 法器Type.射手头盔蓝, QualityType.地品 },
-    { 法器Type.射手头盔紫, QualityType.天品 },
-    { 法器Type.射手头盔橙, QualityType.宇品 },
-    { 法器Type.射手头盔粉, QualityType.宙品 },
-    { 法器Type.射手头盔红, QualityType.洪品 },
-    { 法器Type.射手头盔彩, QualityType.荒品 },
-
-    { 法器Type.射手衣服白, QualityType.黄品 },
-    { 法器Type.射手衣服绿, QualityType.玄品 },
-    { 法器Type.射手衣服蓝, QualityType.地品 },
-    { 法器Type.射手衣服紫, QualityType.天品 },
-    { 法器Type.射手衣服橙, QualityType.宇品 },
-    { 法器Type.射手衣服粉, QualityType.宙品 },
-    { 法器Type.射手衣服红, QualityType.洪品 },
-    { 法器Type.射手衣服彩, QualityType.荒品 },
-
-    { 法器Type.射手鞋子白, QualityType.黄品 },
-    { 法器Type.射手鞋子绿, QualityType.玄品 },
-    { 法器Type.射手鞋子蓝, QualityType.地品 },
-    { 法器Type.射手鞋子紫, QualityType.天品 },
-    { 法器Type.射手鞋子橙, QualityType.宇品 },
-    { 法器Type.射手鞋子粉, QualityType.宙品 },
-    { 法器Type.射手鞋子红, QualityType.洪品 },
-    { 法器Type.射手鞋子彩, QualityType.荒品 },
-
-    // ==================== 5. 法师 ====================
-    { 法器Type.法师武器白, QualityType.黄品 },
-    { 法器Type.法师武器绿, QualityType.玄品 },
-    { 法器Type.法师武器蓝, QualityType.地品 },
-    { 法器Type.法师武器紫, QualityType.天品 },
-    { 法器Type.法师武器橙, QualityType.宇品 },
-    { 法器Type.法师武器粉, QualityType.宙品 },
-    { 法器Type.法师武器红, QualityType.洪品 },
-    { 法器Type.法师武器彩, QualityType.荒品 },
-
-    { 法器Type.法师头盔白, QualityType.黄品 },
-    { 法器Type.法师头盔绿, QualityType.玄品 },
-    { 法器Type.法师头盔蓝, QualityType.地品 },
-    { 法器Type.法师头盔紫, QualityType.天品 },
-    { 法器Type.法师头盔橙, QualityType.宇品 },
-    { 法器Type.法师头盔粉, QualityType.宙品 },
-    { 法器Type.法师头盔红, QualityType.洪品 },
-    { 法器Type.法师头盔彩, QualityType.荒品 },
-
-    { 法器Type.法师衣服白, QualityType.黄品 },
-    { 法器Type.法师衣服绿, QualityType.玄品 },
-    { 法器Type.法师衣服蓝, QualityType.地品 },
-    { 法器Type.法师衣服紫, QualityType.天品 },
-    { 法器Type.法师衣服橙, QualityType.宇品 },
-    { 法器Type.法师衣服粉, QualityType.宙品 },
-    { 法器Type.法师衣服红, QualityType.洪品 },
-    { 法器Type.法师衣服彩, QualityType.荒品 },
-
-    { 法器Type.法师鞋子白, QualityType.黄品 },
-    { 法器Type.法师鞋子绿, QualityType.玄品 },
-    { 法器Type.法师鞋子蓝, QualityType.地品 },
-    { 法器Type.法师鞋子紫, QualityType.天品 },
-    { 法器Type.法师鞋子橙, QualityType.宇品 },
-    { 法器Type.法师鞋子粉, QualityType.宙品 },
-    { 法器Type.法师鞋子红, QualityType.洪品 },
-    { 法器Type.法师鞋子彩, QualityType.荒品 },
-};
-
-    //掉落0-4件
     public static List<float> 掉落数量概率List = new List<float>()
     {
         10, 40, 30, 15, 5
     };
+
+    /// <summary>
+    /// 法器材料掉落概率（前8阶，对应旧8品质；9~16阶暂时不掉落）
+    /// </summary>
     public static Dictionary<JingJieType, List<float>> 法器材料掉落概率Dic = new Dictionary<JingJieType, List<float>>()
     {
-        { JingJieType.练气 , new List<float>(){100,0,0,0,0,0,0,0}},
-        { JingJieType.筑基 , new List<float>(){80,20,0,0,0,0,0,0}},
-        { JingJieType.金丹 , new List<float>(){50,50,0,0,0,0,0,0}},
-        { JingJieType.元婴 , new List<float>(){10,70,20,0,0,0,0,0}},
-        { JingJieType.化神 , new List<float>(){0,50,50,0,0,0,0,0}},
-        { JingJieType.合体 , new List<float>(){0,20,70,10,0,0,0,0}},
-        { JingJieType.大乘 , new List<float>(){0,0,80,20,0,0,0,0}},
-        { JingJieType.天仙 , new List<float>(){0,0,60,40,0,0,0,0}},
-        { JingJieType.玄仙 , new List<float>(){0,0,40,50,10,0,0,0}},
-        { JingJieType.金仙 , new List<float>(){0,0,10,70,20,0,0,0}},
-        { JingJieType.太乙金仙 , new List<float>(){0,00,00,70,30,0,0,0}},
-        { JingJieType.大罗金仙 , new List<float>(){0,0,15,40,40,5,0,0}},
-        { JingJieType.准圣 , new List<float>(){0,0,10,30,50,10,0,0}},
-        { JingJieType.圣人 , new List<float>(){0,0,0,25,60,15,0,0}},
-        { JingJieType.天道圣人 , new List<float>(){0,0,0,0,62,35,3,0}},
-        { JingJieType.大道圣人 , new List<float>(){0,0,0,0,45,50,5,0}},
-        { JingJieType.混元圣人 , new List<float>(){0,0,0,0,25,65,10,0}},
-        { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,14,70,15,1}},
+        // 索引对应阶数-1：[0]=1阶, [1]=2阶, ..., [7]=8阶, [8~15]=0
+        { JingJieType.练气 , new List<float>(){100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.筑基 , new List<float>(){80,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.金丹 , new List<float>(){50,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.元婴 , new List<float>(){10,70,20,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.化神 , new List<float>(){0,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.合体 , new List<float>(){0,20,70,10,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.大乘 , new List<float>(){0,0,80,20,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.天仙 , new List<float>(){0,0,60,40,0,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.玄仙 , new List<float>(){0,0,40,50,10,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.金仙 , new List<float>(){0,0,10,70,20,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.太乙金仙 , new List<float>(){0,0,0,70,30,0,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.大罗金仙 , new List<float>(){0,0,15,40,40,5,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.准圣 , new List<float>(){0,0,10,30,50,10,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.圣人 , new List<float>(){0,0,0,25,60,15,0,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.天道圣人 , new List<float>(){0,0,0,0,62,35,3,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.大道圣人 , new List<float>(){0,0,0,0,45,50,5,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.混元圣人 , new List<float>(){0,0,0,0,25,65,10,0,0,0,0,0,0,0,0,0}},
+        { JingJieType.鸿蒙 , new List<float>(){0,0,0,0,14,70,15,1,0,0,0,0,0,0,0,0}},
     };
 
-    public static 法器 Get坊市法器(法器Type type)
+    public static 法器 Get坊市法器(法器Type type, QualityType qualityType, int 阶数)
     {
         法器 法器 = new 法器();
         法器.法器Type = type;
-        var 品质 = 法器品质Dic[type];
-        var 附加属性列表 = Get法器附加属性(品质);
-        法器.list = 附加属性列表;
-        int 孔个数 = Random.Range(0, (int)品质+1);
+        法器.品质 = qualityType;
+        法器.阶数 = 阶数;
+        法器.list = Get法器附加属性(qualityType, 阶数);
+        int 孔个数 = Get孔数量(qualityType);
         for (int i = 0; i < 孔个数; i++)
         {
-            法器.仙石list.Add(new 仙石(){type = 仙石Type.None,quality =QualityType.None,list = null});
+            法器.仙石list.Add(new 仙石() { type = 仙石Type.None, quality = QualityType.None, list = null });
         }
         return 法器;
     }
+
     public static 法器材料 单次法器材料掉落(JingJieType jingJieType)
     {
-        QualityType 掉落品质 = QualityType.黄品;
+        int 掉落阶数 = 1;
         float count = 0;
-        float 品质random=Random.Range(0,100);
-        foreach (var item in 法器材料掉落概率Dic[jingJieType])
+        float 阶数random = Random.Range(0, 100);
+        if (法器材料掉落概率Dic.ContainsKey(jingJieType))
         {
-            count += item;
-            if (品质random < count) break;
-            掉落品质++;
+            var probList = 法器材料掉落概率Dic[jingJieType];
+            for (int i = 0; i < probList.Count; i++)
+            {
+                count += probList[i];
+                if (阶数random < count)
+                {
+                    掉落阶数 = i + 1;
+                    break;
+                }
+            }
         }
 
         法器材料 法器材料 = new 法器材料();
-        法器材料.QualityType = 掉落品质;
+        法器材料.阶数 = 掉落阶数;
         法器材料.法器材料Type = (法器材料Type)Random.Range(1, 5);
         return 法器材料;
     }
+
     public static List<法器材料> Get关卡法器材料掉落(JingJieType jingJieType)
     {
         int 掉落数量 = 0;
         float count = 0;
-        float 数量random=Random.Range(0,100);
+        float 数量random = Random.Range(0, 100);
         foreach (var item in 掉落数量概率List)
         {
             count += item;
@@ -2094,185 +822,310 @@ public class 法器Config
             掉落数量++;
         }
 
-        掉落数量 = (int)(掉落数量*属性config.总掉宝率);
+        掉落数量 = (int)(掉落数量 * 属性config.总掉宝率);
         List<法器材料> list = new List<法器材料>();
         for (int i = 0; i < 掉落数量; i++)
         {
             list.Add(单次法器材料掉落(jingJieType));
         }
-
         return list;
     }
+
+    // ==================== 附加属性Minmaxes（16阶基础值，不含品质倍率） ====================
+
     public static Dictionary<法器附加属性品质type, minmax> 法器Minmaxes = new Dictionary<法器附加属性品质type, minmax>()
     {
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.宙品},new minmax(){min = 120,max = 250}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.宙品},new minmax(){min = 120,max = 250}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.宙品},new minmax(){min = 120,max = 250}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.宙品},new minmax(){min = 120,max = 250}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.宙品},new minmax(){min = 120,max = 250}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.洪品},new minmax(){min = 250,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.洪品},new minmax(){min = 250,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.洪品},new minmax(){min = 250,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.洪品},new minmax(){min = 250,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.洪品},new minmax(){min = 250,max = 500}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        
-        
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.黄品},new minmax(){min = 5,max = 8}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.黄品},new minmax(){min = 5,max = 8}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.黄品},new minmax(){min = 5,max = 8}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.黄品},new minmax(){min = 5,max = 8}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.黄品},new minmax(){min = 5,max = 8}},
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.玄品},new minmax(){min = 8,max = 15}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.玄品},new minmax(){min = 8,max = 15}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.玄品},new minmax(){min = 8,max = 15}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.玄品},new minmax(){min = 8,max = 15}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.玄品},new minmax(){min = 8,max = 15}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.地品},new minmax(){min = 15,max = 30}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.地品},new minmax(){min = 15,max = 30}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.地品},new minmax(){min = 15,max = 30}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.地品},new minmax(){min = 15,max = 30}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.地品},new minmax(){min = 15,max = 30}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.天品},new minmax(){min = 30,max = 50}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.天品},new minmax(){min = 30,max = 50}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.天品},new minmax(){min = 30,max = 50}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.天品},new minmax(){min = 30,max = 50}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.天品},new minmax(){min = 30,max = 50}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.宇品},new minmax(){min = 50,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.宇品},new minmax(){min = 50,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.宇品},new minmax(){min = 50,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.宇品},new minmax(){min = 50,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.宇品},new minmax(){min = 50,max = 80}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.宙品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.宙品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.宙品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.宙品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.宙品},new minmax(){min = 80,max = 120}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.洪品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.洪品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.洪品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.洪品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.洪品},new minmax(){min = 120,max = 200}},
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透,QualityType = QualityType.荒品},new minmax(){min = 200,max = 400}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透,QualityType = QualityType.荒品},new minmax(){min = 200,max = 400}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透,QualityType = QualityType.荒品},new minmax(){min = 200,max = 400}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透,QualityType = QualityType.荒品},new minmax(){min = 200,max = 400}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透,QualityType = QualityType.荒品},new minmax(){min = 200,max = 400}},
-        
-        
-        
-        
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.宙品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.洪品},new minmax(){min = 200,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
+        // ===== 冰霜伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=6}, new minmax(){min = 120, max = 250}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=7}, new minmax(){min = 250, max = 500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=8}, new minmax(){min = 500, max = 1000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
 
+        // ===== 火焰伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=6}, new minmax(){min = 120, max = 250}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=7}, new minmax(){min = 250, max = 500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=8}, new minmax(){min = 500, max = 1000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
 
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.宙品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.洪品},new minmax(){min = 200,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.宙品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.洪品},new minmax(){min = 200,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.黄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.玄品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.地品},new minmax(){min = 20,max = 40}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.天品},new minmax(){min = 40,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.宇品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.宙品},new minmax(){min = 120,max = 200}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.洪品},new minmax(){min = 200,max = 500}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤,QualityType = QualityType.荒品},new minmax(){min = 500,max = 1000}},
-        
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.黄品},new minmax(){min = 5,max = 8}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.玄品},new minmax(){min = 8,max = 15}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.地品},new minmax(){min = 15,max = 30}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.天品},new minmax(){min = 30,max = 50}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.宇品},new minmax(){min = 50,max = 80}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.宙品},new minmax(){min = 80,max = 120}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.洪品},new minmax(){min = 120,max = 250}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害,QualityType = QualityType.荒品},new minmax(){min = 250,max = 600}},
-        
-        
-        
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.黄品},new minmax(){min = 3,max = 5}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.玄品},new minmax(){min = 5,max = 10}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.地品},new minmax(){min = 10,max = 20}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.天品},new minmax(){min = 20,max = 35}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.宇品},new minmax(){min = 35,max = 60}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.宙品},new minmax(){min = 60,max = 100}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.洪品},new minmax(){min = 100,max = 180}},
-        {new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率,QualityType = QualityType.荒品},new minmax(){min = 180,max = 300}},
+        // ===== 黑暗伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=6}, new minmax(){min = 120, max = 250}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=7}, new minmax(){min = 250, max = 500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=8}, new minmax(){min = 500, max = 1000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
+
+        // ===== 雷电伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=6}, new minmax(){min = 120, max = 250}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=7}, new minmax(){min = 250, max = 500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=8}, new minmax(){min = 500, max = 1000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
+
+        // ===== 物理伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=6}, new minmax(){min = 120, max = 250}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=7}, new minmax(){min = 250, max = 500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=8}, new minmax(){min = 500, max = 1000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
+
+        // ===== 冰霜穿透 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜穿透, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 火焰穿透 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰穿透, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 黑暗穿透 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.黑暗穿透, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 雷电穿透 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.雷电穿透, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 物理穿透 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.物理穿透, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 最终伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=6}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=7}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=8}, new minmax(){min = 400, max = 800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=9}, new minmax(){min = 800, max = 1200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=10}, new minmax(){min = 1200, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=11}, new minmax(){min = 1800, max = 2600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=12}, new minmax(){min = 2600, max = 3600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=13}, new minmax(){min = 3600, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=14}, new minmax(){min = 5000, max = 7000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=15}, new minmax(){min = 7000, max = 10000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.最终伤害, 阶数=16}, new minmax(){min = 10000, max = 14000}},
+
+        // ===== 暴击率 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击率, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 暴击伤害 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=2}, new minmax(){min = 10, max = 20}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=3}, new minmax(){min = 20, max = 40}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=4}, new minmax(){min = 40, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=5}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=6}, new minmax(){min = 120, max = 250}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=7}, new minmax(){min = 250, max = 500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=8}, new minmax(){min = 500, max = 1000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.暴击伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
+
+        // ===== 普通怪增伤 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.普通怪增伤, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 精英怪增伤 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.精英怪增伤, 阶数=16}, new minmax(){min = 5000, max = 7000}},
+
+        // ===== 首领怪增伤 =====
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=1}, new minmax(){min = 5, max = 8}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=2}, new minmax(){min = 8, max = 15}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=3}, new minmax(){min = 15, max = 30}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=4}, new minmax(){min = 30, max = 50}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=5}, new minmax(){min = 50, max = 80}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=6}, new minmax(){min = 80, max = 120}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=7}, new minmax(){min = 120, max = 200}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=8}, new minmax(){min = 200, max = 400}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=9}, new minmax(){min = 400, max = 600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=10}, new minmax(){min = 600, max = 900}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=11}, new minmax(){min = 900, max = 1300}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=12}, new minmax(){min = 1300, max = 1800}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=13}, new minmax(){min = 1800, max = 2500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=14}, new minmax(){min = 2500, max = 3500}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=15}, new minmax(){min = 3500, max = 5000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.首领怪增伤, 阶数=16}, new minmax(){min = 5000, max = 7000}},
     };
+
+    // ==================== 辅助函数 ====================
+
     public static int Get孔数量(QualityType qualityType)
     {
         int max = (int)qualityType;
@@ -2280,28 +1133,35 @@ public class 法器Config
         return random;
     }
 
-    public static List<法器附加属性值> Get法器附加属性(QualityType qualityType)
+    /// <summary>
+    /// 根据品质确定词条数量，按阶数取Minmaxes基础值，最终值在外层乘品质倍率
+    /// </summary>
+    public static List<法器附加属性值> Get法器附加属性(QualityType qualityType, int 阶数)
     {
         List<法器附加属性值> list = new List<法器附加属性值>();
-        for (int i = 0; i < (int)qualityType; i++)
+        // 词条数量按品质决定：黄品1条，玄品2条...荒品8条
+        int 数量 = (int)qualityType;
+        float 品质倍率 = 法器品质倍率[qualityType];
+        for (int i = 0; i < 数量; i++)
         {
             int type = Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
             法器附加属性Type 附加属性Type = (法器附加属性Type)type;
-            float min=法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].min;
-            float max=法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].max;
+            var key = new 法器附加属性品质type() { 法器附加属性Type = 附加属性Type, 阶数 = 阶数 };
+            float min = 法器Minmaxes[key].min;
+            float max = 法器Minmaxes[key].max;
             法器附加属性值 法器附加属性值 = new 法器附加属性值();
-            var 无暇random=Random.Range(0,100f);
+            var 无暇random = Random.Range(0, 100f);
             if (无暇random < 1f)
             {
                 法器附加属性值.无暇 = true;
-                法器附加属性值.count=max;
+                法器附加属性值.count = max * 品质倍率;
             }
             else
             {
                 法器附加属性值.无暇 = false;
-                法器附加属性值.count=Random.Range(min,max);;
+                法器附加属性值.count = Random.Range(min, max) * 品质倍率;
             }
-            法器附加属性值.法器附加属性Type = (法器附加属性Type)type;
+            法器附加属性值.法器附加属性Type = 附加属性Type;
             list.Add(法器附加属性值);
         }
         return list;

@@ -835,21 +835,21 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.射手经验值] += 10000;
             PlayerData.S.PropListDic[PropType.功德]+=100000000;
 
-            PlayerData.S.PropListDic[PropType.铁绿]++;
-            PlayerData.S.PropListDic[PropType.石绿]++;
-            PlayerData.S.PropListDic[PropType.羽绿]++;
-            PlayerData.S.PropListDic[PropType.砂绿]++;
+            PlayerData.S.PropListDic[PropType.铁2]++;
+            PlayerData.S.PropListDic[PropType.石2]++;
+            PlayerData.S.PropListDic[PropType.羽2]++;
+            PlayerData.S.PropListDic[PropType.砂2]++;
             for (int i = 0; i < 100; i++)
             {
-                PlayerData.S.PropListDic[PropType.铁紫]++;
-                PlayerData.S.PropListDic[PropType.石紫]++;
-                PlayerData.S.PropListDic[PropType.羽紫]++;
-                PlayerData.S.PropListDic[PropType.砂紫]++;
+                PlayerData.S.PropListDic[PropType.铁4]++;
+                PlayerData.S.PropListDic[PropType.石4]++;
+                PlayerData.S.PropListDic[PropType.羽4]++;
+                PlayerData.S.PropListDic[PropType.砂4]++;
                 
-                PlayerData.S.PropListDic[PropType.铁白]++;
-                PlayerData.S.PropListDic[PropType.石白]++;
-                PlayerData.S.PropListDic[PropType.羽白]++;
-                PlayerData.S.PropListDic[PropType.砂白]++;
+                PlayerData.S.PropListDic[PropType.铁1]++;
+                PlayerData.S.PropListDic[PropType.石1]++;
+                PlayerData.S.PropListDic[PropType.羽1]++;
+                PlayerData.S.PropListDic[PropType.砂1]++;
                 
                 仙石 仙石 = 仙石Config.单次仙石掉落(JingJieType.圣人);
                 PlayerData.S.仙石列表.Add(仙石);

@@ -340,137 +340,16 @@ public class 胜利弹窗 : MonoBehaviour
         var list = 法器Config.Get关卡法器材料掉落(关卡JieType);
         foreach (var item in list)
         {
-            switch (item.法器材料Type)
+            string propName = item.法器材料Type.ToString() + item.阶数;
+            if (Enum.TryParse<PropType>(propName, out var propType))
             {
-                case 法器材料Type.铁:
-                    switch (item.QualityType)
-                    {
-                        case QualityType.黄品:
-                            PlayerData.S.PropListDic[PropType.铁白]++;
-                            break;
-                        case QualityType.玄品:
-                            PlayerData.S.PropListDic[PropType.铁绿]++;
-                            break;
-                        case QualityType.地品:
-                            PlayerData.S.PropListDic[PropType.铁蓝]++;
-                            break;
-                        case QualityType.天品:
-                            PlayerData.S.PropListDic[PropType.铁紫]++;
-                            break;
-                        case QualityType.宇品:
-                            PlayerData.S.PropListDic[PropType.铁橙]++;
-                            break;
-                        case QualityType.宙品:
-                            PlayerData.S.PropListDic[PropType.铁粉]++;
-                            break;
-                        case QualityType.洪品:
-                            PlayerData.S.PropListDic[PropType.铁红]++;
-                            break;
-                        case QualityType.荒品:
-                            PlayerData.S.PropListDic[PropType.铁彩]++;
-                            break;
-                    }
-
-                    break;
-
-                case 法器材料Type.砂:
-                    switch (item.QualityType)
-                    {
-                        case QualityType.黄品:
-                            PlayerData.S.PropListDic[PropType.砂白]++;
-                            break;
-                        case QualityType.玄品:
-                            PlayerData.S.PropListDic[PropType.砂绿]++;
-                            break;
-                        case QualityType.地品:
-                            PlayerData.S.PropListDic[PropType.砂蓝]++;
-                            break;
-                        case QualityType.天品:
-                            PlayerData.S.PropListDic[PropType.砂紫]++;
-                            break;
-                        case QualityType.宇品:
-                            PlayerData.S.PropListDic[PropType.砂橙]++;
-                            break;
-                        case QualityType.宙品:
-                            PlayerData.S.PropListDic[PropType.砂粉]++;
-                            break;
-                        case QualityType.洪品:
-                            PlayerData.S.PropListDic[PropType.砂红]++;
-                            break;
-                        case QualityType.荒品:
-                            PlayerData.S.PropListDic[PropType.砂彩]++;
-                            break;
-                    }
-
-                    break;
-
-                case 法器材料Type.石:
-                    switch (item.QualityType)
-                    {
-                        case QualityType.黄品:
-                            PlayerData.S.PropListDic[PropType.石白]++;
-                            break;
-                        case QualityType.玄品:
-                            PlayerData.S.PropListDic[PropType.石绿]++;
-                            break;
-                        case QualityType.地品:
-                            PlayerData.S.PropListDic[PropType.石蓝]++;
-                            break;
-                        case QualityType.天品:
-                            PlayerData.S.PropListDic[PropType.石紫]++;
-                            break;
-                        case QualityType.宇品:
-                            PlayerData.S.PropListDic[PropType.石橙]++;
-                            break;
-                        case QualityType.宙品:
-                            PlayerData.S.PropListDic[PropType.石粉]++;
-                            break;
-                        case QualityType.洪品:
-                            PlayerData.S.PropListDic[PropType.石红]++;
-                            break;
-                        case QualityType.荒品:
-                            PlayerData.S.PropListDic[PropType.石彩]++;
-                            break;
-                    }
-
-                    break;
-
-                case 法器材料Type.羽:
-                    switch (item.QualityType)
-                    {
-                        case QualityType.黄品:
-                            PlayerData.S.PropListDic[PropType.羽白]++;
-                            break;
-                        case QualityType.玄品:
-                            PlayerData.S.PropListDic[PropType.羽绿]++;
-                            break;
-                        case QualityType.地品:
-                            PlayerData.S.PropListDic[PropType.羽蓝]++;
-                            break;
-                        case QualityType.天品:
-                            PlayerData.S.PropListDic[PropType.羽紫]++;
-                            break;
-                        case QualityType.宇品:
-                            PlayerData.S.PropListDic[PropType.羽橙]++;
-                            break;
-                        case QualityType.宙品:
-                            PlayerData.S.PropListDic[PropType.羽粉]++;
-                            break;
-                        case QualityType.洪品:
-                            PlayerData.S.PropListDic[PropType.羽红]++;
-                            break;
-                        case QualityType.荒品:
-                            PlayerData.S.PropListDic[PropType.羽彩]++;
-                            break;
-                    }
-
-                    break;
+                PlayerData.S.PropListDic[propType]++;
             }
 
             var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item1.法器材料Type = item.法器材料Type;
-            item1.法器材料QualityType = item.QualityType;
+            item1.法器材料QualityType = (QualityType)Mathf.Min(item.阶数, 8);
             item1.SetItem();
         }
 

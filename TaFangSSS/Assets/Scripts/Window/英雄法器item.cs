@@ -45,7 +45,7 @@ public class 英雄法器item : MonoBehaviour
         else
         {
             icon.gameObject.SetActive(true);
-            bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.法器品质Dic[法器.法器Type]);
+            bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
             icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
             foreach (var item in 法器.仙石list)
             {

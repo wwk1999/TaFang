@@ -36,7 +36,7 @@ public class 分解确认弹窗 : MonoBehaviour
             }
             else
             {
-                PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器分解Dic[法器Config.法器品质Dic[法器.法器Type]]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
+                PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器分解Dic[法器.品质]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
                 PlayerData.S.法器列表.Remove(法器);
             }
             ObserverModuleManager.S.SendEvent("刷新背包");
@@ -54,7 +54,7 @@ public class 分解确认弹窗 : MonoBehaviour
         else
         {
             name.text = 法器Config.法器名Dic[法器.法器Type];
-            name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[法器.法器Type]);
+            name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器.品质);
         }
     }
 }

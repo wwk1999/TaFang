@@ -55,7 +55,7 @@ public class 坊市自动购买Item : MonoBehaviour
                 btn.image.sprite = ResourcesConfig.toggle暗;
             }
 
-            text.text = PropConfig.QualityNameDic[法器Config.法器品质Dic[法器Type]] +法器Config.法器职业Dic[法器Type]+
+            text.text = 法器Config.法器名Dic[法器Type] + "·" + 法器Config.法器职业Dic[法器Type] +
                         法器Config.法器类型String[法器Config.法器类型Dic[法器Type]];
         }
         

@@ -175,8 +175,9 @@ public class 仙石Config
         {
             int type = Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
             法器附加属性Type 附加属性Type = (法器附加属性Type)type;
-            float min=法器Config.法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].min;
-            float max=法器Config.法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,QualityType =  qualityType}].max;
+            int 阶数 = (int)qualityType + 1;
+            float min=法器Config.法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,阶数 =  阶数}].min;
+            float max=法器Config.法器Minmaxes[new 法器附加属性品质type(){法器附加属性Type = 附加属性Type,阶数 =  阶数}].max;
             法器附加属性值 法器附加属性值 = new 法器附加属性值();
             var 无暇random=Random.Range(0,100f);
             if (无暇random < 1f)

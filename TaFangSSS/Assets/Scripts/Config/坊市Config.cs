@@ -230,7 +230,8 @@ public class 坊市Config
             {
                 if (PlayerData.S.Get坊市法器自动购买(PlayerData.S.坊市物品列表[i].法器Type))
                 {
-                    float value =法器价格Dic[法器Config.法器品质Dic[PlayerData.S.坊市物品列表[i].法器Type]] /
+                    var item = PlayerData.S.坊市物品列表[i];
+                    float value =法器价格Dic[item.QualityType] /
                                   (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < value)
                     {
@@ -239,10 +240,10 @@ public class 坊市Config
                     }
 
                     PlayerData.S.PropListDic[PropType.灵魂] -= value;
-                    法器 法器 = 法器Config.Get坊市法器(PlayerData.S.坊市物品列表[i].法器Type);
+                    法器 法器 = 法器Config.Get坊市法器(item.法器Type, item.QualityType, item.阶数);
                     PlayerData.S.法器列表.Add(法器);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
-                    ObserverModuleManager.S.SendEvent("SendUIToast",法器Config.法器名Dic[PlayerData.S.坊市物品列表[i].法器Type],法器Config.法器品质Dic[PlayerData.S.坊市物品列表[i].法器Type],1);
+                    ObserverModuleManager.S.SendEvent("SendUIToast",法器Config.法器名Dic[item.法器Type], item.QualityType, 1);
                 }
             }
             
@@ -349,8 +350,9 @@ public class 坊市Config
         switch (物品类型)
         {
             case 1:
-                var list = 法器Config.法器品质列表Dic[QualityType];
-                坊市物品.法器Type = list[Random.Range(0, list.Count)];
+                // 随机法器Type（基础类型，不含品质），品质和阶数由坊市物品自身字段携带
+                坊市物品.法器Type = (法器Type)Random.Range(1, Enum.GetValues(typeof(法器Type)).Length);
+                坊市物品.阶数 = Random.Range(1, 17);
                 break;
             case 2:
                 坊市物品.仙石Type = (仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);

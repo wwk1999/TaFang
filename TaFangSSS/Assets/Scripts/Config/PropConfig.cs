@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Config
@@ -70,42 +70,10 @@ namespace Config
         玄铁,
         玉髓,
         
-        石白,
-        石绿,
-        石蓝,
-        石紫,
-        石橙,
-        石粉,
-        石红,
-        石彩,
-        
-        铁白,
-        铁绿,
-        铁蓝,
-        铁紫,
-        铁橙,
-        铁粉,
-        铁红,
-        铁彩,
-        
-        
-        羽白,
-        羽绿,
-        羽蓝,
-        羽紫,
-        羽橙,
-        羽粉,
-        羽红,
-        羽彩,
-        
-        砂白,
-        砂绿,
-        砂蓝,
-        砂紫,
-        砂橙,
-        砂粉,
-        砂红,
-        砂彩,
+        石1, 石2, 石3, 石4, 石5, 石6, 石7, 石8, 石9, 石10, 石11, 石12, 石13, 石14, 石15, 石16,
+        铁1, 铁2, 铁3, 铁4, 铁5, 铁6, 铁7, 铁8, 铁9, 铁10, 铁11, 铁12, 铁13, 铁14, 铁15, 铁16,
+        羽1, 羽2, 羽3, 羽4, 羽5, 羽6, 羽7, 羽8, 羽9, 羽10, 羽11, 羽12, 羽13, 羽14, 羽15, 羽16,
+        砂1, 砂2, 砂3, 砂4, 砂5, 砂6, 砂7, 砂8, 砂9, 砂10, 砂11, 砂12, 砂13, 砂14, 砂15, 砂16,
         
         轮回石,
         血晶,
@@ -195,42 +163,10 @@ namespace Config
         玄铁,
         玉髓,
         
-        石白,
-        石绿,
-        石蓝,
-        石紫,
-        石橙,
-        石粉,
-        石红,
-        石彩,
-        
-        铁白,
-        铁绿,
-        铁蓝,
-        铁紫,
-        铁橙,
-        铁粉,
-        铁红,
-        铁彩,
-        
-        
-        羽白,
-        羽绿,
-        羽蓝,
-        羽紫,
-        羽橙,
-        羽粉,
-        羽红,
-        羽彩,
-        
-        砂白,
-        砂绿,
-        砂蓝,
-        砂紫,
-        砂橙,
-        砂粉,
-        砂红,
-        砂彩,
+        石1, 石2, 石3, 石4, 石5, 石6, 石7, 石8, 石9, 石10, 石11, 石12, 石13, 石14, 石15, 石16,
+        铁1, 铁2, 铁3, 铁4, 铁5, 铁6, 铁7, 铁8, 铁9, 铁10, 铁11, 铁12, 铁13, 铁14, 铁15, 铁16,
+        羽1, 羽2, 羽3, 羽4, 羽5, 羽6, 羽7, 羽8, 羽9, 羽10, 羽11, 羽12, 羽13, 羽14, 羽15, 羽16,
+        砂1, 砂2, 砂3, 砂4, 砂5, 砂6, 砂7, 砂8, 砂9, 砂10, 砂11, 砂12, 砂13, 砂14, 砂15, 砂16,
         
         轮回石,
         血晶,
@@ -253,99 +189,47 @@ namespace Config
     {
         public static 法器材料Type GetProp法器材料Type(PropType Type)
         {
-            switch (Type)
-            {
-                // 石类
-                case PropType.石白:
-                case PropType.石绿:
-                case PropType.石蓝:
-                case PropType.石紫:
-                case PropType.石橙:
-                case PropType.石粉:
-                case PropType.石红:
-                case PropType.石彩:
-                    return 法器材料Type.石;
-
-                // 铁类
-                case PropType.铁白:
-                case PropType.铁绿:
-                case PropType.铁蓝:
-                case PropType.铁紫:
-                case PropType.铁橙:
-                case PropType.铁粉:
-                case PropType.铁红:
-                case PropType.铁彩:
-                    return 法器材料Type.铁;
-
-                // 羽类
-                case PropType.羽白:
-                case PropType.羽绿:
-                case PropType.羽蓝:
-                case PropType.羽紫:
-                case PropType.羽橙:
-                case PropType.羽粉:
-                case PropType.羽红:
-                case PropType.羽彩:
-                    return 法器材料Type.羽;
-
-                // 砂类
-                case PropType.砂白:
-                case PropType.砂绿:
-                case PropType.砂蓝:
-                case PropType.砂紫:
-                case PropType.砂橙:
-                case PropType.砂粉:
-                case PropType.砂红:
-                case PropType.砂彩:
-                    return 法器材料Type.砂;
-
-                default:
-                    return 法器材料Type.None;
-            }
+            string name = Type.ToString();
+            if (name.StartsWith("石")) return 法器材料Type.石;
+            if (name.StartsWith("铁")) return 法器材料Type.铁;
+            if (name.StartsWith("羽")) return 法器材料Type.羽;
+            if (name.StartsWith("砂")) return 法器材料Type.砂;
+            return 法器材料Type.None;
         }
         public static bool Prop是否为法器材料(PropType propType)
         {
-            switch (propType)
-            {
-                case PropType.石白:
-                case PropType.石绿:
-                case PropType.石蓝:
-                case PropType.石紫:
-                case PropType.石橙:
-                case PropType.石粉:
-                case PropType.石红:
-                case PropType.石彩:
-                    
-                case PropType.铁白:
-                case PropType.铁绿:
-                case PropType.铁蓝:
-                case PropType.铁紫:
-                case PropType.铁橙:
-                case PropType.铁粉:
-                case PropType.铁红:
-                case PropType.铁彩:
-                    
-                case PropType.羽白:
-                case PropType.羽绿:
-                case PropType.羽蓝:
-                case PropType.羽紫:
-                case PropType.羽橙:
-                case PropType.羽粉:
-                case PropType.羽红:
-                case PropType.羽彩:
-                    
-                case PropType.砂白:
-                case PropType.砂绿:
-                case PropType.砂蓝:
-                case PropType.砂紫:
-                case PropType.砂橙:
-                case PropType.砂粉:
-                case PropType.砂红:
-                case PropType.砂彩:
-                    return true;
-            }
+            string name = propType.ToString();
+            return name.StartsWith("石") || name.StartsWith("铁") || name.StartsWith("羽") || name.StartsWith("砂");
+        }
 
-            return false;
+        /// <summary>
+        /// 从PropType名字解析阶数（如"石16" → 16）
+        /// </summary>
+        public static int GetProp阶数(PropType propType)
+        {
+            string name = propType.ToString();
+            for (int i = name.Length - 1; i >= 0; i--)
+            {
+                if (char.IsDigit(name[i])) continue;
+                if (i == name.Length - 1) return 0;
+                return int.Parse(name.Substring(i + 1));
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// 从道具信息Type名字解析阶数
+        /// </summary>
+        public static int Get道具信息阶数(道具信息Type type)
+        {
+            string name = type.ToString();
+            for (int i = name.Length - 1; i >= 0; i--)
+            {
+                if (char.IsDigit(name[i])) continue;
+                if (i == name.Length - 1) return 0;
+                return int.Parse(name.Substring(i + 1));
+            }
+            return 0;
         }
         public static Sprite Get道具信息Sprite(道具信息Type Type)
 {
@@ -395,73 +279,138 @@ namespace Config
             return ResourcesConfig.玄铁;
         case 道具信息Type.玉髓:
             return ResourcesConfig.玉髓;
-        case 道具信息Type.石白:
-            return ResourcesConfig.石白;
-        case 道具信息Type.石绿:
-            return ResourcesConfig.石绿;
-        case 道具信息Type.石蓝:
-            return ResourcesConfig.石蓝;
-        case 道具信息Type.石紫:
-            return ResourcesConfig.石紫;
-        case 道具信息Type.石橙:
-            return ResourcesConfig.石橙;
-        case 道具信息Type.石粉:
-            return ResourcesConfig.石粉;
-        case 道具信息Type.石红:
-            return ResourcesConfig.石红;
-        case 道具信息Type.石彩:
-            return ResourcesConfig.石彩;
+        case 道具信息Type.石1:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 1);
+        case 道具信息Type.石2:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 2);
+        case 道具信息Type.石3:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 3);
+        case 道具信息Type.石4:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 4);
+        case 道具信息Type.石5:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 5);
+        case 道具信息Type.石6:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 6);
+        case 道具信息Type.石7:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 7);
+        case 道具信息Type.石8:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 8);
+        case 道具信息Type.石9:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 9);
+        case 道具信息Type.石10:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 10);
+        case 道具信息Type.石11:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 11);
+        case 道具信息Type.石12:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 12);
+        case 道具信息Type.石13:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 13);
+        case 道具信息Type.石14:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 14);
+        case 道具信息Type.石15:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 15);
+        case 道具信息Type.石16:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 16);
 
-        case 道具信息Type.铁白:
-            return ResourcesConfig.铁白;
-        case 道具信息Type.铁绿:
-            return ResourcesConfig.铁绿;
-        case 道具信息Type.铁蓝:
-            return ResourcesConfig.铁蓝;
-        case 道具信息Type.铁紫:
-            return ResourcesConfig.铁紫;
-        case 道具信息Type.铁橙:
-            return ResourcesConfig.铁橙;
-        case 道具信息Type.铁粉:
-            return ResourcesConfig.铁粉;
-        case 道具信息Type.铁红:
-            return ResourcesConfig.铁红;
-        case 道具信息Type.铁彩:
-            return ResourcesConfig.铁彩;
+        case 道具信息Type.铁1:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 1);
+        case 道具信息Type.铁2:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 2);
+        case 道具信息Type.铁3:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 3);
+        case 道具信息Type.铁4:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 4);
+        case 道具信息Type.铁5:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 5);
+        case 道具信息Type.铁6:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 6);
+        case 道具信息Type.铁7:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 7);
+        case 道具信息Type.铁8:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 8);
+        case 道具信息Type.铁9:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 9);
+        case 道具信息Type.铁10:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 10);
+        case 道具信息Type.铁11:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 11);
+        case 道具信息Type.铁12:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 12);
+        case 道具信息Type.铁13:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 13);
+        case 道具信息Type.铁14:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 14);
+        case 道具信息Type.铁15:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 15);
+        case 道具信息Type.铁16:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 16);
 
-        case 道具信息Type.羽白:
-            return ResourcesConfig.羽白;
-        case 道具信息Type.羽绿:
-            return ResourcesConfig.羽绿;
-        case 道具信息Type.羽蓝:
-            return ResourcesConfig.羽蓝;
-        case 道具信息Type.羽紫:
-            return ResourcesConfig.羽紫;
-        case 道具信息Type.羽橙:
-            return ResourcesConfig.羽橙;
-        case 道具信息Type.羽粉:
-            return ResourcesConfig.羽粉;
-        case 道具信息Type.羽红:
-            return ResourcesConfig.羽红;
-        case 道具信息Type.羽彩:
-            return ResourcesConfig.羽彩;
+        case 道具信息Type.羽1:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 1);
+        case 道具信息Type.羽2:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 2);
+        case 道具信息Type.羽3:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 3);
+        case 道具信息Type.羽4:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 4);
+        case 道具信息Type.羽5:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 5);
+        case 道具信息Type.羽6:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 6);
+        case 道具信息Type.羽7:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 7);
+        case 道具信息Type.羽8:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 8);
+        case 道具信息Type.羽9:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 9);
+        case 道具信息Type.羽10:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 10);
+        case 道具信息Type.羽11:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 11);
+        case 道具信息Type.羽12:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 12);
+        case 道具信息Type.羽13:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 13);
+        case 道具信息Type.羽14:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 14);
+        case 道具信息Type.羽15:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 15);
+        case 道具信息Type.羽16:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 16);
 
-        case 道具信息Type.砂白:
-            return ResourcesConfig.砂白;
-        case 道具信息Type.砂绿:
-            return ResourcesConfig.砂绿;
-        case 道具信息Type.砂蓝:
-            return ResourcesConfig.砂蓝;
-        case 道具信息Type.砂紫:
-            return ResourcesConfig.砂紫;
-        case 道具信息Type.砂橙:
-            return ResourcesConfig.砂橙;
-        case 道具信息Type.砂粉:
-            return ResourcesConfig.砂粉;
-        case 道具信息Type.砂红:
-            return ResourcesConfig.砂红;
-        case 道具信息Type.砂彩:
-            return ResourcesConfig.砂彩;
+        case 道具信息Type.砂1:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 1);
+        case 道具信息Type.砂2:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 2);
+        case 道具信息Type.砂3:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 3);
+        case 道具信息Type.砂4:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 4);
+        case 道具信息Type.砂5:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 5);
+        case 道具信息Type.砂6:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 6);
+        case 道具信息Type.砂7:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 7);
+        case 道具信息Type.砂8:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 8);
+        case 道具信息Type.砂9:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 9);
+        case 道具信息Type.砂10:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 10);
+        case 道具信息Type.砂11:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 11);
+        case 道具信息Type.砂12:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 12);
+        case 道具信息Type.砂13:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 13);
+        case 道具信息Type.砂14:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 14);
+        case 道具信息Type.砂15:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 15);
+        case 道具信息Type.砂16:
+            return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 16);
+
         case 道具信息Type.轮回石:
             return ResourcesConfig.轮回石;
         case 道具信息Type.血晶:
@@ -501,45 +450,8 @@ namespace Config
             { 道具信息Type.矿石, QualityType.地品 },
             { 道具信息Type.玄铁, QualityType.地品 },
             { 道具信息Type.玉髓, QualityType.地品 },
-            // ================= 石 =================
-            { 道具信息Type.石白, QualityType.黄品 },
-            { 道具信息Type.石绿, QualityType.玄品 },
-            { 道具信息Type.石蓝, QualityType.地品 },
-            { 道具信息Type.石紫, QualityType.天品 },
-            { 道具信息Type.石橙, QualityType.宇品 },
-            { 道具信息Type.石粉, QualityType.宙品 },
-            { 道具信息Type.石红, QualityType.洪品 },
-            { 道具信息Type.石彩, QualityType.荒品 },
-
-// ================= 铁 =================
-            { 道具信息Type.铁白, QualityType.黄品 },
-            { 道具信息Type.铁绿, QualityType.玄品 },
-            { 道具信息Type.铁蓝, QualityType.地品 },
-            { 道具信息Type.铁紫, QualityType.天品 },
-            { 道具信息Type.铁橙, QualityType.宇品 },
-            { 道具信息Type.铁粉, QualityType.宙品 },
-            { 道具信息Type.铁红, QualityType.洪品 },
-            { 道具信息Type.铁彩, QualityType.荒品 },
-
-// ================= 羽 =================
-            { 道具信息Type.羽白, QualityType.黄品 },
-            { 道具信息Type.羽绿, QualityType.玄品 },
-            { 道具信息Type.羽蓝, QualityType.地品 },
-            { 道具信息Type.羽紫, QualityType.天品 },
-            { 道具信息Type.羽橙, QualityType.宇品 },
-            { 道具信息Type.羽粉, QualityType.宙品 },
-            { 道具信息Type.羽红, QualityType.洪品 },
-            { 道具信息Type.羽彩, QualityType.荒品 },
-
-// ================= 砂 =================
-            { 道具信息Type.砂白, QualityType.黄品 },
-            { 道具信息Type.砂绿, QualityType.玄品 },
-            { 道具信息Type.砂蓝, QualityType.地品 },
-            { 道具信息Type.砂紫, QualityType.天品 },
-            { 道具信息Type.砂橙, QualityType.宇品 },
-            { 道具信息Type.砂粉, QualityType.宙品 },
-            { 道具信息Type.砂红, QualityType.洪品 },
-            { 道具信息Type.砂彩, QualityType.荒品 },
+            // 法器材料不再按品质分，而是按阶数分，品质Dic中不再包含材料项
+            // 道具信息Type.石1~石16、铁1~铁16、羽1~羽16、砂1~砂16 均不在此字典中
             { 道具信息Type.轮回石, QualityType.地品 },
             { 道具信息Type.血晶, QualityType.地品 },
             { 道具信息Type.功德, QualityType.宇品 },
@@ -610,41 +522,71 @@ namespace Config
             { 道具信息Type.玄铁, PropType.玄铁 },
             { 道具信息Type.玉髓, PropType.玉髓 },
             
-            { 道具信息Type.石白, PropType.石白 },
-            { 道具信息Type.石绿, PropType.石绿 },
-            { 道具信息Type.石蓝, PropType.石蓝 },
-            { 道具信息Type.石紫, PropType.石紫 },
-            { 道具信息Type.石橙, PropType.石橙 },
-            { 道具信息Type.石粉, PropType.石粉 },
-            { 道具信息Type.石红, PropType.石红 },
-            { 道具信息Type.石彩, PropType.石彩 },
-
-            { 道具信息Type.铁白, PropType.铁白 },
-            { 道具信息Type.铁绿, PropType.铁绿 },
-            { 道具信息Type.铁蓝, PropType.铁蓝 },
-            { 道具信息Type.铁紫, PropType.铁紫 },
-            { 道具信息Type.铁橙, PropType.铁橙 },
-            { 道具信息Type.铁粉, PropType.铁粉 },
-            { 道具信息Type.铁红, PropType.铁红 },
-            { 道具信息Type.铁彩, PropType.铁彩 },
-
-            { 道具信息Type.羽白, PropType.羽白 },
-            { 道具信息Type.羽绿, PropType.羽绿 },
-            { 道具信息Type.羽蓝, PropType.羽蓝 },
-            { 道具信息Type.羽紫, PropType.羽紫 },
-            { 道具信息Type.羽橙, PropType.羽橙 },
-            { 道具信息Type.羽粉, PropType.羽粉 },
-            { 道具信息Type.羽红, PropType.羽红 },
-            { 道具信息Type.羽彩, PropType.羽彩 },
-
-            { 道具信息Type.砂白, PropType.砂白 },
-            { 道具信息Type.砂绿, PropType.砂绿 },
-            { 道具信息Type.砂蓝, PropType.砂蓝 },
-            { 道具信息Type.砂紫, PropType.砂紫 },
-            { 道具信息Type.砂橙, PropType.砂橙 },
-            { 道具信息Type.砂粉, PropType.砂粉 },
-            { 道具信息Type.砂红, PropType.砂红 },
-            { 道具信息Type.砂彩, PropType.砂彩 },
+            // 法器材料 (石/铁/羽/砂 × 阶数1~16)，共64条
+            { 道具信息Type.石1, PropType.石1 },
+            { 道具信息Type.石2, PropType.石2 },
+            { 道具信息Type.石3, PropType.石3 },
+            { 道具信息Type.石4, PropType.石4 },
+            { 道具信息Type.石5, PropType.石5 },
+            { 道具信息Type.石6, PropType.石6 },
+            { 道具信息Type.石7, PropType.石7 },
+            { 道具信息Type.石8, PropType.石8 },
+            { 道具信息Type.石9, PropType.石9 },
+            { 道具信息Type.石10, PropType.石10 },
+            { 道具信息Type.石11, PropType.石11 },
+            { 道具信息Type.石12, PropType.石12 },
+            { 道具信息Type.石13, PropType.石13 },
+            { 道具信息Type.石14, PropType.石14 },
+            { 道具信息Type.石15, PropType.石15 },
+            { 道具信息Type.石16, PropType.石16 },
+            { 道具信息Type.铁1, PropType.铁1 },
+            { 道具信息Type.铁2, PropType.铁2 },
+            { 道具信息Type.铁3, PropType.铁3 },
+            { 道具信息Type.铁4, PropType.铁4 },
+            { 道具信息Type.铁5, PropType.铁5 },
+            { 道具信息Type.铁6, PropType.铁6 },
+            { 道具信息Type.铁7, PropType.铁7 },
+            { 道具信息Type.铁8, PropType.铁8 },
+            { 道具信息Type.铁9, PropType.铁9 },
+            { 道具信息Type.铁10, PropType.铁10 },
+            { 道具信息Type.铁11, PropType.铁11 },
+            { 道具信息Type.铁12, PropType.铁12 },
+            { 道具信息Type.铁13, PropType.铁13 },
+            { 道具信息Type.铁14, PropType.铁14 },
+            { 道具信息Type.铁15, PropType.铁15 },
+            { 道具信息Type.铁16, PropType.铁16 },
+            { 道具信息Type.羽1, PropType.羽1 },
+            { 道具信息Type.羽2, PropType.羽2 },
+            { 道具信息Type.羽3, PropType.羽3 },
+            { 道具信息Type.羽4, PropType.羽4 },
+            { 道具信息Type.羽5, PropType.羽5 },
+            { 道具信息Type.羽6, PropType.羽6 },
+            { 道具信息Type.羽7, PropType.羽7 },
+            { 道具信息Type.羽8, PropType.羽8 },
+            { 道具信息Type.羽9, PropType.羽9 },
+            { 道具信息Type.羽10, PropType.羽10 },
+            { 道具信息Type.羽11, PropType.羽11 },
+            { 道具信息Type.羽12, PropType.羽12 },
+            { 道具信息Type.羽13, PropType.羽13 },
+            { 道具信息Type.羽14, PropType.羽14 },
+            { 道具信息Type.羽15, PropType.羽15 },
+            { 道具信息Type.羽16, PropType.羽16 },
+            { 道具信息Type.砂1, PropType.砂1 },
+            { 道具信息Type.砂2, PropType.砂2 },
+            { 道具信息Type.砂3, PropType.砂3 },
+            { 道具信息Type.砂4, PropType.砂4 },
+            { 道具信息Type.砂5, PropType.砂5 },
+            { 道具信息Type.砂6, PropType.砂6 },
+            { 道具信息Type.砂7, PropType.砂7 },
+            { 道具信息Type.砂8, PropType.砂8 },
+            { 道具信息Type.砂9, PropType.砂9 },
+            { 道具信息Type.砂10, PropType.砂10 },
+            { 道具信息Type.砂11, PropType.砂11 },
+            { 道具信息Type.砂12, PropType.砂12 },
+            { 道具信息Type.砂13, PropType.砂13 },
+            { 道具信息Type.砂14, PropType.砂14 },
+            { 道具信息Type.砂15, PropType.砂15 },
+            { 道具信息Type.砂16, PropType.砂16 },
             { 道具信息Type.轮回石, PropType.轮回石 },
             { 道具信息Type.血晶, PropType.血晶 },
         };
@@ -691,41 +633,71 @@ namespace Config
             { PropType.玄铁, 道具信息Type.玄铁 },
             { PropType.玉髓, 道具信息Type.玉髓 },
             
-            { PropType.石白, 道具信息Type.石白 },
-            { PropType.石绿, 道具信息Type.石绿 },
-            { PropType.石蓝, 道具信息Type.石蓝 },
-            { PropType.石紫, 道具信息Type.石紫 },
-            { PropType.石橙, 道具信息Type.石橙 },
-            { PropType.石粉, 道具信息Type.石粉 },
-            { PropType.石红, 道具信息Type.石红 },
-            { PropType.石彩, 道具信息Type.石彩 },
-
-            { PropType.铁白, 道具信息Type.铁白 },
-            { PropType.铁绿, 道具信息Type.铁绿 },
-            { PropType.铁蓝, 道具信息Type.铁蓝 },
-            { PropType.铁紫, 道具信息Type.铁紫 },
-            { PropType.铁橙, 道具信息Type.铁橙 },
-            { PropType.铁粉, 道具信息Type.铁粉 },
-            { PropType.铁红, 道具信息Type.铁红 },
-            { PropType.铁彩, 道具信息Type.铁彩 },
-
-            { PropType.羽白, 道具信息Type.羽白 },
-            { PropType.羽绿, 道具信息Type.羽绿 },
-            { PropType.羽蓝, 道具信息Type.羽蓝 },
-            { PropType.羽紫, 道具信息Type.羽紫 },
-            { PropType.羽橙, 道具信息Type.羽橙 },
-            { PropType.羽粉, 道具信息Type.羽粉 },
-            { PropType.羽红, 道具信息Type.羽红 },
-            { PropType.羽彩, 道具信息Type.羽彩 },
-
-            { PropType.砂白, 道具信息Type.砂白 },
-            { PropType.砂绿, 道具信息Type.砂绿 },
-            { PropType.砂蓝, 道具信息Type.砂蓝 },
-            { PropType.砂紫, 道具信息Type.砂紫 },
-            { PropType.砂橙, 道具信息Type.砂橙 },
-            { PropType.砂粉, 道具信息Type.砂粉 },
-            { PropType.砂红, 道具信息Type.砂红 },
-            { PropType.砂彩, 道具信息Type.砂彩 },
+            // 法器材料 (石/铁/羽/砂 × 阶数1~16)，共64条
+            { PropType.石1, 道具信息Type.石1 },
+            { PropType.石2, 道具信息Type.石2 },
+            { PropType.石3, 道具信息Type.石3 },
+            { PropType.石4, 道具信息Type.石4 },
+            { PropType.石5, 道具信息Type.石5 },
+            { PropType.石6, 道具信息Type.石6 },
+            { PropType.石7, 道具信息Type.石7 },
+            { PropType.石8, 道具信息Type.石8 },
+            { PropType.石9, 道具信息Type.石9 },
+            { PropType.石10, 道具信息Type.石10 },
+            { PropType.石11, 道具信息Type.石11 },
+            { PropType.石12, 道具信息Type.石12 },
+            { PropType.石13, 道具信息Type.石13 },
+            { PropType.石14, 道具信息Type.石14 },
+            { PropType.石15, 道具信息Type.石15 },
+            { PropType.石16, 道具信息Type.石16 },
+            { PropType.铁1, 道具信息Type.铁1 },
+            { PropType.铁2, 道具信息Type.铁2 },
+            { PropType.铁3, 道具信息Type.铁3 },
+            { PropType.铁4, 道具信息Type.铁4 },
+            { PropType.铁5, 道具信息Type.铁5 },
+            { PropType.铁6, 道具信息Type.铁6 },
+            { PropType.铁7, 道具信息Type.铁7 },
+            { PropType.铁8, 道具信息Type.铁8 },
+            { PropType.铁9, 道具信息Type.铁9 },
+            { PropType.铁10, 道具信息Type.铁10 },
+            { PropType.铁11, 道具信息Type.铁11 },
+            { PropType.铁12, 道具信息Type.铁12 },
+            { PropType.铁13, 道具信息Type.铁13 },
+            { PropType.铁14, 道具信息Type.铁14 },
+            { PropType.铁15, 道具信息Type.铁15 },
+            { PropType.铁16, 道具信息Type.铁16 },
+            { PropType.羽1, 道具信息Type.羽1 },
+            { PropType.羽2, 道具信息Type.羽2 },
+            { PropType.羽3, 道具信息Type.羽3 },
+            { PropType.羽4, 道具信息Type.羽4 },
+            { PropType.羽5, 道具信息Type.羽5 },
+            { PropType.羽6, 道具信息Type.羽6 },
+            { PropType.羽7, 道具信息Type.羽7 },
+            { PropType.羽8, 道具信息Type.羽8 },
+            { PropType.羽9, 道具信息Type.羽9 },
+            { PropType.羽10, 道具信息Type.羽10 },
+            { PropType.羽11, 道具信息Type.羽11 },
+            { PropType.羽12, 道具信息Type.羽12 },
+            { PropType.羽13, 道具信息Type.羽13 },
+            { PropType.羽14, 道具信息Type.羽14 },
+            { PropType.羽15, 道具信息Type.羽15 },
+            { PropType.羽16, 道具信息Type.羽16 },
+            { PropType.砂1, 道具信息Type.砂1 },
+            { PropType.砂2, 道具信息Type.砂2 },
+            { PropType.砂3, 道具信息Type.砂3 },
+            { PropType.砂4, 道具信息Type.砂4 },
+            { PropType.砂5, 道具信息Type.砂5 },
+            { PropType.砂6, 道具信息Type.砂6 },
+            { PropType.砂7, 道具信息Type.砂7 },
+            { PropType.砂8, 道具信息Type.砂8 },
+            { PropType.砂9, 道具信息Type.砂9 },
+            { PropType.砂10, 道具信息Type.砂10 },
+            { PropType.砂11, 道具信息Type.砂11 },
+            { PropType.砂12, 道具信息Type.砂12 },
+            { PropType.砂13, 道具信息Type.砂13 },
+            { PropType.砂14, 道具信息Type.砂14 },
+            { PropType.砂15, 道具信息Type.砂15 },
+            { PropType.砂16, 道具信息Type.砂16 },
             { PropType.轮回石, 道具信息Type.轮回石 },
             { PropType.血晶, 道具信息Type.血晶 },
         };
@@ -738,41 +710,8 @@ namespace Config
             { 道具信息Type.矿石, "矿石" },
             { 道具信息Type.玄铁, "玄铁" },
             { 道具信息Type.玉髓, "玉髓" },
-            { 道具信息Type.石白, "青石" },
-            { 道具信息Type.石绿, "硬石" },
-            { 道具信息Type.石蓝, "灵玉" },
-            { 道具信息Type.石紫, "玄龟石" },
-            { 道具信息Type.石橙, "地脉晶" },
-            { 道具信息Type.石粉, "星辰石" },
-            { 道具信息Type.石红, "鸿蒙石" },
-            { 道具信息Type.石彩, "混沌石" },
-
-            { 道具信息Type.铁白, "凡铁" },
-            { 道具信息Type.铁绿, "精铁" },
-            { 道具信息Type.铁蓝, "玄铁" },
-            { 道具信息Type.铁紫, "寒铁" },
-            { 道具信息Type.铁橙, "地火精金" },
-            { 道具信息Type.铁粉, "星辰铁" },
-            { 道具信息Type.铁红, "鸿蒙紫铁" },
-            { 道具信息Type.铁彩, "混沌神铁" },
-
-            { 道具信息Type.羽白, "凡羽" },
-            { 道具信息Type.羽绿, "轻羽" },
-            { 道具信息Type.羽蓝, "风灵羽" },
-            { 道具信息Type.羽紫, "云纹羽" },
-            { 道具信息Type.羽橙, "灵鹤羽" },
-            { 道具信息Type.羽粉, "鲲鹏羽" },
-            { 道具信息Type.羽红, "鸿蒙羽" },
-            { 道具信息Type.羽彩, "混沌羽" },
-
-            { 道具信息Type.砂白, "粗砂" },
-            { 道具信息Type.砂绿, "细砂" },
-            { 道具信息Type.砂蓝, "灵砂" },
-            { 道具信息Type.砂紫, "星辰砂" },
-            { 道具信息Type.砂橙, "地脉砂" },
-            { 道具信息Type.砂粉, "玄天砂" },
-            { 道具信息Type.砂红, "鸿蒙砂" },
-            { 道具信息Type.砂彩, "混沌砂" },
+            // 法器材料名字 (石1~石16, 铁1~铁16, 羽1~羽16, 砂1~砂16)
+            // 通过 法器Config.Get法器材料Name(法器材料Type type, int 阶数) 动态获取，不再在此字典中硬编码
             { 道具信息Type.轮回石, "轮回石" },
             { 道具信息Type.血晶, "血晶" },
             { 道具信息Type.法器粉尘, "法器粉尘" },
@@ -879,42 +818,10 @@ namespace Config
             { 道具信息Type.矿石, "升级道场建筑的关键材料" },
             { 道具信息Type.玄铁, "升级道场建筑的关键材料" },
             { 道具信息Type.玉髓, "升级道场建筑的关键材料" },
-            
-            { 道具信息Type.石白, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.石绿, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.石蓝, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.石紫, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.石橙, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.石粉, "打造英雄法器的关键材料,三十三重天100层后掉落" },
-            { 道具信息Type.石红, "打造英雄法器的关键材料,三十三重天350层后掉落" },
-            { 道具信息Type.石彩, "打造英雄法器的关键材料,三十三重天800层后掉落" },
 
-            { 道具信息Type.铁白, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.铁绿, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.铁蓝, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.铁紫, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.铁橙, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.铁粉, "打造英雄法器的关键材料,三十三重天100层后掉落" },
-            { 道具信息Type.铁红, "打造英雄法器的关键材料,三十三重天350层后掉落" },
-            { 道具信息Type.铁彩, "打造英雄法器的关键材料,三十三重天800层后掉落" },
+            // 法器材料描述 (石1~石16, 铁1~铁16, 羽1~羽16, 砂1~砂16)
+            // 通过 法器Config.Get法器材料Info() 动态获取，不再在此字典中硬编码
 
-            { 道具信息Type.羽白, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.羽绿, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.羽蓝, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.羽紫, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.羽橙, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.羽粉, "打造英雄法器的关键材料,三十三重天100层后掉落" },
-            { 道具信息Type.羽红, "打造英雄法器的关键材料,三十三重天350层后掉落" },
-            { 道具信息Type.羽彩, "打造英雄法器的关键材料,三十三重天800层后掉落" },
-
-            { 道具信息Type.砂白, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.砂绿, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.砂蓝, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.砂紫, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.砂橙, "打造英雄法器的关键材料,主线关卡掉落,三十三重天掉落高级材料" },
-            { 道具信息Type.砂粉, "打造英雄法器的关键材料,三十三重天100层后掉落" },
-            { 道具信息Type.砂红, "打造英雄法器的关键材料,三十三重天350层后掉落" },
-            { 道具信息Type.砂彩, "打造英雄法器的关键材料,三十三重天800层后掉落" },
             { 道具信息Type.轮回石, "轮回转世的关键材料,主线,符文,神物关卡掉落,三十三重天50层掉落2,200层3,500层4,1000层5," },
             { 道具信息Type.血晶, "灵兽洗髓和进化的关键材料,分解灵兽获得" },
         };
@@ -947,73 +854,138 @@ namespace Config
                 case PropType.玉髓:
                     return ResourcesConfig.玉髓;
                 
-                case PropType.石白:
-                    return ResourcesConfig.石白;
-                case PropType.石绿:
-                    return ResourcesConfig.石绿;
-                case PropType.石蓝:
-                    return ResourcesConfig.石蓝;
-                case PropType.石紫:
-                    return ResourcesConfig.石紫;
-                case PropType.石橙:
-                    return ResourcesConfig.石橙;
-                case PropType.石粉:
-                    return ResourcesConfig.石粉;
-                case PropType.石红:
-                    return ResourcesConfig.石红;
-                case PropType.石彩:
-                    return ResourcesConfig.石彩;
+                case PropType.石1:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 1);
+                case PropType.石2:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 2);
+                case PropType.石3:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 3);
+                case PropType.石4:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 4);
+                case PropType.石5:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 5);
+                case PropType.石6:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 6);
+                case PropType.石7:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 7);
+                case PropType.石8:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 8);
+                case PropType.石9:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 9);
+                case PropType.石10:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 10);
+                case PropType.石11:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 11);
+                case PropType.石12:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 12);
+                case PropType.石13:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 13);
+                case PropType.石14:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 14);
+                case PropType.石15:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 15);
+                case PropType.石16:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 16);
 
-                case PropType.铁白:
-                    return ResourcesConfig.铁白;
-                case PropType.铁绿:
-                    return ResourcesConfig.铁绿;
-                case PropType.铁蓝:
-                    return ResourcesConfig.铁蓝;
-                case PropType.铁紫:
-                    return ResourcesConfig.铁紫;
-                case PropType.铁橙:
-                    return ResourcesConfig.铁橙;
-                case PropType.铁粉:
-                    return ResourcesConfig.铁粉;
-                case PropType.铁红:
-                    return ResourcesConfig.铁红;
-                case PropType.铁彩:
-                    return ResourcesConfig.铁彩;
+                case PropType.铁1:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 1);
+                case PropType.铁2:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 2);
+                case PropType.铁3:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 3);
+                case PropType.铁4:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 4);
+                case PropType.铁5:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 5);
+                case PropType.铁6:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 6);
+                case PropType.铁7:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 7);
+                case PropType.铁8:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 8);
+                case PropType.铁9:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 9);
+                case PropType.铁10:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 10);
+                case PropType.铁11:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 11);
+                case PropType.铁12:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 12);
+                case PropType.铁13:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 13);
+                case PropType.铁14:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 14);
+                case PropType.铁15:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 15);
+                case PropType.铁16:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.铁, 16);
 
-                case PropType.羽白:
-                    return ResourcesConfig.羽白;
-                case PropType.羽绿:
-                    return ResourcesConfig.羽绿;
-                case PropType.羽蓝:
-                    return ResourcesConfig.羽蓝;
-                case PropType.羽紫:
-                    return ResourcesConfig.羽紫;
-                case PropType.羽橙:
-                    return ResourcesConfig.羽橙;
-                case PropType.羽粉:
-                    return ResourcesConfig.羽粉;
-                case PropType.羽红:
-                    return ResourcesConfig.羽红;
-                case PropType.羽彩:
-                    return ResourcesConfig.羽彩;
+                case PropType.羽1:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 1);
+                case PropType.羽2:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 2);
+                case PropType.羽3:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 3);
+                case PropType.羽4:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 4);
+                case PropType.羽5:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 5);
+                case PropType.羽6:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 6);
+                case PropType.羽7:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 7);
+                case PropType.羽8:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 8);
+                case PropType.羽9:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 9);
+                case PropType.羽10:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 10);
+                case PropType.羽11:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 11);
+                case PropType.羽12:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 12);
+                case PropType.羽13:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 13);
+                case PropType.羽14:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 14);
+                case PropType.羽15:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 15);
+                case PropType.羽16:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.羽, 16);
 
-                case PropType.砂白:
-                    return ResourcesConfig.砂白;
-                case PropType.砂绿:
-                    return ResourcesConfig.砂绿;
-                case PropType.砂蓝:
-                    return ResourcesConfig.砂蓝;
-                case PropType.砂紫:
-                    return ResourcesConfig.砂紫;
-                case PropType.砂橙:
-                    return ResourcesConfig.砂橙;
-                case PropType.砂粉:
-                    return ResourcesConfig.砂粉;
-                case PropType.砂红:
-                    return ResourcesConfig.砂红;
-                case PropType.砂彩:
-                    return ResourcesConfig.砂彩;
+                case PropType.砂1:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 1);
+                case PropType.砂2:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 2);
+                case PropType.砂3:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 3);
+                case PropType.砂4:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 4);
+                case PropType.砂5:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 5);
+                case PropType.砂6:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 6);
+                case PropType.砂7:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 7);
+                case PropType.砂8:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 8);
+                case PropType.砂9:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 9);
+                case PropType.砂10:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 10);
+                case PropType.砂11:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 11);
+                case PropType.砂12:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 12);
+                case PropType.砂13:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 13);
+                case PropType.砂14:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 14);
+                case PropType.砂15:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 15);
+                case PropType.砂16:
+                    return ResourcesConfig.Get法器材料Sprite(法器材料Type.砂, 16);
+
                 case PropType.轮回石:
                     return ResourcesConfig.轮回石;
                 case PropType.血晶:
@@ -1250,42 +1222,10 @@ namespace Config
             { PropType.矿石, "矿石" },
             { PropType.玄铁, "玄铁" },
             { PropType.玉髓, "玉髓" },
-            
-            { PropType.石白, "青石" },
-            { PropType.石绿, "硬石" },
-            { PropType.石蓝, "灵玉" },
-            { PropType.石紫, "玄龟石" },
-            { PropType.石橙, "地脉晶" },
-            { PropType.石粉, "星辰石" },
-            { PropType.石红, "鸿蒙石" },
-            { PropType.石彩, "混沌石" },
 
-            { PropType.铁白, "凡铁" },
-            { PropType.铁绿, "精铁" },
-            { PropType.铁蓝, "玄铁" },
-            { PropType.铁紫, "寒铁" },
-            { PropType.铁橙, "地火精金" },
-            { PropType.铁粉, "星辰铁" },
-            { PropType.铁红, "鸿蒙紫铁" },
-            { PropType.铁彩, "混沌神铁" },
+            // 法器材料名字 (石1~石16, 铁1~铁16, 羽1~羽16, 砂1~砂16)
+            // 通过 法器Config.Get法器材料Name(法器材料Type type, int 阶数) 动态获取，不再在此字典中硬编码
 
-            { PropType.羽白, "凡羽" },
-            { PropType.羽绿, "轻羽" },
-            { PropType.羽蓝, "风灵羽" },
-            { PropType.羽紫, "云纹羽" },
-            { PropType.羽橙, "灵鹤羽" },
-            { PropType.羽粉, "鲲鹏羽" },
-            { PropType.羽红, "鸿蒙羽" },
-            { PropType.羽彩, "混沌羽" },
-
-            { PropType.砂白, "粗砂" },
-            { PropType.砂绿, "细砂" },
-            { PropType.砂蓝, "灵砂" },
-            { PropType.砂紫, "星辰砂" },
-            { PropType.砂橙, "地脉砂" },
-            { PropType.砂粉, "玄天砂" },
-            { PropType.砂红, "鸿蒙砂" },
-            { PropType.砂彩, "混沌砂" },
             { PropType.轮回石, "轮回石" },
             { PropType.血晶, "血晶" },
         };
@@ -1300,42 +1240,10 @@ namespace Config
             { PropType.玉髓, QualityType.地品 },
             { PropType.轮回石, QualityType.地品 },
             { PropType.血晶, QualityType.地品 },
-            { PropType.石白, QualityType.黄品 },
-            { PropType.石绿, QualityType.玄品 },
-            { PropType.石蓝, QualityType.地品 },
-            { PropType.石紫, QualityType.天品 },
-            { PropType.石橙, QualityType.宇品 },
-            { PropType.石粉, QualityType.宙品 },
-            { PropType.石红, QualityType.洪品 },
-            { PropType.石彩, QualityType.荒品 },
 
-            { PropType.铁白, QualityType.黄品 },
-            { PropType.铁绿, QualityType.玄品 },
-            { PropType.铁蓝, QualityType.地品 },
-            { PropType.铁紫, QualityType.天品 },
-            { PropType.铁橙, QualityType.宇品 },
-            { PropType.铁粉, QualityType.宙品 },
-            { PropType.铁红, QualityType.洪品 },
-            { PropType.铁彩, QualityType.荒品 },
+            // 法器材料品质 (石1~石16, 铁1~铁16, 羽1~羽16, 砂1~砂16)
+            // 法器材料不再按品质分，而是按阶数分，PropQualityDic中不再包含材料项
 
-            { PropType.羽白, QualityType.黄品 },
-            { PropType.羽绿, QualityType.玄品 },
-            { PropType.羽蓝, QualityType.地品 },
-            { PropType.羽紫, QualityType.天品 },
-            { PropType.羽橙, QualityType.宇品 },
-            { PropType.羽粉, QualityType.宙品 },
-            { PropType.羽红, QualityType.洪品 },
-            { PropType.羽彩, QualityType.荒品 },
-
-            { PropType.砂白, QualityType.黄品 },
-            { PropType.砂绿, QualityType.玄品 },
-            { PropType.砂蓝, QualityType.地品 },
-            { PropType.砂紫, QualityType.天品 },
-            { PropType.砂橙, QualityType.宇品 },
-            { PropType.砂粉, QualityType.宙品 },
-            { PropType.砂红, QualityType.洪品 },
-            { PropType.砂彩, QualityType.荒品 },
-            
             { PropType.法器粉尘, QualityType.地品 },
             { PropType.洗练石, QualityType.宇品 },
             { PropType.全职业经验值, QualityType.天品 },

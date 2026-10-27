@@ -54,7 +54,7 @@ public class 自动购买配置窗口 : MonoBehaviour
       Destroy(item.gameObject);
     }
 
-    foreach (var item in 法器Config.法器品质Dic)
+    foreach (var item in 法器Config.法器名Dic)
     {
       var 配置Item = Instantiate(Resources.Load("Prefabs/Window/坊市/坊市自动购买Item"), content.transform)
         .GetComponent<坊市自动购买Item>();

@@ -425,11 +425,11 @@ public class 符文附魔panel : MonoBehaviour
             Icon.gameObject.SetActive(true);
             nameObj.gameObject.SetActive(true);
             艺术字.gameObject.SetActive(true);
-            艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.法器品质Dic[HeroWindowController.S.当前符文附魔法器.法器Type]);
+            艺术字.sprite = ResourcesConfig.Get艺术字(HeroWindowController.S.当前符文附魔法器.品质);
             Icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.当前符文附魔法器.法器Type);
             name.text = 法器Config.法器名Dic[HeroWindowController.S.当前符文附魔法器.法器Type];
             name.colorGradientPreset =
-                ResourcesConfig.Get品质TMP(法器Config.法器品质Dic[HeroWindowController.S.当前符文附魔法器.法器Type]);
+                ResourcesConfig.Get品质TMP(HeroWindowController.S.当前符文附魔法器.品质);
         }
     }
 
