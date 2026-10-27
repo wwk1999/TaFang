@@ -138,7 +138,7 @@ public class BagGridImage : MonoBehaviour,IPointerClickHandler, IPointerEnterHan
                 if (按下Shift)
                 {
                     PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[
-                        PropConfig.GetProp品质(BagGrid.propType)] * PlayerData.S.PropListDic[BagGrid.propType];
+                        PropConfig.GetProp阶数(BagGrid.propType)] * PlayerData.S.PropListDic[BagGrid.propType];
                     PlayerData.S.PropListDic[BagGrid.propType] = 0;
                     ObserverModuleManager.S.SendEvent("刷新背包");
                 }

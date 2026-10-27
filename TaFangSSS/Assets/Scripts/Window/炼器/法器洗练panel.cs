@@ -367,7 +367,7 @@ public class 法器洗练panel : MonoBehaviour
             if (!item.锁)
             {
                 item.法器附加属性Type = (法器附加属性Type)Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
-                int 阶数 = HeroWindowController.S.洗练panel当前法器.阶数;
+                int 阶数 = Mathf.Clamp(HeroWindowController.S.洗练panel当前法器.阶数, 1, 16);
                 float min = 法器Config
                     .法器Minmaxes[
                         new 法器附加属性品质type()
@@ -454,7 +454,7 @@ public class 法器洗练panel : MonoBehaviour
             if (!item.锁)
             {
                 item.法器附加属性Type = (法器附加属性Type)Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
-                int 阶数 = HeroWindowController.S.洗练panel当前法器.阶数;
+                int 阶数 = Mathf.Clamp(HeroWindowController.S.洗练panel当前法器.阶数, 1, 16);
                 float min = 法器Config
                     .法器Minmaxes[
                         new 法器附加属性品质type()

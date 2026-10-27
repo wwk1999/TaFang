@@ -33,7 +33,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
                 gameObject.SetActive(false);
                 return;
             }
-            PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[法器Config.Get阶数对应品质(PropConfig.GetProp阶数(PropType))] * count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
+            PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[PropConfig.GetProp阶数(PropType)] * count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
             PlayerData.S.PropListDic[PropType] -= count;
             ObserverModuleManager.S.SendEvent("SendUIToast","分解成功");
             ObserverModuleManager.S.SendEvent("刷新背包");
@@ -57,7 +57,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
     
     private void OnEnable()
     {
-        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.GetProp品质(PropType)]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
+        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.GetProp阶数(PropType)]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
         // 先设minValue再设maxValue，并夹住下限为1，避免UGUI把maxValue强行抬到minValue导致0个材料也能分解
         float 持有 = PlayerData.S.PropListDic[PropType];
         数量Slider.minValue = 1;
@@ -78,7 +78,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
         数量Slider.value=newCount;
         数量.text=newCount.ToString();
         count=newCount;
-        获得粉尘.text=(newCount*法器Config.法器材料分解粉尘Dic[法器Config.Get阶数对应品质(PropConfig.GetProp阶数(PropType))]).ToString();
+        获得粉尘.text=(newCount*法器Config.法器材料分解粉尘Dic[PropConfig.GetProp阶数(PropType)]).ToString();
     }
     public void SetItem()
     {

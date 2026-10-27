@@ -554,6 +554,9 @@ public class StoreController : XSingleton<StoreController>
                 // 材料在加入打造队列时已扣除；品质在打造完成时随机赋予
                 QualityType 成品品质 = 法器Config.Random品质(当前打造.阶数);
                 PlayerData.S.法器列表.Add(法器Config.Get坊市法器(当前打造.法器Type, 成品品质, 当前打造.阶数));
+                // 打造完成提示，并刷新背包法器列表
+                ObserverModuleManager.S.SendEvent("SendUIToast", 法器Config.Get法器Name(当前打造.法器Type, 当前打造.阶数), 成品品质, 1);
+                ObserverModuleManager.S.SendEvent("刷新背包");
                 PlayerData.S.打造List[0].count--;
                 PlayerData.S.打造List[0].进度 = 0;
                 if (PlayerData.S.打造List[0].count <= 0)
@@ -717,7 +720,14 @@ public class StoreController : XSingleton<StoreController>
 
     public float Get法器打造时间()
     {
-        float value=法器Config.法器打造时间[PlayerData.S.打造List[0].阶数] * 属性config.每年秒数;
+        // 打造时间只与阶数有关；阶数缺失时按1阶兜底，避免旧数据索引崩溃
+        if (!法器Config.法器打造时间.TryGetValue(PlayerData.S.打造List[0].阶数, out float 基础道年))
+        {
+            基础道年 = 法器Config.法器打造时间[1];
+        }
+        float value=基础道年 * 属性config.每年秒数;
+        // 炼器室等级提供的炼器速度加成
+        value /= (1f + 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].速度加成/100f);
         value /= (1f + 道场Config.供奉总属性.炼器速度/100f);
         value /=(1f+体质Config.当前体质总属性.炼器速度/100f);
         return value;

@@ -722,41 +722,70 @@ public class 法器Config
     };
 
     // ==================== 消耗/分解（品质维度保持不变） ====================
-
-    public static Dictionary<QualityType, int> 法器洗练消耗Dic = new Dictionary<QualityType, int>()
+    public static List<float> 法器洗练品质倍数消耗 = new List<float>() { 1, 1.5f, 2f, 3, 5, 8, 12, 20 };
+        
+    public static Dictionary<int, float> 法器洗练消耗Dic = new Dictionary<int, float>()
     {
-        { QualityType.黄品 ,100},
-        { QualityType.玄品 ,300},
-        { QualityType.地品 ,1000},
-        { QualityType.天品 ,3000},
-        { QualityType.宇品 ,10000},
-        { QualityType.宙品 ,30000},
-        { QualityType.洪品 ,100000},
-        { QualityType.荒品 ,500000},
+        { 1 ,50},
+        { 2 ,150},
+        { 3 ,500},
+        { 4 ,1500},
+        { 5 ,5000},
+        { 6 ,15000},
+        { 7 ,50000},
+        { 8 ,250000},
+        
+        { 9 ,1500000},
+        { 10 ,8000000},
+        { 11 ,35000000},
+        { 12 ,150000000},
+        { 13 ,800000000},
+        { 14 ,4000000000},
+        { 15 ,20000000000},
+        { 16 ,100000000000},
     };
 
-    public static Dictionary<QualityType, int> 法器分解Dic = new Dictionary<QualityType, int>()
+    public static List<float> 法器粉尘品质分解倍数 = new List<float>() { 1, 1.5f, 2f, 3, 5, 10, 20, 50 };
+    public static Dictionary<int, float> 法器分解Dic = new Dictionary<int, float>()
     {
-        { QualityType.黄品 ,100},
-        { QualityType.玄品 ,300},
-        { QualityType.地品 ,1000},
-        { QualityType.天品 ,3000},
-        { QualityType.宇品 ,10000},
-        { QualityType.宙品 ,30000},
-        { QualityType.洪品 ,100000},
-        { QualityType.荒品 ,500000},
+        { 1 ,100},
+        { 2 ,300},
+        { 3 ,1000},
+        { 4 ,3000},
+        { 5 ,10000},
+        { 6 ,30000},
+        { 7 ,100000},
+        { 8 ,500000},
+        
+        { 9 ,3000000},
+        { 10 ,15000000},
+        { 11 ,75000000},
+        { 12 ,350000000},
+        { 13 ,1600000000},
+        { 14 ,8000000000},
+        { 15 ,40000000000},
+        { 16 ,200000000000},
     };
 
-    public static Dictionary<QualityType, int> 法器材料分解粉尘Dic = new Dictionary<QualityType, int>()
+    public static Dictionary<int, float> 法器材料分解粉尘Dic = new Dictionary<int, float>()
     {
-        { QualityType.黄品 ,20},
-        { QualityType.玄品 ,60},
-        { QualityType.地品 ,200},
-        { QualityType.天品 ,600},
-        { QualityType.宇品 ,2000},
-        { QualityType.宙品 ,6000},
-        { QualityType.洪品 ,20000},
-        { QualityType.荒品 ,100000},
+        { 1 ,30},
+        { 2 ,100},
+        { 3 ,300},
+        { 4 ,1000},
+        { 5 ,3000},
+        { 6 ,10000},
+        { 7 ,30000},
+        { 8 ,150000},
+        
+        { 9 ,1000000},
+        { 10 ,5000000},
+        { 11 ,25000000},
+        { 12 ,100000000},
+        { 13 ,600000000},
+        { 14 ,2500000000},
+        { 15 ,10000000000},
+        { 16 ,60000000000},
     };
 
     // ==================== 法器职业 ====================
@@ -1277,6 +1306,8 @@ public class 法器Config
         List<法器附加属性值> list = new List<法器附加属性值>();
         // 词条数量按品质决定：黄品1条，玄品2条...荒品8条
         int 数量 = (int)qualityType;
+        // 夹住阶数，避免旧存档（无阶数字段，值为0）触发Minmaxes索引异常
+        阶数 = Mathf.Clamp(阶数, 1, 16);
         for (int i = 0; i < 数量; i++)
         {
             int type = Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);

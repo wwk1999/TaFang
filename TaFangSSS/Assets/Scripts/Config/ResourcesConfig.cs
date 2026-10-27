@@ -4328,6 +4328,25 @@ public static Sprite 白玉莲变异收获;
         return null;
     }
 
+    /// <summary>
+    /// 加载按阶数排列的精灵表：子图命名形如「铁_0」~「铁_15」，
+    /// LoadAll 的顺序不保证与阶数一致（字典序会把 _10 排到 _2 前面），这里按尾部数字重排
+    /// </summary>
+    private static Sprite[] Load阶数Sprites(string path)
+    {
+        var sprites = Resources.LoadAll<Sprite>(path);
+        if (sprites == null || sprites.Length == 0) return new Sprite[0];
+        System.Array.Sort(sprites, (a, b) => 取尾部序号(a.name).CompareTo(取尾部序号(b.name)));
+        return sprites;
+    }
+
+    private static int 取尾部序号(string spriteName)
+    {
+        int index = spriteName.LastIndexOf('_');
+        if (index >= 0 && int.TryParse(spriteName.Substring(index + 1), out int number)) return number;
+        return int.MaxValue;
+    }
+
     public static Sprite Get法器Sprite(法器Type 法器Type, int 阶数 = 1)
     {
         if (阶数 < 1 || 阶数 > 16) return null;
@@ -8341,10 +8360,10 @@ public static Sprite Get土地亮Sprite(土地Type 土地Type)
         轮回石=Resources.Load<Sprite>("Sprite/DaoJu/轮回石");
         血晶=Resources.Load<Sprite>("Sprite/DaoJu/血晶");
         // ========== 法器材料 Sprite 加载（新的阶数制） ==========
-        材料SpriteCache[法器材料Type.铁] = Resources.LoadAll<Sprite>("Sprite/法器材料/铁");
-        材料SpriteCache[法器材料Type.石] = Resources.LoadAll<Sprite>("Sprite/法器材料/石");
-        材料SpriteCache[法器材料Type.羽] = Resources.LoadAll<Sprite>("Sprite/法器材料/羽");
-        材料SpriteCache[法器材料Type.砂] = Resources.LoadAll<Sprite>("Sprite/法器材料/砂");
+        材料SpriteCache[法器材料Type.铁] = Load阶数Sprites("Sprite/法器材料/铁");
+        材料SpriteCache[法器材料Type.石] = Load阶数Sprites("Sprite/法器材料/石");
+        材料SpriteCache[法器材料Type.羽] = Load阶数Sprites("Sprite/法器材料/羽");
+        材料SpriteCache[法器材料Type.砂] = Load阶数Sprites("Sprite/法器材料/砂");
 
 
         
@@ -9632,26 +9651,26 @@ public static Sprite Get土地亮Sprite(土地Type 土地Type)
         天罡石彩 = Resources.LoadAll<Sprite>("Sprite/仙石/天罡石")[7];
 // ========== 战士 ==========
         // ========== 法器 Sprite 加载（新的阶数制） ==========
-        法器SpriteCache[法器Type.战士衣服] = Resources.LoadAll<Sprite>("Sprite/法器/战士衣服");
-        法器SpriteCache[法器Type.战士武器] = Resources.LoadAll<Sprite>("Sprite/法器/战士武器");
-        法器SpriteCache[法器Type.战士头盔] = Resources.LoadAll<Sprite>("Sprite/法器/战士头盔");
-        法器SpriteCache[法器Type.战士鞋子] = Resources.LoadAll<Sprite>("Sprite/法器/战士鞋子");
-        法器SpriteCache[法器Type.控制衣服] = Resources.LoadAll<Sprite>("Sprite/法器/控制衣服");
-        法器SpriteCache[法器Type.控制武器] = Resources.LoadAll<Sprite>("Sprite/法器/控制武器");
-        法器SpriteCache[法器Type.控制头盔] = Resources.LoadAll<Sprite>("Sprite/法器/控制头盔");
-        法器SpriteCache[法器Type.控制鞋子] = Resources.LoadAll<Sprite>("Sprite/法器/控制鞋子");
-        法器SpriteCache[法器Type.辅助衣服] = Resources.LoadAll<Sprite>("Sprite/法器/辅助衣服");
-        法器SpriteCache[法器Type.辅助武器] = Resources.LoadAll<Sprite>("Sprite/法器/辅助武器");
-        法器SpriteCache[法器Type.辅助头盔] = Resources.LoadAll<Sprite>("Sprite/法器/辅助头盔");
-        法器SpriteCache[法器Type.辅助鞋子] = Resources.LoadAll<Sprite>("Sprite/法器/辅助鞋子");
-        法器SpriteCache[法器Type.射手衣服] = Resources.LoadAll<Sprite>("Sprite/法器/射手衣服");
-        法器SpriteCache[法器Type.射手武器] = Resources.LoadAll<Sprite>("Sprite/法器/射手武器");
-        法器SpriteCache[法器Type.射手头盔] = Resources.LoadAll<Sprite>("Sprite/法器/射手头盔");
-        法器SpriteCache[法器Type.射手鞋子] = Resources.LoadAll<Sprite>("Sprite/法器/射手鞋子");
-        法器SpriteCache[法器Type.法师衣服] = Resources.LoadAll<Sprite>("Sprite/法器/法师衣服");
-        法器SpriteCache[法器Type.法师武器] = Resources.LoadAll<Sprite>("Sprite/法器/法师武器");
-        法器SpriteCache[法器Type.法师头盔] = Resources.LoadAll<Sprite>("Sprite/法器/法师头盔");
-        法器SpriteCache[法器Type.法师鞋子] = Resources.LoadAll<Sprite>("Sprite/法器/法师鞋子");
+        法器SpriteCache[法器Type.战士衣服] = Load阶数Sprites("Sprite/法器/战士衣服");
+        法器SpriteCache[法器Type.战士武器] = Load阶数Sprites("Sprite/法器/战士武器");
+        法器SpriteCache[法器Type.战士头盔] = Load阶数Sprites("Sprite/法器/战士头盔");
+        法器SpriteCache[法器Type.战士鞋子] = Load阶数Sprites("Sprite/法器/战士鞋子");
+        法器SpriteCache[法器Type.控制衣服] = Load阶数Sprites("Sprite/法器/控制衣服");
+        法器SpriteCache[法器Type.控制武器] = Load阶数Sprites("Sprite/法器/控制武器");
+        法器SpriteCache[法器Type.控制头盔] = Load阶数Sprites("Sprite/法器/控制头盔");
+        法器SpriteCache[法器Type.控制鞋子] = Load阶数Sprites("Sprite/法器/控制鞋子");
+        法器SpriteCache[法器Type.辅助衣服] = Load阶数Sprites("Sprite/法器/辅助衣服");
+        法器SpriteCache[法器Type.辅助武器] = Load阶数Sprites("Sprite/法器/辅助武器");
+        法器SpriteCache[法器Type.辅助头盔] = Load阶数Sprites("Sprite/法器/辅助头盔");
+        法器SpriteCache[法器Type.辅助鞋子] = Load阶数Sprites("Sprite/法器/辅助鞋子");
+        法器SpriteCache[法器Type.射手衣服] = Load阶数Sprites("Sprite/法器/射手衣服");
+        法器SpriteCache[法器Type.射手武器] = Load阶数Sprites("Sprite/法器/射手武器");
+        法器SpriteCache[法器Type.射手头盔] = Load阶数Sprites("Sprite/法器/射手头盔");
+        法器SpriteCache[法器Type.射手鞋子] = Load阶数Sprites("Sprite/法器/射手鞋子");
+        法器SpriteCache[法器Type.法师衣服] = Load阶数Sprites("Sprite/法器/法师衣服");
+        法器SpriteCache[法器Type.法师武器] = Load阶数Sprites("Sprite/法器/法师武器");
+        法器SpriteCache[法器Type.法师头盔] = Load阶数Sprites("Sprite/法器/法师头盔");
+        法器SpriteCache[法器Type.法师鞋子] = Load阶数Sprites("Sprite/法器/法师鞋子");
 
         青木狼 = Resources.Load<Sprite>("Sprite/洞天怪物icon/青木狼");
         铁背龟 = Resources.Load<Sprite>("Sprite/洞天怪物icon/铁背龟");

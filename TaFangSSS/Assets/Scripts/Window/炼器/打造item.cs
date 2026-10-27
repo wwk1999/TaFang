@@ -17,7 +17,8 @@ public class 打造item : MonoBehaviour,IPointerClickHandler
     [NonSerialized] public int 阶数 = 1;
     [NonSerialized] public int count;
     [NonSerialized] public float 进度;
-    [NonSerialized] public int index;
+    // 直接持有队列对象，避免队列刷新/前项完成移除后索引错位
+    [NonSerialized] public 法器打造Item 队列项;
     public void SetItem()
     {
         mask.sprite=ResourcesConfig.Get法器Sprite(法器Type, 阶数);
@@ -32,16 +33,18 @@ public class 打造item : MonoBehaviour,IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            // 队列已被刷新或该项已完成，直接忽略
+            if (队列项 == null || !PlayerData.S.打造List.Contains(队列项)) return;
             // 取消排队时，按该队列剩余数量返还加入时已扣除的打造材料
-            if (count > 0)
+            if (队列项.count > 0)
             {
-                List<PropType> 材料 = 法器Config.Get打造法器材料(法器Type, 阶数);
+                List<PropType> 材料 = 法器Config.Get打造法器材料(队列项.法器Type, 队列项.阶数);
                 foreach (var propType in 材料)
                 {
-                    PlayerData.S.PropListDic[propType] += count;
+                    PlayerData.S.PropListDic[propType] += 队列项.count;
                 }
             }
-            PlayerData.S.打造List.RemoveAt(index);
+            PlayerData.S.打造List.Remove(队列项);
             // 刷新整个打造面板，同步剩余材料与可打造数量
             ObserverModuleManager.S.SendEvent("刷新法器打造Panel");
         }

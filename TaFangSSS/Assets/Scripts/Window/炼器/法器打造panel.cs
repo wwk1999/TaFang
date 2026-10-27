@@ -65,17 +65,15 @@ public class 法器打造panel : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        int index = 0;
         foreach (var item in PlayerData.S.打造List)
         {
             var 打造item = Instantiate(Resources.Load("Prefabs/Window/炼器/打造item"), 打造区域.transform).GetComponent<打造item>();
+            打造item.队列项 = item;
             打造item.法器Type = item.法器Type;
             打造item.阶数 = item.阶数;
             打造item.count = item.count;
             打造item.进度 = item.进度;
-            打造item.index = index;
             打造item.SetItem();
-            index++;
         }
     }
     public void Show右panel()

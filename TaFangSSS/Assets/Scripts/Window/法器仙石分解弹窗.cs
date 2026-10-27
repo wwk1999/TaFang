@@ -152,7 +152,7 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                                (品质 == QualityType.荒品 && 荒));
                         if (v)
                         {
-                            PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器分解Dic[品质]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
+                            PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器分解Dic[法器.阶数]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
                         }
                         return v;
                     });

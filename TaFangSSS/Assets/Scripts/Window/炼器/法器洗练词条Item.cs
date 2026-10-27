@@ -37,8 +37,11 @@ public class 法器洗练词条Item : MonoBehaviour
            text.text = "仙石类型：" + 仙石Config.仙石名Dic[仙石Type];
            return;
        }
+      // 词条存的是基础值，展示时需乘品质倍率，与法器信息弹窗口径保持一致
+      float 倍率 = 1f;
+      if (法器Config.法器品质倍率.TryGetValue(QualityType, out var 品质倍率)) 倍率 = 品质倍率;
       text.text = 法器Config.法器附加属性Desc[法器附加属性值.法器附加属性Type] + "+" +
-                  $"<color=green>{法器附加属性值.count.ToString("F1")}%</color>";
+                  $"<color=green>{(法器附加属性值.count * 倍率).ToString("F1")}%</color>";
    }
 
    private void Start()
