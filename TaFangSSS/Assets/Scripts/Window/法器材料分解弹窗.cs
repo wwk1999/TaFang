@@ -51,7 +51,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
         分解按钮.interactable = 持有 >= 1f;
         数量.text = "1";
         数量Slider.onValueChanged.AddListener(OnSliderValueChanged);
-        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.GetProp品质(PropType)]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
+        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.GetProp阶数(PropType)]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
     }
     
     
@@ -78,7 +78,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
         数量Slider.value=newCount;
         数量.text=newCount.ToString();
         count=newCount;
-        获得粉尘.text=(newCount*法器Config.法器材料分解粉尘Dic[PropConfig.GetProp阶数(PropType)]).ToString();
+        获得粉尘.text=(newCount*法器Config.法器材料分解粉尘Dic[PropConfig.GetProp阶数(PropType)]*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
     }
     public void SetItem()
     {

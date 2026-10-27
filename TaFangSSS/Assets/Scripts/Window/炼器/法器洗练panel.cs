@@ -122,7 +122,7 @@ public class 法器洗练panel : MonoBehaviour
             }
 
 
-            float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
+            float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
                          MathF.Pow(2, count);
             需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
             当前粉尘Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
@@ -278,7 +278,7 @@ public class 法器洗练panel : MonoBehaviour
         }
 
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
                      MathF.Pow(2, count);
         需要粉尘Count.text = PlayerData.S.格式化数字(需要粉尘);
         当前粉尘Count.text=PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.法器粉尘]);
@@ -326,7 +326,7 @@ public class 法器洗练panel : MonoBehaviour
             }
         }
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
                      MathF.Pow(2, count1);
         if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
         {
@@ -424,7 +424,7 @@ public class 法器洗练panel : MonoBehaviour
             }
         }
 
-        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.品质] *
+        float 需要粉尘 = 法器Config.法器洗练消耗Dic[HeroWindowController.S.洗练panel当前法器.阶数] *
                      MathF.Pow(2, count1);
         if (PlayerData.S.PropListDic[PropType.法器粉尘] < 需要粉尘)
         {

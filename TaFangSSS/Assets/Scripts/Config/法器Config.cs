@@ -8,7 +8,8 @@ public class 法器打造Item
 {
     public 法器Type 法器Type;
     public QualityType 品质;
-    public int 阶数;
+    // 默认1阶：旧存档无阶数字段时反序列化会保留字段初始值，避免出现0阶
+    public int 阶数 = 1;
     public int count;
     public float 进度;
 }
@@ -118,7 +119,8 @@ public class 法器
 {
     public 法器Type 法器Type;
     public QualityType 品质;
-    public int 阶数;
+    // 默认1阶：旧存档无阶数字段时反序列化会保留字段初始值，避免0阶导致背包/分解/洗练异常
+    public int 阶数 = 1;
     public List<法器附加属性值> list = new List<法器附加属性值>();
     public List<仙石> 仙石list = new List<仙石>();
     public HeroType HeroType = HeroType.None;
@@ -721,7 +723,8 @@ public class 法器Config
         { 法器附加属性Type.黑暗穿透, "黑暗穿透" },
     };
 
-    // ==================== 消耗/分解（品质维度保持不变） ====================
+    // ==================== 消耗/分解（已按阶数1~16为键，不再按品质） ====================
+    // 以下两个品质倍率表已无调用方，保留待定
     public static List<float> 法器洗练品质倍数消耗 = new List<float>() { 1, 1.5f, 2f, 3, 5, 8, 12, 20 };
         
     public static Dictionary<int, float> 法器洗练消耗Dic = new Dictionary<int, float>()

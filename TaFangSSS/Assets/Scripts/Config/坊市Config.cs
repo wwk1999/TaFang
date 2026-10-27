@@ -16,16 +16,47 @@ public class 坊市物品
 }
 public class 坊市Config
 {
-    public static Dictionary<QualityType, long> 法器价格Dic = new Dictionary<QualityType, long>()
+    public static Dictionary<int, QualityType> 坊市法器品质Dic = new Dictionary<int, QualityType>()
     {
-        { QualityType.黄品, 200 },
-        { QualityType.玄品, 500 },
-        { QualityType.地品, 2000 },
-        { QualityType.天品, 6000 },
-        { QualityType.宇品, 50000 },
-        { QualityType.宙品, 1000000 },
-        { QualityType.洪品, 20000000 },
-        { QualityType.荒品, 1000000000 },
+        { 1, QualityType.黄品 },
+        { 2, QualityType.黄品 },
+        { 3, QualityType.玄品 },
+        { 4, QualityType.玄品 },
+        { 5, QualityType.玄品 },
+        { 6, QualityType.地品 },
+        { 7, QualityType.地品 },
+        { 8, QualityType.地品 },
+
+        { 9, QualityType.天品 },
+        { 10, QualityType.天品 },
+        { 11, QualityType.天品 },
+        { 12, QualityType.天品 },
+        { 13, QualityType.宇品 },
+        { 14, QualityType.宇品 },
+        { 15, QualityType.宇品 },
+        { 16, QualityType.宇品 },
+    };
+
+    
+    public static Dictionary<int, float> 法器价格Dic = new Dictionary<int, float>()
+    {
+        { 1, 200 },
+        { 2, 500 },
+        { 3, 2000 },
+        { 4, 6000 },
+        { 5, 50000 },
+        { 6, 1000000 },
+        { 7, 20000000 },
+        { 8, 100000000 },
+        
+        { 9, 500000000 },
+        { 10, 2500000000 },
+        { 11, 10000000000 },
+        { 12, 50000000000 },
+        { 13, 250000000000 },
+        { 14, 1000000000000 },
+        { 15, 5000000000000 },
+        { 16, 25000000000000 },
     };
     
     public static Dictionary<QualityType, long> 战斗丹药价格Dic = new Dictionary<QualityType, long>()
