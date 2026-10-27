@@ -243,7 +243,7 @@ public class 坊市Config
                     法器 法器 = 法器Config.Get坊市法器(item.法器Type, item.QualityType, item.阶数);
                     PlayerData.S.法器列表.Add(法器);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
-                    ObserverModuleManager.S.SendEvent("SendUIToast",法器Config.法器名Dic[item.法器Type], item.QualityType, 1);
+                    ObserverModuleManager.S.SendEvent("SendUIToast",法器Config.Get法器Name(item.法器Type, item.阶数), item.QualityType, 1);
                 }
             }
             

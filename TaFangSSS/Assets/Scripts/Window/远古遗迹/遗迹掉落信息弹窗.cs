@@ -34,8 +34,8 @@ public class 遗迹掉落信息弹窗 : MonoBehaviour
       if (神物Type == 神物Type.None)
       {
          icon.sprite = PropConfig.Get道具信息Sprite(type);
-         name.text = PropConfig.道具信息NameDic[type];
-         desc.text = PropConfig.道具信息InfoDic[type];
+         name.text = PropConfig.Get道具信息Name(type);
+         desc.text = PropConfig.Get道具信息Info(type);
          HashSet<LevelDiaoLuo> list=神物Config.遗迹掉落Dic[HeroWindowController.S.当前遗迹关卡Type];
          foreach (var item in list)
          {

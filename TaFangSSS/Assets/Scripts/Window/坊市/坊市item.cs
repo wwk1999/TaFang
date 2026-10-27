@@ -51,7 +51,7 @@ public class 坊市item : MonoBehaviour
                 }
 
                 PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
-                法器 法器 = 法器Config.Get坊市法器(法器Type);
+                法器 法器 = 法器Config.Get坊市法器(法器Type, QualityType, 阶数);
                 PlayerData.S.法器列表.Add(法器);
                 ObserverModuleManager.S.SendEvent("SendUIToast","购买成功");
                 售空.gameObject.SetActive(true);
@@ -153,9 +153,9 @@ public class 坊市item : MonoBehaviour
         售空.gameObject.SetActive(是否被购买);
         if (法器Type != 法器Type.None)
         {
-            name.text = 法器Config.法器名Dic[法器Type];
+            name.text = 法器Config.Get法器Name(法器Type, 阶数);
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-            icon.sprite = ResourcesConfig.Get法器Sprite(法器Type);
+            icon.sprite = ResourcesConfig.Get法器Sprite(法器Type, 阶数);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
             desc.text = 法器Config.法器descDic[法器Type];

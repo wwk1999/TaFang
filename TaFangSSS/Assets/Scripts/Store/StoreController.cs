@@ -550,7 +550,7 @@ public class StoreController : XSingleton<StoreController>
         {
             if (PlayerData.S.打造List[0].进度 >= 100)
             {
-                List<PropType> 材料 = 法器Config.Get打造法器材料(PlayerData.S.打造List[0].法器Type);
+                List<PropType> 材料 = 法器Config.Get打造法器材料(PlayerData.S.打造List[0].法器Type, PlayerData.S.打造List[0].阶数);
                 foreach (var item in 材料)
                 {
                     if (PlayerData.S.PropListDic[item] < 1f)
@@ -564,7 +564,7 @@ public class StoreController : XSingleton<StoreController>
                 {
                     PlayerData.S.PropListDic[item]--;
                 }
-                PlayerData.S.法器列表.Add(法器Config.Get坊市法器(PlayerData.S.打造List[0].法器Type));
+                PlayerData.S.法器列表.Add(法器Config.Get坊市法器(PlayerData.S.打造List[0].法器Type, PlayerData.S.打造List[0].品质, PlayerData.S.打造List[0].阶数));
                 PlayerData.S.打造List[0].count--;
                 PlayerData.S.打造List[0].进度 = 0;
                 if (PlayerData.S.打造List[0].count <= 0)

@@ -43,7 +43,7 @@ public class 符文之地道具信息弹窗 : MonoBehaviour
             bg.sprite = ResourcesConfig.Get道具背景框Sprite(propType);
             icon.sprite=ResourcesConfig.GetPropSprite(propType);            icon.sprite = ResourcesConfig.问号;
             name.text = PropConfig.PropNameDic[propType];
-            desc.text = PropConfig.道具信息InfoDic[PropConfig.PropTypeTo道具信息[propType]];
+            desc.text = PropConfig.Get道具信息Info(PropConfig.PropTypeTo道具信息[propType]);
             var list=符文之地Config.符文之地掉落Dic[HeroWindowController.S.当前符文之地Type];
             foreach (var item in list)
             {

@@ -51,7 +51,7 @@ public class 灵物信息弹窗 : MonoBehaviour
             {
                 数量.text = "掉落数量：" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][0].minCount) + "-" + PlayerData.S.格式化数字(灵物突破Config.洞天普通掉落Dic[new 洞天关卡Item() { JingJieType = PlayerData.S.当前轮回境界, qualityType = QualityType }][0].maxCount);
             }
-            desc.text = PropConfig.道具信息InfoDic[PropConfig.PropTypeTo道具信息[ProType]];
+            desc.text = PropConfig.Get道具信息Info(PropConfig.PropTypeTo道具信息[ProType]);
         }
     }
 }

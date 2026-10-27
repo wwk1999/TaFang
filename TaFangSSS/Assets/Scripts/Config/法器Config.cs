@@ -307,6 +307,19 @@ public class 法器Config
         return string.Empty;
     }
 
+    /// <summary>阶数对应的显示品质档位：1~8阶对应黄品~荒品，9阶以上沿用荒品表现</summary>
+    public static QualityType Get阶数对应品质(int 阶数)
+    {
+        return (QualityType)Mathf.Clamp(阶数, 1, 8);
+    }
+
+    /// <summary>法器显示名称：基础名 + 阶数，如「巨剑3阶」</summary>
+    public static string Get法器Name(法器Type type, int 阶数)
+    {
+        if (法器名Dic.TryGetValue(type, out var name)) return name + 阶数 + "阶";
+        return string.Empty;
+    }
+
     /// <summary>
     /// 获取打造指定法器（按阶数）所需的材料PropType列表
     /// 每种材料按阶数取 石N/铁N/羽N/砂N，每件每种材料各1个
@@ -1134,14 +1147,13 @@ public class 法器Config
     }
 
     /// <summary>
-    /// 根据品质确定词条数量，按阶数取Minmaxes基础值，最终值在外层乘品质倍率
+    /// 按品质确定词条数量，按阶数取Minmaxes基础值；词条存基础值，品质倍率在Get法器属性中统一乘算
     /// </summary>
     public static List<法器附加属性值> Get法器附加属性(QualityType qualityType, int 阶数)
     {
         List<法器附加属性值> list = new List<法器附加属性值>();
         // 词条数量按品质决定：黄品1条，玄品2条...荒品8条
         int 数量 = (int)qualityType;
-        float 品质倍率 = 法器品质倍率[qualityType];
         for (int i = 0; i < 数量; i++)
         {
             int type = Random.Range(1, Enum.GetValues(typeof(法器附加属性Type)).Length);
@@ -1154,12 +1166,12 @@ public class 法器Config
             if (无暇random < 1f)
             {
                 法器附加属性值.无暇 = true;
-                法器附加属性值.count = max * 品质倍率;
+                法器附加属性值.count = max;
             }
             else
             {
                 法器附加属性值.无暇 = false;
-                法器附加属性值.count = Random.Range(min, max) * 品质倍率;
+                法器附加属性值.count = Random.Range(min, max);
             }
             法器附加属性值.法器附加属性Type = 附加属性Type;
             list.Add(法器附加属性值);

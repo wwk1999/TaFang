@@ -76,7 +76,7 @@ public class BagGridImage : MonoBehaviour,IPointerClickHandler, IPointerEnterHan
         currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
         背包Grid信息弹窗 弹窗 = currentPopup.GetComponent<背包Grid信息弹窗>();
         弹窗.PropType = BagGrid.propType;
-        弹窗.QualityType = PropConfig.PropQualityDic[BagGrid.propType];
+        弹窗.QualityType = PropConfig.GetProp品质(BagGrid.propType);
         弹窗.SetItem();
         // 设置弹窗的位置
         UpdatePopupPosition(mousePosition);
@@ -138,7 +138,7 @@ public class BagGridImage : MonoBehaviour,IPointerClickHandler, IPointerEnterHan
                 if (按下Shift)
                 {
                     PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[
-                        PropConfig.PropQualityDic[BagGrid.propType]] * PlayerData.S.PropListDic[BagGrid.propType];
+                        PropConfig.GetProp品质(BagGrid.propType)] * PlayerData.S.PropListDic[BagGrid.propType];
                     PlayerData.S.PropListDic[BagGrid.propType] = 0;
                     ObserverModuleManager.S.SendEvent("刷新背包");
                 }

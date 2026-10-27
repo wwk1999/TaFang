@@ -35,8 +35,8 @@ public class 符文附魔法器item : MonoBehaviour
       头像.SetActive(法器.HeroType!=HeroType.None);
       英雄头像.sprite = ResourcesConfig.GetHeroSprite(法器.HeroType);
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
-      icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
-      name.text = 法器Config.法器名Dic[法器.法器Type];
+      icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type, 法器.阶数);
+      name.text = 法器Config.Get法器Name(法器.法器Type, 法器.阶数);
       name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器.品质);
       gou.SetActive(false);
       出战.SetActive(法器.HeroType!=HeroType.None);

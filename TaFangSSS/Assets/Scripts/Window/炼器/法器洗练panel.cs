@@ -70,8 +70,8 @@ public class 法器洗练panel : MonoBehaviour
             洗练前词条.gameObject.SetActive(true);
             洗练后词条.gameObject.SetActive(true);
             艺术字.sprite = ResourcesConfig.Get艺术字(HeroWindowController.S.洗练panel当前法器.品质);
-            nameText.text = 法器Config.法器名Dic[HeroWindowController.S.洗练panel当前法器.法器Type];
-            icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.洗练panel当前法器.法器Type);
+            nameText.text = 法器Config.Get法器Name(HeroWindowController.S.洗练panel当前法器.法器Type, HeroWindowController.S.洗练panel当前法器.阶数);
+            icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.洗练panel当前法器.法器Type, HeroWindowController.S.洗练panel当前法器.阶数);
             int count = 0;
             int 洗练后无暇count = 0;
             int 洗练前无暇count = 0;

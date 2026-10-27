@@ -16,9 +16,9 @@ public class 法器选择item : MonoBehaviour
     public void SetItem()
     {
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
-        icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
+        icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type, 法器.阶数);
         gou.SetActive(false);
-        name.text = 法器Config.法器名Dic[法器.法器Type];
+        name.text = 法器Config.Get法器Name(法器.法器Type, 法器.阶数);
     }
 
     public void 法器选择Item点击(object[] obj)

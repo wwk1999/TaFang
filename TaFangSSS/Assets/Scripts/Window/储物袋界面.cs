@@ -961,7 +961,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (item.Value > 0)
          {
-            itemList.Add(((int)PropConfig.PropQualityDic[item.Key], false, item.Key, 0, QualityType.None));
+            itemList.Add(((int)PropConfig.GetProp品质(item.Key), false, item.Key, 0, QualityType.None));
          }
       }
 

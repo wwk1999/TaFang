@@ -1326,5 +1326,52 @@ namespace Config
             { PropType.力之法则, QualityType.荒品 },
             
         };
+
+        /// <summary>
+        /// 取道具的品质：法器材料按阶数折算品质档位，其余按PropQualityDic查表
+        /// </summary>
+        public static QualityType GetProp品质(PropType propType)
+        {
+            if (Prop是否为法器材料(propType)) return 法器Config.Get阶数对应品质(GetProp阶数(propType));
+            if (PropQualityDic.TryGetValue(propType, out var quality)) return quality;
+            return QualityType.None;
+        }
+
+        /// <summary>
+        /// 取道具信息品质：法器材料按阶数折算，其余查品质Dic，缺省按地品显示
+        /// </summary>
+        public static QualityType Get道具信息品质(道具信息Type type)
+        {
+            if (道具信息品质Dic.TryGetValue(type, out var quality)) return quality;
+            if (道具信息ToPropType.TryGetValue(type, out var propType)) return GetProp品质(propType);
+            return QualityType.地品;
+        }
+
+        /// <summary>
+        /// 取道具信息名称：法器材料按阶数动态生成，其余查表
+        /// </summary>
+        public static string Get道具信息Name(道具信息Type type)
+        {
+            if (道具信息NameDic.TryGetValue(type, out var name) && !string.IsNullOrEmpty(name)) return name;
+            if (道具信息ToPropType.TryGetValue(type, out var propType) && Prop是否为法器材料(propType))
+            {
+                return 法器Config.Get法器材料Name(GetProp法器材料Type(propType), GetProp阶数(propType));
+            }
+            return string.Empty;
+        }
+
+        /// <summary>
+        /// 取道具信息描述：法器材料按阶数动态生成，其余查表
+        /// </summary>
+        public static string Get道具信息Info(道具信息Type type)
+        {
+            if (道具信息InfoDic.TryGetValue(type, out var info) && !string.IsNullOrEmpty(info)) return info;
+            if (道具信息ToPropType.TryGetValue(type, out var propType) && Prop是否为法器材料(propType))
+            {
+                int 阶数 = GetProp阶数(propType);
+                return "打造" + 阶数 + "阶法器所需的材料。";
+            }
+            return string.Empty;
+        }
     }
 }

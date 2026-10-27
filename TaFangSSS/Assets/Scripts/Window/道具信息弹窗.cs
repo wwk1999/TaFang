@@ -33,10 +33,10 @@ public class 道具信息弹窗 : MonoBehaviour
    public void SetItem()
    {
 //      分解tip.gameObject.SetActive(PropConfig.Prop是否为法器材料(PropConfig.道具信息ToPropType[type]));
-      bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(PropConfig.道具信息品质Dic[type]);
+      bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(PropConfig.Get道具信息品质(type));
       icon.sprite = PropConfig.Get道具信息Sprite(type);
-      name.text = PropConfig.道具信息NameDic[type];
-      desc.text = PropConfig.道具信息InfoDic[type];
+      name.text = PropConfig.Get道具信息Name(type);
+      desc.text = PropConfig.Get道具信息Info(type);
       switch (type)
       {
          case 道具信息Type.功德:

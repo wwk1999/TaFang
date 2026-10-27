@@ -102,6 +102,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 建筑Type 当前显示建筑Type;
     
     [NonSerialized]public 法器Type 法器打造法器Type;
+    [NonSerialized]public int 法器打造法器阶数 = 1;
     [NonSerialized]public 法器类型 法器打造法器类型;
     
     [NonSerialized]public 仙石Type 当前筛选仙石type;

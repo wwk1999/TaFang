@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Config;
 using TMPro;
@@ -3906,7 +3906,7 @@ public static Sprite 白玉莲变异收获;
 
     public static Sprite Get道具背景框Sprite(PropType propType)
     {
-        switch (PropConfig.PropQualityDic[propType])
+        switch (PropConfig.GetProp品质(propType))
         {
             case QualityType.黄品:
                 return 道具背景框白;

@@ -2582,7 +2582,7 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         }
         foreach (var item in list)
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast",法则config.法则名Dic[法则config.法则英雄Dic[item.Key]],PropConfig.PropQualityDic[item.Key],item.Value);
+            ObserverModuleManager.S.SendEvent("SendUIToast",法则config.法则名Dic[法则config.法则英雄Dic[item.Key]],PropConfig.GetProp品质(item.Key),item.Value);
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             yield return new  WaitForSeconds(0.1f);
         }

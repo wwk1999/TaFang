@@ -53,7 +53,7 @@ public class 分解确认弹窗 : MonoBehaviour
         }
         else
         {
-            name.text = 法器Config.法器名Dic[法器.法器Type];
+            name.text = 法器Config.Get法器Name(法器.法器Type, 法器.阶数);
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器.品质);
         }
     }

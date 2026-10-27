@@ -19,7 +19,10 @@ public class 法器附加属性item : MonoBehaviour
    {
       无暇text.gameObject.SetActive(无暇);
       无暇text.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-      countText.text = count.ToString("F1")+"%";
+      // 词条只存基础值，品质倍率统一在此乘算展示，与Get法器属性保持同一数值口径
+      float 倍率 = 1f;
+      if (法器Config.法器品质倍率.TryGetValue(QualityType, out var 品质倍率)) 倍率 = 品质倍率;
+      countText.text = (count * 倍率).ToString("F1")+"%";
       text.text = 法器Config.法器附加属性Desc[法器附加属性Type]+":";
    }
 }

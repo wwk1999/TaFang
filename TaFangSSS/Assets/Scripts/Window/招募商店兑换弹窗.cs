@@ -71,7 +71,7 @@ public class 招募商店兑换弹窗 : MonoBehaviour
       Description.text=HeroConfig.HeroDescDic[PropConfig.PropToHeroDic[Type]];
       image.sprite = ResourcesConfig.GetHeroSprite(PropConfig.PropToHeroDic[Type]);
       JiFen.text = ZhaoMuConfig.招募商店价格Dic[Type].ToString();
-      switch (PropConfig.PropQualityDic[Type])
+      switch (PropConfig.GetProp品质(Type))
       {
          case QualityType.黄品:
             bg.sprite = ResourcesConfig.道具背景框白;

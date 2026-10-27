@@ -33,7 +33,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
                 gameObject.SetActive(false);
                 return;
             }
-            PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]] * count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
+            PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.法器材料分解粉尘Dic[法器Config.Get阶数对应品质(PropConfig.GetProp阶数(PropType))] * count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f);
             PlayerData.S.PropListDic[PropType] -= count;
             ObserverModuleManager.S.SendEvent("SendUIToast","分解成功");
             ObserverModuleManager.S.SendEvent("刷新背包");
@@ -51,13 +51,13 @@ public class 法器材料分解弹窗 : MonoBehaviour
         分解按钮.interactable = 持有 >= 1f;
         数量.text = "1";
         数量Slider.onValueChanged.AddListener(OnSliderValueChanged);
-        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
+        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.GetProp品质(PropType)]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
     }
     
     
     private void OnEnable()
     {
-        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
+        获得粉尘.text = (法器Config.法器材料分解粉尘Dic[PropConfig.GetProp品质(PropType)]*count*(1f+道场Config.供奉总属性.增加法器分解粉尘/100f)).ToString();
         // 先设minValue再设maxValue，并夹住下限为1，避免UGUI把maxValue强行抬到minValue导致0个材料也能分解
         float 持有 = PlayerData.S.PropListDic[PropType];
         数量Slider.minValue = 1;
@@ -78,7 +78,7 @@ public class 法器材料分解弹窗 : MonoBehaviour
         数量Slider.value=newCount;
         数量.text=newCount.ToString();
         count=newCount;
-        获得粉尘.text=(newCount*法器Config.法器材料分解粉尘Dic[PropConfig.PropQualityDic[PropType]]).ToString();
+        获得粉尘.text=(newCount*法器Config.法器材料分解粉尘Dic[法器Config.Get阶数对应品质(PropConfig.GetProp阶数(PropType))]).ToString();
     }
     public void SetItem()
     {
@@ -92,10 +92,12 @@ public class 法器材料分解弹窗 : MonoBehaviour
         {
             数量Slider.value = 数量Slider.maxValue;
         }
-        bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(PropConfig.PropQualityDic[PropType]);
-        icon.sprite = ResourcesConfig.Get法器材料Sprite(PropConfig.GetProp法器材料Type(PropType),PropConfig.PropQualityDic[PropType]);
-        name.text = 法器Config.Get法器材料Name(PropConfig.GetProp法器材料Type(PropType),PropConfig.PropQualityDic[PropType]);
-        name.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.PropQualityDic[PropType]);
-        品质.text = PropConfig.QualityNameDic[PropConfig.PropQualityDic[PropType]];
+        var 阶数 = PropConfig.GetProp阶数(PropType);
+        var 材料品质 = 法器Config.Get阶数对应品质(阶数);
+        bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
+        icon.sprite = ResourcesConfig.Get法器材料Sprite(PropConfig.GetProp法器材料Type(PropType), 阶数);
+        name.text = 法器Config.Get法器材料Name(PropConfig.GetProp法器材料Type(PropType), 阶数);
+        name.colorGradientPreset = ResourcesConfig.Get品质TMP(材料品质);
+        品质.text = 阶数 + "阶";
     }
 }

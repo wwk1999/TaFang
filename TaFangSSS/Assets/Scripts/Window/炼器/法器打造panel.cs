@@ -41,20 +41,20 @@ public class 法器打造panel : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-        QualityType 最高品级 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].最高炼制QualityType;
-        for (int i = (int)最高品级; i >=(int)QualityType.黄品; i--)
+        int 最高阶数 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].最高炼制阶数;
+        // 阶数从高到低列出当前部位所有可打造法器
+        for (int 阶数 = 最高阶数; 阶数 >= 1; 阶数--)
         {
-            // 直接遍历20种法器Type，筛选符合当前部位的
             foreach (var kvp in 法器Config.法器类型Dic)
             {
                 if (kvp.Value == HeroWindowController.S.法器打造法器类型)
                 {
                     var 法器打造item = Instantiate(Resources.Load("Prefabs/Window/炼器/法器打造item"),背包.transform).GetComponent<法器打造item>();
                     法器打造item.法器Type = kvp.Key;
+                    法器打造item.阶数 = 阶数;
                     法器打造item.SetItem();
                 }
             }
-            break; // 已改为遍历所有法器Type，不需要外层品质循环
         }
     }
 
@@ -71,6 +71,7 @@ public class 法器打造panel : MonoBehaviour
             var 打造item = Instantiate(Resources.Load("Prefabs/Window/炼器/打造item"), 打造区域.transform).GetComponent<打造item>();
             打造item.法器Type = item.法器Type;
             打造item.品质 = item.品质;
+            打造item.阶数 = item.阶数;
             打造item.count = item.count;
             打造item.进度 = item.进度;
             打造item.index = index;
@@ -96,16 +97,16 @@ public class 法器打造panel : MonoBehaviour
         艺术字.gameObject.SetActive(true);
         icon.gameObject.SetActive(true);
         Name.gameObject.SetActive(true);
-        var list = 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type);
+        var list = 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type, HeroWindowController.S.法器打造法器阶数);
         材料1bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[0]);
         材料2bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[1]);
         材料1icon.sprite = ResourcesConfig.GetPropSprite(list[0]);
         材料1Count.text = PlayerData.S.PropListDic[list[0]].ToString();
         材料2Count.text = PlayerData.S.PropListDic[list[1]].ToString();
         材料2icon.sprite = ResourcesConfig.GetPropSprite(list[1]);
-        icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.法器打造法器Type);
-        艺术字.sprite = ResourcesConfig.Get艺术字(QualityType.黄品);
-        Name.text = 法器Config.法器名Dic[HeroWindowController.S.法器打造法器Type];
+        icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.法器打造法器Type, HeroWindowController.S.法器打造法器阶数);
+        艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.Get阶数对应品质(HeroWindowController.S.法器打造法器阶数));
+        Name.text = 法器Config.Get法器Name(HeroWindowController.S.法器打造法器Type, HeroWindowController.S.法器打造法器阶数);
         数量进度条.value = 0;
         Count.text = "0";
        
@@ -183,7 +184,7 @@ public class 法器打造panel : MonoBehaviour
 
         // 每件法器需要每种材料各1个，最大打造数取所有材料持有量的最小值
         int 最大数量 = int.MaxValue;
-        foreach (var propType in 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type))
+        foreach (var propType in 法器Config.Get打造法器材料(HeroWindowController.S.法器打造法器Type, HeroWindowController.S.法器打造法器阶数))
         {
             PlayerData.S.PropListDic.TryGetValue(propType, out float count);
             最大数量 = Math.Min(最大数量, Mathf.FloorToInt(count));
@@ -256,6 +257,9 @@ public class 法器打造panel : MonoBehaviour
             法器打造Item.count = 打造数量;
             法器打造Item.进度 = 0;
             法器打造Item.法器Type = HeroWindowController.S.法器打造法器Type;
+            法器打造Item.阶数 = HeroWindowController.S.法器打造法器阶数;
+            // 打造品质按万分比概率随机
+            法器打造Item.品质 = 法器Config.Random品质();
             数量进度条.value = 0;
             打造数量 = 0;
             PlayerData.S.打造List.Add(法器打造Item);

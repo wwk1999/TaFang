@@ -349,7 +349,7 @@ public class 胜利弹窗 : MonoBehaviour
             var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item1.法器材料Type = item.法器材料Type;
-            item1.法器材料QualityType = (QualityType)Mathf.Min(item.阶数, 8);
+            item1.法器材料阶数 = item.阶数;
             item1.SetItem();
         }
 

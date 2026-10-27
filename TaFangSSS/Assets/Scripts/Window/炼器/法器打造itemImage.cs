@@ -77,6 +77,7 @@ public class 法器打造itemImage : MonoBehaviour, IPointerEnterHandler, IPoint
         cg.blocksRaycasts = false;
         法器打造信息弹窗 弹窗 = currentPopup.GetComponent<法器打造信息弹窗>();
         弹窗.法器type = 法器打造Item.法器Type;
+        弹窗.阶数 = 法器打造Item.阶数;
         currentPopup.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
         弹窗.SetItem();
         // 设置弹窗的位置

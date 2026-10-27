@@ -647,23 +647,28 @@ public class 领主府 : MonoBehaviour
             当前炼器速度.count = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].速度加成+"%";
             当前炼器速度.SetItem();
             
+            int 炼器室等级 = PlayerData.S.建筑等级Dic[建筑Type.炼器室];
+            // 满级时没有下一级配置，沿用当前等级数值，避免越界
+            var 炼器室当前配置 = 道场Config.炼器室配置[炼器室等级];
+            var 炼器室升级配置 = 道场Config.炼器室配置.TryGetValue(炼器室等级 + 1, out var 下一级) ? 下一级 : 炼器室当前配置;
+            
             var 升级炼器速度 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
                .GetComponent<数值升级效果item>();
             升级炼器速度.info = "炼器速度加成";
-            升级炼器速度.count = 道场Config.炼器室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼器室]].速度加成+"%";
+            升级炼器速度.count = 炼器室升级配置.速度加成+"%";
             升级炼器速度.SetItem();
             
             
             var 当前最高炼器品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
                .GetComponent<数值升级效果item>();
-            当前最高炼器品质.info = "最高炼器品质";
-            当前最高炼器品质.count = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].最高炼制QualityType.ToString();
+            当前最高炼器品质.info = "最高炼器阶数";
+            当前最高炼器品质.count = 炼器室当前配置.最高炼制阶数 + "阶";
             当前最高炼器品质.SetItem();
             
             var 升级最高炼器品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
                .GetComponent<数值升级效果item>();
-            升级最高炼器品质.info = "最高炼器品质";
-            升级最高炼器品质.count = 道场Config.炼器室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼器室]].最高炼制QualityType.ToString();
+            升级最高炼器品质.info = "最高炼器阶数";
+            升级最高炼器品质.count = 炼器室升级配置.最高炼制阶数 + "阶";
             升级最高炼器品质.SetItem();
             break;
          

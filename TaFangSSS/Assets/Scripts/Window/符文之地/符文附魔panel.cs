@@ -426,8 +426,8 @@ public class 符文附魔panel : MonoBehaviour
             nameObj.gameObject.SetActive(true);
             艺术字.gameObject.SetActive(true);
             艺术字.sprite = ResourcesConfig.Get艺术字(HeroWindowController.S.当前符文附魔法器.品质);
-            Icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.当前符文附魔法器.法器Type);
-            name.text = 法器Config.法器名Dic[HeroWindowController.S.当前符文附魔法器.法器Type];
+            Icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.当前符文附魔法器.法器Type, HeroWindowController.S.当前符文附魔法器.阶数);
+            name.text = 法器Config.Get法器Name(HeroWindowController.S.当前符文附魔法器.法器Type, HeroWindowController.S.当前符文附魔法器.阶数);
             name.colorGradientPreset =
                 ResourcesConfig.Get品质TMP(HeroWindowController.S.当前符文附魔法器.品质);
         }

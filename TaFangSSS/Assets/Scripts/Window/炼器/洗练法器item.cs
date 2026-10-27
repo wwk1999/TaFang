@@ -22,8 +22,8 @@ public class 洗练法器item : MonoBehaviour
         英雄头像.sprite = ResourcesConfig.GetHeroSprite(法器.HeroType);
         出战.SetActive(法器.HeroType!=HeroType.None);
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
-        icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
-        name.text = 法器Config.法器名Dic[法器.法器Type];
+        icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type, 法器.阶数);
+        name.text = 法器Config.Get法器Name(法器.法器Type, 法器.阶数);
         gou.SetActive(HeroWindowController.S.洗练panel当前法器==法器);
     }
     

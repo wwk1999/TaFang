@@ -25,10 +25,10 @@ public class 招募成功item : MonoBehaviour
          return;
       }
 
-      艺术字.sprite = ResourcesConfig.Get艺术字(PropConfig.PropQualityDic[propType]);
+      艺术字.sprite = ResourcesConfig.Get艺术字(PropConfig.GetProp品质(propType));
       name.text=PropConfig.PropNameDic[propType];
       image.sprite=PropConfig.GetPropSprite(propType);
-      QualityType qualityType = PropConfig.PropQualityDic[propType];
+      QualityType qualityType = PropConfig.GetProp品质(propType);
       switch (qualityType)
       {
          case QualityType.黄品:

@@ -37,6 +37,6 @@ public class 背包Grid信息弹窗 : MonoBehaviour
         name.text = PropConfig.PropNameDic[PropType];
         quality.text=PropConfig.QualityNameDic[QualityType];
         quality.colorGradientPreset=ResourcesConfig.Get品质TMP(QualityType);
-        info.text = PropConfig.道具信息InfoDic[PropConfig.PropTypeTo道具信息[PropType]];
+        info.text = PropConfig.Get道具信息Info(PropConfig.PropTypeTo道具信息[PropType]);
     }
 }

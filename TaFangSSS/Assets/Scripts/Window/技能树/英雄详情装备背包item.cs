@@ -23,7 +23,7 @@ public class 英雄详情装备背包item : MonoBehaviour
         已装备icon.SetActive(法器.HeroType!=HeroType.None);
         gou.SetActive(false);
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
-        icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
+        icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type, 法器.阶数);
     }
 
     public void 英雄详情界面装备点击(object[] obj)

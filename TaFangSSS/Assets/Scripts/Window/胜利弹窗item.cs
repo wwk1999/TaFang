@@ -17,6 +17,7 @@ public class 胜利弹窗item : MonoBehaviour
     [NonSerialized] public QualityType 灵物QualityType=QualityType.None;
     [NonSerialized] public 法器Type 法器Type=法器Type.None;
     [NonSerialized] public QualityType 法器品质=QualityType.None;
+    [NonSerialized] public int 法器阶数 = 1;
     [NonSerialized] public 仙石Type 仙石Type=仙石Type.None;
     [NonSerialized] public QualityType 仙石QualityType=QualityType.None;
     [NonSerialized] public 神物Type 神物Type=神物Type.None;
@@ -26,15 +27,17 @@ public class 胜利弹窗item : MonoBehaviour
     [NonSerialized] public QualityType 符文QualityType=QualityType.None;
     [NonSerialized] public 法器材料Type 法器材料Type=法器材料Type.None;
     [NonSerialized] public QualityType 法器材料QualityType=QualityType.None;
+    [NonSerialized] public int 法器材料阶数 = 1;
 
     public void SetItem()
     {
         if (法器材料Type != 法器材料Type.None)
         {
-            Name.text = 法器Config.Get法器材料Name(法器材料Type, 法器材料QualityType);
+            法器材料QualityType = 法器Config.Get阶数对应品质(法器材料阶数);
+            Name.text = 法器Config.Get法器材料Name(法器材料Type, 法器材料阶数);
             Name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器材料QualityType);
             CountText.text = "";
-            image.sprite=ResourcesConfig.Get法器材料Sprite(法器材料Type,法器材料QualityType);
+            image.sprite=ResourcesConfig.Get法器材料Sprite(法器材料Type,法器材料阶数);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(法器材料QualityType);
             return;
         }
@@ -76,10 +79,10 @@ public class 胜利弹窗item : MonoBehaviour
         }
         if (法器Type != 法器Type.None)
         {
-            Name.text = 法器Config.法器名Dic[法器Type];
+            Name.text = 法器Config.Get法器Name(法器Type, 法器阶数);
             Name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器品质);
             CountText.text = "";
-            image.sprite=ResourcesConfig.Get法器Sprite(法器Type);
+            image.sprite=ResourcesConfig.Get法器Sprite(法器Type, 法器阶数);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(法器品质);
             return;
         }
@@ -94,7 +97,7 @@ public class 胜利弹窗item : MonoBehaviour
         }
         
         Name.text = PropConfig.PropNameDic[Type];
-        Name.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.PropQualityDic[Type]);
+        Name.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.GetProp品质(Type));
         CountText.text = PlayerData.S.格式化数字(count);
         image.sprite=ResourcesConfig.GetPropSprite(Type);
         bg.sprite=ResourcesConfig.Get道具背景框Sprite(Type); 

@@ -46,7 +46,7 @@ public class 英雄法器item : MonoBehaviour
         {
             icon.gameObject.SetActive(true);
             bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
-            icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type);
+            icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type, 法器.阶数);
             foreach (var item in 法器.仙石list)
             {
                 var 孔=Instantiate(Resources.Load("Prefabs/Window/英雄法器孔item"),孔content.transform).GetComponent<英雄法器孔item>();
