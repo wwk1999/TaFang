@@ -14,11 +14,14 @@ public class 符文信息弹窗 : MonoBehaviour
     public TextMeshProUGUI 品质;
     public TextMeshProUGUI 效果;
     public TextMeshProUGUI 数值;
+    public TextMeshProUGUI 无暇;
 
     [NonSerialized] public 符文 符文;
 
     public void SetItem()
     {
+        无暇.gameObject.SetActive(符文.无暇);
+        无暇.colorGradientPreset = ResourcesConfig.Get品质TMP(符文.quality);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
         icon.sprite = ResourcesConfig.Get符文Sprite(符文.type, 符文.quality);
         name.text = 符文Config.符文名Dic[符文.type];

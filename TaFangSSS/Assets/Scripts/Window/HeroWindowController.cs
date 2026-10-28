@@ -96,6 +96,11 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 符文Type 符文洗练排序Type = 符文Type.None;
     [NonSerialized] public QualityType 符文洗练品质筛选 = QualityType.None;
 
+    [NonSerialized] public 符文 符文融合主符文;
+    [NonSerialized] public 符文 符文融合副符文;
+    [NonSerialized] public 符文Type 符文融合排序Type = 符文Type.None;
+    [NonSerialized] public QualityType 符文融合品质筛选 = QualityType.None;
+
     [NonSerialized] public 符文 符文熔炼选择1=new 符文();
     [NonSerialized] public 符文 符文熔炼选择2=new 符文();
     [NonSerialized] public 符文 符文熔炼选择3=new 符文();

@@ -99,8 +99,9 @@ public class 符文
     public float count;
     public bool 锁=false;
     public bool 融合;
-    public 符文Type 融合type1;
-    public 符文Type 融合type2;
+    public 符文Type 融合type;
+    public float 融合count;
+    public bool 融合无暇;
     public bool 无暇;
 }
 public class 符文Config
@@ -129,9 +130,23 @@ public class 符文Config
             if (法器 == null) continue;
             符文 符文 = 法器.符文;
             if (符文 == null || 符文.type == 符文Type.None) continue;
+            // 融合且主副符文都是无暇时，两个词条额外×10，叠加无暇自身×3，共×30
+            float 额外倍数 = (符文.无暇 && 符文.融合 && 符文.融合无暇) ? 10f : 1f;
             // 无暇符文词条效果增幅3倍
-            float 数值 = 符文.无暇 ? 符文.count * 3f : 符文.count;
-            switch (符文.type)
+            加符文属性(属性, 符文.type, 符文.count, 符文.无暇, 额外倍数);
+            if (符文.融合 && 符文.融合type != 符文Type.None)
+            {
+                加符文属性(属性, 符文.融合type, 符文.融合count, 符文.融合无暇, 额外倍数);
+            }
+        }
+        return 属性;
+    }
+
+    /// <summary>按符文类型把词条数值累加到属性上</summary>
+    private static void 加符文属性(符文属性 属性, 符文Type 符文Type, float count, bool 无暇, float 额外倍数)
+    {
+        float 数值 = count * (无暇 ? 3f : 1f) * 额外倍数;
+        switch (符文Type)
             {
                 case 符文Type.击杀怪物获得神通能量: 属性.击杀怪物获得神通能量 += 数值; break;
                 case 符文Type.击杀怪物减少神通冷却: 属性.击杀怪物减少神通冷却 += 数值; break;
@@ -166,8 +181,6 @@ public class 符文Config
                 case 符文Type.没有异常状态增伤: 属性.没有异常状态增伤 += 数值; break;
                 case 符文Type.清除异常状态增伤: 属性.清除异常状态增伤 += 数值; break;
             }
-        }
-        return 属性;
     }
 
     public static Dictionary<符文Type, string> 符文名Dic = new Dictionary<符文Type, string>()
