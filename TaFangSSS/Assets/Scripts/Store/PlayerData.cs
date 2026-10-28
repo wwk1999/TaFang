@@ -4,6 +4,19 @@ using System.Collections.Generic;
 using Config;
 using UnityEngine;
 
+/// <summary>
+/// 分解弹窗筛选状态存档：按分解类型分别记录品质与阶数勾选情况，
+/// 打开弹窗时恢复上次的勾选，关闭时写回存档。
+/// </summary>
+[Serializable]
+public class 分解筛选存档
+{
+    // 索引0=黄品 … 7=荒品
+    public bool[] 品质勾选 = new bool[8];
+    // 索引0=1阶 … 15=16阶
+    public bool[] 阶数勾选 = new bool[16];
+}
+
 public class PlayerData : XSingleton<PlayerData>
 {
     protected override void Awake()
@@ -62,6 +75,8 @@ public class PlayerData : XSingleton<PlayerData>
     public List<坊市物品> 坊市物品列表 = new List<坊市物品>();
     public List<法器> 法器列表 = new List<法器>();
     public List<仙石> 仙石列表 = new List<仙石>();
+    // 分解弹窗筛选状态：按分解类型分别记录品质/阶数勾选
+    public Dictionary<分解类型, 分解筛选存档> 分解筛选存档Dic = new Dictionary<分解类型, 分解筛选存档>();
     public int 炼丹等级 = 1;
     public float 炼丹经验 = 0;
     public int 剩余炼制数量;
@@ -2101,6 +2116,17 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         // 索引器写入：老存档反序列化会整体替换字典，新增仙石的 key 在旧存档里不存在，
         // ContainsKey 旧写法会把数量静默吞掉
         坊市自动购买仙石配置[type] = count;
+    }
+
+    /// <summary>获取指定分解类型的筛选存档（不存在则新建默认值，全不勾）</summary>
+    public 分解筛选存档 获取分解筛选存档(分解类型 type)
+    {
+        if (!分解筛选存档Dic.TryGetValue(type, out var 存档) || 存档 == null || 存档.品质勾选 == null || 存档.阶数勾选 == null)
+        {
+            存档 = new 分解筛选存档();
+            分解筛选存档Dic[type] = 存档;
+        }
+        return 存档;
     }
     
     public int Get丹方数量(丹药Type type, QualityType qualityType)
