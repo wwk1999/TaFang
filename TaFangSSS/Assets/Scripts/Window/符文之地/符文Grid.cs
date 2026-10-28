@@ -10,11 +10,18 @@ public class 符文Grid : MonoBehaviour
     [NonSerialized] public 符文 符文;
     public Image bg;
     public Image icon;
-    public Image 艺术字;
     public TextMeshProUGUI name;
     public Image 锁;
+    public TextMeshProUGUI 符文1;
+
+    public TextMeshProUGUI 符文2;
+
     public void SetItem()
     {
+        符文1.gameObject.SetActive(符文.融合);
+        符文2.gameObject.SetActive(符文.融合);
+        符文1.text=符文Config.符文名Dic[符文.type];
+        符文2.text=符文Config.符文名Dic[符文.融合type];
         if (符文.锁)
         {
             锁.gameObject.SetActive(true);
@@ -27,7 +34,6 @@ public class 符文Grid : MonoBehaviour
         }
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
         icon.sprite = ResourcesConfig.Get符文Sprite(符文.type,符文.quality);
-        艺术字.sprite = ResourcesConfig.Get艺术字(符文.quality);
         name.text = 符文Config.符文名Dic[符文.type];
     }
 }

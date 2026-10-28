@@ -73,6 +73,7 @@ public class 符文熔炼选择itemImage : MonoBehaviour,IPointerEnterHandler, I
         if (符文.融合)
         {
             GameObject popupPrefab = Resources.Load<GameObject>("Prefabs/Window/符文之地/符文融合信息弹窗");
+            if (popupPrefab == null) { Debug.LogError("符文融合信息弹窗预制体不存在"); return; }
             currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
             符文融合信息弹窗 弹窗 = currentPopup.GetComponent<符文融合信息弹窗>();
             弹窗.GetComponent<RectTransform>().pivot = new Vector2(0f, 0.5f);
@@ -82,6 +83,7 @@ public class 符文熔炼选择itemImage : MonoBehaviour,IPointerEnterHandler, I
         else
         {
             GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
+            if (popupPrefab == null) { Debug.LogError("符文信息弹窗预制体不存在: " + popupPrefabPath); return; }
             currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
             符文信息弹窗 弹窗 = currentPopup.GetComponent<符文信息弹窗>();
             弹窗.GetComponent<RectTransform>().pivot = new Vector2(0f, 0.5f);

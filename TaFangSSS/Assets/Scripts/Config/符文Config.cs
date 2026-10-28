@@ -185,6 +185,8 @@ public class 符文Config
 
     public static Dictionary<符文Type, string> 符文名Dic = new Dictionary<符文Type, string>()
     {
+        { 符文Type.None, "" },
+
         { 符文Type.击杀怪物获得神通能量, "噬魂" },
         { 符文Type.击杀怪物减少神通冷却, "斩业" },
         { 符文Type.技能伤害减少神通伤害增加, "舍末" },
