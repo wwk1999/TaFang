@@ -35,7 +35,16 @@ public class 符文熔炼panel : MonoBehaviour
     }
     public int Get最大页数()
     {
-        int count = PlayerData.S.Get符文总数();
+        // 融合符文不参与熔炼，不计入页数
+        int count = 0;
+        for (int q = 1; q <= 8; q++)
+        {
+            foreach (var item in PlayerData.S.Get符文List((QualityType)q))
+            {
+                if (item.融合) continue;
+                count++;
+            }
+        }
         return Mathf.Max(1, Mathf.CeilToInt(count / 48f));
     }
     
@@ -67,6 +76,8 @@ public class 符文熔炼panel : MonoBehaviour
         {
             foreach (var 符文item in list)
             {
+                // 融合符文不出现在熔炼背包
+                if (符文item.融合) continue;
                 if (count >= start && count < end)
                 {
                     var item = Instantiate(Resources.Load("Prefabs/Window/符文之地/符文熔炼选择item"), 背包content.transform)

@@ -157,6 +157,8 @@ public class 符文洗练panel : MonoBehaviour
         {
             foreach (var item in PlayerData.S.Get符文List((QualityType)q))
             {
+                // 融合符文不参与洗练
+                if (item.融合) continue;
                 if (HeroWindowController.S.符文洗练品质筛选 != QualityType.None && item.quality != HeroWindowController.S.符文洗练品质筛选) continue;
                 if (HeroWindowController.S.符文洗练排序Type != 符文Type.None && item.type != HeroWindowController.S.符文洗练排序Type) continue;
                 count++;
@@ -200,6 +202,8 @@ public class 符文洗练panel : MonoBehaviour
         {
             foreach (var 符文item in list)
             {
+                // 融合符文不出现在洗练背包
+                if (符文item.融合) continue;
                 if (HeroWindowController.S.符文洗练品质筛选 != QualityType.None && 符文item.quality != HeroWindowController.S.符文洗练品质筛选) continue;
                 if (HeroWindowController.S.符文洗练排序Type != 符文Type.None && 符文item.type != HeroWindowController.S.符文洗练排序Type) continue;
                 if (count >= start && count < end)

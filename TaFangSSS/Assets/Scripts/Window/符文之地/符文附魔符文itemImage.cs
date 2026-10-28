@@ -66,15 +66,28 @@ public class 符文附魔符文itemImage : MonoBehaviour,IPointerEnterHandler, I
         {
             DestroyPopup();
         }
-        
-        // 加载弹窗预制体
-        GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
-        // 在Canvas下创建弹窗
-        currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
-        符文信息弹窗 弹窗 = currentPopup.GetComponent<符文信息弹窗>();
-        弹窗.GetComponent<RectTransform>().pivot=new Vector2(0, 1);
-        弹窗.符文 = 符文附魔符文item.符文;
-        弹窗.SetItem();
+
+        var 符文 = 符文附魔符文item.符文;
+        if (符文 == null) return;
+
+        if (符文.融合)
+        {
+            GameObject popupPrefab = Resources.Load<GameObject>("Prefabs/Window/符文之地/符文融合信息弹窗");
+            currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+            符文融合信息弹窗 弹窗 = currentPopup.GetComponent<符文融合信息弹窗>();
+            弹窗.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+            弹窗.符文 = 符文;
+            弹窗.SetItem();
+        }
+        else
+        {
+            GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
+            currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+            符文信息弹窗 弹窗 = currentPopup.GetComponent<符文信息弹窗>();
+            弹窗.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+            弹窗.符文 = 符文;
+            弹窗.SetItem();
+        }
         UpdatePopupPosition(mousePosition);
         currentPopup.transform.SetAsLastSibling();
     }

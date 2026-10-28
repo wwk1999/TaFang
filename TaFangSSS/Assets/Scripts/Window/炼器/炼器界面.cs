@@ -71,6 +71,7 @@ public class 炼器界面 : MonoBehaviour
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文融合Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
@@ -81,6 +82,7 @@ public class 炼器界面 : MonoBehaviour
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文融合Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
@@ -91,6 +93,7 @@ public class 炼器界面 : MonoBehaviour
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文融合Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
@@ -101,6 +104,7 @@ public class 炼器界面 : MonoBehaviour
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文融合Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
@@ -111,6 +115,7 @@ public class 炼器界面 : MonoBehaviour
                 符文附魔Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文熔炼Button.image.sprite = ResourcesConfig.古朴按钮亮;
                 法器打造Button.image.sprite = ResourcesConfig.古朴按钮暗;
+                符文洗练Button.image.sprite = ResourcesConfig.古朴按钮暗;
                 符文融合Button.image.sprite = ResourcesConfig.古朴按钮暗;
 
                 break;
