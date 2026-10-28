@@ -129,40 +129,42 @@ public class 符文Config
             if (法器 == null) continue;
             符文 符文 = 法器.符文;
             if (符文 == null || 符文.type == 符文Type.None) continue;
+            // 无暇符文词条效果增幅3倍
+            float 数值 = 符文.无暇 ? 符文.count * 3f : 符文.count;
             switch (符文.type)
             {
-                case 符文Type.击杀怪物获得神通能量: 属性.击杀怪物获得神通能量 += 符文.count; break;
-                case 符文Type.击杀怪物减少神通冷却: 属性.击杀怪物减少神通冷却 += 符文.count; break;
-                case 符文Type.技能伤害减少神通伤害增加: 属性.技能伤害减少神通伤害增加 += 符文.count; break;
-                case 符文Type.技能伤害增加不能释放神通: 属性.技能伤害增加不能释放神通 += 符文.count; break;
-                case 符文Type.献祭自身加强相邻英雄: 属性.献祭自身加强相邻英雄 += 符文.count; break;
-                case 符文Type.火同气连枝: 属性.火同气连枝 += 符文.count; break;
-                case 符文Type.冰同气连枝: 属性.冰同气连枝 += 符文.count; break;
-                case 符文Type.黑暗同气连枝: 属性.黑暗同气连枝 += 符文.count; break;
-                case 符文Type.雷电同气连枝: 属性.雷电同气连枝 += 符文.count; break;
-                case 符文Type.物理同气连枝: 属性.物理同气连枝 += 符文.count; break;
-                case 符文Type.战士同气连枝: 属性.战士同气连枝 += 符文.count; break;
-                case 符文Type.射手同气连枝: 属性.射手同气连枝 += 符文.count; break;
-                case 符文Type.控制同气连枝: 属性.控制同气连枝 += 符文.count; break;
-                case 符文Type.法师同气连枝: 属性.法师同气连枝 += 符文.count; break;
-                case 符文Type.辅助同气连枝: 属性.辅助同气连枝 += 符文.count; break;
-                case 符文Type.辅助印记增伤: 属性.辅助印记增伤 += 符文.count; break;
-                case 符文Type.元素每有一个不同增伤: 属性.元素每有一个不同增伤 += 符文.count; break;
-                case 符文Type.职业每有一个不同增伤: 属性.职业每有一个不同增伤 += 符文.count; break;
-                case 符文Type.对怪物的第一次伤害增加: 属性.对怪物的第一次伤害增加 += 符文.count; break;
-                case 符文Type.对怪物攻击次数越多越加伤害: 属性.对怪物攻击次数越多越加伤害 += 符文.count; break;
-                case 符文Type.加强碎甲效果: 属性.加强碎甲效果 += 符文.count; break;
-                case 符文Type.碎甲为0时加伤害: 属性.碎甲为0时加伤害 += 符文.count; break;
-                case 符文Type.每层火焰灼烧加伤: 属性.每层火焰灼烧加伤 += 符文.count; break;
-                case 符文Type.每层黑暗印记加伤: 属性.每层黑暗印记加伤 += 符文.count; break;
-                case 符文Type.引爆时造成范围爆炸: 属性.引爆时造成范围爆炸 += 符文.count; break;
-                case 符文Type.雷属性打易电状态加伤害: 属性.雷属性打易电状态加伤害 += 符文.count; break;
-                case 符文Type.增强易电效果: 属性.增强易电效果 += 符文.count; break;
-                case 符文Type.取消冰冻每冰冻概率增伤: 属性.取消冰冻每冰冻概率增伤 += 符文.count; break;
-                case 符文Type.冰减速效果: 属性.冰减速效果 += 符文.count; break;
-                case 符文Type.每有一个异常状态增伤: 属性.每有一个异常状态增伤 += 符文.count; break;
-                case 符文Type.没有异常状态增伤: 属性.没有异常状态增伤 += 符文.count; break;
-                case 符文Type.清除异常状态增伤: 属性.清除异常状态增伤 += 符文.count; break;
+                case 符文Type.击杀怪物获得神通能量: 属性.击杀怪物获得神通能量 += 数值; break;
+                case 符文Type.击杀怪物减少神通冷却: 属性.击杀怪物减少神通冷却 += 数值; break;
+                case 符文Type.技能伤害减少神通伤害增加: 属性.技能伤害减少神通伤害增加 += 数值; break;
+                case 符文Type.技能伤害增加不能释放神通: 属性.技能伤害增加不能释放神通 += 数值; break;
+                case 符文Type.献祭自身加强相邻英雄: 属性.献祭自身加强相邻英雄 += 数值; break;
+                case 符文Type.火同气连枝: 属性.火同气连枝 += 数值; break;
+                case 符文Type.冰同气连枝: 属性.冰同气连枝 += 数值; break;
+                case 符文Type.黑暗同气连枝: 属性.黑暗同气连枝 += 数值; break;
+                case 符文Type.雷电同气连枝: 属性.雷电同气连枝 += 数值; break;
+                case 符文Type.物理同气连枝: 属性.物理同气连枝 += 数值; break;
+                case 符文Type.战士同气连枝: 属性.战士同气连枝 += 数值; break;
+                case 符文Type.射手同气连枝: 属性.射手同气连枝 += 数值; break;
+                case 符文Type.控制同气连枝: 属性.控制同气连枝 += 数值; break;
+                case 符文Type.法师同气连枝: 属性.法师同气连枝 += 数值; break;
+                case 符文Type.辅助同气连枝: 属性.辅助同气连枝 += 数值; break;
+                case 符文Type.辅助印记增伤: 属性.辅助印记增伤 += 数值; break;
+                case 符文Type.元素每有一个不同增伤: 属性.元素每有一个不同增伤 += 数值; break;
+                case 符文Type.职业每有一个不同增伤: 属性.职业每有一个不同增伤 += 数值; break;
+                case 符文Type.对怪物的第一次伤害增加: 属性.对怪物的第一次伤害增加 += 数值; break;
+                case 符文Type.对怪物攻击次数越多越加伤害: 属性.对怪物攻击次数越多越加伤害 += 数值; break;
+                case 符文Type.加强碎甲效果: 属性.加强碎甲效果 += 数值; break;
+                case 符文Type.碎甲为0时加伤害: 属性.碎甲为0时加伤害 += 数值; break;
+                case 符文Type.每层火焰灼烧加伤: 属性.每层火焰灼烧加伤 += 数值; break;
+                case 符文Type.每层黑暗印记加伤: 属性.每层黑暗印记加伤 += 数值; break;
+                case 符文Type.引爆时造成范围爆炸: 属性.引爆时造成范围爆炸 += 数值; break;
+                case 符文Type.雷属性打易电状态加伤害: 属性.雷属性打易电状态加伤害 += 数值; break;
+                case 符文Type.增强易电效果: 属性.增强易电效果 += 数值; break;
+                case 符文Type.取消冰冻每冰冻概率增伤: 属性.取消冰冻每冰冻概率增伤 += 数值; break;
+                case 符文Type.冰减速效果: 属性.冰减速效果 += 数值; break;
+                case 符文Type.每有一个异常状态增伤: 属性.每有一个异常状态增伤 += 数值; break;
+                case 符文Type.没有异常状态增伤: 属性.没有异常状态增伤 += 数值; break;
+                case 符文Type.清除异常状态增伤: 属性.清除异常状态增伤 += 数值; break;
             }
         }
         return 属性;
@@ -223,7 +225,6 @@ public class 符文Config
         { QualityType.洪品, 500000 },
         { QualityType.荒品, 10000000 },
     };
-    
     public static Dictionary<QualityType, float> 符文洗练Dictionary = new Dictionary<QualityType, float>()
     {
         { QualityType.黄品, 50 },

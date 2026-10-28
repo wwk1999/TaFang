@@ -179,11 +179,6 @@ public class 道场 : MonoBehaviour
         });
         炼器室.onClick.AddListener(() =>
         {
-            if (PlayerData.S.建筑等级Dic[建筑Type.炼器室] == 0)
-            {
-                ObserverModuleManager.S.SendEvent("SendUIToast","通关花果山解锁");
-                return;
-            }
             WindowController.S.炼器Window.gameObject.SetActive(true);
         });
         

@@ -872,7 +872,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         { 建筑Type.地脉, 0 },
         { 建筑Type.功德碑, 0 },
         { 建筑Type.炼丹室, 0 },
-        { 建筑Type.炼器室, 0 },
+        { 建筑Type.炼器室, 1 },
         { 建筑Type.聚贤阁, 0 },
         { 建筑Type.坊市, 0 },
         { 建筑Type.灵兽坊, 0 },

@@ -171,7 +171,7 @@ public class PlayerData : XSingleton<PlayerData>
         { 建筑Type.地脉, 0 },
         { 建筑Type.功德碑, 0 },
         { 建筑Type.炼丹室, 0 },
-        { 建筑Type.炼器室, 0 },
+        { 建筑Type.炼器室, 1 },
         { 建筑Type.聚贤阁, 0 },
         { 建筑Type.坊市, 0 },
         { 建筑Type.灵兽坊, 0 },

@@ -92,6 +92,10 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 法器 当前符文附魔法器;
     [NonSerialized] public 符文 当前符文附魔符文;
 
+    [NonSerialized] public 符文 符文洗练panel当前符文;
+    [NonSerialized] public 符文Type 符文洗练排序Type = 符文Type.None;
+    [NonSerialized] public QualityType 符文洗练品质筛选 = QualityType.None;
+
     [NonSerialized] public 符文 符文熔炼选择1=new 符文();
     [NonSerialized] public 符文 符文熔炼选择2=new 符文();
     [NonSerialized] public 符文 符文熔炼选择3=new 符文();
