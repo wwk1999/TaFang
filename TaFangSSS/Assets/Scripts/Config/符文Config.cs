@@ -223,6 +223,18 @@ public class 符文Config
         { QualityType.洪品, 500000 },
         { QualityType.荒品, 10000000 },
     };
+    
+    public static Dictionary<QualityType, float> 符文洗练Dictionary = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 50 },
+        { QualityType.玄品, 150 },
+        { QualityType.地品, 500 },
+        { QualityType.天品, 1500 },
+        { QualityType.宇品, 5000 },
+        { QualityType.宙品, 25000 },
+        { QualityType.洪品, 250000 },
+        { QualityType.荒品, 5000000 },
+    };
     public static Dictionary<符文Type, string> 符文效果Dic = new Dictionary<符文Type, string>()
     {
         { 符文Type.击杀怪物获得神通能量, "击杀敌人获得神通能量" },

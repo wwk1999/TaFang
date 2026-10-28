@@ -12,6 +12,7 @@ public enum 分解类型
     法器,
     仙石,
     丹药,
+    符文,
 }
 public class 法器仙石分解弹窗 : MonoBehaviour
 {

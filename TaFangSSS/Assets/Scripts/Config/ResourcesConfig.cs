@@ -2409,6 +2409,7 @@ public class ResourcesConfig : MonoBehaviour
 	public static Sprite 混元圣人;
 
 	public static Sprite 仙石精华;
+	public static Sprite 符箓;
 
 	public static Sprite 法器粉尘;
 
@@ -5119,6 +5120,7 @@ public class ResourcesConfig : MonoBehaviour
 			PropType.高级招募卷 => 高级招募卷, 
 			PropType.法器粉尘 => 法器粉尘, 
 			PropType.仙石精华 => 仙石精华, 
+			PropType.符箓 => 符箓, 
 			PropType.矿石 => 矿石, 
 			PropType.玄铁 => 玄铁, 
 			PropType.玉髓 => 玉髓, 
@@ -9423,6 +9425,7 @@ public class ResourcesConfig : MonoBehaviour
 		混元圣人 = Resources.Load<Sprite>("Sprite/境界/混元圣人");
 		法器粉尘 = Resources.Load<Sprite>("Sprite/法器/粉尘");
 		仙石精华 = Resources.Load<Sprite>("Sprite/仙石/精华");
+		符箓 = Resources.Load<Sprite>("Sprite/符文/符箓");
 		古朴按钮亮 = Resources.Load<Sprite>("Sprite/按钮/古朴按钮亮");
 		古朴按钮暗 = Resources.Load<Sprite>("Sprite/按钮/古朴按钮暗");
 		孔背景框 = Resources.Load<Sprite>("Sprite/按钮/孔背景框");

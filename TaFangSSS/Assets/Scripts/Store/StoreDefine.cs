@@ -3002,6 +3002,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         { PropType.鸿蒙法则 ,0},
         { PropType.功法经验 ,0},
         { PropType.仙石精华 ,0},
+        { PropType.符箓 ,0},
         { PropType.法器粉尘 ,0},
         
         { PropType.矿石 ,0},

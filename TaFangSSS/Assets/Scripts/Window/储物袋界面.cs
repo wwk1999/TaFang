@@ -53,6 +53,7 @@ public class 储物袋界面 : MonoBehaviour
    public Button 合成Btn;
    public Button 熔炼Btn;
    public 符文熔炼所有弹窗 符文熔炼所有弹窗;
+   public 符文分解弹窗 符文分解弹窗;
 
    public Button 神物Btn;
    public Button 灵药Btn;
@@ -303,6 +304,10 @@ public class 储物袋界面 : MonoBehaviour
          {
             丹药分解弹窗.gameObject.SetActive(false);
          }
+         else if (符文分解弹窗 != null && 符文分解弹窗.gameObject.activeSelf)
+         {
+            符文分解弹窗.gameObject.SetActive(false);
+         }
          else if (分解确认弹窗.gameObject.activeSelf)
          {
             分解确认弹窗.gameObject.SetActive(false);
@@ -400,6 +405,10 @@ public class 储物袋界面 : MonoBehaviour
          if (显示类型 == 9)
          {
             丹药分解弹窗.gameObject.SetActive(true);
+         }
+         if (显示类型 == 10)
+         {
+            符文分解弹窗.gameObject.SetActive(true);
          }
       });
       左箭头.onClick.AddListener(() =>
@@ -1074,7 +1083,7 @@ public class 储物袋界面 : MonoBehaviour
    }
    public void Show符文()
    {
-      分解Btn.gameObject.SetActive(false);
+      分解Btn.gameObject.SetActive(true);
       合成Btn.gameObject.SetActive(false);
       熔炼Btn.gameObject.SetActive(true);
 

@@ -3487,6 +3487,7 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         { PropType.鸿蒙法则 ,0},
         { PropType.功法经验 ,0},
         { PropType.仙石精华 ,0},
+        { PropType.符箓 ,0},
         { PropType.法器粉尘 ,0},
         
         { PropType.矿石 ,0},

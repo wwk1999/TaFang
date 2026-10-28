@@ -65,6 +65,7 @@ namespace Config
         功法经验,
         法器粉尘,
         仙石精华,
+        符箓,
         
         矿石,
         玄铁,
@@ -158,6 +159,7 @@ namespace Config
         
         法器粉尘,
         仙石精华,
+        符箓,
         
         矿石,
         玄铁,
@@ -271,6 +273,8 @@ namespace Config
             return ResourcesConfig.功法经验;
         case 道具信息Type.仙石精华:
             return ResourcesConfig.仙石精华;
+        case 道具信息Type.符箓:
+            return ResourcesConfig.符箓;
         case 道具信息Type.法器粉尘:
             return ResourcesConfig.法器粉尘;
         case 道具信息Type.矿石:
@@ -447,6 +451,7 @@ namespace Config
             { 道具信息Type.功法经验, QualityType.地品 },
             { 道具信息Type.法器粉尘, QualityType.地品 },
             { 道具信息Type.仙石精华, QualityType.地品 },
+            { 道具信息Type.符箓, QualityType.地品 },
             { 道具信息Type.矿石, QualityType.地品 },
             { 道具信息Type.玄铁, QualityType.地品 },
             { 道具信息Type.玉髓, QualityType.地品 },
@@ -518,6 +523,7 @@ namespace Config
             { 道具信息Type.功法经验, PropType.功法经验 },
             { 道具信息Type.法器粉尘, PropType.法器粉尘 },
             { 道具信息Type.仙石精华, PropType.仙石精华 },
+            { 道具信息Type.符箓, PropType.符箓 },
             { 道具信息Type.矿石, PropType.矿石 },
             { 道具信息Type.玄铁, PropType.玄铁 },
             { 道具信息Type.玉髓, PropType.玉髓 },
@@ -629,6 +635,7 @@ namespace Config
             { PropType.功法经验, 道具信息Type.功法经验 },
             { PropType.法器粉尘, 道具信息Type.法器粉尘 },
             { PropType.仙石精华, 道具信息Type.仙石精华 },
+            { PropType.符箓, 道具信息Type.符箓 },
             { PropType.矿石, 道具信息Type.矿石 },
             { PropType.玄铁, 道具信息Type.玄铁 },
             { PropType.玉髓, 道具信息Type.玉髓 },
@@ -707,6 +714,7 @@ namespace Config
             { 道具信息Type.None, "无" },
             { 道具信息Type.功法经验, "功法经验" },
             { 道具信息Type.仙石精华, "仙石精华" },
+            { 道具信息Type.符箓, "符箓" },
             { 道具信息Type.矿石, "矿石" },
             { 道具信息Type.玄铁, "玄铁" },
             { 道具信息Type.玉髓, "玉髓" },
@@ -815,6 +823,7 @@ namespace Config
             { 道具信息Type.功法经验, "提升英雄功法等级的关键材料" },
             { 道具信息Type.法器粉尘, "洗练法器词条的关键材料,分解法器获得" },
             { 道具信息Type.仙石精华, "重铸仙石的关键材料,分解仙石获得" },
+            { 道具信息Type.符箓, "符文洗练需要的关键材料,分解符文获得" },
             { 道具信息Type.矿石, "升级道场建筑的关键材料" },
             { 道具信息Type.玄铁, "升级道场建筑的关键材料" },
             { 道具信息Type.玉髓, "升级道场建筑的关键材料" },
@@ -847,6 +856,8 @@ namespace Config
                     return ResourcesConfig.功法经验;
                 case PropType.仙石精华:
                     return ResourcesConfig.仙石精华;
+                case PropType.符箓:
+                    return ResourcesConfig.符箓;
                 case PropType.矿石:
                     return ResourcesConfig.矿石;
                 case PropType.玄铁:
@@ -1219,6 +1230,7 @@ namespace Config
             { PropType.功法经验, "功法经验" },
             { PropType.法器粉尘, "法器粉尘" },
             { PropType.仙石精华, "仙石精华" },
+            { PropType.符箓, "符箓" },
             { PropType.矿石, "矿石" },
             { PropType.玄铁, "玄铁" },
             { PropType.玉髓, "玉髓" },
@@ -1235,6 +1247,7 @@ namespace Config
             { PropType.None, QualityType.None },
             { PropType.功法经验, QualityType.地品 },
             { PropType.仙石精华, QualityType.地品 },
+            { PropType.符箓, QualityType.地品 },
             { PropType.矿石, QualityType.地品 },
             { PropType.玄铁, QualityType.地品 },
             { PropType.玉髓, QualityType.地品 },
