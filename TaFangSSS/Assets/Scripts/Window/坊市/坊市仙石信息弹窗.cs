@@ -10,6 +10,7 @@ public class 坊市仙石信息弹窗 : MonoBehaviour
 {
     [NonSerialized] public 仙石Type 仙石Type;
     [NonSerialized] public QualityType 仙石QualityType;
+    [NonSerialized] public int 阶数 = 1;
     public Image bg;
     public Image icon;
     public TextMeshProUGUI name;
@@ -19,10 +20,10 @@ public class 坊市仙石信息弹窗 : MonoBehaviour
     public void SetItem()
     {
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(仙石QualityType);
-        icon.sprite = ResourcesConfig.Get仙石Sprite(仙石Type, 仙石QualityType);
-        name.text = 仙石Config.仙石名Dic[仙石Type];
+        icon.sprite = ResourcesConfig.Get仙石Sprite(仙石Type, 阶数);
+        name.text = 仙石Config.Get仙石Name(仙石Type, 阶数);
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石QualityType);
         品质.text = PropConfig.QualityNameDic[仙石QualityType];
-        词条数量.text = "1-3";
+        词条数量.text = ((int)仙石QualityType).ToString();
     }
 }

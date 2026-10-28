@@ -71,17 +71,14 @@ public class 自动购买配置窗口 : MonoBehaviour
       Destroy(item.gameObject);
     }
 
-    foreach (var quality in PropConfig.QualityNameDic)
+    // 仙石品质由阶数固定映射，自动购买只按仙石类型勾选（与法器一致）
+    foreach (var 仙石 in 仙石Config.仙石名Dic)
     {
-      foreach (var 仙石 in 仙石Config.仙石名Dic)
-      {
-        if(仙石.Key==仙石Type.None)continue;
-        var 配置Item = Instantiate(Resources.Load("Prefabs/Window/坊市/坊市自动购买Item"), content.transform)
-          .GetComponent<坊市自动购买Item>();
-        配置Item.仙石Type = 仙石.Key;
-        配置Item.QualityType = quality.Key;
-        配置Item.SetItem();
-      }
+      if(仙石.Key==仙石Type.None)continue;
+      var 配置Item = Instantiate(Resources.Load("Prefabs/Window/坊市/坊市自动购买Item"), content.transform)
+        .GetComponent<坊市自动购买Item>();
+      配置Item.仙石Type = 仙石.Key;
+      配置Item.SetItem();
     }
   }
   

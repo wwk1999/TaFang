@@ -614,7 +614,8 @@ public class 法器Config
             foreach (var item in 仙石.list)
             {
                 if (item == null) continue;
-                float 品质倍率 = 法器品质倍率[法器.品质];
+                // 仙石词条按仙石自身品质倍率结算，不再跟随宿主法器品质
+                float 品质倍率 = Get品质倍数(仙石Config.仙石品质倍数List, 仙石.quality);
                 switch (item.法器附加属性Type)
                 {
                     case 法器附加属性Type.暴击率:

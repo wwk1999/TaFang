@@ -16,8 +16,8 @@ public class 仙石Grid : MonoBehaviour
     public void SetItem()
     {
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(仙石.quality);
-        icon.sprite = ResourcesConfig.Get仙石Sprite(仙石.type,仙石.quality);
+        icon.sprite = ResourcesConfig.Get仙石Sprite(仙石.type,仙石.阶数);
         艺术字.sprite = ResourcesConfig.Get艺术字(仙石.quality);
-        name.text = 仙石Config.仙石名Dic[仙石.type];
+        name.text = 仙石Config.Get仙石Name(仙石.type, 仙石.阶数);
     }
 }

@@ -97,6 +97,7 @@ public class 坊市itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
             坊市仙石信息弹窗 弹窗 = currentPopup.GetComponent<坊市仙石信息弹窗>();
             弹窗.仙石Type = 坊市item.仙石Type;
             弹窗.仙石QualityType = 坊市item.QualityType;
+            弹窗.阶数 = 坊市item.阶数;
             弹窗.SetItem();
         }
         if (坊市item.法器Type != 法器Type.None)

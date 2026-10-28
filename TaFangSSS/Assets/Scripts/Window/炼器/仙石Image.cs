@@ -11,7 +11,7 @@ public class 仙石Image : MonoBehaviour
 
     private void OnEnable()
     {
-        image.sprite = ResourcesConfig.Get仙石Sprite(仙石.type, 仙石.quality);
+        image.sprite = ResourcesConfig.Get仙石Sprite(仙石.type, 仙石.阶数);
     }
 
     

@@ -20,6 +20,7 @@ public class 仙石信息弹窗 : MonoBehaviour
         var info = Instantiate(Resources.Load("Prefabs/Window/仙石infoItem"), content.transform).GetComponent<仙石infoItem>();
         info.仙石Type = 仙石.type;
         info.QualityType = 仙石.quality;
+        info.阶数 = 仙石.阶数;
         info.SetItem();
 
         foreach (var item in 仙石.list)
@@ -29,6 +30,7 @@ public class 仙石信息弹窗 : MonoBehaviour
             附加属性item.count=item.count;
             附加属性item.无暇=item.无暇;
             附加属性item.QualityType=仙石.quality;
+            附加属性item.是仙石=true;
             附加属性item.SetItem();
         }
     }

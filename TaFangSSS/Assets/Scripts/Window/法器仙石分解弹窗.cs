@@ -24,6 +24,9 @@ public class 法器仙石分解弹窗 : MonoBehaviour
     public Toggle 宙Toggle;
     public Toggle 洪Toggle;
     public Toggle 荒Toggle;
+    // 阶数筛选（法器/仙石共用）：索引0~15对应1~16阶；全部不勾表示不限制阶数
+    public Toggle[] 阶数Toggles = new Toggle[16];
+    private readonly bool[] 阶数选中 = new bool[16];
     public Button 分解Button;
     public Button maskButton;
     private bool 黄=false;
@@ -44,6 +47,10 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         宙Toggle.isOn = 宙;
         洪Toggle.isOn = 洪;
         荒Toggle.isOn = 荒;
+        for (int i = 0; i < 阶数Toggles.Length && i < 16; i++)
+        {
+            if (阶数Toggles[i] != null) 阶数Toggles[i].isOn = 阶数选中[i];
+        }
     }
     private void OnEnable()
     {
@@ -60,6 +67,9 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         //分解所有阶段的丹药
         分解Button.onClick.AddListener(() =>
         {
+            // 阶数筛选（法器/仙石共用）：有任一阶数勾选时只分解对应阶数；全部不勾则不限制阶数
+            bool 限制阶数 = false;
+            for (int i = 0; i < 16; i++) { if (阶数选中[i]) { 限制阶数 = true; break; } }
             switch (分解类型)
             {
                 case 分解类型.丹药:
@@ -150,6 +160,10 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                                (品质 == QualityType.宙品 && 宙)||
                                (品质 == QualityType.洪品 && 洪)||
                                (品质 == QualityType.荒品 && 荒));
+                        if (限制阶数)
+                        {
+                            v = v && 阶数选中[法器.阶数 - 1];
+                        }
                         if (v)
                         {
                             PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.Get法器分解粉尘(法器) * (1f + 道场Config.供奉总属性.增加法器分解粉尘/100f);
@@ -158,20 +172,24 @@ public class 法器仙石分解弹窗 : MonoBehaviour
                     });
                     break;
                 case 分解类型.仙石:
-                    PlayerData.S.仙石列表.RemoveAll(仙石 => 
+                    PlayerData.S.仙石列表.RemoveAll(仙石 =>
                     {
                         var 品质 = 仙石.quality;
-                        bool v= (品质 == QualityType.黄品 && 黄) || 
-                               (品质 == QualityType.玄品 && 玄) || 
-                               (品质 == QualityType.地品 && 地) || 
-                               (品质 == QualityType.天品 && 天) || 
+                        bool v= (品质 == QualityType.黄品 && 黄) ||
+                               (品质 == QualityType.玄品 && 玄) ||
+                               (品质 == QualityType.地品 && 地) ||
+                               (品质 == QualityType.天品 && 天) ||
                                (品质 == QualityType.宇品 && 宇)||
                                (品质 == QualityType.宙品 && 宙)||
                                (品质 == QualityType.洪品 && 洪)||
                                (品质 == QualityType.荒品 && 荒);
+                        if (限制阶数)
+                        {
+                            v = v && 阶数选中[仙石.阶数 - 1];
+                        }
                         if (v)
                         {
-                            PlayerData.S.PropListDic[PropType.仙石精华] += 仙石Config.仙石分解Dic[品质];
+                            PlayerData.S.PropListDic[PropType.仙石精华] += 仙石Config.Get仙石分解精华(仙石);
                         }
                         return v;
                     });
@@ -212,6 +230,18 @@ public class 法器仙石分解弹窗 : MonoBehaviour
         {
             荒=value;
         });
+        // 阶数Toggle事件：索引0~15对应1~16阶
+        for (int i = 0; i < 阶数Toggles.Length && i < 16; i++)
+        {
+            int idx = i;
+            if (阶数Toggles[idx] != null)
+            {
+                阶数Toggles[idx].onValueChanged.AddListener((value) =>
+                {
+                    阶数选中[idx] = value;
+                });
+            }
+        }
     }
 }    
 

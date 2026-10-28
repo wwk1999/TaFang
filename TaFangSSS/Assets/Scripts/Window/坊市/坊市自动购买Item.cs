@@ -36,7 +36,7 @@ public class 坊市自动购买Item : MonoBehaviour
             
             if (仙石Type != 仙石Type.None)
             {
-                PlayerData.S.Set坊市仙石自动购买(仙石Type,QualityType,!PlayerData.S.Get坊市仙石自动购买(仙石Type,QualityType));
+                PlayerData.S.Set坊市仙石自动购买(仙石Type,!PlayerData.S.Get坊市仙石自动购买(仙石Type));
             }
             SetItem();
         });
@@ -61,8 +61,7 @@ public class 坊市自动购买Item : MonoBehaviour
         
         if (仙石Type != 仙石Type.None)
         {
-            string str = 仙石Type + "_" + QualityType;
-            if (PlayerData.S.坊市自动购买仙石配置[str])
+            if (PlayerData.S.坊市自动购买仙石配置[仙石Type])
             {
                 btn.image.sprite = ResourcesConfig.toggle亮;
             }
@@ -70,7 +69,7 @@ public class 坊市自动购买Item : MonoBehaviour
             {
                 btn.image.sprite = ResourcesConfig.toggle暗;
             }
-            text.text = PropConfig.QualityNameDic[QualityType] + 仙石Config.仙石名Dic[仙石Type];
+            text.text = 仙石Config.仙石名Dic[仙石Type];
         }
         
         if (丹药Type != 丹药Type.None)

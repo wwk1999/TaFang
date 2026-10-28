@@ -16,7 +16,7 @@ public class 仙石确认镶嵌弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
-        name.text = 仙石Config.仙石名Dic[仙石.type];
+        name.text = 仙石Config.Get仙石Name(仙石.type, 仙石.阶数);
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石.quality);
     }
 

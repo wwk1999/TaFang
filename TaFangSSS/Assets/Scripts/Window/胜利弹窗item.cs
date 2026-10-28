@@ -20,6 +20,7 @@ public class 胜利弹窗item : MonoBehaviour
     [NonSerialized] public int 法器阶数 = 1;
     [NonSerialized] public 仙石Type 仙石Type=仙石Type.None;
     [NonSerialized] public QualityType 仙石QualityType=QualityType.None;
+    [NonSerialized] public int 仙石阶数 = 1;
     [NonSerialized] public 神物Type 神物Type=神物Type.None;
     [NonSerialized] public 道纹Type 道纹Type=道纹Type.None;
     [NonSerialized] public QualityType 道纹QualityType=QualityType.None;
@@ -70,10 +71,10 @@ public class 胜利弹窗item : MonoBehaviour
         }
         if (仙石Type != 仙石Type.None)
         {
-            Name.text = 仙石Config.仙石名Dic[仙石Type];
+            Name.text = 仙石Config.Get仙石Name(仙石Type, 仙石阶数);
             Name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石QualityType);
             CountText.text = "";
-            image.sprite=ResourcesConfig.Get仙石Sprite(仙石Type,仙石QualityType);
+            image.sprite=ResourcesConfig.Get仙石Sprite(仙石Type,仙石阶数);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(仙石QualityType);
             return;
         }

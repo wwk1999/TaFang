@@ -11,6 +11,8 @@ public class 法器附加属性item : MonoBehaviour
    [NonSerialized] public float count;
    [NonSerialized] public bool 无暇;
    [NonSerialized] public QualityType QualityType;
+   // 仙石词条使用仙石自身品质倍数，法器词条使用法器品质倍率
+   [NonSerialized] public bool 是仙石;
    public TextMeshProUGUI text;
    public TextMeshProUGUI countText;
    public TextMeshProUGUI 无暇text;
@@ -21,7 +23,14 @@ public class 法器附加属性item : MonoBehaviour
       无暇text.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
       // 词条只存基础值，品质倍率统一在此乘算展示，与Get法器属性保持同一数值口径
       float 倍率 = 1f;
-      if (法器Config.法器品质倍率.TryGetValue(QualityType, out var 品质倍率)) 倍率 = 品质倍率;
+      if (是仙石)
+      {
+          倍率 = 法器Config.Get品质倍数(仙石Config.仙石品质倍数List, QualityType);
+      }
+      else if (法器Config.法器品质倍率.TryGetValue(QualityType, out var 品质倍率))
+      {
+          倍率 = 品质倍率;
+      }
       countText.text = (count * 倍率).ToString("F1")+"%";
       text.text = 法器Config.法器附加属性Desc[法器附加属性Type]+":";
    }

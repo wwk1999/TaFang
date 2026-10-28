@@ -15,6 +15,8 @@ public class 法器洗练词条Item : MonoBehaviour
    [NonSerialized] public 仙石Type 仙石Type=仙石Type.None;
    [NonSerialized] public bool 是否有锁=false;
    [NonSerialized] public QualityType QualityType;
+   // 仙石词条使用仙石自身品质倍数，法器词条使用法器品质倍率
+   [NonSerialized] public bool 是仙石;
    public void SetItem()
    {
        锁.gameObject.SetActive(是否有锁);
@@ -39,7 +41,14 @@ public class 法器洗练词条Item : MonoBehaviour
        }
       // 词条存的是基础值，展示时需乘品质倍率，与法器信息弹窗口径保持一致
       float 倍率 = 1f;
-      if (法器Config.法器品质倍率.TryGetValue(QualityType, out var 品质倍率)) 倍率 = 品质倍率;
+      if (是仙石)
+      {
+          倍率 = 法器Config.Get品质倍数(仙石Config.仙石品质倍数List, QualityType);
+      }
+      else if (法器Config.法器品质倍率.TryGetValue(QualityType, out var 品质倍率))
+      {
+          倍率 = 品质倍率;
+      }
       text.text = 法器Config.法器附加属性Desc[法器附加属性值.法器附加属性Type] + "+" +
                   $"<color=green>{(法器附加属性值.count * 倍率).ToString("F1")}%</color>";
    }

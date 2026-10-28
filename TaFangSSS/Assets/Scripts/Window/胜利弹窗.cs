@@ -344,6 +344,7 @@ public class 胜利弹窗 : MonoBehaviour
                 .GetComponent<胜利弹窗item>();
             item1.仙石Type = item.type;
             item1.仙石QualityType = item.quality;
+            item1.仙石阶数 = item.阶数;
             item1.SetItem();
         }
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;

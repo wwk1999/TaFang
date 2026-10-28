@@ -738,61 +738,17 @@ public Dictionary<string, bool> 坊市自动购买丹方配置 = new Dictionary<
     {"英雄最终伤害_荒品", false},
 };
 
-public Dictionary<string, bool> 坊市自动购买仙石配置 = new Dictionary<string, bool>()
+public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Dictionary<仙石Type, bool>()
 {
-    { "赤阳石_黄品", false },
-    { "赤阳石_玄品", false },
-    { "赤阳石_地品", false },
-    { "赤阳石_天品", false },
-    { "赤阳石_宇品", false },
-    { "赤阳石_宙品", false },
-    { "赤阳石_洪品", false },
-    { "赤阳石_荒品", false },
-
-    { "太虚石_黄品", false },
-    { "太虚石_玄品", false },
-    { "太虚石_地品", false },
-    { "太虚石_天品", false },
-    { "太虚石_宇品", false },
-    { "太虚石_宙品", false },
-    { "太虚石_洪品", false },
-    { "太虚石_荒品", false },
-
-    { "清心玉_黄品", false },
-    { "清心玉_玄品", false },
-    { "清心玉_地品", false },
-    { "清心玉_天品", false },
-    { "清心玉_宇品", false },
-    { "清心玉_宙品", false },
-    { "清心玉_洪品", false },
-    { "清心玉_荒品", false },
-
-    { "玄冥石_黄品", false },
-    { "玄冥石_玄品", false },
-    { "玄冥石_地品", false },
-    { "玄冥石_天品", false },
-    { "玄冥石_宇品", false },
-    { "玄冥石_宙品", false },
-    { "玄冥石_洪品", false },
-    { "玄冥石_荒品", false },
-
-    { "玄灵晶_黄品", false },
-    { "玄灵晶_玄品", false },
-    { "玄灵晶_地品", false },
-    { "玄灵晶_天品", false },
-    { "玄灵晶_宇品", false },
-    { "玄灵晶_宙品", false },
-    { "玄灵晶_洪品", false },
-    { "玄灵晶_荒品", false },
-
-    { "天罡石_黄品", false },
-    { "天罡石_玄品", false },
-    { "天罡石_地品", false },
-    { "天罡石_天品", false },
-    { "天罡石_宇品", false },
-    { "天罡石_宙品", false },
-    { "天罡石_洪品", false },
-    { "天罡石_荒品", false },
+    // 仙石品质由阶数固定映射（与法器一致），自动购买只按仙石类型勾选，
+    // 勾选后自动买入该类型在坊市出现的所有阶数
+    { 仙石Type.None, false },
+    { 仙石Type.赤阳石, false },
+    { 仙石Type.太虚石, false },
+    { 仙石Type.清心玉, false },
+    { 仙石Type.玄冥石, false },
+    { 仙石Type.玄灵晶, false },
+    { 仙石Type.天罡石, false },
 };
 
     public Dictionary<HeroType, List<List<int>>> 英雄技能树Dic = new Dictionary<HeroType, List<List<int>>>()
@@ -2128,26 +2084,23 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
     
     
     
-    public bool Get坊市仙石自动购买(仙石Type type, QualityType qualityType)
+    public bool Get坊市仙石自动购买(仙石Type type)
     {
-        string key = type.ToString() + "_" + qualityType.ToString();
-    
-        if (坊市自动购买仙石配置.TryGetValue(key, out bool count))
+        if (坊市自动购买仙石配置.TryGetValue(type, out bool count))
         {
             return count;
         }
-    
+
         return false;
     }
-    
-    
-    
-    public void Set坊市仙石自动购买(仙石Type type, QualityType qualityType, bool count)
+
+
+
+    public void Set坊市仙石自动购买(仙石Type type, bool count)
     {
-        // 索引器写入：老存档反序列化会整体替换字典，新增仙石（如掉宝率_寻龙丹）的
-        // key 在旧存档里不存在，ContainsKey 旧写法会把数量静默吞掉
-        string key = type.ToString() + "_" + qualityType.ToString();
-        坊市自动购买仙石配置[key] = count;
+        // 索引器写入：老存档反序列化会整体替换字典，新增仙石的 key 在旧存档里不存在，
+        // ContainsKey 旧写法会把数量静默吞掉
+        坊市自动购买仙石配置[type] = count;
     }
     
     public int Get丹方数量(丹药Type type, QualityType qualityType)

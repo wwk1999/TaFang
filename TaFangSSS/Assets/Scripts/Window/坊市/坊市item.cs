@@ -60,7 +60,7 @@ public class 坊市item : MonoBehaviour
             
             if (仙石Type != 仙石Type.None)
             {
-                var 价格 = 坊市Config.仙石价格Dic[QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                var 价格 = 坊市Config.Get仙石价格(阶数, QualityType)/(1f+道场Config.供奉总属性.坊市价格减少/100f);
                 if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                 {
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵石不足");
@@ -68,7 +68,7 @@ public class 坊市item : MonoBehaviour
                 }
 
                 PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
-                仙石 仙石 = 仙石Config.Get坊市仙石(仙石Type,QualityType);
+                仙石 仙石 = 仙石Config.Get坊市仙石(仙石Type,QualityType,阶数);
                 PlayerData.S.仙石列表.Add(仙石);
                 ObserverModuleManager.S.SendEvent("SendUIToast","购买成功");
 
@@ -164,13 +164,13 @@ public class 坊市item : MonoBehaviour
         
         if (仙石Type != 仙石Type.None)
         {
-            name.text = 仙石Config.仙石名Dic[仙石Type];
+            name.text = 仙石Config.Get仙石Name(仙石Type, 阶数);
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-            icon.sprite = ResourcesConfig.Get仙石Sprite(仙石Type,QualityType);
+            icon.sprite = ResourcesConfig.Get仙石Sprite(仙石Type,阶数);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
             desc.text = 仙石Config.仙石DescDic[仙石Type];
-            价格.text = PlayerData.S.格式化数字(坊市Config.仙石价格Dic[QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f));
+            价格.text = PlayerData.S.格式化数字(坊市Config.Get仙石价格(阶数, QualityType)/(1f+道场Config.供奉总属性.坊市价格减少/100f));
         }
         
         if (丹药Type != 丹药Type.None)

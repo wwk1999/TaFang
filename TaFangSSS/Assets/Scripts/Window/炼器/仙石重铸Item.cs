@@ -16,8 +16,8 @@ public class 仙石重铸Item : MonoBehaviour
     public void SetItem()
     {
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(仙石.quality);
-        icon.sprite = ResourcesConfig.Get仙石Sprite(仙石.type,仙石.quality);
-        name.text = 仙石Config.仙石名Dic[仙石.type];
+        icon.sprite = ResourcesConfig.Get仙石Sprite(仙石.type,仙石.阶数);
+        name.text = 仙石Config.Get仙石Name(仙石.type, 仙石.阶数);
         gou.SetActive(HeroWindowController.S.重铸panel当前仙石==仙石);
     }
     

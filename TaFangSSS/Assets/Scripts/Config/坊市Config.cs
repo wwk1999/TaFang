@@ -16,7 +16,8 @@ public class 坊市物品
 }
 public class 坊市Config
 {
-    public static Dictionary<int, QualityType> 坊市法器品质Dic = new Dictionary<int, QualityType>()
+    /// <summary>阶数→品质固定映射（法器与仙石共用，每个阶数只出现对应品质）</summary>
+    public static Dictionary<int, QualityType> 坊市阶数品质Dic = new Dictionary<int, QualityType>()
     {
         { 1, QualityType.黄品 },
         { 2, QualityType.黄品 },
@@ -212,17 +213,11 @@ public class 坊市Config
     };
 
     
-    public static Dictionary<QualityType, long> 仙石价格Dic = new Dictionary<QualityType, long>()
+    /// <summary>仙石售价 = 阶数基础价 × 品质倍数 × 2（与分解产出同口径，高阶自然拉开）</summary>
+    public static float Get仙石价格(int 阶数, QualityType qualityType)
     {
-        { QualityType.黄品, 100 },
-        { QualityType.玄品, 300 },
-        { QualityType.地品, 1000 },
-        { QualityType.天品, 5000 },
-        { QualityType.宇品, 30000 },
-        { QualityType.宙品, 200000 },
-        { QualityType.洪品, 1500000 },
-        { QualityType.荒品, 30000000 },
-    };
+        return 仙石Config.Get仙石分解精华(阶数, qualityType) * 2;
+    }
     
    
 
@@ -268,8 +263,14 @@ public class 坊市Config
     /// <summary>法器对应品质（按阶数查表，坊市法器固定品质）</summary>
     public static QualityType Get法器品质(int 阶数)
     {
-        if (坊市法器品质Dic.TryGetValue(Math.Min(16, Math.Max(1, 阶数)), out var quality)) return quality;
+        if (坊市阶数品质Dic.TryGetValue(Math.Min(16, Math.Max(1, 阶数)), out var quality)) return quality;
         return QualityType.黄品;
+    }
+
+    /// <summary>仙石对应品质（与法器共用阶数→品质映射，坊市仙石固定品质）</summary>
+    public static QualityType Get仙石品质(int 阶数)
+    {
+        return Get法器品质(阶数);
     }
 
     public static void 刷新坊市列表()
@@ -306,9 +307,9 @@ public class 坊市Config
             
             if (PlayerData.S.坊市物品列表[i].仙石Type != 仙石Type.None)
             {
-                if (PlayerData.S.Get坊市仙石自动购买(PlayerData.S.坊市物品列表[i].仙石Type,PlayerData.S.坊市物品列表[i].QualityType))
+                if (PlayerData.S.Get坊市仙石自动购买(PlayerData.S.坊市物品列表[i].仙石Type))
                 {
-                    float value =仙石价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
+                    float value =Get仙石价格(PlayerData.S.坊市物品列表[i].阶数, PlayerData.S.坊市物品列表[i].QualityType)/(1f+道场Config.供奉总属性.坊市价格减少/100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < value)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
@@ -316,10 +317,10 @@ public class 坊市Config
                     }
 
                     PlayerData.S.PropListDic[PropType.灵魂] -= value;
-                    仙石 仙石 = 仙石Config.Get坊市仙石(PlayerData.S.坊市物品列表[i].仙石Type,PlayerData.S.坊市物品列表[i].QualityType);
+                    仙石 仙石 = 仙石Config.Get坊市仙石(PlayerData.S.坊市物品列表[i].仙石Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.坊市物品列表[i].阶数);
                     PlayerData.S.仙石列表.Add(仙石);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
-                    ObserverModuleManager.S.SendEvent("SendUIToast",仙石Config.仙石名Dic[PlayerData.S.坊市物品列表[i].仙石Type],PlayerData.S.坊市物品列表[i].QualityType,1);
+                    ObserverModuleManager.S.SendEvent("SendUIToast",仙石Config.Get仙石Name(PlayerData.S.坊市物品列表[i].仙石Type, PlayerData.S.坊市物品列表[i].阶数),PlayerData.S.坊市物品列表[i].QualityType,1);
 
                 }
             }
@@ -411,7 +412,9 @@ public class 坊市Config
                 坊市物品.QualityType = Get法器品质(坊市物品.阶数);
                 break;
             case 2:
-                坊市物品.QualityType = Get坊市物品品质();
+                // 仙石：与法器一致，阶数受坊市等级限制，品质由阶数固定映射
+                坊市物品.阶数 = Random.Range(1, Get法器最高购买阶数() + 1);
+                坊市物品.QualityType = Get仙石品质(坊市物品.阶数);
                 坊市物品.仙石Type = (仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);
                 break;
             case 3:

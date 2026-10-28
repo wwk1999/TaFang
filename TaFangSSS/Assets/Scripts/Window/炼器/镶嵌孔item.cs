@@ -27,8 +27,8 @@ public class 镶嵌孔item : MonoBehaviour
             bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(仙石.quality);
             icon.gameObject.SetActive(true);
             name.gameObject.SetActive(true);
-            icon.sprite=ResourcesConfig.Get仙石Sprite(仙石.type,仙石.quality);
-            name.text=仙石Config.仙石名Dic[仙石.type];
+            icon.sprite=ResourcesConfig.Get仙石Sprite(仙石.type,仙石.阶数);
+            name.text=仙石Config.Get仙石Name(仙石.type, 仙石.阶数);
         }
     }
 }

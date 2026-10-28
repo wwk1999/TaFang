@@ -457,7 +457,9 @@ public class 仙石镶嵌panel : MonoBehaviour
         {
             int r = Get仙石属性值(b, 排序属性).CompareTo(Get仙石属性值(a, 排序属性));
             if (r != 0) return r;
-            // 同值时品质高的在前，保证排序稳定可预期
+            // 同值时阶数高的在前，再按品质，保证排序稳定可预期
+            int 阶数r = b.阶数.CompareTo(a.阶数);
+            if (阶数r != 0) return 阶数r;
             return b.quality.CompareTo(a.quality);
         });
         return list;

@@ -36,6 +36,7 @@ public class 洗练属性Content : MonoBehaviour
             词条item.法器附加属性值 = item;
             词条item.是否有锁 = 是否带锁;
             词条item.QualityType = QualityType;
+            词条item.是仙石 = 仙石Type != 仙石Type.None;
             词条item.SetItem();
         }
     }

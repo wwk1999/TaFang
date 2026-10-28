@@ -21,7 +21,7 @@ public class 孔item : MonoBehaviour
       {
          icon.gameObject.SetActive(true);
          bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(仙石.quality);
-         icon.sprite = ResourcesConfig.Get仙石Sprite(仙石.type, 仙石.quality);
+         icon.sprite = ResourcesConfig.Get仙石Sprite(仙石.type, 仙石.阶数);
       }
    }
 }

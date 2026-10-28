@@ -31,7 +31,7 @@ public class 分解确认弹窗 : MonoBehaviour
         {
             if (分解类型 == 分解类型.仙石)
             {
-                PlayerData.S.PropListDic[PropType.仙石精华] += 仙石Config.仙石分解Dic[仙石.quality];
+                PlayerData.S.PropListDic[PropType.仙石精华] += 仙石Config.Get仙石分解精华(仙石);
                 PlayerData.S.仙石列表.Remove(仙石);
             }
             else
@@ -48,7 +48,7 @@ public class 分解确认弹窗 : MonoBehaviour
     {
         if (分解类型 == 分解类型.仙石)
         {
-            name.text = 仙石Config.仙石名Dic[仙石.type];
+            name.text = 仙石Config.Get仙石Name(仙石.type, 仙石.阶数);
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石.quality);
         }
         else
