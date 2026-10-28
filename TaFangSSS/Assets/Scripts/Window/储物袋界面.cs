@@ -30,6 +30,7 @@ public class 储物袋界面 : MonoBehaviour
    public TextMeshProUGUI 页数;
    private int 页数Num = 1;
    public 法器仙石分解弹窗 法器仙石分解弹窗;
+   public 丹药分解弹窗 丹药分解弹窗;
    public 灵物合成弹窗 灵物合成弹窗;
 
    public 功法分解弹窗 功法分解弹窗;
@@ -298,6 +299,10 @@ public class 储物袋界面 : MonoBehaviour
          {
             法器仙石分解弹窗.gameObject.SetActive(false);
          }
+         else if (丹药分解弹窗 != null && 丹药分解弹窗.gameObject.activeSelf)
+         {
+            丹药分解弹窗.gameObject.SetActive(false);
+         }
          else if (分解确认弹窗.gameObject.activeSelf)
          {
             分解确认弹窗.gameObject.SetActive(false);
@@ -394,8 +399,7 @@ public class 储物袋界面 : MonoBehaviour
          }
          if (显示类型 == 9)
          {
-            法器仙石分解弹窗.分解类型 = 分解类型.丹药;
-            法器仙石分解弹窗.gameObject.SetActive(true);
+            丹药分解弹窗.gameObject.SetActive(true);
          }
       });
       左箭头.onClick.AddListener(() =>

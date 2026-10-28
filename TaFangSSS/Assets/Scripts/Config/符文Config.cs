@@ -98,6 +98,10 @@ public class 符文
     public QualityType quality;
     public float count;
     public bool 锁=false;
+    public bool 融合;
+    public 符文Type 融合type1;
+    public 符文Type 融合type2;
+    public bool 无暇;
 }
 public class 符文Config
 {
@@ -207,8 +211,18 @@ public class 符文Config
         { 符文Type.没有异常状态增伤, "无垢" },
         { 符文Type.清除异常状态增伤, "清道" },
     };
-    
-    
+
+    public static Dictionary<QualityType, float> 符文分解Dictionary = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品, 100 },
+        { QualityType.玄品, 300 },
+        { QualityType.地品, 1000 },
+        { QualityType.天品, 3000 },
+        { QualityType.宇品, 10000 },
+        { QualityType.宙品, 50000 },
+        { QualityType.洪品, 500000 },
+        { QualityType.荒品, 10000000 },
+    };
     public static Dictionary<符文Type, string> 符文效果Dic = new Dictionary<符文Type, string>()
     {
         { 符文Type.击杀怪物获得神通能量, "击杀敌人获得神通能量" },

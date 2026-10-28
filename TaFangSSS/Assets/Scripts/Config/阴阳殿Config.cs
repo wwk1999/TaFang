@@ -22,9 +22,34 @@ public class 仙子属性
     public float 暴击伤害;
     public float 暴击率;
     public float 攻击力;
-    public float 穿透;
+    public float 元素穿透;
     
+    public float 炼丹速度;
+    public float 炼丹经验;
+    public float 丹药效果;
+    public float 一炉双丹概率;
+    public float 提升品质概率;
+    public float 提升阶数概率;
     
+    public float 炼器速度;
+    public float 法器效果;
+    public float 加宇品以上概率;
+    public float 一炉双器概率;
+    public float 加荒品概率;
+    public float 加分解粉尘;
+    public float 加法器无暇洗练概率;
+    
+    public float 功法层数速度;
+    public float 功法层数效果;
+    public float 加功法分解粉尘;
+    public float 加荒品功法概率;
+    public float 传道功德消耗减少;
+    public float 每道年传道次数翻倍;
+    
+    public float 符文效果;
+    public float 宇品以上符文掉落概率;
+    public float 荒品掉落概率;
+   
 }
 
 public class 阴阳殿Config

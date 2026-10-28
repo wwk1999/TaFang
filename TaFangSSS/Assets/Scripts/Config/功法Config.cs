@@ -554,8 +554,8 @@ public class 功法Config
         { QualityType.天品, 10000 },
         { QualityType.宇品, 50000 },
         { QualityType.宙品, 400000 },
-        { QualityType.洪品, 3000000 },
-        { QualityType.荒品, 30000000 },
+        { QualityType.洪品, 5000000 },
+        { QualityType.荒品, 100000000 },
     };
 
     public static Dictionary<QualityType, List<float>> 传道概率Dic = new Dictionary<QualityType, List<float>>()

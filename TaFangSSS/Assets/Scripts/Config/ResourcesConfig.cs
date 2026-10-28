@@ -7793,6 +7793,7 @@ public class ResourcesConfig : MonoBehaviour
 			仙子Type.轮回 => 仙子icon4, 
 			仙子Type.功法 => 仙子icon8, 
 			仙子Type.符文 => 仙子icon10, 
+			仙子Type.领主装备 => 仙子icon7, 
 			_ => null, 
 		});
 	}
@@ -7811,6 +7812,7 @@ public class ResourcesConfig : MonoBehaviour
 			仙子Type.轮回 => 仙子头像4, 
 			仙子Type.功法 => 仙子头像8, 
 			仙子Type.符文 => 仙子头像10, 
+			仙子Type.领主装备 => 仙子头像7, 
 			_ => null, 
 		});
 	}
