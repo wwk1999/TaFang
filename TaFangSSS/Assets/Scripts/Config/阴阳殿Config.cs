@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public enum 仙子Type
 {
     None,
@@ -11,7 +13,6 @@ public enum 仙子Type
     合欢,
     掉宝,
     时间流速,
-    轮回,
 }
 
 public class 仙子属性
@@ -60,15 +61,40 @@ public class 仙子属性
     public float 领主装备词条效果增加;
     public float 洗练灵气消耗减少;
     
-    public float 领主装备所有效果;
-    public float 无暇洗练概率增加;
-    public float 强化灵气消耗减少;
-    public float 领主装备攻击力增加;
-    public float 领主装备词条效果增加;
-    public float 洗练灵气消耗减少;
+    public float 灵兽增幅;
+    public float 灵兽生长速度;
+    public float 灵兽洗练无暇概率增加;
+    public float 灵兽蛋数量增加;
+    public float 灵兽蛋荒品概率增加;
+    public float 孵化时间缩减;
+    
+    public float 仙女效果;
+    public float 好感度增加;
+    public float 灵植生长速度;
+    public float 灵植变异概率;
+    public float 喜好灵植额外加好感;
+    public float 变异灵植额外加好感;
+
+    public float 掉宝率;
+    public float 灵气增幅;
+    public float 轮回石掉落数量增加;
+
+    public float 时间流速;
 }
 
 public class 阴阳殿Config
 {
-        
+    public static Dictionary<仙子Type, string> 仙子名Dic = new Dictionary<仙子Type, string>()
+    {
+        {仙子Type.伤害,"水清漪"},
+        {仙子Type.炼丹,"水清漪"},
+        {仙子Type.炼器,"水清漪"},
+        {仙子Type.功法,"水清漪"},
+        {仙子Type.符文,"水清漪"},
+        {仙子Type.领主装备,"水清漪"},
+        {仙子Type.灵兽,"水清漪"},
+        {仙子Type.合欢,"水清漪"},
+        {仙子Type.掉宝,"水清漪"},
+        {仙子Type.时间流速,"水清漪"},
+    };
 }

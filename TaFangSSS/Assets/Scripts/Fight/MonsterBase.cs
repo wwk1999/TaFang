@@ -504,11 +504,16 @@ public class MonsterBase : MonoBehaviour
          乘区 *= (1f + HeroConfig.英雄神通配置Dic[HeroType.妲己].damage / 100f);
       }
 
-      // 英雄专属乘区（技能树、根基丹药、法师功法、法器）
+      // 英雄专属乘区（技能树、根基丹药、法师功法、法器、灵兽）
       乘区 *= (1f + _ctx.技能树.暴击伤害 / 100f);
       乘区 *= (1f + _ctx.根基丹药.暴击伤害 / 100f);
       乘区 = 计算法师功法暴击伤害(乘区, heroType);
       乘区 *= (1f + _ctx.法器.暴击伤害 / 100f);
+      var hero灵兽 = PlayerData.S.HeroDataDic[heroType].灵兽;
+      if (hero灵兽 != null)
+      {
+         乘区 *= 1f + 灵兽坊Config.Get灵兽暴击伤害总增幅(hero灵兽) / 100f;
+      }
 
       // 被辅助暴击伤害（来自辅助英雄技能树的 buff，主/二次暴击都吃）
       float 被辅助暴击 = 1f;
@@ -864,6 +869,11 @@ public class MonsterBase : MonoBehaviour
       最终Damage = 计算根基丹药伤害(最终Damage, heroType);
       最终Damage = 计算体质伤害(最终Damage, heroType);
       最终Damage = 计算体质辅助伤害(最终Damage, heroType);
+      // 灵兽最终伤害总增幅（英雄专属）
+      if (hero灵兽2 != null)
+      {
+         最终Damage *= 1f + 灵兽坊Config.Get灵兽最终伤害总增幅(hero灵兽2) / 100f;
+      }
       // 主英雄法器+在场辅助法器聚合成一份（字段相加），伤害只乘一次、穿透只除一次，不再连乘
       法器属性 聚合法器 = 获取聚合法器属性(heroType);
       最终Damage=计算法器伤害(最终Damage,heroType,聚合法器);
@@ -886,6 +896,12 @@ public class MonsterBase : MonoBehaviour
       }
       最终Damage *= (1 + FightController.S.总杀怪增伤 / 100f);
       最终Damage = 元素伤害(最终Damage, yuanSu);
+      // 灵兽元素伤害（英雄专属，不在总属性里）
+      var hero灵兽2 = PlayerData.S.HeroDataDic[heroType].灵兽;
+      if (hero灵兽2 != null)
+      {
+         最终Damage *= 1f + 灵兽坊Config.Get灵兽元素伤害总增幅(hero灵兽2) / 100f;
+      }
       最终Damage = 职业伤害(最终Damage, zhiYe);
       double 城墙血量比例 = (double)(FightController.S.城墙当前生命值 / FightController.S.缓存城墙最大生命值);
       if (城墙血量比例 < 城墙Config.低血量增伤血量值/100f)
