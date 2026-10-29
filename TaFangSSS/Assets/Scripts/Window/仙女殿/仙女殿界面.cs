@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Config;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class 仙女殿界面 : MonoBehaviour
     public GameObject 列表Content;
     public Image 立绘;
     public TextMeshProUGUI 仙子名;
+    public TextMeshProUGUI 描述1;
+    public TextMeshProUGUI 描述2;
 
     public TextMeshProUGUI 姓名;
     public TextMeshProUGUI 身份;
@@ -45,6 +48,26 @@ public class 仙女殿界面 : MonoBehaviour
     private void OnEnable()
     {
         Show();
+        // 首次打开时 LayoutGroup 还没有完成一次布局，延迟一帧再强制重建，避免列表错位
+        StartCoroutine(延迟刷新布局());
+    }
+
+    private IEnumerator 延迟刷新布局()
+    {
+        yield return null;
+        if (!gameObject.activeInHierarchy) yield break;
+        刷新布局();
+    }
+
+    private void 刷新布局()
+    {
+        Canvas.ForceUpdateCanvases();
+        // 从最深层的 LayoutGroup 往上重建，覆盖仙女列表、好感度行、等级列表和灵植列表
+        var 布局组 = GetComponentsInChildren<LayoutGroup>(true);
+        for (int i = 布局组.Length - 1; i >= 0; i--)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(布局组[i].GetComponent<RectTransform>());
+        }
     }
 
     private 仙子Type 取默认仙子()
@@ -82,12 +105,20 @@ public class 仙女殿界面 : MonoBehaviour
         Show仙子信息();
     }
 
+    /// <summary>先隐藏再销毁，避免 Destroy 延迟到帧末期间旧item仍参与 LayoutGroup 计算</summary>
+    private void 清空列表(Transform content)
+    {
+        for (int i = content.childCount - 1; i >= 0; i--)
+        {
+            var child = content.GetChild(i).gameObject;
+            child.SetActive(false);
+            Destroy(child);
+        }
+    }
+
     private void Show仙女列表()
     {
-        for (int i = 列表Content.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(列表Content.transform.GetChild(i).gameObject);
-        }
+        清空列表(列表Content.transform);
 
         foreach (var type in 阴阳殿Config.仙子解锁顺序)
         {
@@ -105,6 +136,9 @@ public class 仙女殿界面 : MonoBehaviour
 
         立绘.sprite = ResourcesConfig.Get仙子Icon(当前选择仙子);
         仙子名.text = 阴阳殿Config.仙子名Dic[当前选择仙子];
+        var 标语 = 阴阳殿Config.仙子标语Dic[当前选择仙子];
+        描述1.text = 标语[0];
+        描述2.text = 标语[1];
         姓名.text = 阴阳殿Config.仙子名Dic[当前选择仙子];
         身份.text = 阴阳殿Config.仙子身份Dic[当前选择仙子];
         性格.text = 阴阳殿Config.仙子性格Dic[当前选择仙子];
@@ -117,16 +151,14 @@ public class 仙女殿界面 : MonoBehaviour
         最大好感.text = PlayerData.S.格式化数字(上限);
         好感进度条.fillAmount = 上限 > 0 ? Mathf.Clamp01((float)仙女.好感度经验 / 上限) : 0f;
 
-        Show等级列表();
+        Show等级列表(仙女);
         Show灵植列表();
+        刷新布局();
     }
 
-    private void Show等级列表()
+    private void Show等级列表(仙女 仙女)
     {
-        for (int i = 等级列表Content.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(等级列表Content.transform.GetChild(i).gameObject);
-        }
+        清空列表(等级列表Content.transform);
 
         var 奖励 = 阴阳殿Config.仙子等级解锁奖励[当前选择仙子];
         var 属性列表 = new 仙子属性[]
@@ -147,10 +179,7 @@ public class 仙女殿界面 : MonoBehaviour
 
     private void Show灵植列表()
     {
-        for (int i = 灵植列表Content.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(灵植列表Content.transform.GetChild(i).gameObject);
-        }
+        清空列表(灵植列表Content.transform);
 
         foreach (var type in 阴阳殿Config.仙子喜好灵植dic[当前选择仙子])
         {

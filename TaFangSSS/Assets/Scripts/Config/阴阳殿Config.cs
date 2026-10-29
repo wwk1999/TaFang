@@ -258,6 +258,21 @@ public class 阴阳殿Config
         {仙子Type.时间流速,"她掌中光阴可缓可急，一炷香能过一甲子。世人皆叹时不我待，唯她笑说，急什么，日子长着呢。"},
     };
 
+    /// <summary>每位仙女的16字描述：拆成两个Text，每个8字，用于立绘左侧竖排标语</summary>
+    public static Dictionary<仙子Type, string[]> 仙子标语Dic = new Dictionary<仙子Type, string[]>()
+    {
+        {仙子Type.伤害, new string[] { "霜华照夜，剑凛九霄", "寒锋映雪，心若冰壶" }},
+        {仙子Type.炼丹, new string[] { "炉火三秋，丹香满山", "蘅芜一径，药意通仙" }},
+        {仙子Type.炼器, new string[] { "炉锤不歇，铸尽星河", "熔霜入器，魄寄千锋" }},
+        {仙子Type.功法, new string[] { "云卷云舒，书页自翻", "传道三千，心灯不灭" }},
+        {仙子Type.符文, new string[] { "朱砂一点，万里传音", "云篆落纸，风雷皆听" }},
+        {仙子Type.领主装备, new string[] { "明光映夜，甲守山河", "一诺千军，城头不破" }},
+        {仙子Type.灵兽, new string[] { "鹿鸣幽谷，万兽相亲", "不驯只伴，心契长生" }},
+        {仙子Type.合欢, new string[] { "绛衣立雪，桃花不落", "合欢同修，各证长生" }},
+        {仙子Type.掉宝, new string[] { "俯身拾遗，机缘在脚", "拾缘拾宝，愿与君分" }},
+        {仙子Type.时间流速, new string[] { "光阴可缓，一炷甲子", "流光慢捻，日子且长" }},
+    };
+
     /// <summary>好感度从当前等级升到下一级所需经验（占位公式：等级平方 + 700，112级为13244）</summary>
     public static int Get好感度升级经验(int 等级)
     {
