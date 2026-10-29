@@ -1528,7 +1528,8 @@ public class MonsterBase : MonoBehaviour
          if (item == HeroType.None) continue;
          if (PlayerData.S.HeroDataDic[item].功法Type != 功法Type.None)
          {
-            PlayerData.S.HeroDataDic[item].功法经验+=(1f+FightController.S.缓存体质总属性.功法经验加成/100f);
+            PlayerData.S.HeroDataDic[item].功法经验+=(1f+FightController.S.缓存体质总属性.功法经验加成/100f)
+                *(1f+属性config.仙子总属性.功法层数速度增幅/100f);
             if (PlayerData.S.HeroDataDic[item].功法经验 >= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].功法等级))
             {
                PlayerData.S.HeroDataDic[item].功法经验 -= 功法Config.Get功法升级经验(PlayerData.S.HeroDataDic[item].功法等级);

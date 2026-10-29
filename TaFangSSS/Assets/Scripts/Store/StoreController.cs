@@ -469,7 +469,7 @@ public class StoreController : XSingleton<StoreController>
     {
         foreach (var item in PlayerData.S.灵兽列表)
         {
-            item.道龄++;
+            item.道龄 += 1f * (1f + 属性config.仙子总属性.灵兽生长速度 / 100f);
         }
     }
     private void Update()
