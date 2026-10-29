@@ -445,6 +445,7 @@ public class 道场Config
         { 建筑Type.坊市 ,"领地中最为热闹的交易集市，修士与商贾在此互通有无、买卖灵材，是领地经济流通与财富积累的核心所在。"},
         { 建筑Type.灵兽坊 ,"领地灵兽资源的汇聚之地，培养灵兽增强战力，是领地灵兽流通与战力养成的关键所在。"},
         { 建筑Type.灵植园 ,"灵植培育的园圃，园中土地随建筑等级逐级开辟，可栽种灵植、施以肥料，收获青石与灵植园经验。"},
+        { 建筑Type.仙女阁 ,"群仙栖息之所，殿中仙子各司其职。每升一级解锁一位仙子，伴你修行、共证长生。"},
 
     };
     public static Dictionary<供奉特性Type, List<float>> 供奉特性Dic = new Dictionary<供奉特性Type, List<float>>()
@@ -545,6 +546,8 @@ public class 道场Config
                 return "领主府";
             case 建筑Type.灵植园:
                 return "灵植园";
+            case 建筑Type.仙女阁:
+                return "仙女殿";
         }
         return "";
     }

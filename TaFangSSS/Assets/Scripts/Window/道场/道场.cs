@@ -62,7 +62,7 @@ public class 道场 : MonoBehaviour
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] == 0)
             {
-                if (PlayerData.S.历史最高境界 >= JingJieType.筑基)
+                if (PlayerData.S.历史最高境界 >= JingJieType.合体)
                 {
                     if (PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] == 0)
                     {
@@ -72,7 +72,7 @@ public class 道场 : MonoBehaviour
                 }
                 else
                 {
-                    ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","合体境界解锁");
                     return;
                 }
             }
@@ -86,7 +86,7 @@ public class 道场 : MonoBehaviour
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.灵植园] == 0)
             {
-                if (PlayerData.S.历史最高境界 >= JingJieType.筑基)
+                if (PlayerData.S.历史最高境界 >= JingJieType.化神)
                 {
                     if (PlayerData.S.建筑等级Dic[建筑Type.灵植园] == 0)
                     {
@@ -96,13 +96,37 @@ public class 道场 : MonoBehaviour
                 }
                 else
                 {
-                    ObserverModuleManager.S.SendEvent("SendUIToast","筑基境界解锁");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
                     return;
                 }
             }
             else
             {
                 WindowController.S.打开窗口(WindowController.S.灵植园Window);
+            }
+        });
+        
+        双修殿.onClick.AddListener(() =>
+        {
+            if (PlayerData.S.建筑等级Dic[建筑Type.仙女阁] == 0)
+            {
+                if (PlayerData.S.历史最高境界 >= JingJieType.化神)
+                {
+                    if (PlayerData.S.建筑等级Dic[建筑Type.仙女阁] == 0)
+                    {
+                        PlayerData.S.建筑等级Dic[建筑Type.仙女阁] = 1;
+                    }
+                    WindowController.S.打开窗口(WindowController.S.仙女阁Window);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
+                    return;
+                }
+            }
+            else
+            {
+                WindowController.S.打开窗口(WindowController.S.仙女阁Window);
             }
         });
         聚贤阁.onClick.AddListener(() =>

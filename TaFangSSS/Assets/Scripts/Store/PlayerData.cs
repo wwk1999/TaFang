@@ -179,6 +179,9 @@ public class PlayerData : XSingleton<PlayerData>
         { 建筑Type.灵植园, 0 },
     };
 
+    /// <summary>仙女数据：仙子Type→仙女，解锁后好感度等级默认为1</summary>
+    public Dictionary<仙子Type, 仙女> 仙女Dic = 阴阳殿Config.创建默认仙女Dic();
+
     public bool 自动拒绝凡品供奉=false;
     public bool 自动拒绝灵品供奉=false;
     public bool 自动拒绝仙品供奉=false;

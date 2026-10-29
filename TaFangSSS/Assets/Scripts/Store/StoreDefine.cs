@@ -880,6 +880,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         { 建筑Type.灵植园, 0 },
     };
 
+        public Dictionary<仙子Type, 仙女> 仙女Dic = 阴阳殿Config.创建默认仙女Dic();
+
       
         
         public List<符文> 符文黄品List = new List<符文>();
@@ -2890,6 +2892,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             供奉申请列表 = runtime.供奉申请列表;
             供奉保留列表 = runtime.供奉保留列表;
             建筑等级Dic = runtime.建筑等级Dic;
+            仙女Dic = runtime.仙女Dic;
             自动拒绝凡品供奉 = runtime.自动拒绝凡品供奉;
             自动拒绝灵品供奉 = runtime.自动拒绝灵品供奉;
             自动拒绝仙品供奉 = runtime.自动拒绝仙品供奉;
@@ -3074,6 +3077,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             runtime.供奉申请列表 = 过滤null供奉(供奉申请列表);
             runtime.供奉保留列表 = 过滤null供奉(供奉保留列表);
             runtime.建筑等级Dic = 建筑等级Dic;
+            runtime.仙女Dic = 仙女Dic ?? 阴阳殿Config.创建默认仙女Dic();
             runtime.自动拒绝凡品供奉 = 自动拒绝凡品供奉;
             runtime.自动拒绝灵品供奉 = 自动拒绝灵品供奉;
             runtime.自动拒绝仙品供奉 = 自动拒绝仙品供奉;
@@ -3223,6 +3227,9 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             {
                 丹药Dic[key] = 0;
             }
+
+            // 读档自愈：根据仙女殿等级同步仙女解锁状态，解锁后默认好感度等级为1
+            阴阳殿Config.同步仙女解锁();
         }
 
         private static List<供奉> 过滤null供奉(List<供奉> list)

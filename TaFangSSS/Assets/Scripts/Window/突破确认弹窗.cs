@@ -64,6 +64,26 @@ public class 突破确认弹窗 : MonoBehaviour
                     ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","坊市已解锁");
                 }
+                
+                if (PlayerData.S.历史最高境界 == JingJieType.元婴)
+                {
+                    PlayerData.S.建筑等级Dic[建筑Type.炼丹室] = 1;
+                    ObserverModuleManager.S.SendEvent("SendUIToast","炼丹室已解锁");
+                }
+                
+                if (PlayerData.S.历史最高境界 == JingJieType.化神)
+                {
+                    PlayerData.S.建筑等级Dic[建筑Type.灵植园] = 1;
+                    PlayerData.S.建筑等级Dic[建筑Type.仙女阁] = 1;
+                    ObserverModuleManager.S.SendEvent("SendUIToast","灵植园已解锁");
+                    ObserverModuleManager.S.SendEvent("SendUIToast","仙女阁已解锁");
+                }
+                
+                if (PlayerData.S.历史最高境界 == JingJieType.合体)
+                {
+                    PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] = 1;
+                    ObserverModuleManager.S.SendEvent("SendUIToast","灵兽坊已解锁");
+                }
             }
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public enum 仙子Type
@@ -273,4 +274,57 @@ public class 阴阳殿Config
         {仙子Type.掉宝, new List<灵植Type>() { 灵植Type.幻音铃, 灵植Type.赤焰百合, 灵植Type.寒星兰, 灵植Type.惊雷子, 灵植Type.醉仙球, 灵植Type.招财草, 灵植Type.金乌葵, 灵植Type.白玉莲 }},
         {仙子Type.时间流速, new List<灵植Type>() { 灵植Type.曜日葵, 灵植Type.九幽紫, 灵植Type.赤阳花, 灵植Type.空谷幽兰, 灵植Type.醉仙菌, 灵植Type.粉霞仙, 灵植Type.幻樱木, 灵植Type.白玉莲 }},
     };
+
+    /// <summary>仙女殿每级解锁顺序：1级解锁第0个，2级解锁第1个，依此类推</summary>
+    public static readonly List<仙子Type> 仙子解锁顺序 = new List<仙子Type>()
+    {
+        仙子Type.伤害,
+        仙子Type.炼丹,
+        仙子Type.炼器,
+        仙子Type.功法,
+        仙子Type.符文,
+        仙子Type.领主装备,
+        仙子Type.灵兽,
+        仙子Type.合欢,
+        仙子Type.掉宝,
+        仙子Type.时间流速,
+    };
+
+    /// <summary>创建全部未解锁的仙女数据</summary>
+    public static Dictionary<仙子Type, 仙女> 创建默认仙女Dic()
+    {
+        var dic = new Dictionary<仙子Type, 仙女>();
+        foreach (仙子Type t in Enum.GetValues(typeof(仙子Type)))
+        {
+            if (t == 仙子Type.None) continue;
+            dic[t] = new 仙女() { 仙子Type = t, 好感度等级 = 0, 好感度经验 = 0, 解锁 = false };
+        }
+        return dic;
+    }
+
+    /// <summary>根据仙女殿等级解锁对应仙女，解锁后默认好感度等级为1</summary>
+    public static void 同步仙女解锁()
+    {
+        int 殿等级 = PlayerData.S.建筑等级Dic[建筑Type.仙女阁];
+        int 已解锁 = Math.Min(殿等级, 仙子解锁顺序.Count);
+        for (int i = 0; i < 仙子解锁顺序.Count; i++)
+        {
+            var type = 仙子解锁顺序[i];
+            var 仙女 = PlayerData.S.仙女Dic[type];
+            if (i < 已解锁)
+            {
+                if (!仙女.解锁)
+                {
+                    仙女.解锁 = true;
+                    仙女.好感度等级 = Math.Max(仙女.好感度等级, 1);
+                }
+            }
+            else
+            {
+                仙女.解锁 = false;
+                仙女.好感度等级 = 0;
+                仙女.好感度经验 = 0;
+            }
+        }
+    }
 }

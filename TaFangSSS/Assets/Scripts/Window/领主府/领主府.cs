@@ -247,6 +247,18 @@ public class 领主府 : MonoBehaviour
                需要玄铁 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要玄铁;
                需要玉髓 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要玉髓;
                break;
+
+            case 建筑Type.仙女阁:
+               if (!道场Config.仙女殿配置.ContainsKey(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type ]+ 2))
+               {
+                  ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
+                  return;
+               }
+               需要灵气 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要灵气;
+               需要矿石 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要矿石;
+               需要玄铁 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要玄铁;
+               需要玉髓 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要玉髓;
+               break;
          }
 
          if (PlayerData.S.PropListDic[PropType.灵魂] < 需要灵气)
@@ -282,6 +294,10 @@ public class 领主府 : MonoBehaviour
          if (HeroWindowController.S.当前显示建筑Type == 建筑Type.灵植园)
          {
             灵植园Config.同步土地解锁();
+         }
+         if (HeroWindowController.S.当前显示建筑Type == 建筑Type.仙女阁)
+         {
+            阴阳殿Config.同步仙女解锁();
          }
          ObserverModuleManager.S.SendEvent("SendUIToast","升级建筑成功");
          ObserverModuleManager.S.SendEvent("刷新领主府");
@@ -558,6 +574,12 @@ public class 领主府 : MonoBehaviour
          case 建筑Type.坊市:
             {
                var 配置 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]];
+               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               break;
+            }
+         case 建筑Type.仙女阁:
+            {
+               var 配置 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]];
                添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
@@ -900,6 +922,24 @@ public class 领主府 : MonoBehaviour
                .GetComponent<概率升级效果item>();
             升级概率列表.list = 道场Config.领主府配置[1+PlayerData.S.建筑等级Dic[建筑Type.领主府]].招募概率列表;
             升级概率列表.SetItem();
+            break;
+
+         case 建筑Type.仙女阁:
+            int 仙女殿等级 = PlayerData.S.建筑等级Dic[建筑Type.仙女阁];
+            var 仙女殿当前配置 = 道场Config.仙女殿配置[仙女殿等级];
+            var 仙女殿升级配置 = 道场Config.仙女殿配置.TryGetValue(仙女殿等级 + 1, out var 仙女殿下一级) ? 仙女殿下一级 : 仙女殿当前配置;
+
+            var 当前仙子个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
+               .GetComponent<数值升级效果item>();
+            当前仙子个数.info = "已解锁仙子个数";
+            当前仙子个数.count = 仙女殿当前配置.仙子个数.ToString();
+            当前仙子个数.SetItem();
+
+            var 升级仙子个数 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
+               .GetComponent<数值升级效果item>();
+            升级仙子个数.info = "升级后仙子个数";
+            升级仙子个数.count = 仙女殿升级配置.仙子个数.ToString();
+            升级仙子个数.SetItem();
             break;
       }
    }

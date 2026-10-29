@@ -8,6 +8,10 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+		public static Sprite 仙子列表背景框;
+		public static Sprite 仙子列表背景框亮;
+
+	
 	public static Sprite 铲除;
 
 	public static Sprite 灵植背包格子空;
@@ -7230,6 +7234,9 @@ public class ResourcesConfig : MonoBehaviour
 
 	public static void Init()
 	{
+		仙子列表背景框=Resources.Load<Sprite>("Sprite/仙子icon/仙子列表背景框");
+		仙子列表背景框亮=Resources.Load<Sprite>("Sprite/仙子icon/仙子列表背景框亮");
+
 		铲除 = Resources.Load<Sprite>("Sprite/灵植icon/铲除");
 		灵植背包格子空 = Resources.Load<Sprite>("Sprite/灵植icon/背包格子/空");
 		灵植背包格子白 = Resources.Load<Sprite>("Sprite/灵植icon/背包格子/白");
