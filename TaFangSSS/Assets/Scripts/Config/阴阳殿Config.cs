@@ -81,6 +81,13 @@ public class 仙子属性
     public float 时间流速;
 }
 
+public class 仙女
+{
+    public 仙子Type 仙子Type;
+    public int 好感度等级;
+    public int 好感度经验;
+    public bool 解锁;
+}
 public class 仙子等级解锁属性
 {
     public 仙子属性 仙子属性1;
@@ -93,10 +100,6 @@ public class 仙子等级解锁属性
 
 public class 阴阳殿Config
 {
-    public static Dictionary<仙子Type,List<灵植Type>>仙子喜好灵植dic=new Dictionary<仙子Type, List<灵植Type>>()
-    {
-        
-    }
     
     public static Dictionary<仙子Type, 仙子等级解锁属性> 仙子等级解锁奖励 = new Dictionary<仙子Type, 仙子等级解锁属性>()
     {
@@ -252,5 +255,22 @@ public class 阴阳殿Config
         {仙子Type.合欢,"宗中桃花终年不落，她一身绛衣立于花下，红梅映雪，故号绛雪。她说合欢非贪欢，是两人一心同修，各证长生。"},
         {仙子Type.掉宝,"世人求宝，她拾遗。她信天地之间无废物，只有未被看见的缘——你一弯腰，机缘就在脚下。"},
         {仙子Type.时间流速,"她掌中光阴可缓可急，一炷香能过一甲子。世人皆叹时不我待，唯她笑说，急什么，日子长着呢。"},
+    };
+
+    /// <summary>
+    /// 仙子喜好灵植：每位仙子8种，按品质黄→荒各一；32种灵植全部登场，除荒品仅白玉莲外均为2~3次
+    /// </summary>
+    public static Dictionary<仙子Type, List<灵植Type>> 仙子喜好灵植dic = new Dictionary<仙子Type, List<灵植Type>>()
+    {
+        {仙子Type.伤害, new List<灵植Type>() { 灵植Type.曜日葵, 灵植Type.赤焰百合, 灵植Type.赤阳花, 灵植Type.赤霞花, 灵植Type.血菩提, 灵植Type.玄冰魄, 灵植Type.修罗花, 灵植Type.白玉莲 }},
+        {仙子Type.炼丹, new List<灵植Type>() { 灵植Type.紫云英, 灵植Type.紫幽草, 灵植Type.三生花, 灵植Type.空谷幽兰, 灵植Type.太素花, 灵植Type.黄龙掌, 灵植Type.幻樱木, 灵植Type.白玉莲 }},
+        {仙子Type.炼器, new List<灵植Type>() { 灵植Type.曜日葵, 灵植Type.碧海螺, 灵植Type.白玉玲, 灵植Type.惊雷子, 灵植Type.灵犀铃, 灵植Type.紫晶铃, 灵植Type.金乌葵, 灵植Type.白玉莲 }},
+        {仙子Type.功法, new List<灵植Type>() { 灵植Type.幻音铃, 灵植Type.粉面佛莲, 灵植Type.向阳花, 灵植Type.幽兰铃, 灵植Type.血菩提, 灵植Type.玄冰魄, 灵植Type.修罗花, 灵植Type.白玉莲 }},
+        {仙子Type.符文, new List<灵植Type>() { 灵植Type.紫云英, 灵植Type.九幽紫, 灵植Type.寒星兰, 灵植Type.惊雷子, 灵植Type.太素花, 灵植Type.紫晶铃, 灵植Type.幻樱木, 灵植Type.白玉莲 }},
+        {仙子Type.领主装备, new List<灵植Type>() { 灵植Type.紫云英, 灵植Type.碧海螺, 灵植Type.白玉玲, 灵植Type.赤霞花, 灵植Type.醉仙球, 灵植Type.黄龙掌, 灵植Type.修罗花, 灵植Type.白玉莲 }},
+        {仙子Type.灵兽, new List<灵植Type>() { 灵植Type.幻紫玫, 灵植Type.紫幽草, 灵植Type.三生花, 灵植Type.幽兰铃, 灵植Type.醉仙菌, 灵植Type.招财草, 灵植Type.金乌葵, 灵植Type.白玉莲 }},
+        {仙子Type.合欢, new List<灵植Type>() { 灵植Type.幻紫玫, 灵植Type.粉面佛莲, 灵植Type.向阳花, 灵植Type.赤霞花, 灵植Type.灵犀铃, 灵植Type.粉霞仙, 灵植Type.幻樱木, 灵植Type.白玉莲 }},
+        {仙子Type.掉宝, new List<灵植Type>() { 灵植Type.幻音铃, 灵植Type.赤焰百合, 灵植Type.寒星兰, 灵植Type.惊雷子, 灵植Type.醉仙球, 灵植Type.招财草, 灵植Type.金乌葵, 灵植Type.白玉莲 }},
+        {仙子Type.时间流速, new List<灵植Type>() { 灵植Type.曜日葵, 灵植Type.九幽紫, 灵植Type.赤阳花, 灵植Type.空谷幽兰, 灵植Type.醉仙菌, 灵植Type.粉霞仙, 灵植Type.幻樱木, 灵植Type.白玉莲 }},
     };
 }

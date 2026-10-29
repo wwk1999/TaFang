@@ -870,9 +870,11 @@ public class MonsterBase : MonoBehaviour
       最终Damage = 计算体质伤害(最终Damage, heroType);
       最终Damage = 计算体质辅助伤害(最终Damage, heroType);
       // 灵兽最终伤害总增幅（英雄专属）
-      if (hero灵兽2 != null)
+      var hero灵兽 = PlayerData.S.HeroDataDic[heroType].灵兽;
+
+      if (hero灵兽 != null)
       {
-         最终Damage *= 1f + 灵兽坊Config.Get灵兽最终伤害总增幅(hero灵兽2) / 100f;
+         最终Damage *= 1f + 灵兽坊Config.Get灵兽最终伤害总增幅(hero灵兽) / 100f;
       }
       // 主英雄法器+在场辅助法器聚合成一份（字段相加），伤害只乘一次、穿透只除一次，不再连乘
       法器属性 聚合法器 = 获取聚合法器属性(heroType);
