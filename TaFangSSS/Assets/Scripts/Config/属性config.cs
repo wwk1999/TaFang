@@ -17,13 +17,16 @@ public class 英雄属性
      public float 首领怪增伤;
      public float 元素穿透;
      public float 寻宝速度增幅;
+     public float 攻击距离;
+     public float 普通攻击间隔;//多长时间攻击一次，不是神通
+     public float 神通攻击间隔;//多长时间攻击一次，神通
 }
 public class 属性config
 {
-     public static Dictionary<HeroType, 英雄属性> 英雄属性字典 = new Dictionary<HeroType, 英雄属性>()
-     {
-          
-     };
+     /// <summary>
+     /// 英雄属性字典：每次取值实时遍历全部英雄计算，保证始终为最新数值。
+     /// </summary>
+     public static Dictionary<HeroType, 英雄属性> 英雄属性字典 => Get英雄属性字典();
      public static float Get英雄暴击伤害增幅()
      {
           float value = 0;
@@ -688,20 +691,40 @@ public class 属性config
           结果.精英怪增伤 = (总属性.精英怪伤害增幅 * (1f + 法器.精英怪增伤 / 100f) * (1f + 技能树.精英怪增伤 / 100f) - 1f) * 100f;
           结果.首领怪增伤 = (总属性.首领伤害增幅 * (1f + 法器.首领怪增伤 / 100f) * (1f + 技能树.首领怪增伤 / 100f) - 1f) * 100f;
 
+          // 攻击距离：职业基础范围 + 战士系功法附加（与 人物item.SetItem 口径一致）
+          float 攻击距离 = HeroConfig.攻击范围Dic[职业元素.zhiYeType];
+          if (职业元素.zhiYeType == ZhiYeType.战士 && heroData.功法Type != 功法Type.None)
+          {
+               攻击距离 += 功法Config.功法基础属性Dic[heroData.功法Type].count;
+          }
+          结果.攻击距离 = 攻击距离;
+
+          // 普通攻击间隔：基础Cd ÷ 技能树冷却 ÷ 体质攻速 ÷ 全局冷却 ÷ 射手系功法（不含战斗内随机浮动与女娲电辅助）
+          float 普通攻击间隔 = 英雄星级属性.Get英雄Cd(heroType);
+          普通攻击间隔 /= (1f + 技能树.技能冷却缩减 / 100f);
+          普通攻击间隔 /= (1f + 体质.攻击速度 / 100f);
+          普通攻击间隔 /= (1f + 总属性.英雄冷却缩减);
+          if (职业元素.zhiYeType == ZhiYeType.射手 && heroData.功法Type != 功法Type.None)
+          {
+               普通攻击间隔 /= (1f + 功法Config.功法基础属性Dic[heroData.功法Type].count / 100f);
+          }
+          结果.普通攻击间隔 = 普通攻击间隔;
+
+          // 神通攻击间隔：神通基础Cd ÷ (1 - 技能树神通冷却缩减/100)
+          结果.神通攻击间隔 = HeroConfig.英雄神通配置Dic[heroType].cd / (1f - 技能树.神通冷却时间 / 100f);
+
           结果.寻宝速度增幅 = 技能树.寻宝速度;
           return 结果;
      }
 
-     /// <summary>
-     /// 刷新英雄属性字典：遍历全部英雄实时计算并填充，供需要字典形态的消费方使用。
-     /// </summary>
-     public static void 刷新英雄属性字典()
+     private static Dictionary<HeroType, 英雄属性> Get英雄属性字典()
      {
-          英雄属性字典.Clear();
+          var dic = new Dictionary<HeroType, 英雄属性>();
           foreach (var item in HeroConfig.HeroQualityDic)
           {
-               英雄属性字典[item.Key] = Get英雄属性(item.Key);
+               dic[item.Key] = Get英雄属性(item.Key);
           }
+          return dic;
      }
      public static float 显示修炼速度 => ((1f+PlayerData.S.关卡修炼速度加成/100f) * (1f+道宝Config.Get道宝总修炼速度()/100f)-1)*100f;
      public static float 丹药修炼速度 => Get丹药修炼速度();
