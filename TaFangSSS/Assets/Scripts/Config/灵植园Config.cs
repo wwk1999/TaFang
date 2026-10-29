@@ -345,6 +345,50 @@ public class 灵植园Config
         { 灵植Type.白玉莲, QualityType.荒品 },
     };
 
+    /// <summary>每株灵植赠送时提供的基础好感度，实际好感再按喜好（×2）与变异（×变异倍数）乘算</summary>
+    public static Dictionary<灵植Type, int> 灵植赠送好感度Dic = new Dictionary<灵植Type, int>()
+    {
+        { 灵植Type.紫云英, 10 },
+        { 灵植Type.曜日葵, 10 },
+        { 灵植Type.幻音铃, 10 },
+        { 灵植Type.幻紫玫, 10 },
+
+        { 灵植Type.九幽紫, 15 },
+        { 灵植Type.赤焰百合, 15 },
+        { 灵植Type.碧海螺, 15 },
+        { 灵植Type.粉面佛莲, 15 },
+
+        { 灵植Type.紫幽草, 20 },
+        { 灵植Type.三生花, 20 },
+        { 灵植Type.向阳花, 20 },
+        { 灵植Type.白玉玲, 20 },
+
+        { 灵植Type.赤阳花, 30 },
+        { 灵植Type.寒星兰, 30 },
+        { 灵植Type.赤霞花, 30 },
+        { 灵植Type.惊雷子, 30 },
+
+        { 灵植Type.幽兰铃, 40 },
+        { 灵植Type.空谷幽兰, 40 },
+        { 灵植Type.醉仙球, 40 },
+        { 灵植Type.醉仙菌, 40 },
+
+        { 灵植Type.太素花, 60 },
+        { 灵植Type.灵犀铃, 60 },
+        { 灵植Type.血菩提, 60 },
+        { 灵植Type.紫晶铃, 60 },
+
+        { 灵植Type.招财草, 80 },
+        { 灵植Type.粉霞仙, 80 },
+        { 灵植Type.黄龙掌, 80 },
+        { 灵植Type.玄冰魄, 80 },
+
+        { 灵植Type.修罗花, 120 },
+        { 灵植Type.金乌葵, 120 },
+        { 灵植Type.幻樱木, 120 },
+        { 灵植Type.白玉莲, 120 },
+    };
+
     public static Dictionary<灵植Type, int> 灵植解锁等级Dic = new Dictionary<灵植Type, int>()
     {
         { 灵植Type.紫云英, 1 },
@@ -860,31 +904,34 @@ public class 灵植园Config
 
     public static Dictionary<int, minmax> 植物位置Dic = new Dictionary<int, minmax>()
     {
-        {10,new minmax(){min = -455.6f,max = 1.4f}},
-        {6,new minmax(){min = -298.4417f,max = 77.66492f}},
-        {2,new minmax(){min = -140.6417f,max = 157.6649f}},
         {1,new minmax(){min = 17.35831f,max = 237.6649f}},
-        {12,new minmax(){min = -296,max = -81}},
-        {9,new minmax(){min = -138.4417f,max = -1.335083f}},
-        {4,new minmax(){min = 19.35828f,max = 78.66492f}},
-        {3,new minmax(){min = 177.3583f,max = 158.6649f}},
-        {17,new minmax(){min = -134.5583f,max = -159.6649f}},
-        {13,new minmax(){min = 23,max = -80}},
-        {7,new minmax(){min = 180.8f,max = 0}},
+        {2,new minmax(){min = -140.6417f,max = 157.6649f}},
+         {3,new minmax(){min = 177.3583f,max = 158.6649f}},
+         {4,new minmax(){min = 19.35828f,max = 78.66492f}},
         {5,new minmax(){min = 338.8f,max = 80}},
+         {6,new minmax(){min = -298.4417f,max = 77.66492f}},
+         {7,new minmax(){min = 180.8f,max = 0}}, 
+         {8,new minmax(){min = 497.8f,max = 0}},
+         {9,new minmax(){min = -138.4417f,max = -1.335083f}}, 
+         {10,new minmax(){min = -455.6f,max = 1.4f}},
+          {11,new minmax(){min = 339.8f,max = -80}},
+        {12,new minmax(){min = -296,max = -81}},
+        {13,new minmax(){min = 23,max = -80}},
+        
+       {14,new minmax(){min = 658,max = -79}},
+       {15,new minmax(){min = 500,max = -159}},
+       {16,new minmax(){min = 182,max = -160}},
+        {17,new minmax(){min = -134.5583f,max = -159.6649f}},
+         {18,new minmax(){min = 342.2f,max = -239}},
         {19,new minmax(){min = 24.44165f,max = -239.6649f}},
-        {16,new minmax(){min = 182,max = -160}},
-        {11,new minmax(){min = 339.8f,max = -80}},
-        {8,new minmax(){min = 497.8f,max = 0}},
         {20,new minmax(){min = 184.6417f,max = -318.6649f}},
-        {18,new minmax(){min = 342.2f,max = -239}},
-        {15,new minmax(){min = 500,max = -159}},
-        {14,new minmax(){min = 658,max = -79}},
     };
 
     /// <summary>
     /// 按领主府「灵植园」建筑等级同步土地解锁：每级解锁一块土地
     /// </summary>
+
+    public static List<int> 土地解锁顺序 = new List<int>() { };
     public static void 同步土地解锁()
     {
         int 等级 = PlayerData.S.建筑等级Dic[建筑Type.灵植园];

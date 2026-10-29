@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class 仙女殿界面 : MonoBehaviour
 {
     public Button 退出按钮;
+    public Button 赠送按钮;
+    public 灵植赠送窗口 赠送窗口;
 
     public GameObject 列表Content;
     public Image 立绘;
@@ -37,6 +39,13 @@ public class 仙女殿界面 : MonoBehaviour
         退出按钮.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
+        });
+        赠送按钮.onClick.AddListener(() =>
+        {
+            if (当前选择仙子 == 仙子Type.None) return;
+            if (!PlayerData.S.仙女Dic[当前选择仙子].解锁) return;
+            赠送窗口.当前仙子 = 当前选择仙子;
+            赠送窗口.gameObject.SetActive(true);
         });
     }
 
@@ -154,6 +163,11 @@ public class 仙女殿界面 : MonoBehaviour
         Show等级列表(仙女);
         Show灵植列表();
         刷新布局();
+    }
+
+    public void 刷新当前仙女信息()
+    {
+        Show仙子信息();
     }
 
     private void Show等级列表(仙女 仙女)
