@@ -173,6 +173,7 @@ public class 仙女殿界面 : MonoBehaviour
                 .GetComponent<好感度等级item>();
             item.等级 = 阴阳殿Config.仙子解锁等级[i];
             item.属性 = 属性列表[i];
+            item.是否满足等级 = 仙女.好感度等级 >= item.等级;
             item.SetItem();
         }
     }

@@ -17,7 +17,7 @@ public class 好感度等级item : MonoBehaviour
 
     public void SetItem()
     {
-        icon.sprite = 是否满足等级 ? ResourcesConfig.标签亮 : ResourcesConfig.标签暗;
+        icon.sprite = 是否满足等级 ? ResourcesConfig.红标签 : ResourcesConfig.灰标签;
 
         string 描述 = string.Join("、", 阴阳殿Config.Get仙子属性描述(属性));
         if (效果Text != null)
