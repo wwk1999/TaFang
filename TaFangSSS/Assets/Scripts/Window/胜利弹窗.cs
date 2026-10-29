@@ -243,15 +243,6 @@ public class 胜利弹窗 : MonoBehaviour
     public void 主线关卡结算()
     {
         普通关卡胜利奖励 value = LevelConfig.Get主线胜利奖励();
-        //道纹 道纹 = 道纹config.Get关卡道纹掉落(LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type]);
-        //if (道纹 != null)
-        //{
-        //    PlayerData.S.Set道纹数量(道纹.道纹Type,道纹.quality,PlayerData.S.Get道纹数量(道纹.道纹Type,道纹.quality)+1);
-        //    var item1=Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"),Content.transform).GetComponent<胜利弹窗item>();
-        //    item1.道纹Type = 道纹.道纹Type;
-        //    item1.道纹QualityType = 道纹.quality;
-        //    item1.SetItem();
-        //}
         float 轮回石数量 = 0;
         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
         {

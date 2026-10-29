@@ -169,11 +169,6 @@ public class 冰符动画脚本: MonoBehaviour
         {
             finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
         }
-        if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-        {
-            finalDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-        }
-
         // ---- 循环外：与怪物无关的常量提前算好 ----
         bool 是冰符 = Type == 攻击特效Type.冰符;
         bool 是火符 = Type == 攻击特效Type.火符;

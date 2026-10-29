@@ -123,10 +123,6 @@ public class 循环伤害技能 : MonoBehaviour
         {
             finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
         }
-        if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-        {
-            finalDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-        }
         return finalDamage;
     }
 
@@ -144,9 +140,6 @@ public class 循环伤害技能 : MonoBehaviour
         if (hit != null) hit.transform.position = closestPoint;
 
         BigDouble finalDamage = 计算辅助加成(damage);
-        // 老子冰旋风体积增伤
-        float scale = (transform.localScale.x - 1) / 0.01f * 属性config.总属性.老子体积增伤;
-        finalDamage *= (1 + scale);
 
         monster.妲己黑暗辅助 = 黑暗辅助;
         monster.女娲电辅助 = 女娲电辅助;

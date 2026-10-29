@@ -89,15 +89,10 @@ public class 人物item : MonoBehaviour
         value /= (1f + FightController.S.英雄技能树属性[heroType].技能冷却缩减 / 100f);
         value /= (1f + 体质Config.当前体质总属性.攻击速度 / 100f);
         value /= (1 + 属性config.总属性.英雄冷却缩减);
-        if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.控制)
-        {
-            value /= (1 + 属性config.总属性.控制冷却缩减);
-        }
         if (女娲电辅助 > 0)
         {
             float 原始星级效果 = 英雄星级属性.女娲效果;
             value /= (1f+原始星级效果*(1f+FightController.S.英雄技能树属性[HeroType.女娲].女娲效果/100f));
-            value /= (1f + 属性config.总属性.女娲辅助冷却缩减);//道文
         }
 
         if (HeroConfig.HeroZhiYeDic[heroType].zhiYeType == ZhiYeType.射手 &&
@@ -330,11 +325,6 @@ public class 人物item : MonoBehaviour
                 }
                 else if(heroType == HeroType.元始)//上场
                 {
-                    float random = Random.Range(0, 100f);
-                    if (random < 属性config.总属性.元始火种增加数量 * 100f)
-                    {
-                        FightController.S.元始数量++;
-                    }
                     上场技能(攻击特效Type.火球, new Vector2(targetPos.x + 1f, targetPos.y), 英雄星级属性.元始持续时间*(1f+FightController.S.英雄技能树属性[HeroType.元始].元始下场时间/100f), true,false,FightController.S.元始数量);
                 }
                 else if(heroType == HeroType.盘古)//上场

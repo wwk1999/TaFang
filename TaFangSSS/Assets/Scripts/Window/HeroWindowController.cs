@@ -25,11 +25,6 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public bool IsJiaoHuan = false;
     [NonSerialized] public HeroType DragHero = HeroType.None;
     [NonSerialized]public HeroItem 交换HeroItem;
-    
-    //道纹
-    [NonSerialized]public bool 道纹IsDrag = false;
-    [NonSerialized] public 道纹Type 道纹Type;
-    [NonSerialized] public QualityType 道纹QualityType;
 
     [NonSerialized] public 当前显示关卡类型 当前显示关卡类型;
     [NonSerialized] public 主线关卡Type 当前主线关卡Type;

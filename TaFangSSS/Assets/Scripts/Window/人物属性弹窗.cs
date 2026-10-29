@@ -25,7 +25,6 @@ public class 人物属性弹窗 : MonoBehaviour
     public TextMeshProUGUI 普通怪;
     public TextMeshProUGUI 精英怪;
     public TextMeshProUGUI 首领怪;
-    public TextMeshProUGUI 无视抗性;
     public TextMeshProUGUI 最终伤害;
     public TextMeshProUGUI 伤害减免;
     public TextMeshProUGUI 灵气;
@@ -68,7 +67,6 @@ public class 人物属性弹窗 : MonoBehaviour
         普通怪.text = Mathf.RoundToInt(属性.普通怪伤害增幅 * 100f - 100) + "%";
         精英怪.text = Mathf.RoundToInt(属性.精英怪伤害增幅 * 100f - 100) + "%";
         首领怪.text = Mathf.RoundToInt(属性.首领伤害增幅 * 100f - 100) + "%";
-        无视抗性.text = Mathf.RoundToInt(属性.无视抗性 * 100f) + "%";
         伤害减免.text = Mathf.RoundToInt(属性.伤害减免 * 100f) + "%";
         最终伤害.text = Mathf.RoundToInt(属性.最终伤害增幅 * 100f - 100) + "%";
         灵气.text=道宝Config.羁绊灵气+"%";

@@ -98,7 +98,6 @@ public class MonsterBase : MonoBehaviour
    [NonSerialized] public float 冰元素减速时间 = 0;
    public void Set灼烧伤害(BigDouble damage)
    {
-      damage *= 属性config.总属性.羲和灼烧伤害;
       if (灼烧time <= 0)
       {
          灼烧伤害 = damage;
@@ -110,8 +109,7 @@ public class MonsterBase : MonoBehaviour
    }
    public void Set黑暗符(float time)
    {
-      // 琼霄定身衰减减少已是0~1比率（Get道纹数值内部已/100），不能再除100
-      float scale = 0.1f * 黑暗符次数*(1-属性config.总属性.琼霄定身衰减减少);
+      float scale = 0.1f * 黑暗符次数;
       黑暗符 = time * (1-scale);
       黑暗符次数++;
    }
@@ -411,11 +409,6 @@ public class MonsterBase : MonoBehaviour
          value += 英雄星级属性.Get通天暴击率()*100;
       }
 
-      if (_ctx.职业.zhiYeType == ZhiYeType.法师)
-      {
-         value += 属性config.总属性.法师暴击率*100;
-      }
-
       value += _ctx.技能树.暴击率;
       if (瑶池冰辅助 > 0)
       {
@@ -431,10 +424,6 @@ public class MonsterBase : MonoBehaviour
       }
       if (random <= value)
       {
-         if (heroType == HeroType.通天)
-         {
-            FightController.S.通天暴击次数++;
-         }
          return true;
       }
       else
@@ -466,11 +455,6 @@ public class MonsterBase : MonoBehaviour
       {
          value += 英雄星级属性.Get通天暴击率()*100;
       }
-
-      if (_ctx.职业.zhiYeType == ZhiYeType.法师)
-      {
-         value += 属性config.总属性.法师暴击率*100;
-      }
       if (瑶池冰辅助 > 0)
       {
          value += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击率 ;
@@ -485,60 +469,12 @@ public class MonsterBase : MonoBehaviour
       }
       if (random <= value)
       {
-         if (heroType == HeroType.通天)
-         {
-            FightController.S.通天暴击次数++;
-         }
          return true;
       }
       else
       {
          return false;
       }
-   }
-
-   public BigDouble Get道纹伤害(BigDouble 原始Damage, HeroType heroType)
-   {
-      if (heroType == HeroType.孙悟空)
-      {
-         原始Damage *= (1 + FightController.S.孙悟空每秒增加伤害Time * 属性config.总属性.孙悟空每秒增加伤害);
-      }
-
-      if (heroType == HeroType.云霄)
-      {
-         原始Damage *= 属性config.总属性.云霄最终伤害;
-      }
-
-      if (heroType == HeroType.后羿)
-      {
-         float 距离 =transform.position.x - (-5f);
-         原始Damage *= (1+属性config.总属性.后羿距离增伤*距离);
-      }
-      if (heroType == HeroType.常羲)
-      {
-         float random = Random.Range(0, 100);
-         if (random <= 属性config.总属性.常曦冻结概率 * 100f)
-         {
-            冰冻time += 1;
-         }
-      }
-
-      if (heroType == HeroType.通天)
-      {
-         原始Damage *= (1 + 属性config.总属性.通天暴击增伤 * FightController.S.通天暴击次数);
-      }
-
-      if (heroType == HeroType.鸿钧)
-      {
-         原始Damage *= (1f + FightController.S.鸿钧陨石次数 * 属性config.总属性.鸿钧陨石增伤);
-      }
-
-      if (heroType == HeroType.盘古)
-      {
-         原始Damage *= (1f + FightController.S.盘古击杀次数 * 属性config.总属性.盘古击杀增伤);
-      }
-
-      return 原始Damage;
    }
 
    public BigDouble 计算法师功法暴击伤害(BigDouble damage, HeroType heroType)
@@ -931,27 +867,6 @@ public class MonsterBase : MonoBehaviour
       法器属性 聚合法器 = 获取聚合法器属性(heroType);
       最终Damage=计算法器伤害(最终Damage,heroType,聚合法器);
       最终Damage = 计算丹药伤害(最终Damage, heroType);
-      最终Damage = Get道纹伤害(最终Damage, heroType);
-      if (transform.position.x < -2 && zhiYe == ZhiYeType.战士)
-      {
-         最终Damage *= 属性config.总属性.战士对靠近城墙敌人伤害增高;
-      }
-      
-      if (transform.position.x > 3.5f && zhiYe == ZhiYeType.射手)
-      {
-         最终Damage *= 属性config.总属性.射手对远距离敌人伤害增高;
-      }
-
-      if (FightController.S.城墙当前生命值 == FightController.S.缓存城墙最大生命值)
-      {
-         最终Damage *= 属性config.总属性.城墙满血时加伤害;
-      }
-
-      if (属性config.总属性.伤害在范围内浮动 != 0)
-      {
-         float random = Random.Range(0.8f, 1f+属性config.总属性.伤害在范围内浮动);
-         最终Damage*=random;
-      }
 
       switch (_怪物类型)
       {
@@ -977,10 +892,6 @@ public class MonsterBase : MonoBehaviour
          最终Damage *= (1 +  城墙Config.低血量增伤值/ 100f);
       }
 
-      if (城墙血量比例 <= 0.3f)
-      {
-         最终Damage *= 属性config.总属性.城墙低血增加伤害;
-      }
       if (城墙血量比例 > 城墙Config.高血量增伤血量值/100f)
       {
          最终Damage *= (1 +  城墙Config.高血量增伤值/ 100f);
@@ -1007,13 +918,7 @@ public class MonsterBase : MonoBehaviour
       // 穿透已按主英雄+在场辅助相加聚合，抗性只折减一次，不能再从 MonsterAttribute 原始值重新赋值
       抗性 = 计算法器抗性(抗性, heroType, 聚合法器);
 
-      float 无视抗性 = 属性config.总属性.无视抗性 * 100;
-      if (heroType == HeroType.哪吒)
-      {
-         无视抗性 += 属性config.总属性.三味真火无视抗性百分比*100;
-      }
-      // 无视抗性为百分值（与法器穿透口径一致），需 /100f，否则10%无视会变成抗性/11
-      最终Damage *= (100 - 抗性/(1f+无视抗性/100f)) / 100;
+      最终Damage *= (100 - 抗性) / 100;
 
       if (_ctx.符文.清除异常状态增伤 > 0)
       {
@@ -1760,10 +1665,6 @@ public class MonsterBase : MonoBehaviour
       ObserverModuleManager.S.SendEvent("播放怪物音效",战斗音效Type.怪物死亡);
       增加功法经验();
       增加魂器经验();
-      if (heroType == HeroType.盘古)
-      {
-         FightController.S.盘古击杀次数++;
-      }
       FightController.S.总杀怪增伤 += 城墙Config.杀怪增伤数值;
       if (城墙Config.杀怪回血数值 > 0)
       {
@@ -1776,7 +1677,6 @@ public class MonsterBase : MonoBehaviour
       switch (monsterType)
       {
          case MonsterType.Elite:
-            FightController.S.城墙当前生命值 += 属性config.总属性.击杀精英怪城墙回血 * FightController.S.缓存城墙最大生命值;
             FightController.S.城墙当前生命值 = BigDouble.Min(FightController.S.缓存城墙最大生命值, FightController.S.城墙当前生命值);
             ObserverModuleManager.S.SendEvent("设置护盾");
             break;

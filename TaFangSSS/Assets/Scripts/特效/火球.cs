@@ -59,10 +59,6 @@ public class 火球 : MonoBehaviour
             monster.瑶池冰辅助 = 2;//持续2s
         }
 
-        if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-        {
-            realDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-        }
         monster.Hurt(realDamage, HeroType, Type);
         if (hit != null) hit.gameObject.SetActive(true);
     }

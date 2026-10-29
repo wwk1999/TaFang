@@ -96,11 +96,6 @@ public class Spine一次伤害 : MonoBehaviour
       {
          finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
       }
-      if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-      {
-         finalDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-      }
-
       float 冰冻概率 = 瑶池神通 ? HeroConfig.英雄神通配置Dic[HeroType].damage : 0f;
       var monsterDic = QueueController.S.MonsterColliderDic;
 

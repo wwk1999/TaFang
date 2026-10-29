@@ -167,7 +167,7 @@ public class 属性config
 
      public class 领主总属性
 {
-    // 创建装备属性和道纹属性的实例
+    // 创建装备属性和道宝属性的实例
     private 装备属性 _装备 = new 装备属性();
     private 道宝属性 _道宝 = new 道宝属性();
     private 神物属性 _神物 = new 神物属性();
@@ -539,26 +539,6 @@ public class 属性config
 
     public float 神通最大值 => 150;
     public float 神通能量恢复速度 => 2;
-    
-    
-    
-    
-
-
-    public float 三味真火无视抗性百分比 => 道纹config.Get道纹数值(道纹Type.三味真火无视抗性百分比);
-    public float 孙悟空每秒增加伤害 => 道纹config.Get道纹数值(道纹Type.孙悟空每秒增加伤害);
-    public float 碧霄冰龙再次释放概率 => 道纹config.Get道纹数值(道纹Type.碧霄冰龙有概率再次释放);
-    public float 琼霄定身衰减减少 => 道纹config.Get道纹数值(道纹Type.琼霄定身衰减效果减少);
-    public float 云霄最终伤害 => 1f + 道纹config.Get道纹数值(道纹Type.云霄最终伤害);
-    public float 后羿距离增伤 => 道纹config.Get道纹数值(道纹Type.后羿距离越远伤害越高);
-    public float 羲和灼烧伤害 => 1f + 道纹config.Get道纹数值(道纹Type.羲和灼烧伤害);
-    public float 常曦冻结概率 => 道纹config.Get道纹数值(道纹Type.常曦有概率冻结敌人);
-    public float 女娲辅助冷却缩减 => 道纹config.Get道纹数值(道纹Type.女娲增加被辅助冷却缩减);
-    public float 通天暴击增伤 => 道纹config.Get道纹数值(道纹Type.通天每次暴击增加伤害);
-    public float 老子体积增伤 => 道纹config.Get道纹数值(道纹Type.老子旋风体积越大伤害越高);
-    public float 元始火种增加数量 => 道纹config.Get道纹数值(道纹Type.元始每次释放有概率增加火种数量);
-    public float 鸿钧陨石增伤 => 道纹config.Get道纹数值(道纹Type.鸿钧每释放陨石增加伤害);
-    public float 盘古击杀增伤 => 道纹config.Get道纹数值(道纹Type.盘古每击杀敌人增加伤害);
 }
 
      public static float Get装备攻击力增幅()
@@ -582,6 +562,147 @@ public class 属性config
      }
      public static BigDouble 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
+
+     /// <summary>
+     /// 实时计算指定英雄合成后的最终属性（全局共享部分 × 英雄专属部分）。
+     /// 全部增幅字段为百分比数（50 表示 +50%）；真灵为基础值。
+     /// </summary>
+     public static 英雄属性 Get英雄属性(HeroType heroType)
+     {
+          var heroData = PlayerData.S.HeroDataDic[heroType];
+          var 职业元素 = HeroConfig.HeroZhiYeDic[heroType];
+          var 法器 = 法器Config.Get英雄法器属性(heroType);
+          var 技能树 = 英雄技能树Config.Get英雄技能树属性(heroType);
+          var 根基丹药 = 丹药Config.Get英雄根基丹药属性(heroType);
+          var 体质 = 体质Config.当前体质总属性;
+          var 灵兽 = heroData.灵兽;
+          bool 有灵兽 = 灵兽 != null;
+
+          var 结果 = new 英雄属性();
+          结果.真灵 = HeroConfig.英雄基础真灵[HeroConfig.HeroQualityDic[heroType]];
+
+          // 暴击率：全局(分数×100) + 法器 + 技能树（加和）
+          结果.暴击率 = 总属性.暴击率 * 100f + 法器.暴击率 + 技能树.暴击率;
+
+          // 暴击伤害：全局基础(含200) × 各专属乘区；法师系功法额外乘算；灵兽乘算
+          float 暴击伤害 = 总属性.暴击伤害
+               * (1f + 体质.暴击伤害 / 100f)
+               * (1f + 法器.暴击伤害 / 100f)
+               * (1f + 技能树.暴击伤害 / 100f)
+               * (1f + 根基丹药.暴击伤害 / 100f);
+          if (职业元素.zhiYeType == ZhiYeType.法师 && heroData.功法Type != 功法Type.None)
+          {
+               暴击伤害 *= 1f + 功法Config.功法基础属性Dic[heroData.功法Type].count / 100f;
+          }
+          if (有灵兽)
+          {
+               暴击伤害 *= 1f + 灵兽坊Config.Get灵兽暴击伤害总增幅(灵兽) / 100f;
+          }
+          结果.暴击伤害 = 暴击伤害;
+
+          // 元素增幅：按英雄自身元素取对应字段
+          float 体质元素 = 0, 法器元素 = 0, 技能树元素 = 0, 丹药元素 = 0, 法器穿透 = 0;
+          switch (职业元素.yuanSuType)
+          {
+               case YuanSuType.物理:
+                    体质元素 = 体质.物理伤害; 法器元素 = 法器.物理伤害; 技能树元素 = 技能树.物理伤害; 丹药元素 = 根基丹药.物理伤害; 法器穿透 = 法器.物理穿透;
+                    break;
+               case YuanSuType.火:
+                    体质元素 = 体质.火焰伤害; 法器元素 = 法器.火焰伤害; 技能树元素 = 技能树.火焰伤害; 丹药元素 = 根基丹药.火焰伤害; 法器穿透 = 法器.火焰穿透;
+                    break;
+               case YuanSuType.冰:
+                    体质元素 = 体质.冰霜伤害; 法器元素 = 法器.冰霜伤害; 技能树元素 = 技能树.冰霜伤害; 丹药元素 = 根基丹药.冰霜伤害; 法器穿透 = 法器.冰霜穿透;
+                    break;
+               case YuanSuType.电:
+                    体质元素 = 体质.雷电伤害; 法器元素 = 法器.雷电伤害; 技能树元素 = 技能树.雷电伤害; 丹药元素 = 根基丹药.雷电伤害; 法器穿透 = 法器.雷电穿透;
+                    break;
+               case YuanSuType.黑暗:
+                    体质元素 = 体质.黑暗伤害; 法器元素 = 法器.黑暗伤害; 技能树元素 = 技能树.黑暗伤害; 丹药元素 = 根基丹药.黑暗伤害; 法器穿透 = 法器.黑暗穿透;
+                    break;
+          }
+          float 元素倍率 = 总属性.Get元素伤害增幅(职业元素.yuanSuType)
+               * (1f + 体质元素 / 100f)
+               * (1f + 法器元素 / 100f)
+               * (1f + 技能树元素 / 100f)
+               * (1f + 丹药元素 / 100f);
+          if (有灵兽)
+          {
+               元素倍率 *= 1f + 灵兽坊Config.Get灵兽元素伤害总增幅(灵兽) / 100f;
+          }
+          结果.元素增幅 = (元素倍率 - 1f) * 100f;
+          结果.元素穿透 = 法器穿透;
+
+          // 职业增幅：全局(含人人转化) × 体质对应职业乘区
+          float 体质职业 = 0;
+          switch (职业元素.zhiYeType)
+          {
+               case ZhiYeType.战士: 体质职业 = 体质.战士伤害; break;
+               case ZhiYeType.射手: 体质职业 = 体质.射手伤害; break;
+               case ZhiYeType.法师: 体质职业 = 体质.法师伤害; break;
+               case ZhiYeType.控制: 体质职业 = 体质.控制伤害; break;
+               case ZhiYeType.辅助: 体质职业 = 体质.辅助伤害; break;
+          }
+          结果.职业增幅 = (总属性.Get职业伤害增幅(职业元素.zhiYeType) * (1f + 体质职业 / 100f) - 1f) * 100f;
+
+          // 众仙：全英雄技能树「增加所有英雄伤害」求和（所有英雄共享）
+          float 众仙 = 0;
+          foreach (var item in HeroConfig.HeroQualityDic)
+          {
+               众仙 += 英雄技能树Config.Get英雄技能树属性(item.Key).增加所有英雄伤害;
+          }
+
+          // 最终伤害：全局倍率 × 体质 × 法器 × 技能树英雄伤害 × 众仙 × 根基丹药 × 功法 × 灵兽
+          float 最终倍率 = 总属性.最终伤害增幅
+               * (1f + 体质.最终伤害 / 100f)
+               * (1f + 法器.最终伤害 / 100f)
+               * (1f + 技能树.英雄伤害 / 100f)
+               * (1f + 众仙 / 100f)
+               * (1f + 根基丹药.最终伤害 / 100f);
+          if (heroData.功法Type != 功法Type.None)
+          {
+               float 每重奖励 = 功法Config.功法升级最终伤害奖励Dic[功法Config.功法TypeQualityDic[heroData.功法Type]];
+               float 功法伤害加成 = heroData.功法等级 * 每重奖励 / 100f
+                    * (1f + 体质.功法每层效果 / 100f)
+                    * (1f + 功法Config.Get功法星级总增幅(heroData.功法星级) / 100f);
+               最终倍率 *= 1f + 功法伤害加成;
+          }
+          if (有灵兽)
+          {
+               最终倍率 *= 1f + 灵兽坊Config.Get灵兽最终伤害总增幅(灵兽) / 100f;
+          }
+          结果.最终伤害 = (最终倍率 - 1f) * 100f;
+
+          // 冷却缩减：神物(分数×100) + 技能树技能冷却缩减 + 射手系功法冷却缩减（加和）
+          float 冷却 = 总属性.英雄冷却缩减 * 100f + 技能树.技能冷却缩减;
+          if (heroData.功法Type != 功法Type.None
+               && 功法Config.功法基础属性Dic[heroData.功法Type].功法属性Type == 功法属性Type.冷却缩减)
+          {
+               冷却 += 功法Config.功法基础属性Dic[heroData.功法Type].count;
+          }
+          结果.冷却缩减 = 冷却;
+
+          结果.效果范围 = 技能树.效果范围;
+
+          // 三怪增伤：全局(装备倍率) × 法器 × 技能树
+          结果.普通怪增伤 = (总属性.普通怪伤害增幅 * (1f + 法器.普通怪增伤 / 100f) * (1f + 技能树.普通怪增伤 / 100f) - 1f) * 100f;
+          结果.精英怪增伤 = (总属性.精英怪伤害增幅 * (1f + 法器.精英怪增伤 / 100f) * (1f + 技能树.精英怪增伤 / 100f) - 1f) * 100f;
+          结果.首领怪增伤 = (总属性.首领伤害增幅 * (1f + 法器.首领怪增伤 / 100f) * (1f + 技能树.首领怪增伤 / 100f) - 1f) * 100f;
+
+          结果.寻宝速度增幅 = 技能树.寻宝速度;
+          return 结果;
+     }
+
+     /// <summary>
+     /// 刷新英雄属性字典：遍历全部英雄实时计算并填充，供需要字典形态的消费方使用。
+     /// </summary>
+     public static void 刷新英雄属性字典()
+     {
+          英雄属性字典.Clear();
+          foreach (var item in HeroConfig.HeroQualityDic)
+          {
+               英雄属性字典[item.Key] = Get英雄属性(item.Key);
+          }
+     }
      public static float 显示修炼速度 => ((1f+PlayerData.S.关卡修炼速度加成/100f) * (1f+道宝Config.Get道宝总修炼速度()/100f)-1)*100f;
      public static float 丹药修炼速度 => Get丹药修炼速度();
 

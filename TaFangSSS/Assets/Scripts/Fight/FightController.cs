@@ -123,11 +123,7 @@ public class FightController : XSingleton<FightController>
     [NonSerialized]public float 当前伤害面板刷新时间 = 0f;
     
     //法则
-    [NonSerialized]public int 孙悟空每秒增加伤害Time = 0;
-    [NonSerialized]public int 通天暴击次数 = 0;
     [NonSerialized]public int 元始数量;
-    [NonSerialized]public int 鸿钧陨石次数 = 0;
-    [NonSerialized]public int 盘古击杀次数 = 0;
 
     
     
@@ -313,25 +309,6 @@ public class FightController : XSingleton<FightController>
             Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,4,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,女娲神通,false);
             Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,true),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,女娲神通,false);
             Shot普通魔法弹(攻击特效Type.物理箭,shotpos,GetDirectionOffset(dir,2,false),damage,10,瑶池冰辅助,黑暗辅助,后羿穿透数量,女娲电辅助,HeroType.后羿,瑶池神通,妲己神通,女娲神通,false);
-        }
-    }
-
-    IEnumerator 碧霄再次释放(float 瑶池冰辅助,float 黑暗辅助,float 女娲电辅助,float 瑶池神通,float 妲己神通,float 女娲神通)
-    {
-        while (true)
-        {
-            float random=Random.Range(0, 100);
-            if (random < 属性config.总属性.碧霄冰龙再次释放概率 * 100)
-            {
-                yield return new WaitForSeconds(0.1f);
-                MonsterBase monsterBase = GetAttackMonster();
-                if(monsterBase==null)continue;
-                一次伤害技能(攻击特效Type.冰龙, monsterBase.transform.position,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通>0,女娲神通>0);           
-            }
-            else
-            {
-                break;
-            }
         }
     }
 
@@ -621,7 +598,6 @@ public class FightController : XSingleton<FightController>
                 break;
             case HeroType.碧霄:
                 一次伤害技能(攻击特效Type.冰龙, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通time>0,女娲神通time>0);
-                StartCoroutine(碧霄再次释放(瑶池冰辅助, 黑暗辅助, 女娲电辅助,瑶池神通,妲己神通time,女娲神通time));
                 break;
             case HeroType.琼霄:
                 一次伤害技能(攻击特效Type.黑暗符, targetPos,瑶池冰辅助>0,黑暗辅助>0,女娲电辅助>0,瑶池神通>0,妲己神通time>0,女娲神通time>0);           
@@ -987,7 +963,6 @@ public class FightController : XSingleton<FightController>
                 while (count>0)
                 {
                      count--;
-                     鸿钧陨石次数++;
                      float randomx=Random.Range(-1.0f, 1.0f);
                      float randomy=Random.Range(-1.0f, 1.0f);
                      Vector2 randomdir=new Vector2(randomx,randomy).normalized;
@@ -1855,10 +1830,6 @@ public class FightController : XSingleton<FightController>
             item.Value.技能伤害 = 0;
             item.Value.神通伤害 = 0;
         }
-        孙悟空每秒增加伤害Time = 0;
-        通天暴击次数 = 0;
-        鸿钧陨石次数 = 0;
-        盘古击杀次数 = 0;
         免疫护盾次数 = 0;
         涅槃次数 = 0;
         当前冰冻间隔 = 0;
@@ -2007,7 +1978,6 @@ public class FightController : XSingleton<FightController>
         战士伤害 = 属性config.总属性.战士增幅;
         控制伤害 = 属性config.总属性.控制增幅;
         法师伤害 = 属性config.总属性.法师增幅;
-        免疫护盾次数 = (int)属性config.总属性.城墙免疫伤害;
         // 城墙最大生命值/体质属性整场战斗不变，缓存一次供 Hurt 热路径直接读
         缓存城墙最大生命值 = 城墙Config.Get城墙最大生命值();
         缓存体质总属性 = 体质Config.当前体质总属性;
@@ -2066,7 +2036,6 @@ public class FightController : XSingleton<FightController>
         {
             当前神通能量 += 属性config.总属性.神通能量恢复速度;
             当前神通能量 = Math.Min(属性config.总属性.神通最大值, 当前神通能量);
-            孙悟空每秒增加伤害Time++;
             每秒回血Time = 0;
             BigDouble 回血值 = 城墙Config.每秒回血值/ 100f * 缓存城墙最大生命值;
             BigDouble value = 缓存城墙最大生命值 - 城墙当前生命值;

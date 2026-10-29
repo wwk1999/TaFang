@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
@@ -37,14 +37,11 @@ public class 储物袋界面 : MonoBehaviour
    public TextMeshProUGUI 修炼速度count;
    public GameObject 头像框;
    public Button 突破Button;
-   public Image 道纹image;
-   public 道纹弹窗 道纹弹窗;
    public Button ExitButton;
    public GameObject EquipContent;
    public GameObject BagContent;
    public Button 强化Btn;
    public Button 材料Btn;
-   public Button 道纹Btn;
    public Button 功法Btn;
    public Button 灵物Btn;
    public Button 法器Btn;
@@ -69,7 +66,7 @@ public class 储物袋界面 : MonoBehaviour
    public TextMeshProUGUI MaxExp;
    public Slider ExpSlider;
    public GameObject 突破弹窗;
-   private int 显示类型 = 1;//1是材料，2是道文，3是功法
+   private int 显示类型 = 1;//1是材料，3是功法
    public GameObject 强化弹窗;
    public GameObject 人物属性弹窗;
    public Button 属性Btn;
@@ -106,24 +103,6 @@ public class 储物袋界面 : MonoBehaviour
    public void 刷新装备(object[] obj)
    {
       ShowEquip();
-   }
-
-   public void Show道纹弹窗(object[] obj)
-   {
-      EquipType equipType = (EquipType)obj[0];
-      道纹弹窗.equipType = equipType;
-      道纹弹窗.gameObject.SetActive(true);
-      道纹弹窗.GetComponent<RectTransform>().anchoredPosition=道纹config.道纹弹窗Pos[equipType];
-   }
-
-   public void Show道纹image(object[] obj)
-   {
-      道纹Type 道纹Type = (道纹Type)obj[0];
-      QualityType qualityType = (QualityType)obj[1];
-      HeroWindowController.S.道纹Type = 道纹Type;
-      HeroWindowController.S.道纹QualityType = qualityType;
-      道纹image.sprite = ResourcesConfig.Get道纹Sprite(道纹Type,qualityType);
-      道纹image.gameObject.SetActive(true);
    }
 
    public void 增加修为(object[] obj)
@@ -168,8 +147,6 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.UnRegisterEvent("功法分解",功法分解);
       ObserverModuleManager.S.UnRegisterEvent("丹药升阶",丹药升阶);
       ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
-      ObserverModuleManager.S.UnRegisterEvent("Show道纹image", Show道纹image);
-      ObserverModuleManager.S.UnRegisterEvent("Show道纹弹窗", Show道纹弹窗);
       ObserverModuleManager.S.UnRegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.UnRegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.UnRegisterEvent("突破成功", 突破成功);
@@ -356,8 +333,6 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("功法分解",功法分解);
       ObserverModuleManager.S.RegisterEvent("丹药升阶",丹药升阶);
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
-      ObserverModuleManager.S.RegisterEvent("Show道纹image", Show道纹image);
-      ObserverModuleManager.S.RegisterEvent("Show道纹弹窗", Show道纹弹窗);
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
@@ -425,13 +400,6 @@ public class 储物袋界面 : MonoBehaviour
          {
             case 1:
                if (页数Num < Get材料最大页数())
-               {
-                  页数Num++;
-                  刷新背包();
-               }
-               break;
-            case 2:
-               if (页数Num < Get道纹最大页数())
                {
                   页数Num++;
                   刷新背包();
@@ -519,11 +487,6 @@ public class 储物袋界面 : MonoBehaviour
          页数Num = 1;
          刷新背包(); 
       });
-      道纹Btn.onClick.AddListener(() => { 
-         显示类型 = 2;
-         页数Num = 1;
-         刷新背包(); 
-      });
       功法Btn.onClick.AddListener(() => { 
          显示类型 = 3;
          页数Num = 1;
@@ -594,23 +557,6 @@ public class 储物袋界面 : MonoBehaviour
       Set境界();
    }
 
-   public int Get道纹最大页数()
-   {
-      int count = 0;
-      foreach (var item in 道纹config.道纹名Dic)
-      {
-         for (int j = (int)QualityType.天品; j <=  (int)QualityType.荒品; j++)
-         {
-            int v=PlayerData.S.Get道纹数量(item.Key, (QualityType)j);
-            if (v > 0)
-            {
-               count++;
-            }
-         }
-      }
-      return Mathf.CeilToInt(count / 54f);
-   }
-
    public void Show丹药()
    {
       分解Btn.gameObject.SetActive(true);
@@ -620,7 +566,6 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -666,7 +611,6 @@ public class 储物袋界面 : MonoBehaviour
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       仙石Btn.image.sprite = ResourcesConfig.按钮暗;
       神物Btn.image.sprite = ResourcesConfig.按钮暗;
       灵药Btn.image.sprite = ResourcesConfig.按钮亮;
@@ -697,104 +641,6 @@ public class 储物袋界面 : MonoBehaviour
          }
       }
    }
-   public void Show道纹()
-   {
-      分解Btn.gameObject.SetActive(false);
-      合成Btn.gameObject.SetActive(false);
-      熔炼Btn.gameObject.SetActive(false);
-
-      功法Btn.image.sprite = ResourcesConfig.按钮暗;
-      灵物Btn.image.sprite = ResourcesConfig.按钮暗;
-      材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      法器Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮亮;
-      仙石Btn.image.sprite = ResourcesConfig.按钮暗;
-      神物Btn.image.sprite = ResourcesConfig.按钮暗;
-      灵药Btn.image.sprite = ResourcesConfig.按钮暗;
-      丹药Btn.image.sprite = ResourcesConfig.按钮暗;
-      符文Btn.image.sprite = ResourcesConfig.按钮暗;
-
-      foreach (Transform item in BagContent.transform)
-      {
-         Destroy(item.gameObject);
-      }
-
-      int count = 0;
-      foreach (var item in 道纹config.道纹名Dic)
-      {
-         if (PlayerData.S.Get道纹数量(item.Key,QualityType.荒品)>0)
-         {
-            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
-            {
-               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-               baggrid.道纹Type = item.Key;
-               baggrid.QualityType = QualityType.荒品;
-               baggrid.SetItem();
-            }
-            count++;
-         }
-      }
-      
-      foreach (var item in 道纹config.道纹名Dic)
-      {
-         if (PlayerData.S.Get道纹数量(item.Key,QualityType.洪品)>0)
-         {
-            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
-            {
-               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-               baggrid.道纹Type = item.Key;
-               baggrid.QualityType = QualityType.洪品;
-               baggrid.SetItem();
-            }
-            count++;
-         }
-      }
-      
-      foreach (var item in 道纹config.道纹名Dic)
-      {
-         if (PlayerData.S.Get道纹数量(item.Key,QualityType.宙品)>0)
-         {
-            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
-            {
-               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-               baggrid.道纹Type = item.Key;
-               baggrid.QualityType = QualityType.宙品;
-               baggrid.SetItem();
-            }
-            count++;
-         }
-      }
-      
-      foreach (var item in 道纹config.道纹名Dic)
-      {
-         if (PlayerData.S.Get道纹数量(item.Key,QualityType.宇品)>0)
-         {
-            if (count >= (页数Num - 1) * 54&& count < 页数Num * 54)
-            {
-               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-               baggrid.道纹Type = item.Key;
-               baggrid.QualityType = QualityType.宇品;
-               baggrid.SetItem();
-            }
-            count++;
-         }
-      }
-      
-      foreach (var item in 道纹config.道纹名Dic)
-      {
-         if (PlayerData.S.Get道纹数量(item.Key,QualityType.天品)>0)
-         {
-            if (count >= (页数Num - 1) * 54 && count < 页数Num * 54)
-            {
-               var baggrid = Instantiate(Resources.Load("Prefabs/Window/道纹Grid"), BagContent.transform).GetComponent<道纹grid>();
-               baggrid.道纹Type = item.Key;
-               baggrid.QualityType = QualityType.天品;
-               baggrid.SetItem();
-            }
-            count++;
-         }
-      }
-   }
 
    public void 刷新背包()
    {
@@ -803,9 +649,6 @@ public class 储物袋界面 : MonoBehaviour
       {
          case 1:
             ShowProp();
-            break;
-         case 2:
-            Show道纹();
             break;
          case 3:
             Show功法();
@@ -915,7 +758,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮亮;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -952,7 +794,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮亮;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1037,7 +878,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮亮;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1088,7 +928,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(true);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1150,7 +989,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;
@@ -1180,7 +1018,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮亮;
@@ -1211,7 +1048,6 @@ public class 储物袋界面 : MonoBehaviour
       熔炼Btn.gameObject.SetActive(false);
 
       材料Btn.image.sprite = ResourcesConfig.按钮暗;
-      道纹Btn.image.sprite = ResourcesConfig.按钮暗;
       功法Btn.image.sprite = ResourcesConfig.按钮暗;
       灵物Btn.image.sprite = ResourcesConfig.按钮暗;
       法器Btn.image.sprite = ResourcesConfig.按钮暗;

@@ -22,8 +22,6 @@ public class 胜利弹窗item : MonoBehaviour
     [NonSerialized] public QualityType 仙石QualityType=QualityType.None;
     [NonSerialized] public int 仙石阶数 = 1;
     [NonSerialized] public 神物Type 神物Type=神物Type.None;
-    [NonSerialized] public 道纹Type 道纹Type=道纹Type.None;
-    [NonSerialized] public QualityType 道纹QualityType=QualityType.None;
     [NonSerialized] public 符文Type 符文Type=符文Type.None;
     [NonSerialized] public QualityType 符文QualityType=QualityType.None;
     [NonSerialized] public 法器材料Type 法器材料Type=法器材料Type.None;
@@ -49,15 +47,6 @@ public class 胜利弹窗item : MonoBehaviour
             CountText.text = "";
             image.sprite=ResourcesConfig.Get符文Sprite(符文Type,符文QualityType);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(符文QualityType);
-            return;
-        }
-        if (道纹Type != 道纹Type.None)
-        {
-            Name.text = 道纹config.道纹名Dic[道纹Type];
-            Name.colorGradientPreset = ResourcesConfig.Get品质TMP(道纹QualityType);
-            CountText.text = "";
-            image.sprite=ResourcesConfig.Get道纹Sprite(道纹Type,道纹QualityType);
-            bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(道纹QualityType);
             return;
         }
         if (神物Type != 神物Type.None)

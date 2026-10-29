@@ -67,11 +67,6 @@ public class 孙悟空棒子 : MonoBehaviour
          finalDamage *= (1 + FightController.S.英雄技能树属性[HeroType.妲己].妲己效果 / 100f);
 
       }
-      if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-      {
-         finalDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-      }
-
       float 冰冻概率 = 瑶池神通 ? HeroConfig.英雄神通配置Dic[HeroType.孙悟空].damage : 0f;
       var monsterDic = QueueController.S.MonsterColliderDic;
 

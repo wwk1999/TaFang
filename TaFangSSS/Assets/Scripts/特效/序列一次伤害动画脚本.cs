@@ -169,11 +169,6 @@ public class 序列一次伤害动画脚本 : MonoBehaviour
         {
             finalDamage *= (1 + 英雄星级属性.女娲辅助伤害 / 100f);
         }
-        if (瑶池冰辅助 || 女娲电辅助 || 黑暗辅助)
-        {
-            finalDamage *= 属性config.总属性.辅助被辅助英雄伤害增幅;
-        }
-
         bool 是龟丞相技能 = type == 攻击特效Type.龟丞相技能;
         bool 是黑暗符 = type == 攻击特效Type.黑暗符;
         float 冰冻概率 = 瑶池神通 ? HeroConfig.英雄神通配置Dic[HeroType].damage : 0f;

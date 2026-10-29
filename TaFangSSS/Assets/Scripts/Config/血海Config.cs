@@ -257,16 +257,7 @@ public class 血海Config
             }
         },
     };
-     
-    public static 道纹 Get随机道纹Type(QualityType qualityType)
-    {
-        int random=Random.Range(0, 道纹config.道纹名Dic.Count)+1;
-        道纹 item = new 道纹();
-        item.quality = qualityType;
-        item.道纹Type = (道纹Type)random;
-        return  item;
-    }
-    
+
     public static 灵药 Get随机灵药Type(QualityType qualityType)
     {
         int random=Random.Range(0, 丹药Config.灵药名Dic.Count)+1;

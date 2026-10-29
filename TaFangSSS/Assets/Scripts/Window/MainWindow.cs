@@ -221,12 +221,12 @@ public class MainWindow : MonoBehaviour
 
         if (PlayerData.S.历史最高境界 >= JingJieType.玄仙 && !PlayerData.S.是否加入愿望单)
         {
-            愿望单提示Text.text = "加入愿望单掉宝率+20%";
+            愿望单提示Text.text = "玄仙以上加入愿望单掉宝率+20%";
             愿望单提示.gameObject.SetActive(true);
         }
         else  if (PlayerData.S.历史最高境界 >= JingJieType.大乘 && !PlayerData.S.是否加入愿望单)
         {
-            愿望单提示Text.text = "加入愿望单掉宝率+20%";
+            愿望单提示Text.text = "都大乘了,麻烦加下愿望单呗,感谢！";
             愿望单提示.gameObject.SetActive(true);
         }
         else
@@ -934,18 +934,6 @@ public class MainWindow : MonoBehaviour
                 仙石 仙石 = 仙石Config.单次仙石掉落(JingJieType.圣人);
                 PlayerData.S.仙石列表.Add(仙石);
             }
-            
-            PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.天品,999);
-            PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.宇品,999);
-            PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.宙品,999);
-            PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.洪品,999);
-            PlayerData.S.Set道纹数量(道纹Type.通天每次暴击增加伤害, QualityType.荒品,999);
-
-            PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.天品,999);
-            PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.宇品,999);
-            PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.宙品,999);
-            PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.洪品,999);
-            PlayerData.S.Set道纹数量(道纹Type.老子旋风体积越大伤害越高, QualityType.荒品,999);
         });
         招募Btn.onClick.AddListener(() =>
         {
