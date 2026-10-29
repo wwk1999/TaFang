@@ -498,7 +498,7 @@ public class 属性config
     }
     
     
-    public float 暴击伤害 => 200 + Get英雄暴击伤害增幅()+_神物.暴击爆伤*100 + 灵植总属性.暴击伤害;
+    public float 暴击伤害 => 200 *(1+_神物.暴击爆伤)*(1+体质Config.当前体质总属性.暴击伤害/100f) * (1+灵植总属性.暴击伤害/100f);
     public BigDouble 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅);
     public float 二次暴击 => _神物.二次暴击;
     public float 轮回次数加伤 => _神物.轮回次数加伤;
