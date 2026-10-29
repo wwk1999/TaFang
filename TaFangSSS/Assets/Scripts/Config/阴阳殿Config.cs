@@ -258,6 +258,55 @@ public class 阴阳殿Config
         {仙子Type.时间流速,"她掌中光阴可缓可急，一炷香能过一甲子。世人皆叹时不我待，唯她笑说，急什么，日子长着呢。"},
     };
 
+    /// <summary>好感度从当前等级升到下一级所需经验（占位公式：等级平方 + 700，112级为13244）</summary>
+    public static int Get好感度升级经验(int 等级)
+    {
+        if (等级 < 0) 等级 = 0;
+        return 等级 * 等级 + 700;
+    }
+
+    /// <summary>非百分比属性：显示为纯数值，其余属性统一按百分比显示</summary>
+    private static readonly HashSet<string> 仙子数值型属性 = new HashSet<string>()
+    {
+        "攻击力",
+        "每道年传道次数翻倍",
+        "轮回石掉落数量增加",
+    };
+
+    /// <summary>把一条仙子属性解析成「属性名+数值」的显示文本，只输出非零字段</summary>
+    public static List<string> Get仙子属性描述(仙子属性 属性)
+    {
+        var 描述列表 = new List<string>();
+        if (属性 == null) return 描述列表;
+        foreach (var 字段 in typeof(仙子属性).GetFields())
+        {
+            if (字段.FieldType != typeof(float)) continue;
+            float 数值 = (float)字段.GetValue(属性);
+            if (数值 == 0f) continue;
+            描述列表.Add(仙子数值型属性.Contains(字段.Name)
+                ? $"{字段.Name}+{数值:0.##}"
+                : $"{字段.Name}+{数值:0.##}%");
+        }
+        return 描述列表;
+    }
+
+    /// <summary>每位仙子好感度每提升1级获得的固定奖励文本，如「每等级+1%炼器速度」</summary>
+    public static string Get每级奖励描述(仙子Type 仙子Type)
+    {
+        if (!仙子每级固定奖励.ContainsKey(仙子Type)) return string.Empty;
+        var 属性 = 仙子每级固定奖励[仙子Type];
+        foreach (var 字段 in typeof(仙子属性).GetFields())
+        {
+            if (字段.FieldType != typeof(float)) continue;
+            float 数值 = (float)字段.GetValue(属性);
+            if (数值 == 0f) continue;
+            return 仙子数值型属性.Contains(字段.Name)
+                ? $"每等级+{数值:0.##}{字段.Name}"
+                : $"每等级+{数值:0.##}%{字段.Name}";
+        }
+        return string.Empty;
+    }
+
     /// <summary>
     /// 仙子喜好灵植：每位仙子8种，按品质黄→荒各一；32种灵植全部登场，除荒品仅白玉莲外均为2~3次
     /// </summary>
