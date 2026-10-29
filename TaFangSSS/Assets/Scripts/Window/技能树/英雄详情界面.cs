@@ -16,6 +16,7 @@ public enum 英雄详情界面显示类型
     境界,
     详情,
     灵兽,
+    属性,
 }
 public class 英雄详情界面 : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class 英雄详情界面 : MonoBehaviour
     public GameObject 功法Panel;
     public GameObject 境界Panel;
     public GameObject 法器Panel;
-
+    public GameObject 属性Panel;
     
     
     public GameObject 英雄列表content;
@@ -46,12 +47,14 @@ public class 英雄详情界面 : MonoBehaviour
     public Button 法器Button;
     public Button 详情Button;
     public Button 灵兽Button;
+    public Button 属性Button;
 
     public Button 境界亮Button;
     public Button 功法亮Button;
     public Button 法器亮Button;
     public Button 详情亮Button;
     public Button 灵兽亮Button;
+    public Button 属性亮Button;
 
     public Button 重置Button;
     public Button 提升境界Button;
@@ -110,6 +113,32 @@ public class 英雄详情界面 : MonoBehaviour
     public TextMeshProUGUI 神通能量;
     public TextMeshProUGUI 神通介绍;
 
+    //属性Panel文本：每个英雄属性一个TMP字段
+    public Image 属性英雄icon;
+    public TextMeshProUGUI 属性英雄name;
+    public TextMeshProUGUI 属性英雄职业;
+    public TextMeshProUGUI 属性英雄元素;
+    public TextMeshProUGUI 属性英雄最高境界;
+    public Image 属性职业icon;
+    public Image 属性元素icon;
+
+    public TextMeshProUGUI 属性_真灵;
+    public TextMeshProUGUI 属性_暴击率;
+    public TextMeshProUGUI 属性_暴击伤害;
+    public TextMeshProUGUI 属性_元素增幅;
+    public TextMeshProUGUI 属性_职业增幅;
+    public TextMeshProUGUI 属性_最终伤害;
+    public TextMeshProUGUI 属性_冷却缩减;
+    public TextMeshProUGUI 属性_效果范围;
+    public TextMeshProUGUI 属性_普通怪增伤;
+    public TextMeshProUGUI 属性_精英怪增伤;
+    public TextMeshProUGUI 属性_首领怪增伤;
+    public TextMeshProUGUI 属性_元素穿透;
+    public TextMeshProUGUI 属性_寻宝速度增幅;
+    public TextMeshProUGUI 属性_攻击距离;
+    public TextMeshProUGUI 属性_普通攻击间隔;
+    public TextMeshProUGUI 属性_神通攻击间隔;
+
     public void Show英雄详情()
     {
         英雄icon.sprite = ResourcesConfig.Get英雄平台Sprite(当前heroType);
@@ -128,6 +157,34 @@ public class 英雄详情界面 : MonoBehaviour
         神通能量.text = HeroConfig.英雄神通配置Dic[当前heroType].能量.ToString();
         神通介绍.text = HeroConfig.Hero神通InfoDic[当前heroType];
         神通icon.sprite = ResourcesConfig.Get英雄神通icon(当前heroType);
+    }
+
+    public void Show英雄属性()
+    {
+        属性英雄icon.sprite = ResourcesConfig.Get英雄平台Sprite(当前heroType);
+        属性英雄name.text = HeroConfig.HeroNameDic[当前heroType];
+        属性英雄职业.text = HeroConfig.Get职业Name(HeroConfig.HeroZhiYeDic[当前heroType].zhiYeType);
+        属性英雄元素.text = HeroConfig.HeroZhiYeDic[当前heroType].yuanSuType.ToString();
+        属性英雄最高境界.text = 英雄技能树Config.英雄最高境界Dic[HeroConfig.HeroQualityDic[当前heroType]].ToString();
+        属性职业icon.sprite = ResourcesConfig.Get职业icon(HeroConfig.HeroZhiYeDic[当前heroType].zhiYeType);
+        属性元素icon.sprite = ResourcesConfig.Get元素Sprite(HeroConfig.HeroZhiYeDic[当前heroType].yuanSuType);
+        var 属性 = 属性config.Get英雄属性(当前heroType);
+        属性_真灵.text = PlayerData.S.格式化数字(属性.真灵);
+        属性_暴击率.text = Mathf.RoundToInt(属性.暴击率) + "%";
+        属性_暴击伤害.text = Mathf.RoundToInt(属性.暴击伤害) + "%";
+        属性_元素增幅.text = Mathf.RoundToInt(属性.元素增幅) + "%";
+        属性_职业增幅.text = Mathf.RoundToInt(属性.职业增幅) + "%";
+        属性_最终伤害.text = Mathf.RoundToInt(属性.最终伤害) + "%";
+        属性_冷却缩减.text = Mathf.RoundToInt(属性.冷却缩减) + "%";
+        属性_效果范围.text = 属性.效果范围.ToString("0.##");
+        属性_普通怪增伤.text = Mathf.RoundToInt(属性.普通怪增伤) + "%";
+        属性_精英怪增伤.text = Mathf.RoundToInt(属性.精英怪增伤) + "%";
+        属性_首领怪增伤.text = Mathf.RoundToInt(属性.首领怪增伤) + "%";
+        属性_元素穿透.text = Mathf.RoundToInt(属性.元素穿透).ToString();
+        属性_寻宝速度增幅.text = Mathf.RoundToInt(属性.寻宝速度增幅) + "%";
+        属性_攻击距离.text = 属性.攻击距离.ToString("0.##");
+        属性_普通攻击间隔.text = 属性.普通攻击间隔.ToString("0.##") + "s";
+        属性_神通攻击间隔.text = 属性.神通攻击间隔.ToString("0.##") + "s";
     }
     private 法器类型 当前法器类型 = 法器类型.武器;
     private int 法器背包当前页数=1;
@@ -705,6 +762,11 @@ public class 英雄详情界面 : MonoBehaviour
             显示类型 = 英雄详情界面显示类型.功法;
             刷新界面();
         });
+        属性Button.onClick.AddListener(() =>
+        {
+            显示类型 = 英雄详情界面显示类型.属性;
+            刷新界面();
+        });
         境界Button.onClick.AddListener(() =>
         {
             if (显示类型 != 英雄详情界面显示类型.境界)
@@ -837,6 +899,8 @@ public class 英雄详情界面 : MonoBehaviour
                 详情亮Button.gameObject.SetActive(false);
                 灵兽Button.gameObject.SetActive(true);
                 灵兽亮Button.gameObject.SetActive(false);
+                属性Button.gameObject.SetActive(true);
+                属性亮Button.gameObject.SetActive(false);
                 break;
             case 英雄详情界面显示类型.功法:
                 功法亮Button.gameObject.SetActive(true);
@@ -849,6 +913,8 @@ public class 英雄详情界面 : MonoBehaviour
                 详情亮Button.gameObject.SetActive(false);
                 灵兽Button.gameObject.SetActive(true);
                 灵兽亮Button.gameObject.SetActive(false);
+                属性Button.gameObject.SetActive(true);
+                属性亮Button.gameObject.SetActive(false);
                 break;
             case 英雄详情界面显示类型.法器:
                 法器亮Button.gameObject.SetActive(true);
@@ -861,6 +927,8 @@ public class 英雄详情界面 : MonoBehaviour
                 详情亮Button.gameObject.SetActive(false);
                 灵兽Button.gameObject.SetActive(true);
                 灵兽亮Button.gameObject.SetActive(false);
+                属性Button.gameObject.SetActive(true);
+                属性亮Button.gameObject.SetActive(false);
                 break;
             case 英雄详情界面显示类型.详情:
                 法器亮Button.gameObject.SetActive(false);
@@ -873,6 +941,8 @@ public class 英雄详情界面 : MonoBehaviour
                 详情亮Button.gameObject.SetActive(true);
                 灵兽Button.gameObject.SetActive(true);
                 灵兽亮Button.gameObject.SetActive(false);
+                属性Button.gameObject.SetActive(true);
+                属性亮Button.gameObject.SetActive(false);
                 break;
             case 英雄详情界面显示类型.灵兽:
                 法器亮Button.gameObject.SetActive(false);
@@ -885,6 +955,22 @@ public class 英雄详情界面 : MonoBehaviour
                 详情亮Button.gameObject.SetActive(false);
                 灵兽Button.gameObject.SetActive(false);
                 灵兽亮Button.gameObject.SetActive(true);
+                属性Button.gameObject.SetActive(true);
+                属性亮Button.gameObject.SetActive(false);
+                break;
+            case 英雄详情界面显示类型.属性:
+                法器亮Button.gameObject.SetActive(false);
+                法器Button.gameObject.SetActive(true);
+                境界Button.gameObject.SetActive(true);
+                境界亮Button.gameObject.SetActive(false);
+                功法Button.gameObject.SetActive(true);
+                功法亮Button.gameObject.SetActive(false);
+                详情Button.gameObject.SetActive(true);
+                详情亮Button.gameObject.SetActive(false);
+                灵兽Button.gameObject.SetActive(true);
+                灵兽亮Button.gameObject.SetActive(false);
+                属性Button.gameObject.SetActive(false);
+                属性亮Button.gameObject.SetActive(true);
                 break;
         }
     }
@@ -899,6 +985,7 @@ public class 英雄详情界面 : MonoBehaviour
                 境界Panel.SetActive(true);
                 详情Panel.SetActive(false);
                 灵兽Panel.SetActive(false);
+                属性Panel.SetActive(false);
                 Show技能面板();
                 break;
             case 英雄详情界面显示类型.功法:
@@ -907,6 +994,7 @@ public class 英雄详情界面 : MonoBehaviour
                 境界Panel.SetActive(false);
                 详情Panel.SetActive(false);
                 灵兽Panel.SetActive(false);
+                属性Panel.SetActive(false);
                 Show功法();
                 break;
             case 英雄详情界面显示类型.法器:
@@ -915,6 +1003,7 @@ public class 英雄详情界面 : MonoBehaviour
                 境界Panel.SetActive(false);
                 详情Panel.SetActive(false);
                 灵兽Panel.SetActive(false);
+                属性Panel.SetActive(false);
                 Show法器();
                 break;
             case 英雄详情界面显示类型.详情:
@@ -923,6 +1012,7 @@ public class 英雄详情界面 : MonoBehaviour
                 境界Panel.SetActive(false);
                 详情Panel.SetActive(true);
                 灵兽Panel.SetActive(false);
+                属性Panel.SetActive(false);
                 Show英雄详情();
                 break;
             case 英雄详情界面显示类型.灵兽:
@@ -930,8 +1020,18 @@ public class 英雄详情界面 : MonoBehaviour
                 法器Panel.SetActive(false);
                 境界Panel.SetActive(false);
                 详情Panel.SetActive(false);
+                属性Panel.SetActive(false);
                 灵兽Panel.SetActive(true);
                 Show灵兽();
+                break;
+            case 英雄详情界面显示类型.属性:
+                功法Panel.SetActive(false);
+                法器Panel.SetActive(false);
+                境界Panel.SetActive(false);
+                详情Panel.SetActive(false);
+                灵兽Panel.SetActive(false);
+                属性Panel.SetActive(true);
+                Show英雄属性();
                 break;
         }
     }
