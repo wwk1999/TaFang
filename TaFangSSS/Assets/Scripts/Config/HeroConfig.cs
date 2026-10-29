@@ -114,6 +114,18 @@ namespace Config
     public class HeroConfig
     {
 
+        public static Dictionary<QualityType, int> 英雄基础真灵 = new Dictionary<QualityType, int>()
+        {
+            { QualityType.黄品 ,100},
+            { QualityType.玄品 ,102},
+            { QualityType.地品 ,105},
+            { QualityType.天品 ,110},
+            { QualityType.宇品 ,120},
+            { QualityType.宙品 ,150},
+            { QualityType.洪品 ,200},
+            { QualityType.荒品 ,300},
+
+        };
         public static Dictionary<QualityType, int> 英雄提升境界经验值Dic = new Dictionary<QualityType, int>()
         {
             { QualityType.黄品 ,200},

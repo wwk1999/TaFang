@@ -2,8 +2,28 @@ using System;
 using System.Collections.Generic;
 using Config;
 
+public class 英雄属性
+{
+     public float 真灵;//基础真灵
+     public float 暴击率;
+     public float 暴击伤害;
+     public float 元素增幅;
+     public float 职业增幅;
+     public float 最终伤害;
+     public float 冷却缩减;
+     public float 效果范围;
+     public float 普通怪增伤;
+     public float 精英怪增伤;
+     public float 首领怪增伤;
+     public float 元素穿透;
+     public float 寻宝速度增幅;
+}
 public class 属性config
 {
+     public static Dictionary<HeroType, 英雄属性> 英雄属性字典 = new Dictionary<HeroType, 英雄属性>()
+     {
+          
+     };
      public static float Get英雄暴击伤害增幅()
      {
           float value = 0;
@@ -29,34 +49,7 @@ public class 属性config
 
           return value ;
      }
-     public class 道纹属性
-     {
-          public float 增加百分比攻击力 =>  道纹config.Get道纹数值(道纹Type.增加百分比攻击力);
-          public float 增加战士伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加战士伤害);
-          public float 增加法师伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加法师伤害);
-          public float 增加控制伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加控制伤害);
-          public float 增加射手伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加射手伤害);
-          public float 增加小怪伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加小怪伤害);
-          public float 增加精英怪和首领伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加精英怪和首领伤害);
-          public float 增加物理伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加物理伤害);
-          public float 增加雷电伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加雷电伤害);
-          public float 增加冰霜伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加冰霜伤害);
-          public float 增加黑暗伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加黑暗伤害);
-          public float 增加火焰伤害 => 1f + 道纹config.Get道纹数值(道纹Type.增加火焰伤害);
-          public float 城墙低血增加伤害 => 1f + 道纹config.Get道纹数值(道纹Type.城墙低血增加伤害);
-          public float 击杀精英怪城墙回血 => 道纹config.Get道纹数值(道纹Type.击杀精英怪城墙回血);
-          public float 城墙血量百分比 => 1f + 道纹config.Get道纹数值(道纹Type.城墙血量百分比);
-          public float 城墙免疫伤害 => 道纹config.Get道纹数值(道纹Type.城墙免疫伤害)*100;
-          public float 城墙满血时加伤害 => 1f + 道纹config.Get道纹数值(道纹Type.城墙满血时加伤害);
-          public float 英雄暴击率 => 道纹config.Get道纹数值(道纹Type.英雄暴击率);
-          public float 伤害在范围内浮动 => 道纹config.Get道纹数值(道纹Type.伤害在范围内浮动);
-          public float 无视抗性 => 道纹config.Get道纹数值(道纹Type.无视抗性);
-          public float 战士对靠近城墙敌人伤害增高 => 1f + 道纹config.Get道纹数值(道纹Type.战士对靠近城墙敌人伤害增高);
-          public float 射手对远距离敌人伤害增高 => 1f +道纹config.Get道纹数值(道纹Type.射手对远距离敌人伤害增高);
-          public float 控制冷却缩减 => 道纹config.Get道纹数值(道纹Type.控制冷却缩减);
-          public float 法师暴击率 => 道纹config.Get道纹数值(道纹Type.法师暴击率);
-          public float 辅助被辅助英雄伤害增幅 => 1f + 道纹config.Get道纹数值(道纹Type.辅助被辅助英雄伤害增幅);
-     }
+    
      
      public class 装备属性
      { 
@@ -176,7 +169,6 @@ public class 属性config
 {
     // 创建装备属性和道纹属性的实例
     private 装备属性 _装备 = new 装备属性();
-    private 道纹属性 _道纹 = new 道纹属性();
     private 道宝属性 _道宝 = new 道宝属性();
     private 神物属性 _神物 = new 神物属性();
 
@@ -504,17 +496,17 @@ public class 属性config
     
     
     public float 暴击伤害 => 200 + Get英雄暴击伤害增幅()+_神物.暴击爆伤*100 + 灵植总属性.暴击伤害;
-    public BigDouble 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅)*(1f+_道纹.增加百分比攻击力);
+    public BigDouble 总攻击力=>Get境界攻击力()*(1f+_装备.装备总攻击力增幅);
     public float 二次暴击 => _神物.二次暴击;
     public float 轮回次数加伤 => _神物.轮回次数加伤;
     public float 轮回系数 => _神物.轮回系数;
     public float 时间流速加快 => (1+_神物.时间流速加快)*(1+体质Config.当前体质总属性.时间流速加成/100f) *(1+ 灵植总属性.时间流速/100f)-1;
 
     // 灵植为独立乘区；灵植"职业伤害"分别加到 战士/射手/控制/法师 4 种职业上
-    private float 纯战士伤害增幅 => _装备.战士增幅 * _道纹.增加战士伤害*_道宝.战士增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.战士伤害/100f)*(1f+灵植总属性.职业伤害/100f);
-    private float 纯法师伤害增幅 => _装备.法师增幅 * _道纹.增加法师伤害*_道宝.法师增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.法师伤害/100f)*(1f+灵植总属性.职业伤害/100f);
-    private float 纯射手伤害增幅 => _装备.射手增幅 * _道纹.增加射手伤害*_道宝.射手增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.射手伤害/100f)*(1f+灵植总属性.职业伤害/100f);
-    private float 纯控制伤害增幅 => _装备.控制增幅 * _道纹.增加控制伤害*(1+_神物.全职业增伤)*(1f+灵植总属性.控制伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯战士伤害增幅 => _装备.战士增幅 *(1+_神物.全职业增伤)*(1f+灵植总属性.战士伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯法师伤害增幅 => _装备.法师增幅 *_道宝.法师增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.法师伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯射手伤害增幅 => _装备.射手增幅 *_道宝.射手增幅*(1+_神物.全职业增伤)*(1f+灵植总属性.射手伤害/100f)*(1f+灵植总属性.职业伤害/100f);
+    private float 纯控制伤害增幅 => _装备.控制增幅 *(1+_神物.全职业增伤)*(1f+灵植总属性.控制伤害/100f)*(1f+灵植总属性.职业伤害/100f);
     private float 纯辅助伤害增幅 => 1+_神物.全职业增伤;
     
     
@@ -526,33 +518,22 @@ public class 属性config
     public float 辅助增幅 => Get职业伤害增幅(ZhiYeType.辅助);
 
     // 灵植为独立乘区；灵植"元素伤害"分别加到 物理/火焰/冰霜/雷电/黑暗 5 种元素上
-    private float 纯物理伤害增幅 => _装备.物理伤害增幅 * _道纹.增加物理伤害*_道宝.物理伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.物理伤害/100f)*(1f+灵植总属性.元素伤害/100f);
-    private float 纯火焰伤害增幅 => _装备.火焰伤害增幅 * _道纹.增加火焰伤害*_道宝.火焰伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.火焰伤害/100f)*(1f+灵植总属性.元素伤害/100f);
-    private float 纯冰霜伤害增幅 => _装备.冰霜伤害增幅 * _道纹.增加冰霜伤害*_道宝.冰霜伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.冰霜伤害/100f)*(1f+灵植总属性.元素伤害/100f);
-    private float 纯雷电伤害增幅 => _装备.雷电伤害增幅 * _道纹.增加雷电伤害*_道宝.雷电伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.雷电伤害/100f)*(1f+灵植总属性.元素伤害/100f);
-    private float 纯黑暗伤害增幅 => _装备.黑暗伤害增幅 * _道纹.增加黑暗伤害*_道宝.黑暗伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.黑暗伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯物理伤害增幅 => _装备.物理伤害增幅 *_道宝.物理伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.物理伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯火焰伤害增幅 => _装备.火焰伤害增幅 *_道宝.火焰伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.火焰伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯冰霜伤害增幅 => _装备.冰霜伤害增幅 *_道宝.冰霜伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.冰霜伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯雷电伤害增幅 => _装备.雷电伤害增幅 *_道宝.雷电伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.雷电伤害/100f)*(1f+灵植总属性.元素伤害/100f);
+    private float 纯黑暗伤害增幅 => _装备.黑暗伤害增幅 *_道宝.黑暗伤害增幅*(1f+_神物.全元素增伤)*(1f+灵植总属性.黑暗伤害/100f)*(1f+灵植总属性.元素伤害/100f);
     public float 物理伤害增幅 => Get元素伤害增幅(YuanSuType.物理);//处理元素人人为我和我为人人
     public float 火焰伤害增幅 => Get元素伤害增幅(YuanSuType.火);
     public float 冰霜伤害增幅 => Get元素伤害增幅(YuanSuType.冰);
     public float 雷电伤害增幅 => Get元素伤害增幅(YuanSuType.电);
     public float 黑暗伤害增幅 => Get元素伤害增幅(YuanSuType.黑暗);
-    public float 普通怪伤害增幅 => _装备.普通怪伤害增幅 * _道纹.增加小怪伤害;
-    public float 精英怪伤害增幅 => _装备.精英怪伤害增幅 * _道纹.增加精英怪和首领伤害;
-    public float 首领伤害增幅 => _装备.首领伤害增幅 * _道纹.增加精英怪和首领伤害;
-    public float 城墙血量增幅 => _装备.城墙血量增幅*_道纹.城墙血量百分比*(1f+灵植总属性.城墙生命值/100f); // 装备的是血量增幅
-    public float 城墙低血增加伤害 => _道纹.城墙低血增加伤害;
-    public float 击杀精英怪城墙回血 => _道纹.击杀精英怪城墙回血;
-    public float 城墙免疫伤害 => _道纹.城墙免疫伤害;
-    public float 城墙满血时加伤害 => _道纹.城墙满血时加伤害;
-    public float 暴击率 => _道纹.英雄暴击率+_装备.暴击率+_道宝.暴击率+_神物.暴击爆伤+灵植总属性.暴击率/100f;
-    public float 法师暴击率 => _道纹.法师暴击率;
+    public float 普通怪伤害增幅 => _装备.普通怪伤害增幅 ;
+    public float 精英怪伤害增幅 => _装备.精英怪伤害增幅 ;
+    public float 首领伤害增幅 => _装备.首领伤害增幅 ;
+    public float 城墙血量增幅 => _装备.城墙血量增幅*(1f+灵植总属性.城墙生命值/100f); // 装备的是血量增幅
+    public float 暴击率 => _装备.暴击率+_道宝.暴击率+_神物.暴击爆伤+灵植总属性.暴击率/100f;
     public float 英雄冷却缩减 => 0+_神物.冷却缩减;
-    public float 控制冷却缩减 => _道纹.控制冷却缩减;
-    public float 伤害在范围内浮动 => _道纹.伤害在范围内浮动;
-    public float 无视抗性 => _道纹.无视抗性;
-    public float 战士对靠近城墙敌人伤害增高 => _道纹.战士对靠近城墙敌人伤害增高;
-    public float 射手对远距离敌人伤害增高 => _道纹.射手对远距离敌人伤害增高;
-    public float 辅助被辅助英雄伤害增幅 => _道纹.辅助被辅助英雄伤害增幅;
     public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害)*(1f+灵植总属性.最终伤害/100f);
     public float 伤害减免 => 1-(1-_道宝.伤害减免)*(1-城墙Config.伤害减免/100f);
 
