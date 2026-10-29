@@ -60,7 +60,12 @@ public class 仙子属性
     public float 领主装备词条效果增加;
     public float 洗练灵气消耗减少;
     
-   
+    public float 领主装备所有效果;
+    public float 无暇洗练概率增加;
+    public float 强化灵气消耗减少;
+    public float 领主装备攻击力增加;
+    public float 领主装备词条效果增加;
+    public float 洗练灵气消耗减少;
 }
 
 public class 阴阳殿Config
