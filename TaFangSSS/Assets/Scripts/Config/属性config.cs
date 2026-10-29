@@ -535,9 +535,9 @@ public class 属性config
     public float 精英怪伤害增幅 => _装备.精英怪伤害增幅 ;
     public float 首领伤害增幅 => _装备.首领伤害增幅 ;
     public float 城墙血量增幅 => _装备.城墙血量增幅*(1f+灵植总属性.城墙生命值/100f); // 装备的是血量增幅
-    public float 暴击率 => _装备.暴击率+_道宝.暴击率+_神物.暴击爆伤+灵植总属性.暴击率/100f;
+    public float 暴击率 => _装备.暴击率+_道宝.暴击率+灵植总属性.暴击率/100f+_神物.暴击爆伤;
     public float 英雄冷却缩减 => 0+_神物.冷却缩减;
-    public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害)*(1f+体质Config.当前体质总属性.最终伤害/100f)*(1f+灵植总属性.最终伤害/100f);
+    public float 最终伤害增幅 => (1f+_装备.最终伤害)*(1f+_道宝.最终伤害)*(1f+_神物.最终伤害)*(1f+体质Config.当前体质总属性.最终伤害/100f)*(1f+灵植总属性.最终伤害/100f)*(1f+Get众仙总增幅()/100f);
     public float 伤害减免 => 1-(1-_道宝.伤害减免)*(1-城墙Config.伤害减免/100f);
 
     public float 神通最大值 => 150;
@@ -562,6 +562,19 @@ public class 属性config
           BigDouble 基础攻击 = JingJieConfig.JingJieAttributeDic[PlayerData.S.当前轮回境界];
 
           return 基础攻击 * JingJieConfig.Get跟脚();
+     }
+
+     /// <summary>
+     /// 众仙：全英雄技能树「增加所有英雄伤害」求和，所有英雄共享，归入全局最终伤害乘区。
+     /// </summary>
+     public static float Get众仙总增幅()
+     {
+          float value = 0;
+          foreach (var item in HeroConfig.HeroQualityDic)
+          {
+               value += 英雄技能树Config.Get英雄技能树属性(item.Key).增加所有英雄伤害;
+          }
+          return value;
      }
      public static BigDouble 基础境界攻击力=>Get境界攻击力();
      public static 领主总属性 总属性=new 领主总属性();
@@ -636,18 +649,10 @@ public class 属性config
           // 职业增幅：总属性已含体质/装备/道宝/神物/灵植（底层纯职业乘区已加体质）
           结果.职业增幅 = (总属性.Get职业伤害增幅(职业元素.zhiYeType) - 1f) * 100f;
 
-          // 众仙：全英雄技能树「增加所有英雄伤害」求和（所有英雄共享）
-          float 众仙 = 0;
-          foreach (var item in HeroConfig.HeroQualityDic)
-          {
-               众仙 += 英雄技能树Config.Get英雄技能树属性(item.Key).增加所有英雄伤害;
-          }
-
-          // 最终伤害：总属性已含体质/装备/道宝/神物/灵植，再乘英雄专属
+          // 最终伤害：总属性已含神物/体质/灵植/众仙，再乘英雄专属
           float 最终倍率 = 总属性.最终伤害增幅
                * (1f + 法器.最终伤害 / 100f)
                * (1f + 技能树.英雄伤害 / 100f)
-               * (1f + 众仙 / 100f)
                * (1f + 根基丹药.最终伤害 / 100f);
           if (heroData.功法Type != 功法Type.None)
           {
