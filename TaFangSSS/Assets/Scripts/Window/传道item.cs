@@ -28,7 +28,7 @@ public class 传道item : MonoBehaviour
                         ObserverModuleManager.S.SendEvent("SendUIToast", "传道次数不足");
                         return;
                     }
-                    if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.传道消耗Dic[qualityType])
+                    if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.Get传道消耗(qualityType))
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToast", "功德不足");
                         return;
@@ -38,7 +38,7 @@ public class 传道item : MonoBehaviour
                     if (PlayerData.S.传道所有)
                     {
                         传道次数 = (long)Math.Min(PlayerData.S.剩余传道次数,
-                            PlayerData.S.PropListDic[PropType.功德] / 功法Config.传道消耗Dic[qualityType]);
+                            PlayerData.S.PropListDic[PropType.功德] / 功法Config.Get传道消耗(qualityType));
                     }
 
                     StartCoroutine(传道(传道次数));
@@ -47,7 +47,7 @@ public class 传道item : MonoBehaviour
                 }
                 else
                 {
-                    if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.传道消耗Dic[qualityType]*3)
+                    if (PlayerData.S.PropListDic[PropType.功德] < 功法Config.Get传道消耗(qualityType)*3)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToast", "功德不足");
                         return;
@@ -58,7 +58,7 @@ public class 传道item : MonoBehaviour
                         // 功德后期是 10^17+ 的大数，除出来的次数远超 int 范围：
                         // (int) 强转溢出会得到 int.MinValue（负数）→ 功法不发、功德几乎不动，
                         // 这就是"勾了传道所有却不消耗功德"的原因。必须用 long 承接
-                        传道次数 = (long)(PlayerData.S.PropListDic[PropType.功德] / (功法Config.传道消耗Dic[qualityType]*3));
+                        传道次数 = (long)(PlayerData.S.PropListDic[PropType.功德] / (功法Config.Get传道消耗(qualityType)*3));
                         if (传道次数 > 单次传道上限)
                         {
                             传道次数 = 单次传道上限;
@@ -88,15 +88,26 @@ public class 传道item : MonoBehaviour
                 list[type] = 1;
             }
             PlayerData.S.功法数量Dic[type]++;
+
+            if (Random.Range(0f, 100f) < 属性config.仙子总属性.加荒品功法概率)
+            {
+                功法Type 荒品 = 功法Config.传道(QualityType.荒品);
+                if (荒品 != 功法Type.None)
+                {
+                    if (list.ContainsKey(荒品)) list[荒品]++;
+                    else list[荒品] = 1;
+                    PlayerData.S.功法数量Dic[荒品]++;
+                }
+            }
         }
         if (PlayerData.S.消耗传道次数)
         {
             PlayerData.S.剩余传道次数-=(int)count;   // 该分支 count ≤ 剩余传道次数，截断无损
-            PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType]*count;
+            PlayerData.S.PropListDic[PropType.功德] -= 功法Config.Get传道消耗(qualityType)*count;
         }
         else
         {
-            PlayerData.S.PropListDic[PropType.功德] -= 功法Config.传道消耗Dic[qualityType]*3*count;
+            PlayerData.S.PropListDic[PropType.功德] -= 功法Config.Get传道消耗(qualityType)*3*count;
         }
 
         foreach (var item in list)
@@ -115,11 +126,11 @@ public class 传道item : MonoBehaviour
         icon.sprite=ResourcesConfig.Get传道icon(qualityType);
         if (PlayerData.S.消耗传道次数)
         {
-           功德count.text=功法Config.传道消耗Dic[qualityType].ToString(); 
+           功德count.text=功法Config.Get传道消耗(qualityType).ToString(); 
         }
         else
         {
-            功德count.text=(功法Config.传道消耗Dic[qualityType]*3).ToString(); 
+            功德count.text=(功法Config.Get传道消耗(qualityType)*3).ToString(); 
         }
         传道Button.image.sprite=ResourcesConfig.Get传道按钮(qualityType);
        

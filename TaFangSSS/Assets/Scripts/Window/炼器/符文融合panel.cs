@@ -295,7 +295,7 @@ public class 符文融合panel : MonoBehaviour
         if (主 == null || 副 == null) return;
 
         // 50% 成功
-        if (Random.Range(0, 100) < 50)
+        if (Random.Range(0, 100) < 50 + 属性config.仙子总属性.符文融合成功概率增加)
         {
             主.融合 = true;
             主.融合type = 副.type;

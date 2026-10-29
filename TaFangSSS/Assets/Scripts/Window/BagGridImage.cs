@@ -139,7 +139,8 @@ public class BagGridImage : MonoBehaviour,IPointerClickHandler, IPointerEnterHan
                 {
                     PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.Get法器材料分解粉尘(
                         PropConfig.GetProp阶数(BagGrid.propType)) * PlayerData.S.PropListDic[BagGrid.propType]
-                        * (1f + 道场Config.供奉总属性.增加法器分解粉尘 / 100f);
+                        * (1f + 道场Config.供奉总属性.增加法器分解粉尘 / 100f)
+                        * (1f + 属性config.仙子总属性.加分解粉尘 / 100f);
                     PlayerData.S.PropListDic[BagGrid.propType] = 0;
                     ObserverModuleManager.S.SendEvent("刷新背包");
                 }

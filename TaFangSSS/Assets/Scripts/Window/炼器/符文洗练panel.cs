@@ -303,7 +303,7 @@ public class 符文洗练panel : MonoBehaviour
         float max = mm.max;
 
         var 无暇random = Random.Range(0, 100);
-        if (无暇random < 1f)
+        if (无暇random < 1f * (1f + 属性config.仙子总属性.符文无暇概率增加 / 100f))
         {
             符文.无暇 = true;
             符文.count = max;
@@ -341,7 +341,7 @@ public class 符文洗练panel : MonoBehaviour
         float max = mm.max;
 
         var 无暇random = Random.Range(0, 100);
-        if (无暇random < 1f)
+        if (无暇random < 1f * (1f + 属性config.仙子总属性.符文无暇概率增加 / 100f))
         {
             符文.无暇 = true;
             符文.count = max;

@@ -118,15 +118,18 @@ public class 灵兽坊Config
 {
     public static float Get灵兽最终伤害总增幅(灵兽 灵兽)
     {
-        return 灵兽.最终伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+        return 灵兽.最终伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)]
+            * (1f + 属性config.仙子总属性.灵兽增幅 / 100f);
     }
     public static float Get灵兽暴击伤害总增幅(灵兽 灵兽)
     {
-        return 灵兽.暴击伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+        return 灵兽.暴击伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)]
+            * (1f + 属性config.仙子总属性.灵兽增幅 / 100f);
     }
     public static float Get灵兽元素伤害总增幅(灵兽 灵兽)
     {
-        return 灵兽.元素伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)];
+        return 灵兽.元素伤害 * 灵兽.道龄 * 血脉倍数[(int)(灵兽.血脉Type - 1)]
+            * (1f + 属性config.仙子总属性.灵兽增幅 / 100f);
     }
     public static float Get灵兽孵化时间(灵兽 a,灵兽 b)
     {
@@ -143,6 +146,10 @@ public class 灵兽坊Config
         灵兽 灵兽 = new 灵兽();
         灵兽.灵兽Type = a.灵兽Type;
         灵兽.QualityType = 灵兽品质[灵兽.灵兽Type];
+        if (Random.Range(0f, 100f) < 属性config.仙子总属性.灵兽蛋荒品概率增加)
+        {
+            灵兽.QualityType = QualityType.荒品;
+        }
         灵兽.元素Type = 灵兽元素[灵兽.灵兽Type];
         int 性别random = Random.Range(0, 2);
         if (性别random == 1)
@@ -163,17 +170,17 @@ public class 灵兽坊Config
         float 最终伤害无暇random = Random.Range(0, 100f);
         float 暴击伤害无暇random = Random.Range(0, 100f);
         float 元素伤害无暇random = Random.Range(0, 100f);
-        if (最终伤害无暇random < 1f)
+        if (最终伤害无暇random < 1f * (1f + 属性config.仙子总属性.灵兽洗练无暇概率增加 / 100f))
         {
             灵兽.最终伤害无暇 = true;
             灵兽.最终伤害 = 最大资质;
         }
-        if (暴击伤害无暇random < 1f)
+        if (暴击伤害无暇random < 1f * (1f + 属性config.仙子总属性.灵兽洗练无暇概率增加 / 100f))
         {
             灵兽.暴击伤害无暇 = true;
             灵兽.暴击伤害 = 最大资质;
         }
-        if (元素伤害无暇random < 1f)
+        if (元素伤害无暇random < 1f * (1f + 属性config.仙子总属性.灵兽洗练无暇概率增加 / 100f))
         {
             灵兽.元素伤害无暇 = true;
             灵兽.元素伤害 = 最大资质;
@@ -384,17 +391,17 @@ public class 灵兽坊Config
         float 最终伤害无暇random = Random.Range(0, 100f);
         float 暴击伤害无暇random = Random.Range(0, 100f);
         float 元素伤害无暇random = Random.Range(0, 100f);
-        if (最终伤害无暇random < 1f)
+        if (最终伤害无暇random < 1f * (1f + 属性config.仙子总属性.灵兽洗练无暇概率增加 / 100f))
         {
             灵兽.最终伤害无暇 = true;
             灵兽.最终伤害 = 最大资质;
         }
-        if (暴击伤害无暇random < 1f)
+        if (暴击伤害无暇random < 1f * (1f + 属性config.仙子总属性.灵兽洗练无暇概率增加 / 100f))
         {
             灵兽.暴击伤害无暇 = true;
             灵兽.暴击伤害 = 最大资质;
         }
-        if (元素伤害无暇random < 1f)
+        if (元素伤害无暇random < 1f * (1f + 属性config.仙子总属性.灵兽洗练无暇概率增加 / 100f))
         {
             灵兽.元素伤害无暇 = true;
             灵兽.元素伤害 = 最大资质;

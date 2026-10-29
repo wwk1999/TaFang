@@ -348,7 +348,7 @@ public class StoreController : XSingleton<StoreController>
         {
             if (item.Value.孵化中)
             {
-                item.Value.当前道年 += 1 / 属性config.每年秒数;
+                item.Value.当前道年 += (1f + 属性config.仙子总属性.孵化时间缩减 / 100f) / 属性config.每年秒数;
                 if (item.Value.当前道年 >= item.Value.需要道年)
                 {
                     灵兽坊Config.Get孵化灵兽(item.Value.父, item.Value.母);
@@ -374,6 +374,7 @@ public class StoreController : XSingleton<StoreController>
 
             // 土地速度加成与提速肥料为不同乘区
             生长速度 *= 1 + 灵植园Config.土地数值[土地.土地Type].速度 / 100f;
+            生长速度 *= 1 + 属性config.仙子总属性.灵植生长速度 / 100f;
 
             土地.当前time += 生长速度 / 属性config.每年秒数;
             float 进度 = 土地.当前time / 土地.所需time;
@@ -388,6 +389,7 @@ public class StoreController : XSingleton<StoreController>
                     异化概率 *= 1 + 灵植园Config.异化肥料数值[土地.异化肥料] / 100f;
                 }
                 异化概率 *= 1 + 灵植园Config.土地数值[土地.土地Type].异化 / 100f;
+                异化概率 *= 1 + 属性config.仙子总属性.灵植变异概率 / 100f;
                 if (Random.Range(0, 100f) < 异化概率)
                 {
                     土地.变异 = true;
@@ -448,7 +450,7 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.PropListDic[PropType.玄铁] += 玉髓速度 / 属性config.每年秒数;
         }
 
-        PlayerData.S.灵兽蛋数量+=灵兽蛋速度 / 属性config.每年秒数;
+        PlayerData.S.灵兽蛋数量 += 灵兽蛋速度 * (1f + 属性config.仙子总属性.灵兽蛋数量增加 / 100f) / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.矿石] += 矿石速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.玄铁] += 玄铁速度 / 属性config.每年秒数;
         PlayerData.S.PropListDic[PropType.玉髓] += 玉髓速度 / 属性config.每年秒数;
@@ -499,7 +501,7 @@ public class StoreController : XSingleton<StoreController>
             ObserverModuleManager.S.SendEvent("刷新主页Buff");
             PlayerData.S.道龄S = 0;
             PlayerData.S.道龄年++;
-            PlayerData.S.剩余传道次数++;
+            PlayerData.S.剩余传道次数 += 1 + Mathf.RoundToInt(属性config.仙子总属性.每道年传道次数翻倍);
             坊市Config.刷新坊市列表();
             ObserverModuleManager.S.SendEvent("刷新坊市窗口");
         }
@@ -553,7 +555,15 @@ public class StoreController : XSingleton<StoreController>
                 法器打造Item 当前打造 = PlayerData.S.打造List[0];
                 // 材料在加入打造队列时已扣除；品质在打造完成时随机赋予
                 QualityType 成品品质 = 法器Config.Random品质(当前打造.阶数);
+                if (Random.Range(0f, 100f) < 属性config.仙子总属性.加荒品打造概率)
+                {
+                    成品品质 = QualityType.荒品;
+                }
                 PlayerData.S.法器列表.Add(法器Config.Get坊市法器(当前打造.法器Type, 成品品质, 当前打造.阶数));
+                if (Random.Range(0f, 100f) < 属性config.仙子总属性.一炉双器概率)
+                {
+                    PlayerData.S.法器列表.Add(法器Config.Get坊市法器(当前打造.法器Type, 成品品质, 当前打造.阶数));
+                }
                 // 打造完成提示，并刷新背包法器列表
                 //ObserverModuleManager.S.SendEvent("SendUIToast", 法器Config.Get法器Name(当前打造.法器Type, 当前打造.阶数), 成品品质, 1);
                 ObserverModuleManager.S.SendEvent("刷新背包");
@@ -694,7 +704,19 @@ public class StoreController : XSingleton<StoreController>
                         continue;
                     }
                 }
-               PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType,PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType)+1);
+               QualityType 成品品质 = PlayerData.S.丹药炼制List[0].丹药QualityType;
+               int 成品阶段 = 1;
+               if (Random.Range(0f, 100f) < 属性config.仙子总属性.提升品质概率)
+               {
+                   成品品质 = (QualityType)Mathf.Min((int)成品品质 + 1, (int)QualityType.荒品);
+               }
+               if (Random.Range(0f, 100f) < 属性config.仙子总属性.提升阶数概率)
+               {
+                   成品阶段 = 2;
+               }
+               int 出炉数量 = Random.Range(0f, 100f) < 属性config.仙子总属性.一炉双丹概率 ? 2 : 1;
+               PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type, 成品品质,
+                   PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type, 成品品质, 成品阶段) + 出炉数量, 成品阶段);
                PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
                if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
                {
@@ -730,6 +752,7 @@ public class StoreController : XSingleton<StoreController>
         value /= (1f + 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].速度加成/100f);
         value /= (1f + 道场Config.供奉总属性.炼器速度/100f);
         value /=(1f+体质Config.当前体质总属性.炼器速度/100f);
+        value /=(1f+属性config.仙子总属性.炼器速度/100f);
         return value;
     }
 

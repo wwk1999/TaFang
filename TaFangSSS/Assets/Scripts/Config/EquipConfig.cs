@@ -136,7 +136,7 @@
          附加属性Type 附加属性Type = (附加属性Type)random1;
          float randomcount = Random.Range(附加属性数值Dic[附加属性Type][(int)(quality - 2)].minCount,
              附加属性数值Dic[附加属性Type][(int)(quality - 2)].maxCount);
-         if (无暇random < 1f)
+         if (无暇random < 1f * (1f + 属性config.仙子总属性.无暇洗练概率增加 / 100f))
          {
              无暇 = true;
              randomcount = 附加属性数值Dic[附加属性Type][(int)(quality - 2)].maxCount;
@@ -153,6 +153,11 @@
          { QualityType.洪品, new List<float>() { 0,0,0,55,30,15} },
          { QualityType.荒品, new List<float>() { 0,0,0,45,20,25,10} },
      };
+
+     public static int Get洗练灵气(int 基础灵气)
+     {
+          return Mathf.RoundToInt(基础灵气 * (1f - Mathf.Clamp(属性config.仙子总属性.洗练灵气消耗减少, 0f, 100f) / 100f));
+     }
 
      public static 材料Item Get强化材料(int level)
      {
@@ -206,6 +211,7 @@
              材料Item.灵气数量 = 120000000;
          }
 
+         材料Item.灵气数量 = Mathf.RoundToInt(材料Item.灵气数量 * (1f - Mathf.Clamp(属性config.仙子总属性.强化灵气消耗减少, 0f, 100f) / 100f));
          return 材料Item;
      }
      public static Dictionary<QualityType, 材料Item> 强化材料Dic = new Dictionary<QualityType, 材料Item>()
@@ -605,7 +611,8 @@
              }
          }
 
-         return count;
+         return count * (1f + 属性config.仙子总属性.领主装备词条效果增加 / 100f)
+              * (1f + 属性config.仙子总属性.领主装备所有效果 / 100f);
      }
      public static Dictionary<附加属性Type, List<附加属性Item>> 附加属性数值Dic = new Dictionary<附加属性Type, List<附加属性Item>>()
      {

@@ -95,7 +95,7 @@ public class 符文分解弹窗 : MonoBehaviour
             list.RemoveAt(i);
             获得符箓 += 单位符箓;
         }
-        return 获得符箓;
+        return Mathf.RoundToInt(获得符箓 * (1f + 属性config.仙子总属性.分解符箓增加 / 100f));
     }
 
     private void Start()

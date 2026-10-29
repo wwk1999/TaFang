@@ -381,7 +381,7 @@ public class 法器洗练panel : MonoBehaviour
                         }].max;
                 
                 var 无暇random=Random.Range(0,100);
-                if (无暇random < 1f)
+                if (无暇random < 1f * (1f + 属性config.仙子总属性.加法器无暇洗练概率 / 100f))
                 {
                     item.无暇=true;
                     item.count = max;
@@ -467,7 +467,7 @@ public class 法器洗练panel : MonoBehaviour
                         }].max;
                 
                 var 无暇random=Random.Range(0,100);
-                if (无暇random < 1f)
+                if (无暇random < 1f * (1f + 属性config.仙子总属性.加法器无暇洗练概率 / 100f))
                 {
                     item.无暇=true;
                     item.count = max;

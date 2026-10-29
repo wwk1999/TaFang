@@ -33,7 +33,7 @@ public class 功法分解弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","功法数量不足");
                 return;
             }
-            PlayerData.S.PropListDic[PropType.功法经验] += 功法Config.功法分解经验[功法Config.功法TypeQualityDic[功法Type]] * count;
+            PlayerData.S.PropListDic[PropType.功法经验] += 功法Config.Get功法分解经验(功法Config.功法TypeQualityDic[功法Type]) * count;
             PlayerData.S.功法数量Dic[功法Type] -= count;
             ObserverModuleManager.S.SendEvent("SendUIToast","分解成功");
             ObserverModuleManager.S.SendEvent("刷新背包");
@@ -54,13 +54,13 @@ public class 功法分解弹窗 : MonoBehaviour
             数量Slider.minValue = 1;
         }
         数量Slider.onValueChanged.AddListener(OnSliderValueChanged);
-        获得经验.text=功法Config.功法分解经验[功法Config.功法TypeQualityDic[功法Type]].ToString();
+        获得经验.text=功法Config.Get功法分解经验(功法Config.功法TypeQualityDic[功法Type]).ToString();
     }
 
     
     private void OnEnable()
     {
-        获得经验.text=功法Config.功法分解经验[功法Config.功法TypeQualityDic[功法Type]].ToString();
+        获得经验.text=功法Config.Get功法分解经验(功法Config.功法TypeQualityDic[功法Type]).ToString();
         数量Slider.maxValue = PlayerData.S.功法数量Dic[功法Type];
         if (PlayerData.S.功法数量Dic[功法Type] <= 1)
         {
@@ -87,7 +87,7 @@ public class 功法分解弹窗 : MonoBehaviour
         数量Slider.value=newCount;
         数量.text=newCount.ToString();
         count=newCount;
-        获得经验.text=(newCount*功法Config.功法分解经验[功法Config.功法TypeQualityDic[功法Type]]).ToString();
+        获得经验.text=(newCount*功法Config.Get功法分解经验(功法Config.功法TypeQualityDic[功法Type])).ToString();
     }
     public void SetItem()
     {

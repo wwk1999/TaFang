@@ -145,7 +145,7 @@ public class 符文Config
     /// <summary>按符文类型把词条数值累加到属性上</summary>
     private static void 加符文属性(符文属性 属性, 符文Type 符文Type, float count, bool 无暇, float 额外倍数)
     {
-        float 数值 = count * (无暇 ? 3f : 1f) * 额外倍数;
+        float 数值 = count * (无暇 ? 3f : 1f) * 额外倍数 * (1f + 属性config.仙子总属性.符文效果 / 100f);
         switch (符文Type)
             {
                 case 符文Type.击杀怪物获得神通能量: 属性.击杀怪物获得神通能量 += 数值; break;

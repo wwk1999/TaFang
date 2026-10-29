@@ -524,7 +524,8 @@ public class 法器Config
         法器属性 鞋子属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].鞋子);
         法器属性 武器属性 = Get法器属性(PlayerData.S.HeroDataDic[heroType].武器);
         法器属性 = 衣服属性 + 头盔属性 + 鞋子属性 + 武器属性;
-        return 法器属性 * (1f + 体质Config.当前体质总属性.法器效果加成 / 100f);
+        return 法器属性 * (1f + 体质Config.当前体质总属性.法器效果加成 / 100f)
+            * (1f + 属性config.仙子总属性.法器效果 / 100f);
     }
 
     public static 法器属性 Get法器属性(法器 法器)

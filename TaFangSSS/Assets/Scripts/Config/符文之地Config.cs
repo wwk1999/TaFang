@@ -244,8 +244,22 @@ public class 符文之地Config
         { 符文之地Type.天道台, new List<float>(){0,0,50,12,1,0,0,0} },
     };
 
+    private static QualityType 应用仙子掉落加成(QualityType quality)
+    {
+        if (Random.Range(0f, 100f) < 属性config.仙子总属性.宇品以上符文掉落概率)
+        {
+            if ((int)quality < (int)QualityType.宇品) quality = QualityType.宇品;
+        }
+        if (Random.Range(0f, 100f) < 属性config.仙子总属性.荒品符文掉落概率)
+        {
+            quality = QualityType.荒品;
+        }
+        return quality;
+    }
+
     public static 符文 Get品质符文(QualityType quality)
     {
+        quality = 应用仙子掉落加成(quality);
         符文 符文 = new 符文();
         符文.quality = quality;
         符文.type = (符文Type)Random.Range(1, Enum.GetValues(typeof(符文Type)).Length);
@@ -265,7 +279,7 @@ public class 符文之地Config
             if (random < item)
             {
                 符文 符文 = new 符文();
-                符文.quality = (QualityType)(index + 1);
+                符文.quality = 应用仙子掉落加成((QualityType)(index + 1));
                 符文.type = (符文Type)Random.Range(1, Enum.GetValues(typeof(符文Type)).Length);
                 minmax mm = 符文Config.Get符文minmax(符文.type, 符文.quality);
                 符文.count = Random.Range(mm.min, mm.max);

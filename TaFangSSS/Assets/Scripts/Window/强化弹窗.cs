@@ -155,7 +155,7 @@ public class 强化弹窗 : MonoBehaviour
       int level=PlayerData.S.EquipLevelDic[equipType];
       var item = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(level)];
       int cailiao = item.材料数量*(int)Math.Pow(2,锁count);
-      int lingqi = item.灵气数量*(int)Math.Pow(2,锁count);
+      int lingqi = EquipConfig.Get洗练灵气(item.灵气数量*(int)Math.Pow(2,锁count));
       if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
       {
          ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
@@ -213,7 +213,7 @@ public class 强化弹窗 : MonoBehaviour
       int level=PlayerData.S.EquipLevelDic[equipType];
       var item = EquipConfig.洗练材料Dic[EquipConfig.GetEquipQuality(level)];
       int cailiao = item.材料数量*(int)Math.Pow(2,锁count);
-      int lingqi = item.灵气数量*(int)Math.Pow(2,锁count);
+      int lingqi = EquipConfig.Get洗练灵气(item.灵气数量*(int)Math.Pow(2,锁count));
       if (PlayerData.S.PropListDic[PropType.灵魂] < lingqi)
       {
          ObserverModuleManager.S.SendEvent("播放音效",音效Type.错误);
@@ -543,7 +543,7 @@ public class 强化弹窗 : MonoBehaviour
                
                var item = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao = item.材料数量;
-               int lingqi = item.灵气数量;
+               int lingqi = EquipConfig.Get洗练灵气(item.灵气数量);
                
                当前数量.text = PlayerData.S.PropListDic[PropType.头盔锻造石].ToString();
                强化需要数量.text = cailiao.ToString();
@@ -554,7 +554,7 @@ public class 强化弹窗 : MonoBehaviour
                材料Name.text = PropConfig.GetPropName(PropType.鞋子锻造石);
                var item1 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao1 = item1.材料数量;
-               int lingqi1 = item1.灵气数量;
+               int lingqi1 = EquipConfig.Get洗练灵气(item1.灵气数量);
                
                当前数量.text = PlayerData.S.PropListDic[PropType.鞋子锻造石].ToString();
                强化需要数量.text = cailiao1.ToString();
@@ -565,7 +565,7 @@ public class 强化弹窗 : MonoBehaviour
                材料Name.text = PropConfig.GetPropName(PropType.护手锻造石);
                var item2 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao2 = item2.材料数量;
-               int lingqi2 = item2.灵气数量;
+               int lingqi2 = EquipConfig.Get洗练灵气(item2.灵气数量);
                
                当前数量.text = PlayerData.S.PropListDic[PropType.护手锻造石].ToString();
                强化需要数量.text = cailiao2.ToString();
@@ -576,7 +576,7 @@ public class 强化弹窗 : MonoBehaviour
                材料Name.text = PropConfig.GetPropName(PropType.衣服锻造石);
                var item3 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao3 = item3.材料数量;
-               int lingqi3 = item3.灵气数量;
+               int lingqi3 = EquipConfig.Get洗练灵气(item3.灵气数量);
                
                当前数量.text = PlayerData.S.PropListDic[PropType.衣服锻造石].ToString();
                强化需要数量.text = cailiao3.ToString();
@@ -587,7 +587,7 @@ public class 强化弹窗 : MonoBehaviour
                材料Name.text = PropConfig.GetPropName(PropType.戒指锻造石);
                var item4 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao4 = item4.材料数量;
-               int lingqi4 = item4.灵气数量;
+               int lingqi4 = EquipConfig.Get洗练灵气(item4.灵气数量);
                
                当前数量.text = PlayerData.S.PropListDic[PropType.戒指锻造石].ToString();
                强化需要数量.text = cailiao4.ToString();
@@ -598,7 +598,7 @@ public class 强化弹窗 : MonoBehaviour
                材料Name.text = PropConfig.GetPropName(PropType.项链锻造石);
                var item5 = EquipConfig.Get强化材料(PlayerData.S.EquipLevelDic[equipType]);
                int cailiao5 = item5.材料数量;
-               int lingqi5 = item5.灵气数量;
+               int lingqi5 = EquipConfig.Get洗练灵气(item5.灵气数量);
                
                当前数量.text = PlayerData.S.PropListDic[PropType.项链锻造石].ToString();
                强化需要数量.text = cailiao5.ToString();

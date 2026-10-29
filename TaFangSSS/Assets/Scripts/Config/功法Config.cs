@@ -681,6 +681,24 @@ public class 功法Config
         return 功法Type.None;
     }
 
+    public static int Get传道消耗(QualityType qualityType)
+    {
+        return Mathf.RoundToInt(传道消耗Dic[qualityType]
+            * (1f - Mathf.Clamp(属性config.仙子总属性.传道功德消耗减少, 0f, 100f) / 100f));
+    }
+
+    public static int Get功法分解经验(QualityType qualityType)
+    {
+        return Mathf.RoundToInt(功法分解经验[qualityType]
+            * (1f + 属性config.仙子总属性.加功法分解粉尘 / 100f));
+    }
+
+    public static int Get功法属性数值(功法Type 功法Type)
+    {
+        return Mathf.RoundToInt(功法基础属性Dic[功法Type].count
+            * (1f + 属性config.仙子总属性.功法层数效果 / 100f));
+    }
+
     public static 功法Type 传道(QualityType qualityType)
     {
         List<float> list = 传道概率Dic[qualityType];

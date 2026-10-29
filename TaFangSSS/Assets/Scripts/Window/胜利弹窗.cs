@@ -141,7 +141,7 @@ public class 胜利弹窗 : MonoBehaviour
                 PlayerData.S.Get灵物数量(item.JingJieType, item.QualityType) + 1);
         }
 
-        PlayerData.S.PropListDic[PropType.轮回石] += 1;
+        PlayerData.S.PropListDic[PropType.轮回石] += 1 + Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
             .GetComponent<胜利弹窗item>();
         item1.Type = PropType.轮回石;
@@ -169,7 +169,7 @@ public class 胜利弹窗 : MonoBehaviour
     public void 遗迹关卡结算()
     {
         遗迹关卡胜利奖励 value = 神物Config.Get遗迹关卡奖励();
-        PlayerData.S.PropListDic[PropType.轮回石] += 1;
+        PlayerData.S.PropListDic[PropType.轮回石] += 1 + Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         // TryGetValue：老存档的神物获得Dic可能缺少新神物键，缺失视为未获得
         bool 已获得神物 = PlayerData.S.神物获得Dic.TryGetValue(LevelConfig.当前神物Type, out var got) && got;
@@ -212,7 +212,7 @@ public class 胜利弹窗 : MonoBehaviour
         }
 
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
-        PlayerData.S.PropListDic[PropType.轮回石] += 1;
+        PlayerData.S.PropListDic[PropType.轮回石] += 1 + Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
         foreach (var item in value.符文list)
         {
@@ -268,6 +268,7 @@ public class 胜利弹窗 : MonoBehaviour
         {
             轮回石数量= 1;
         }
+        轮回石数量 += Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.轮回石] += 轮回石数量;
         JingJieType 关卡JieType = LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type];
         if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)

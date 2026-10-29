@@ -157,9 +157,10 @@ public class 灵植赠送窗口 : MonoBehaviour
         int 基础 = 灵植园Config.灵植赠送好感度Dic[灵植Type];
         bool 是喜好 = 阴阳殿Config.仙子喜好灵植dic[当前仙子].Contains(灵植Type);
 
-        float 倍率 = 1f;
-        if (是喜好) 倍率 *= 2f;
-        if (是否变异) 倍率 *= 灵植园Config.变异倍数;
+        var 仙子加成 = 属性config.仙子总属性;
+        float 倍率 = 1f + 仙子加成.好感度增加 / 100f;
+        if (是喜好) 倍率 *= 2f * (1f + 仙子加成.喜好灵植额外加好感 / 100f);
+        if (是否变异) 倍率 *= 灵植园Config.变异倍数 * (1f + 仙子加成.变异灵植额外加好感 / 100f);
         return Mathf.RoundToInt(基础 * 倍率);
     }
 
