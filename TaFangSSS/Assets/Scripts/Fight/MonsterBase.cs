@@ -489,6 +489,57 @@ public class MonsterBase : MonoBehaviour
       return damage;
    }
 
+   /// <summary>
+   /// 暴击/二次暴击 乘区聚合：总属性.暴击伤害 已含 200基础+神物+体质+灵植，
+   /// 剩余只乘英雄专属（技能树、根基丹药、法师功法、法器）+ 辅助buff（瑶池/妲己/女娲）。
+   /// 二次暴击额外再乘 辅助法器暴击伤害（主暴击不吃这个）。
+   /// </summary>
+   private BigDouble 计算暴击乘区(HeroType heroType, bool 是否二次)
+   {
+      BigDouble 乘区 = 属性config.总属性.暴击伤害 / 100f;
+
+      // 妲己神通：主暴击/二次暴击都吃
+      if (妲己神通)
+      {
+         乘区 *= (1f + HeroConfig.英雄神通配置Dic[HeroType.妲己].damage / 100f);
+      }
+
+      // 英雄专属乘区（技能树、根基丹药、法师功法、法器）
+      乘区 *= (1f + _ctx.技能树.暴击伤害 / 100f);
+      乘区 *= (1f + _ctx.根基丹药.暴击伤害 / 100f);
+      乘区 = 计算法师功法暴击伤害(乘区, heroType);
+      乘区 *= (1f + _ctx.法器.暴击伤害 / 100f);
+
+      // 被辅助暴击伤害（来自辅助英雄技能树的 buff，主/二次暴击都吃）
+      float 被辅助暴击 = 1f;
+      if (瑶池冰辅助 > 0)
+      {
+         被辅助暴击 += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击伤害 / 100f;
+      }
+      if (妲己黑暗辅助 || 妲己神通)
+      {
+         被辅助暴击 += FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄暴击伤害 / 100f;
+      }
+      if (女娲电辅助 || 女娲神通)
+      {
+         被辅助暴击 += FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄暴击伤害 / 100f;
+      }
+      乘区 *= 被辅助暴击;
+
+      // 二次暴击额外：辅助英雄法器暴击伤害（主暴击不吃）
+      if (是否二次)
+      {
+         if (瑶池冰辅助 > 0)
+            乘区 *= (1f + FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击伤害 / 100f);
+         if (妲己黑暗辅助)
+            乘区 *= (1f + FightController.S.英雄法器属性Dic[HeroType.妲己].暴击伤害 / 100f);
+         if (女娲电辅助)
+            乘区 *= (1f + FightController.S.英雄法器属性Dic[HeroType.女娲].暴击伤害 / 100f);
+      }
+
+      return 乘区;
+   }
+
    public BigDouble 计算符文伤害(BigDouble damage, HeroType heroType, 攻击特效Type 攻击特效)
    {
       bool 是否神通 = FightController.S.攻击特效是否神通(攻击特效);
@@ -778,7 +829,7 @@ public class MonsterBase : MonoBehaviour
       }
 
       BigDouble 最终Damage = BigDouble.Max(原始Damage - 怪物真实护甲,0);
-      最终Damage *= (1f + FightController.S.技能树总所有英雄伤害 / 100f);
+      // 注意：总属性.最终伤害增幅 已含 众仙（技能树总所有英雄伤害），这里不再单独乘
       if (怪物真实护甲 == 0)
       {
          最终Damage *= (1f + _ctx.技能树.物理无抗性加伤害 / 100f);
@@ -794,60 +845,10 @@ public class MonsterBase : MonoBehaviour
       bool 暴击 = 暴击检测(heroType);
       if (暴击)
       {
-         最终Damage *= (属性config.总属性.暴击伤害/100f);
-         if (妲己神通)
+         最终Damage *= 计算暴击乘区(heroType, false);
+         if (属性config.总属性.二次暴击 != 0 && 二次暴击检测(heroType))
          {
-            最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
-         }
-         最终Damage *= (1f+_ctx.技能树.暴击伤害/100f);
-         最终Damage *= (1f+FightController.S.缓存体质总属性.暴击伤害/100f);
-         最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
-         最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
-         最终Damage*=(1+hero法器.暴击伤害/100f);
-         float 被辅助暴击伤害 = 1;
-         if (瑶池冰辅助 > 0)
-         {
-            被辅助暴击伤害 += FightController.S.英雄技能树属性[HeroType.瑶池仙女].被辅助英雄暴击伤害/100f ;
-         }
-         if (妲己黑暗辅助||妲己神通)
-         {
-            被辅助暴击伤害 += FightController.S.英雄技能树属性[HeroType.妲己].被辅助英雄暴击伤害 / 100f;
-         }
-         if (女娲电辅助||女娲神通)
-         {
-            被辅助暴击伤害 += FightController.S.英雄技能树属性[HeroType.女娲].被辅助英雄暴击伤害 / 100f;
-         }
-
-         最终Damage *= 被辅助暴击伤害;
-         if (属性config.总属性.二次暴击 != 0)
-         {
-            bool 二次暴击=二次暴击检测(heroType);
-            if (二次暴击)
-            {
-               最终Damage *= (属性config.总属性.暴击伤害/100f);
-               if (妲己神通)
-               {
-                  最终Damage *= (1f+HeroConfig.英雄神通配置Dic[HeroType.妲己].damage/100f);
-               }
-               最终Damage *= 被辅助暴击伤害;
-               最终Damage *= (1f+_ctx.技能树.暴击伤害/100f);
-               最终Damage *= (1f+FightController.S.缓存体质总属性.暴击伤害/100f);
-               最终Damage *= (1f+hero根基丹药.暴击伤害/100f);
-               最终Damage=计算法师功法暴击伤害(最终Damage,heroType);
-               最终Damage*=(1+hero法器.暴击伤害/100f);
-               if (瑶池冰辅助 > 0)
-               {
-                  最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.瑶池仙女].暴击伤害/100f);
-               }
-               if (妲己黑暗辅助)
-               {
-                  最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.妲己].暴击伤害/100f);
-               }
-               if (女娲电辅助)
-               {
-                  最终Damage*=(1+FightController.S.英雄法器属性Dic[HeroType.女娲].暴击伤害/100f);
-               }
-            }
+            最终Damage *= 计算暴击乘区(heroType, true);
          }
       }
 

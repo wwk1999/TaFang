@@ -555,7 +555,7 @@ public class StoreController : XSingleton<StoreController>
                 QualityType 成品品质 = 法器Config.Random品质(当前打造.阶数);
                 PlayerData.S.法器列表.Add(法器Config.Get坊市法器(当前打造.法器Type, 成品品质, 当前打造.阶数));
                 // 打造完成提示，并刷新背包法器列表
-                ObserverModuleManager.S.SendEvent("SendUIToast", 法器Config.Get法器Name(当前打造.法器Type, 当前打造.阶数), 成品品质, 1);
+                //ObserverModuleManager.S.SendEvent("SendUIToast", 法器Config.Get法器Name(当前打造.法器Type, 当前打造.阶数), 成品品质, 1);
                 ObserverModuleManager.S.SendEvent("刷新背包");
                 PlayerData.S.打造List[0].count--;
                 PlayerData.S.打造List[0].进度 = 0;

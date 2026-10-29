@@ -171,7 +171,7 @@ public class 英雄详情界面 : MonoBehaviour
         var 属性 = 属性config.Get英雄属性(当前heroType);
         属性_真灵.text = PlayerData.S.格式化数字(属性.真灵);
         属性_暴击率.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.暴击率)) + "%";
-        属性_暴击伤害.text = PlayerData.S.格式化数字(Mathf.RoundToInt(200 + 属性.暴击伤害)) + "%";
+        属性_暴击伤害.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.暴击伤害)) + "%";
         属性_元素增幅.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.元素增幅)) + "%";
         属性_职业增幅.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.职业增幅)) + "%";
         属性_最终伤害.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.最终伤害)) + "%";
@@ -182,9 +182,9 @@ public class 英雄详情界面 : MonoBehaviour
         属性_首领怪增伤.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.首领怪增伤)) + "%";
         属性_元素穿透.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.元素穿透));
         属性_寻宝速度增幅.text = PlayerData.S.格式化数字(Mathf.RoundToInt(属性.寻宝速度增幅)) + "%";
-        属性_攻击距离.text = PlayerData.S.格式化数字(属性.攻击距离);
-        属性_普通攻击间隔.text = PlayerData.S.格式化数字(属性.普通攻击间隔) + "s";
-        属性_神通攻击间隔.text = PlayerData.S.格式化数字(属性.神通攻击间隔) + "s";
+        属性_攻击距离.text = 属性.攻击距离.ToString("F2");
+        属性_普通攻击间隔.text = 属性.普通攻击间隔.ToString("F2") + "S";
+        属性_神通攻击间隔.text = 属性.神通攻击间隔.ToString("F2") + "S";
     }
     private 法器类型 当前法器类型 = 法器类型.武器;
     private int 法器背包当前页数=1;
