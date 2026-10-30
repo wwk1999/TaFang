@@ -5,6 +5,7 @@ using Config;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class 传道item : MonoBehaviour
 {

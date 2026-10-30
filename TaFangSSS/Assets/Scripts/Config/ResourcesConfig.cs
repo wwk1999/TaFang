@@ -8,6 +8,106 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+public static Sprite 青竹短匕藏品;
+public static Sprite 凡铁箭簇藏品;
+public static Sprite 苦竹笛藏品;
+public static Sprite 桐木简册藏品;
+public static Sprite 山涧石钵藏品;
+public static Sprite 粗麻灵袋藏品;
+public static Sprite 老藤酒瓢藏品;
+public static Sprite 寒溪卵石藏品;
+public static Sprite 土陶丹瓶藏品;
+public static Sprite 兽皮手札藏品;
+public static Sprite 凝露草藏品;
+public static Sprite 青纹石佩藏品;
+public static Sprite 松风笛藏品;
+public static Sprite 赤铜灵镜藏品;
+public static Sprite 云纹木簪藏品;
+public static Sprite 灵狐尾羽藏品;
+public static Sprite 清泉玉珠藏品;
+public static Sprite 月华草根藏品;
+public static Sprite 流霞石灯藏品;
+public static Sprite 幽泉玉佩藏品;
+public static Sprite 灵犀角藏品;
+public static Sprite 幽溟珠藏品;
+public static Sprite 九幽罗幡藏品;
+public static Sprite 定风珠藏品;
+public static Sprite 二十四颗定海神珠藏品;
+public static Sprite 鸿蒙珠藏品;
+public static Sprite 灵鹿角屑藏品;
+public static Sprite 引风幡残片藏品;
+public static Sprite 玄铁短戈藏品;
+public static Sprite 聚灵瓦炉藏品;
+public static Sprite 沧澜舟桨藏品;
+public static Sprite 落霞琉璃瓶藏品;
+public static Sprite 玉荷盏藏品;
+public static Sprite 裂风枪藏品;
+public static Sprite 碧游简册藏品;
+public static Sprite 千丝缚仙索藏品;
+public static Sprite 镇水神碑藏品;
+public static Sprite 幽冥轮回简藏品;
+public static Sprite 玄水玉璧藏品;
+public static Sprite 引星盘残片藏品;
+public static Sprite 青岚幡藏品;
+public static Sprite 吞灵玉蝉藏品;
+public static Sprite 玄岳印藏品;
+public static Sprite 惊雷钺藏品;
+public static Sprite 玄黄玉圭藏品;
+public static Sprite 素色云界旗藏品;
+public static Sprite 离地焰光旗藏品;
+public static Sprite 业火红莲藏品;
+public static Sprite 九叶凝芝藏品;
+public static Sprite 撼山钺藏品;
+public static Sprite 逐日离弓藏品;
+public static Sprite 镇岳神印藏品;
+public static Sprite 落宝金钱藏品;
+public static Sprite 青莲宝色旗藏品;
+public static Sprite 河图洛书藏品;
+public static Sprite 万道之源藏品;
+public static Sprite 焚天蒲团藏品;
+public static Sprite 伏羲琴藏品;
+public static Sprite 灭世黑莲藏品;
+public static Sprite 诸天庆云藏品;
+public static Sprite 六道轮回盘藏品;
+public static Sprite 轮回核心藏品;
+public static Sprite 无始灵枢藏品;
+public static Sprite 太虚本源藏品;
+public static Sprite 碧霞丹炉藏品;
+public static Sprite 紫纹鼎藏品;
+public static Sprite 聚灵青葫藏品;
+public static Sprite 万载灵根藏品;
+public static Sprite 云荒罗盘藏品;
+public static Sprite 赤霞鼎藏品;
+public static Sprite 焚天玄鼎藏品;
+public static Sprite 碧霞仙钟藏品;
+public static Sprite 混元金斗藏品;
+public static Sprite 天衍盘藏品;
+public static Sprite 玄天宝鉴藏品;
+public static Sprite 太极图藏品;
+public static Sprite 混沌钟藏品;
+public static Sprite 盘古幡藏品;
+public static Sprite 乾坤鼎藏品;
+public static Sprite 天外混沌鼎藏品;
+public static Sprite 山海图残卷藏品;
+public static Sprite 流虹仙槎藏品;
+public static Sprite 苍澜战鼓藏品;
+public static Sprite 山河社稷图藏品;
+public static Sprite 诛仙四剑藏品;
+public static Sprite 七宝琉璃塔藏品;
+public static Sprite 落星琉璃盏藏品;
+public static Sprite 霜河玉璜藏品;
+public static Sprite 金蛟剪藏品;
+public static Sprite 混沌青莲藏品;
+public static Sprite 开天斧藏品;
+public static Sprite 墨灵古琴藏品;
+public static Sprite 万灵归墟盏藏品;
+public static Sprite 崆峒印藏品;
+public static Sprite 量天尺藏品;
+public static Sprite 灵龟玄甲藏品;
+public static Sprite 逐月弓藏品;
+public static Sprite 灵犀玉藏品;
+public static Sprite 造化玉牒藏品;
+	
 	public static Sprite 灰标签;
 	public static Sprite 红标签;
 
@@ -7235,8 +7335,260 @@ public class ResourcesConfig : MonoBehaviour
 		});
 	}
 
+	public static Sprite Get藏品Sprite(藏品Type Type)
+{
+    switch (Type)
+    {
+        // ===== 1×1 =====
+        case 藏品Type.青竹短匕:           return 青竹短匕藏品;
+        case 藏品Type.凡铁箭簇:           return 凡铁箭簇藏品;
+        case 藏品Type.苦竹笛:             return 苦竹笛藏品;
+        case 藏品Type.桐木简册:           return 桐木简册藏品;
+        case 藏品Type.山涧石钵:           return 山涧石钵藏品;
+        case 藏品Type.粗麻灵袋:           return 粗麻灵袋藏品;
+        case 藏品Type.老藤酒瓢:           return 老藤酒瓢藏品;
+        case 藏品Type.寒溪卵石:           return 寒溪卵石藏品;
+        case 藏品Type.土陶丹瓶:           return 土陶丹瓶藏品;
+        case 藏品Type.兽皮手札:           return 兽皮手札藏品;
+        case 藏品Type.凝露草:             return 凝露草藏品;
+        case 藏品Type.青纹石佩:           return 青纹石佩藏品;
+        case 藏品Type.松风笛:             return 松风笛藏品;
+        case 藏品Type.赤铜灵镜:           return 赤铜灵镜藏品;
+        case 藏品Type.云纹木簪:           return 云纹木簪藏品;
+        case 藏品Type.灵狐尾羽:           return 灵狐尾羽藏品;
+        case 藏品Type.清泉玉珠:           return 清泉玉珠藏品;
+        case 藏品Type.月华草根:           return 月华草根藏品;
+        case 藏品Type.流霞石灯:           return 流霞石灯藏品;
+        case 藏品Type.幽泉玉佩:           return 幽泉玉佩藏品;
+        case 藏品Type.灵犀角:             return 灵犀角藏品;
+        case 藏品Type.幽溟珠:             return 幽溟珠藏品;
+        case 藏品Type.九幽罗幡:           return 九幽罗幡藏品;
+        case 藏品Type.定风珠:             return 定风珠藏品;
+        case 藏品Type.二十四颗定海神珠:   return 二十四颗定海神珠藏品;
+        case 藏品Type.鸿蒙珠:             return 鸿蒙珠藏品;
+
+        // ===== 1×2 =====
+        case 藏品Type.灵鹿角屑:           return 灵鹿角屑藏品;
+        case 藏品Type.引风幡残片:         return 引风幡残片藏品;
+        case 藏品Type.玄铁短戈:           return 玄铁短戈藏品;
+        case 藏品Type.聚灵瓦炉:           return 聚灵瓦炉藏品;
+        case 藏品Type.沧澜舟桨:           return 沧澜舟桨藏品;
+        case 藏品Type.落霞琉璃瓶:         return 落霞琉璃瓶藏品;
+        case 藏品Type.玉荷盏:             return 玉荷盏藏品;
+        case 藏品Type.裂风枪:             return 裂风枪藏品;
+        case 藏品Type.碧游简册:           return 碧游简册藏品;
+        case 藏品Type.千丝缚仙索:         return 千丝缚仙索藏品;
+        case 藏品Type.镇水神碑:           return 镇水神碑藏品;
+        case 藏品Type.幽冥轮回简:         return 幽冥轮回简藏品;
+
+        // ===== 2×1 =====
+        case 藏品Type.玄水玉璧:           return 玄水玉璧藏品;
+        case 藏品Type.引星盘残片:         return 引星盘残片藏品;
+        case 藏品Type.青岚幡:             return 青岚幡藏品;
+        case 藏品Type.吞灵玉蝉:           return 吞灵玉蝉藏品;
+        case 藏品Type.玄岳印:             return 玄岳印藏品;
+        case 藏品Type.惊雷钺:             return 惊雷钺藏品;
+        case 藏品Type.玄黄玉圭:           return 玄黄玉圭藏品;
+        case 藏品Type.素色云界旗:         return 素色云界旗藏品;
+        case 藏品Type.离地焰光旗:         return 离地焰光旗藏品;
+        case 藏品Type.业火红莲:           return 业火红莲藏品;
+
+        // ===== 1×3 =====
+        case 藏品Type.九叶凝芝:           return 九叶凝芝藏品;
+        case 藏品Type.撼山钺:             return 撼山钺藏品;
+        case 藏品Type.逐日离弓:           return 逐日离弓藏品;
+        case 藏品Type.镇岳神印:           return 镇岳神印藏品;
+        case 藏品Type.落宝金钱:           return 落宝金钱藏品;
+        case 藏品Type.青莲宝色旗:         return 青莲宝色旗藏品;
+        case 藏品Type.河图洛书:           return 河图洛书藏品;
+        case 藏品Type.万道之源:           return 万道之源藏品;
+
+        // ===== 3×1 =====
+        case 藏品Type.焚天蒲团:           return 焚天蒲团藏品;
+        case 藏品Type.伏羲琴:             return 伏羲琴藏品;
+        case 藏品Type.灭世黑莲:           return 灭世黑莲藏品;
+        case 藏品Type.诸天庆云:           return 诸天庆云藏品;
+        case 藏品Type.六道轮回盘:         return 六道轮回盘藏品;
+        case 藏品Type.轮回核心:           return 轮回核心藏品;
+        case 藏品Type.无始灵枢:           return 无始灵枢藏品;
+        case 藏品Type.太虚本源:           return 太虚本源藏品;
+
+        // ===== 2×2 =====
+        case 藏品Type.碧霞丹炉:           return 碧霞丹炉藏品;
+        case 藏品Type.紫纹鼎:             return 紫纹鼎藏品;
+        case 藏品Type.聚灵青葫:           return 聚灵青葫藏品;
+        case 藏品Type.万载灵根:           return 万载灵根藏品;
+        case 藏品Type.云荒罗盘:           return 云荒罗盘藏品;
+        case 藏品Type.赤霞鼎:             return 赤霞鼎藏品;
+        case 藏品Type.焚天玄鼎:           return 焚天玄鼎藏品;
+        case 藏品Type.碧霞仙钟:           return 碧霞仙钟藏品;
+        case 藏品Type.混元金斗:           return 混元金斗藏品;
+        case 藏品Type.天衍盘:             return 天衍盘藏品;
+
+        // ===== 3×3 =====
+        case 藏品Type.玄天宝鉴:           return 玄天宝鉴藏品;
+        case 藏品Type.太极图:             return 太极图藏品;
+        case 藏品Type.混沌钟:             return 混沌钟藏品;
+        case 藏品Type.盘古幡:             return 盘古幡藏品;
+        case 藏品Type.乾坤鼎:             return 乾坤鼎藏品;
+        case 藏品Type.天外混沌鼎:         return 天外混沌鼎藏品;
+
+        // ===== 2×4 =====
+        case 藏品Type.山海图残卷:         return 山海图残卷藏品;
+        case 藏品Type.流虹仙槎:           return 流虹仙槎藏品;
+        case 藏品Type.苍澜战鼓:           return 苍澜战鼓藏品;
+        case 藏品Type.山河社稷图:         return 山河社稷图藏品;
+        case 藏品Type.诛仙四剑:           return 诛仙四剑藏品;
+        case 藏品Type.七宝琉璃塔:         return 七宝琉璃塔藏品;
+
+        // ===== 4×2 =====
+        case 藏品Type.落星琉璃盏:         return 落星琉璃盏藏品;
+        case 藏品Type.霜河玉璜:           return 霜河玉璜藏品;
+        case 藏品Type.金蛟剪:             return 金蛟剪藏品;
+        case 藏品Type.混沌青莲:           return 混沌青莲藏品;
+        case 藏品Type.开天斧:             return 开天斧藏品;
+
+        // ===== 2×5 =====
+        case 藏品Type.墨灵古琴:           return 墨灵古琴藏品;
+        case 藏品Type.万灵归墟盏:         return 万灵归墟盏藏品;
+        case 藏品Type.崆峒印:             return 崆峒印藏品;
+        case 藏品Type.量天尺:             return 量天尺藏品;
+
+        // ===== 5×2 =====
+        case 藏品Type.灵龟玄甲:           return 灵龟玄甲藏品;
+        case 藏品Type.逐月弓:             return 逐月弓藏品;
+        case 藏品Type.灵犀玉:             return 灵犀玉藏品;
+        case 藏品Type.造化玉牒:           return 造化玉牒藏品;
+
+        default:                          return null;
+    }
+}
 	public static void Init()
 	{
+// Sprite/赌坊icon/11_1 —— 1×1 前 16 件
+		青竹短匕藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[0];
+		凡铁箭簇藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[1];
+		苦竹笛藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[2];
+		桐木简册藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[3];
+		山涧石钵藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[4];
+		粗麻灵袋藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[5];
+		老藤酒瓢藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[6];
+		寒溪卵石藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[7];
+		土陶丹瓶藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[8];
+		兽皮手札藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[9];
+		凝露草藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[10];
+		青纹石佩藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[11];
+		松风笛藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[12];
+		赤铜灵镜藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[13];
+		云纹木簪藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[14];
+		灵狐尾羽藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[15];
+
+// Sprite/赌坊icon/11_2 —— 1×1 后 10 件
+		清泉玉珠藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[0];
+		月华草根藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[1];
+		流霞石灯藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[2];
+		幽泉玉佩藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[3];
+		灵犀角藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[4];
+		幽溟珠藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[5];
+		九幽罗幡藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[6];
+		定风珠藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[7];
+		二十四颗定海神珠藏品 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[8];
+		鸿蒙珠藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_2")[9];
+		
+		// Sprite/赌坊icon/12 —— 1×2 共 12 件
+		灵鹿角屑藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[0];
+		引风幡残片藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[1];
+		玄铁短戈藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[2];
+		聚灵瓦炉藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[3];
+		沧澜舟桨藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[4];
+		落霞琉璃瓶藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[5];
+		玉荷盏藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[6];
+		裂风枪藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[7];
+		碧游简册藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[8];
+		千丝缚仙索藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[9];
+		镇水神碑藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[10];
+		幽冥轮回简藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/12")[11];
+
+// Sprite/赌坊icon/21 —— 2×1 共 10 件
+		玄水玉璧藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[0];
+		引星盘残片藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[1];
+		青岚幡藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[2];
+		吞灵玉蝉藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[3];
+		玄岳印藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[4];
+		惊雷钺藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[5];
+		玄黄玉圭藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[6];
+		素色云界旗藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[7];
+		离地焰光旗藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[8];
+		业火红莲藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/21")[9];
+		
+		
+		// Sprite/赌坊icon/13 —— 1×3 共 8 件
+		九叶凝芝藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[0];
+		撼山钺藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[1];
+		逐日离弓藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[2];
+		镇岳神印藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[3];
+		落宝金钱藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[4];
+		青莲宝色旗藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[5];
+		河图洛书藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[6];
+		万道之源藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/13")[7];
+
+// Sprite/赌坊icon/31 —— 3×1 共 8 件
+		焚天蒲团藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[0];
+		伏羲琴藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[1];
+		灭世黑莲藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[2];
+		诸天庆云藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[3];
+		六道轮回盘藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[4];
+		轮回核心藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[5];
+		无始灵枢藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[6];
+		太虚本源藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/31")[7];
+		
+		
+		// Sprite/赌坊icon/2233 —— 2×2 共 10 件（索引 0–9）
+		碧霞丹炉藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[0];
+		紫纹鼎藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[1];
+		聚灵青葫藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[2];
+		万载灵根藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[3];
+		云荒罗盘藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[4];
+		赤霞鼎藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[5];
+		焚天玄鼎藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[6];
+		碧霞仙钟藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[7];
+		混元金斗藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[8];
+		天衍盘藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[9];
+
+// Sprite/赌坊icon/2233 —— 3×3 共 6 件（索引 10–15）
+		玄天宝鉴藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[10];
+		太极图藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[11];
+		混沌钟藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[12];
+		盘古幡藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[13];
+		乾坤鼎藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[14];
+		天外混沌鼎藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/2233")[15];
+		
+		// Sprite/赌坊icon/24 —— 2×4 共 6 件（索引 0–5）
+		山海图残卷藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/24")[0];
+		流虹仙槎藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/24")[1];
+		苍澜战鼓藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/24")[2];
+		山河社稷图藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/24")[3];
+		诛仙四剑藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/24")[4];
+		七宝琉璃塔藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/24")[5];
+
+// Sprite/赌坊icon/24 —— 4×2 共 5 件（索引 6–10）
+		落星琉璃盏藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/42")[0];
+		霜河玉璜藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/42")[1];
+		金蛟剪藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/42")[2];
+		混沌青莲藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/42")[3];
+		开天斧藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/42")[4];
+		
+		// Sprite/赌坊icon/25 —— 2×5 共 4 件（索引 0–3）
+		墨灵古琴藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/25")[0];
+		万灵归墟盏藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/25")[1];
+		崆峒印藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/25")[2];
+		量天尺藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/25")[3];
+
+// Sprite/赌坊icon/25 —— 5×2 共 5 件（索引 4–8）
+		灵龟玄甲藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/52")[0];
+		逐月弓藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/52")[1];
+		灵犀玉藏品           = Resources.LoadAll<Sprite>("Sprite/赌坊icon/52")[2];
+		造化玉牒藏品         = Resources.LoadAll<Sprite>("Sprite/赌坊icon/52")[3];
 		灰标签=Resources.Load<Sprite>("Sprite/仙女殿/灰标签");
 		红标签=Resources.Load<Sprite>("Sprite/仙女殿/红标签");
 
