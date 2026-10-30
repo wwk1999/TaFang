@@ -8,6 +8,32 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 铜钱巷;
+	public static Sprite 骰子坊;
+	public static Sprite 聚宝斋;
+	public static Sprite 千金楼;
+	public static Sprite 灵石台;
+	public static Sprite 风云阁;
+	public static Sprite 万象庄;
+	public static Sprite 天机局;
+	public static Sprite 玲珑幻境;
+	public static Sprite 九幽赌窟;
+	public static Sprite 星河赌坊;
+	public static Sprite 轮回台;
+	
+	public static Sprite 铜钱巷亮;
+	public static Sprite 骰子坊亮;
+	public static Sprite 聚宝斋亮;
+	public static Sprite 千金楼亮;
+	public static Sprite 灵石台亮;
+	public static Sprite 风云阁亮;
+	public static Sprite 万象庄亮;
+	public static Sprite 天机局亮;
+	public static Sprite 玲珑幻境亮;
+	public static Sprite 九幽赌窟亮;
+	public static Sprite 星河赌坊亮;
+	public static Sprite 轮回台亮;
+	
 public static Sprite 青竹短匕藏品;
 public static Sprite 凡铁箭簇藏品;
 public static Sprite 苦竹笛藏品;
@@ -7463,8 +7489,73 @@ public static Sprite 造化玉牒藏品;
         default:                          return null;
     }
 }
+	public static Sprite Get赌坊Icon(赌坊Type 赌坊Type)
+	{
+		switch (赌坊Type)
+		{
+			case 赌坊Type.铜钱巷: return 铜钱巷;
+			case 赌坊Type.骰子坊: return 骰子坊;
+			case 赌坊Type.聚宝斋: return 聚宝斋;
+			case 赌坊Type.千金楼: return 千金楼;
+			case 赌坊Type.灵石台: return 灵石台;
+			case 赌坊Type.风云阁: return 风云阁;
+			case 赌坊Type.万象庄: return 万象庄;
+			case 赌坊Type.天机局: return 天机局;
+			case 赌坊Type.玲珑幻境: return 玲珑幻境;
+			case 赌坊Type.九幽赌窟: return 九幽赌窟;
+			case 赌坊Type.星河赌坊: return 星河赌坊;
+			case 赌坊Type.轮回台: return 轮回台;
+			default: return null;
+		}
+	}
+	
+	public static Sprite Get赌坊Icon亮(赌坊Type 赌坊Type)
+	{
+		switch (赌坊Type)
+		{
+			case 赌坊Type.铜钱巷: return 铜钱巷亮;
+			case 赌坊Type.骰子坊: return 骰子坊亮;
+			case 赌坊Type.聚宝斋: return 聚宝斋亮;
+			case 赌坊Type.千金楼: return 千金楼亮;
+			case 赌坊Type.灵石台: return 灵石台亮;
+			case 赌坊Type.风云阁: return 风云阁亮;
+			case 赌坊Type.万象庄: return 万象庄亮;
+			case 赌坊Type.天机局: return 天机局亮;
+			case 赌坊Type.玲珑幻境: return 玲珑幻境亮;
+			case 赌坊Type.九幽赌窟: return 九幽赌窟亮;
+			case 赌坊Type.星河赌坊: return 星河赌坊亮;
+			case 赌坊Type.轮回台: return 轮回台亮;
+			default: return null;
+		}
+	}
 	public static void Init()
 	{
+		铜钱巷 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[1];
+		骰子坊 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[3];
+		聚宝斋 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[5];
+		千金楼 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[7];
+		灵石台 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[1];
+		风云阁 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[3];
+		万象庄 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[5];
+		天机局 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[7];
+		玲珑幻境 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[1];
+		九幽赌窟 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[3];
+		星河赌坊 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[5];
+		轮回台 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[7];	
+		
+		
+		铜钱巷亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[0];
+		骰子坊亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[2];
+		聚宝斋亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[4];
+		千金楼亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[6];
+		灵石台亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[0];
+		风云阁亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[2];
+		万象庄亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[4];
+		天机局亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级2")[6];
+		玲珑幻境亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[0];
+		九幽赌窟亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[2];
+		星河赌坊亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[4];
+		轮回台亮 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级3")[6];
 // Sprite/赌坊icon/11_1 —— 1×1 前 16 件
 		青竹短匕藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[0];
 		凡铁箭簇藏品       = Resources.LoadAll<Sprite>("Sprite/赌坊icon/11_1")[1];

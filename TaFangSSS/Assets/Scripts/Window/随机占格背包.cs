@@ -10,11 +10,11 @@ using UnityEngine.UI;
 public class 随机占格背包 : MonoBehaviour
 {
     [Header("背包格数")]
-    [Min(1)] public int 列数 = 8;
+    [Min(1)] public int 列数 = 10;
     [Min(1)] public int 行数 = 6;
 
     [Header("格子尺寸")]
-    [Min(1f)] public float 每格像素 = 64f;
+    [Min(1f)] public float 每格像素 = 96f;
     [Min(0f)] public float 物品间距 = 4f;
     [Header("外观")]
     [Tooltip("不填则使用自身作为父节点；父节点上不要留 GridLayoutGroup")]
@@ -27,7 +27,7 @@ public class 随机占格背包 : MonoBehaviour
 
     [Header("随机规则")]
     [Range(0.3f, 1f)] public float 填充率 = 1;
-    [Min(1)] public int 最多物品数 = 30;
+    [Min(1)] public int 最多物品数 = 300;
     [Tooltip("0 表示每次都用新的随机序列")]
     public int 随机种子;
     public bool 开启时随机 = true;

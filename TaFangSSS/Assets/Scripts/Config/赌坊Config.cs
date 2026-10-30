@@ -1,6 +1,22 @@
 using System.Collections.Generic;
 using Config;
 
+public enum 赌坊Type
+{
+    None = 0,
+    铜钱巷 = 1,
+    骰子坊 = 2,
+    聚宝斋 = 3,
+    千金楼 = 4,
+    灵石台 = 5,
+    风云阁 = 6,
+    万象庄 = 7,
+    天机局 = 8,
+    玲珑幻境 = 9,
+    九幽赌窟 = 10,
+    星河赌坊 = 11,
+    轮回台 = 12,
+}
 public enum 藏品Type
 {
     None,
