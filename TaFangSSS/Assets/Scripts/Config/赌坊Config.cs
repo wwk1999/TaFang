@@ -49,6 +49,7 @@ public class 道具配置
 }
 public class 赌坊配置
 {
+    public string name;
     public float 行数;
     public float 首仓价格;
     public List<float> 概率=new List<float>();
@@ -249,6 +250,76 @@ public class 赌坊Config
             赌坊Type.轮回台 ,new 赌坊配置(){行数=16,首仓价格 = 1000000000,概率 = new List<float>(){500,500,2000,4000,2650,319,30,1}}
         },
     };
+
+    public static Dictionary<赌坊道具Type, 道具配置> 道具配置 = new Dictionary<赌坊道具Type, 道具配置>()
+    {
+        // ===== 随机看品质 =====
+        {
+            赌坊道具Type.随机看品质1,
+            new 道具配置 { QualityType = QualityType.黄品, 价格 = 1000, 名称 = "窥微镜" }
+        },
+        {
+            赌坊道具Type.随机看品质2,
+            new 道具配置 { QualityType = QualityType.玄品, 价格 = 5000, 名称 = "照影镜" }
+        },
+        {
+            赌坊道具Type.随机看品质3,
+            new 道具配置 { QualityType = QualityType.地品, 价格 = 20000, 名称 = "鉴真镜" }
+        },
+        {
+            赌坊道具Type.随机看品质4,
+            new 道具配置 { QualityType = QualityType.天品, 价格 = 100000, 名称 = "通玄镜" }
+        },
+        {
+            赌坊道具Type.随机看品质5,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "观天镜" }
+        },
+
+        // ===== 随机看尺寸 =====
+        {
+            赌坊道具Type.随机看尺寸1,
+            new 道具配置 { QualityType = QualityType.黄品, 价格 = 800, 名称 = "量形尺" }
+        },
+        {
+            赌坊道具Type.随机看尺寸2,
+            new 道具配置 { QualityType = QualityType.玄品, 价格 = 4000, 名称 = "测寸尺" }
+        },
+        {
+            赌坊道具Type.随机看尺寸3,
+            new 道具配置 { QualityType = QualityType.地品, 价格 = 16000, 名称 = "度方尺" }
+        },
+        {
+            赌坊道具Type.随机看尺寸4,
+            new 道具配置 { QualityType = QualityType.天品, 价格 = 80000, 名称 = "规玄尺" }
+        },
+        {
+            赌坊道具Type.随机看尺寸5,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 800000, 名称 = "丈虚尺" }
+        },
+
+        // ===== 仓库信息 =====
+        {
+            赌坊道具Type.看仓库总格子数,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "乾坤盘" }
+        },
+        {
+            赌坊道具Type.白格子数量,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "白露签" }
+        },
+        {
+            赌坊道具Type.绿格子数量,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "青岚签" }
+        },
+        {
+            赌坊道具Type.蓝格子数量,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "沧澜签" }
+        },
+        {
+            赌坊道具Type.看最大藏品轮廓,
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "照世镜" }
+        },
+    };
+
     public static Dictionary<藏品Type, 藏品配置> 藏品配置 = new()
     {
         // ================= C1x1 =================
