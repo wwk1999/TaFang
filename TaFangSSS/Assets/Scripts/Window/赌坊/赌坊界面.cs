@@ -763,6 +763,7 @@ public class 赌坊界面 : MonoBehaviour
         刷新信息();
         刷新按钮();
 
+        提示($"使用了{赌坊Config.道具配置[type].名称}");
         StoreController.S.SaveStoreData();
     }
 
