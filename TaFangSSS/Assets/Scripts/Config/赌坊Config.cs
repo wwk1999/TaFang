@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Config;
+using UnityEngine;
 
 public enum 赌坊Type
 {
@@ -196,6 +198,30 @@ public class 藏品配置
     public string 介绍;
     public QualityType QualityType;
     public 藏品尺寸Type 藏品尺寸Type;
+}
+
+/// <summary>单个藏品的仓库存档：格子坐标、尺寸、类型与揭晓状态</summary>
+[Serializable]
+public class 赌坊藏品存档
+{
+    public int 格X;
+    public int 格Y;
+    public int 宽;
+    public int 高;
+    public 藏品Type 藏品Type;
+    public bool 已揭示;
+}
+
+/// <summary>赌坊玩法整体存档</summary>
+[Serializable]
+public class 赌坊存档
+{
+    public 赌坊Type 当前赌坊Type = 赌坊Type.None;
+    public int 轮数 = 1;
+    public 赌坊道具Type 本轮已用道具 = 赌坊道具Type.None;
+    public bool 已买下;
+    public bool 已显示最大藏品轮廓;
+    public List<赌坊藏品存档> 藏品列表 = new List<赌坊藏品存档>();
 }
 
 public class 赌坊Config
@@ -832,5 +858,42 @@ public class 赌坊Config
             }
         },
     };
-    
+
+    /// <summary>藏品价格表：每个藏品单独一条价格</summary>
+    public static Dictionary<藏品Type, float> 藏品价格Dic = 生成藏品价格表();
+
+    private static Dictionary<藏品Type, float> 生成藏品价格表()
+    {
+        // 1×1 基础价，按品质递进（索引对应 QualityType）
+        float[] 品质基价 = { 0, 100, 500, 3000, 20000, 150000, 1000000, 10000000, 10000000 };
+        Dictionary<藏品Type, float> 表 = new Dictionary<藏品Type, float>();
+        foreach (KeyValuePair<藏品Type, 藏品配置> kv in 藏品配置)
+        {
+            Vector2Int 尺寸 = Get藏品尺寸(kv.Value.藏品尺寸Type);
+            int 面积 = Mathf.Max(1, 尺寸.x * 尺寸.y);
+            int 品质 = Mathf.Clamp((int)kv.Value.QualityType, 0, 品质基价.Length - 1);
+            表[kv.Key] = 品质基价[品质] * 面积;
+        }
+        return 表;
+    }
+
+    /// <summary>藏品尺寸类型转宽高（单位：格）</summary>
+    public static Vector2Int Get藏品尺寸(藏品尺寸Type type)
+    {
+        switch (type)
+        {
+            case 藏品尺寸Type.C1x2: return new Vector2Int(1, 2);
+            case 藏品尺寸Type.C2x1: return new Vector2Int(2, 1);
+            case 藏品尺寸Type.C1x3: return new Vector2Int(1, 3);
+            case 藏品尺寸Type.C3x1: return new Vector2Int(3, 1);
+            case 藏品尺寸Type.C2x2: return new Vector2Int(2, 2);
+            case 藏品尺寸Type.C3x3: return new Vector2Int(3, 3);
+            case 藏品尺寸Type.C2x4: return new Vector2Int(2, 4);
+            case 藏品尺寸Type.C4x2: return new Vector2Int(4, 2);
+            case 藏品尺寸Type.C2x5: return new Vector2Int(2, 5);
+            case 藏品尺寸Type.C5x2: return new Vector2Int(5, 2);
+            case 藏品尺寸Type.C1x1:
+            default: return new Vector2Int(1, 1);
+        }
+    }
 }

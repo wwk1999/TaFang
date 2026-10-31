@@ -85,17 +85,17 @@ public class PlayerData : XSingleton<PlayerData>
         { 赌坊道具Type.随机看品质3, 0 },
         { 赌坊道具Type.随机看品质4, 0 },
         { 赌坊道具Type.随机看品质5, 0 },
-        { 赌坊道具Type.随机看尺寸1, 0 },
-        { 赌坊道具Type.随机看尺寸2, 0 },
-        { 赌坊道具Type.随机看尺寸3, 0 },
-        { 赌坊道具Type.随机看尺寸4, 0 },
-        { 赌坊道具Type.随机看尺寸5, 0 },
         { 赌坊道具Type.看仓库总格子数, 0 },
         { 赌坊道具Type.白格子数量, 0 },
         { 赌坊道具Type.绿格子数量, 0 },
         { 赌坊道具Type.蓝格子数量, 0 },
         { 赌坊道具Type.看最大藏品轮廓, 0 },
+        { 赌坊道具Type.藏品平均价值, 0 },
     };
+    // 赌坊玩法存档：当前赌坊、轮数、仓库藏品布局与揭示状态、道具使用状态
+    public 赌坊存档 赌坊存档 = new 赌坊存档();
+    // 买下后的藏品仓库
+    public Dictionary<藏品Type, int> 藏品仓库Dic = new Dictionary<藏品Type, int>();
     public int 炼丹等级 = 1;
     public float 炼丹经验 = 0;
     public int 剩余炼制数量;

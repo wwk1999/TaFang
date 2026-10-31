@@ -6,6 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 纯展示用的占地背包：随机生成不同尺寸的物品并铺到格子里，不支持拖拽与手动整理。
 /// 挂在背包内容区的 RectTransform 上，开启时自动随机一次，也可手动调用「重新随机」。
+/// 赌坊界面会关闭「开启时随机」，改用 开始生成 / 尝试放置 / 单格放置 / 创建藏品 自行控制生成。
 /// </summary>
 public class 随机占格背包 : MonoBehaviour
 {
@@ -51,6 +52,27 @@ public class 随机占格背包 : MonoBehaviour
 
     private readonly List<GameObject> 已生成 = new List<GameObject>();
     private System.Random 随机数;
+    private bool[,] 占用;
+    private int 占用格数;
+    private RectTransform 父节点;
+    private int 总列数;
+    private int 总行数;
+
+    /// <summary>所有格子是否都已被占用</summary>
+    public bool 已填满
+    {
+        get { return 占用 != null && 占用格数 >= 总列数 * 总行数; }
+    }
+
+    public int 已占格数
+    {
+        get { return 占用格数; }
+    }
+
+    public int 剩余格数
+    {
+        get { return Mathf.Max(0, 总列数 * 总行数 - 占用格数); }
+    }
 
     private void OnEnable()
     {
@@ -63,36 +85,23 @@ public class 随机占格背包 : MonoBehaviour
     [ContextMenu("重新随机")]
     public void 重新随机()
     {
-        清除已有物品();
-
         if (列数 <= 0 || 行数 <= 0 || 可生成尺寸 == null || 可生成尺寸.Length == 0)
         {
             return;
         }
 
-        随机数 = 随机种子 == 0 ? new System.Random() : new System.Random(随机种子);
+        开始生成(随机种子);
 
-        RectTransform 父节点 = 物品父节点 != null ? 物品父节点 : (RectTransform)transform;
-        // 父节点若带布局组，会把子节点的锚点位置改回自动排版，这里直接停用
-        GridLayoutGroup 布局组 = 父节点.GetComponent<GridLayoutGroup>();
-        if (布局组 != null)
-        {
-            布局组.enabled = false;
-        }
-
-        bool[,] 占用 = new bool[行数, 列数];
-        int 总格数 = 列数 * 行数;
+        int 总格数 = 总列数 * 总行数;
         int 目标格数 = Mathf.Clamp(Mathf.RoundToInt(总格数 * 填充率), 1, 总格数);
-        int 已占格数 = 0;
-        int 物品数 = 0;
         int 连续失败 = 0;
         // 随机摆放难免遇到边角塞不进的情况，连续失败足够多就收手
         const int 最大连续失败 = 400;
 
-        while (已占格数 < 目标格数 && 物品数 < 最多物品数 && 连续失败 < 最大连续失败)
+        while (占用格数 < 目标格数 && 已生成.Count < 最多物品数 && 连续失败 < 最大连续失败)
         {
             Vector2Int 尺寸 = 可生成尺寸[随机数.Next(可生成尺寸.Length)];
-            if (尺寸.x <= 0 || 尺寸.y <= 0 || 尺寸.x > 列数 || 尺寸.y > 行数)
+            if (尺寸.x <= 0 || 尺寸.y <= 0 || 尺寸.x > 总列数 || 尺寸.y > 总行数)
             {
                 连续失败++;
                 continue;
@@ -100,60 +109,118 @@ public class 随机占格背包 : MonoBehaviour
 
             int 面积 = 尺寸.x * 尺寸.y;
             // 剩余格数不够时不再尝试这个大尺寸，避免超出目标填充率
-            if (已占格数 + 面积 > 目标格数)
+            if (占用格数 + 面积 > 目标格数)
             {
                 连续失败++;
                 continue;
             }
 
-            bool 已放置 = false;
-            int 尝试次数 = Mathf.Max(20, 总格数 * 2);
-            for (int i = 0; i < 尝试次数; i++)
+            if (尝试放置(尺寸, out int x, out int y))
             {
-                int x = 随机数.Next(0, 列数 - 尺寸.x + 1);
-                int y = 随机数.Next(0, 行数 - 尺寸.y + 1);
-                if (!能否放下(占用, x, y, 尺寸.x, 尺寸.y))
-                {
-                    continue;
-                }
-
-                for (int row = y; row < y + 尺寸.y; row++)
-                {
-                    for (int col = x; col < x + 尺寸.x; col++)
-                    {
-                        占用[row, col] = true;
-                    }
-                }
-
-                生成物品(父节点, x, y, 尺寸);
-                已占格数 += 面积;
-                物品数++;
-                已放置 = true;
-                break;
+                创建藏品(尺寸, x, y);
+                连续失败 = 0;
             }
-
-            连续失败 = 已放置 ? 0 : 连续失败 + 1;
+            else
+            {
+                连续失败++;
+            }
         }
     }
 
-    private static bool 能否放下(bool[,] 占用, int x, int y, int 宽, int 高)
+    /// <summary>由外部接管生成：清空已有物品并重置占用表</summary>
+    public void 开始生成(int 种子)
     {
-        for (int row = y; row < y + 高; row++)
+        清除已有物品();
+
+        总列数 = Mathf.Max(1, 列数);
+        总行数 = Mathf.Max(1, 行数);
+        占用 = new bool[总行数, 总列数];
+        占用格数 = 0;
+        随机数 = 种子 == 0 ? new System.Random() : new System.Random(种子);
+
+        父节点 = 物品父节点 != null ? 物品父节点 : (RectTransform)transform;
+        // 父节点若带布局组，会把子节点的锚点位置改回自动排版，这里直接停用
+        GridLayoutGroup 布局组 = 父节点.GetComponent<GridLayoutGroup>();
+        if (布局组 != null)
         {
-            for (int col = x; col < x + 宽; col++)
-            {
-                if (占用[row, col])
-                {
-                    return false;
-                }
-            }
+            布局组.enabled = false;
+        }
+    }
+
+    /// <summary>随机找一个能放下指定尺寸的空位，成功则占用该区域</summary>
+    public bool 尝试放置(Vector2Int 尺寸, out int 格X, out int 格Y)
+    {
+        格X = 0;
+        格Y = 0;
+
+        if (占用 == null)
+        {
+            return false;
         }
 
+        if (尺寸.x <= 0 || 尺寸.y <= 0 || 尺寸.x > 总列数 || 尺寸.y > 总行数)
+        {
+            return false;
+        }
+
+        int 尝试次数 = Mathf.Max(20, 总列数 * 总行数 * 2);
+        for (int i = 0; i < 尝试次数; i++)
+        {
+            int x = 随机数.Next(0, 总列数 - 尺寸.x + 1);
+            int y = 随机数.Next(0, 总行数 - 尺寸.y + 1);
+            if (!能否放下(占用, x, y, 尺寸.x, 尺寸.y))
+            {
+                continue;
+            }
+
+            for (int row = y; row < y + 尺寸.y; row++)
+            {
+                for (int col = x; col < x + 尺寸.x; col++)
+                {
+                    占用[row, col] = true;
+                }
+            }
+
+            占用格数 += 尺寸.x * 尺寸.y;
+            格X = x;
+            格Y = y;
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>精确占用一个空格（用于保证底格被填满），被占用时返回 false</summary>
+    public bool 单格放置(int 格X, int 格Y)
+    {
+        if (占用 == null || 格X < 0 || 格Y < 0 || 格X >= 总列数 || 格Y >= 总行数)
+        {
+            return false;
+        }
+
+        if (占用[格Y, 格X])
+        {
+            return false;
+        }
+
+        占用[格Y, 格X] = true;
+        占用格数++;
         return true;
     }
 
-    private void 生成物品(RectTransform 父节点, int x, int y, Vector2Int 尺寸)
+    /// <summary>按尺寸创建藏品物体并定位，返回创建出的物体</summary>
+    public GameObject 创建藏品(Vector2Int 尺寸, int 格X, int 格Y)
     {
+        if (父节点 == null)
+        {
+            父节点 = 物品父节点 != null ? 物品父节点 : (RectTransform)transform;
+        }
+
+        if (随机数 == null)
+        {
+            随机数 = new System.Random();
+        }
+
         RectTransform 物品;
         Image 图片 = null;
 
@@ -184,7 +251,7 @@ public class 随机占格背包 : MonoBehaviour
         物品.anchorMin = new Vector2(0, 1);
         物品.anchorMax = new Vector2(0, 1);
         物品.pivot = new Vector2(0, 1);
-        物品.anchoredPosition = new Vector2(x * 每格像素 + 物品间距 * 0.5f, -(y * 每格像素 + 物品间距 * 0.5f));
+        物品.anchoredPosition = new Vector2(格X * 每格像素 + 物品间距 * 0.5f, -(格Y * 每格像素 + 物品间距 * 0.5f));
         物品.sizeDelta = new Vector2(尺寸.x * 每格像素 - 物品间距, 尺寸.y * 每格像素 - 物品间距);
 
         if (图片 != null)
@@ -201,6 +268,23 @@ public class 随机占格背包 : MonoBehaviour
         }
 
         已生成.Add(物品.gameObject);
+        return 物品.gameObject;
+    }
+
+    private static bool 能否放下(bool[,] 占用, int x, int y, int 宽, int 高)
+    {
+        for (int row = y; row < y + 高; row++)
+        {
+            for (int col = x; col < x + 宽; col++)
+            {
+                if (占用[row, col])
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     private void 清除已有物品()
