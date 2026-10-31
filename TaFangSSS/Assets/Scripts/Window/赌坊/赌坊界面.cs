@@ -635,6 +635,7 @@ public class 赌坊界面 : MonoBehaviour
         刷新信息();
         刷新按钮();
 
+        提示("已更换仓库");
         StoreController.S.SaveStoreData();
     }
 
@@ -657,6 +658,7 @@ public class 赌坊界面 : MonoBehaviour
         刷新信息();
         刷新按钮();
 
+        提示($"已进入第{存档.轮数}轮");
         StoreController.S.SaveStoreData();
     }
 

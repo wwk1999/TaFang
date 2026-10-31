@@ -472,7 +472,7 @@ public class 赌坊Config
             藏品Type.二十四颗定海神珠,
             new 藏品配置
             {
-                name = "二十四颗定海神珠", 介绍 = "二十四珠成一套，镇海定浪，水族避退。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1
+                name = "定海神珠", 介绍 = "二十四珠成一套，镇海定浪，水族避退。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1
             }
         },
 
