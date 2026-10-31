@@ -18,6 +18,35 @@ public enum 赌坊Type
     轮回台 = 12,
 }
 
+public enum 赌坊道具Type
+{
+    None,
+    随机看品质1,
+    随机看品质2,
+    随机看品质3,
+    随机看品质4,
+    随机看品质5,
+    
+    随机看尺寸1,
+    随机看尺寸2,
+    随机看尺寸3,
+    随机看尺寸4,
+    随机看尺寸5,
+    
+    看仓库总格子数,
+    白格子数量,
+    绿格子数量,
+    蓝格子数量,
+    
+    看最大藏品轮廓,
+}
+
+public class 道具配置
+{
+    public QualityType  QualityType;
+    public float 价格;
+    public string 名称;
+}
 public class 赌坊配置
 {
     public float 行数;
