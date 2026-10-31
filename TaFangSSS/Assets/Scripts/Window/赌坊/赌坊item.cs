@@ -45,7 +45,8 @@ public class 赌坊item : MonoBehaviour
 
         bg.sprite = 是否选中 ? ResourcesConfig.Get赌坊Icon亮(赌坊Type) : ResourcesConfig.Get赌坊Icon(赌坊Type);
 
-        bool 显示信息 = 是否选中 && 赌坊Type != 赌坊Type.None;
+        // 未选中也显示名称和首仓价格，只有图标区分亮/暗
+        bool 显示信息 = 赌坊Type != 赌坊Type.None;
         name.gameObject.SetActive(显示信息);
         首仓价格.SetActive(显示信息);
         if (!显示信息) return;

@@ -29,6 +29,7 @@ public class 赌坊界面 : MonoBehaviour
     public TextMeshProUGUI 当前轮数;
     public TextMeshProUGUI 仓库价格;
     public TextMeshProUGUI 当前灵气;
+    public Button 更换赌坊maskbutton;
 
     // 底格每行高度：仓库外框高度 = 行数 × 该值，与藏品背包的每格像素+间距对齐
     private const float 每行高度 = 96f;
@@ -49,6 +50,7 @@ public class 赌坊界面 : MonoBehaviour
     {
         ObserverModuleManager.S.RegisterEvent("赌坊Item点击", 赌坊Item点击);
         ObserverModuleManager.S.RegisterEvent("赌坊道具Item点击", 道具Item点击);
+        ObserverModuleManager.S.RegisterEvent("赌坊道具购买完成", 道具购买完成);
 
         if (退出按钮 != null)
         {
@@ -59,6 +61,10 @@ public class 赌坊界面 : MonoBehaviour
             });
         }
 
+        更换赌坊maskbutton.onClick.AddListener(() =>
+        {
+            确认更换赌坊提示弹窗.gameObject.SetActive(false);
+        });
         if (下一轮按钮 != null) 下一轮按钮.onClick.AddListener(下一轮);
         if (买下按钮 != null) 买下按钮.onClick.AddListener(买下);
         if (换仓按钮 != null) 换仓按钮.onClick.AddListener(换仓);
@@ -70,6 +76,7 @@ public class 赌坊界面 : MonoBehaviour
     {
         ObserverModuleManager.S.UnRegisterEvent("赌坊Item点击", 赌坊Item点击);
         ObserverModuleManager.S.UnRegisterEvent("赌坊道具Item点击", 道具Item点击);
+        ObserverModuleManager.S.UnRegisterEvent("赌坊道具购买完成", 道具购买完成);
     }
 
     private void OnEnable()
@@ -251,6 +258,9 @@ public class 赌坊界面 : MonoBehaviour
         bool 本轮已使用 = PlayerData.S.赌坊存档.本轮已用道具 != 赌坊道具Type.None;
         foreach (KeyValuePair<赌坊道具Type, 道具配置> kv in 赌坊Config.道具配置)
         {
+            // 没有库存的道具不显示
+            if (!PlayerData.S.赌坊道具Dic.TryGetValue(kv.Key, out float 数量) || 数量 <= 0) continue;
+
             赌坊道具item item = Instantiate(prefab, 道具背包Content.transform).GetComponent<赌坊道具item>();
             if (item == null) continue;
 
@@ -577,6 +587,14 @@ public class 赌坊界面 : MonoBehaviour
         if (!gameObject.activeInHierarchy || obj == null || obj.Length == 0) return;
 
         使用道具((赌坊道具Type)obj[0]);
+    }
+
+    public void 道具购买完成(object[] obj)
+    {
+        if (!gameObject.activeInHierarchy) return;
+
+        刷新道具背包();
+        刷新信息();
     }
 
     private void 确认更换赌坊()

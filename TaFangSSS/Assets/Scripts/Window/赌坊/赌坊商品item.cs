@@ -46,6 +46,8 @@ public class 赌坊商品item : MonoBehaviour, IPointerClickHandler
         PlayerData.S.PropListDic[PropType.灵魂] -= 总价;
         PlayerData.S.赌坊道具Dic[道具Type] = PlayerData.S.赌坊道具Dic[道具Type] + 数量;
         ObserverModuleManager.S.SendEvent("SendUIToast", $"购买{config.名称}×{数量}");
+        // 通知赌坊界面刷新道具背包与灵气显示
+        ObserverModuleManager.S.SendEvent("赌坊道具购买完成");
         StoreController.S.SaveStoreData();
     }
 }
