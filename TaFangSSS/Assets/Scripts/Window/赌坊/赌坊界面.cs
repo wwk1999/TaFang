@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
@@ -21,7 +20,6 @@ public class 赌坊界面 : MonoBehaviour
 
     public GameObject 赌坊列表Content;
     public GameObject 商店Content;
-    public GameObject 道具背包Content;
 
     public RectTransform 底格content;
     public 随机占格背包 藏品背包;
@@ -49,8 +47,7 @@ public class 赌坊界面 : MonoBehaviour
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("赌坊Item点击", 赌坊Item点击);
-        ObserverModuleManager.S.RegisterEvent("赌坊道具Item点击", 道具Item点击);
-        ObserverModuleManager.S.RegisterEvent("赌坊道具购买完成", 道具购买完成);
+        ObserverModuleManager.S.RegisterEvent("赌坊道具使用", 道具使用事件);
 
         if (退出按钮 != null)
         {
@@ -75,8 +72,7 @@ public class 赌坊界面 : MonoBehaviour
     private void OnDestroy()
     {
         ObserverModuleManager.S.UnRegisterEvent("赌坊Item点击", 赌坊Item点击);
-        ObserverModuleManager.S.UnRegisterEvent("赌坊道具Item点击", 道具Item点击);
-        ObserverModuleManager.S.UnRegisterEvent("赌坊道具购买完成", 道具购买完成);
+        ObserverModuleManager.S.UnRegisterEvent("赌坊道具使用", 道具使用事件);
     }
 
     private void OnEnable()
@@ -120,8 +116,6 @@ public class 赌坊界面 : MonoBehaviour
         // 子节点的 OnEnable 可能晚于本界面执行，这里再兜底关闭自动随机
         if (藏品背包 != null) 藏品背包.开启时随机 = false;
 
-        补全道具字典();
-
         赌坊存档 存档 = PlayerData.S.赌坊存档;
         if (存档.当前赌坊Type == 赌坊Type.None || !赌坊Config.赌坊配置.ContainsKey(存档.当前赌坊Type))
         {
@@ -132,7 +126,8 @@ public class 赌坊界面 : MonoBehaviour
 
         刷新赌坊列表();
 
-        if (存档.藏品列表.Count == 0)
+        // 旧存档的仓库按旧配置生成，配置版本变化后重新开仓，保证新增藏品的图标能出现
+        if (存档.藏品列表.Count == 0 || 存档.配置版本 != 赌坊Config.赌坊配置版本)
         {
             生成仓库();
         }
@@ -140,26 +135,11 @@ public class 赌坊界面 : MonoBehaviour
         刷新底格();
         渲染藏品();
         刷新商店();
-        刷新道具背包();
         刷新信息();
         刷新按钮();
 
         if (确认更换赌坊提示弹窗 != null) 确认更换赌坊提示弹窗.SetActive(false);
         待切换赌坊 = 赌坊Type.None;
-    }
-
-    private static void 补全道具字典()
-    {
-        if (PlayerData.S == null || PlayerData.S.赌坊道具Dic == null) return;
-
-        foreach (object value in Enum.GetValues(typeof(赌坊道具Type)))
-        {
-            赌坊道具Type type = (赌坊道具Type)value;
-            if (!PlayerData.S.赌坊道具Dic.ContainsKey(type))
-            {
-                PlayerData.S.赌坊道具Dic[type] = 0;
-            }
-        }
     }
 
     private static 赌坊Type 取默认赌坊()
@@ -247,29 +227,6 @@ public class 赌坊界面 : MonoBehaviour
         }
     }
 
-    private void 刷新道具背包()
-    {
-        if (道具背包Content == null) return;
-
-        清空列表(道具背包Content);
-        GameObject prefab = Resources.Load<GameObject>("Prefabs/Window/赌坊/赌坊道具item");
-        if (prefab == null) return;
-
-        bool 本轮已使用 = PlayerData.S.赌坊存档.本轮已用道具 != 赌坊道具Type.None;
-        foreach (KeyValuePair<赌坊道具Type, 道具配置> kv in 赌坊Config.道具配置)
-        {
-            // 没有库存的道具不显示
-            if (!PlayerData.S.赌坊道具Dic.TryGetValue(kv.Key, out float 数量) || 数量 <= 0) continue;
-
-            赌坊道具item item = Instantiate(prefab, 道具背包Content.transform).GetComponent<赌坊道具item>();
-            if (item == null) continue;
-
-            item.道具Type = kv.Key;
-            item.本轮已使用 = 本轮已使用;
-            item.SetItem();
-        }
-    }
-
     private void 刷新信息()
     {
         赌坊存档 存档 = PlayerData.S.赌坊存档;
@@ -301,6 +258,7 @@ public class 赌坊界面 : MonoBehaviour
         存档.本轮已用道具 = 赌坊道具Type.None;
         存档.已买下 = false;
         存档.已显示最大藏品轮廓 = false;
+        存档.配置版本 = 赌坊Config.赌坊配置版本;
 
         清空藏品();
         if (藏品背包 == null) return;
@@ -494,15 +452,9 @@ public class 赌坊界面 : MonoBehaviour
 
     private 藏品Type 取单格藏品(QualityType 品质)
     {
-        foreach (藏品Type type in 取品质候选(品质))
-        {
-            if (取藏品尺寸(type) == new Vector2Int(1, 1)) return type;
-        }
-
-        foreach (藏品Type type in 取品质候选(QualityType.黄品))
-        {
-            if (取藏品尺寸(type) == new Vector2Int(1, 1)) return type;
-        }
+        藏品Type none = 藏品Type.None;
+        if (取单格候选(品质, ref none)) return none;
+        if (取单格候选(QualityType.黄品, ref none)) return none;
 
         foreach (KeyValuePair<藏品Type, 藏品配置> kv in 赌坊Config.藏品配置)
         {
@@ -510,6 +462,21 @@ public class 赌坊界面 : MonoBehaviour
         }
 
         return 藏品Type.None;
+    }
+
+    /// <summary>从指定品质的 1×1 候选中随机取一件，避免补格阶段总是同一个旧藏品</summary>
+    private bool 取单格候选(QualityType 品质, ref 藏品Type 结果)
+    {
+        List<藏品Type> 单格 = new List<藏品Type>();
+        foreach (藏品Type type in 取品质候选(品质))
+        {
+            if (取藏品尺寸(type) == new Vector2Int(1, 1)) 单格.Add(type);
+        }
+
+        if (单格.Count == 0) return false;
+
+        结果 = 单格[Random.Range(0, 单格.Count)];
+        return true;
     }
 
     private static Vector2Int 取藏品尺寸(藏品Type type)
@@ -582,19 +549,11 @@ public class 赌坊界面 : MonoBehaviour
         if (确认更换赌坊提示弹窗 != null) 确认更换赌坊提示弹窗.SetActive(true);
     }
 
-    public void 道具Item点击(object[] obj)
+    public void 道具使用事件(object[] obj)
     {
         if (!gameObject.activeInHierarchy || obj == null || obj.Length == 0) return;
 
         使用道具((赌坊道具Type)obj[0]);
-    }
-
-    public void 道具购买完成(object[] obj)
-    {
-        if (!gameObject.activeInHierarchy) return;
-
-        刷新道具背包();
-        刷新信息();
     }
 
     private void 确认更换赌坊()
@@ -612,7 +571,7 @@ public class 赌坊界面 : MonoBehaviour
         刷新赌坊列表();
         刷新底格();
         渲染藏品();
-        刷新道具背包();
+        刷新商店();
         刷新信息();
         刷新按钮();
         隐藏确认弹窗();
@@ -631,7 +590,6 @@ public class 赌坊界面 : MonoBehaviour
         生成仓库();
         刷新底格();
         渲染藏品();
-        刷新道具背包();
         刷新信息();
         刷新按钮();
 
@@ -654,7 +612,6 @@ public class 赌坊界面 : MonoBehaviour
         存档.轮数++;
         存档.本轮已用道具 = 赌坊道具Type.None;
 
-        刷新道具背包();
         刷新信息();
         刷新按钮();
 
@@ -714,9 +671,10 @@ public class 赌坊界面 : MonoBehaviour
             return;
         }
 
-        if (!PlayerData.S.赌坊道具Dic.TryGetValue(type, out float 数量) || 数量 <= 0)
+        float 价格 = 赌坊Config.Get道具价格(存档.当前赌坊Type, type);
+        if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
         {
-            提示("道具数量不足");
+            提示("灵气不足");
             return;
         }
 
@@ -735,19 +693,19 @@ public class 赌坊界面 : MonoBehaviour
             switch (type)
             {
                 case 赌坊道具Type.看仓库总格子数:
-                    提示($"仓库总格子数：{取行数() * 取列数()}");
+                    提示($"仓库信息\n仓库总格子数：{PlayerData.S.格式化数字(取行数() * 取列数())}");
                     break;
                 case 赌坊道具Type.白格子数量:
-                    提示($"白格子数量：{统计品质格子(QualityType.黄品)}");
+                    提示($"仓库信息\n白格子数量：{PlayerData.S.格式化数字(统计品质格子(QualityType.黄品))}");
                     break;
                 case 赌坊道具Type.绿格子数量:
-                    提示($"绿格子数量：{统计品质格子(QualityType.玄品)}");
+                    提示($"仓库信息\n绿格子数量：{PlayerData.S.格式化数字(统计品质格子(QualityType.玄品))}");
                     break;
                 case 赌坊道具Type.蓝格子数量:
-                    提示($"蓝格子数量：{统计品质格子(QualityType.地品)}");
+                    提示($"仓库信息\n蓝格子数量：{PlayerData.S.格式化数字(统计品质格子(QualityType.地品))}");
                     break;
                 case 赌坊道具Type.藏品平均价值:
-                    提示($"藏品平均价值：{PlayerData.S.格式化数字(统计平均价值())}");
+                    提示($"仓库信息\n藏品平均价值：{PlayerData.S.格式化数字(统计平均价值())}");
                     break;
                 case 赌坊道具Type.看最大藏品轮廓:
                     存档.已显示最大藏品轮廓 = true;
@@ -756,10 +714,9 @@ public class 赌坊界面 : MonoBehaviour
             }
         }
 
-        PlayerData.S.赌坊道具Dic[type] = 数量 - 1;
+        PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
         存档.本轮已用道具 = type;
 
-        刷新道具背包();
         刷新信息();
         刷新按钮();
 

@@ -272,11 +272,16 @@ public class 赌坊存档
     public 赌坊道具Type 本轮已用道具 = 赌坊道具Type.None;
     public bool 已买下;
     public bool 已显示最大藏品轮廓;
+    /// <summary>生成仓库时使用的藏品配置版本，与当前版本不一致时重新开仓</summary>
+    public int 配置版本;
     public List<赌坊藏品存档> 藏品列表 = new List<赌坊藏品存档>();
 }
 
 public class 赌坊Config
 {
+    /// <summary>藏品配置版本：新增/调整藏品后递增，旧存档的仓库存档会自动重新开仓</summary>
+    public const int 赌坊配置版本 = 1;
+
     public static Dictionary<赌坊Type, 赌坊配置> 赌坊配置 = new Dictionary<赌坊Type, 赌坊配置>()
     {
         {
@@ -360,54 +365,81 @@ public class 赌坊Config
         // ===== 随机看品质 =====
         {
             赌坊道具Type.随机看品质1,
-            new 道具配置 { QualityType = QualityType.黄品, 价格 = 1000, 名称 = "窥微镜" }
+            new 道具配置 { QualityType = QualityType.黄品, 价格 = 100, 名称 = "窥微镜" }
         },
         {
             赌坊道具Type.随机看品质2,
-            new 道具配置 { QualityType = QualityType.玄品, 价格 = 5000, 名称 = "照影镜" }
+            new 道具配置 { QualityType = QualityType.玄品, 价格 = 500, 名称 = "照影镜" }
         },
         {
             赌坊道具Type.随机看品质3,
-            new 道具配置 { QualityType = QualityType.地品, 价格 = 20000, 名称 = "鉴真镜" }
+            new 道具配置 { QualityType = QualityType.地品, 价格 = 2000, 名称 = "鉴真镜" }
         },
         {
             赌坊道具Type.随机看品质4,
-            new 道具配置 { QualityType = QualityType.天品, 价格 = 100000, 名称 = "通玄镜" }
+            new 道具配置 { QualityType = QualityType.天品, 价格 = 10000, 名称 = "通玄镜" }
         },
         {
             赌坊道具Type.随机看品质5,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "观天镜" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 100000, 名称 = "观天镜" }
         },
 
         // ===== 随机看尺寸 =====
       
         {
             赌坊道具Type.藏品平均价值,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 800000, 名称 = "丈虚尺" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 80000, 名称 = "丈虚尺" }
         },
 
         // ===== 仓库信息 =====
         {
             赌坊道具Type.看仓库总格子数,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "乾坤盘" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 100000, 名称 = "乾坤盘" }
         },
         {
             赌坊道具Type.白格子数量,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "白露签" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 100000, 名称 = "白露签" }
         },
         {
             赌坊道具Type.绿格子数量,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "青岚签" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 100000, 名称 = "青岚签" }
         },
         {
             赌坊道具Type.蓝格子数量,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "沧澜签" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 100000, 名称 = "沧澜签" }
         },
         {
             赌坊道具Type.看最大藏品轮廓,
-            new 道具配置 { QualityType = QualityType.宇品, 价格 = 1000000, 名称 = "照世镜" }
+            new 道具配置 { QualityType = QualityType.宇品, 价格 = 100000, 名称 = "照世镜" }
         },
     };
+
+    /// <summary>各赌坊的道具价格倍率：道具价格 = 道具基础价格 × 倍率（铜钱巷为基准 1）</summary>
+    public static Dictionary<赌坊Type, float> 道具价格倍率 = new Dictionary<赌坊Type, float>()
+    {
+        { 赌坊Type.铜钱巷, 1 },
+        { 赌坊Type.骰子坊, 2.25f },
+        { 赌坊Type.聚宝斋, 4.5f },
+        { 赌坊Type.千金楼, 10 },
+        { 赌坊Type.灵石台, 17 },
+        { 赌坊Type.风云阁, 32 },
+        { 赌坊Type.万象庄, 55 },
+        { 赌坊Type.天机局, 100 },
+        { 赌坊Type.玲珑幻境, 173 },
+        { 赌坊Type.九幽赌窟, 316 },
+        { 赌坊Type.星河赌坊, 548 },
+        { 赌坊Type.轮回台, 1000 },
+    };
+
+    /// <summary>取某赌坊中指定道具的实际价格</summary>
+    public static float Get道具价格(赌坊Type 赌坊, 赌坊道具Type 道具)
+    {
+        if (!道具配置.TryGetValue(道具, out 道具配置 config)) return 0;
+
+        道具价格倍率.TryGetValue(赌坊, out float 倍率);
+        if (倍率 <= 0) 倍率 = 1;
+        return config.价格 * 倍率;
+    }
 
     public static Dictionary<藏品Type, 藏品配置> 藏品配置 = new()
     {

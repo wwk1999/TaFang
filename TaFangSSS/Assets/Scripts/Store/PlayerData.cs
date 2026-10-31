@@ -77,21 +77,6 @@ public class PlayerData : XSingleton<PlayerData>
     public List<仙石> 仙石列表 = new List<仙石>();
     // 分解弹窗筛选状态：按分解类型分别记录品质/阶数勾选
     public Dictionary<分解类型, 分解筛选存档> 分解筛选存档Dic = new Dictionary<分解类型, 分解筛选存档>();
-    // 赌坊道具单独存档：按道具类型记录持有数量
-    public Dictionary<赌坊道具Type, float> 赌坊道具Dic = new Dictionary<赌坊道具Type, float>()
-    {
-        { 赌坊道具Type.随机看品质1, 0 },
-        { 赌坊道具Type.随机看品质2, 0 },
-        { 赌坊道具Type.随机看品质3, 0 },
-        { 赌坊道具Type.随机看品质4, 0 },
-        { 赌坊道具Type.随机看品质5, 0 },
-        { 赌坊道具Type.看仓库总格子数, 0 },
-        { 赌坊道具Type.白格子数量, 0 },
-        { 赌坊道具Type.绿格子数量, 0 },
-        { 赌坊道具Type.蓝格子数量, 0 },
-        { 赌坊道具Type.看最大藏品轮廓, 0 },
-        { 赌坊道具Type.藏品平均价值, 0 },
-    };
     // 赌坊玩法存档：当前赌坊、轮数、仓库藏品布局与揭示状态、道具使用状态
     public 赌坊存档 赌坊存档 = new 赌坊存档();
     // 买下后的藏品仓库
