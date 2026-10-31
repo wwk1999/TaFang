@@ -27,18 +27,13 @@ public enum 赌坊道具Type
     随机看品质4,
     随机看品质5,
     
-    随机看尺寸1,
-    随机看尺寸2,
-    随机看尺寸3,
-    随机看尺寸4,
-    随机看尺寸5,
-    
     看仓库总格子数,
     白格子数量,
     绿格子数量,
     蓝格子数量,
     
     看最大藏品轮廓,
+    藏品平均价值,
 }
 
 public class 道具配置
@@ -251,6 +246,22 @@ public class 赌坊Config
         },
     };
 
+    public static Dictionary<int, float> 轮数价格倍数 = new Dictionary<int, float>()
+    {
+        {1,1},
+        {2,1.25f},
+        {3,1.5f},
+        {4,2},
+    };
+    public static Dictionary<赌坊道具Type, int> 品质道具数量 = new Dictionary<赌坊道具Type, int>()
+    {
+        {赌坊道具Type.随机看品质1,1},
+        {赌坊道具Type.随机看品质2,2},
+        {赌坊道具Type.随机看品质3,3},
+        {赌坊道具Type.随机看品质4,4},
+        {赌坊道具Type.随机看品质5,5},
+    };
+
     public static Dictionary<赌坊道具Type, 道具配置> 道具配置 = new Dictionary<赌坊道具Type, 道具配置>()
     {
         // ===== 随机看品质 =====
@@ -276,24 +287,9 @@ public class 赌坊Config
         },
 
         // ===== 随机看尺寸 =====
+      
         {
-            赌坊道具Type.随机看尺寸1,
-            new 道具配置 { QualityType = QualityType.黄品, 价格 = 800, 名称 = "量形尺" }
-        },
-        {
-            赌坊道具Type.随机看尺寸2,
-            new 道具配置 { QualityType = QualityType.玄品, 价格 = 4000, 名称 = "测寸尺" }
-        },
-        {
-            赌坊道具Type.随机看尺寸3,
-            new 道具配置 { QualityType = QualityType.地品, 价格 = 16000, 名称 = "度方尺" }
-        },
-        {
-            赌坊道具Type.随机看尺寸4,
-            new 道具配置 { QualityType = QualityType.天品, 价格 = 80000, 名称 = "规玄尺" }
-        },
-        {
-            赌坊道具Type.随机看尺寸5,
+            赌坊道具Type.藏品平均价值,
             new 道具配置 { QualityType = QualityType.宇品, 价格 = 800000, 名称 = "丈虚尺" }
         },
 

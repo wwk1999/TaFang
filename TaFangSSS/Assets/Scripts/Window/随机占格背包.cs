@@ -33,6 +33,7 @@ public class 随机占格背包 : MonoBehaviour
     public bool 开启时随机 = true;
 
     [Header("可生成的尺寸（宽×高，单位：格）")]
+    [Tooltip("与 Resources/Prefabs/Window/赌坊/藏品{宽}{高}.prefab 一一对应")]
     public Vector2Int[] 可生成尺寸 =
     {
         new Vector2Int(1, 1),
@@ -41,8 +42,10 @@ public class 随机占格背包 : MonoBehaviour
         new Vector2Int(3, 1),
         new Vector2Int(1, 3),
         new Vector2Int(2, 2),
-        new Vector2Int(3, 2),
-        new Vector2Int(2, 3),
+        new Vector2Int(4, 2),
+        new Vector2Int(2, 4),
+        new Vector2Int(5, 2),
+        new Vector2Int(2, 5),
         new Vector2Int(3, 3),
     };
 
@@ -154,7 +157,13 @@ public class 随机占格背包 : MonoBehaviour
         RectTransform 物品;
         Image 图片 = null;
 
-        if (物品预制体 != null)
+        // 按尺寸加载对应藏品预制体：1×1 用「藏品11」，1×2 用「藏品12」，以此类推
+        RectTransform 尺寸预制体 = Resources.Load<RectTransform>($"Prefabs/Window/赌坊/藏品{尺寸.x}{尺寸.y}");
+        if (尺寸预制体 != null)
+        {
+            物品 = Instantiate(尺寸预制体, 父节点);
+        }
+        else if (物品预制体 != null)
         {
             物品 = Instantiate(物品预制体, 父节点);
             图片 = 物品.GetComponent<Image>();
