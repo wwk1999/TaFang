@@ -50,7 +50,7 @@ public class 赌坊item : MonoBehaviour
         首仓价格.SetActive(显示信息);
         if (!显示信息) return;
 
-        name.text = 赌坊Type.ToString();
+        name.text = 赌坊Config.赌坊配置[赌坊Type].name;
         icon.sprite = ResourcesConfig.GetPropSprite(PropType.灵魂);
         count.text = PlayerData.S.格式化数字(赌坊Config.赌坊配置[赌坊Type].首仓价格);
     }
