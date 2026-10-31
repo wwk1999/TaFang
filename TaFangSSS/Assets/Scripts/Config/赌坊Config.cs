@@ -288,6 +288,22 @@ public class 赌坊Config
         {赌坊道具Type.随机看品质5,5},
     };
 
+    /// <summary>道具图标在「Sprite/赌坊icon/道具」切图中的序号（0 起，对应 道具_0~道具_15）</summary>
+    public static Dictionary<赌坊道具Type, int> 道具图标索引 = new Dictionary<赌坊道具Type, int>()
+    {
+        { 赌坊道具Type.随机看品质1, 0 },
+        { 赌坊道具Type.随机看品质2, 1 },
+        { 赌坊道具Type.随机看品质3, 2 },
+        { 赌坊道具Type.随机看品质4, 3 },
+        { 赌坊道具Type.随机看品质5, 4 },
+        { 赌坊道具Type.藏品平均价值, 5 },
+        { 赌坊道具Type.看仓库总格子数, 6 },
+        { 赌坊道具Type.白格子数量, 7 },
+        { 赌坊道具Type.绿格子数量, 8 },
+        { 赌坊道具Type.蓝格子数量, 9 },
+        { 赌坊道具Type.看最大藏品轮廓, 10 },
+    };
+
     public static Dictionary<赌坊道具Type, 道具配置> 道具配置 = new Dictionary<赌坊道具Type, 道具配置>()
     {
         // ===== 随机看品质 =====

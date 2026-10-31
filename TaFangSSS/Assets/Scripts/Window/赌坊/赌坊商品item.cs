@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class 赌坊商品item : MonoBehaviour, IPointerClickHandler
 {
     public Image bg;
+    public Image icon;
     public TextMeshProUGUI name;
     public TextMeshProUGUI count;
 
@@ -18,8 +19,12 @@ public class 赌坊商品item : MonoBehaviour, IPointerClickHandler
         if (道具Type == 赌坊道具Type.None) return;
 
         道具配置 config = 赌坊Config.道具配置[道具Type];
-        bg.sprite = ResourcesConfig.Get道具背景框SpriteByPropType(config.QualityType);
+        bg.sprite = ResourcesConfig.Get灵植背包格子(config.QualityType);
         name.text = config.名称;
+        if (icon != null && 赌坊Config.道具图标索引.TryGetValue(道具Type, out int 图标索引))
+        {
+            icon.sprite = ResourcesConfig.Get赌坊道具Sprite(图标索引);
+        }
         count.text = PlayerData.S.格式化数字(config.价格);
     }
 

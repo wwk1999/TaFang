@@ -18,6 +18,8 @@ public class 道场 : MonoBehaviour
     public Button 灵兽坊;
     public Button 灵植园;
     public Button 双修殿;
+    public Button 赌坊;
+
     public GameObject 坊市窗口;
     private void Start()
     {
@@ -33,6 +35,7 @@ public class 道场 : MonoBehaviour
         灵兽坊.image.alphaHitTestMinimumThreshold = 0.1f;
         灵植园.image.alphaHitTestMinimumThreshold = 0.1f;
         功德碑.image.alphaHitTestMinimumThreshold = 0.1f;
+        赌坊.image.alphaHitTestMinimumThreshold = 0.1f;
 
         领主府.onClick.AddListener(() =>
         {
@@ -128,6 +131,19 @@ public class 道场 : MonoBehaviour
             {
                 WindowController.S.打开窗口(WindowController.S.仙女阁Window);
             }
+        });
+        
+        赌坊.onClick.AddListener(() =>
+        {
+                if (PlayerData.S.历史最高境界 >= JingJieType.大乘)
+                {
+                    WindowController.S.打开窗口(WindowController.S.赌坊Window);
+                }
+                else
+                {
+                    ObserverModuleManager.S.SendEvent("SendUIToast","大乘境界解锁");
+                    return;
+                }
         });
         聚贤阁.onClick.AddListener(() =>
         {

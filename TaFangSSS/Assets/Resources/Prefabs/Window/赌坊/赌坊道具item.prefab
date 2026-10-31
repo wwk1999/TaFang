@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 6964697043559296904}
   - component: {fileID: 6246337041392712900}
   - component: {fileID: 5447916113597550776}
-  - component: {fileID: 559545022710244774}
+  - component: {fileID: 2598299412373496369}
   m_Layer: 0
   m_Name: "\u8D4C\u574A\u9053\u5177item"
   m_TagString: Untagged
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &559545022710244774
+--- !u!114 &2598299412373496369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -418,10 +418,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6353505508561643172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4982f38b7274d7c48ad8a6552f2c2d94, type: 3}
+  m_Script: {fileID: 11500000, guid: 12b120ce95de3e54eb0ea17c40d3825a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bg: {fileID: 6246337041392712900}
+  icon: {fileID: 5602560226906189886}
   name: {fileID: 7052070586181562090}
   count: {fileID: 3584883848926450606}
 --- !u!1 &6384056884808846819
@@ -519,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

@@ -1023,6 +1023,9 @@ public static Sprite 造化玉牒藏品;
 
 	public static Dictionary<符文Type, Sprite[]> 符文SpriteCache = new Dictionary<符文Type, Sprite[]>();
 
+	// 赌坊道具图标：Sprite/赌坊icon/道具 切图，索引 0~15 依次为 道具_0~道具_15
+	public static Sprite[] 赌坊道具Sprites;
+
 	public static Sprite 丹童平台;
 
 	public static Sprite 土地平台;
@@ -7359,6 +7362,20 @@ public static Sprite 造化玉牒藏品;
 			QualityType.荒品 => 灵植背包格子彩, 
 			_ => null, 
 		});
+	}
+
+	/// <summary>按序号取赌坊道具图标（0 起，对应切图 道具_0~道具_15），首次调用时加载</summary>
+	public static Sprite Get赌坊道具Sprite(int 索引)
+	{
+		if (赌坊道具Sprites == null || 赌坊道具Sprites.Length == 0)
+		{
+			赌坊道具Sprites = Load阶数Sprites("Sprite/赌坊icon/道具");
+		}
+		if (索引 < 0 || 索引 >= 赌坊道具Sprites.Length)
+		{
+			return null;
+		}
+		return 赌坊道具Sprites[索引];
 	}
 
 	public static Sprite Get藏品Sprite(藏品Type Type)

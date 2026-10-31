@@ -29,7 +29,9 @@ public class 赌坊界面 : MonoBehaviour
     public TextMeshProUGUI 当前轮数;
     public TextMeshProUGUI 仓库价格;
     public TextMeshProUGUI 当前灵气;
-    public TextMeshProUGUI 当前灵气底部;
+
+    // 底格每行高度：仓库外框高度 = 行数 × 该值，与藏品背包的每格像素+间距对齐
+    private const float 每行高度 = 96f;
 
     private 赌坊Type 待切换赌坊 = 赌坊Type.None;
     private readonly Dictionary<QualityType, List<藏品Type>> 品质候选缓存 = new Dictionary<QualityType, List<藏品Type>>();
@@ -187,11 +189,36 @@ public class 赌坊界面 : MonoBehaviour
     {
         if (底格content == null) return;
 
-        int 显示数量 = 取行数() * 取列数();
+        int 行 = 取行数();
+        int 列 = 取列数();
+        int 显示数量 = 行 * 列;
+
+        // 预制体默认只有 8 行底格，行数更高的赌坊用第一个底格复制补齐
+        if (底格content.childCount > 0)
+        {
+            GameObject 模板 = 底格content.GetChild(0).gameObject;
+            while (底格content.childCount < 显示数量)
+            {
+                Instantiate(模板, 底格content);
+            }
+        }
+
         for (int i = 0; i < 底格content.childCount; i++)
         {
             Transform child = 底格content.GetChild(i);
             child.gameObject.SetActive(i < 显示数量);
+        }
+
+        // 仓库外框高度 = 行数 × 每行高度，行数超过一屏时可下滑查看
+        RectTransform 仓库框 = 底格content.parent as RectTransform;
+        if (仓库框 != null)
+        {
+            仓库框.sizeDelta = new Vector2(仓库框.sizeDelta.x, 行 * 每行高度);
+            // 高度变化后立即重建上层布局，让 ScrollRect 的可滚动区域同步更新
+            if (仓库框.parent is RectTransform 父节点)
+            {
+                LayoutRebuilder.MarkLayoutForRebuild(父节点);
+            }
         }
     }
 
@@ -242,7 +269,6 @@ public class 赌坊界面 : MonoBehaviour
 
         string 灵气 = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
         if (当前灵气 != null) 当前灵气.text = 灵气;
-        if (当前灵气底部 != null) 当前灵气底部.text = 灵气;
     }
 
     private void 刷新按钮()
