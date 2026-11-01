@@ -9,6 +9,11 @@ using Random = UnityEngine.Random;
 /// <summary>赌坊主界面：赌坊切换、仓库生成/揭晓、道具使用、轮数与买下</summary>
 public class 赌坊界面 : MonoBehaviour
 {
+    public Button 藏品百科;
+    public Button 藏品百科mask;
+
+    public GameObject 藏品百科Obj;
+
     public Button 退出按钮;
     public Button 下一轮按钮;
     public Button 买下按钮;
@@ -62,6 +67,14 @@ public class 赌坊界面 : MonoBehaviour
         更换赌坊maskbutton.onClick.AddListener(() =>
         {
             确认更换赌坊提示弹窗.gameObject.SetActive(false);
+        });
+        藏品百科.onClick.AddListener(() =>
+        {
+            藏品百科Obj.SetActive(true);
+        });
+        藏品百科mask.onClick.AddListener(() =>
+        {
+            藏品百科Obj.SetActive(false);
         });
         if (下一轮按钮 != null) 下一轮按钮.onClick.AddListener(下一轮);
         if (买下按钮 != null) 买下按钮.onClick.AddListener(买下);
