@@ -38,6 +38,40 @@ public enum 赌坊道具Type
     藏品平均价值,
 }
 
+public class 藏品效果
+{
+    //粉
+    public float 战士伤害;
+    public float 射手伤害;
+    public float 控制伤害;
+    public float 法师伤害;
+    public float 雷电伤害;
+    public float 火焰伤害;
+    public float 黑暗伤害;
+    public float 冰霜伤害;
+    public float 物理伤害;
+    public float 最终伤害;
+    public float 暴击伤害;
+    //红
+    public float 职业伤害;
+    public float 元素伤害;
+    public float 炼器速度;
+    public float 炼丹速度;
+    public float 灵兽增幅;
+    public float 灵植生长速度;
+    public float 功法每层效果;
+    public float 符文效果;
+    public float 领主装备效果;
+    public float 仙子效果;
+    //彩
+    public float 时间流速;
+    public float 轮回系数;
+    public float 掉宝率;
+    public float 轮回石掉落数量;
+    public float 灵气增幅;
+    public float 真灵倍数;
+   
+}
 public class 道具配置
 {
     public QualityType  QualityType;
@@ -275,6 +309,8 @@ public class 赌坊存档
     /// <summary>生成仓库时使用的藏品配置版本，与当前版本不一致时重新开仓</summary>
     public int 配置版本;
     public List<赌坊藏品存档> 藏品列表 = new List<赌坊藏品存档>();
+    /// <summary>使用信息类道具后得到的仓库信息记录，持久化展示在道具信息面板</summary>
+    public List<string> 道具信息列表 = new List<string>();
 }
 
 public class 赌坊Config

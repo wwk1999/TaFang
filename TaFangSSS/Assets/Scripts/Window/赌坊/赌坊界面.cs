@@ -20,6 +20,7 @@ public class 赌坊界面 : MonoBehaviour
 
     public GameObject 赌坊列表Content;
     public GameObject 商店Content;
+    public GameObject 道具信息Content;
 
     public RectTransform 底格content;
     public 随机占格背包 藏品背包;
@@ -135,6 +136,7 @@ public class 赌坊界面 : MonoBehaviour
         刷新底格();
         渲染藏品();
         刷新商店();
+        刷新道具信息();
         刷新信息();
         刷新按钮();
 
@@ -254,6 +256,7 @@ public class 赌坊界面 : MonoBehaviour
     {
         赌坊存档 存档 = PlayerData.S.赌坊存档;
         存档.藏品列表.Clear();
+        存档.道具信息列表.Clear();
         存档.轮数 = 1;
         存档.本轮已用道具 = 赌坊道具Type.None;
         存档.已买下 = false;
@@ -572,6 +575,7 @@ public class 赌坊界面 : MonoBehaviour
         刷新底格();
         渲染藏品();
         刷新商店();
+        刷新道具信息();
         刷新信息();
         刷新按钮();
         隐藏确认弹窗();
@@ -590,6 +594,7 @@ public class 赌坊界面 : MonoBehaviour
         生成仓库();
         刷新底格();
         渲染藏品();
+        刷新道具信息();
         刷新信息();
         刷新按钮();
 
@@ -693,19 +698,24 @@ public class 赌坊界面 : MonoBehaviour
             switch (type)
             {
                 case 赌坊道具Type.看仓库总格子数:
-                    提示($"仓库信息\n仓库总格子数：{PlayerData.S.格式化数字(取行数() * 取列数())}");
+                    添加道具信息($"仓库总格子数为{PlayerData.S.格式化数字(取行数() * 取列数())}");
+                    提示($"仓库总格子数为{PlayerData.S.格式化数字(取行数() * 取列数())}");
                     break;
                 case 赌坊道具Type.白格子数量:
-                    提示($"仓库信息\n白格子数量：{PlayerData.S.格式化数字(统计品质格子(QualityType.黄品))}");
+                    添加道具信息($"白格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.黄品))}");
+                    提示($"白格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.黄品))}");
                     break;
                 case 赌坊道具Type.绿格子数量:
-                    提示($"仓库信息\n绿格子数量：{PlayerData.S.格式化数字(统计品质格子(QualityType.玄品))}");
+                    添加道具信息($"绿格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.玄品))}");
+                    提示($"绿格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.玄品))}");
                     break;
                 case 赌坊道具Type.蓝格子数量:
-                    提示($"仓库信息\n蓝格子数量：{PlayerData.S.格式化数字(统计品质格子(QualityType.地品))}");
+                    添加道具信息($"蓝格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.地品))}");
+                    提示($"蓝格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.地品))}");
                     break;
                 case 赌坊道具Type.藏品平均价值:
-                    提示($"仓库信息\n藏品平均价值：{PlayerData.S.格式化数字(统计平均价值())}");
+                    添加道具信息($"藏品平均价值为{PlayerData.S.格式化数字(统计平均价值())}");
+                    提示($"藏品平均价值为{PlayerData.S.格式化数字(统计平均价值())}");
                     break;
                 case 赌坊道具Type.看最大藏品轮廓:
                     存档.已显示最大藏品轮廓 = true;
@@ -720,7 +730,12 @@ public class 赌坊界面 : MonoBehaviour
         刷新信息();
         刷新按钮();
 
-        提示($"使用了{赌坊Config.道具配置[type].名称}");
+        // 信息类道具已直接弹出信息toast，不再额外提示使用了什么道具
+        if (赌坊Config.品质道具数量.ContainsKey(type))
+        {
+            提示($"使用了{赌坊Config.道具配置[type].名称}");
+        }
+
         StoreController.S.SaveStoreData();
     }
 
@@ -783,6 +798,38 @@ public class 赌坊界面 : MonoBehaviour
         }
 
         return 总价 / 列表.Count;
+    }
+
+    /// <summary>添加一条道具信息到存档并即时渲染</summary>
+    private void 添加道具信息(string text)
+    {
+        PlayerData.S.赌坊存档.道具信息列表.Add(text);
+        创建道具信息Item(text);
+    }
+
+    /// <summary>从存档恢复道具信息列表的显示</summary>
+    private void 刷新道具信息()
+    {
+        if (道具信息Content == null) return;
+
+        清空列表(道具信息Content);
+        foreach (string text in PlayerData.S.赌坊存档.道具信息列表)
+        {
+            创建道具信息Item(text);
+        }
+    }
+
+    private void 创建道具信息Item(string text)
+    {
+        if (道具信息Content == null) return;
+
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Window/赌坊/道具信息Item");
+        if (prefab == null) return;
+
+        道具信息Item item = Instantiate(prefab, 道具信息Content.transform).GetComponent<道具信息Item>();
+        if (item == null) return;
+
+        item.SetItem(text);
     }
 
     private static void 提示(string text)
