@@ -18,11 +18,33 @@ public class 藏品百科item : MonoBehaviour
     public TextMeshProUGUI 效果Count;
     public TextMeshProUGUI 轮廓text;
     public TextMeshProUGUI 轮廓Count;
+    public Image bg;
 
     [NonSerialized] public 藏品Type 藏品Type;
 
+    /// <summary>自动查找子节点引用，避免预制体未在 Inspector 接线</summary>
+    private void 自动查找引用()
+    {
+        if (icon == null) icon = 找<Transform>("icon");
+        if (name == null) name = 找<TextMeshProUGUI>("name");
+        if (灵气 == null) 灵气 = 找<TextMeshProUGUI>("灵气");
+        if (效果text == null) 效果text = 找<TextMeshProUGUI>("效果text");
+        if (效果Count == null) 效果Count = 找<TextMeshProUGUI>("效果Count");
+        if (轮廓text == null) 轮廓text = 找<TextMeshProUGUI>("轮廓text");
+        if (轮廓Count == null) 轮廓Count = 找<TextMeshProUGUI>("轮廓Count");
+    }
+
+    private T 找<T>(string childName) where T : Component
+    {
+        Transform t = transform.Find("bg/" + childName);
+        if (t == null) t = transform.Find(childName);
+        return t != null ? t.GetComponent<T>() : null;
+    }
+
     public void SetItem(藏品Type type)
     {
+        自动查找引用();
+        bg.sprite = ResourcesConfig.Get灵植背包格子(赌坊Config.藏品配置[type].QualityType);
         藏品Type = type;
         if (!赌坊Config.藏品配置.TryGetValue(type, out 藏品配置 config)) return;
 
@@ -63,7 +85,7 @@ public class 藏品百科item : MonoBehaviour
                 return $"{f.Name}+{v}%";
             }
         }
-        return string.Empty;
+        return "无";
     }
 
     /// <summary>隐藏所有尺寸子物体，只显示与藏品尺寸匹配的那个，并把它的图片设为藏品icon</summary>

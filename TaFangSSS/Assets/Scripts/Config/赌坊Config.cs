@@ -323,7 +323,7 @@ public class 赌坊存档
 public class 赌坊Config
 {
     /// <summary>藏品配置版本：新增/调整藏品后递增，旧存档的仓库存档会自动重新开仓</summary>
-    public const int 赌坊配置版本 = 1;
+    public const int 赌坊配置版本 = 3;
 
     public static Dictionary<赌坊Type, 赌坊配置> 赌坊配置 = new Dictionary<赌坊Type, 赌坊配置>()
     {
@@ -610,7 +610,7 @@ public class 赌坊Config
             藏品Type.鸿蒙珠,
             new 藏品配置
             {
-                name = "鸿蒙珠", 介绍 = "珠生七彩，内蕴一缕鸿蒙之气，可窥天地初开。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C1x1,
+                name = "鸿蒙珠", 介绍 = "珠生七彩，内蕴一缕鸿蒙之气，可窥天地初开。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C1x1,
                 效果 = new 藏品效果 { 灵气增幅 = 8 },
                 价格 = 50000000
             }
@@ -798,7 +798,7 @@ public class 赌坊Config
             藏品Type.万道之源,
             new 藏品配置
             {
-                name = "万道之源", 介绍 = "万道之源，诸法之始，得之可溯源归真。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C1x3,
+                name = "万道之源", 介绍 = "万道之源，诸法之始，得之可溯源归真。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C1x3,
                 效果 = new 藏品效果 { 时间流速 = 5 },
                 价格 = 88000000
             }
@@ -844,20 +844,20 @@ public class 赌坊Config
             藏品Type.轮回核心,
             new 藏品配置
             {
-                name = "轮回核心", 介绍 = "轮回核心，蕴轮回本源，可定生死之序。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C3x1,
+                name = "轮回核心", 介绍 = "轮回核心，蕴轮回本源，可定生死之序。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x1,
                 效果 = new 藏品效果 { 轮回系数 = 10 },
                 价格 = 120000000
             }
         },
         {
             藏品Type.无始灵枢,
-            new 藏品配置 { name = "无始灵枢", 介绍 = "无始灵枢，枢机无始无终，可拨因果。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 掉宝率 = 10 }, 价格 = 130000000 }
+            new 藏品配置 { name = "无始灵枢", 介绍 = "无始灵枢，枢机无始无终，可拨因果。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 掉宝率 = 10 }, 价格 = 130000000 }
         },
         {
             藏品Type.太虚本源,
             new 藏品配置
             {
-                name = "太虚本源", 介绍 = "太虚本源，虚空之根，可纳万象于虚无。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C3x1,
+                name = "太虚本源", 介绍 = "太虚本源，虚空之根，可纳万象于虚无。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x1,
                 效果 = new 藏品效果 { 灵气增幅 = 15 },
                 价格 = 140000000
             }
@@ -982,7 +982,7 @@ public class 赌坊Config
             藏品Type.天外混沌鼎,
             new 藏品配置
             {
-                name = "天外混沌鼎", 介绍 = "天外混沌鼎，蕴混沌本源，鼎开天外。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C3x3,
+                name = "天外混沌鼎", 介绍 = "天外混沌鼎，蕴混沌本源，鼎开天外。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x3,
                 效果 = new 藏品效果 { 炼丹速度 = 15 },
                 价格 = 300000000
             }
@@ -1096,11 +1096,11 @@ public class 赌坊Config
 
         {
             藏品Type.混沌青莲,
-            new 藏品配置 { name = "混沌青莲", 介绍 = "混沌青莲，蕴混沌生机，莲开而界生。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C4x2, 效果 = new 藏品效果 { 灵植生长速度 = 15 }, 价格 = 250000000 }
+            new 藏品配置 { name = "混沌青莲", 介绍 = "混沌青莲，蕴混沌生机，莲开而界生。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C4x2, 效果 = new 藏品效果 { 灵植生长速度 = 15 }, 价格 = 250000000 }
         },
         {
             藏品Type.开天斧,
-            new 藏品配置 { name = "开天斧", 介绍 = "开天斧，一斧开天，斧落而混沌判。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C4x2, 效果 = new 藏品效果 { 职业伤害 = 15 }, 价格 = 280000000 }
+            new 藏品配置 { name = "开天斧", 介绍 = "开天斧，一斧开天，斧落而混沌判。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C4x2, 效果 = new 藏品效果 { 职业伤害 = 15 }, 价格 = 280000000 }
         },
         {
             藏品Type.粗木长案,
@@ -1198,7 +1198,7 @@ public class 赌坊Config
             藏品Type.造化玉牒,
             new 藏品配置
             {
-                name = "造化玉牒", 介绍 = "造化玉牒，载造化之秘，牒开而天机现。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C5x2,
+                name = "造化玉牒", 介绍 = "造化玉牒，载造化之秘，牒开而天机现。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C5x2,
                 效果 = new 藏品效果 { 时间流速 = 10 },
                 价格 = 500000000
             }

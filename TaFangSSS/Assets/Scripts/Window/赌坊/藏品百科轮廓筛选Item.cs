@@ -18,7 +18,14 @@ public class 藏品百科轮廓筛选Item : MonoBehaviour
         尺寸 = size;
         点击回调 = onClick;
 
-       
+        // 自动查找引用
+        if (btn == null) btn = GetComponentInChildren<Button>();
+        if (gou == null)
+        {
+            Transform gouT = transform.Find("gou");
+            if (gouT != null) gou = gouT.GetComponent<Image>();
+        }
+
         if (btn != null)
         {
             btn.onClick.RemoveAllListeners();

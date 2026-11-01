@@ -54,11 +54,12 @@ public class 藏品百科面板 : MonoBehaviour
     private void 缓存全部藏品()
     {
         全部藏品 = new List<KeyValuePair<藏品Type, 藏品配置>>(赌坊Config.藏品配置);
-        // 默认排序：品质从高到低（荒品最大），同品质按枚举序号
+        // 默认排序：品质从高到低（荒品最大），同品质按枚举序号升序
         全部藏品.Sort((a, b) =>
         {
-            int q = b.Value.QualityType.CompareTo(a.Value.QualityType);
-            return q != 0 ? q : a.Key.CompareTo(b.Key);
+            // CompareTo：a<b 返回负，a>b 返回正。取负号实现降序（高品质在前）
+            int q = a.Value.QualityType.CompareTo(b.Value.QualityType);
+            return q != 0 ? -q : a.Key.CompareTo(b.Key);
         });
     }
 
@@ -68,24 +69,45 @@ public class 藏品百科面板 : MonoBehaviour
     {
         if (品质筛选Content == null) return;
 
-        // 品质显示顺序：黄玄地天宇宙洪荒
+        // 目标品质顺序：从高到低 荒洪宙宇天地玄黄
         QualityType[] 顺序 =
         {
-            QualityType.黄品, QualityType.玄品, QualityType.地品, QualityType.天品,
-            QualityType.宇品, QualityType.宙品, QualityType.洪品, QualityType.荒品
+            QualityType.荒品, QualityType.洪品, QualityType.宙品, QualityType.宇品,
+            QualityType.天品, QualityType.地品, QualityType.玄品, QualityType.黄品
         };
 
-        for (int i = 0; i < 品质筛选Content.childCount && i < 顺序.Length; i++)
+        // 收集所有子按钮，并按品质从高到低重排显示顺序
+        List<Transform> children = new List<Transform>();
+        for (int i = 0; i < 品质筛选Content.childCount; i++)
         {
-            Transform child = 品质筛选Content.GetChild(i);
-            Button btn = child.GetComponent<Button>();
+            children.Add(品质筛选Content.GetChild(i));
+        }
+        // 预制体里默认顺序是 黄玄地天宇宙洪荒（低到高），反转为 荒洪宙宇天地玄黄（高到低）
+        children.Reverse();
+        for (int i = 0; i < children.Count; i++)
+        {
+            children[i].SetSiblingIndex(i);
+        }
+
+        for (int i = 0; i < children.Count && i < 顺序.Length; i++)
+        {
+            Transform child = children[i];
+            // Button 可能在子节点（如 黄Button）上，用 GetComponentInChildren 查找
+            Button btn = child.GetComponentInChildren<Button>();
             if (btn == null) continue;
 
             QualityType q = 顺序[i];
             品质按钮.Add(btn);
 
-            // gou 选中标记
+            // gou 选中标记：优先在直接子节点找，找不到就在后代找
             Transform gouT = child.Find("gou");
+            if (gouT == null)
+            {
+                foreach (Transform c in child.GetComponentsInChildren<Transform>())
+                {
+                    if (c.name == "gou") { gouT = c; break; }
+                }
+            }
             品质gou.Add(gouT != null ? gouT.gameObject : null);
 
             btn.onClick.AddListener(() => 点击品质(q));
@@ -114,8 +136,8 @@ public class 藏品百科面板 : MonoBehaviour
 
         QualityType[] 顺序 =
         {
-            QualityType.黄品, QualityType.玄品, QualityType.地品, QualityType.天品,
-            QualityType.宇品, QualityType.宙品, QualityType.洪品, QualityType.荒品
+            QualityType.荒品, QualityType.洪品, QualityType.宙品, QualityType.宇品,
+            QualityType.天品, QualityType.地品, QualityType.玄品, QualityType.黄品
         };
         int idx = Array.IndexOf(顺序, 当前品质);
         if (idx >= 0 && idx < 品质gou.Count && 品质gou[idx] != null)
@@ -206,12 +228,16 @@ public class 藏品百科面板 : MonoBehaviour
         // 筛选
         List<KeyValuePair<藏品Type, 藏品配置>> 显示列表 = 获取筛选结果();
 
+        int 序号 = 0;
         foreach (KeyValuePair<藏品Type, 藏品配置> kv in 显示列表)
         {
             藏品百科item item = 取出池item();
             item.gameObject.SetActive(true);
+            // 强制设置兄弟顺序，避免对象池复用导致显示顺序错乱
+            item.transform.SetSiblingIndex(序号);
             item.SetItem(kv.Key);
             活跃.Add(item);
+            序号++;
         }
     }
 
