@@ -358,7 +358,7 @@ public enum 藏品Type
     遮月紫云帕, // 紫 3×1
     裂空屏, // 紫 3×1
     紫霄弓, // 橙 3×1
-    穿云火金梭, // 橙 3×1
+    穿云火金枪, // 橙 3×1
     烈焰弓, // 橙 3×1
     破灭枪, // 粉 3×1
     招鹤霞光弓, // 粉 3×1
@@ -446,8 +446,8 @@ public enum 藏品Type
     锁魂寒玉绸, // 蓝 4×2
     封雷屏, // 紫 4×2
     射月紫弓, // 紫 4×2
-    破阵焚金戟, // 橙 4×2
-    坠星焚天弓, // 橙 4×2
+    破阵焚金弓, // 橙 4×2
+    坠星焚天枪, // 橙 4×2
     // ===== 2×5 (新增) =====
     白石案, // 白 2×5
     麻布小卷, // 白 2×5
@@ -1998,11 +1998,11 @@ public class 赌坊Config
         },
         {
             藏品Type.紫霄弓,
-            new 藏品配置 { name = "紫霄弓", 介绍 = "", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+            new 藏品配置 { name = "紫霄弓", 介绍 = "紫霄为弓，弦动惊雷，箭出可穿云破空。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
         },
         {
-            藏品Type.穿云火金梭,
-            new 藏品配置 { name = "穿云火金梭", 介绍 = "火金成梭，穿云破雾，瞬息千里。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+            藏品Type.穿云火金枪,
+            new 藏品配置 { name = "穿云火金枪", 介绍 = "火金铸枪，枪出如龙，可穿云破雾取敌首。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
         },
         {
             藏品Type.烈焰弓,
@@ -2337,12 +2337,12 @@ public class 赌坊Config
             new 藏品配置 { name = "射月紫弓", 介绍 = "紫弓射月，箭可穿云，裂月破空。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
         },
         {
-            藏品Type.破阵焚金戟,
-            new 藏品配置 { name = "破阵焚金戟", 介绍 = "金戟破阵，可焚阵破围，攻无不克。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+            藏品Type.破阵焚金弓,
+            new 藏品配置 { name = "破阵焚金弓", 介绍 = "焚金为弓，箭出破阵，所向披靡。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
         },
         {
-            藏品Type.坠星焚天弓,
-            new 藏品配置 { name = "坠星焚天弓", 介绍 = "焚天弓引坠星，箭落如陨，焚尽敌寇。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+            藏品Type.坠星焚天枪,
+            new 藏品配置 { name = "坠星焚天枪", 介绍 = "焚天铸枪，枪引坠星，可裂地焚空。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
         },
         {
             藏品Type.白石案,
