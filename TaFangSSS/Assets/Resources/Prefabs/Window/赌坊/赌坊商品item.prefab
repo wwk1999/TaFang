@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1396939931337004830}
   - component: {fileID: 8209327172720594358}
   - component: {fileID: 2930697639153620026}
+  - component: {fileID: 913477025940244996}
   m_Layer: 0
   m_Name: "\u8D4C\u574A\u5546\u54C1item"
   m_TagString: Untagged
@@ -176,6 +177,22 @@ MonoBehaviour:
   icon: {fileID: 580355021515561956}
   name: {fileID: 2598686743488103728}
   count: {fileID: 7899691629635932653}
+--- !u!114 &913477025940244996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153196296158629246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2abc1d1051f5241972b7a0f5932bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u8D4C\u574A/\u8D4C\u574A\u9053\u5177\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  "\u8D4C\u574A\u5546\u54C1item": {fileID: 2930697639153620026}
 --- !u!1 &2714608078133524722
 GameObject:
   m_ObjectHideFlags: 0

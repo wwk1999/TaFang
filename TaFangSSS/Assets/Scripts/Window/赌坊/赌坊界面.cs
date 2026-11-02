@@ -91,6 +91,7 @@ public class 赌坊界面 : MonoBehaviour
         if (换仓按钮 != null) 换仓按钮.onClick.AddListener(换仓);
         if (确认button != null) 确认button.onClick.AddListener(确认更换赌坊);
         if (返回button != null) 返回button.onClick.AddListener(隐藏确认弹窗);
+        if (开仓1000次Button != null) 开仓1000次Button.onClick.AddListener(调试开仓10000次);
     }
 
     private void OnDestroy()
@@ -244,6 +245,7 @@ public class 赌坊界面 : MonoBehaviour
 
         foreach (KeyValuePair<赌坊道具Type, 道具配置> kv in 赌坊Config.道具配置)
         {
+            if(kv.Key==赌坊道具Type.藏品平均价值)continue;
             赌坊商品item item = Instantiate(prefab, 商店Content.transform).GetComponent<赌坊商品item>();
             if (item == null) continue;
 
@@ -661,6 +663,8 @@ public class 赌坊界面 : MonoBehaviour
 
         PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
 
+        // 仓内藏品入库的同时统计灵气价值总和，买下后加回给玩家
+        float 藏品灵气总和 = 0f;
         foreach (赌坊藏品存档 藏品 in 存档.藏品列表)
         {
             if (!PlayerData.S.藏品仓库Dic.ContainsKey(藏品.藏品Type))
@@ -669,7 +673,14 @@ public class 赌坊界面 : MonoBehaviour
             }
 
             PlayerData.S.藏品仓库Dic[藏品.藏品Type]++;
+
+            if (赌坊Config.藏品价格Dic.TryGetValue(藏品.藏品Type, out float 藏品价格))
+            {
+                藏品灵气总和 += 藏品价格;
+            }
         }
+
+        PlayerData.S.PropListDic[PropType.灵魂] += 藏品灵气总和;
 
         存档.已买下 = true;
 
@@ -679,6 +690,77 @@ public class 赌坊界面 : MonoBehaviour
 
         StoreController.S.SaveStoreData();
         提示("买下成功");
+    }
+
+    /// <summary>调试：真实逻辑模拟开仓 10000 次（不扣灵气、不写存档、不渲染），显示平均每仓藏品灵气</summary>
+    private void 调试开仓10000次()
+    {
+        if (藏品背包 == null) return;
+
+        const int 次数 = 10000;
+        int 行 = 取行数();
+        int 列 = 取列数();
+        藏品背包.行数 = 行;
+        藏品背包.列数 = 列;
+
+        double 总灵气 = 0;
+        for (int n = 0; n < 次数; n++)
+        {
+            藏品背包.开始生成(0);
+            List<藏品Type> 本仓 = new List<藏品Type>();
+
+            int 连续失败 = 0;
+            while (!藏品背包.已填满 && 连续失败 < 400)
+            {
+                QualityType 品质 = 按概率抽取品质();
+                List<藏品Type> 候选 = 取品质候选(品质);
+                bool 已放置 = false;
+
+                if (候选.Count > 0)
+                {
+                    int 尝试次数 = Mathf.Min(候选.Count, 8);
+                    for (int i = 0; i < 尝试次数; i++)
+                    {
+                        藏品Type type = 候选[Random.Range(0, 候选.Count)];
+                        Vector2Int 尺寸 = 取藏品尺寸(type);
+                        if (藏品背包.尝试放置(尺寸, out _, out _))
+                        {
+                            本仓.Add(type);
+                            已放置 = true;
+                            break;
+                        }
+                    }
+                }
+
+                连续失败 = 已放置 ? 0 : 连续失败 + 1;
+            }
+
+            for (int y = 0; y < 行 && !藏品背包.已填满; y++)
+            {
+                for (int x = 0; x < 列; x++)
+                {
+                    if (藏品背包.已填满) break;
+                    藏品Type type = 取单格藏品(按概率抽取品质());
+                    if (type == 藏品Type.None) continue;
+                    if (!藏品背包.单格放置(x, y)) continue;
+                    本仓.Add(type);
+                }
+            }
+
+            float 本仓灵气 = 0;
+            foreach (藏品Type type in 本仓)
+            {
+                if (赌坊Config.藏品价格Dic.TryGetValue(type, out float 价格)) 本仓灵气 += 价格;
+            }
+
+            总灵气 += 本仓灵气;
+        }
+
+        float 平均 = (float)(总灵气 / 次数);
+        if (开仓1000次平均灵气 != null) 开仓1000次平均灵气.text = PlayerData.S.格式化数字(平均);
+
+        // 模拟重置了占用表并销毁了已渲染藏品，按未改动的存档重新渲染恢复界面
+        渲染藏品();
     }
 
     private void 使用道具(赌坊道具Type type)
@@ -721,8 +803,8 @@ public class 赌坊界面 : MonoBehaviour
             switch (type)
             {
                 case 赌坊道具Type.看仓库总格子数:
-                    添加道具信息($"仓库总格子数为{PlayerData.S.格式化数字(取行数() * 取列数())}");
-                    提示($"仓库总格子数为{PlayerData.S.格式化数字(取行数() * 取列数())}");
+                    添加道具信息($"仓库总格子数为{PlayerData.S.格式化数字(统计总藏品())}");
+                    提示($"仓库总格子数为{PlayerData.S.格式化数字(统计总藏品())}");
                     break;
                 case 赌坊道具Type.白格子数量:
                     添加道具信息($"白格子数量为{PlayerData.S.格式化数字(统计品质格子(QualityType.黄品))}");
@@ -790,6 +872,10 @@ public class 赌坊界面 : MonoBehaviour
         }
 
         return true;
+    }
+    private static int 统计总藏品()
+    {
+        return PlayerData.S.赌坊存档.藏品列表.Count;
     }
 
     private static int 统计品质格子(QualityType 品质)
