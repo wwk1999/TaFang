@@ -120,7 +120,7 @@ public class JingJieConfig : MonoBehaviour
                 value*=突破跟脚Dic[item.Value];
             }
         }
-
+        value*=(1+赌坊Config.Get藏品总跟脚倍数加成() / 100f);
         return value;
     }
     public static Dictionary<JingJieType, float> 每年秒数Dic = new Dictionary<JingJieType, float>()
