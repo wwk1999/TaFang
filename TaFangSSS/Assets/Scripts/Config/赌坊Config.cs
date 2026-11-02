@@ -165,7 +165,7 @@ public enum 藏品Type
     // ===== 3×3 =====
     玄天宝鉴,           // 橙 3×3
     太极图,             // 红 3×3
-    混沌钟,             // 红 3×3
+    混沌钟,             // 彩 3×3
     盘古幡,             // 红 3×3
     乾坤鼎,             // 红 3×3
     天外混沌鼎,         // 彩 3×3
@@ -204,7 +204,7 @@ public enum 藏品Type
 
     // ===== 2×5 =====
     墨灵古琴,           // 蓝 2×5
-    万灵归墟盏,         // 橙 2×5
+    万灵归墟盏,         // 洪 2×5
     崆峒印,             // 粉 2×5
     量天尺,             // 红 2×5
     白木长匣,           // 白 2×5（新增）
@@ -227,6 +227,267 @@ public enum 藏品Type
     青墟灯,             // 紫 5×2（新增）
     紫电长鞭,           // 紫 5×2（新增）
     霞光长绫,           // 粉 5×2（新增）
+    // ===== 1×1 (新增) =====
+    旧麻囊, // 白 1×1
+    粗陶小盏, // 白 1×1
+    旧木药臼杵, // 白 1×1
+    石纹牌, // 白 1×1
+    草编蚱笼, // 白 1×1
+    素麻拭尘巾, // 白 1×1
+    苔心石, // 绿 1×1
+    凝露灵芽, // 绿 1×1
+    青藤缠脉腕, // 绿 1×1
+    青木种, // 绿 1×1
+    篁风短笛, // 绿 1×1
+    山花酿蜜囊, // 绿 1×1
+    青鳞片, // 绿 1×1
+    盘根灵须, // 绿 1×1
+    寒渊听潮螺, // 蓝 1×1
+    清溟珠, // 蓝 1×1
+    漱月寒石, // 蓝 1×1
+    玄水引灵印, // 蓝 1×1
+    冰魄粒, // 蓝 1×1
+    幽潭青苔, // 蓝 1×1
+    碧落涵波粒, // 蓝 1×1
+    凝霜珠, // 蓝 1×1
+    玉髓碎屑, // 蓝 1×1
+    冥纹镇魂牌, // 紫 1×1
+    幽篆囊, // 紫 1×1
+    蚀月萤粉, // 紫 1×1
+    雷髓蕴电节, // 紫 1×1
+    紫微芯, // 紫 1×1
+    玄昙幽花, // 紫 1×1
+    劫灰锁魂壶, // 紫 1×1
+    夜灯芯, // 紫 1×1
+    熔星小铃, // 橙 1×1
+    熔星焚云石, // 橙 1×1
+    烈阳烬, // 橙 1×1
+    曜金碎屑, // 橙 1×1
+    金乌焚天羽, // 橙 1×1
+    焚霄珠, // 橙 1×1
+    赤霄朱砂, // 橙 1×1
+    坠日玄金羽, // 橙 1×1
+    霞绮贝, // 粉 1×1
+    幻月流尘, // 粉 1×1
+    烟霞映月贝, // 粉 1×1
+    星墟砂, // 彩 1×1
+    混沌灵石, // 彩 1×1
+    归墟渡虚尘, // 彩 1×1
+    // ===== 1×2 (新增) =====
+    青竹竿, // 白 1×2
+    木柄药铲, // 白 1×2
+    粗布束灵带, // 白 1×2
+    石纹棍, // 白 1×2
+    麻布短绳, // 白 1×2
+    木纹量灵尺, // 白 1×2
+    石短砚, // 白 1×2
+    陶制小瓶, // 白 1×2
+    粗陶纳露盏, // 白 1×2
+    藤心盾, // 绿 1×2
+    青叶短笛, // 绿 1×2
+    灵草安神囊, // 绿 1×2
+    草云席, // 绿 1×2
+    水纹短匕, // 蓝 1×2
+    碧玉锁灵簪, // 蓝 1×2
+    寒铁剑, // 蓝 1×2
+    清心碧笛, // 蓝 1×2
+    紫藤缚灵鞭, // 紫 1×2
+    幽光杖, // 紫 1×2
+    藏雷檀匣, // 紫 1×2
+    震岳破云锤, // 橙 1×2
+    流火矛, // 橙 1×2
+    拂月霞扇, // 粉 1×2
+    拭心霞光帕, // 粉 1×2
+    // ===== 2×1 (新增) =====
+    麻长巾, // 白 2×1
+    木纹短案, // 白 2×1
+    石臼碾药槽, // 白 2×1
+    陶长瓶, // 白 2×1
+    草云长席, // 白 2×1
+    青藤采霞篮, // 绿 2×1
+    蕴春匣, // 绿 2×1
+    镇脉灵牌, // 绿 2×1
+    青藤负山筐, // 绿 2×1
+    收露袋, // 绿 2×1
+    养魂木匣, // 绿 2×1
+    碧水藏潮匣, // 蓝 2×1
+    镇心牌, // 蓝 2×1
+    封雷檀盒, // 紫 2×1
+    雷纹引劫牌, // 紫 2×1
+    锁幽牌, // 紫 2×1
+    熔阳小匣, // 橙 2×1
+    召焰焚霄幡, // 橙 2×1
+    织梦帕, // 粉 2×1
+    绕月霞带, // 粉 2×1
+    焚天血魂枪, // 红 2×1
+    敕令印, // 红 2×1
+    镇魄血牌, // 红 2×1
+    // ===== 1×3 (新增) =====
+    白木牌, // 白 1×3
+    麻布小幡_1x3, // 白 1×3
+    粗麻遮天幡, // 白 1×3
+    白石牌, // 白 1×3
+    素麻小卷_1x3, // 白 1×3
+    唤鹤青竹笛, // 绿 1×3
+    缚妖鞭, // 绿 1×3
+    绕月青笛, // 绿 1×3
+    裂云翠竹笛, // 绿 1×3
+    引潮箫, // 蓝 1×3
+    量渊寒尺, // 蓝 1×3
+    断流碧水尺, // 蓝 1×3
+    藏海卷, // 蓝 1×3
+    破罡紫戟, // 紫 1×3
+    镇岳紫雷戟, // 紫 1×3
+    斩日戈, // 橙 1×3
+    裂空金戈, // 橙 1×3
+    缚仙霞光绫, // 粉 1×3
+    掩月帕, // 粉 1×3
+    渡虚混沌梭, // 彩 1×3
+    // ===== 3×1 (新增) =====
+    粗木案, // 白 3×1
+    素麻小巾, // 白 3×1
+    白石映心屏, // 白 3×1
+    麻布案, // 白 3×1
+    青竹云席, // 绿 3×1
+    青玉养灵案, // 绿 3×1
+    青藤席, // 绿 3×1
+    碧波小卷, // 蓝 3×1
+    碧水凝寒席, // 蓝 3×1
+    听潮案, // 蓝 3×1
+    锁雷紫屏, // 紫 3×1
+    遮月紫云帕, // 紫 3×1
+    裂空屏, // 紫 3×1
+    紫霄弓, // 橙 3×1
+    穿云火金梭, // 橙 3×1
+    烈焰弓, // 橙 3×1
+    破灭枪, // 粉 3×1
+    招鹤霞光弓, // 粉 3×1
+    // ===== 2×2 (新增) =====
+    粗布巾, // 白 2×2
+    木纹方匣, // 白 2×2
+    石纹镇基砖, // 白 2×2
+    陶方瓶, // 白 2×2
+    青石小砚, // 白 2×2
+    麻布收灵袋, // 白 2×2
+    木方盘, // 白 2×2
+    粗陶小罐, // 白 2×2
+    素麻眠云垫, // 白 2×2
+    采月篮, // 绿 2×2
+    养元草囊, // 绿 2×2
+    木灵护道牌, // 绿 2×2
+    藤编席, // 绿 2×2
+    听风青席, // 绿 2×2
+    蕴春灵木匣, // 绿 2×2
+    凝露盒, // 绿 2×2
+    锁灵青匣, // 绿 2×2
+    研灵碧水砚, // 蓝 2×2
+    镇海印, // 蓝 2×2
+    照魂水镜, // 蓝 2×2
+    映月碧波镜, // 蓝 2×2
+    纳潮壶, // 蓝 2×2
+    封幽檀盒, // 紫 2×2
+    敕令雷纹牌, // 紫 2×2
+    炼阳鼎, // 橙 2×2
+    焚虚火炉, // 橙 2×2
+    // ===== 3×3 (新增) =====
+    麻布帐, // 白 3×3
+    白石小屏, // 白 3×3
+    素麻隐月帐, // 白 3×3
+    白玉案, // 白 3×3
+    素纱小帐, // 白 3×3
+    白木听风屏, // 白 3×3
+    铺云席, // 绿 3×3
+    聚灵青案, // 绿 3×3
+    养神翠竹案, // 绿 3×3
+    听泉席, // 绿 3×3
+    藏月藤帐, // 绿 3×3
+    潮生碧海屏, // 蓝 3×3
+    镇渊鼎, // 蓝 3×3
+    映天碧屏, // 蓝 3×3
+    纳灵寒水案, // 蓝 3×3
+    熔霞鼎, // 橙 3×3
+    烬空火炉, // 橙 3×3
+    照界焚天镜, // 橙 3×3
+    // ===== 2×4 (新增) =====
+    粗木匣, // 白 2×4
+    素绢小卷, // 白 2×4
+    白石听泉案, // 白 2×4
+    麻布匣, // 白 2×4
+    白木小卷, // 白 2×4
+    素麻静心案, // 白 2×4
+    引凤箫, // 绿 2×4
+    缠春藤卷, // 绿 2×4
+    写云翠竹卷, // 绿 2×4
+    承露案, // 绿 2×4
+    刻月竹卷, // 绿 2×4
+    织雨碧波绫, // 蓝 2×4
+    漱玉琴, // 蓝 2×4
+    鸣潮碧琴, // 蓝 2×4
+    照心寒潭琴, // 蓝 2×4
+    镇雷琴, // 紫 2×4
+    召魂紫旗, // 紫 2×4
+    裂云焚空号, // 橙 2×4
+    坠星烬天旗, // 橙 2×4
+    // ===== 4×2 (新增) =====
+    白木匣, // 白 4×2
+    麻布小幡_4x2, // 白 4×2
+    白石镇海屏, // 白 4×2
+    素麻屏, // 白 4×2
+    粗木小屏, // 白 4×2
+    白麻养灵案, // 白 4×2
+    缚仙索, // 绿 4×2
+    聚霞青案, // 绿 4×2
+    缠云翠竹案, // 绿 4×2
+    听月案, // 绿 4×2
+    渡厄青索, // 绿 4×2
+    织潮碧海绸, // 蓝 4×2
+    凝月绸, // 蓝 4×2
+    流云碧绸, // 蓝 4×2
+    锁魂寒玉绸, // 蓝 4×2
+    封雷屏, // 紫 4×2
+    射月紫弓, // 紫 4×2
+    破阵焚金戟, // 橙 4×2
+    坠星焚天弓, // 橙 4×2
+    // ===== 2×5 (新增) =====
+    白石案, // 白 2×5
+    麻布小卷, // 白 2×5
+    素绢记尘卷, // 白 2×5
+    白木卷, // 白 2×5
+    素麻小卷_2x5, // 白 2×5
+    白麻含露案, // 白 2×5
+    写风卷, // 绿 2×5
+    引鹤青琴, // 绿 2×5
+    招云翠竹旗, // 绿 2×5
+    缠月卷, // 绿 2×5
+    养心青琴, // 绿 2×5
+    清心碧水琴, // 蓝 2×5
+    潮生琴, // 蓝 2×5
+    藏月碧卷, // 蓝 2×5
+    锁魂寒玉琴, // 蓝 2×5
+    录劫卷, // 紫 2×5
+    镇幽紫印, // 紫 2×5
+    敕雷紫云印, // 紫 2×5
+    烬天印, // 橙 2×5
+    耀日火旗, // 橙 2×5
+    // ===== 5×2 (新增) =====
+    白石碑, // 白 5×2
+    素麻小幡, // 白 5×2
+    聚魂白石幡, // 白 5×2
+    白麻碑, // 白 5×2
+    养灵青碑, // 绿 5×2
+    缚龙青藤戟, // 绿 5×2
+    打神鞭, // 绿 5×2
+    破云竹戟, // 绿 5×2
+    断流碧水戟, // 蓝 5×2
+    镇海戟, // 蓝 5×2
+    缚潮寒鞭, // 蓝 5×2
+    驭雷紫云鞭, // 紫 5×2
+    镇幽幡, // 紫 5×2
+    裂日金戟, // 橙 5×2
+    烬空焚天幡, // 橙 5×2
+    弑神枪, // 彩 5×2
+    震岳火鞭, // 橙 5×2
+    缚霞流光绫, // 粉 5×2
 }
 public enum 藏品尺寸Type
 {
@@ -323,7 +584,7 @@ public class 赌坊存档
 public class 赌坊Config
 {
     /// <summary>藏品配置版本：新增/调整藏品后递增，旧存档的仓库存档会自动重新开仓</summary>
-    public const int 赌坊配置版本 = 3;
+    public const int 赌坊配置版本 = 4;
 
     public static Dictionary<赌坊Type, 赌坊配置> 赌坊配置 = new Dictionary<赌坊Type, 赌坊配置>()
     {
@@ -968,7 +1229,7 @@ public class 赌坊Config
         },
         {
             藏品Type.混沌钟,
-            new 藏品配置 { name = "混沌钟", 介绍 = "混沌钟，钟鸣定时空，一响镇诸天。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C3x3, 效果 = new 藏品效果 { 元素伤害 = 8 }, 价格 = 95000000 }
+            new 藏品配置 { name = "混沌钟", 介绍 = "混沌钟，钟鸣定时空，一响镇诸天。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x3, 效果 = new 藏品效果 { 元素伤害 = 8 }, 价格 = 95000000 }
         },
         {
             藏品Type.盘古幡,
@@ -1137,7 +1398,7 @@ public class 赌坊Config
             藏品Type.万灵归墟盏,
             new 藏品配置
             {
-                name = "万灵归墟盏", 介绍 = "万灵归墟盏，可纳万灵，盏倾而归墟。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x5
+                name = "万灵归墟盏", 介绍 = "万灵归墟盏，可纳万灵，盏倾而归墟。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C2x5
             }
         },
 
@@ -1234,6 +1495,1006 @@ public class 赌坊Config
         {
             藏品Type.霞光长绫,
             new 藏品配置 { name = "霞光长绫", 介绍 = "霞光长绫，绫映霞彩，舞动如霞绕身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 射手伤害 = 5 }, 价格 = 13000000 }
+        },
+        {
+            藏品Type.旧麻囊,
+            new 藏品配置 { name = "旧麻囊", 介绍 = "旧麻织成，囊口微松，可纳些零碎灵物。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.粗陶小盏,
+            new 藏品配置 { name = "粗陶小盏", 介绍 = "粗陶小盏，质朴无华，盛露不渗。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.旧木药臼杵,
+            new 藏品配置 { name = "旧木药臼杵", 介绍 = "旧木臼杵，久捣诸药，暗含药香。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.石纹牌,
+            new 藏品配置 { name = "石纹牌", 介绍 = "石牌天然带纹，可作记数镇纸之用。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.草编蚱笼,
+            new 藏品配置 { name = "草编蚱笼", 介绍 = "草编小笼，通透轻便，可蓄灵虫。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.素麻拭尘巾,
+            new 藏品配置 { name = "素麻拭尘巾", 介绍 = "素麻方巾，轻拭可去器物尘秽。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.苔心石,
+            new 藏品配置 { name = "苔心石", 介绍 = "石心生苔，绿意凝灵，久佩可清心。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.凝露灵芽,
+            new 藏品配置 { name = "凝露灵芽", 介绍 = "灵芽常凝晨露，芽尖泛点点清光。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.青藤缠脉腕,
+            new 藏品配置 { name = "青藤缠脉腕", 介绍 = "青藤编环，缠于腕上，可助血脉通畅。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.青木种,
+            new 藏品配置 { name = "青木种", 介绍 = "青木灵种，蕴一点生机，入土可萌。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.篁风短笛,
+            new 藏品配置 { name = "篁风短笛", 介绍 = "短笛声似篁风，可清心驱乏。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.山花酿蜜囊,
+            new 藏品配置 { name = "山花酿蜜囊", 介绍 = "山花之蜜酿成，甘甜凝灵，可缓疲劳。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.青鳞片,
+            new 藏品配置 { name = "青鳞片", 介绍 = "青鳞一片，隐有水属灵气流转。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.盘根灵须,
+            new 藏品配置 { name = "盘根灵须", 介绍 = "灵株盘根之须，可入丹引灵。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.寒渊听潮螺,
+            new 藏品配置 { name = "寒渊听潮螺", 介绍 = "海螺置于耳畔，可闻寒渊潮声，宁神静气。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.清溟珠,
+            new 藏品配置 { name = "清溟珠", 介绍 = "珠蕴清溟水气，触手清凉，可安神魂。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.漱月寒石,
+            new 藏品配置 { name = "漱月寒石", 介绍 = "石经月漱，寒而不冽，可镇燥热。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.玄水引灵印,
+            new 藏品配置 { name = "玄水引灵印", 介绍 = "印蕴玄水，盖印可引一泓灵泉。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.冰魄粒,
+            new 藏品配置 { name = "冰魄粒", 介绍 = "冰魄凝粒，寒光内蕴，久藏不化。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.幽潭青苔,
+            new 藏品配置 { name = "幽潭青苔", 介绍 = "幽潭苔藓，阴凉含灵，可入水属丹方。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.碧落涵波粒,
+            new 藏品配置 { name = "碧落涵波粒", 介绍 = "粒内涵碧波，轻晃似有潮声。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.凝霜珠,
+            new 藏品配置 { name = "凝霜珠", 介绍 = "凝霜成珠，触之微寒，可镇心火。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.玉髓碎屑,
+            new 藏品配置 { name = "玉髓碎屑", 介绍 = "玉髓崩散成屑，犹存一缕精纯灵气。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.冥纹镇魂牌,
+            new 藏品配置 { name = "冥纹镇魂牌", 介绍 = "牌刻冥纹，可镇魂安神，驱散阴祟。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.幽篆囊,
+            new 藏品配置 { name = "幽篆囊", 介绍 = "囊收幽篆符文，暗含封禁之力。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.蚀月萤粉,
+            new 藏品配置 { name = "蚀月萤粉", 介绍 = "萤粉蚀月之光，可隐身形，入夜生辉。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.雷髓蕴电节,
+            new 藏品配置 { name = "雷髓蕴电节", 介绍 = "雷髓凝聚成节，内蕴暴烈雷电。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.紫微芯,
+            new 藏品配置 { name = "紫微芯", 介绍 = "紫微星力凝芯，可引星辰灵机。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.玄昙幽花,
+            new 藏品配置 { name = "玄昙幽花", 介绍 = "玄昙一现，幽香凝魂，可度神游。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.劫灰锁魂壶,
+            new 藏品配置 { name = "劫灰锁魂壶", 介绍 = "壶纳劫灰，可锁困飘散魂魄。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.夜灯芯,
+            new 藏品配置 { name = "夜灯芯", 介绍 = "夜灯之芯，燃之幽冥自明，照彻长夜。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.熔星小铃,
+            new 藏品配置 { name = "熔星小铃", 介绍 = "铃携熔星火意，摇动可惊邪魅。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.熔星焚云石,
+            new 藏品配置 { name = "熔星焚云石", 介绍 = "陨石焚云而存，内蕴滔天火气。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.烈阳烬,
+            new 藏品配置 { name = "烈阳烬", 介绍 = "烈阳燃尽之烬，犹存焚世热度。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.曜金碎屑,
+            new 藏品配置 { name = "曜金碎屑", 介绍 = "曜金崩碎成屑，金气煌煌，可铸神兵。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.金乌焚天羽,
+            new 藏品配置 { name = "金乌焚天羽", 介绍 = "金乌坠羽，焚天一羽，火属至宝。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.焚霄珠,
+            new 藏品配置 { name = "焚霄珠", 介绍 = "珠含焚霄之火，可破阴寒壁垒。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.赤霄朱砂,
+            new 藏品配置 { name = "赤霄朱砂", 介绍 = "赤霄朱砂，可书神符，镇邪定神。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.坠日玄金羽,
+            new 藏品配置 { name = "坠日玄金羽", 介绍 = "玄金羽自坠日而留，金火交融，品相非凡。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x1 }
+        },
+        {
+            藏品Type.霞绮贝,
+            new 藏品配置 { name = "霞绮贝", 介绍 = "贝面霞纹绮丽，内含一缕霓霞灵气。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 火焰伤害 = 3 }, 价格 = 1000000 }
+        },
+        {
+            藏品Type.幻月流尘,
+            new 藏品配置 { name = "幻月流尘", 介绍 = "幻月洒落流尘，可迷幻心神，如梦似真。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 冰霜伤害 = 3 }, 价格 = 1500000 }
+        },
+        {
+            藏品Type.烟霞映月贝,
+            new 藏品配置 { name = "烟霞映月贝", 介绍 = "贝上烟霞映月，流光溢彩，蕴幻道之机。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 法师伤害 = 3 }, 价格 = 2000000 }
+        },
+        {
+            藏品Type.星墟砂,
+            new 藏品配置 { name = "星墟砂", 介绍 = "星墟崩塌之砂，一粒可纳一界残光。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 灵气增幅 = 5 }, 价格 = 50000000 }
+        },
+        {
+            藏品Type.混沌灵石,
+            new 藏品配置 { name = "混沌灵石", 介绍 = "混沌初开遗石，内含鸿蒙祖气。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 时间流速 = 5 }, 价格 = 100000000 }
+        },
+        {
+            藏品Type.归墟渡虚尘,
+            new 藏品配置 { name = "归墟渡虚尘", 介绍 = "归墟渡虚之尘，可渡虚实边界，妙用无穷。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 轮回系数 = 5 }, 价格 = 150000000 }
+        },
+        {
+            藏品Type.青竹竿,
+            new 藏品配置 { name = "青竹竿", 介绍 = "青竹长竿，轻韧趁手，可作探路之用。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.木柄药铲,
+            new 藏品配置 { name = "木柄药铲", 介绍 = "木柄药铲，刃厚耐磨，采药趁手。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.粗布束灵带,
+            new 藏品配置 { name = "粗布束灵带", 介绍 = "粗布长带，束物可微敛灵气。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.石纹棍,
+            new 藏品配置 { name = "石纹棍", 介绍 = "石纹长棍，质地沉重，可作防身。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.麻布短绳,
+            new 藏品配置 { name = "麻布短绳", 介绍 = "麻布短绳，结实耐用，可捆系杂物。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.木纹量灵尺,
+            new 藏品配置 { name = "木纹量灵尺", 介绍 = "木尺刻纹，可量灵材长短，亦作镇纸。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.石短砚,
+            new 藏品配置 { name = "石短砚", 介绍 = "石制短砚，发墨尚可，可研朱砂。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.陶制小瓶,
+            new 藏品配置 { name = "陶制小瓶", 介绍 = "陶制小瓶，可封存丹药灵露。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.粗陶纳露盏,
+            new 藏品配置 { name = "粗陶纳露盏", 介绍 = "粗陶盏口宽浅，晨可纳露，聚而不散。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.藤心盾,
+            new 藏品配置 { name = "藤心盾", 介绍 = "藤心编织成盾，轻韧可挡，可御小术。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.青叶短笛,
+            new 藏品配置 { name = "青叶短笛", 介绍 = "青叶卷笛，音色清越，可召鸟雀。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.灵草安神囊,
+            new 藏品配置 { name = "灵草安神囊", 介绍 = "灵草枕囊，放置榻侧，可安神助眠。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.草云席,
+            new 藏品配置 { name = "草云席", 介绍 = "灵草编席，卧之如卧草云，可缓疲乏。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.水纹短匕,
+            new 藏品配置 { name = "水纹短匕", 介绍 = "匕身起水纹，锋利藏寒，可破物剪金。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.碧玉锁灵簪,
+            new 藏品配置 { name = "碧玉锁灵簪", 介绍 = "碧玉簪成，插簪可锁周身灵气，稳而不散。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.寒铁剑,
+            new 藏品配置 { name = "寒铁剑", 介绍 = "寒铁成剑，剑出带霜，可冻敌于无形。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.清心碧笛,
+            new 藏品配置 { name = "清心碧笛", 介绍 = "碧笛清鸣，可清心定魄，驱散纷扰。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.紫藤缚灵鞭,
+            new 藏品配置 { name = "紫藤缚灵鞭", 介绍 = "紫藤编鞭，抽动可缚魂困灵。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.幽光杖,
+            new 藏品配置 { name = "幽光杖", 介绍 = "杖头幽光，照处阴灵现形。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.藏雷檀匣,
+            new 藏品配置 { name = "藏雷檀匣", 介绍 = "檀匣藏雷，开匣雷音震耳，可慑敌胆。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.震岳破云锤,
+            new 藏品配置 { name = "震岳破云锤", 介绍 = "锤落震岳，可破云裂石，力拔山河。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.流火矛,
+            new 藏品配置 { name = "流火矛", 介绍 = "矛尖流火，掷之烈焰横空，焚尽来敌。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x2 }
+        },
+        {
+            藏品Type.拂月霞扇,
+            new 藏品配置 { name = "拂月霞扇", 介绍 = "霞扇轻拂，可揽月华霞气，攻守由心。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2, 效果 = new 藏品效果 { 射手伤害 = 3 }, 价格 = 3000000 }
+        },
+        {
+            藏品Type.拭心霞光帕,
+            new 藏品配置 { name = "拭心霞光帕", 介绍 = "霞光帕过处，可拭心尘，明心见性。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2, 效果 = new 藏品效果 { 控制伤害 = 3 }, 价格 = 3500000 }
+        },
+        {
+            藏品Type.麻长巾,
+            new 藏品配置 { name = "麻长巾", 介绍 = "麻制长巾，可束发拭汗，朴素耐用。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.木纹短案,
+            new 藏品配置 { name = "木纹短案", 介绍 = "木纹短案，平直稳固，可置物供奉。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.石臼碾药槽,
+            new 藏品配置 { name = "石臼碾药槽", 介绍 = "石臼槽深，碾药成粉，药香暗留。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.陶长瓶,
+            new 藏品配置 { name = "陶长瓶", 介绍 = "陶制长瓶，颈细体长，可存灵露多时。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.草云长席,
+            new 藏品配置 { name = "草云长席", 介绍 = "长席编织，铺展如云，可坐卧静修。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.青藤采霞篮,
+            new 藏品配置 { name = "青藤采霞篮", 介绍 = "青藤编篮，可采朝霞灵露，盛而不溢。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.蕴春匣,
+            new 藏品配置 { name = "蕴春匣", 介绍 = "匣藏一缕春意，开匣暖意盈室。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.镇脉灵牌,
+            new 藏品配置 { name = "镇脉灵牌", 介绍 = "灵牌镇脉，立之可稳一方地气。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.青藤负山筐,
+            new 藏品配置 { name = "青藤负山筐", 介绍 = "青藤负筐，坚韧负重，可背山野灵材。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.收露袋,
+            new 藏品配置 { name = "收露袋", 介绍 = "收露袋成，晨收诸草灵露，尽纳其中。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.养魂木匣,
+            new 藏品配置 { name = "养魂木匣", 介绍 = "木匣养魂，可温养残魂，渐复清明。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.碧水藏潮匣,
+            new 藏品配置 { name = "碧水藏潮匣", 介绍 = "匣藏碧水，开阖间潮声隐隐，可蓄水势。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.镇心牌,
+            new 藏品配置 { name = "镇心牌", 介绍 = "牌悬胸前，可镇妄念，心若止水。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.封雷檀盒,
+            new 藏品配置 { name = "封雷檀盒", 介绍 = "檀盒封雷，藏雷不泄，用时方显天威。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.雷纹引劫牌,
+            new 藏品配置 { name = "雷纹引劫牌", 介绍 = "雷纹为引，可引来天劫雷力，攻伐无俦。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.锁幽牌,
+            new 藏品配置 { name = "锁幽牌", 介绍 = "牌刻锁幽纹，可镇封幽冥鬼魅。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.熔阳小匣,
+            new 藏品配置 { name = "熔阳小匣", 介绍 = "小匣藏熔阳火种，开匣可化一片火海。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.召焰焚霄幡,
+            new 藏品配置 { name = "召焰焚霄幡", 介绍 = "幡动召焰，焚霄之火可吞苍穹。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x1 }
+        },
+        {
+            藏品Type.织梦帕,
+            new 藏品配置 { name = "织梦帕", 介绍 = "帕织梦境，覆面可入他人之梦，迷惑心神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 战士伤害 = 3 }, 价格 = 4500000 }
+        },
+        {
+            藏品Type.绕月霞带,
+            new 藏品配置 { name = "绕月霞带", 介绍 = "霞带绕月，可借月华之力，庇护己身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 雷电伤害 = 3 }, 价格 = 5500000 }
+        },
+        {
+            藏品Type.焚天血魂枪,
+            new 藏品配置 { name = "焚天血魂枪", 介绍 = "血魂铸枪，枪出焚天，可刺穿乾坤。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 职业伤害 = 10 }, 价格 = 20000000 }
+        },
+        {
+            藏品Type.敕令印,
+            new 藏品配置 { name = "敕令印", 介绍 = "印承天敕，盖印如奉天命，万邪辟易。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 元素伤害 = 8 }, 价格 = 40000000 }
+        },
+        {
+            藏品Type.镇魄血牌,
+            new 藏品配置 { name = "镇魄血牌", 介绍 = "血牌镇魄，可压冤魂厉魄，稳安亡灵。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 功法每层效果 = 6 }, 价格 = 60000000 }
+        },
+        {
+            藏品Type.白木牌,
+            new 藏品配置 { name = "白木牌", 介绍 = "白木削牌，上可题字，作标记之用。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.麻布小幡_1x3,
+            new 藏品配置 { name = "麻布小幡", 介绍 = "麻布小幡，随风轻展，可作引路标识。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.粗麻遮天幡,
+            new 藏品配置 { name = "粗麻遮天幡", 介绍 = "粗麻长幡，展开可遮一方烈日。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.白石牌,
+            new 藏品配置 { name = "白石牌", 介绍 = "白石磨牌，光洁温润，可镌刻铭文。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.素麻小卷_1x3,
+            new 藏品配置 { name = "素麻小卷", 介绍 = "素麻小卷，卷收零散符纸与札记。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.唤鹤青竹笛,
+            new 藏品配置 { name = "唤鹤青竹笛", 介绍 = "青竹长笛，吹之可唤仙鹤，闻声来聚。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.缚妖鞭,
+            new 藏品配置 { name = "缚妖鞭", 介绍 = "长鞭缚妖，鞭出如蛇，可捆妖锁怪。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.绕月青笛,
+            new 藏品配置 { name = "绕月青笛", 介绍 = "青笛音绕月华，可引月灵入耳。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.裂云翠竹笛,
+            new 藏品配置 { name = "裂云翠竹笛", 介绍 = "翠竹为笛，笛声裂云，穿霄直上。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.引潮箫,
+            new 藏品配置 { name = "引潮箫", 介绍 = "箫声引潮，可令江河倒流而归。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.量渊寒尺,
+            new 藏品配置 { name = "量渊寒尺", 介绍 = "寒尺量渊，可测水深，亦作寒攻。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.断流碧水尺,
+            new 藏品配置 { name = "断流碧水尺", 介绍 = "碧尺挥下可断流，截水成墙。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.藏海卷,
+            new 藏品配置 { name = "藏海卷", 介绍 = "卷藏海图，展之可纳百川，藏海于袖。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.破罡紫戟,
+            new 藏品配置 { name = "破罡紫戟", 介绍 = "紫戟破罡，可洞穿护体罡气。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.镇岳紫雷戟,
+            new 藏品配置 { name = "镇岳紫雷戟", 介绍 = "紫雷附戟，镇岳之威，可裂地崩山。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.斩日戈,
+            new 藏品配置 { name = "斩日戈", 介绍 = "戈锋斩日，可裂苍穹，破灭骄阳。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.裂空金戈,
+            new 藏品配置 { name = "裂空金戈", 介绍 = "金戈裂空，挥之可撕空间裂隙。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C1x3 }
+        },
+        {
+            藏品Type.缚仙霞光绫,
+            new 藏品配置 { name = "缚仙霞光绫", 介绍 = "霞光化绫，可缚仙困神，柔中带刚。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 物理伤害 = 4 }, 价格 = 7000000 }
+        },
+        {
+            藏品Type.掩月帕,
+            new 藏品配置 { name = "掩月帕", 介绍 = "帕掩明月，可遮天机，隐遁行踪。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 黑暗伤害 = 4 }, 价格 = 8000000 }
+        },
+        {
+            藏品Type.渡虚混沌梭,
+            new 藏品配置 { name = "渡虚混沌梭", 介绍 = "混沌之梭，可渡虚空乱流，穿梭各界。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 掉宝率 = 5 }, 价格 = 300000000 }
+        },
+        {
+            藏品Type.粗木案,
+            new 藏品配置 { name = "粗木案", 介绍 = "粗木长案，稳厚实用，可置物研墨。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.素麻小巾,
+            new 藏品配置 { name = "素麻小巾", 介绍 = "素麻小巾，方寸之间，可拭可裹。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.白石映心屏,
+            new 藏品配置 { name = "白石映心屏", 介绍 = "白石为屏，可映己心，反观自省。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.麻布案,
+            new 藏品配置 { name = "麻布案", 介绍 = "麻布铺案，素净整齐，可衬灵物。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.青竹云席,
+            new 藏品配置 { name = "青竹云席", 介绍 = "青竹编席，卧之若腾云，可静心养气。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.青玉养灵案,
+            new 藏品配置 { name = "青玉养灵案", 介绍 = "青玉制案，可温养灵材，久放不腐。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.青藤席,
+            new 藏品配置 { name = "青藤席", 介绍 = "青藤编席，清凉透气，可驱暑疲。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.碧波小卷,
+            new 藏品配置 { name = "碧波小卷", 介绍 = "碧波成卷，展卷如见沧海，可蓄水灵。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.碧水凝寒席,
+            new 藏品配置 { name = "碧水凝寒席", 介绍 = "碧水凝寒成席，卧之可清退心火。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.听潮案,
+            new 藏品配置 { name = "听潮案", 介绍 = "案置窗畔，静听可闻潮汐之音，宁神。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.锁雷紫屏,
+            new 藏品配置 { name = "锁雷紫屏", 介绍 = "紫屏锁雷，可挡雷劫之下，护己周全。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.遮月紫云帕,
+            new 藏品配置 { name = "遮月紫云帕", 介绍 = "紫云帕遮月，可蔽天光，隐遁遁形。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.裂空屏,
+            new 藏品配置 { name = "裂空屏", 介绍 = "屏立裂空，可当空间之刃，劈开敌阵。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.紫霄弓,
+            new 藏品配置 { name = "紫霄弓", 介绍 = "", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.穿云火金梭,
+            new 藏品配置 { name = "穿云火金梭", 介绍 = "火金成梭，穿云破雾，瞬息千里。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.烈焰弓,
+            new 藏品配置 { name = "烈焰弓", 介绍 = "弓着烈焰，可羽箭索敌，可御火焚敌。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x1 }
+        },
+        {
+            藏品Type.破灭枪,
+            new 藏品配置 { name = "破灭枪", 介绍 = "一枪定魂，一枪破灭，可灭众神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 5 }, 价格 = 9000000 }
+        },
+        {
+            藏品Type.招鹤霞光弓,
+            new 藏品配置 { name = "招鹤霞光旗", 介绍 = "霞弓招展，可唤霞光仙鹤，闻讯来援。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 暴击伤害 = 4 }, 价格 = 11000000 }
+        },
+        {
+            藏品Type.粗布巾,
+            new 藏品配置 { name = "粗布巾", 介绍 = "粗布方巾，可裹物拭汗，朴实耐用。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.木纹方匣,
+            new 藏品配置 { name = "木纹方匣", 介绍 = "木纹方匣，四四方正，可收纳零散。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.石纹镇基砖,
+            new 藏品配置 { name = "石纹镇基砖", 介绍 = "石纹砖成，镇基压梁，稳重如山。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.陶方瓶,
+            new 藏品配置 { name = "陶方瓶", 介绍 = "陶制方瓶，方正古朴，可存灵液。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.青石小砚,
+            new 藏品配置 { name = "青石小砚", 介绍 = "青石小砚，发墨细润，可研朱写符。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.麻布收灵袋,
+            new 藏品配置 { name = "麻布收灵袋", 介绍 = "麻布收袋，口可束紧，专收零散灵物。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.木方盘,
+            new 藏品配置 { name = "木方盘", 介绍 = "木制方盘，可盛灵果灵石，摆放整齐。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.粗陶小罐,
+            new 藏品配置 { name = "粗陶小罐", 介绍 = "粗陶小罐，圆口鼓腹，可腌储灵材。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.素麻眠云垫,
+            new 藏品配置 { name = "素麻眠云垫", 介绍 = "素麻软垫，卧之如眠云端，可助安睡。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.采月篮,
+            new 藏品配置 { name = "采月篮", 介绍 = "竹篮采月，可纳月华灵露，夜采朝收。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.养元草囊,
+            new 藏品配置 { name = "养元草囊", 介绍 = "草囊养元，贴身可缓元气亏损。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.木灵护道牌,
+            new 藏品配置 { name = "木灵护道牌", 介绍 = "木灵为牌，护道随行，可挡邪祟。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.藤编席,
+            new 藏品配置 { name = "藤编席", 介绍 = "藤编方席，透气凉爽，可坐可卧。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.听风青席,
+            new 藏品配置 { name = "听风青席", 介绍 = "青席听风，卧之可闻风言，静察四方。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.蕴春灵木匣,
+            new 藏品配置 { name = "蕴春灵木匣", 介绍 = "灵木为匣，内蕴春光，可保鲜灵植。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.凝露盒,
+            new 藏品配置 { name = "凝露盒", 介绍 = "盒凝晨露，可存露化水，久而不竭。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.锁灵青匣,
+            new 藏品配置 { name = "锁灵青匣", 介绍 = "青匣锁灵，可将灵物封存，精华不泄。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.研灵碧水砚,
+            new 藏品配置 { name = "研灵碧水砚", 介绍 = "碧水为砚，研墨化灵，可书水符。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.镇海印,
+            new 藏品配置 { name = "镇海印", 介绍 = "印镇沧海，盖下可平风浪，定海安澜。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.照魂水镜,
+            new 藏品配置 { name = "照魂水镜", 介绍 = "水镜照魂，可映人心真伪，洞察幽微。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.映月碧波镜,
+            new 藏品配置 { name = "映月碧波镜", 介绍 = "碧波镜映月，可借月光照彻暗处。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.纳潮壶,
+            new 藏品配置 { name = "纳潮壶", 介绍 = "壶纳潮汐，可蓄水势，倾倒成潮。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.封幽檀盒,
+            new 藏品配置 { name = "封幽檀盒", 介绍 = "檀盒封幽，可锁困幽冥厉鬼，压而不散。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.敕令雷纹牌,
+            new 藏品配置 { name = "敕令雷纹牌", 介绍 = "雷纹牌刻敕令，可召天雷，镇伏邪魔。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.炼阳鼎,
+            new 藏品配置 { name = "炼阳鼎", 介绍 = "鼎炼大阳，可熔炼万物，淬阳神火。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.焚虚火炉,
+            new 藏品配置 { name = "焚虚火炉", 介绍 = "火炉焚虚，可炼虚化实，焚尽幻妄。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x2 }
+        },
+        {
+            藏品Type.麻布帐,
+            new 藏品配置 { name = "麻布帐", 介绍 = "麻布撑帐，可遮风挡雨，安身小憩。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.白石小屏,
+            new 藏品配置 { name = "白石小屏", 介绍 = "白石为屏，素雅遮挡，可隔内外。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.素麻隐月帐,
+            new 藏品配置 { name = "素麻隐月帐", 介绍 = "素麻帐隐月，可遮天光，静心安眠。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.白玉案,
+            new 藏品配置 { name = "白玉案", 介绍 = "白玉长案，光润清凉，可陈设供奉。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.素纱小帐,
+            new 藏品配置 { name = "素纱小帐", 介绍 = "素纱小帐，轻透如雾，可阻蚊虫。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.白木听风屏,
+            new 藏品配置 { name = "白木听风屏", 介绍 = "白木屏风，置之风口，可听风辨向。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.铺云席,
+            new 藏品配置 { name = "铺云席", 介绍 = "席铺如云，卧之可享云端清凉。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.聚灵青案,
+            new 藏品配置 { name = "聚灵青案", 介绍 = "青案聚灵，可汇四方灵气，助修行。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.养神翠竹案,
+            new 藏品配置 { name = "养神翠竹案", 介绍 = "翠竹为案，可养神静气，缓思虑。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.听泉席,
+            new 藏品配置 { name = "听泉席", 介绍 = "席置泉畔，听泉入眠，可清心除燥。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.藏月藤帐,
+            new 藏品配置 { name = "藏月藤帐", 介绍 = "藤帐藏月，夜卧可见月光如纱。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.潮生碧海屏,
+            new 藏品配置 { name = "潮生碧海屏", 介绍 = "屏上潮生，如临碧海，可纳水灵。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.镇渊鼎,
+            new 藏品配置 { name = "镇渊鼎", 介绍 = "鼎镇深渊，可封压水下凶灵。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.映天碧屏,
+            new 藏品配置 { name = "映天碧屏", 介绍 = "碧屏映天，可倒映苍穹，察天机。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.纳灵寒水案,
+            new 藏品配置 { name = "纳灵寒水案", 介绍 = "寒水为案，可纳灵化寒，静镇心火。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.熔霞鼎,
+            new 藏品配置 { name = "熔霞鼎", 介绍 = "鼎熔霞光，可炼霞为宝，化虚为实。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.烬空火炉,
+            new 藏品配置 { name = "烬空火炉", 介绍 = "火炉烬空，可焚尽虚空，炼化万有。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.照界焚天镜,
+            new 藏品配置 { name = "照界焚天镜", 介绍 = "焚天镜照界，可映世人因果，焚邪烛正。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x3 }
+        },
+        {
+            藏品Type.粗木匣,
+            new 藏品配置 { name = "粗木匣", 介绍 = "粗木长匣，可收画卷简册，防潮防蛀。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.素绢小卷,
+            new 藏品配置 { name = "素绢小卷", 介绍 = "素绢长卷，可书可绘，洁净素雅。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.白石听泉案,
+            new 藏品配置 { name = "白石听泉案", 介绍 = "白石案置泉边，静听水声，可澄心。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.麻布匣,
+            new 藏品配置 { name = "麻布匣", 介绍 = "麻布裱匣，朴素可靠，可存易损之物。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.白木小卷,
+            new 藏品配置 { name = "白木小卷", 介绍 = "白木裁卷，薄而韧，可作书简。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.素麻静心案,
+            new 藏品配置 { name = "素麻静心案", 介绍 = "素麻铺案，静坐其上，可宁神定心。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.引凤箫,
+            new 藏品配置 { name = "引凤箫", 介绍 = "箫声引凤，可召神凰，闻曲来朝。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.缠春藤卷,
+            new 藏品配置 { name = "缠春藤卷", 介绍 = "藤蔓缠卷，取春意成卷，可疗旧伤。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.写云翠竹卷,
+            new 藏品配置 { name = "写云翠竹卷", 介绍 = "翠竹成卷，可写云书，记山川图志。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.承露案,
+            new 藏品配置 { name = "承露案", 介绍 = "案承天露，晨收灵露，可入丹酿。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.刻月竹卷,
+            new 藏品配置 { name = "刻月竹卷", 介绍 = "竹卷刻月，可录月相变化，藏天机。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.织雨碧波绫,
+            new 藏品配置 { name = "织雨碧波绫", 介绍 = "碧波织绫，可化雨成丝，柔中带韧。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.漱玉琴,
+            new 藏品配置 { name = "漱玉琴", 介绍 = "琴声如漱玉，清越泠泠，可涤心神。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.鸣潮碧琴,
+            new 藏品配置 { name = "鸣潮碧琴", 介绍 = "碧琴鸣潮，可引潮汐，鼓动水势。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.照心寒潭琴,
+            new 藏品配置 { name = "照心寒潭琴", 介绍 = "寒潭为琴，照心明澈，可自省入定。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.镇雷琴,
+            new 藏品配置 { name = "镇雷琴", 介绍 = "琴音镇雷，可压雷劫，稳我方寸。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.召魂紫旗,
+            new 藏品配置 { name = "召魂紫旗", 介绍 = "紫旗召魂，可唤游魂，听令听差。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.裂云焚空号,
+            new 藏品配置 { name = "裂云焚空号", 介绍 = "号角裂云，吹之可焚空裂地，震退万军。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.坠星烬天旗,
+            new 藏品配置 { name = "坠星烬天旗", 介绍 = "烬天旗引坠星，可召天火，焚尽战场。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x4 }
+        },
+        {
+            藏品Type.白木匣,
+            new 藏品配置 { name = "白木匣", 介绍 = "白木宽匣，可纳较阔之物，防潮耐放。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.麻布小幡_4x2,
+            new 藏品配置 { name = "麻布小幡", 介绍 = "麻布小幡，随风招展，可作引路标识。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.白石镇海屏,
+            new 藏品配置 { name = "白石镇海屏", 介绍 = "白石屏镇海，可平风浪，稳一方水。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.素麻屏,
+            new 藏品配置 { name = "素麻屏", 介绍 = "素麻为屏，素净遮挡，可隔席间。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.粗木小屏,
+            new 藏品配置 { name = "粗木小屏", 介绍 = "粗木小屏，厚重稳固，可挡风沙。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.白麻养灵案,
+            new 藏品配置 { name = "白麻养灵案", 介绍 = "白麻铺案，可养灵植，温而不燥。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.缚仙索,
+            new 藏品配置 { name = "缚仙索", 介绍 = "长索缚仙，可捆仙困神，柔韧难断。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.聚霞青案,
+            new 藏品配置 { name = "聚霞青案", 介绍 = "青案聚霞，可收云霞灵气，色凝而蕴。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.缠云翠竹案,
+            new 藏品配置 { name = "缠云翠竹案", 介绍 = "翠竹为案，可缠云绕雾，聚而不散。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.听月案,
+            new 藏品配置 { name = "听月案", 介绍 = "案置月下，静听可闻月语，悟道静心。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.渡厄青索,
+            new 藏品配置 { name = "渡厄青索", 介绍 = "青索渡厄，可渡己渡人，脱困解厄。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.织潮碧海绸,
+            new 藏品配置 { name = "织潮碧海绸", 介绍 = "碧海织绸，可化潮为绸，柔浪护体。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.凝月绸,
+            new 藏品配置 { name = "凝月绸", 介绍 = "绸凝月华，可敛月光，化柔化刚。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.流云碧绸,
+            new 藏品配置 { name = "流云碧绸", 介绍 = "碧绸流云，可御风而行，飘然若仙。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.锁魂寒玉绸,
+            new 藏品配置 { name = "锁魂寒玉绸", 介绍 = "寒玉织绸，可锁魂困灵，冷冽镇邪。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.封雷屏,
+            new 藏品配置 { name = "封雷屏", 介绍 = "屏封雷光，可挡雷劫，护一方安稳。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.射月紫弓,
+            new 藏品配置 { name = "射月紫弓", 介绍 = "紫弓射月，箭可穿云，裂月破空。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.破阵焚金戟,
+            new 藏品配置 { name = "破阵焚金戟", 介绍 = "金戟破阵，可焚阵破围，攻无不克。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.坠星焚天弓,
+            new 藏品配置 { name = "坠星焚天弓", 介绍 = "焚天弓引坠星，箭落如陨，焚尽敌寇。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C4x2 }
+        },
+        {
+            藏品Type.白石案,
+            new 藏品配置 { name = "白石案", 介绍 = "白石长案，光润朴素，可陈设灵物。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.麻布小卷,
+            new 藏品配置 { name = "麻布小卷", 介绍 = "麻布长卷，卷收杂物，朴实耐用。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.素绢记尘卷,
+            new 藏品配置 { name = "素绢记尘卷", 介绍 = "素绢记尘，录岁月见闻，可藏旧事。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.白木卷,
+            new 藏品配置 { name = "白木卷", 介绍 = "白木为卷，可刻简录事，质轻易携。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.素麻小卷_2x5,
+            new 藏品配置 { name = "素麻小卷", 介绍 = "素麻小卷，卷收零散符纸札记。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.白麻含露案,
+            new 藏品配置 { name = "白麻含露案", 介绍 = "白麻案含露，晨起纳露，可润灵植。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.写风卷,
+            new 藏品配置 { name = "写风卷", 介绍 = "竹卷写风，可录风势，观天候变。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.引鹤青琴,
+            new 藏品配置 { name = "引鹤青琴", 介绍 = "青琴引鹤，抚之可唤仙鹤来朝。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.招云翠竹旗,
+            new 藏品配置 { name = "招云翠竹旗", 介绍 = "翠竹旗招云，可召云布雨，聚水润物。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.缠月卷,
+            new 藏品配置 { name = "缠月卷", 介绍 = "卷缠月光，可敛月华，化阴为柔。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.养心青琴,
+            new 藏品配置 { name = "养心青琴", 介绍 = "青琴养心，抚之可静心宁神，祛躁。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.清心碧水琴,
+            new 藏品配置 { name = "清心碧水琴", 介绍 = "碧水琴清心，可涤尘念，明心见性。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.潮生琴,
+            new 藏品配置 { name = "潮生琴", 介绍 = "琴声潮生，可引海潮，鼓荡水灵。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.藏月碧卷,
+            new 藏品配置 { name = "藏月碧卷", 介绍 = "碧卷藏月，可封月光，隐遁行迹。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.锁魂寒玉琴,
+            new 藏品配置 { name = "锁魂寒玉琴", 介绍 = "寒玉琴锁魂，可困幽魂，冷冽镇邪。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.录劫卷,
+            new 藏品配置 { name = "录劫卷", 介绍 = "卷录劫数，可窥天劫踪迹，未雨绸缪。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.镇幽紫印,
+            new 藏品配置 { name = "镇幽紫印", 介绍 = "紫印镇幽，盖之可封幽冥，驱邪慑鬼。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.敕雷紫云印,
+            new 藏品配置 { name = "敕雷紫云印", 介绍 = "紫云印敕雷，可召雷镇魔，天威赫赫。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.烬天印,
+            new 藏品配置 { name = "烬天印", 介绍 = "印盖烬天，可焚尽苍穹，万法成灰。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.耀日火旗,
+            new 藏品配置 { name = "耀日火旗", 介绍 = "火旗耀日，展开可召烈日，焚原燎野。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C2x5 }
+        },
+        {
+            藏品Type.白石碑,
+            new 藏品配置 { name = "白石碑", 介绍 = "白石立碑，可镌刻铭文，铭记功业。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.素麻小幡,
+            new 藏品配置 { name = "素麻小幡", 介绍 = "素麻小幡，随风轻展，可作标识。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.聚魂白石幡,
+            new 藏品配置 { name = "聚魂白石幡", 介绍 = "白石幡聚魂，可召集游魂，安顿亡灵。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.白麻碑,
+            new 藏品配置 { name = "白麻碑", 介绍 = "白麻为碑，素净庄重，可祭先贤。", QualityType = QualityType.黄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.养灵青碑,
+            new 藏品配置 { name = "养灵青碑", 介绍 = "青碑养灵，可温养灵物，护其精纯。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.缚龙青藤戟,
+            new 藏品配置 { name = "缚龙青藤戟", 介绍 = "青藤缠戟，可缚龙降蛟，威震山河。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.打神鞭,
+            new 藏品配置 { name = "打神鞭", 介绍 = "长鞭打神，可鞭挞仙神，威不可挡。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.破云竹戟,
+            new 藏品配置 { name = "破云竹戟", 介绍 = "竹戟破云，可穿云破雾，直取敌首。", QualityType = QualityType.玄品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.断流碧水戟,
+            new 藏品配置 { name = "断流碧水戟", 介绍 = "碧水戟断流，可截水成墙，御敌于外。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.镇海戟,
+            new 藏品配置 { name = "镇海戟", 介绍 = "戟镇沧海，可定风波，安一方水。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.缚潮寒鞭,
+            new 藏品配置 { name = "缚潮寒鞭", 介绍 = "寒鞭缚潮，可驭潮汐，化水为兵。", QualityType = QualityType.地品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.驭雷紫云鞭,
+            new 藏品配置 { name = "驭雷紫云鞭", 介绍 = "紫云鞭驭雷，可驱雷驭电，天威加身。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.镇幽幡,
+            new 藏品配置 { name = "镇幽幡", 介绍 = "幡镇幽冥，可压鬼魅，镇邪安魂。", QualityType = QualityType.天品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.裂日金戟,
+            new 藏品配置 { name = "裂日金戟", 介绍 = "金戟裂日，可劈开骄阳，碎日焚天。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.烬空焚天幡,
+            new 藏品配置 { name = "烬空焚天幡", 介绍 = "焚天幡烬空，可焚尽虚空，化万有为灰。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.弑神枪,
+            new 藏品配置 { name = "弑神枪", 介绍 = "魔祖罗喉的武器，枪名弑神，可破万法。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.震岳火鞭,
+            new 藏品配置 { name = "震岳火鞭", 介绍 = "火鞭震岳，可震裂山岳，鞭出火海。", QualityType = QualityType.宇品, 藏品尺寸Type = 藏品尺寸Type.C5x2 }
+        },
+        {
+            藏品Type.缚霞流光绫,
+            new 藏品配置 { name = "缚霞流光绫", 介绍 = "流光化绫，可缚霞困仙，柔美而威力无穷。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 物理伤害 = 5 }, 价格 = 13000000 }
         },
     };
 
