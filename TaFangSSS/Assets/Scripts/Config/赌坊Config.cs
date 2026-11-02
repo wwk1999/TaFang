@@ -816,9 +816,9 @@ public class 赌坊Config
     public static Dictionary<int, float> 轮数价格倍数 = new Dictionary<int, float>()
     {
         {1,1},
-        {2,1.25f},
-        {3,1.5f},
-        {4,2},
+        {2,1.1f},
+        {3,1.2f},
+        {4,1.3f},
     };
     public static Dictionary<赌坊道具Type, int> 品质道具数量 = new Dictionary<赌坊道具Type, int>()
     {
@@ -903,17 +903,17 @@ public class 赌坊Config
     public static Dictionary<赌坊Type, float> 道具价格倍率 = new Dictionary<赌坊Type, float>()
     {
         { 赌坊Type.铜钱巷, 1 },
-        { 赌坊Type.骰子坊, 2.25f },
-        { 赌坊Type.聚宝斋, 4.5f },
-        { 赌坊Type.千金楼, 10 },
-        { 赌坊Type.灵石台, 17 },
-        { 赌坊Type.风云阁, 32 },
-        { 赌坊Type.万象庄, 55 },
+        { 赌坊Type.骰子坊, 2f },
+        { 赌坊Type.聚宝斋, 4f },
+        { 赌坊Type.千金楼, 8 },
+        { 赌坊Type.灵石台, 15 },
+        { 赌坊Type.风云阁, 30 },
+        { 赌坊Type.万象庄, 50 },
         { 赌坊Type.天机局, 100 },
-        { 赌坊Type.玲珑幻境, 173 },
-        { 赌坊Type.九幽赌窟, 316 },
-        { 赌坊Type.星河赌坊, 548 },
-        { 赌坊Type.轮回台, 1000 },
+        { 赌坊Type.玲珑幻境, 150 },
+        { 赌坊Type.九幽赌窟, 200 },
+        { 赌坊Type.星河赌坊, 300 },
+        { 赌坊Type.轮回台, 500 },
     };
 
     /// <summary>取某赌坊中指定道具的实际价格</summary>

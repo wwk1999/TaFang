@@ -64,7 +64,6 @@ public class StartWindow : MonoBehaviour
       Application.runInBackground = true;
       StoreController.S.LoadStoreData();
       QueueController.S.Init主页秘境itemQueue();
-      ResourcesConfig.Init();
       ObserverModuleManager.S.SendEvent("设置BGM音量");
       ObserverModuleManager.S.SendEvent("设置音效音量");
       ObserverModuleManager.S.SendEvent("播放BGM",true);
@@ -75,14 +74,8 @@ public class StartWindow : MonoBehaviour
       });
       StartBtn.onClick.AddListener(() =>
          {
-            if (PlayerData.S.是否首次进入游戏)
-            {
-               SceneManager.LoadScene("FirstScene");
-            }
-            else
-            {
-               SceneManager.LoadScene("UIScene");
-            }
+            // 资源初始化挪到 StartLoadScene 分帧执行（见 StartLoadWindow），避免主线程卡顿
+            SceneManager.LoadScene("StartLoadScene");
          }
       );
       设置Btn.onClick.AddListener(() =>

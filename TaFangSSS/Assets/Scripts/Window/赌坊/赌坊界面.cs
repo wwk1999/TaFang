@@ -39,6 +39,7 @@ public class 赌坊界面 : MonoBehaviour
     public TextMeshProUGUI 当前轮数;
     public TextMeshProUGUI 仓库价格;
     public TextMeshProUGUI 当前灵气;
+    public TextMeshProUGUI 藏品总价值;
     public Button 更换赌坊maskbutton;
 
     // 底格每行高度：仓库外框高度 = 行数 × 该值，与藏品背包的每格像素+间距对齐
@@ -260,6 +261,14 @@ public class 赌坊界面 : MonoBehaviour
 
         if (当前轮数 != null) 当前轮数.text = 存档.轮数.ToString();
         if (仓库价格 != null) 仓库价格.text = PlayerData.S.格式化数字(计算价格());
+
+        // 藏品总价值：开仓（买下）后显示本仓藏品的总灵气价值；换仓/重新生成仓库后重置为 0
+        if (藏品总价值 != null)
+        {
+            藏品总价值.text = 存档.已买下
+                ? PlayerData.S.格式化数字(计算仓库藏品总灵气())
+                : "0";
+        }
 
         string 灵气 = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
         if (当前灵气 != null) 当前灵气.text = 灵气;
@@ -564,6 +573,21 @@ public class 赌坊界面 : MonoBehaviour
         return config.首仓价格 * 倍数;
     }
 
+    /// <summary>当前仓库内所有藏品的灵气价值总和（与买下时返还的灵气一致）</summary>
+    private static float 计算仓库藏品总灵气()
+    {
+        float 总和 = 0f;
+        foreach (赌坊藏品存档 藏品 in PlayerData.S.赌坊存档.藏品列表)
+        {
+            if (赌坊Config.藏品价格Dic.TryGetValue(藏品.藏品Type, out float 价格))
+            {
+                总和 += 价格;
+            }
+        }
+
+        return 总和;
+    }
+
     #endregion
 
     #region 交互
@@ -670,7 +694,7 @@ public class 赌坊界面 : MonoBehaviour
         PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
 
         // 仓内藏品入库的同时统计灵气价值总和，买下后加回给玩家
-        float 藏品灵气总和 = 0f;
+        float 藏品灵气总和 = 计算仓库藏品总灵气();
         foreach (赌坊藏品存档 藏品 in 存档.藏品列表)
         {
             if (!PlayerData.S.藏品仓库Dic.ContainsKey(藏品.藏品Type))
@@ -679,11 +703,6 @@ public class 赌坊界面 : MonoBehaviour
             }
 
             PlayerData.S.藏品仓库Dic[藏品.藏品Type]++;
-
-            if (赌坊Config.藏品价格Dic.TryGetValue(藏品.藏品Type, out float 藏品价格))
-            {
-                藏品灵气总和 += 藏品价格;
-            }
         }
 
         PlayerData.S.PropListDic[PropType.灵魂] += 藏品灵气总和;

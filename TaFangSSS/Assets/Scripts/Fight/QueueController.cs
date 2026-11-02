@@ -454,14 +454,41 @@ public class QueueController:XSingleton<QueueController>
         {
             count++;
            var item = Instantiate(Resources.Load("Prefabs/Window/主页秘境item"),transform).GetComponent<主页秘境item>();
-            item.gameObject.SetActive(false); 
+            item.gameObject.SetActive(false);
             if (count % fream == 0)
             {
                 yield return null;
             }
         }
     }
-    
+
+    [NonSerialized] public Queue<藏品百科item> 藏品百科itemQueue = new Queue<藏品百科item>();
+
+    /// <summary>
+    /// 赌坊藏品百科 item 全局对象池预热：按藏品配置总数分帧实例化。
+    /// 在开始游戏加载界面（StartLoadWindow）阶段调用，首次打开百科弹窗不再卡顿。
+    /// </summary>
+    public IEnumerator Init藏品百科itemQueue(int fream = 5)
+    {
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Window/赌坊/藏品百科item");
+        if (prefab == null) yield break;
+        int count = 0;
+        for (int i = 0; i < 赌坊Config.藏品配置.Count; i++)
+        {
+            count++;
+            藏品百科item item = Instantiate(prefab, transform).GetComponent<藏品百科item>();
+            if (item != null)
+            {
+                item.gameObject.SetActive(false);
+                藏品百科itemQueue.Enqueue(item);
+            }
+            if (count % fream == 0)
+            {
+                yield return null;
+            }
+        }
+    }
+
     
      public IEnumerator Init怪物Queue(int fream=10)
      {

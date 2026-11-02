@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Config;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,10 @@ public class 藏品百科面板 : MonoBehaviour
     public Transform 列表Content;
     public GameObject 藏品百科ItemPrefab;
 
+    [Header("筛选标题：显示当前选中的类型（所有/具体品质或轮廓）")]
+    public TextMeshProUGUI 品质标题;
+    public TextMeshProUGUI 轮廓标题;
+
     // 筛选状态：None 表示不筛选（显示全部）
     private QualityType 当前品质 = QualityType.None;
     private 藏品尺寸Type 当前轮廓 = 藏品尺寸Type.None;
@@ -36,8 +41,8 @@ public class 藏品百科面板 : MonoBehaviour
     // 轮廓筛选按钮
     private readonly List<藏品百科轮廓筛选Item> 轮廓按钮 = new List<藏品百科轮廓筛选Item>();
 
-    // 对象池
-    private readonly List<藏品百科item> 池 = new List<藏品百科item>();
+    // 对象池：item 存放在全局池（QueueController.DontDestroyOnLoad），
+    // 由开始游戏加载界面阶段预热，避免首次打开百科弹窗时批量 Instantiate 卡顿
     private readonly List<藏品百科item> 活跃 = new List<藏品百科item>();
 
     // 全部藏品缓存，按品质从高到低排序
@@ -126,6 +131,12 @@ public class 藏品百科面板 : MonoBehaviour
 
     private void 更新品质选中状态()
     {
+        // 标题放在最前刷新：未选中任何品质时提前返回，也要显示"品质：所有"
+        if (品质标题 != null)
+        {
+            品质标题.text = 当前品质 == QualityType.None ? "所有" : $"{当前品质}";
+        }
+
         for (int i = 0; i < 品质按钮.Count; i++)
         {
             if (i >= 品质gou.Count) break;
@@ -209,6 +220,14 @@ public class 藏品百科面板 : MonoBehaviour
         {
             item.SetSelected(item.尺寸 == 当前轮廓 && 当前轮廓 != 藏品尺寸Type.None);
         }
+
+        if (轮廓标题 != null)
+        {
+            // 与藏品百科item的尺寸文本一致：C2x5 → 2X5
+            轮廓标题.text = 当前轮廓 == 藏品尺寸Type.None
+                ? "所有"
+                : $"{当前轮廓.ToString().Replace("C", "").Replace("x", "X")}";
+        }
     }
 
     #endregion
@@ -217,11 +236,12 @@ public class 藏品百科面板 : MonoBehaviour
 
     private void 刷新列表()
     {
-        // 回收到池
+        // 回收到全局池：改挂回 QueueController 容器下，窗口销毁/场景重建后池仍可复用
         foreach (藏品百科item item in 活跃)
         {
             item.gameObject.SetActive(false);
-            池.Add(item);
+            item.transform.SetParent(QueueController.S.transform, false);
+            QueueController.S.藏品百科itemQueue.Enqueue(item);
         }
         活跃.Clear();
 
@@ -255,11 +275,13 @@ public class 藏品百科面板 : MonoBehaviour
 
     private 藏品百科item 取出池item()
     {
-        if (池.Count > 0)
+        // 优先从全局池取（加载界面已预热）；丢弃场景重建后已销毁的残留引用
+        Queue<藏品百科item> 全局池 = QueueController.S.藏品百科itemQueue;
+        while (全局池.Count > 0)
         {
-            int last = 池.Count - 1;
-            藏品百科item item = 池[last];
-            池.RemoveAt(last);
+            藏品百科item item = 全局池.Dequeue();
+            if (item == null) continue;
+            item.transform.SetParent(列表Content, false);
             return item;
         }
         GameObject go = Instantiate(藏品百科ItemPrefab, 列表Content);
