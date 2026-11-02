@@ -565,26 +565,26 @@ public class 赌坊Config
     public static Dictionary<赌坊Type, 赌坊配置> 赌坊配置 = new Dictionary<赌坊Type, 赌坊配置>()
     {
         {
-            赌坊Type.铜钱巷 ,new 赌坊配置(){name = "青云赌坊",行数=5,首仓价格 = 10000,概率 = new List<float>(){7000,3000,0,0,0,0,0,0}}
+            赌坊Type.铜钱巷 ,new 赌坊配置(){name = "青云赌坊",行数=5,首仓价格 = 30000,概率 = new List<float>(){7000,3000,0,0,0,0,0,0}}
         },
         {
-            赌坊Type.骰子坊 ,new 赌坊配置(){name = "星落赌坊",行数=6,首仓价格 = 50000,概率 = new List<float>(){4000,5000,1000,0,0,0,0,0}}
+            赌坊Type.骰子坊 ,new 赌坊配置(){name = "星落赌坊",行数=6,首仓价格 = 60000,概率 = new List<float>(){4000,5000,1000,0,0,0,0,0}}
         },
         {
-            赌坊Type.聚宝斋 ,new 赌坊配置(){name = "聚宝赌坊",行数=7,首仓价格 = 200000,概率 = new List<float>(){2000,5000,3000,0,0,0,0,0}}
+            赌坊Type.聚宝斋 ,new 赌坊配置(){name = "聚宝赌坊",行数=7,首仓价格 = 120000,概率 = new List<float>(){2000,5000,3000,0,0,0,0,0}}
         },
         {
-            赌坊Type.千金楼 ,new 赌坊配置(){name = "千金赌坊",行数=8,首仓价格 = 1000000,概率 = new List<float>(){2000,3500,4000,500,0,0,0,0}}
+            赌坊Type.千金楼 ,new 赌坊配置(){name = "千金赌坊",行数=8,首仓价格 = 250000,概率 = new List<float>(){2000,3500,4000,500,0,0,0,0}}
         },
         {
-            赌坊Type.灵石台 ,new 赌坊配置(){name = "灵石赌坊",行数=9,首仓价格 = 3000000,概率 = new List<float>(){2000,2000,5000,1000,0,0,0,0}}
+            赌坊Type.灵石台 ,new 赌坊配置(){name = "灵石赌坊",行数=9,首仓价格 = 400000,概率 = new List<float>(){2000,2000,5000,1000,0,0,0,0}}
         },
         {
-            赌坊Type.风云阁 ,new 赌坊配置(){name = "风云赌坊",行数=10,首仓价格 = 10000000,概率 = new List<float>(){2000,2300,4000,1500,200,0,0,0}}
+            赌坊Type.风云阁 ,new 赌坊配置(){name = "风云赌坊",行数=10,首仓价格 = 800000,概率 = new List<float>(){2000,2300,4000,1500,200,0,0,0}}
         },
         
         {
-            赌坊Type.万象庄 ,new 赌坊配置(){name = "万象赌坊",行数=11,首仓价格 = 30000000,概率 = new List<float>(){1500,2000,4000,2000,500,0,0,0}}
+            赌坊Type.万象庄 ,new 赌坊配置(){name = "万象赌坊",行数=11,首仓价格 = 1500000,概率 = new List<float>(){1500,2000,4000,2000,500,0,0,0}}
         },
         
         {
@@ -924,6 +924,26 @@ public class 赌坊Config
         return config.价格 * 倍率;
     }
 
+    public static Dictionary<藏品Type, 藏品配置> 普通藏品配置 = new Dictionary<藏品Type, 藏品配置>()
+    {
+
+    };
+    
+    public static Dictionary<藏品Type, 藏品配置> 宙品藏品配置 = new Dictionary<藏品Type, 藏品配置>()
+    {
+
+    };
+    
+    public static Dictionary<藏品Type, 藏品配置> 洪品藏品配置 = new Dictionary<藏品Type, 藏品配置>()
+    {
+
+    };
+    
+    public static Dictionary<藏品Type, 藏品配置> 荒品藏品配置 = new Dictionary<藏品Type, 藏品配置>()
+    {
+
+    };
+
     public static Dictionary<藏品Type, 藏品配置> 藏品配置 = new()
     {
         // ================= C1x1 =================
@@ -1033,7 +1053,7 @@ public class 赌坊Config
             {
                 name = "定风珠", 介绍 = "珠光粉润，持之可定周身风息，风不能侵。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1,
                 效果 = new 藏品效果 { 最终伤害 = 10 },
-                价格 = 1000000
+                价格 = 2000000
             }
         },
         {
@@ -1041,8 +1061,8 @@ public class 赌坊Config
             new 藏品配置
             {
                 name = "定海神珠", 介绍 = "二十四珠成一套，镇海定浪，水族避退。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1,
-                效果 = new 藏品效果 { 最终伤害 = 10 },
-                价格 = 1200000
+                效果 = new 藏品效果 { 最终伤害 = 50 },
+                价格 = 10000000
             }
         },
 
@@ -1061,8 +1081,8 @@ public class 赌坊Config
             new 藏品配置
             {
                 name = "赤霞珠", 介绍 = "珠蕴赤霞，霞光流转，触之温润如朝日。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1,
-                效果 = new 藏品效果 { 最终伤害 = 10 },
-                价格 = 1500000
+                效果 = new 藏品效果 { 最终伤害 = 15 },
+                价格 = 2500000
             }
         },
 
@@ -1126,8 +1146,8 @@ public class 赌坊Config
             new 藏品配置
             {
                 name = "幽冥轮回简", 介绍 = "简上轮回纹隐现，涉幽冥之力，可扰生死。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2,
-                效果 = new 藏品效果 { 最终伤害 = 10 },
-                价格 = 2000000
+                效果 = new 藏品效果 { 最终伤害 = 20 },
+                价格 = 3000000
             }
         },
         {
@@ -1173,15 +1193,15 @@ public class 赌坊Config
 
         {
             藏品Type.素色云界旗,
-            new 藏品配置 { name = "素色云界旗", 介绍 = "旗展云界，护身避尘，万法难沾。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 2200000 }
+            new 藏品配置 { name = "素色云界旗", 介绍 = "旗展云界，护身避尘，万法难沾。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 25 }, 价格 = 4000000 }
         },
         {
             藏品Type.离地焰光旗,
             new 藏品配置
             {
                 name = "离地焰光旗", 介绍 = "焰光旗离地腾焰，护体焚敌，焰不近身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1,
-                效果 = new 藏品效果 { 最终伤害 = 10 },
-                价格 = 2500000
+                效果 = new 藏品效果 { 最终伤害 = 20 },
+                价格 = 3500000
             }
         },
 
@@ -1223,11 +1243,11 @@ public class 赌坊Config
 
         {
             藏品Type.落宝金钱,
-            new 藏品配置 { name = "落宝金钱", 介绍 = "金钱一落，法宝失持，万宝皆坠。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 3000000 }
+            new 藏品配置 { name = "落宝金钱", 介绍 = "金钱一落，法宝失持，万宝皆坠。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 最终伤害 = 30 }, 价格 = 5000000 }
         },
         {
             藏品Type.青莲斧,
-            new 藏品配置 { name = "青莲斧", 介绍 = "斧名青莲，可斩混沌，直破万法。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 3300000 }
+            new 藏品配置 { name = "青莲斧", 介绍 = "斧名青莲，可斩混沌，直破万法。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 最终伤害 = 40 }, 价格 = 8000000 }
         },
 
         {
@@ -1260,7 +1280,7 @@ public class 赌坊Config
 
         {
             藏品Type.伏羲琴,
-            new 藏品配置 { name = "伏羲琴", 介绍 = "伏羲琴，音可通神，一曲动天地。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 3500000 }
+            new 藏品配置 { name = "伏羲琴", 介绍 = "伏羲琴，音可通神，一曲动天地。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 35 }, 价格 = 6000000 }
         },
 
         {
@@ -1357,11 +1377,11 @@ public class 赌坊Config
 
         {
             藏品Type.混元金斗,
-            new 藏品配置 { name = "混元金斗", 介绍 = "混元金斗，可收摄万物，斗转乾坤。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 4000000 }
+            new 藏品配置 { name = "混元金斗", 介绍 = "混元金斗，可收摄万物，斗转乾坤。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x2, 效果 = new 藏品效果 { 最终伤害 = 40 }, 价格 = 8000000 }
         },
         {
             藏品Type.天衍盘,
-            new 藏品配置 { name = "天衍盘", 介绍 = "天衍盘，推演天衍之数，可算大势。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 4500000 }
+            new 藏品配置 { name = "天衍盘", 介绍 = "天衍盘，推演天衍之数，可算大势。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 2000000 }
         },
         {
             藏品Type.老布背包,
@@ -1488,8 +1508,8 @@ public class 赌坊Config
             new 藏品配置
             {
                 name = "七宝琉璃塔", 介绍 = "七宝琉璃塔，可镇可护，塔光不染尘埃。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x4,
-                效果 = new 藏品效果 { 最终伤害 = 10 },
-                价格 = 8000000
+                效果 = new 藏品效果 { 最终伤害 = 150 },
+                价格 = 30000000
             }
         },
         {
@@ -1531,7 +1551,7 @@ public class 赌坊Config
 
         {
             藏品Type.金蛟剪,
-            new 藏品配置 { name = "金蛟剪", 介绍 = "金蛟剪，剪断灵机，一剪而法宝俱折。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C4x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 8500000 }
+            new 藏品配置 { name = "金蛟剪", 介绍 = "金蛟剪，剪断灵机，一剪而法宝俱折。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C4x2, 效果 = new 藏品效果 { 最终伤害 = 150 }, 价格 = 15000000 }
         },
 
         {
@@ -1579,12 +1599,13 @@ public class 赌坊Config
             {
                 name = "万灵归墟盏", 介绍 = "万灵归墟盏，可纳万灵，盏倾而归墟。", QualityType = QualityType.洪品, 藏品尺寸Type = 藏品尺寸Type.C2x5,
                 效果 = new 藏品效果 { 跟脚倍数 = 5 },
+                价格 = 115000000
             }
         },
 
         {
             藏品Type.崆峒印,
-            new 藏品配置 { name = "崆峒印", 介绍 = "崆峒印，镇印一方，印落而山河定。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x5, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 10000000 }
+            new 藏品配置 { name = "崆峒印", 介绍 = "崆峒印，镇印一方，印落而山河定。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x5, 效果 = new 藏品效果 { 最终伤害 = 50 }, 价格 = 10000000 }
         },
 
         {
@@ -1632,7 +1653,7 @@ public class 赌坊Config
 
         {
             藏品Type.灵犀玉,
-            new 藏品配置 { name = "灵犀玉", 介绍 = "灵犀玉，通感灵犀，玉动而知彼心。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 12000000 }
+            new 藏品配置 { name = "灵犀玉", 介绍 = "灵犀玉，通感灵犀，玉动而知彼心。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 最终伤害 = 25 }, 价格 = 5000000 }
         },
 
         {
@@ -1674,7 +1695,7 @@ public class 赌坊Config
         },
         {
             藏品Type.霞光长绫,
-            new 藏品配置 { name = "霞光长绫", 介绍 = "霞光长绫，绫映霞彩，舞动如霞绕身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 13000000 }
+            new 藏品配置 { name = "霞光长绫", 介绍 = "霞光长绫，绫映霞彩，舞动如霞绕身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 最终伤害 = 250 }, 价格 = 50000000 }
         },
         {
             藏品Type.旧麻囊,
@@ -1834,11 +1855,11 @@ public class 赌坊Config
         },
         {
             藏品Type.霞绮贝,
-            new 藏品配置 { name = "霞绮贝", 介绍 = "贝面霞纹绮丽，内含一缕霓霞灵气。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 1000000 }
+            new 藏品配置 { name = "霞绮贝", 介绍 = "贝面霞纹绮丽，内含一缕霓霞灵气。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 最终伤害 = 5 }, 价格 = 1000000 }
         },
         {
             藏品Type.幻月流尘,
-            new 藏品配置 { name = "幻月流尘", 介绍 = "幻月洒落流尘，可迷幻心神，如梦似真。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 1500000 }
+            new 藏品配置 { name = "幻月流尘", 介绍 = "幻月洒落流尘，可迷幻心神，如梦似真。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x1, 效果 = new 藏品效果 { 最终伤害 = 8 }, 价格 = 1500000 }
         },
         {
             藏品Type.烟霞映月贝,
@@ -1946,11 +1967,11 @@ public class 赌坊Config
         },
         {
             藏品Type.拂月霞扇,
-            new 藏品配置 { name = "拂月霞扇", 介绍 = "霞扇轻拂，可揽月华霞气，攻守由心。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 3000000 }
+            new 藏品配置 { name = "拂月霞扇", 介绍 = "霞扇轻拂，可揽月华霞气，攻守由心。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 2000000 }
         },
         {
             藏品Type.拭心霞光帕,
-            new 藏品配置 { name = "拭心霞光帕", 介绍 = "霞光帕过处，可拭心尘，明心见性。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 3500000 }
+            new 藏品配置 { name = "拭心霞光帕", 介绍 = "霞光帕过处，可拭心尘，明心见性。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x2, 效果 = new 藏品效果 { 最终伤害 = 15 }, 价格 = 3000000 }
         },
         {
             藏品Type.麻长巾,
@@ -2026,11 +2047,11 @@ public class 赌坊Config
         },
         {
             藏品Type.织梦帕,
-            new 藏品配置 { name = "织梦帕", 介绍 = "帕织梦境，覆面可入他人之梦，迷惑心神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 4500000 }
+            new 藏品配置 { name = "织梦帕", 介绍 = "帕织梦境，覆面可入他人之梦，迷惑心神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 8 }, 价格 = 1500000 }
         },
         {
             藏品Type.绕月霞带,
-            new 藏品配置 { name = "绕月霞带", 介绍 = "霞带绕月，可借月华之力，庇护己身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 5500000 }
+            new 藏品配置 { name = "绕月霞带", 介绍 = "霞带绕月，可借月华之力，庇护己身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 250 }, 价格 = 50000000 }
         },
         {
             藏品Type.焚天血魂枪,
@@ -2118,7 +2139,7 @@ public class 赌坊Config
         },
         {
             藏品Type.掩月帕,
-            new 藏品配置 { name = "掩月帕", 介绍 = "帕掩明月，可遮天机，隐遁行踪。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 8000000 }
+            new 藏品配置 { name = "掩月帕", 介绍 = "帕掩明月，可遮天机，隐遁行踪。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C1x3, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 2000000 }
         },
         {
             藏品Type.渡虚混沌梭,
@@ -2190,11 +2211,11 @@ public class 赌坊Config
         },
         {
             藏品Type.破灭枪,
-            new 藏品配置 { name = "破灭枪", 介绍 = "一枪定魂，一枪破灭，可灭众神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 9000000 }
+            new 藏品配置 { name = "破灭枪", 介绍 = "一枪定魂，一枪破灭，可灭众神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 25 }, 价格 = 5000000 }
         },
         {
             藏品Type.招鹤霞光弓,
-            new 藏品配置 { name = "招鹤霞光旗", 介绍 = "霞弓招展，可唤霞光仙鹤，闻讯来援。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 11000000 }
+            new 藏品配置 { name = "招鹤霞光旗", 介绍 = "霞弓招展，可唤霞光仙鹤，闻讯来援。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C3x1, 效果 = new 藏品效果 { 最终伤害 = 100 }, 价格 = 20000000 }
         },
         {
             藏品Type.粗布巾,
@@ -2370,7 +2391,7 @@ public class 赌坊Config
         },
         {
             藏品Type.照界焚天镜,
-            new 藏品配置 { name = "照界焚天镜", 介绍 = "焚天镜照界，可映世人因果，焚邪烛正。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x3, 效果 = new 藏品效果 { 时间流速 = 2 } }
+            new 藏品配置 { name = "照界焚天镜", 介绍 = "焚天镜照界，可映世人因果，焚邪烛正。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C3x3, 效果 = new 藏品效果 { 时间流速 = 2 }, 价格 = 98000000 }
         },
         {
             藏品Type.粗木匣,
@@ -2666,7 +2687,7 @@ public class 赌坊Config
         },
         {
             藏品Type.弑神枪,
-            new 藏品配置 { name = "弑神枪", 介绍 = "魔祖罗喉的武器，枪名弑神，可破万法。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 时间流速 = 2 } }
+            new 藏品配置 { name = "弑神枪", 介绍 = "魔祖罗喉的武器，枪名弑神，可破万法。", QualityType = QualityType.荒品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 时间流速 = 2 }, 价格 = 520000000 }
         },
         {
             藏品Type.震岳火鞭,
@@ -2674,7 +2695,7 @@ public class 赌坊Config
         },
         {
             藏品Type.缚霞流光绫,
-            new 藏品配置 { name = "缚霞流光绫", 介绍 = "流光化绫，可缚霞困仙，柔美而威力无穷。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 最终伤害 = 10 }, 价格 = 13000000 }
+            new 藏品配置 { name = "缚霞流光绫", 介绍 = "流光化绫，可缚霞困仙，柔美而威力无穷。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C5x2, 效果 = new 藏品效果 { 最终伤害 = 15 }, 价格 = 3000000 }
         },
     };
 
