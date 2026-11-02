@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Config;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum 赌坊Type
 {
