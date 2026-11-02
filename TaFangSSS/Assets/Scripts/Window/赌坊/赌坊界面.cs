@@ -309,7 +309,10 @@ public class 赌坊界面 : MonoBehaviour
                 int 尝试次数 = Mathf.Min(候选.Count, 8);
                 for (int i = 0; i < 尝试次数; i++)
                 {
-                    藏品Type type = 候选[Random.Range(0, 候选.Count)];
+                    // 宙品及以上：按 同品质同尺寸出货概率 加权抽取；其余品质维持均匀随机
+                    藏品Type type = 品质 >= QualityType.宙品
+                        ? 赌坊Config.按出货概率抽藏品(候选)
+                        : 候选[Random.Range(0, 候选.Count)];
                     Vector2Int 尺寸 = 取藏品尺寸(type);
                     if (藏品背包.尝试放置(尺寸, out int 格X, out int 格Y))
                     {
@@ -503,7 +506,10 @@ public class 赌坊界面 : MonoBehaviour
 
         if (单格.Count == 0) return false;
 
-        结果 = 单格[Random.Range(0, 单格.Count)];
+        // 宙品及以上：1×1 候选内按 同品质同尺寸出货概率 加权抽取；其余品质维持均匀随机
+        结果 = 品质 >= QualityType.宙品
+            ? 赌坊Config.按出货概率抽藏品(单格)
+            : 单格[Random.Range(0, 单格.Count)];
         return true;
     }
 
@@ -721,7 +727,10 @@ public class 赌坊界面 : MonoBehaviour
                     int 尝试次数 = Mathf.Min(候选.Count, 8);
                     for (int i = 0; i < 尝试次数; i++)
                     {
-                        藏品Type type = 候选[Random.Range(0, 候选.Count)];
+                        // 与真实生成仓库保持一致：宙品及以上按 同品质同尺寸出货概率 加权抽取
+                        藏品Type type = 品质 >= QualityType.宙品
+                            ? 赌坊Config.按出货概率抽藏品(候选)
+                            : 候选[Random.Range(0, 候选.Count)];
                         Vector2Int 尺寸 = 取藏品尺寸(type);
                         if (藏品背包.尝试放置(尺寸, out _, out _))
                         {

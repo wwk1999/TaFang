@@ -2378,7 +2378,7 @@ public class 赌坊Config
         },
         {
             藏品Type.素色云界旗,
-            new 藏品配置 { name = "素色云界旗", 介绍 = "旗展云界，护身避尘，万法难沾。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 25 }, 价格 = 4000000 }
+            new 藏品配置 { name = "素色云界旗", 介绍 = "旗展云界，护身避尘，万法难沾。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 25 }, 价格 = 4000000 ,同品质同尺寸出货概率 = 25}
         },
         {
             藏品Type.离地焰光旗,
@@ -2386,12 +2386,12 @@ public class 赌坊Config
             {
                 name = "离地焰光旗", 介绍 = "焰光旗离地腾焰，护体焚敌，焰不近身。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1,
                 效果 = new 藏品效果 { 最终伤害 = 20 },
-                价格 = 3500000,同品质同尺寸出货概率 = 70
+                价格 = 3500000,同品质同尺寸出货概率 = 50
             }
         },
         {
             藏品Type.织梦帕,
-            new 藏品配置 { name = "织梦帕", 介绍 = "帕织梦境，覆面可入他人之梦，迷惑心神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 8 }, 价格 = 1500000 ,同品质同尺寸出货概率 = 25}
+            new 藏品配置 { name = "织梦帕", 介绍 = "帕织梦境，覆面可入他人之梦，迷惑心神。", QualityType = QualityType.宙品, 藏品尺寸Type = 藏品尺寸Type.C2x1, 效果 = new 藏品效果 { 最终伤害 = 8 }, 价格 = 1500000 ,同品质同尺寸出货概率 = 20}
         },
         {
             藏品Type.绕月霞带,
@@ -2680,6 +2680,61 @@ public class 赌坊Config
             表[kv.Key] = 品质基价[品质] * 面积 + (int)kv.Key * 7;
         }
         return 表;
+    }
+
+    /// <summary>出货权重缓存：概率>0 用配置值；概率=0 时若该品质该尺寸仅此一件记 100（唯一必出），
+    /// 整组均未配置则组内均分 100（各尺寸总权重仍为 100）；组内已有配置件则 0 视为不出货</summary>
+    private static Dictionary<藏品Type, float> 出货权重Dic;
+
+    private static float Get出货权重(藏品Type type)
+    {
+        if (出货权重Dic == null)
+        {
+            出货权重Dic = new Dictionary<藏品Type, float>();
+            foreach (KeyValuePair<藏品Type, 藏品配置> kv in 藏品配置)
+            {
+                藏品配置 c = kv.Value;
+                if (c.同品质同尺寸出货概率 > 0)
+                {
+                    出货权重Dic[kv.Key] = c.同品质同尺寸出货概率;
+                    continue;
+                }
+
+                // 概率=0：统计同品质同尺寸的藏品数量与已配置数量
+                int 同组数 = 0;
+                int 已配置数 = 0;
+                foreach (KeyValuePair<藏品Type, 藏品配置> other in 藏品配置)
+                {
+                    if (other.Value.QualityType != c.QualityType || other.Value.藏品尺寸Type != c.藏品尺寸Type) continue;
+                    同组数++;
+                    if (other.Value.同品质同尺寸出货概率 > 0) 已配置数++;
+                }
+                出货权重Dic[kv.Key] = 同组数 <= 1 ? 100f : (已配置数 == 0 ? 100f / 同组数 : 0f);
+            }
+        }
+
+        float 权重;
+        return 出货权重Dic.TryGetValue(type, out 权重) ? 权重 : 0f;
+    }
+
+    /// <summary>宙品及以上品质抽藏品：在候选内按 同品质同尺寸出货概率 加权抽取。
+    /// 概率=0 且该尺寸仅此一件时权重 100（直接出它）；各尺寸概率总和均为 100 时，等效于先等概率选尺寸、再在尺寸内按概率抽藏品。</summary>
+    public static 藏品Type 按出货概率抽藏品(List<藏品Type> 候选)
+    {
+        if (候选 == null || 候选.Count == 0) return 藏品Type.None;
+        if (候选.Count == 1) return 候选[0];
+
+        float 总权重 = 0;
+        foreach (藏品Type type in 候选) 总权重 += Get出货权重(type);
+        if (总权重 <= 0) return 候选[Random.Range(0, 候选.Count)];
+
+        float r = Random.Range(0f, 总权重);
+        foreach (藏品Type type in 候选)
+        {
+            r -= Get出货权重(type);
+            if (r <= 0) return type;
+        }
+        return 候选[候选.Count - 1];
     }
 
     /// <summary>藏品尺寸类型转宽高（单位：格）</summary>
