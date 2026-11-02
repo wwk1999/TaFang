@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,34 +23,30 @@ public class 藏品仓库种类item : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        var list = 道宝Config.道宝品质列表[道宝Quality];
+        var list = 赌坊Config.品质藏品列表[QualityType];
         foreach (var item in list)
         {
-            var 道宝item=Instantiate(Resources.Load("Prefabs/Window/道宝item"),content.transform).GetComponent<道宝item>();
-            道宝item.道宝Type = item;
-            道宝item.SetItem();
+            if (PlayerData.S.藏品仓库Dic.ContainsKey(item) && PlayerData.S.藏品仓库Dic[item] > 0)
+            {
+                var 藏品item=Instantiate(Resources.Load("Prefabs/Window/赌坊/藏品仓库item"),content.transform).GetComponent<藏品仓库item>();
+                藏品item.藏品Type = item;
+                藏品item.SetItem(item);
+            }
+            
         }
         switch (QualityType)
         {
-            case 道宝Quality.混沌至宝:
+            case QualityType.荒品:
                 title.colorGradientPreset = ResourcesConfig.荒TMP;
                 标签背景.sprite = ResourcesConfig.道宝标签彩;
                 break;
-            case 道宝Quality.先天至宝:
+            case QualityType.洪品:
                 title.colorGradientPreset = ResourcesConfig.洪TMP;
                 标签背景.sprite = ResourcesConfig.道宝标签红;
                 break;
-            case 道宝Quality.功德至宝:
+            case QualityType.宙品:
                 title.colorGradientPreset = ResourcesConfig.宙TMP;
                 标签背景.sprite = ResourcesConfig.道宝标签粉;
-                break;
-            case 道宝Quality.先天灵宝:
-                title.colorGradientPreset = ResourcesConfig.宇TMP;
-                标签背景.sprite = ResourcesConfig.道宝标签橙;
-                break;
-            case 道宝Quality.后天法宝:
-                title.colorGradientPreset = ResourcesConfig.天TMP;
-                标签背景.sprite = ResourcesConfig.道宝标签紫;
                 break;
         }
     }

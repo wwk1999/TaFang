@@ -606,12 +606,189 @@ public class 赌坊Config
             赌坊Type.轮回台 ,new 赌坊配置(){name = "轮回赌坊",行数=16,首仓价格 = 1000000000,概率 = new List<float>(){500,500,2000,4000,2650,319,30,1}}
         },
     };
-    
-    public static Dictionary<QualityType,List<藏品Type>>品质藏品列表=new Dictionary<QualityType, List<藏品Type>>()
+
+    public static Dictionary<QualityType, List<藏品Type>> 品质藏品列表 = new Dictionary<QualityType, List<藏品Type>>()
+    {
+        // 黄品 (91)
+        {
+            QualityType.黄品,
+            new List<藏品Type>
+            {
+                藏品Type.青竹短匕, 藏品Type.凡铁箭簇, 藏品Type.苦竹笛, 藏品Type.桐木简册,
+                藏品Type.山涧石钵, 藏品Type.粗麻灵袋, 藏品Type.老藤酒瓢, 藏品Type.寒溪卵石,
+                藏品Type.土陶丹瓶, 藏品Type.兽皮手札, 藏品Type.竹编鱼篓, 藏品Type.灰陶酒坛,
+                藏品Type.藤编提篮, 藏品Type.白石镇纸, 藏品Type.老布背包, 藏品Type.白玉蒲团,
+                藏品Type.素纱灯罩, 藏品Type.麻布长卷, 藏品Type.竹节令牌, 藏品Type.粗木长案,
+                藏品Type.石纹屏风, 藏品Type.素麻挂毯, 藏品Type.白木长匣, 藏品Type.素绢画卷,
+                藏品Type.白麻长幡, 藏品Type.旧麻囊, 藏品Type.粗陶小盏, 藏品Type.旧木药臼杵,
+                藏品Type.石纹牌, 藏品Type.草编蚱笼, 藏品Type.素麻拭尘巾, 藏品Type.青竹竿,
+                藏品Type.木柄药铲, 藏品Type.粗布束灵带, 藏品Type.石纹棍, 藏品Type.麻布短绳,
+                藏品Type.木纹量灵尺, 藏品Type.石短砚, 藏品Type.陶制小瓶, 藏品Type.粗陶纳露盏,
+                藏品Type.麻长巾, 藏品Type.木纹短案, 藏品Type.石臼碾药槽, 藏品Type.陶长瓶,
+                藏品Type.草云长席, 藏品Type.白木牌, 藏品Type.麻布小幡_1x3, 藏品Type.粗麻遮天幡,
+                藏品Type.白石牌, 藏品Type.素麻小卷_1x3, 藏品Type.粗木案, 藏品Type.素麻小巾,
+                藏品Type.白石映心屏, 藏品Type.麻布案, 藏品Type.粗布巾, 藏品Type.木纹方匣,
+                藏品Type.石纹镇基砖, 藏品Type.陶方瓶, 藏品Type.青石小砚, 藏品Type.麻布收灵袋,
+                藏品Type.木方盘, 藏品Type.粗陶小罐, 藏品Type.素麻眠云垫, 藏品Type.麻布帐,
+                藏品Type.白石小屏, 藏品Type.素麻隐月帐, 藏品Type.白玉案, 藏品Type.素纱小帐,
+                藏品Type.白木听风屏, 藏品Type.粗木匣, 藏品Type.素绢小卷, 藏品Type.白石听泉案,
+                藏品Type.麻布匣, 藏品Type.白木小卷, 藏品Type.素麻静心案, 藏品Type.白木匣,
+                藏品Type.麻布小幡_4x2, 藏品Type.白石镇海屏, 藏品Type.素麻屏, 藏品Type.粗木小屏,
+                藏品Type.白麻养灵案, 藏品Type.白石案, 藏品Type.麻布小卷, 藏品Type.素绢记尘卷,
+                藏品Type.白木卷, 藏品Type.素麻小卷_2x5, 藏品Type.白麻含露案, 藏品Type.白石碑,
+                藏品Type.素麻小幡, 藏品Type.聚魂白石幡, 藏品Type.白麻碑
+            }
+        },
+
+        // 玄品 (80)
+        {
+            QualityType.玄品,
+            new List<藏品Type>
+            {
+                藏品Type.凝露草, 藏品Type.青纹石佩, 藏品Type.松风笛, 藏品Type.赤铜灵镜,
+                藏品Type.云纹木簪, 藏品Type.灵狐尾羽, 藏品Type.清泉玉珠, 藏品Type.月华草根,
+                藏品Type.灵鹿角屑, 藏品Type.引风幡残片, 藏品Type.玄铁短戈, 藏品Type.聚灵瓦炉,
+                藏品Type.青玉卦签, 藏品Type.玄龟小盾, 藏品Type.青木棋盘, 藏品Type.青藤长鞭,
+                藏品Type.青竹长箫, 藏品Type.藤纹盾, 藏品Type.青藤长索, 藏品Type.翠竹令旗,
+                藏品Type.木灵符牌, 藏品Type.青木长戟, 藏品Type.藤甲披风, 藏品Type.苔心石,
+                藏品Type.凝露灵芽, 藏品Type.青藤缠脉腕, 藏品Type.青木种, 藏品Type.篁风短笛,
+                藏品Type.山花酿蜜囊, 藏品Type.青鳞片, 藏品Type.盘根灵须, 藏品Type.藤心盾,
+                藏品Type.青叶短笛, 藏品Type.灵草安神囊, 藏品Type.草云席, 藏品Type.青藤采霞篮,
+                藏品Type.蕴春匣, 藏品Type.镇脉灵牌, 藏品Type.青藤负山筐, 藏品Type.收露袋,
+                藏品Type.养魂木匣, 藏品Type.唤鹤青竹笛, 藏品Type.缚妖鞭, 藏品Type.绕月青笛,
+                藏品Type.裂云翠竹笛, 藏品Type.青竹云席, 藏品Type.青玉养灵案, 藏品Type.青藤席,
+                藏品Type.采月篮, 藏品Type.养元草囊, 藏品Type.木灵护道牌, 藏品Type.藤编席,
+                藏品Type.听风青席, 藏品Type.蕴春灵木匣, 藏品Type.凝露盒, 藏品Type.锁灵青匣,
+                藏品Type.铺云席, 藏品Type.聚灵青案, 藏品Type.养神翠竹案, 藏品Type.听泉席,
+                藏品Type.藏月藤帐, 藏品Type.引凤箫, 藏品Type.缠春藤卷, 藏品Type.写云翠竹卷,
+                藏品Type.承露案, 藏品Type.刻月竹卷, 藏品Type.缚仙索, 藏品Type.聚霞青案,
+                藏品Type.缠云翠竹案, 藏品Type.听月案, 藏品Type.渡厄青索, 藏品Type.写风卷,
+                藏品Type.引鹤青琴, 藏品Type.招云翠竹旗, 藏品Type.缠月卷, 藏品Type.养心青琴,
+                藏品Type.养灵青碑, 藏品Type.缚龙青藤戟, 藏品Type.打神鞭, 藏品Type.破云竹戟
+            }
+        },
+
+        // 地品 (68)
+        {
+            QualityType.地品,
+            new List<藏品Type>
+            {
+                藏品Type.流霞石灯, 藏品Type.幽泉玉佩, 藏品Type.灵犀角, 藏品Type.沧澜舟桨,
+                藏品Type.落霞琉璃瓶, 藏品Type.玉荷盏, 藏品Type.翠玉拂尘, 藏品Type.玄水玉璧,
+                藏品Type.引星盘残片, 藏品Type.青岚幡, 藏品Type.碧水砚台, 藏品Type.碧霞丹炉,
+                藏品Type.紫纹鼎, 藏品Type.聚灵青葫, 藏品Type.霜月寒镜, 藏品Type.苍龙鳞甲,
+                藏品Type.寒潭玉尺, 藏品Type.碧波长绫, 藏品Type.墨灵古琴, 藏品Type.灵龟玄甲,
+                藏品Type.碧海长绸, 藏品Type.寒玉长笛, 藏品Type.寒渊听潮螺, 藏品Type.清溟珠,
+                藏品Type.漱月寒石, 藏品Type.玄水引灵印, 藏品Type.冰魄粒, 藏品Type.幽潭青苔,
+                藏品Type.碧落涵波粒, 藏品Type.凝霜珠, 藏品Type.玉髓碎屑, 藏品Type.水纹短匕,
+                藏品Type.碧玉锁灵簪, 藏品Type.寒铁剑, 藏品Type.清心碧笛, 藏品Type.碧水藏潮匣,
+                藏品Type.镇心牌, 藏品Type.引潮箫, 藏品Type.量渊寒尺, 藏品Type.断流碧水尺,
+                藏品Type.藏海卷, 藏品Type.碧波小卷, 藏品Type.碧水凝寒席, 藏品Type.听潮案,
+                藏品Type.研灵碧水砚, 藏品Type.镇海印, 藏品Type.照魂水镜, 藏品Type.映月碧波镜,
+                藏品Type.纳潮壶, 藏品Type.潮生碧海屏, 藏品Type.镇渊鼎, 藏品Type.映天碧屏,
+                藏品Type.纳灵寒水案, 藏品Type.织雨碧波绫, 藏品Type.漱玉琴, 藏品Type.鸣潮碧琴,
+                藏品Type.照心寒潭琴, 藏品Type.织潮碧海绸, 藏品Type.凝月绸, 藏品Type.流云碧绸,
+                藏品Type.锁魂寒玉绸, 藏品Type.清心碧水琴, 藏品Type.潮生琴, 藏品Type.藏月碧卷,
+                藏品Type.锁魂寒玉琴, 藏品Type.断流碧水戟, 藏品Type.镇海戟, 藏品Type.缚潮寒鞭
+            }
+        },
+
+        // 天品 (53)
+        {
+            QualityType.天品,
+            new List<藏品Type>
+            {
+                藏品Type.幽溟珠, 藏品Type.裂风枪, 藏品Type.碧游简册, 藏品Type.幽夜灯,
+                藏品Type.吞灵玉蝉, 藏品Type.玄岳印, 藏品Type.九叶凝芝, 藏品Type.撼山弓,
+                藏品Type.焚天蒲团, 藏品Type.紫纹符牌, 藏品Type.万载灵根, 藏品Type.云荒罗盘,
+                藏品Type.赤霞鼎, 藏品Type.焚天罗盘, 藏品Type.玄冥玉壶, 藏品Type.星陨铁,
+                藏品Type.紫云蒲扇, 藏品Type.落星琉璃盏, 藏品Type.霜河玉璜, 藏品Type.紫檀长匣,
+                藏品Type.逐月弓, 藏品Type.青墟灯, 藏品Type.紫电长鞭, 藏品Type.冥纹镇魂牌,
+                藏品Type.幽篆囊, 藏品Type.蚀月萤粉, 藏品Type.雷髓蕴电节, 藏品Type.紫微芯,
+                藏品Type.玄昙幽花, 藏品Type.劫灰锁魂壶, 藏品Type.夜灯芯, 藏品Type.紫藤缚灵鞭,
+                藏品Type.幽光杖, 藏品Type.藏雷檀匣, 藏品Type.封雷檀盒, 藏品Type.雷纹引劫牌,
+                藏品Type.锁幽牌, 藏品Type.破罡紫戟, 藏品Type.镇岳紫雷戟, 藏品Type.锁雷紫屏,
+                藏品Type.遮月紫云帕, 藏品Type.裂空屏, 藏品Type.封幽檀盒, 藏品Type.敕令雷纹牌,
+                藏品Type.镇雷琴, 藏品Type.召魂紫旗, 藏品Type.封雷屏, 藏品Type.射月紫弓,
+                藏品Type.录劫卷, 藏品Type.镇幽紫印, 藏品Type.敕雷紫云印, 藏品Type.驭雷紫云鞭,
+                藏品Type.镇幽幡
+            }
+        },
+
+        // 宇品 (49)
+        {
+            QualityType.宇品,
+            new List<藏品Type>
+            {
+                藏品Type.九幽罗幡, 藏品Type.千丝缚仙索, 藏品Type.镇水神碑, 藏品Type.惊雷钺,
+                藏品Type.玄黄玉圭, 藏品Type.逐日离弓, 藏品Type.镇岳神印, 藏品Type.镇魔石碑,
+                藏品Type.山海玉简, 藏品Type.焚天玄鼎, 藏品Type.碧霞仙钟, 藏品Type.玄天宝鉴,
+                藏品Type.碧水瑶琴, 藏品Type.苍澜神鼎, 藏品Type.赤霄玉磬, 藏品Type.山海图残卷,
+                藏品Type.流虹仙槎, 藏品Type.苍澜战鼓, 藏品Type.玄天战鼓, 藏品Type.熔星小铃,
+                藏品Type.熔星焚云石, 藏品Type.烈阳烬, 藏品Type.曜金碎屑, 藏品Type.金乌焚天羽,
+                藏品Type.焚霄珠, 藏品Type.赤霄朱砂, 藏品Type.坠日玄金羽, 藏品Type.震岳破云锤,
+                藏品Type.流火矛, 藏品Type.熔阳小匣, 藏品Type.召焰焚霄幡, 藏品Type.斩日戈,
+                藏品Type.裂空金戈, 藏品Type.紫霄弓, 藏品Type.穿云火金枪, 藏品Type.烈焰弓,
+                藏品Type.炼阳鼎, 藏品Type.焚虚火炉, 藏品Type.熔霞鼎, 藏品Type.烬空火炉,
+                藏品Type.裂云焚空号, 藏品Type.坠星烬天旗, 藏品Type.破阵焚金弓, 藏品Type.坠星焚天枪,
+                藏品Type.烬天印, 藏品Type.耀日火旗, 藏品Type.裂日金戟, 藏品Type.烬空焚天幡,
+                藏品Type.震岳火鞭
+            }
+        },
+
+        // 宙品 (27)
+        {
+            QualityType.宙品,
+            new List<藏品Type>
+            {
+                藏品Type.定风珠, 藏品Type.二十四颗定海神珠, 藏品Type.赤霞珠, 藏品Type.幽冥轮回简,
+                藏品Type.素色云界旗, 藏品Type.离地焰光旗, 藏品Type.落宝金钱, 藏品Type.青莲斧,
+                藏品Type.伏羲琴, 藏品Type.混元金斗, 藏品Type.天衍盘, 藏品Type.七宝琉璃塔,
+                藏品Type.金蛟剪, 藏品Type.崆峒印, 藏品Type.灵犀玉, 藏品Type.霞光长绫,
+                藏品Type.霞绮贝, 藏品Type.幻月流尘, 藏品Type.烟霞映月贝, 藏品Type.拂月霞扇,
+                藏品Type.拭心霞光帕, 藏品Type.织梦帕, 藏品Type.绕月霞带, 藏品Type.掩月帕,
+                藏品Type.破灭枪, 藏品Type.招鹤霞光弓, 藏品Type.缚霞流光绫
+            }
+        },
+
+        // 洪品 (16)
+        {
+            QualityType.洪品,
+            new List<藏品Type>
+            {
+                藏品Type.业火红莲, 藏品Type.河图洛书, 藏品Type.灭世黑莲, 藏品Type.诸天庆云,
+                藏品Type.六道轮回盘, 藏品Type.太极图, 藏品Type.盘古幡, 藏品Type.乾坤鼎,
+                藏品Type.山河社稷图, 藏品Type.诛仙四剑, 藏品Type.万灵归墟盏, 藏品Type.量天尺,
+                藏品Type.焚天血魂枪, 藏品Type.敕令印, 藏品Type.镇魄血牌, 藏品Type.缚仙霞光绫
+            }
+        },
+
+        // 荒品 (16)
+        {
+            QualityType.荒品,
+            new List<藏品Type>
+            {
+                藏品Type.鸿蒙珠, 藏品Type.万道之源, 藏品Type.轮回核心, 藏品Type.无始灵枢,
+                藏品Type.太虚本源, 藏品Type.混沌钟, 藏品Type.天外混沌鼎, 藏品Type.混沌青莲,
+                藏品Type.开天斧, 藏品Type.造化玉牒, 藏品Type.星墟砂, 藏品Type.混沌灵石,
+                藏品Type.归墟渡虚尘, 藏品Type.渡虚混沌梭, 藏品Type.照界焚天镜, 藏品Type.弑神枪
+            }
+        },
+
+    };
+
+    public static float Get藏品总最终伤害加成()
     {
         
-    }
-
+    };
+    public static float Get藏品总跟脚倍数加成()
+    {
+        
+    };
+    public static float Get藏品总时间流速加成()
+    {
+        
+    };
     public static Dictionary<int, float> 轮数价格倍数 = new Dictionary<int, float>()
     {
         {1,1},
