@@ -19,6 +19,8 @@ public class 藏品仓库item : MonoBehaviour
     public TextMeshProUGUI 效果Count;
     public TextMeshProUGUI 轮廓text;
     public TextMeshProUGUI 轮廓Count;
+    public TextMeshProUGUI Count;
+
     public Image bg;
 
     [NonSerialized] public 藏品Type 藏品Type;
@@ -51,7 +53,7 @@ public class 藏品仓库item : MonoBehaviour
         bg.sprite = ResourcesConfig.Get灵植背包格子(赌坊Config.藏品配置[type].QualityType);
         藏品Type = type;
         if (!赌坊Config.藏品配置.TryGetValue(type, out 藏品配置 config)) return;
-
+        Count.text=PlayerData.S.藏品仓库Dic[type].ToString();
         // 名称
         if (name != null) name.text = config.name;
 

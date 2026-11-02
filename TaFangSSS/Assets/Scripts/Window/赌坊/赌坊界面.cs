@@ -9,6 +9,12 @@ using Random = UnityEngine.Random;
 /// <summary>赌坊主界面：赌坊切换、仓库生成/揭晓、道具使用、轮数与买下</summary>
 public class 赌坊界面 : MonoBehaviour
 {
+    public Button 开仓1000次Button;
+    public TextMeshProUGUI 开仓1000次平均灵气;
+
+    public Button 藏品仓库;
+    public GameObject 藏品仓库Obj;
+
     public Button 藏品百科;
     public Button 藏品百科mask;
 
@@ -55,6 +61,10 @@ public class 赌坊界面 : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("赌坊Item点击", 赌坊Item点击);
         ObserverModuleManager.S.RegisterEvent("赌坊道具使用", 道具使用事件);
 
+        藏品仓库.onClick.AddListener(() =>
+        {
+            藏品仓库Obj.gameObject.SetActive(true);
+        });
         if (退出按钮 != null)
         {
             退出按钮.onClick.AddListener(() =>

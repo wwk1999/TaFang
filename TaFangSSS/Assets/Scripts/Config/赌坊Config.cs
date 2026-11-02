@@ -779,16 +779,37 @@ public class 赌坊Config
 
     public static float Get藏品总最终伤害加成()
     {
-        
-    };
+        float 总值 = 0;
+        foreach (KeyValuePair<藏品Type, int> kv in PlayerData.S.藏品仓库Dic)
+        {
+            if (kv.Value <= 0) continue;
+            if (!藏品配置.TryGetValue(kv.Key, out 藏品配置 config)) continue;
+            总值 += config.效果.最终伤害 * kv.Value;
+        }
+        return 总值;
+    }
     public static float Get藏品总跟脚倍数加成()
     {
-        
-    };
+        float 总值 = 0;
+        foreach (KeyValuePair<藏品Type, int> kv in PlayerData.S.藏品仓库Dic)
+        {
+            if (kv.Value <= 0) continue;
+            if (!藏品配置.TryGetValue(kv.Key, out 藏品配置 config)) continue;
+            总值 += config.效果.跟脚倍数 * kv.Value;
+        }
+        return 总值;
+    }
     public static float Get藏品总时间流速加成()
     {
-        
-    };
+        float 总值 = 0;
+        foreach (KeyValuePair<藏品Type, int> kv in PlayerData.S.藏品仓库Dic)
+        {
+            if (kv.Value <= 0) continue;
+            if (!藏品配置.TryGetValue(kv.Key, out 藏品配置 config)) continue;
+            总值 += config.效果.时间流速 * kv.Value;
+        }
+        return 总值;
+    }
     public static Dictionary<int, float> 轮数价格倍数 = new Dictionary<int, float>()
     {
         {1,1},
