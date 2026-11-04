@@ -9,6 +9,11 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 大道背景框蓝;
+	public static Sprite 大道背景框橙;
+	public static Sprite 大道背景框红;
+	public static Sprite 大道背景框彩;
+	
 	public static Sprite 铜钱巷;
 	public static Sprite 骰子坊;
 	public static Sprite 聚宝斋;
@@ -1332,6 +1337,9 @@ public static Sprite 缚霞流光绫藏品;
 	// 大道图标：Sprite/悟道崖/大道icon1（类型0~15）、大道icon2（类型16~28，切图0~12）
 	public static Sprite[] 大道icon1Sprites;
 	public static Sprite[] 大道icon2Sprites;
+
+	// 果位图标：Sprite/悟道崖/果位icon（一张图集，按大道Type顺序排列）
+	public static Sprite[] 果位iconSprites;
 
 	public static Sprite 丹童平台;
 
@@ -7709,6 +7717,21 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	/// <summary>按大道Type取果位图标（一张图集按顺序排列），首次调用时加载</summary>
+	public static Sprite Get果位Icon(大道Type type)
+	{
+		if (果位iconSprites == null || 果位iconSprites.Length == 0)
+		{
+			果位iconSprites = Load阶数Sprites("Sprite/悟道崖/果位icon");
+		}
+		int idx = (int)type;
+		if (idx >= 0 && idx < 果位iconSprites.Length)
+		{
+			return 果位iconSprites[idx];
+		}
+		return null;
+	}
+
 	public static Sprite Get藏品Sprite(藏品Type Type)
 {
     switch (Type)
@@ -8191,8 +8214,14 @@ public static Sprite 缚霞流光绫藏品;
 	/// </summary>
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
-		const float totalItems = 2582f;
+		const float totalItems = 2586f;
 		int loadedCount = 0;
+		大道背景框蓝= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[0];
+		大道背景框橙= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[1];
+		大道背景框红= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[2];
+		大道背景框彩= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[3];
+
+		
 		铜钱巷 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[1];
 		骰子坊 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[3];
 		聚宝斋 = Resources.LoadAll<Sprite>("Sprite/赌坊icon/赌坊等级1")[5];

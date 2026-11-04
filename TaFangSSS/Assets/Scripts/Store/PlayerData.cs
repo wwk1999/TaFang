@@ -141,19 +141,20 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 灵兽分解血脉7 = false;
     public bool 灵兽分解血脉8 = false;
 
+    public 大道Type 当前参悟大道Type;
     public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()
     {
         // 基础
-        { 大道Type.火焰, new 大道(){ 大道Type = 大道Type.火焰, 等级 = 0, 经验 = 0 } },
-        { 大道Type.冰霜, new 大道(){ 大道Type = 大道Type.冰霜, 等级 = 0, 经验 = 0 } },
-        { 大道Type.黑暗, new 大道(){ 大道Type = 大道Type.黑暗, 等级 = 0, 经验 = 0 } },
-        { 大道Type.雷电, new 大道(){ 大道Type = 大道Type.雷电, 等级 = 0, 经验 = 0 } },
-        { 大道Type.物理, new 大道(){ 大道Type = 大道Type.物理, 等级 = 0, 经验 = 0 } },
-        { 大道Type.战士, new 大道(){ 大道Type = 大道Type.战士, 等级 = 0, 经验 = 0 } },
-        { 大道Type.控制, new 大道(){ 大道Type = 大道Type.控制, 等级 = 0, 经验 = 0 } },
-        { 大道Type.射手, new 大道(){ 大道Type = 大道Type.射手, 等级 = 0, 经验 = 0 } },
-        { 大道Type.法师, new 大道(){ 大道Type = 大道Type.法师, 等级 = 0, 经验 = 0 } },
-        { 大道Type.辅助, new 大道(){ 大道Type = 大道Type.辅助, 等级 = 0, 经验 = 0 } },
+        { 大道Type.火焰, new 大道(){ 大道Type = 大道Type.火焰, 等级 = 1, 经验 = 0 } },
+        { 大道Type.冰霜, new 大道(){ 大道Type = 大道Type.冰霜, 等级 = 1, 经验 = 0 } },
+        { 大道Type.黑暗, new 大道(){ 大道Type = 大道Type.黑暗, 等级 = 1, 经验 = 0 } },
+        { 大道Type.雷电, new 大道(){ 大道Type = 大道Type.雷电, 等级 = 1, 经验 = 0 } },
+        { 大道Type.物理, new 大道(){ 大道Type = 大道Type.物理, 等级 = 1, 经验 = 0 } },
+        { 大道Type.战士, new 大道(){ 大道Type = 大道Type.战士, 等级 = 1, 经验 = 0 } },
+        { 大道Type.控制, new 大道(){ 大道Type = 大道Type.控制, 等级 = 1, 经验 = 0 } },
+        { 大道Type.射手, new 大道(){ 大道Type = 大道Type.射手, 等级 = 1, 经验 = 0 } },
+        { 大道Type.法师, new 大道(){ 大道Type = 大道Type.法师, 等级 = 1, 经验 = 0 } },
+        { 大道Type.辅助, new 大道(){ 大道Type = 大道Type.辅助, 等级 = 1, 经验 = 0 } },
         // 上等
         { 大道Type.法器, new 大道(){ 大道Type = 大道Type.法器, 等级 = 0, 经验 = 0 } },
         { 大道Type.丹药, new 大道(){ 大道Type = 大道Type.丹药, 等级 = 0, 经验 = 0 } },

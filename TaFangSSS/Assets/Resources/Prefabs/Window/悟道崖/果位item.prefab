@@ -84,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3760225717744439507}
+  - component: {fileID: 6746113366652334494}
   m_Layer: 0
   m_Name: "\u679C\u4F4Ditem"
   m_TagString: Untagged
@@ -98,7 +99,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6558462833961254294}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,6 +114,22 @@ RectTransform:
   m_AnchoredPosition: {x: 82.43109, y: -66.635864}
   m_SizeDelta: {x: 146.8621, y: 107.2717}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6746113366652334494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6558462833961254294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b399ccddc5bd447b104457cc82afcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 4922081048684715486}
+  nameText: {fileID: 2003421202021588157}
+  bg: {fileID: 3409559105601942839}
+  "\u5927\u9053Type": 0
 --- !u!1 &6644611005473177756
 GameObject:
   m_ObjectHideFlags: 0

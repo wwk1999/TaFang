@@ -8,11 +8,13 @@ using TMPro;
 
 public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("背景")]
+    [Header("背景")] 
+    public Button 背景框Button;
     public GameObject bg暗;
     public GameObject bg亮;
     public Image bg;
-
+    public Image 勾;
+    public Image mask;
     [Header("内容")]
     public Image icon;
     public GameObject 问号节点;
@@ -28,6 +30,11 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         // 默认显示暗背景
         SetBgState(false);
+        背景框Button.onClick.AddListener(() =>
+        {
+            PlayerData.S.当前参悟大道Type = 大道Type;
+            ObserverModuleManager.S.SendEvent("大道item点击");
+        });
     }
 
     /// <summary>
@@ -48,6 +55,7 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         SetBgState(false);
     }
+    
 
     /// <summary>
     /// 填充大道数据
@@ -61,6 +69,7 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             return;
         }
 
+        勾.gameObject.SetActive(PlayerData.S.当前参悟大道Type==type);
         switch (悟道崖Config.大道配置[type].大道等级Type)
         {
            case 大道等级Type.基础大道:
@@ -103,6 +112,7 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (!未解锁)
         {
+            mask.gameObject.SetActive(false);
             if (等级节点 != null)
             {
                 TextMeshProUGUI 等级Text = 等级节点.GetComponentInChildren<TextMeshProUGUI>();
@@ -127,6 +137,7 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (进度条 != null)
         {
+            mask.gameObject.SetActive(true);
             进度条.fillAmount = 0;
         }
     }

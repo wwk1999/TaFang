@@ -267,6 +267,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.仙女阁Window.gameObject.SetActive(false);
         WindowController.S.赌坊Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/赌坊/赌坊界面"));
         WindowController.S.赌坊Window.gameObject.SetActive(false);
+        WindowController.S.悟道崖Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/悟道崖/悟道崖界面"));
+        WindowController.S.悟道崖Window.gameObject.SetActive(false);
     }
 
     public void SetBuff()
