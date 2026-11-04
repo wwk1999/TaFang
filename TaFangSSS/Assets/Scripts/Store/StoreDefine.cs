@@ -184,6 +184,42 @@ public class StoreDefine : XSingleton<StoreController>
             { "异化_洪品", 0 },
             { "异化_荒品", 0 },
         };
+        
+        public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()
+    {
+        // 基础
+        { 大道Type.火焰, new 大道(){ 大道Type = 大道Type.火焰, 等级 = 0, 经验 = 0 } },
+        { 大道Type.冰霜, new 大道(){ 大道Type = 大道Type.冰霜, 等级 = 0, 经验 = 0 } },
+        { 大道Type.黑暗, new 大道(){ 大道Type = 大道Type.黑暗, 等级 = 0, 经验 = 0 } },
+        { 大道Type.雷电, new 大道(){ 大道Type = 大道Type.雷电, 等级 = 0, 经验 = 0 } },
+        { 大道Type.物理, new 大道(){ 大道Type = 大道Type.物理, 等级 = 0, 经验 = 0 } },
+        { 大道Type.战士, new 大道(){ 大道Type = 大道Type.战士, 等级 = 0, 经验 = 0 } },
+        { 大道Type.控制, new 大道(){ 大道Type = 大道Type.控制, 等级 = 0, 经验 = 0 } },
+        { 大道Type.射手, new 大道(){ 大道Type = 大道Type.射手, 等级 = 0, 经验 = 0 } },
+        { 大道Type.法师, new 大道(){ 大道Type = 大道Type.法师, 等级 = 0, 经验 = 0 } },
+        { 大道Type.辅助, new 大道(){ 大道Type = 大道Type.辅助, 等级 = 0, 经验 = 0 } },
+        // 上等
+        { 大道Type.法器, new 大道(){ 大道Type = 大道Type.法器, 等级 = 0, 经验 = 0 } },
+        { 大道Type.丹药, new 大道(){ 大道Type = 大道Type.丹药, 等级 = 0, 经验 = 0 } },
+        { 大道Type.符文, new 大道(){ 大道Type = 大道Type.符文, 等级 = 0, 经验 = 0 } },
+        { 大道Type.灵兽, new 大道(){ 大道Type = 大道Type.灵兽, 等级 = 0, 经验 = 0 } },
+        { 大道Type.仙女, new 大道(){ 大道Type = 大道Type.仙女, 等级 = 0, 经验 = 0 } },
+        { 大道Type.灵植, new 大道(){ 大道Type = 大道Type.灵植, 等级 = 0, 经验 = 0 } },
+        { 大道Type.领主装备, new 大道(){ 大道Type = 大道Type.领主装备, 等级 = 0, 经验 = 0 } },
+        { 大道Type.功法, new 大道(){ 大道Type = 大道Type.功法, 等级 = 0, 经验 = 0 } },
+        { 大道Type.元素, new 大道(){ 大道Type = 大道Type.元素, 等级 = 0, 经验 = 0 } },
+        { 大道Type.职业, new 大道(){ 大道Type = 大道Type.职业, 等级 = 0, 经验 = 0 } },
+        { 大道Type.最终伤害, new 大道(){ 大道Type = 大道Type.最终伤害, 等级 = 0, 经验 = 0 } },
+        { 大道Type.暴击伤害, new 大道(){ 大道Type = 大道Type.暴击伤害, 等级 = 0, 经验 = 0 } },
+        // 至尊
+        { 大道Type.掉宝, new 大道(){ 大道Type = 大道Type.掉宝, 等级 = 0, 经验 = 0 } },
+        { 大道Type.时间流速, new 大道(){ 大道Type = 大道Type.时间流速, 等级 = 0, 经验 = 0 } },
+        { 大道Type.轮回, new 大道(){ 大道Type = 大道Type.轮回, 等级 = 0, 经验 = 0 } },
+        { 大道Type.悟道, new 大道(){ 大道Type = 大道Type.悟道, 等级 = 0, 经验 = 0 } },
+        { 大道Type.长生, new 大道(){ 大道Type = 大道Type.长生, 等级 = 0, 经验 = 0 } },
+        // 本源
+        { 大道Type.力, new 大道(){ 大道Type = 大道Type.力, 等级 = 0, 经验 = 0 } },
+    };
 
         public Dictionary<int, 土地> 灵植土地列表 = new Dictionary<int, 土地>()
     {
@@ -2973,6 +3009,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             青石 = runtime.青石;
             灵植园等级=runtime.灵植园等级;
             灵植园经验=runtime.灵植园经验;
+            大道配置 = runtime.大道配置;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3158,7 +3195,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             runtime.青石 = 青石;
             runtime.灵植园等级=灵植园等级;
             runtime.灵植园经验=灵植园经验;
-            
+            runtime.大道配置 = 大道配置;
 
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException

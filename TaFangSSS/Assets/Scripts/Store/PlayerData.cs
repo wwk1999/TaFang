@@ -141,6 +141,43 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 灵兽分解血脉7 = false;
     public bool 灵兽分解血脉8 = false;
 
+    public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()
+    {
+        // 基础
+        { 大道Type.火焰, new 大道(){ 大道Type = 大道Type.火焰, 等级 = 0, 经验 = 0 } },
+        { 大道Type.冰霜, new 大道(){ 大道Type = 大道Type.冰霜, 等级 = 0, 经验 = 0 } },
+        { 大道Type.黑暗, new 大道(){ 大道Type = 大道Type.黑暗, 等级 = 0, 经验 = 0 } },
+        { 大道Type.雷电, new 大道(){ 大道Type = 大道Type.雷电, 等级 = 0, 经验 = 0 } },
+        { 大道Type.物理, new 大道(){ 大道Type = 大道Type.物理, 等级 = 0, 经验 = 0 } },
+        { 大道Type.战士, new 大道(){ 大道Type = 大道Type.战士, 等级 = 0, 经验 = 0 } },
+        { 大道Type.控制, new 大道(){ 大道Type = 大道Type.控制, 等级 = 0, 经验 = 0 } },
+        { 大道Type.射手, new 大道(){ 大道Type = 大道Type.射手, 等级 = 0, 经验 = 0 } },
+        { 大道Type.法师, new 大道(){ 大道Type = 大道Type.法师, 等级 = 0, 经验 = 0 } },
+        { 大道Type.辅助, new 大道(){ 大道Type = 大道Type.辅助, 等级 = 0, 经验 = 0 } },
+        // 上等
+        { 大道Type.法器, new 大道(){ 大道Type = 大道Type.法器, 等级 = 0, 经验 = 0 } },
+        { 大道Type.丹药, new 大道(){ 大道Type = 大道Type.丹药, 等级 = 0, 经验 = 0 } },
+        { 大道Type.符文, new 大道(){ 大道Type = 大道Type.符文, 等级 = 0, 经验 = 0 } },
+        { 大道Type.灵兽, new 大道(){ 大道Type = 大道Type.灵兽, 等级 = 0, 经验 = 0 } },
+        { 大道Type.仙女, new 大道(){ 大道Type = 大道Type.仙女, 等级 = 0, 经验 = 0 } },
+        { 大道Type.灵植, new 大道(){ 大道Type = 大道Type.灵植, 等级 = 0, 经验 = 0 } },
+        { 大道Type.领主装备, new 大道(){ 大道Type = 大道Type.领主装备, 等级 = 0, 经验 = 0 } },
+        { 大道Type.功法, new 大道(){ 大道Type = 大道Type.功法, 等级 = 0, 经验 = 0 } },
+        { 大道Type.元素, new 大道(){ 大道Type = 大道Type.元素, 等级 = 0, 经验 = 0 } },
+        { 大道Type.职业, new 大道(){ 大道Type = 大道Type.职业, 等级 = 0, 经验 = 0 } },
+        { 大道Type.最终伤害, new 大道(){ 大道Type = 大道Type.最终伤害, 等级 = 0, 经验 = 0 } },
+        { 大道Type.暴击伤害, new 大道(){ 大道Type = 大道Type.暴击伤害, 等级 = 0, 经验 = 0 } },
+        // 至尊
+        { 大道Type.掉宝, new 大道(){ 大道Type = 大道Type.掉宝, 等级 = 0, 经验 = 0 } },
+        { 大道Type.时间流速, new 大道(){ 大道Type = 大道Type.时间流速, 等级 = 0, 经验 = 0 } },
+        { 大道Type.轮回, new 大道(){ 大道Type = 大道Type.轮回, 等级 = 0, 经验 = 0 } },
+        { 大道Type.悟道, new 大道(){ 大道Type = 大道Type.悟道, 等级 = 0, 经验 = 0 } },
+        { 大道Type.长生, new 大道(){ 大道Type = 大道Type.长生, 等级 = 0, 经验 = 0 } },
+        // 本源
+        { 大道Type.力, new 大道(){ 大道Type = 大道Type.力, 等级 = 0, 经验 = 0 } },
+    };
+    
+    
     public Dictionary<int, 土地> 灵植土地列表 = new Dictionary<int, 土地>()
     {
         {1,new 土地(){index = 1,土地Type =土地Type.普通土地,灵植Type = 灵植Type.None,当前time=0,所需time = 9999999}},
