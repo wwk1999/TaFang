@@ -144,6 +144,7 @@ public class 大道配置
     public string 介绍;
     public List<大道效果item> 大道效果列表 = new List<大道效果item>();
     public 大道等级Type 大道等级Type;
+    public string 果位名;
 }
 
 public enum 大道等级Type

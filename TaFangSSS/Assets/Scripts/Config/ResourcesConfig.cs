@@ -1329,6 +1329,10 @@ public static Sprite 缚霞流光绫藏品;
 	// 赌坊道具图标：Sprite/赌坊icon/道具 切图，索引 0~15 依次为 道具_0~道具_15
 	public static Sprite[] 赌坊道具Sprites;
 
+	// 大道图标：Sprite/悟道崖/大道icon1（类型0~15）、大道icon2（类型16~28，切图0~12）
+	public static Sprite[] 大道icon1Sprites;
+	public static Sprite[] 大道icon2Sprites;
+
 	public static Sprite 丹童平台;
 
 	public static Sprite 土地平台;
@@ -7679,6 +7683,30 @@ public static Sprite 缚霞流光绫藏品;
 			return null;
 		}
 		return 赌坊道具Sprites[索引];
+	}
+
+	/// <summary>按大道Type取大道图标（按枚举顺序排列：icon1覆盖0~15，icon2覆盖16~28），首次调用时加载</summary>
+	public static Sprite Get大道Icon(大道Type type)
+	{
+		if (大道icon1Sprites == null || 大道icon1Sprites.Length == 0)
+		{
+			大道icon1Sprites = Load阶数Sprites("Sprite/悟道崖/大道icon1");
+		}
+		if (大道icon2Sprites == null || 大道icon2Sprites.Length == 0)
+		{
+			大道icon2Sprites = Load阶数Sprites("Sprite/悟道崖/大道icon2");
+		}
+		int idx = (int)type;
+		if (idx >= 0 && idx < 大道icon1Sprites.Length)
+		{
+			return 大道icon1Sprites[idx];
+		}
+		int idx2 = idx - 大道icon1Sprites.Length;
+		if (idx2 >= 0 && idx2 < 大道icon2Sprites.Length)
+		{
+			return 大道icon2Sprites[idx2];
+		}
+		return null;
 	}
 
 	public static Sprite Get藏品Sprite(藏品Type Type)
