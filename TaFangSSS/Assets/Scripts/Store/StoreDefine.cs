@@ -3287,3 +3287,4 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         }
     }
 }
+ 
