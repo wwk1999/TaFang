@@ -13,8 +13,7 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public GameObject bg暗;
     public GameObject bg亮;
     public Image bg;
-    public Image 勾;
-    public Image mask;
+    public GameObject 勾;
     [Header("内容")]
     public Image icon;
     public GameObject 问号节点;
@@ -32,8 +31,13 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         SetBgState(false);
         背景框Button.onClick.AddListener(() =>
         {
+            if (PlayerData.S.大道配置[大道Type].等级 <= 0)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","大道未解锁");
+                return;
+            }
             PlayerData.S.当前参悟大道Type = 大道Type;
-            ObserverModuleManager.S.SendEvent("大道item点击");
+            ObserverModuleManager.S.SendEvent("刷新悟道崖界面");
         });
     }
 
@@ -73,16 +77,16 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         switch (悟道崖Config.大道配置[type].大道等级Type)
         {
            case 大道等级Type.基础大道:
-               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.天品);
+               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.地品);
                break;
            case 大道等级Type.上等大道:
-               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.宇品);
+               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.宇品);
                break;
            case 大道等级Type.至尊大道:
-               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.洪品);
+               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.洪品);
                break;
            case 大道等级Type.本源大道:
-               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.荒品);
+               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.荒品);
                break;
         }
         gameObject.SetActive(true);
@@ -112,7 +116,6 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
         if (!未解锁)
         {
-            mask.gameObject.SetActive(false);
             if (等级节点 != null)
             {
                 TextMeshProUGUI 等级Text = 等级节点.GetComponentInChildren<TextMeshProUGUI>();
@@ -137,7 +140,6 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if (进度条 != null)
         {
-            mask.gameObject.SetActive(true);
             进度条.fillAmount = 0;
         }
     }

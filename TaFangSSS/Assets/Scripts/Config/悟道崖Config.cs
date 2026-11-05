@@ -6,14 +6,14 @@ public enum 大道Type
     None,
     火焰,
     冰霜,
-    黑暗,
     雷电,
+    黑暗,
     物理,
     战士,
-    控制,
     射手,
-    法师,
     辅助,
+    控制,
+    法师,
     //上等
     法器,
     丹药,
@@ -233,7 +233,7 @@ public class 悟道崖Config
         {
             大道Type.物理, new 大道配置()
             {
-                name = "肉身大道",
+                name = "破碎大道",
                 介绍 = "肉身成圣踏寰宇，一力降十破万法",
                 大道等级Type = 大道等级Type.基础大道,
                 果位名 = "天罡镇岳真君",
@@ -609,13 +609,16 @@ public class 悟道崖Config
         { 大道等级Type.至尊大道 ,100},
         { 大道等级Type.本源大道 ,100},
     };
-    
+
+    public static int 大道解锁等级 = 10;
+    public static int 大道前置等级 = 10;
+
     public static Dictionary<大道等级Type, float> 大道经验 = new Dictionary<大道等级Type, float>()
     {
-        { 大道等级Type.基础大道 ,1000000},
-        { 大道等级Type.上等大道 ,10000000},
-        { 大道等级Type.至尊大道 ,100000000},
-        { 大道等级Type.本源大道 ,1000000000},
+        { 大道等级Type.基础大道 ,1},
+        { 大道等级Type.上等大道 ,10},
+        { 大道等级Type.至尊大道 ,100},
+        { 大道等级Type.本源大道 ,1000},
     };
     
     public static Dictionary<大道等级Type, 大道等级固定奖励> 大道等级奖励 = new Dictionary<大道等级Type, 大道等级固定奖励>()

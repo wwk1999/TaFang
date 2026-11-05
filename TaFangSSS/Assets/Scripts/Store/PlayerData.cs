@@ -142,6 +142,8 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 灵兽分解血脉8 = false;
 
     public 大道Type 当前参悟大道Type;
+    public 大道Type 当前前置参悟大道Type;
+
     public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()
     {
         // 基础

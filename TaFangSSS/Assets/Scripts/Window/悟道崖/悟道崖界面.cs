@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -32,12 +33,12 @@ public class 悟道崖界面 : MonoBehaviour
 
     private void OnDestroy()
     {
-        ObserverModuleManager.S.UnRegisterEvent("大道item点击",大道item点击);
+        ObserverModuleManager.S.UnRegisterEvent("刷新悟道崖界面",大道item点击);
     }
 
     private void Start()
     {
-        ObserverModuleManager.S.RegisterEvent("大道item点击",大道item点击);
+        ObserverModuleManager.S.RegisterEvent("刷新悟道崖界面",大道item点击);
         exitButton.onClick.AddListener(() =>
             {
                 gameObject.SetActive(false);
@@ -47,7 +48,7 @@ public class 悟道崖界面 : MonoBehaviour
 
     public void Show当前参悟区域()
     {
-        修炼速度.text = PlayerData.S.格式化数字(JingJieConfig.每秒增加修为 * 属性config.每年秒数) + "/每道年";
+        修炼速度.text = "修炼速度："+PlayerData.S.格式化数字(JingJieConfig.每秒增加修为 * 属性config.每年秒数) + "/每道年";
         if (PlayerData.S.当前参悟大道Type == 大道Type.None)
         {
             当前参悟.gameObject.SetActive(false);
@@ -58,16 +59,16 @@ public class 悟道崖界面 : MonoBehaviour
             switch (悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type)
             {
                 case 大道等级Type.基础大道:
-                    当前参悟Bg.sprite = ResourcesConfig.大道背景框蓝;
+                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.地品);
                     break;
                 case 大道等级Type.上等大道:
-                    当前参悟Bg.sprite = ResourcesConfig.大道背景框橙;
+                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.宇品);
                     break;
                 case 大道等级Type.至尊大道:
-                    当前参悟Bg.sprite = ResourcesConfig.大道背景框红;
+                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.洪品);
                     break;
                 case 大道等级Type.本源大道:
-                    当前参悟Bg.sprite = ResourcesConfig.大道背景框彩;
+                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.荒品);
                     break;
             }
 
@@ -76,8 +77,8 @@ public class 悟道崖界面 : MonoBehaviour
             当前参悟等级.text = "LV." + PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].等级;
             float 当前值 = PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验;
             float 最大值 = 悟道崖Config.大道经验[悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type];
-            当前参悟当前值.text=当前值.ToString();
-            当前参悟最大值.text=最大值.ToString();
+            当前参悟当前值.text=PlayerData.S.格式化数字(当前值);
+            当前参悟最大值.text=PlayerData.S.格式化数字(最大值);
             当前参悟进度条.fillAmount = 当前值 / 最大值;
             介绍.text = 悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].介绍;
         }

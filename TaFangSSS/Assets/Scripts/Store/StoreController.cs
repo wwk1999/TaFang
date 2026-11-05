@@ -504,6 +504,10 @@ public class StoreController : XSingleton<StoreController>
             PlayerData.S.剩余传道次数 += 1 + Mathf.RoundToInt(属性config.仙子总属性.每道年传道次数翻倍);
             坊市Config.刷新坊市列表();
             ObserverModuleManager.S.SendEvent("刷新坊市窗口");
+            if (PlayerData.S.当前体质 == 体质Type.长生道体)
+            {
+                PlayerData.S.长生道体年数++;
+            }
         }
         //自动保存
         if (法器打造当前时间 > 0.1f)
@@ -523,12 +527,10 @@ public class StoreController : XSingleton<StoreController>
                 ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);
             }
 
-            if (PlayerData.S.当前体质 == 体质Type.长生道体)
-            {
-                PlayerData.S.长生道体年数++;
-            }
-            //炼制丹药();
+           
             
+            //炼制丹药();
+            参悟大道();
             增加道场资源();
             灵兽孵化();
             灵植生长();
@@ -538,6 +540,58 @@ public class StoreController : XSingleton<StoreController>
             CurrentTime = 0;
             SaveStoreData();
         }
+    }
+
+    public void 解锁大道()
+    {
+        foreach (var item in 悟道崖Config.大道配置)
+        {
+            if (item.Value.大道等级Type > 大道等级Type.基础大道&&PlayerData.S.大道配置[item.Key].等级==0)
+            {
+                var list=悟道崖Config.大道限制列表[item.Key];
+                bool 解锁 = true;
+                foreach (var 大道 in  list)
+                {
+                    if (PlayerData.S.大道配置[大道].等级 < 悟道崖Config.大道解锁等级)
+                    {
+                        解锁 = false;
+                        break;
+                    }
+                }
+                if (解锁)
+                {
+                    PlayerData.S.大道配置[item.Key].等级 = 1;
+                }
+            }
+        }
+    }
+    public void 参悟大道()
+    {
+        if (PlayerData.S.当前参悟大道Type != 大道Type.None)
+        {
+            if (悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type == 大道等级Type.基础大道)
+            {
+                PlayerData.S.当前前置参悟大道Type = 大道Type.None;
+                PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验 += JingJieConfig.每秒增加修为;
+                if (PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验 >=
+                    悟道崖Config.大道经验[悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type])
+                {
+                    PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验 -=
+                        悟道崖Config.大道经验[悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type];
+                    PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].等级++;
+                }
+            }
+            else
+            {
+                var 前置list = 悟道崖Config.大道限制列表[PlayerData.S.当前参悟大道Type];
+                foreach (var VARIABLE in )
+                {
+                    
+                }
+            }
+        }
+        解锁大道();
+        ObserverModuleManager.S.SendEvent("刷新悟道崖界面");
     }
 
     public float Get坊市刷新次数时间()

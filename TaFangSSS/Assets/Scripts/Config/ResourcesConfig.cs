@@ -7704,7 +7704,7 @@ public static Sprite 缚霞流光绫藏品;
 		{
 			大道icon2Sprites = Load阶数Sprites("Sprite/悟道崖/大道icon2");
 		}
-		int idx = (int)type;
+		int idx = (int)(type-1);
 		if (idx >= 0 && idx < 大道icon1Sprites.Length)
 		{
 			return 大道icon1Sprites[idx];
