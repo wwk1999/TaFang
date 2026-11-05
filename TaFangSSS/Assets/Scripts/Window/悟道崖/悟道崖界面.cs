@@ -59,16 +59,16 @@ public class 悟道崖界面 : MonoBehaviour
             switch (悟道崖Config.大道配置[PlayerData.S.当前前置参悟大道Type].大道等级Type)
             {
                 case 大道等级Type.基础大道:
-                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.地品);
+                    当前参悟Bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.地品);
                     break;
                 case 大道等级Type.上等大道:
-                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.宇品);
+                    当前参悟Bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.宇品);
                     break;
                 case 大道等级Type.至尊大道:
-                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.洪品);
+                    当前参悟Bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.洪品);
                     break;
                 case 大道等级Type.本源大道:
-                    当前参悟Bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.荒品);
+                    当前参悟Bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.荒品);
                     break;
             }
 

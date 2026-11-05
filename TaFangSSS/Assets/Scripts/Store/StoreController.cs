@@ -633,7 +633,6 @@ public class StoreController : XSingleton<StoreController>
         {
             玩家数据.经验 -= 经验需求;
             玩家数据.等级++;
-            经验需求 = 悟道崖Config.大道经验[配置.大道等级Type]; // 升级后经验需求不变，但保留结构供将来扩展
         }
     }
 

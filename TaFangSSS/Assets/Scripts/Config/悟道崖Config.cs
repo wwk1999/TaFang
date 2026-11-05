@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Config;
 
 public enum 大道Type
 {
@@ -171,6 +172,20 @@ public class 大道等级固定奖励
 }
 public class 悟道崖Config
 {
+    public static Dictionary<大道等级Type, QualityType> 大道等级品质 = new Dictionary<大道等级Type, QualityType>()
+    {
+        { 大道等级Type.基础大道 ,QualityType.地品},
+        { 大道等级Type.上等大道 ,QualityType.宇品},
+        { 大道等级Type.至尊大道 ,QualityType.洪品},
+        { 大道等级Type.本源大道 ,QualityType.荒品},
+    };
+    public static Dictionary<大道等级Type, string> 大道等级名 = new Dictionary<大道等级Type, string>()
+    {
+        { 大道等级Type.基础大道 ,"基础大道"},
+        { 大道等级Type.上等大道 ,"上等大道"},
+        { 大道等级Type.至尊大道 ,"至尊大道"},
+        { 大道等级Type.本源大道 ,"本源大道"},
+    };
     public static Dictionary<大道Type, 大道配置> 大道配置 = new Dictionary<大道Type, 大道配置>()
     {
         // ==================== 基础大道 ====================
@@ -579,6 +594,17 @@ public class 悟道崖Config
     };
     public static Dictionary<大道Type, List<大道Type>> 大道限制列表 = new Dictionary<大道Type, List<大道Type>>()
     {
+        { 大道Type.黑暗 ,new List<大道Type>() {}},
+        { 大道Type.火焰 ,new List<大道Type>() {}},
+        { 大道Type.物理 ,new List<大道Type>() {}},
+        { 大道Type.冰霜 ,new List<大道Type>() {}},
+        { 大道Type.雷电 ,new List<大道Type>() {}},
+        { 大道Type.战士 ,new List<大道Type>() {}},
+        { 大道Type.射手 ,new List<大道Type>() {}},
+        { 大道Type.控制 ,new List<大道Type>() {}},
+        { 大道Type.法师 ,new List<大道Type>() {}},
+        { 大道Type.辅助 ,new List<大道Type>() {}},
+
         { 大道Type.法器 ,new List<大道Type>() { 大道Type.冰霜 ,大道Type.火焰,大道Type.战士,大道Type.射手}},
         { 大道Type.丹药 ,new List<大道Type>() { 大道Type.冰霜 ,大道Type.物理,大道Type.战士,大道Type.法师}},
         { 大道Type.符文 ,new List<大道Type>() { 大道Type.冰霜 ,大道Type.雷电,大道Type.战士,大道Type.辅助}},

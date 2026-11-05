@@ -50,6 +50,7 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             }
             PlayerData.S.当前参悟大道Type = 大道Type;
             ObserverModuleManager.S.SendEvent("刷新悟道崖界面");
+            ObserverModuleManager.S.SendEvent("刷新悟道崖当前悟道界面");
         });
     }
 
@@ -89,16 +90,16 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         switch (悟道崖Config.大道配置[type].大道等级Type)
         {
            case 大道等级Type.基础大道:
-               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.地品);
+               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.地品);
                break;
            case 大道等级Type.上等大道:
-               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.宇品);
+               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.宇品);
                break;
            case 大道等级Type.至尊大道:
-               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.洪品);
+               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.洪品);
                break;
            case 大道等级Type.本源大道:
-               bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType.荒品);
+               bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.荒品);
                break;
         }
         gameObject.SetActive(true);

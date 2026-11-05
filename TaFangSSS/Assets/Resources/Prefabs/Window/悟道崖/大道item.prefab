@@ -350,6 +350,7 @@ GameObject:
   - component: {fileID: 7829934985857273838}
   - component: {fileID: 2057275205697567202}
   - component: {fileID: 741357460203083099}
+  - component: {fileID: 5144951367355648120}
   m_Layer: 0
   m_Name: "\u5927\u9053item"
   m_TagString: Untagged
@@ -487,6 +488,22 @@ MonoBehaviour:
   "\u7ECF\u9A8C\u8282\u70B9": {fileID: 4233870880117004099}
   "\u8FDB\u5EA6\u6761": {fileID: 8374694592675886158}
   "\u5927\u9053Type": 0
+--- !u!114 &5144951367355648120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079044252976448432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b329deb104153c449af8b99bf10aba1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupPrefabPath: "Prefabs/Window/\u609F\u9053\u5D16/\u5927\u9053\u4FE1\u606F\u5F39\u7A97"
+  popupOffset: {x: 0, y: 0}
+  destroyOnExit: 1
+  "\u5927\u9053item": {fileID: 741357460203083099}
 --- !u!1 &1345654055217281339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,8 +1838,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97faaf072adcc3c409bcd95ebcbb3113, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 766fd047f119ae44abc1cfa509adcfda, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1830,7 +1847,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 3.2
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8668134674589830675
 GameObject:
   m_ObjectHideFlags: 0
