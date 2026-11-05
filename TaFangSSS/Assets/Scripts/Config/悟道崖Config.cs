@@ -186,6 +186,178 @@ public class 悟道崖Config
         { 大道等级Type.至尊大道 ,"至尊大道"},
         { 大道等级Type.本源大道 ,"本源大道"},
     };
+
+    public static Dictionary<大道等级Type, string> 果位等级 = new Dictionary<大道等级Type, string>()
+    {
+        { 大道等级Type.基础大道 ,"真君"},
+        { 大道等级Type.上等大道 ,"天君"},
+        { 大道等级Type.至尊大道 ,"道君"},
+        { 大道等级Type.本源大道 ,"帝君"},
+    };
+
+    public static string Get果位效果(大道效果item 大道效果item)
+{
+    switch (大道效果item.大道效果Type)
+    {
+        case 大道效果Type.None:
+            return string.Empty;
+
+        // ===== 火焰系 =====
+        case 大道效果Type.击杀敌人概率留下火焰:
+            return $"击杀敌人{大道效果item.count}%概率留下火焰";
+        case 大道效果Type.火焰伤害增幅:
+            return $"火焰伤害增幅{大道效果item.count}%";
+
+        // ===== 雷电系 =====
+        case 大道效果Type.击中概率落雷:
+            return $"击中敌人{大道效果item.count}%概率落雷";
+        case 大道效果Type.雷电伤害增幅:
+            return $"雷电伤害增幅{大道效果item.count}%";
+
+        // ===== 黑暗系 =====
+        case 大道效果Type.击杀敌人爆炸:
+            return $"击杀敌人{大道效果item.count}%概率爆炸";
+        case 大道效果Type.黑暗伤害增幅:
+            return $"黑暗伤害增幅{大道效果item.count}%";
+
+        // ===== 冰霜系 =====
+        case 大道效果Type.冰霜伤害增幅:
+            return $"冰霜伤害增幅{大道效果item.count}%";
+        case 大道效果Type.击杀敌人释放冰刺:
+            return $"击杀敌人{大道效果item.count}%概率释放冰刺";
+
+        // ===== 物理 / 破甲 =====
+        case 大道效果Type.物理伤害增幅:
+            return $"物理伤害增幅{大道效果item.count}%";
+        case 大道效果Type.破甲上限提高到100:
+            return $"破甲上限提高到{大道效果item.count}%";
+
+        // ===== 职业系 =====
+        case 大道效果Type.战士伤害增幅:
+            return $"战士伤害增幅{大道效果item.count}%";
+        case 大道效果Type.战士每次攻击伤害增幅:
+            return $"战士每次攻击伤害增幅{大道效果item.count}%";
+        case 大道效果Type.控制伤害增幅:
+            return $"控制伤害增幅{大道效果item.count}%";
+        case 大道效果Type.控制效果:
+            return $"控制效果增幅{大道效果item.count}%";
+        case 大道效果Type.法师伤害增幅:
+            return $"法师伤害增幅{大道效果item.count}%";
+        case 大道效果Type.效果范围:
+            return $"效果范围增幅{大道效果item.count}%";
+        case 大道效果Type.射手伤害增幅:
+            return $"射手伤害增幅{大道效果item.count}%";
+        case 大道效果Type.射手分裂:
+            return $"射手攻击{大道效果item.count}%概率分裂";
+        case 大道效果Type.被辅助英雄伤害增幅:
+            return $"被辅助英雄伤害增幅{大道效果item.count}%";
+        case 大道效果Type.辅助效果:
+            return $"辅助效果增幅{大道效果item.count}%";
+
+        // ===== 炼器 =====
+        case 大道效果Type.炼器速度:
+            return $"炼器速度增幅{大道效果item.count}%";
+        case 大道效果Type.法器效果:
+            return $"法器效果增幅{大道效果item.count}%";
+        case 大道效果Type.法器荒品概率:
+            return $"法器荒品概率增加{大道效果item.count}%";
+        case 大道效果Type.法器无暇概率:
+            return $"法器无暇概率增加{大道效果item.count}%";
+
+        // ===== 炼丹 =====
+        case 大道效果Type.炼丹速度:
+            return $"炼丹速度增幅{大道效果item.count}%";
+        case 大道效果Type.丹药效果:
+            return $"丹药效果增幅{大道效果item.count}%";
+        case 大道效果Type.一炉双丹概率:
+            return $"一炉双丹概率增加{大道效果item.count}%";
+        case 大道效果Type.丹药升阶概率:
+            return $"丹药升阶概率增加{大道效果item.count}%";
+
+        // ===== 符文 =====
+        case 大道效果Type.符文效果:
+            return $"符文效果增幅{大道效果item.count}%";
+        case 大道效果Type.符文无暇概率:
+            return $"符文无暇概率增加{大道效果item.count}%";
+        case 大道效果Type.符文融合概率:
+            return $"符文融合概率增加{大道效果item.count}%";
+        case 大道效果Type.符文荒品概率:
+            return $"符文荒品概率增加{大道效果item.count}%";
+
+        // ===== 灵兽 =====
+        case 大道效果Type.灵兽增幅:
+            return $"灵兽增幅{大道效果item.count}%";
+        case 大道效果Type.灵兽蛋荒品概率:
+            return $"灵兽蛋荒品概率增加{大道效果item.count}%";
+        case 大道效果Type.灵兽生长速度:
+            return $"灵兽生长速度增幅{大道效果item.count}%";
+        case 大道效果Type.灵兽孵化速度:
+            return $"灵兽孵化速度增幅{大道效果item.count}%";
+
+        // ===== 仙女 =====
+        case 大道效果Type.仙女增幅:
+            return $"仙女增幅{大道效果item.count}%";
+        case 大道效果Type.仙女好感度增幅:
+            return $"仙女好感度增幅{大道效果item.count}%";
+
+        // ===== 灵植 =====
+        case 大道效果Type.灵植效果增幅:
+            return $"灵植效果增幅{大道效果item.count}%";
+        case 大道效果Type.灵植生长速度:
+            return $"灵植生长速度增幅{大道效果item.count}%";
+        case 大道效果Type.灵植变异概率:
+            return $"灵植变异概率增加{大道效果item.count}%";
+        case 大道效果Type.灵植产量:
+            return $"灵植产量增幅{大道效果item.count}%";
+
+        // ===== 领主装备 =====
+        case 大道效果Type.领主装备效果增幅:
+            return $"领主装备效果增幅{大道效果item.count}%";
+        case 大道效果Type.领主装备无暇概率增加:
+            return $"领主装备无暇概率增加{大道效果item.count}%";
+        case 大道效果Type.领主强化灵气减少:
+            return $"领主强化灵气消耗减少{大道效果item.count}%";
+        case 大道效果Type.领主洗练灵气减少:
+            return $"领主洗练灵气消耗减少{大道效果item.count}%";
+
+        // ===== 功法 =====
+        case 大道效果Type.功法效果:
+            return $"功法效果增幅{大道效果item.count}%";
+        case 大道效果Type.荒品功法概率:
+            return $"荒品功法概率增加{大道效果item.count}%";
+        case 大道效果Type.功法分解粉尘:
+            return $"功法分解粉尘增加{大道效果item.count}";
+        case 大道效果Type.功法层数速度增幅:
+            return $"功法层数提升速度增幅{大道效果item.count}%";
+
+        // ===== 伤害类 =====
+        case 大道效果Type.元素伤害增加:
+            return $"元素伤害增加{大道效果item.count}%";
+        case 大道效果Type.职业伤害增加:
+            return $"职业伤害增加{大道效果item.count}%";
+        case 大道效果Type.最终伤害增加:
+            return $"最终伤害增加{大道效果item.count}%";
+        case 大道效果Type.暴击伤害增加:
+            return $"暴击伤害增加{大道效果item.count}%";
+        case 大道效果Type.每道龄增加伤害:
+            return $"每道龄增加伤害{大道效果item.count}";
+
+        // ===== 其他 =====
+        case 大道效果Type.掉宝率增加:
+            return $"掉宝率增加{大道效果item.count}%";
+        case 大道效果Type.时间流速增加:
+            return $"时间流速增加{大道效果item.count}%";
+        case 大道效果Type.轮回系数增加:
+            return $"轮回系数增加{大道效果item.count}";
+        case 大道效果Type.修炼速度增加:
+            return $"修炼速度增加{大道效果item.count}%";
+        case 大道效果Type.增加所有大道效果:
+            return $"所有大道效果增加{大道效果item.count}%";
+
+        default:
+            return $"{大道效果item.大道效果Type}：{大道效果item.count}";
+    }
+}
     public static Dictionary<大道Type, 大道配置> 大道配置 = new Dictionary<大道Type, 大道配置>()
     {
         // ==================== 基础大道 ====================
@@ -200,7 +372,7 @@ public class 悟道崖Config
                 {
                     new 大道效果item() { 大道效果Type = 大道效果Type.击杀敌人概率留下火焰, count = 10f },
                     new 大道效果item() { 大道效果Type = 大道效果Type.火焰伤害增幅, count = 20f },
-                }
+                },
             }
         },
         {

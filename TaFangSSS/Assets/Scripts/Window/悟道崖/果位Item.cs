@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
@@ -15,10 +16,26 @@ public class 果位Item : MonoBehaviour
 
     [Header("数据")]
     public 大道Type 大道Type = 大道Type.None;
-    
+
     /// <summary>
     /// 填充果位数据
     /// </summary>
+    ///
+    private void Start()
+    {
+        ObserverModuleManager.S.RegisterEvent("刷新悟道崖果位界面",刷新悟道崖果位界面);
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("刷新悟道崖果位界面",刷新悟道崖果位界面);
+    }
+
+    public void 刷新悟道崖果位界面(object[] obj)
+    {
+        SetItem(大道Type);
+    }
+
     public void SetItem(大道Type type)
     {
         大道Type = type;

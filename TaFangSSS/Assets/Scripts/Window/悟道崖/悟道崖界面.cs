@@ -128,12 +128,12 @@ public class 悟道崖界面 : MonoBehaviour
     public void Show()
     {
         Show当前参悟区域();
-        Show果位列表();
     }
 
     private void OnEnable()
     {
         Show当前悟道区域();
+        Show果位列表();
         Show();
     }
 }

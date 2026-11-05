@@ -574,6 +574,7 @@ public class StoreController : XSingleton<StoreController>
         解锁大道();
         ObserverModuleManager.S.SendEvent("刷新悟道崖界面");
         ObserverModuleManager.S.SendEvent("刷新悟道崖当前悟道界面");
+        ObserverModuleManager.S.SendEvent("刷新悟道崖果位界面");
 
     }
 
