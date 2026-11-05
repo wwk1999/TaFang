@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Config;
@@ -25,8 +26,19 @@ public class 大道item : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [Header("数据")]
     public 大道Type 大道Type = 大道Type.None;
 
+    public void 刷新悟道崖当前参悟界面(object[] obj)
+    {
+        SetItem(大道Type);
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("刷新悟道崖当前悟道界面",刷新悟道崖当前参悟界面);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新悟道崖当前悟道界面",刷新悟道崖当前参悟界面);
         // 默认显示暗背景
         SetBgState(false);
         背景框Button.onClick.AddListener(() =>

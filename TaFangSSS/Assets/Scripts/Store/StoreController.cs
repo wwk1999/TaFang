@@ -569,29 +569,72 @@ public class StoreController : XSingleton<StoreController>
     {
         if (PlayerData.S.当前参悟大道Type != 大道Type.None)
         {
-            if (悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type == 大道等级Type.基础大道)
-            {
-                PlayerData.S.当前前置参悟大道Type = 大道Type.None;
-                PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验 += JingJieConfig.每秒增加修为;
-                if (PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验 >=
-                    悟道崖Config.大道经验[悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type])
-                {
-                    PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].经验 -=
-                        悟道崖Config.大道经验[悟道崖Config.大道配置[PlayerData.S.当前参悟大道Type].大道等级Type];
-                    PlayerData.S.大道配置[PlayerData.S.当前参悟大道Type].等级++;
-                }
-            }
-            else
-            {
-                var 前置list = 悟道崖Config.大道限制列表[PlayerData.S.当前参悟大道Type];
-                foreach (var VARIABLE in )
-                {
-                    
-                }
-            }
+            递归参悟大道(PlayerData.S.当前参悟大道Type);
         }
         解锁大道();
         ObserverModuleManager.S.SendEvent("刷新悟道崖界面");
+        ObserverModuleManager.S.SendEvent("刷新悟道崖当前悟道界面");
+
+    }
+
+    /// <summary>
+    /// 递归参悟指定大道。若前置大道等级不足，则自动参悟第一个不满足的前置大道。
+    /// 目标大道从 N 级升到 N+1 级，需要所有前置大道 >= N * 大道前置等级。
+    /// </summary>
+    private void 递归参悟大道(大道Type type)
+    {
+        var 配置 = 悟道崖Config.大道配置[type];
+        var 玩家数据 = PlayerData.S.大道配置[type];
+
+        // 基础大道无前置，直接参悟自己
+        if (配置.大道等级Type == 大道等级Type.基础大道)
+        {
+            PlayerData.S.当前前置参悟大道Type = type;
+            给大道加经验(type);
+            return;
+        }
+
+        // 高阶大道：检查前置是否满足升到下一级的条件
+        int 当前等级 = (int)玩家数据.等级;
+        int 要求前置等级 = 当前等级 * 悟道崖Config.大道前置等级; // 升到 level+1 需要前置 level*10 级
+
+        var 前置list = 悟道崖Config.大道限制列表[type];
+        大道Type 不足的前置 = 大道Type.None;
+        foreach (var 前置 in 前置list)
+        {
+            if (PlayerData.S.大道配置[前置].等级 < 要求前置等级)
+            {
+                不足的前置 = 前置;
+                break;
+            }
+        }
+
+        if (不足的前置 != 大道Type.None)
+        {
+            // 前置不足，递归下去参悟那个前置（最底层会把当前前置参悟大道Type设到真正加经验的那个）
+            递归参悟大道(不足的前置);
+        }
+        else
+        {
+            // 前置都满足了，参悟自己
+            PlayerData.S.当前前置参悟大道Type = type;
+            给大道加经验(type);
+        }
+    }
+
+    private void 给大道加经验(大道Type type)
+    {
+        var 配置 = 悟道崖Config.大道配置[type];
+        var 玩家数据 = PlayerData.S.大道配置[type];
+        float 经验需求 = 悟道崖Config.大道经验[配置.大道等级Type];
+
+        玩家数据.经验 += JingJieConfig.每秒增加修为;
+        while (玩家数据.经验 >= 经验需求)
+        {
+            玩家数据.经验 -= 经验需求;
+            玩家数据.等级++;
+            经验需求 = 悟道崖Config.大道经验[配置.大道等级Type]; // 升级后经验需求不变，但保留结构供将来扩展
+        }
     }
 
     public float Get坊市刷新次数时间()
