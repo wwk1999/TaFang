@@ -143,6 +143,12 @@ public class PlayerData : XSingleton<PlayerData>
 
     public 大道Type 当前参悟大道Type;
     public 大道Type 当前前置参悟大道Type;
+    public List<任务Type> 当前任务列表 = new List<任务Type>();
+
+    public Dictionary<任务Type, bool> 任务完成字典 = new Dictionary<任务Type, bool>()
+    {
+        {任务Type.花果山,false},
+    };
 
     public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()
     {
