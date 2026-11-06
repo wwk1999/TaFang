@@ -94,6 +94,7 @@ public class 任务界面 : MonoBehaviour
         {
             // 主线关卡
             case 任务Type.花果山:
+                任务Config.添加任务(任务Type.筑基);
                 任务Config.添加任务(任务Type.水帘洞);
                 break;
             case 任务Type.水帘洞:
@@ -185,7 +186,6 @@ public class 任务界面 : MonoBehaviour
                 任务Config.添加任务(任务Type.三十三重天1000层);
                 break;
             case 任务Type.三十三重天1000层:
-                //任务Config.添加任务(任务Type.筑基);
                 break;
 
             // 境界突破

@@ -239,7 +239,16 @@ public class 胜利弹窗 : MonoBehaviour
             item.SetItem();
         }
     }
-    
+
+    public void 任务解锁()
+    {
+        switch (LevelConfig.当前主线关卡Type)
+        {
+            case 主线关卡Type.花果山:
+                PlayerData.S.任务完成字典[任务Type.花果山] = true;
+                break;
+        }
+    }
     public void 主线关卡结算()
     {
         普通关卡胜利奖励 value = LevelConfig.Get主线胜利奖励();
