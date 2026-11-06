@@ -137,6 +137,7 @@ public class 供奉保留item : MonoBehaviour
             PlayerData.S.供奉保留列表.Remove(供奉);
             PlayerData.S.当前供奉列表.Add(供奉);
             道场Config.更新供奉总属性();
+            PlayerData.S.任务完成字典[任务Type.上场供奉] = true;
             ObserverModuleManager.S.SendEvent("刷新领主府");
             ObserverModuleManager.S.SendEvent("SendUIToast","上场供奉成功");
         });

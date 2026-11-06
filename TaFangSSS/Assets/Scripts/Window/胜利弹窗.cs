@@ -182,6 +182,7 @@ public class 胜利弹窗 : MonoBehaviour
             item.神物Type = LevelConfig.当前神物Type;
             item.SetItem();
             PlayerData.S.最大神物关卡++;
+            PlayerData.S.任务完成字典[任务Type.远古遗迹掉落神物] = true;
         }
         var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
             .GetComponent<胜利弹窗item>();
@@ -211,7 +212,7 @@ public class 胜利弹窗 : MonoBehaviour
                 PlayerData.S.符文之地最大关卡++;
             }
         }
-
+        PlayerData.S.任务完成字典[任务Type.通关一次符文之地] = true;
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
         PlayerData.S.PropListDic[PropType.轮回石] += 1 + Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);

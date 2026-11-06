@@ -52,7 +52,7 @@ public class 血海主页收获弹窗 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("刷新主页血海收获弹窗",刷新主页血海收获弹窗);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新主页血海收获弹窗",刷新主页血海收获弹窗);
         收获Button.onClick.RemoveAllListeners();
@@ -61,6 +61,8 @@ public class 血海主页收获弹窗 : MonoBehaviour
             HeroWindowController.S.StartCoroutine(PlayerData.S.收获血海());
             刷新主页血海收获弹窗(null);
             gameObject.SetActive(false);
+            PlayerData.S.任务完成字典[任务Type.世界树寻宝] = true;
+
         });
         刷新主页血海收获弹窗(null);
     }

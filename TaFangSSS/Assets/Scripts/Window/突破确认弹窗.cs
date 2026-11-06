@@ -90,6 +90,54 @@ public class 突破确认弹窗 : MonoBehaviour
                     case JingJieType.筑基:
                         PlayerData.S.任务完成字典[任务Type.筑基] = true;
                         break;
+                    case JingJieType.金丹:
+                        PlayerData.S.任务完成字典[任务Type.金丹] = true;
+                        break;
+                    case JingJieType.元婴:
+                        PlayerData.S.任务完成字典[任务Type.元婴] = true;
+                        break;
+                    case JingJieType.化神:
+                        PlayerData.S.任务完成字典[任务Type.化神] = true;
+                        break;
+                    case JingJieType.合体:
+                        PlayerData.S.任务完成字典[任务Type.合体] = true;
+                        break;
+                    case JingJieType.大乘:
+                        PlayerData.S.任务完成字典[任务Type.大乘] = true;
+                        break;
+                    case JingJieType.天仙:
+                        PlayerData.S.任务完成字典[任务Type.天仙] = true;
+                        break;
+                    case JingJieType.玄仙:
+                        PlayerData.S.任务完成字典[任务Type.玄仙] = true;
+                        break;
+                    case JingJieType.金仙:
+                        PlayerData.S.任务完成字典[任务Type.金仙] = true;
+                        break;
+                    case JingJieType.太乙金仙:
+                        PlayerData.S.任务完成字典[任务Type.太乙金仙] = true;
+                        break;
+                    case JingJieType.大罗金仙:
+                        PlayerData.S.任务完成字典[任务Type.大罗金仙] = true;
+                        break;
+                    case JingJieType.准圣:
+                        PlayerData.S.任务完成字典[任务Type.准圣] = true;
+                        break;
+                    case JingJieType.圣人:
+                        PlayerData.S.任务完成字典[任务Type.圣人] = true;
+                        break;
+                    case JingJieType.天道圣人:
+                        PlayerData.S.任务完成字典[任务Type.天道圣人] = true;
+                        break;
+                    case JingJieType.大道圣人:
+                        PlayerData.S.任务完成字典[任务Type.大道圣人] = true;
+                        break;
+                    case JingJieType.混元圣人:
+                        PlayerData.S.任务完成字典[任务Type.混元圣人] = true;
+                        break;
+                    case JingJieType.鸿蒙:
+                        PlayerData.S.任务完成字典[任务Type.鸿蒙] = true;
+                        break;
                 }
             }
             PlayerData.S.Exp = 0;

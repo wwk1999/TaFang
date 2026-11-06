@@ -34,6 +34,7 @@ public class 传道item : MonoBehaviour
                         ObserverModuleManager.S.SendEvent("SendUIToast", "功德不足");
                         return;
                     }
+                    PlayerData.S.任务完成字典[任务Type.获取一本功法] = true;
 
                     long 传道次数 = 1;
                     if (PlayerData.S.传道所有)
@@ -66,6 +67,8 @@ public class 传道item : MonoBehaviour
                             ObserverModuleManager.S.SendEvent("SendUIToast", "功德过多，本次最多传道" + 单次传道上限 + "次");
                         }
                     }
+                    PlayerData.S.任务完成字典[任务Type.获取一本功法] = true;
+
                     StartCoroutine(传道(传道次数));
                     ObserverModuleManager.S.SendEvent("刷新主页面");
                     ObserverModuleManager.S.SendEvent("刷新传道界面");

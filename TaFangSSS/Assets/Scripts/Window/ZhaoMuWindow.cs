@@ -226,6 +226,7 @@ public class ZhaoMuWindow : MonoBehaviour
          }
 
          ResetCount();
+         PlayerData.S.任务完成字典[任务Type.招募] = true;
       });
       
       
@@ -292,6 +293,7 @@ public class ZhaoMuWindow : MonoBehaviour
             PlayerData.S.招募积分+=10;
          }
          ResetCount();
+         PlayerData.S.任务完成字典[任务Type.招募] = true;
       });
    }
 }

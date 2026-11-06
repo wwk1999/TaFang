@@ -911,7 +911,10 @@ public class StoreController : XSingleton<StoreController>
                             PlayerData.S.通天塔英雄派遣Dic[i][j] = HeroType.None;
                         }
                         ObserverModuleManager.S.SendEvent("刷新通天塔窗口");
-                        ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");                    }
+                        ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");
+                        PlayerData.S.任务完成字典[任务Type.通天塔寻宝] = true;
+
+                    }
                 }
             }
         }
@@ -978,6 +981,7 @@ public class StoreController : XSingleton<StoreController>
                         }
                         ObserverModuleManager.S.SendEvent("刷新世界树窗口");
                         ObserverModuleManager.S.SendEvent("世界树英雄派遣Item刷新");
+                        PlayerData.S.任务完成字典[任务Type.九幽血海寻宝] = true;
                     }
                 }
             }
@@ -1051,6 +1055,7 @@ public class StoreController : XSingleton<StoreController>
                         }
                         ObserverModuleManager.S.SendEvent("刷新血海窗口");
                         ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
+                        PlayerData.S.任务完成字典[任务Type.世界树寻宝] = true;
                     }
                 }
             }

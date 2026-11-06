@@ -52,7 +52,7 @@ public class 通天塔主页收获弹窗 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("刷新主页通天塔收获弹窗",刷新主页通天塔收获弹窗);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新主页通天塔收获弹窗",刷新主页通天塔收获弹窗);
         收获Button.onClick.RemoveAllListeners();
@@ -61,6 +61,7 @@ public class 通天塔主页收获弹窗 : MonoBehaviour
             HeroWindowController.S.StartCoroutine(PlayerData.S.收获通天塔());
             刷新主页通天塔收获弹窗(null);
             gameObject.SetActive(false);
+            PlayerData.S.任务完成字典[任务Type.通天塔寻宝] = true;
         });
         刷新主页通天塔收获弹窗(null);
     }

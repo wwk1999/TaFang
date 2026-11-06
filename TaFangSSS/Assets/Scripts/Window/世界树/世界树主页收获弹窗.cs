@@ -58,7 +58,7 @@ public class 世界树主页收获弹窗 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("刷新主页世界树收获弹窗",刷新主页世界树收获弹窗);
     }
 
-    private void OnEnable()
+    private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新主页世界树收获弹窗",刷新主页世界树收获弹窗);
         收获Button.onClick.RemoveAllListeners();
@@ -67,6 +67,7 @@ public class 世界树主页收获弹窗 : MonoBehaviour
             HeroWindowController.S.StartCoroutine(PlayerData.S.收获世界树());
             gameObject.SetActive(false);
             刷新主页世界树收获弹窗(null);
+            PlayerData.S.任务完成字典[任务Type.九幽血海寻宝] = true;
         });
         刷新主页世界树收获弹窗(null);
     }
