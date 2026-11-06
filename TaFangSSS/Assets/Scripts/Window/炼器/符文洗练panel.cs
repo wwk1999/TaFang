@@ -316,6 +316,7 @@ public class 符文洗练panel : MonoBehaviour
 
         PlayerData.S.PropListDic[PropType.符箓] -= 需要符箓;
         ObserverModuleManager.S.SendEvent("SendUIToast", "洗练成功");
+        PlayerData.S.任务完成字典[任务Type.符文洗练] = true;
         Show();
     }
 
@@ -354,6 +355,7 @@ public class 符文洗练panel : MonoBehaviour
 
         PlayerData.S.PropListDic[PropType.符箓] -= 需要符箓;
         ObserverModuleManager.S.SendEvent("SendUIToast", "洗练成功");
+        PlayerData.S.任务完成字典[任务Type.符文洗练] = true;
         Show();
     }
 

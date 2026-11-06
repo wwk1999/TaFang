@@ -103,6 +103,7 @@ public class 法器选择弹窗 : MonoBehaviour
                         break;
                 }
                 当前选择法器.HeroType=HeroType;
+                PlayerData.S.任务完成字典[任务Type.装备一件法器] = true;
                 ObserverModuleManager.S.SendEvent("法器装备刷新");
                 gameObject.SetActive(false);
             }

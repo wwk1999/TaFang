@@ -48,6 +48,7 @@ public class 丹药升阶弹窗 : MonoBehaviour
             PlayerData.S.Set丹药数量(丹药Type, QualityType,
                 PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段数 + 1) + count, 阶段数 + 1);
             ObserverModuleManager.S.SendEvent("SendUIToast", "升阶成功");
+            PlayerData.S.任务完成字典[任务Type.丹药升阶] = true;
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);
         });

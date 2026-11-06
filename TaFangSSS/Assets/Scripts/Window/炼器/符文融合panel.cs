@@ -303,6 +303,7 @@ public class 符文融合panel : MonoBehaviour
             主.融合无暇 = 副.无暇;
             销毁符文(副);
             ObserverModuleManager.S.SendEvent("SendUIToast", "融合成功");
+            PlayerData.S.任务完成字典[任务Type.符文融合] = true;
         }
         else
         {

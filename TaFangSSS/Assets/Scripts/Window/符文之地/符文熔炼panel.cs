@@ -205,6 +205,7 @@ public class 符文熔炼panel : MonoBehaviour
             HeroWindowController.S.符文熔炼选择3 = null;
             HeroWindowController.S.符文熔炼选择4 = null;
 
+            PlayerData.S.任务完成字典[任务Type.符文重铸] = true;
             Show();
         });
     }

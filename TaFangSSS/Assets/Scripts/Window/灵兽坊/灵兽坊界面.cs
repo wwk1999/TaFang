@@ -1016,6 +1016,7 @@ public class 灵兽坊界面 : MonoBehaviour
         }
 
         PlayerData.S.灵兽蛋数量 -= 当前砸蛋数量;
+        PlayerData.S.任务完成字典[任务Type.开灵兽蛋] = true;
         当前砸蛋数量 = 0;
         Show灵蛋信息();
         Show灵兽背包();

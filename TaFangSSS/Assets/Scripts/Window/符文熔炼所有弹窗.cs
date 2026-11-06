@@ -93,6 +93,7 @@ public class 符文熔炼所有弹窗 : MonoBehaviour
                 return;
             }
             ObserverModuleManager.S.SendEvent("SendUIToast",$"熔炼完成，获得{新符文总数}个新符文");
+            PlayerData.S.任务完成字典[任务Type.符文重铸] = true;
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);
         });

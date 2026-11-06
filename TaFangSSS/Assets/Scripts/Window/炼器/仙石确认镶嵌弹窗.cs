@@ -30,6 +30,7 @@ public class 仙石确认镶嵌弹窗 : MonoBehaviour
         {
             PlayerData.S.仙石列表.Remove(仙石);
             法器.仙石list[index] = 仙石;
+            PlayerData.S.任务完成字典[任务Type.镶嵌仙石] = true;
             ObserverModuleManager.S.SendEvent("刷新仙石镶嵌Panel");
             gameObject.SetActive(false);
         });

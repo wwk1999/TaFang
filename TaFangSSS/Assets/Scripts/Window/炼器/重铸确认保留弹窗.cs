@@ -26,6 +26,7 @@ public class 重铸确认保留弹窗 : MonoBehaviour
                 HeroWindowController.S.仙石重铸后词条 = null;
                 HeroWindowController.S.重铸panel当前仙石.type = HeroWindowController.S.重铸后仙石Type;
                 HeroWindowController.S.重铸后仙石Type = 仙石Type.None;
+                PlayerData.S.任务完成字典[任务Type.仙石洗练] = true;
                 ObserverModuleManager.S.SendEvent("刷新重铸Panel");
                 gameObject.SetActive(false);
             }

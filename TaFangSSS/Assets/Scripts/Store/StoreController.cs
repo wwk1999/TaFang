@@ -352,6 +352,7 @@ public class StoreController : XSingleton<StoreController>
                 if (item.Value.当前道年 >= item.Value.需要道年)
                 {
                     灵兽坊Config.Get孵化灵兽(item.Value.父, item.Value.母);
+                    PlayerData.S.任务完成字典[任务Type.灵兽孵化] = true;
                     item.Value.当前道年 = 0;
                 }
             }
@@ -561,6 +562,14 @@ public class StoreController : XSingleton<StoreController>
                 if (解锁)
                 {
                     PlayerData.S.大道配置[item.Key].等级 = 1;
+                    if (item.Value.大道等级Type == 大道等级Type.上等大道)
+                    {
+                        PlayerData.S.任务完成字典[任务Type.解锁上等大道] = true;
+                    }
+                    else if (item.Value.大道等级Type == 大道等级Type.至尊大道)
+                    {
+                        PlayerData.S.任务完成字典[任务Type.解锁至尊大道] = true;
+                    }
                 }
             }
         }
@@ -663,6 +672,7 @@ public class StoreController : XSingleton<StoreController>
                 }
                 // 打造完成提示，并刷新背包法器列表
                 //ObserverModuleManager.S.SendEvent("SendUIToast", 法器Config.Get法器Name(当前打造.法器Type, 当前打造.阶数), 成品品质, 1);
+                PlayerData.S.任务完成字典[任务Type.打造一件法器] = true;
                 ObserverModuleManager.S.SendEvent("刷新背包");
                 PlayerData.S.打造List[0].count--;
                 PlayerData.S.打造List[0].进度 = 0;
@@ -815,6 +825,7 @@ public class StoreController : XSingleton<StoreController>
                PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type, 成品品质,
                    PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type, 成品品质, 成品阶段) + 出炉数量, 成品阶段);
                PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
+               PlayerData.S.任务完成字典[任务Type.炼制丹药] = true;
                if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
                {
                    PlayerData.S.炼丹经验 -= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];

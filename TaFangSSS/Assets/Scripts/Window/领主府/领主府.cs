@@ -287,6 +287,21 @@ public class 领主府 : MonoBehaviour
          PlayerData.S.PropListDic[PropType.玄铁]-= 需要玄铁;
          PlayerData.S.PropListDic[PropType.玉髓] -= 需要玉髓;
          PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]++;
+         switch (HeroWindowController.S.当前显示建筑Type)
+         {
+            case 建筑Type.矿场:
+               PlayerData.S.任务完成字典[任务Type.升级矿场] = true;
+               break;
+            case 建筑Type.地脉:
+               PlayerData.S.任务完成字典[任务Type.升级地脉] = true;
+               break;
+            case 建筑Type.玄铁洞:
+               PlayerData.S.任务完成字典[任务Type.升级玄铁] = true;
+               break;
+            case 建筑Type.功德碑:
+               PlayerData.S.任务完成字典[任务Type.升级功德碑] = true;
+               break;
+         }
          if (HeroWindowController.S.当前显示建筑Type == 建筑Type.灵兽坊)
          {
             PlayerData.S.孵化池列表.Add(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type],new 孵化池(){index=PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]});

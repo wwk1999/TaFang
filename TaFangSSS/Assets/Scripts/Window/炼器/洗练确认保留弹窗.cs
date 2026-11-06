@@ -25,6 +25,7 @@ public class 洗练确认保留弹窗 : MonoBehaviour
                 HeroWindowController.S.洗练panel当前法器.list.Clear();
                 HeroWindowController.S.洗练panel当前法器.list = HeroWindowController.S.洗练后词条;
                 HeroWindowController.S.洗练后词条 = null;
+                PlayerData.S.任务完成字典[任务Type.洗练一次法器] = true;
                 ObserverModuleManager.S.SendEvent("刷新洗练Panel");
                 gameObject.SetActive(false);
             }

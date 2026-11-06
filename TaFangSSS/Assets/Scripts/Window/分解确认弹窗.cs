@@ -38,6 +38,7 @@ public class 分解确认弹窗 : MonoBehaviour
             {
                 PlayerData.S.PropListDic[PropType.法器粉尘] += 法器Config.Get法器分解粉尘(法器) * (1f + 道场Config.供奉总属性.增加法器分解粉尘/100f) * (1f + 属性config.仙子总属性.加分解粉尘/100f);
                 PlayerData.S.法器列表.Remove(法器);
+                PlayerData.S.任务完成字典[任务Type.分解一次法器] = true;
             }
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);
