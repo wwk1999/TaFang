@@ -115,7 +115,7 @@ public class 道场 : MonoBehaviour
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.仙女阁] == 0)
             {
-                if (PlayerData.S.历史最高境界 >= JingJieType.化神)
+                if (PlayerData.S.历史最高境界 >= JingJieType.合体)
                 {
                     if (PlayerData.S.建筑等级Dic[建筑Type.仙女阁] == 0)
                     {
