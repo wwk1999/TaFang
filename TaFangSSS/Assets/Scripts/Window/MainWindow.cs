@@ -21,6 +21,9 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public Button 任务栏Button;
+    public GameObject 任务区域;
+
     public GameObject 愿望单提示;
     public TextMeshProUGUI 愿望单提示Text;
 
@@ -118,7 +121,9 @@ public class MainWindow : MonoBehaviour
     public Button 炼器Button;
     public Button 坊市Button;
     public Button 炼丹Button;
+    public Button 任务Button;
     public GameObject 坊市窗口;
+    
 
     public 主线关卡窗口 主线关卡窗口;
     public 凌霄宝殿窗口 凌霄宝殿窗口;
@@ -269,6 +274,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.赌坊Window.gameObject.SetActive(false);
         WindowController.S.悟道崖Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/悟道崖/悟道崖界面"));
         WindowController.S.悟道崖Window.gameObject.SetActive(false);
+        WindowController.S.任务Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/任务/任务界面"));
+        WindowController.S.任务Window.gameObject.SetActive(false);
     }
 
     public void SetBuff()
@@ -520,6 +527,10 @@ public class MainWindow : MonoBehaviour
         {
             任务Config.添加任务(任务Type.花果山);
         }
+        任务栏Button.onClick.AddListener(() =>
+        {
+            任务区域.gameObject.SetActive(true);
+        });
         神通配置新手mask.gameObject.SetActive(false);
         设置秘境点击像素();
         ObserverModuleManager.S.RegisterEvent("退出神通配置",退出神通配置);
@@ -782,6 +793,11 @@ public class MainWindow : MonoBehaviour
         炼器Button.onClick.AddListener(() =>
         {
             WindowController.S.打开窗口(WindowController.S.炼器Window);
+        });
+        任务Button.onClick.AddListener(() =>
+        {
+            HeroWindowController.S.当前显示任务Type = 任务Type.None;
+            WindowController.S.打开窗口(WindowController.S.任务Window);
         });
         炼丹Button.onClick.AddListener(() =>
         {

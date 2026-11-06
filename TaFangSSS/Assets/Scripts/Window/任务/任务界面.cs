@@ -17,6 +17,7 @@ public class 任务界面 : MonoBehaviour
     public TextMeshProUGUI 灵气;
     public Button 完成任务按钮;
 
+    public Button exitButton;
     public void Show任务信息()
     {
         if (HeroWindowController.S.当前显示任务Type == 任务Type.None)
@@ -24,7 +25,7 @@ public class 任务界面 : MonoBehaviour
             任务信息.SetActive(false);
             return;
         }
-
+        任务信息.SetActive(true);
         完成任务按钮.interactable = PlayerData.S.任务完成字典[HeroWindowController.S.当前显示任务Type];
         任务类型 任务类型 = 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].任务类型;
         string 类型 = 任务类型 == 任务类型.主线任务 ? "[主线]" : "[支线]";
@@ -66,7 +67,6 @@ public class 任务界面 : MonoBehaviour
 
     private void OnEnable()
     {
-        HeroWindowController.S.当前显示任务Type = 任务Type.None;
         刷新列表();
         Show任务信息();
     }
@@ -82,9 +82,15 @@ public class 任务界面 : MonoBehaviour
         {
             添加任务();
             ObserverModuleManager.S.SendEvent("SendUIToast","任务完成,获得灵气X"+任务Config.任务配置[HeroWindowController.S.当前显示任务Type].灵气);
-            HeroWindowController.S.当前显示任务Type = 任务Type.None;
             PlayerData.S.当前任务列表.Remove(HeroWindowController.S.当前显示任务Type);
+            HeroWindowController.S.当前显示任务Type = 任务Type.None;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+            Show任务信息();
             刷新列表();
+        });
+        exitButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
         });
     }
 
