@@ -84,6 +84,13 @@ public class 突破确认弹窗 : MonoBehaviour
                     PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵兽坊已解锁");
                 }
+
+                switch (PlayerData.S.历史最高境界)
+                {
+                    case JingJieType.筑基:
+                        PlayerData.S.任务完成字典[任务Type.筑基] = true;
+                        break;
+                }
             }
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);

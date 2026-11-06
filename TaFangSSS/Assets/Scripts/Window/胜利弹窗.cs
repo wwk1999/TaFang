@@ -110,6 +110,7 @@ public class 胜利弹窗 : MonoBehaviour
         {
             if (LevelConfig.当前关卡类型 == 关卡类型.主线关卡)
             {
+                任务解锁();
                 主线关卡结算();
             }
             else if (LevelConfig.当前关卡类型 == 关卡类型.洞天秘境)
@@ -246,6 +247,94 @@ public class 胜利弹窗 : MonoBehaviour
         {
             case 主线关卡Type.花果山:
                 PlayerData.S.任务完成字典[任务Type.花果山] = true;
+                break;
+            case 主线关卡Type.水帘洞:
+                PlayerData.S.任务完成字典[任务Type.水帘洞] = true;
+                break;
+            case 主线关卡Type.蓬莱仙岛:
+                PlayerData.S.任务完成字典[任务Type.蓬莱仙岛] = true;
+                break;
+            case 主线关卡Type.五行山:
+                PlayerData.S.任务完成字典[任务Type.五行山] = true;
+                break;
+            case 主线关卡Type.傲来国:
+                PlayerData.S.任务完成字典[任务Type.傲来国] = true;
+                break;
+            case 主线关卡Type.高老庄:
+                PlayerData.S.任务完成字典[任务Type.高老庄] = true;
+                break;
+            case 主线关卡Type.女儿国:
+                PlayerData.S.任务完成字典[任务Type.女儿国] = true;
+                break;
+            case 主线关卡Type.小雷音寺:
+                PlayerData.S.任务完成字典[任务Type.小雷音寺] = true;
+                break;
+            case 主线关卡Type.平顶山:
+                PlayerData.S.任务完成字典[任务Type.平顶山] = true;
+                break;
+            case 主线关卡Type.火焰山:
+                PlayerData.S.任务完成字典[任务Type.火焰山] = true;
+                break;
+            case 主线关卡Type.芭蕉洞:
+                PlayerData.S.任务完成字典[任务Type.芭蕉洞] = true;
+                break;
+            case 主线关卡Type.流沙河:
+                PlayerData.S.任务完成字典[任务Type.流沙河] = true;
+                break;
+            case 主线关卡Type.狮驼岭:
+                PlayerData.S.任务完成字典[任务Type.狮驼岭] = true;
+                break;
+            case 主线关卡Type.东海龙宫:
+                PlayerData.S.任务完成字典[任务Type.东海龙宫] = true;
+                break;
+            case 主线关卡Type.冥府:
+                PlayerData.S.任务完成字典[任务Type.冥府] = true;
+                break;
+            case 主线关卡Type.南天门:
+                PlayerData.S.任务完成字典[任务Type.南天门] = true;
+                break;
+            case 主线关卡Type.瑶池仙境:
+                PlayerData.S.任务完成字典[任务Type.瑶池仙境] = true;
+                break;
+            case 主线关卡Type.斩妖台:
+                PlayerData.S.任务完成字典[任务Type.斩妖台] = true;
+                break;
+            case 主线关卡Type.御马监:
+                PlayerData.S.任务完成字典[任务Type.御马监] = true;
+                break;
+            case 主线关卡Type.蟠桃园:
+                PlayerData.S.任务完成字典[任务Type.蟠桃园] = true;
+                break;
+            case 主线关卡Type.兜率宫:
+                PlayerData.S.任务完成字典[任务Type.兜率宫] = true;
+                break;
+            case 主线关卡Type.紫微宫:
+                PlayerData.S.任务完成字典[任务Type.紫微宫] = true;
+                break;
+            case 主线关卡Type.昊天殿:
+                PlayerData.S.任务完成字典[任务Type.昊天殿] = true;
+                break;
+            case 主线关卡Type.混沌虚空:
+                if (LevelConfig.战斗混沌虚空层数 >= 50)
+                {
+                    PlayerData.S.任务完成字典[任务Type.三十三重天50层] = true;
+                }
+                if (LevelConfig.战斗混沌虚空层数 >= 150)
+                {
+                    PlayerData.S.任务完成字典[任务Type.三十三重天150层] = true;
+                }
+                if (LevelConfig.战斗混沌虚空层数 >= 300)
+                {
+                    PlayerData.S.任务完成字典[任务Type.三十三重天300层] = true;
+                }
+                if (LevelConfig.战斗混沌虚空层数 >= 600)
+                {
+                    PlayerData.S.任务完成字典[任务Type.三十三重天600层] = true;
+                }
+                if (LevelConfig.战斗混沌虚空层数 >= 1000)
+                {
+                    PlayerData.S.任务完成字典[任务Type.三十三重天1000层] = true;
+                }
                 break;
         }
     }
