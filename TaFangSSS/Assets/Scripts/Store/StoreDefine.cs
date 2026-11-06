@@ -186,7 +186,102 @@ public class StoreDefine : XSingleton<StoreController>
         };
         public 大道Type 当前参悟大道Type;
         public 大道Type 当前前置参悟大道Type;
+public List<任务Type> 当前任务列表 = new List<任务Type>();
 
+    public Dictionary<任务Type, bool> 任务完成字典 = new Dictionary<任务Type, bool>()
+    {
+        // 主线关卡
+        {任务Type.花果山,false},
+        {任务Type.水帘洞,false},
+        {任务Type.蓬莱仙岛,false},
+        {任务Type.五行山,false},
+        {任务Type.傲来国,false},
+        {任务Type.高老庄,false},
+        {任务Type.女儿国,false},
+        {任务Type.小雷音寺,false},
+        {任务Type.平顶山,false},
+        {任务Type.火焰山,false},
+        {任务Type.芭蕉洞,false},
+        {任务Type.流沙河,false},
+        {任务Type.狮驼岭,false},
+        {任务Type.东海龙宫,false},
+        {任务Type.冥府,false},
+        {任务Type.南天门,false},
+        {任务Type.瑶池仙境,false},
+        {任务Type.斩妖台,false},
+        {任务Type.御马监,false},
+        {任务Type.蟠桃园,false},
+        {任务Type.兜率宫,false},
+        {任务Type.紫微宫,false},
+        {任务Type.昊天殿,false},
+
+        // 三十三重天
+        {任务Type.三十三重天50层,false},
+        {任务Type.三十三重天150层,false},
+        {任务Type.三十三重天300层,false},
+        {任务Type.三十三重天600层,false},
+        {任务Type.三十三重天1000层,false},
+
+        // 境界突破
+        {任务Type.筑基,false},
+        {任务Type.金丹,false},
+        {任务Type.元婴,false},
+        {任务Type.化神,false},
+        {任务Type.合体,false},
+        {任务Type.大乘,false},
+        {任务Type.天仙,false},
+        {任务Type.玄仙,false},
+        {任务Type.金仙,false},
+        {任务Type.太乙金仙,false},
+        {任务Type.大罗金仙,false},
+        {任务Type.准圣,false},
+        {任务Type.圣人,false},
+        {任务Type.天道圣人,false},
+        {任务Type.大道圣人,false},
+        {任务Type.混元圣人,false},
+        {任务Type.鸿蒙,false},
+
+        // 秘境寻宝
+        {任务Type.通天塔寻宝,false},
+        {任务Type.九幽血海寻宝,false},
+        {任务Type.世界树寻宝,false},
+        {任务Type.远古遗迹掉落神物,false},
+        {任务Type.通关一次符文之地,false},
+
+        // 轮回
+        {任务Type.轮回,false},
+
+        // 支线
+        {任务Type.招募,false},
+        {任务Type.坊市购买物品,false},
+        {任务Type.获取一本功法,false},
+        {任务Type.上场供奉,false},
+        {任务Type.升级矿场,false},
+        {任务Type.升级地脉,false},
+        {任务Type.升级玄铁,false},
+        {任务Type.升级功德碑,false},
+        {任务Type.打造一件法器,false},
+        {任务Type.洗练一次法器,false},
+        {任务Type.分解一次法器,false},
+        {任务Type.装备一件法器,false},
+        {任务Type.镶嵌仙石,false},
+        {任务Type.仙石洗练,false},
+        {任务Type.符文附魔,false},
+        {任务Type.符文重铸,false},
+        {任务Type.符文融合,false},
+        {任务Type.符文洗练,false},
+        {任务Type.炼制丹药,false},
+        {任务Type.丹药升阶,false},
+        {任务Type.种植一个灵植,false},
+        {任务Type.施一次肥,false},
+        {任务Type.收获一次,false},
+        {任务Type.收获一次变异灵植,false},
+        {任务Type.赠送灵植,false},
+        {任务Type.解锁上等大道,false},
+        {任务Type.解锁至尊大道,false},
+        {任务Type.开灵兽蛋,false},
+        {任务Type.灵兽孵化,false},
+    };
         public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()
     {
         // 基础
@@ -3014,6 +3109,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             大道配置 = runtime.大道配置;
             当前参悟大道Type = runtime.当前参悟大道Type;
             当前前置参悟大道Type = runtime.当前前置参悟大道Type;
+            当前任务列表 = runtime.当前任务列表;
+            任务完成字典 = runtime.任务完成字典;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
@@ -3202,7 +3299,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             runtime.大道配置 = 大道配置;
             runtime.当前参悟大道Type = 当前参悟大道Type;
             runtime.当前前置参悟大道Type = 当前前置参悟大道Type;
-
+            runtime.当前任务列表 = 当前任务列表;
+            runtime.任务完成字典 = 任务完成字典;
             // 读档自愈：清理解析不出丹药类型的脏 key（旧版坊市丹方自动购买 bug 用丹药Type=None
             // 写入的 "None_黄品" 等），防止分解弹窗遍历时查 丹药类型Dic[None] 抛 KeyNotFoundException
             foreach (var key in 丹药Dic.Keys.Where(k => runtime.Get丹药Type(k) == 丹药Type.None).ToList())

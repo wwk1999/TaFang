@@ -516,6 +516,10 @@ public class MainWindow : MonoBehaviour
     }
     private void Start()
     {
+        if (!PlayerData.S.当前任务列表.Contains(任务Type.花果山) && !PlayerData.S.任务完成字典[任务Type.花果山])
+        {
+            任务Config.添加任务(任务Type.花果山);
+        }
         神通配置新手mask.gameObject.SetActive(false);
         设置秘境点击像素();
         ObserverModuleManager.S.RegisterEvent("退出神通配置",退出神通配置);

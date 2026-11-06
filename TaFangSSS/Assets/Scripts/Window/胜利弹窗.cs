@@ -239,7 +239,7 @@ public class 胜利弹窗 : MonoBehaviour
             item.SetItem();
         }
     }
-
+    
     public void 主线关卡结算()
     {
         普通关卡胜利奖励 value = LevelConfig.Get主线胜利奖励();
