@@ -13,6 +13,10 @@ public class 遁形 : XSingleton<遁形>
 {
     [Header("老板键：按下后隐藏到右下角托盘")]
     public KeyCode 老板键 = KeyCode.B;
+    [Header("托盘显示名称，留空则使用游戏名")]
+    public string 托盘名称 = "洪荒之刷宝成圣";
+    [Header("托盘图标文件名（.ico 格式，放在 StreamingAssets 目录下），留空则使用游戏图标")]
+    public string 托盘图标文件名 = "icon.ico";
 
     // 托盘图标回调消息号（取 WM_APP 区段，避免与系统消息冲突）
     private const int 托盘回调消息 = 0x8000 + 0x51;
@@ -34,6 +38,7 @@ public class 遁形 : XSingleton<遁形>
 
     private static IntPtr s_窗口句柄;
     private static IntPtr s_原窗口过程;
+    private static IntPtr s_自加载图标;   // 从文件加载的托盘图标句柄，用完需手动销毁
     private static NOTIFYICONDATA s_托盘数据;
     private static bool s_托盘已添加;
     private static bool s_已隐藏;
@@ -122,6 +127,7 @@ public class 遁形 : XSingleton<遁形>
             Shell_NotifyIconW(NIM_DELETE, ref s_托盘数据);
             s_托盘已添加 = false;
         }
+        销毁自加载图标();
         ShowWindow(s_窗口句柄, SW_SHOW);
         ShowWindow(s_窗口句柄, SW_RESTORE);
         SetForegroundWindow(s_窗口句柄);
@@ -147,14 +153,16 @@ public class 遁形 : XSingleton<遁形>
         s_原窗口过程 = IntPtr.Zero;
     }
 
-    private static bool 添加托盘图标(IntPtr 句柄)
+    private bool 添加托盘图标(IntPtr 句柄)
     {
-        // 托盘图标优先取游戏窗口自身图标，取不到则退用系统默认应用图标
-        IntPtr 图标 = SendMessage(句柄, WM_GETICON, new IntPtr(1), IntPtr.Zero);        // ICON_BIG
+        销毁自加载图标();
+        // 图标优先级：StreamingAssets 自定义 .ico → 游戏窗口自身图标 → 系统默认应用图标
+        IntPtr 图标 = 加载自定义图标();
+        if (图标 == IntPtr.Zero) 图标 = SendMessage(句柄, WM_GETICON, new IntPtr(1), IntPtr.Zero);        // ICON_BIG
         if (图标 == IntPtr.Zero) 图标 = SendMessage(句柄, WM_GETICON, IntPtr.Zero, IntPtr.Zero);   // ICON_SMALL
         if (图标 == IntPtr.Zero) 图标 = LoadIcon(GetModuleHandle(null), IDI_APPLICATION);
 
-        string 提示 = Application.productName;
+        string 提示 = string.IsNullOrEmpty(托盘名称) ? Application.productName : 托盘名称;
         if (提示.Length > 63) 提示 = 提示.Substring(0, 63);
 
         s_托盘数据 = new NOTIFYICONDATA
@@ -169,6 +177,24 @@ public class 遁形 : XSingleton<遁形>
         };
         s_托盘已添加 = Shell_NotifyIconW(NIM_ADD, ref s_托盘数据);
         return s_托盘已添加;
+    }
+
+    /// <summary>从 StreamingAssets 加载自定义 .ico 托盘图标，未配置或文件不存在时返回空句柄。</summary>
+    private IntPtr 加载自定义图标()
+    {
+        if (string.IsNullOrEmpty(托盘图标文件名)) return IntPtr.Zero;
+        string 路径 = System.IO.Path.Combine(Application.streamingAssetsPath, 托盘图标文件名);
+        if (!System.IO.File.Exists(路径)) return IntPtr.Zero;
+        // IMAGE_ICON=1，LR_LOADFROMFILE|LR_DEFAULTSIZE 从文件加载并按系统默认尺寸
+        s_自加载图标 = LoadImage(IntPtr.Zero, 路径, 1, 0, 0, 0x00000010 | 0x00000040);
+        return s_自加载图标;
+    }
+
+    private static void 销毁自加载图标()
+    {
+        if (s_自加载图标 == IntPtr.Zero) return;
+        DestroyIcon(s_自加载图标);
+        s_自加载图标 = IntPtr.Zero;
     }
 
     /// <summary>
@@ -195,6 +221,7 @@ public class 遁形 : XSingleton<遁形>
             Shell_NotifyIconW(NIM_DELETE, ref s_托盘数据);
             s_托盘已添加 = false;
         }
+        销毁自加载图标();
         卸载窗口钩子();
     }
 
@@ -219,6 +246,10 @@ public class 遁形 : XSingleton<遁形>
     private static extern IntPtr SetWindowLong32(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
     [DllImport("user32.dll")]
     private static extern IntPtr LoadIcon(IntPtr hInstance, IntPtr lpIconName);
+    [DllImport("user32.dll", CharSet = CharSet.Unicode)]
+    private static extern IntPtr LoadImage(IntPtr hInst, string lpszName, uint uType, int cxDesired, int cyDesired, uint fuLoad);
+    [DllImport("user32.dll")]
+    private static extern bool DestroyIcon(IntPtr hIcon);
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
     private static extern IntPtr GetModuleHandle(string lpModuleName);
     [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
