@@ -954,7 +954,7 @@ public class MonsterBase : MonoBehaviour
             黑暗印记层数 = 0;
             FightController.S.当前英雄伤害Dic[heroType].总伤害 += 黑暗印记伤害;
             FightController.S.当前英雄伤害Dic[heroType].技能伤害 += 黑暗印记伤害;
-            FightController.S.Show伤害数字(PlayerData.S.格式化数字(黑暗印记伤害),YuanSuType.黑暗,伤害trans.position,is暴击:false);
+            FightController.S.Show伤害数字(黑暗印记伤害,YuanSuType.黑暗,伤害trans.position,is暴击:false);
             受击扣血(黑暗印记伤害);
             if (CurrentHP <= 0)
             {
@@ -998,7 +998,7 @@ public class MonsterBase : MonoBehaviour
       if (Time.time - _上次伤害数字时间 > 0.1f)
       {
          _上次伤害数字时间 = Time.time;
-         FightController.S.Show伤害数字(PlayerData.S.格式化数字(最终Damage),yuanSu,伤害trans.position,is暴击:暴击);
+         FightController.S.Show伤害数字(最终Damage,yuanSu,伤害trans.position,is暴击:暴击);
       }
       受击扣血(最终Damage);
       if (CurrentHP <= 0)
@@ -1160,7 +1160,7 @@ public class MonsterBase : MonoBehaviour
             item.Value.灼烧当前时间 = 0;
             FightController.S.当前英雄伤害Dic[item.Key].总伤害 += item.Value.灼烧伤害;
             FightController.S.当前英雄伤害Dic[item.Key].技能伤害 += item.Value.灼烧伤害;
-            FightController.S.Show伤害数字(PlayerData.S.格式化数字(item.Value.灼烧伤害),YuanSuType.火,伤害trans.position,is暴击:false);
+            FightController.S.Show伤害数字(item.Value.灼烧伤害,YuanSuType.火,伤害trans.position,is暴击:false);
             受击扣血(item.Value.灼烧伤害);
             if (CurrentHP <= 0)
             {
@@ -1670,7 +1670,11 @@ public class MonsterBase : MonoBehaviour
          float 总数量 = 0;
          总数量 = 计算怪物总数(小怪数量, 精英怪数量);
 
-         ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
+         // 后台挂机时进度条不刷新，连事件装箱分配一起省掉
+         if (FightController.表现层激活)
+         {
+            ObserverModuleManager.S.SendEvent("刷新关卡进度",FightController.S.KillMonsterCount/总数量);
+         }
          // >= 而非 ==：精英里程碑重复值可能多生成精英使总击杀越过关卡总数，
          // == 会错过胜利窗口，同样造成卡死
          // 战斗结束门控：胜利后场上可能还有活怪（挂机一晚每杀一只都会重启胜利协程+结算事件，
@@ -1690,7 +1694,7 @@ public class MonsterBase : MonoBehaviour
       {
          BigDouble value = 城墙Config.杀怪回血数值 / 100f * FightController.S.缓存城墙最大生命值;
          FightController.S.城墙当前生命值=BigDouble.Min(FightController.S.缓存城墙最大生命值,FightController.S.城墙当前生命值+value);
-         FightController.S.Show伤害数字(PlayerData.S.格式化数字(value),YuanSuType.None,new Vector2(-5,0),true);
+         FightController.S.Show伤害数字(value,YuanSuType.None,new Vector2(-5,0),true);
       }
       ObserverModuleManager.S.SendEvent("怪物死亡",this);
       MonsterType monsterType = MonsterConfig.MonsterTypeDic[MonsterTypeName];
@@ -1703,6 +1707,9 @@ public class MonsterBase : MonoBehaviour
       }
       // 死亡特效只是表现层：AOE 同帧多杀时特效池可能暂时耗尽（普通50/精英5/首领5），
       // 空队列 Dequeue 会抛 InvalidOperationException，池空时跳过特效即可
+      // 后台挂机时整段跳过：纯表现不产生任何分配
+      if (FightController.表现层激活)
+      {
       switch (monsterType)
       {
          case MonsterType.Normal:
@@ -1732,6 +1739,7 @@ public class MonsterBase : MonoBehaviour
                首领怪死亡.gameObject.SetActive(true);
             }
             break;
+      }
       }
       }
       finally

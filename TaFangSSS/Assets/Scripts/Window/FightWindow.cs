@@ -97,6 +97,8 @@ public class FightWindow : MonoBehaviour
 
     public void 刷新关卡进度(object[] obj)
     {
+        // 后台挂机时进度条不可见，跳过字符串拼接分配
+        if (!FightController.表现层激活) return;
         float count = (float)obj[0];
         关卡进度Slider.value = count;
         进度Text.text = (int)(count * 100f) + "%";
@@ -149,6 +151,9 @@ public class FightWindow : MonoBehaviour
 
     private void Update()
     {
+        // 后台挂机时 FightWindow 不可见（场景非活跃但本窗口仍 active），
+        // 跳过每帧的神通条字符串拼接与强制布局重建——挂机整晚这是最大的持续分配源
+        if (!FightController.表现层激活) return;
         Set神通进度条();
     }
 

@@ -19,6 +19,8 @@ public class Entrance : MonoBehaviour
 
    public void Set血条()
    {
+       // 后台挂机时血条不可见，跳过字符串格式化分配
+       if (!FightController.表现层激活) return;
        当前血量.text=PlayerData.S.格式化数字(FightController.S.城墙当前生命值); 
        最大血量.text= PlayerData.S.格式化数字(城墙Config.Get城墙最大生命值());
        血条Slider.maxValue = 城墙Config.Get城墙最大生命值();
@@ -63,8 +65,11 @@ public class Entrance : MonoBehaviour
       damage *= 1f /(1f+ 属性.伤害减免);
       damage=BigDouble.Max(damage,0);
       float y=(float)obj[1];
-      围栏Animator.Play("围栏受击",0,0);
-      FightController.S.Show伤害数字(PlayerData.S.格式化数字(damage),YuanSuType.物理,new Vector2(-5,y));
+      if (FightController.表现层激活)
+      {
+          围栏Animator.Play("围栏受击",0,0);
+      }
+      FightController.S.Show伤害数字(damage,YuanSuType.物理,new Vector2(-5,y));
       if (FightController.S.城墙护盾值 >= damage)
       {
           FightController.S.城墙护盾值 -= (float)damage;

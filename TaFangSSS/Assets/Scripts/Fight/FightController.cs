@@ -121,6 +121,12 @@ public class FightController : XSingleton<FightController>
     [NonSerialized]public Dictionary<HeroType,英雄伤害item>当前英雄伤害Dic = new Dictionary<HeroType, 英雄伤害item>();
     [NonSerialized]public float 伤害面板刷新间隔 = 0.5f;
     [NonSerialized]public float 当前伤害面板刷新时间 = 0f;
+
+    // 表现层开关：FightScene 不是活跃场景（挂在 UIScene 后台）时为 false，
+    // 伤害数字/命中特效/伤害面板等纯表现直接跳过，伤害结算照常进行。
+    // 挂机整晚时伤害数字字符串格式化是托管分配碎片化的最大源头，
+    // 后台砍掉后返回战斗不再因大块分配卡顿。
+    public static bool 表现层激活 = true;
     
     //法则
     [NonSerialized]public int 元始数量;
@@ -162,6 +168,8 @@ public class FightController : XSingleton<FightController>
 
     public void 刷新伤害面板()
     {
+        // 后台挂机时伤害面板不可见，跳过 List 分配与事件装箱
+        if (!表现层激活) return;
         List<伤害item> value = new List<伤害item>();
         BigDouble 总伤害 = 0;
         foreach (var item in 当前英雄伤害Dic)
@@ -1651,6 +1659,8 @@ public class FightController : XSingleton<FightController>
 
     public 序列纯显示一次 GetPeng(攻击特效Type type)
     {
+        // 后台挂机时不播放命中特效，调用方均已处理 null
+        if (!表现层激活) return null;
         switch (type)
         {
             case 攻击特效Type.冰旋风:
@@ -1967,6 +1977,8 @@ public class FightController : XSingleton<FightController>
         }
 
         base.Awake();
+        // 进战斗必然先切活跃场景，静态字段跨场景存活，这里兜底重置
+        表现层激活 = true;
         // 字段初始化器里不能调单例/Config(构造函数阶段禁止 FindObjectOfType),挪到 Awake
         当前神通能量 = 属性config.总属性.神通最大值;
         物理伤害 = 属性config.总属性.物理伤害增幅;
@@ -2013,6 +2025,8 @@ public class FightController : XSingleton<FightController>
     }
     private void Update()
     {
+        // 每帧一次原生调用，给所有表现层热路径提供 O(1) 开关
+        表现层激活 = SceneManager.GetActiveScene() == gameObject.scene;
         当前英雄之间神通间隔时间+=Time.deltaTime;
         当前伤害面板刷新时间+=Time.deltaTime;
         免疫护盾间隔时间 += Time.deltaTime;
@@ -2055,7 +2069,7 @@ public class FightController : XSingleton<FightController>
 
             if (真实回血值 > 0)
             {
-                Show伤害数字(PlayerData.S.格式化数字(真实回血值),YuanSuType.None,new Vector2(-5,0),true);
+                Show伤害数字(真实回血值,YuanSuType.None,new Vector2(-5,0),true);
                 城墙当前生命值 += 真实回血值;
                 城墙当前生命值 = BigDouble.Min(缓存城墙最大生命值, 城墙当前生命值);
                 ObserverModuleManager.S.SendEvent("设置护盾");
@@ -2127,8 +2141,12 @@ public class FightController : XSingleton<FightController>
     private int _伤害数字本帧数量;
     private const int _每帧伤害数字上限 = 40;
 
-    public void Show伤害数字(string 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false,bool is暴击=false)
+    // 参数改传 BigDouble：拦截判断发生在字符串格式化之前，
+    // 后台挂机时连 格式化数字 的分配都不会产生
+    public void Show伤害数字(BigDouble 最终伤害, YuanSuType yuanSuType,Vector2 pos,bool is回血=false,bool is暴击=false)
     {
+        // 后台挂机时跳过伤害数字，避免海量字符串格式化造成托管堆碎片化
+        if (!表现层激活) return;
         if (QueueController.S.伤害数字Queue.Count == 0) return;
         if (_伤害数字帧标记 != Time.frameCount)
         {
@@ -2138,7 +2156,7 @@ public class FightController : XSingleton<FightController>
         if (_伤害数字本帧数量 >= _每帧伤害数字上限) return;
         _伤害数字本帧数量++;
         var item=QueueController.S.伤害数字Queue.Dequeue();
-        item.text = 最终伤害;
+        item.text = PlayerData.S.格式化数字(最终伤害);
         item.is回血 = is回血;
         item.is暴击 = is暴击;
         item.YuanSuType = yuanSuType;
