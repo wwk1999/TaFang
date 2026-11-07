@@ -21,6 +21,7 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public Button 反馈Button;
     public Button 任务栏Button;
     public GameObject 任务区域;
 
@@ -526,6 +527,15 @@ public class MainWindow : MonoBehaviour
         if (!PlayerData.S.当前任务列表.Contains(任务Type.花果山) && !PlayerData.S.任务完成字典[任务Type.花果山])
         {
             任务Config.添加任务(任务Type.花果山);
+        }
+        if (反馈Button != null)
+        {
+            反馈Button.onClick.AddListener(() =>
+            {
+                Canvas canvas = GetComponentInParent<Canvas>();
+                GameObject obj = Instantiate(Resources.Load("Prefabs/Window/反馈窗口"), canvas.rootCanvas.transform) as GameObject;
+                obj.transform.SetAsLastSibling();
+            });
         }
         任务栏Button.onClick.AddListener(() =>
         {

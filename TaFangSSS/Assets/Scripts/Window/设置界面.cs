@@ -68,6 +68,7 @@ public class 设置界面 : MonoBehaviour
       
       maskButton.onClick.AddListener(() => { Destroy(gameObject); });
       exitButton.onClick.AddListener(() => { Destroy(gameObject); });
+     
       BGMSlider.onValueChanged.AddListener(delegate
       {
          PlayerData.S.BGM音量 = BGMSlider.value;
