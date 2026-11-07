@@ -532,9 +532,9 @@ public class MainWindow : MonoBehaviour
         {
             反馈Button.onClick.AddListener(() =>
             {
-                Canvas canvas = GetComponentInParent<Canvas>();
-                GameObject obj = Instantiate(Resources.Load("Prefabs/Window/反馈窗口"), canvas.rootCanvas.transform) as GameObject;
+                GameObject obj = Instantiate(Resources.Load("Prefabs/Window/反馈窗口"), canvas.transform) as GameObject;
                 obj.transform.SetAsLastSibling();
+                WindowController.强制刷新画布排序(obj);
             });
         }
         任务栏Button.onClick.AddListener(() =>

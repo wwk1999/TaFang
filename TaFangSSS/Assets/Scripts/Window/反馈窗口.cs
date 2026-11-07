@@ -69,6 +69,8 @@ public class 反馈窗口 : MonoBehaviour
             return;
         }
 
+        内容 = "道龄：" + PlayerData.S.道龄年 + "年\n" + 内容;
+
         发送中 = true;
         if (发送Button != null)
         {

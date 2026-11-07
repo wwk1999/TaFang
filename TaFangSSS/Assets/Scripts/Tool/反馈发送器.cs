@@ -14,7 +14,7 @@ using UnityEngine.Networking;
 public class 反馈发送器 : XSingleton<反馈发送器>
 {
     // 飞书群 → 设置 → 群机器人 → 添加“自定义机器人”，复制得到的 Webhook 地址填在这里
-    private const string Webhook地址 = "";
+    private const string Webhook地址 = "https://open.feishu.cn/open-apis/bot/v2/hook/5dc301d4-a128-4d18-9c2c-71279f4e687d";
 
     // 机器人安全设置里勾选了“签名校验”才需要填，未开启就留空
     private const string 签名密钥 = "";
