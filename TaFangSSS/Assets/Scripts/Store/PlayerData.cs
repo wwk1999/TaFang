@@ -205,6 +205,10 @@ public class PlayerData : XSingleton<PlayerData>
         {任务Type.远古遗迹掉落神物,false},
         {任务Type.通关一次符文之地,false},
 
+        // 领主装备
+        {任务Type.领主装备强化,false},
+        {任务Type.领主装备洗练,false},
+
         // 轮回
         {任务Type.轮回,false},
 

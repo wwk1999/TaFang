@@ -190,6 +190,7 @@ public class 强化弹窗 : MonoBehaviour
          }
       }
       ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+      PlayerData.S.任务完成字典[任务Type.领主装备洗练] = true;
       Set属性Panel();
       Set材料();
    }
@@ -249,6 +250,7 @@ public class 强化弹窗 : MonoBehaviour
          }
       }
       ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
+      PlayerData.S.任务完成字典[任务Type.领主装备洗练] = true;
       Set属性Panel();
       Set材料();
    }
@@ -351,6 +353,7 @@ public class 强化弹窗 : MonoBehaviour
       ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
 
       ObserverModuleManager.S.SendEvent("SendUIToast","强化成功");
+      PlayerData.S.任务完成字典[任务Type.领主装备强化] = true;
 
       if (PlayerData.S.EquipLevelDic[equipType] == 11)
       {

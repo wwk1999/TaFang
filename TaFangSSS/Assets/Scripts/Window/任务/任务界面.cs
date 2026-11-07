@@ -283,6 +283,11 @@ public class 任务界面 : MonoBehaviour
             
             case 任务Type.打造一件法器:
                 任务Config.添加任务(任务Type.装备一件法器);
+                任务Config.添加任务(任务Type.领主装备强化);
+                break;
+
+            case 任务Type.领主装备强化:
+                任务Config.添加任务(任务Type.领主装备洗练);
                 break;
             
             
