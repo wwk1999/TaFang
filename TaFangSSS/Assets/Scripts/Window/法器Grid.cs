@@ -31,6 +31,6 @@ public class 法器Grid : MonoBehaviour
         已装备Obj.SetActive(法器.HeroType!=HeroType.None);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器.品质);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器.法器Type, 法器.阶数);
-        name.text = 法器Config.Get法器Name(法器.法器Type, 法器.阶数);
+        name.text = 多语言Config.Get(法器Config.Get法器Name(法器.法器Type, 法器.阶数));
     }
 }

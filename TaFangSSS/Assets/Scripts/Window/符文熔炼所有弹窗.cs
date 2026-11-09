@@ -92,7 +92,7 @@ public class 符文熔炼所有弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","没有可熔炼的符文(需勾选品质且有4个以上未锁符文)");
                 return;
             }
-            ObserverModuleManager.S.SendEvent("SendUIToast",$"熔炼完成，获得{新符文总数}个新符文");
+            ObserverModuleManager.S.SendEvent("SendUIToast", 多语言Config.Get("熔炼完成，获得{0}个新符文", 新符文总数));
             PlayerData.S.任务完成字典[任务Type.符文重铸] = true;
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);

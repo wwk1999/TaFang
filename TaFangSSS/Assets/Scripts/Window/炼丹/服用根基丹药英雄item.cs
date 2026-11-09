@@ -48,7 +48,7 @@ public class 服用根基丹药英雄item : MonoBehaviour
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(HeroConfig.HeroQualityDic[HeroType]);
         元素icon.sprite = ResourcesConfig.Get元素Sprite(HeroConfig.HeroZhiYeDic[HeroType].yuanSuType);
         职业icon.sprite = ResourcesConfig.Get职业icon(HeroConfig.HeroZhiYeDic[HeroType].zhiYeType);
-        name.text = HeroConfig.HeroNameDic[HeroType];
+        name.text = 多语言Config.Get(HeroConfig.HeroNameDic[HeroType]);
         int level = PlayerData.S.HeroDataDic[HeroType].Level;
         xx1.gameObject.SetActive(level >= 2);
         xx2.gameObject.SetActive(level >= 3);

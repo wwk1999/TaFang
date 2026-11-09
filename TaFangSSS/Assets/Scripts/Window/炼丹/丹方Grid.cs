@@ -32,7 +32,7 @@ public class 丹方Grid : MonoBehaviour
     {
         bg.image.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite=ResourcesConfig.Get丹方icon(丹药Type,QualityType);
-        name.text = 丹药Config.丹方名Dic[丹药Type];
+        name.text = 多语言Config.Get(丹药Config.丹方名Dic[丹药Type]);
         count.text = PlayerData.S.Get丹方数量(丹药Type, QualityType).ToString();
     }
 

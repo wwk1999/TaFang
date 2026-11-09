@@ -49,12 +49,12 @@ public class 分解确认弹窗 : MonoBehaviour
     {
         if (分解类型 == 分解类型.仙石)
         {
-            name.text = 仙石Config.Get仙石Name(仙石.type, 仙石.阶数);
+            name.text = 多语言Config.Get(仙石Config.Get仙石Name(仙石.type, 仙石.阶数));
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(仙石.quality);
         }
         else
         {
-            name.text = 法器Config.Get法器Name(法器.法器Type, 法器.阶数);
+            name.text = 多语言Config.Get(法器Config.Get法器Name(法器.法器Type, 法器.阶数));
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器.品质);
         }
     }

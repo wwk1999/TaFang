@@ -123,7 +123,7 @@ public class 符文分解弹窗 : MonoBehaviour
                 return;
             }
             PlayerData.S.PropListDic[PropType.符箓] += 符箓总数;
-            ObserverModuleManager.S.SendEvent("SendUIToast", $"分解完成，获得{符箓总数}符箓");
+            ObserverModuleManager.S.SendEvent("SendUIToast", 多语言Config.Get("分解完成，获得{0}符箓", 符箓总数));
             ObserverModuleManager.S.SendEvent("刷新背包");
             gameObject.SetActive(false);
         });

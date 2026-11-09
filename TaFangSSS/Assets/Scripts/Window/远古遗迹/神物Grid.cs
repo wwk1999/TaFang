@@ -16,6 +16,6 @@ public class 神物Grid : MonoBehaviour
     {
         image.sprite = ResourcesConfig.Get神物Icon(type);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType.宇品);
-        name.text = 神物Config.神物名Dic[type];
+        name.text = 多语言Config.Get(神物Config.神物名Dic[type]);
     }
 }

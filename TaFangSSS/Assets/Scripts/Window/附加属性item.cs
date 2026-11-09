@@ -35,7 +35,7 @@ public class 附加属性item : MonoBehaviour
       if (EquipConfig.GetEquipQuality(EquipType) < JieSuoQualityType)
       {
          mask.SetActive(true);
-         masktext.text = PropConfig.QualityNameDic[JieSuoQualityType] + "解锁";
+         masktext.text = 多语言Config.Get("{0}解锁", 多语言Config.Get(PropConfig.QualityNameDic[JieSuoQualityType]));
       }
       else
       {
@@ -47,8 +47,8 @@ public class 附加属性item : MonoBehaviour
          mask.SetActive(false);
          bg.sprite = ResourcesConfig.Get标签背景(QualityType);
          labeltext.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-         labeltext.text=PropConfig.QualityNameDic[QualityType];
-         info.text = EquipConfig.附加属性NameDic[附加属性Type] + "+" + PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].count.ToString("F1")+"%";
+         labeltext.text=多语言Config.Get(PropConfig.QualityNameDic[QualityType]);
+         info.text = 多语言Config.Get("{0}+{1}%", 多语言Config.Get(EquipConfig.附加属性NameDic[附加属性Type]), PlayerData.S.装备附加属性Dic[EquipType][(int)(JieSuoQualityType - 2)].count.ToString("F1"));
          if (IsQiangHua)
          {
             Suo.gameObject.SetActive(false);

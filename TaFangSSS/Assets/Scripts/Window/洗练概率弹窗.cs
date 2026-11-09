@@ -49,7 +49,7 @@ public class 洗练概率弹窗 : MonoBehaviour
 
     public void Show()
     {
-        QualityText.text=PropConfig.QualityNameDic[EquipQualityType];
+        QualityText.text=多语言Config.Get(PropConfig.QualityNameDic[EquipQualityType]);
         foreach (Transform item in Content.transform)
         {
             Destroy(item.gameObject);

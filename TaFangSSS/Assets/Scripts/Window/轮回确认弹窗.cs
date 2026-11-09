@@ -16,8 +16,19 @@ public class 轮回确认弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        多语言Config.语言变化事件 += 刷新文本;
+        刷新文本();
+    }
+
+    private void OnDisable()
+    {
+        多语言Config.语言变化事件 -= 刷新文本;
+    }
+
+    private void 刷新文本()
+    {
         轮回石count.text=(JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界]+PlayerData.S.轮回次数*10).ToString();
-        text.text = $"并永久保留{JingJieConfig.轮回系数}%当前跟脚作为轮回后的初始跟脚";
+        text.text = 多语言Config.Get("并永久保留{0}%当前跟脚作为轮回后的初始跟脚", JingJieConfig.轮回系数);
     }
 
     private void Start()

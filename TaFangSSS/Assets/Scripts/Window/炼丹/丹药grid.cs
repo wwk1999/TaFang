@@ -48,7 +48,7 @@ public class 丹药grid : MonoBehaviour
         icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
         艺术字.sprite = ResourcesConfig.Get艺术字(QualityType);
         // 各阶段库存独立，同名丹药按阶段区分显示，如「火元丹·1阶」
-        name.text = 丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";
+        name.text = 多语言Config.Get("{0}·{1}阶", 丹药Config.丹药名Dic[丹药Type], 阶段);
         count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段).ToString();
     }
 }

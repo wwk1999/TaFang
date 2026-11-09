@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,26 +52,6 @@ public class 强化装备item : MonoBehaviour
 
       }
       image.sprite=ResourcesConfig.GetEquipSprite(equipType,EquipConfig.GetEquipQuality(equipType));
-      switch (equipType)
-      {
-         case EquipType.头盔:
-            Name.text = "头盔";
-            break;
-         case EquipType.护手:
-            Name.text = "护手";
-            break;
-         case EquipType.鞋子:
-            Name.text = "鞋子";
-            break;
-         case EquipType.项链:
-            Name.text = "项链";
-            break;
-         case EquipType.戒指:
-            Name.text = "戒指";
-            break;
-         case EquipType.衣服:
-            Name.text = "衣服";
-            break;
-      }
+      Name.text = 多语言Config.Get(equipType.ToString());
    }
 }

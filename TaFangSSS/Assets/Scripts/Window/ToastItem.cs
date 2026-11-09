@@ -40,7 +40,7 @@ public class ToastItem : MonoBehaviour
       {
          奖励obj.gameObject.SetActive(true);
          Text.gameObject.SetActive(false);
-         countText.text = "X"+count;
+         countText.text = 多语言Config.Get("X{0}", count);
          奖励.text=name;
          奖励.colorGradientPreset=ResourcesConfig.Get品质TMP(quality);
       }

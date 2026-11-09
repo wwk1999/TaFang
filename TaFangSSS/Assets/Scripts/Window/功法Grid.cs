@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,7 +26,7 @@ public class 功法Grid : MonoBehaviour, IPointerClickHandler
     
     public void SetItem()
     {
-        name.text = 功法Config.功法名Dic[功法Type];
+        name.text = 多语言Config.Get(功法Config.功法名Dic[功法Type]);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(功法Config.功法TypeQualityDic[功法Type]);
         count.text=PlayerData.S.功法数量Dic[功法Type].ToString();
         icon.sprite = ResourcesConfig.Get功法Sprite(功法Type);

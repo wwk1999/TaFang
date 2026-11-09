@@ -667,10 +667,10 @@ public class 强化弹窗 : MonoBehaviour
       无暇conut.text=count.ToString();
       当前等级.text = "+" + PlayerData.S.EquipLevelDic[equipType];
       强化后等级.text = "+" + (PlayerData.S.EquipLevelDic[equipType]+1);
-      当前攻击力.text = "攻击力+" + EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[equipType]);
-      强化后攻击力.text = "攻击力+" + EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[equipType]+1);
-      当前词条效果.text = "词条效果+" + 2*PlayerData.S.EquipLevelDic[equipType]+"%";
-      强化后词条效果.text = "词条效果+" + (2*(PlayerData.S.EquipLevelDic[equipType]+1))+"%";
+      当前攻击力.text = 多语言Config.Get("攻击力+{0}", EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[equipType]));
+      强化后攻击力.text = 多语言Config.Get("攻击力+{0}", EquipConfig.Get装备基础攻击力(PlayerData.S.EquipLevelDic[equipType]+1));
+      当前词条效果.text = 多语言Config.Get("词条效果+{0}%", 2*PlayerData.S.EquipLevelDic[equipType]);
+      强化后词条效果.text = 多语言Config.Get("词条效果+{0}%", 2*(PlayerData.S.EquipLevelDic[equipType]+1));
       绿附加属性.JieSuoQualityType = QualityType.玄品;
       绿附加属性.EquipType = equipType;
       绿附加属性.IsQiangHua = IsQiangHua;
@@ -722,7 +722,21 @@ public class 强化弹窗 : MonoBehaviour
    }
    private void OnEnable()
    {
+      多语言Config.语言变化事件 += 语言切换时刷新;
       Set无暇Toggle();
+      Set装备();
+      Set强化Info();
+      Set属性Panel();
+      Set材料();
+   }
+
+   private void OnDisable()
+   {
+      多语言Config.语言变化事件 -= 语言切换时刷新;
+   }
+
+   private void 语言切换时刷新()
+   {
       Set装备();
       Set强化Info();
       Set属性Panel();

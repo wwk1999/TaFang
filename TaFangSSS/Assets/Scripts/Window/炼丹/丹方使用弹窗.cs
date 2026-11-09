@@ -17,7 +17,7 @@ public class 丹方使用弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
-        name.text = 丹药Config.丹方名Dic[丹药Type];
+        name.text = 多语言Config.Get(丹药Config.丹方名Dic[丹药Type]);
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(qualityType);
     }
 

@@ -15,8 +15,9 @@ using UnityEngine.TextCore.LowLevel;
 /// 可重复执行：已存在的同名资产会被删除后重新生成，材质预设保留并重新接线 atlas。
 ///
 /// 生成后：
-/// - 每个语言文件夹下会得到 「{字体名} SDF.asset」 及其材质预设
-/// - 在本地化管理器里按语言切换 TMP_Text.font 时，直接引用这些 asset 即可
+/// - 资产生成在各自的字体文件夹下：「{字体名} SDF.asset」
+/// - 这 4 个字体已由主中文字体（演示魁本楷书 SDF）的 Fallback Font Assets 引用，
+///   全项目统一使用该中文字体即可，缺字时会自动回退到对应语言字体
 /// </summary>
 public static class GenerateMultiLangTMPAssets
 {

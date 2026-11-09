@@ -91,7 +91,7 @@ public class 服用辅助丹药弹窗 : MonoBehaviour
         count = 1;
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
-        name.text = 丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";
+        name.text = 多语言Config.Get("{0}·{1}阶", 丹药Config.丹药名Dic[丹药Type], 阶段);
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
     }
 }

@@ -80,18 +80,18 @@ public class 储物袋界面 : MonoBehaviour
    public void Set境界()
    {
       Set头像框();
-      体质.text = 体质Config.体质名Dic[PlayerData.S.当前体质];
+      体质.text = 多语言Config.Get(体质Config.体质名Dic[PlayerData.S.当前体质]);
       体质.colorGradientPreset = ResourcesConfig.Get品质TMP(体质Config.体质品质Dic[PlayerData.S.当前体质]);
       修炼速度count.text = 属性config.显示修炼速度 + "%";
       if (JingJieConfig.跟脚 > 10000)
       {
-         跟脚.text = PlayerData.S.格式化数字(JingJieConfig.跟脚)+$"({PlayerData.S.Get数字阶数(JingJieConfig.跟脚)}阶)";
+         跟脚.text = PlayerData.S.格式化数字(JingJieConfig.跟脚)+多语言Config.Get("({0}阶)", PlayerData.S.Get数字阶数(JingJieConfig.跟脚));
       }
       else
       {
          跟脚.text = Math.Round((double)JingJieConfig.跟脚,2).ToString();
       }
-      境界Name.text=JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界];
+      境界Name.text=多语言Config.Get(JingJieConfig.JingJieNameDic[PlayerData.S.当前轮回境界]);
    }
    public void 突破成功(object[] obj)
    {
@@ -168,7 +168,7 @@ public class 储物袋界面 : MonoBehaviour
       // 升阶门槛：数量至少要够合成一次，不足只弹提示不开弹窗
       if (PlayerData.S.Get丹药数量(type, qualityType, 阶段) < 丹药升阶弹窗.升阶消耗数量)
       {
-         ObserverModuleManager.S.SendEvent("SendUIToast","丹药数量不足" + 丹药升阶弹窗.升阶消耗数量 + "个，无法升阶");
+         ObserverModuleManager.S.SendEvent("SendUIToast", 多语言Config.Get("丹药数量不足{0}个，无法升阶", 丹药升阶弹窗.升阶消耗数量));
          return;
       }
       // 品质已到顶时不再开放升阶（黄品最高 1 阶，永远无法升阶）
@@ -349,7 +349,7 @@ public class 储物袋界面 : MonoBehaviour
       {
          if (PlayerData.S.当前轮回境界 < JingJieType.圣人)
          {
-            ObserverModuleManager.S.SendEvent("SendUIToast","圣人期解锁超脱 ");
+            ObserverModuleManager.S.SendEvent("SendUIToast","圣人期解锁超脱");
             return;
          }
       });
@@ -550,11 +550,26 @@ public class 储物袋界面 : MonoBehaviour
 
    private void OnEnable()
    {
+      多语言Config.语言变化事件 += 语言切换时刷新;
       显示类型 = 1;
       ShowProp();
       ShowEquip();
       Set经验SLider();
       Set境界();
+      // 放在最后：连同刚实例化出来的 Grid 一起自动挂载多语言组件
+      多语言工具.翻译窗口(transform);
+   }
+
+   private void OnDisable()
+   {
+      多语言Config.语言变化事件 -= 语言切换时刷新;
+   }
+
+   private void 语言切换时刷新()
+   {
+      Set经验SLider();
+      Set境界();
+      刷新背包();
    }
 
    public void Show丹药()
@@ -675,6 +690,7 @@ public class 储物袋界面 : MonoBehaviour
             Show符文();
             break;
       }
+      多语言工具.翻译窗口(transform);
    }
    // 材料+丹方总数算最大页数，与 ShowProp 的收集口径一致
    public int Get材料最大页数()

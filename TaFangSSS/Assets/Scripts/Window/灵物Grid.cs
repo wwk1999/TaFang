@@ -18,10 +18,10 @@ public class 灵物Grid : MonoBehaviour
 
     public void SetItem()
     {
-        境界.text=JingJieConfig.JingJieNameDic[JingJieType];
+        境界.text=多语言Config.Get(JingJieConfig.JingJieNameDic[JingJieType]);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
         icon.sprite = ResourcesConfig.Get突破灵物(JingJieType, QualityType);
-        name.text = 灵物突破Config.突破灵物名Dic[JingJieType];
+        name.text = 多语言Config.Get(灵物突破Config.突破灵物名Dic[JingJieType]);
         count.text = PlayerData.S.Get灵物数量(JingJieType, QualityType).ToString();
     }
 }

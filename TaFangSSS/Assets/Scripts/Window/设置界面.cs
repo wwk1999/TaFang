@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,8 +38,19 @@ public class 设置界面 : MonoBehaviour
          职业人人为我.image.sprite = ResourcesConfig.toggle暗;
       }
    }
+   private void 初始化语言Dropdown()
+   {
+      if (语言Dropdown == null) return;
+      语言Dropdown.ClearOptions();
+      语言Dropdown.AddOptions(new List<string>(多语言Config.语言显示名));
+      语言Dropdown.SetValueWithoutNotify((int)多语言Config.当前语言);
+      语言Dropdown.onValueChanged.AddListener(v => 多语言Config.设置语言((语言Type)v));
+   }
+
    public void Start()
    {
+      多语言工具.翻译窗口(transform);
+      初始化语言Dropdown();
       Set开关();
       元素人人为我.onClick.AddListener(() =>
       {

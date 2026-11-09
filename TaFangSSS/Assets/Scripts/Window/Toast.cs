@@ -13,7 +13,7 @@ public class Toast : MonoBehaviour
       {
           string content = obj[0] as string;
           var toastItem=Instantiate(Resources.Load("Prefabs/Window/ToastItem"),transform).GetComponent<ToastItem>();
-          toastItem.Content = content;
+          toastItem.Content = 多语言Config.Get(content);
           toastItem.SetItem();
       }
       else
@@ -22,7 +22,7 @@ public class Toast : MonoBehaviour
          QualityType quality = (QualityType)obj[1];
          int count = (int)obj[2];
          var toastItem=Instantiate(Resources.Load("Prefabs/Window/ToastItem"),transform).GetComponent<ToastItem>();
-         toastItem.name = name;
+         toastItem.name = 多语言Config.Get(name);
          toastItem.quality = quality;
          toastItem.count = count;
          toastItem.SetItem();

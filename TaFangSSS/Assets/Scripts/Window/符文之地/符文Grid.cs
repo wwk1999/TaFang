@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +21,8 @@ public class 符文Grid : MonoBehaviour
     {
         符文1.gameObject.SetActive(符文.融合);
         符文2.gameObject.SetActive(符文.融合);
-        符文1.text=符文Config.符文名Dic[符文.type];
-        符文2.text=符文Config.符文名Dic[符文.融合type];
+        符文1.text=多语言Config.Get(符文Config.符文名Dic[符文.type]);
+        符文2.text=多语言Config.Get(符文Config.符文名Dic[符文.融合type]);
         if (符文.锁)
         {
             锁.gameObject.SetActive(true);
@@ -34,6 +35,6 @@ public class 符文Grid : MonoBehaviour
         }
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(符文.quality);
         icon.sprite = ResourcesConfig.Get符文Sprite(符文.type,符文.quality);
-        name.text = 符文Config.符文名Dic[符文.type];
+        name.text = 多语言Config.Get(符文Config.符文名Dic[符文.type]);
     }
 }

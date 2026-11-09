@@ -96,8 +96,8 @@ public class 法器材料分解弹窗 : MonoBehaviour
         var 材料品质 = 法器Config.Get阶数对应品质(阶数);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
         icon.sprite = ResourcesConfig.Get法器材料Sprite(PropConfig.GetProp法器材料Type(PropType), 阶数);
-        name.text = 法器Config.Get法器材料Name(PropConfig.GetProp法器材料Type(PropType), 阶数);
+        name.text = 多语言Config.Get(法器Config.Get法器材料Name(PropConfig.GetProp法器材料Type(PropType), 阶数));
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(材料品质);
-        品质.text = 阶数 + "阶";
+        品质.text = 多语言Config.Get("{0}阶", 阶数);
     }
 }
