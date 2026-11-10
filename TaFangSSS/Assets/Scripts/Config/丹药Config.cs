@@ -242,6 +242,47 @@ public enum 灵药Type
 
 public class 丹药Config
 {
+
+    public static string Get阶数string(int 阶数)
+    {
+        switch (阶数)
+        {
+            case 1:
+                return "一阶";
+            case 2:
+                return "二阶";
+            case 3:
+                return "三阶";
+            case 4:
+                return "四阶";
+            case 5:
+                return "五阶";
+            case 6:
+                return "六阶";
+            case 7:
+                return "七阶";
+            case 8:
+                return "八阶";
+            case 9:
+                return "九阶";
+            case 10:
+                return "十阶";
+            case 11:
+                return "十一阶";
+            case 12:
+                return "十二阶";
+            case 13:
+                return "十三阶";
+            case 14:
+                return "十四阶";
+            case 15:
+                return "十五阶";
+            case 16:
+                return "十六阶";
+            default:
+                return string.Empty; // 或者 throw new ArgumentOutOfRangeException(nameof(阶数));
+        }
+    }
     public static float 丹药阶数倍数=2;
     /// <summary>每品质每阶数独立计数（各5次上限），数值按阶段翻倍</summary>
     public static 英雄根基丹药属性 Get英雄根基丹药属性(HeroType heroType)

@@ -70,7 +70,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     
     
     [NonSerialized] public 丹药Type 当前炼丹显示Type;
-    [NonSerialized] public QualityType 当前炼丹显示QualityType;
+    [NonSerialized] public int 当前炼丹显示阶数;
     [NonSerialized] public HeroType 服用根基丹药英雄;
     
     
