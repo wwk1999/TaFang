@@ -143,7 +143,7 @@ public class 坊市item : MonoBehaviour
         {
             name.text = $"{丹药Config.丹药名Dic[丹药Type]}·{阶数}阶";
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
-            icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, QualityType);
+            icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, 阶数);
             bg.sprite = ResourcesConfig.Get传道背景框(QualityType);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
             desc.text = 丹药Config.Get丹药Desc(丹药Type, QualityType);

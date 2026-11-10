@@ -22,7 +22,7 @@ public class 丹药选择Item : MonoBehaviour
       name.text = 丹药Config.丹药名Dic[丹药Type] + "·" + 阶段 + "阶";
       count.text = PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶段).ToString();
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
-      icon.sprite=ResourcesConfig.Get丹药icon(丹药Type,QualityType);
+      icon.sprite=ResourcesConfig.Get丹药icon(丹药Type,阶段);
       gou.SetActive(false);
    }
 

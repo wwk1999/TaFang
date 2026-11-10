@@ -45,7 +45,7 @@ public class 丹药grid : MonoBehaviour
     public void SetItem()
     {
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
-        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type,QualityType);
+        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, 阶段);
         艺术字.sprite = ResourcesConfig.Get艺术字(QualityType);
         // 各阶段库存独立，同名丹药按阶段区分显示，如「火元丹·1阶」
         name.text = 多语言Config.Get("{0}·{1}阶", 丹药Config.丹药名Dic[丹药Type], 阶段);

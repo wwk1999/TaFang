@@ -36,8 +36,8 @@ public class 丹药信息 : MonoBehaviour
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(材料品质);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
 
-        // 丹药icon按品质随机（炼制结果才有品质，显示最常见黄品图标）
-        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, QualityType.黄品);
+        // 丹药icon按阶数取新图集（1阶=子图0，16阶=子图15）
+        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, 阶数);
 
         类型.text = 丹药Config.丹药类型String[丹药类型];
         品质.text = "随机"; // 炼制完成后品质才随机确定

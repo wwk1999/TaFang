@@ -21,9 +21,9 @@ public class 炼丹item : MonoBehaviour,IPointerClickHandler
     public void SetItem()
     {
         QualityType 材料品质 = 丹药Config.Get材料品质(阶数);
-        mask.sprite = ResourcesConfig.Get丹药icon(丹药Type, 材料品质);
+        mask.sprite = ResourcesConfig.Get丹药icon(丹药Type, 阶数);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
-        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, 材料品质);
+        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, 阶数);
         counttext.text = count.ToString();
         icon.fillAmount = 进度 / 100f;
     }
