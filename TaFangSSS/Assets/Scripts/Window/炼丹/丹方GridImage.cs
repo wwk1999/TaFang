@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -69,11 +67,11 @@ public class 丹方GridImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
         
         // 加载弹窗预制体
         GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
-        // 在Canvas下创建弹窗
-        currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+        // 在Canvas下创建弹窗（Instantiate返回Object，必须强转GameObject）
+        currentPopup = Instantiate(popupPrefab, targetCanvas.transform) as GameObject;
         丹方信息弹窗 弹窗 = currentPopup.GetComponent<丹方信息弹窗>();
         弹窗.丹药Type = 丹方grid.丹药Type;
-        弹窗.QualityType = 丹方grid.QualityType;
+        弹窗.阶数 = 丹方grid.阶数;
         弹窗.SetItem();
         // 设置弹窗的位置
         UpdatePopupPosition(mousePosition);

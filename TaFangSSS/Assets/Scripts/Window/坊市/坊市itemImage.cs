@@ -119,7 +119,7 @@ public class 坊市itemImage : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             坊市丹方信息弹窗 弹窗 = currentPopup.GetComponent<坊市丹方信息弹窗>();
             弹窗.丹药Type = 坊市item.丹方Type;
-            弹窗.丹药QualityType = 坊市item.QualityType;
+            弹窗.阶数 = 坊市item.阶数;
             弹窗.SetItem();
         }
         // 设置弹窗的位置

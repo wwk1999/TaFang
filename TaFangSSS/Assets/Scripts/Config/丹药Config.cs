@@ -140,15 +140,7 @@ public class 丹药属性
 public class 丹药炼制Item
 {
     public 丹药Type 丹药Type;
-    public QualityType 丹药QualityType;
-    public bool 黄;
-    public bool 玄;
-    public bool 地;
-    public bool 天;
-    public bool 宇;
-    public bool 宙;
-    public bool 洪;
-    public bool 荒;
+    public int 阶数;
     public int count;
     public float 进度;
 }
@@ -333,22 +325,10 @@ public class 丹药Config
         { 丹药类型.辅助丹药, "辅助丹药" },
     };
 
+    // [废弃] 旧的按品质获取炼制经验接口，保留签名用于兼容
     public static float Get炼制丹药经验(丹药Type type, QualityType qualityType)
     {
-        var 类型 = 丹药类型Dic[type];
-        switch (类型)
-        {
-            case 丹药类型.战斗丹药:
-                return 战斗丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f)*(1f+属性config.仙子总属性.炼丹经验/100f);
-            case 丹药类型.辅助丹药:
-                return 辅助丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f)*(1f+属性config.仙子总属性.炼丹经验/100f);
-            case 丹药类型.根基丹药:
-                return 根基丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f)*(1f+属性config.仙子总属性.炼丹经验/100f);
-            case 丹药类型.造化丹药:
-                return 造化丹药经验Dic[qualityType]*(1f+体质Config.当前体质总属性.炼丹经验加成/100f)*(1f+道场Config.供奉总属性.增加炼丹经验/100f)*(1f+属性config.仙子总属性.炼丹经验/100f);
-        }
-
-        return 0;
+        return Get炼制经验(type, (int)qualityType); // 临时桥接：品质值作为阶数
     }
     public static Dictionary<QualityType, long> 战斗丹药经验Dic = new Dictionary<QualityType, long>()
     {
@@ -362,22 +342,10 @@ public class 丹药Config
         { QualityType.荒品, 100000 },
     };
 
+    // [废弃] 旧的按品质获取炼制等级接口
     public static long Get炼制丹药等级(丹药Type type, QualityType qualityType)
     {
-        var 类型 = 丹药类型Dic[type];
-        switch (类型)
-        {
-            case 丹药类型.战斗丹药:
-                return 战斗丹药炼制等级Dic[qualityType];
-            case 丹药类型.辅助丹药:
-                return 辅助丹药炼制等级Dic[qualityType];
-            case 丹药类型.根基丹药:
-                return 根基丹药炼制等级Dic[qualityType];
-            case 丹药类型.造化丹药:
-                return 造化丹药炼制等级Dic[qualityType];
-        }
-
-        return 0;
+        return Get炼丹等级要求(type, (int)qualityType); // 临时桥接
     }
     public static Dictionary<QualityType, long> 战斗丹药炼制等级Dic = new Dictionary<QualityType, long>()
     {
@@ -507,100 +475,43 @@ public class 丹药Config
         { QualityType.荒品, 1000000 },
     };
 
+    // [废弃] 旧的按品质+筛选计算最大炼制数量接口（现在数量固定按阶数算）
     public static int Get最大炼制数量(丹药Type type, QualityType qualityType,bool 黄,bool 玄,bool 地,bool 天,bool 宇,bool 宙,bool 洪,bool 荒)
     {
-        var list = 丹方Dic[type];
-        int min=int.MaxValue;
-        for (int i = 0; i < 4; i++)
-        {
-            int count = 0;
-            if (黄 && QualityType.黄品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.黄品);
-            }
-            if (玄 && QualityType.玄品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.玄品);
-            }
-            if (地 && QualityType.地品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.地品);
-            }
-            if (天 && QualityType.天品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.天品);
-            }
-            if (宇 && QualityType.宇品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.宇品);
-            }
-            if (宙 && QualityType.宙品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.宙品);
-            }
-            if (洪 && QualityType.洪品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.洪品);
-            }
-            if (荒 && QualityType.荒品 >= qualityType) 
-            {
-                count+=PlayerData.S.Get灵药数量(list[i], QualityType.荒品);
-            }
-            if(count < min)min = count;
-        }
-        return min;
+        return int.MaxValue; // 现在不再靠品质筛选限制数量
     }
 
+    // [废弃] 旧的按品质获取炼制时间接口
     public static float Get炼制丹药需要时间(丹药Type type, QualityType qualityType)
     {
-        if (type == 丹药Type.None) return 1;
-        丹药类型 当前炼制丹药类型 = 丹药类型Dic[type];
-        float 需要时间 = 0;
-        switch (当前炼制丹药类型)
-        {
-            case 丹药类型.战斗丹药:
-                需要时间 = 属性config.每年秒数 * 战斗丹药炼制时间Dic[qualityType];
-                break;
-            case 丹药类型.辅助丹药:
-                需要时间 = 属性config.每年秒数 * 辅助丹药炼制时间Dic[qualityType];
-                break;
-            case 丹药类型.根基丹药:
-                需要时间 = 属性config.每年秒数 * 根基丹药炼制时间Dic[qualityType];
-                break;
-            case 丹药类型.造化丹药:
-                需要时间 = 属性config.每年秒数 * 造化丹药炼制时间Dic[qualityType];
-                break;
-        }
-
-        需要时间 /= (1f + 体质Config.当前体质总属性.炼丹速度 / 100f);
-        需要时间 /= (1f + 道场Config.供奉总属性.炼丹速度 / 100f);
-        需要时间 /= (1f + 属性config.仙子总属性.炼丹速度 / 100f);
-
-        return 需要时间/(1f+体质Config.当前体质总属性.炼丹速度/100f);
+        return Get炼制时间(type, (int)qualityType); // 临时桥接
     }
 
+    // [废弃] 旧的按品质获取灵药列表接口，改为按阶数取固定品质
     public static List<灵药> Get炼制灵药(丹药Type type, QualityType qualityType)
     {
-        if (type == 丹药Type.None) return null;
-        var 灵药list = 丹方Dic[type];
-        List<灵药> list = new List<灵药>();
-        for (int j = 0; j < 4; j++)
-        {
-            for (int i = 1; i <= 8; i++)
-            {
-                if (PlayerData.S.丹药灵药筛选Dic[(QualityType)i])
-                {
-                    if (PlayerData.S.Get灵药数量(灵药list[j], (QualityType)i) > 0)
-                    {
-                        list.Add(new 灵药(){灵药Type = 灵药list[j],QualityType = (QualityType)i});
-                        break;
-                    }
-                }
-            }
-        }
-        return  list;
+        return Get炼制灵药按阶数(type, (int)qualityType);
     }
-    public static Dictionary<float, float> 炼丹经验Dic = new Dictionary<float, float>()
+
+    /// <summary>按阶数获取固定品质的灵药列表（新接口）</summary>
+    public static List<灵药> Get炼制灵药按阶数(丹药Type type, int 阶数)
+    {
+        if (type == 丹药Type.None) return null;
+        QualityType 材料品质 = Get材料品质(阶数);
+
+        // 造化丹药（加跟脚）用灵植，不走灵药流程
+        if (丹药类型Dic[type] == 丹药类型.造化丹药)
+            return null;
+
+        var 灵药list = 丹方Dic[type];
+        var list = new List<灵药>();
+        for (int i = 0; i < 4; i++)
+        {
+            list.Add(new 灵药 { 灵药Type = 灵药list[i], QualityType = 材料品质 });
+        }
+        return list;
+    }
+    public static Dictionary<float, float> 炼丹等级经验Dic = new Dictionary<float, float>()
 {
     // 1-10级：每级+100
     {1,100}, {2,200}, {3,300}, {4,400}, {5,500}, {6,600}, {7,700}, {8,800}, {9,900}, {10,1000},
@@ -1369,4 +1280,161 @@ public class 丹药Config
         { 丹药Type.英雄物理伤害, new List<灵药Type> { 灵药Type.四叶参根, 灵药Type.补血花, 灵药Type.聚灵凝神叶, 灵药Type.马兜铃果 } },
         { 丹药Type.英雄最终伤害, new List<灵药Type> { 灵药Type.回春草, 灵药Type.九曲黄泉草, 灵药Type.龙纹草, 灵药Type.千年雪莲 } },
     };
+
+    // ============ 新增：按阶数维度的配置（替代旧的品质维度Dic） ============
+
+    /// <summary>阶数→品质映射（每2阶一组：1-2黄/3-4玄/5-6地/7-8天/9-10宇/11-12宙/13-14洪/15-16荒）</summary>
+    public static QualityType Get材料品质(int 阶数)
+    {
+        if (阶数 < 1 || 阶数 > 16) return QualityType.黄品;
+        return (QualityType)((阶数 - 1) / 2 + 1);
+    }
+
+    /// <summary>阶数→单种材料数量（奇数阶1个，偶数阶3个：1阶1/2阶3/3阶1/4阶3...）</summary>
+    public static int Get单种材料数量(int 阶数)
+    {
+        return 阶数 % 2 == 0 ? 3 : 1;
+    }
+
+    /// <summary>炼制造化丹药时，灵植品质→可用灵植Type列表（每种品质取前4种，不足4则取该品质全部）</summary>
+    public static List<灵植Type> Get造化灵植列表(QualityType qualityType)
+    {
+        var list = new List<灵植Type>();
+        foreach (var kvp in 灵植园Config.灵植品质Dic)
+        {
+            if (kvp.Value == qualityType) list.Add(kvp.Key);
+            if (list.Count >= 4) break;
+        }
+        return list;
+    }
+
+    /// <summary>造化丹药（加跟脚）的基础灵植类型配置（按品质轮序排列）</summary>
+    public static Dictionary<QualityType, List<灵植Type>> 造化丹药灵植Dic = new Dictionary<QualityType, List<灵植Type>>
+    {
+        { QualityType.黄品, new List<灵植Type> { 灵植Type.紫云英, 灵植Type.曜日葵, 灵植Type.幻音铃, 灵植Type.幻紫玫 } },
+        { QualityType.玄品, new List<灵植Type> { 灵植Type.九幽紫, 灵植Type.赤焰百合, 灵植Type.碧海螺, 灵植Type.粉面佛莲 } },
+        { QualityType.地品, new List<灵植Type> { 灵植Type.紫幽草, 灵植Type.三生花, 灵植Type.向阳花, 灵植Type.白玉玲 } },
+        { QualityType.天品, new List<灵植Type> { 灵植Type.赤阳花, 灵植Type.寒星兰, 灵植Type.赤霞花, 灵植Type.惊雷子 } },
+        { QualityType.宇品, new List<灵植Type> { 灵植Type.幽兰铃, 灵植Type.空谷幽兰, 灵植Type.醉仙球, 灵植Type.醉仙菌 } },
+        { QualityType.宙品, new List<灵植Type> { 灵植Type.太素花, 灵植Type.灵犀铃, 灵植Type.血菩提, 灵植Type.紫晶铃 } },
+        { QualityType.洪品, new List<灵植Type> { 灵植Type.招财草, 灵植Type.粉霞仙, 灵植Type.黄龙掌, 灵植Type.玄冰魄 } },
+        { QualityType.荒品, new List<灵植Type> { 灵植Type.修罗花, 灵植Type.金乌葵, 灵植Type.幻樱木, 灵植Type.白玉莲 } },
+    };
+
+    // ============ 炼丹等级要求（按阶数1-16，替代旧品质Dic） ============
+    public static Dictionary<丹药类型, Dictionary<int, long>> 炼丹等级要求Dic = new Dictionary<丹药类型, Dictionary<int, long>>
+    {
+        { 丹药类型.战斗丹药, new Dictionary<int, long>
+            { {1,1},{2,3},{3,5},{4,8},{5,12},{6,16},{7,20},{8,25},{9,30},{10,36},{11,42},{12,48},{13,55},{14,62},{15,70},{16,80} } },
+        { 丹药类型.辅助丹药, new Dictionary<int, long>
+            { {1,2},{2,5},{3,8},{4,12},{5,17},{6,22},{7,28},{8,34},{9,40},{10,47},{11,54},{12,62},{13,70},{14,80},{15,90},{16,100} } },
+        { 丹药类型.根基丹药, new Dictionary<int, long>
+            { {1,4},{2,8},{3,14},{4,20},{5,27},{6,34},{7,42},{8,50},{9,58},{10,68},{11,78},{12,90},{13,102},{14,115},{15,130},{16,150} } },
+        { 丹药类型.造化丹药, new Dictionary<int, long>
+            { {1,5},{2,12},{3,20},{4,28},{5,37},{6,47},{7,58},{8,70},{9,82},{10,96},{11,110},{12,126},{13,142},{14,160},{15,180},{16,200} } },
+    };
+
+    // ============ 炼制时间（按阶数1-16，单位=基础时间×每年秒数系数，替代旧品质Dic） ============
+    public static Dictionary<丹药类型, Dictionary<int, float>> 炼丹时间Dic = new Dictionary<丹药类型, Dictionary<int, float>>
+    {
+        { 丹药类型.战斗丹药, new Dictionary<int, float>
+            { {1,0.1f},{2,0.15f},{3,0.2f},{4,0.25f},{5,0.3f},{6,0.35f},{7,0.4f},{8,0.5f},{9,0.6f},{10,0.7f},{11,0.8f},{12,0.9f},{13,1.0f},{14,1.2f},{15,1.4f},{16,1.6f} } },
+        { 丹药类型.辅助丹药, new Dictionary<int, float>
+            { {1,0.15f},{2,0.25f},{3,0.35f},{4,0.45f},{5,0.55f},{6,0.65f},{7,0.8f},{8,0.9f},{9,1.1f},{10,1.3f},{11,1.5f},{12,1.7f},{13,2.0f},{14,2.3f},{15,2.6f},{16,3.0f} } },
+        { 丹药类型.根基丹药, new Dictionary<int, float>
+            { {1,0.2f},{2,0.35f},{3,0.5f},{4,0.65f},{5,0.8f},{6,0.95f},{7,1.1f},{8,1.3f},{9,1.5f},{10,1.7f},{11,2.0f},{12,2.3f},{13,2.6f},{14,3.0f},{15,3.4f},{16,4.0f} } },
+        { 丹药类型.造化丹药, new Dictionary<int, float>
+            { {1,0.3f},{2,0.5f},{3,0.7f},{4,0.9f},{5,1.2f},{6,1.5f},{7,1.8f},{8,2.1f},{9,2.5f},{10,3.0f},{11,3.5f},{12,4.0f},{13,4.5f},{14,5.0f},{15,6.0f},{16,7.0f} } },
+    };
+
+    // ============ 炼制经验（按阶数1-16，替代旧品质Dic） ============
+    public static Dictionary<丹药类型, Dictionary<int, long>> 炼丹经验Dic = new Dictionary<丹药类型, Dictionary<int, long>>
+    {
+        { 丹药类型.战斗丹药, new Dictionary<int, long>
+            { {1,30},{2,60},{3,120},{4,240},{5,500},{6,1000},{7,2000},{8,4000},{9,8000},{10,15000},{11,30000},{12,60000},{13,120000},{14,250000},{15,500000},{16,1000000} } },
+        { 丹药类型.辅助丹药, new Dictionary<int, long>
+            { {1,50},{2,100},{3,200},{4,400},{5,800},{6,1500},{7,3000},{8,6000},{9,12000},{10,25000},{11,50000},{12,100000},{13,200000},{14,400000},{15,800000},{16,1500000} } },
+        { 丹药类型.根基丹药, new Dictionary<int, long>
+            { {1,100},{2,200},{3,400},{4,800},{5,1500},{6,3000},{7,6000},{8,12000},{9,25000},{10,50000},{11,100000},{12,200000},{13,400000},{14,800000},{15,1600000},{16,3000000} } },
+        { 丹药类型.造化丹药, new Dictionary<int, long>
+            { {1,300},{2,600},{3,1200},{4,2400},{5,5000},{6,10000},{7,20000},{8,40000},{9,80000},{10,150000},{11,300000},{12,600000},{13,1200000},{14,2500000},{15,5000000},{16,10000000} } },
+    };
+
+    // ============ 炼丹等级升级经验 ============
+    // 旧字典（float/float类型但存整数，直接复用）见 514行 炼丹等级经验Dic
+
+    // ============ 品质概率（固定值，品质随机时按此概率抽取） ============
+    // 顺序：黄、玄、地、天、宇、宙、洪、荒，权重越高越容易出
+    public static Dictionary<QualityType, float> 品质概率Dic = new Dictionary<QualityType, float>
+    {
+        { QualityType.黄品, 45 },
+        { QualityType.玄品, 30 },
+        { QualityType.地品, 15 },
+        { QualityType.天品, 6 },
+        { QualityType.宇品, 2.5f },
+        { QualityType.宙品, 1 },
+        { QualityType.洪品, 0.4f },
+        { QualityType.荒品, 0.1f },
+    };
+
+    /// <summary>按品质概率Dic随机抽取品质</summary>
+    public static QualityType 随机品质()
+    {
+        float random = UnityEngine.Random.value * 100f;
+        float 累计 = 0;
+        foreach (var kvp in 品质概率Dic)
+        {
+            累计 += kvp.Value;
+            if (random <= 累计) return kvp.Key;
+        }
+        return QualityType.黄品;
+    }
+
+    // ============ 新的方法：按阶数获取炼制参数 ============
+
+    /// <summary>按阶数获取炼丹等级要求</summary>
+    public static long Get炼丹等级要求(丹药Type type, int 阶数)
+    {
+        丹药类型 类型 = 丹药类型Dic[type];
+        if (炼丹等级要求Dic.TryGetValue(类型, out var dic) && dic.TryGetValue(阶数, out var value))
+            return value;
+        return 0;
+    }
+
+    /// <summary>按阶数获取炼制经验</summary>
+    public static float Get炼制经验(丹药Type type, int 阶数)
+    {
+        丹药类型 类型 = 丹药类型Dic[type];
+        float 经验 = 0;
+        if (炼丹经验Dic.TryGetValue(类型, out var dic) && dic.TryGetValue(阶数, out var v))
+            经验 = v;
+        return 经验 * (1f + 体质Config.当前体质总属性.炼丹经验加成 / 100f)
+                   * (1f + 道场Config.供奉总属性.增加炼丹经验 / 100f)
+                   * (1f + 属性config.仙子总属性.炼丹经验 / 100f);
+    }
+
+    /// <summary>按阶数获取炼制时间</summary>
+    public static float Get炼制时间(丹药Type type, int 阶数)
+    {
+        丹药类型 类型 = 丹药类型Dic[type];
+        float 系数 = 0;
+        if (炼丹时间Dic.TryGetValue(类型, out var dic) && dic.TryGetValue(阶数, out var v))
+            系数 = v;
+        float 需要时间 = 属性config.每年秒数 * 系数;
+        需要时间 /= (1f + 体质Config.当前体质总属性.炼丹速度 / 100f);
+        需要时间 /= (1f + 道场Config.供奉总属性.炼丹速度 / 100f);
+        需要时间 /= (1f + 属性config.仙子总属性.炼丹速度 / 100f);
+        return 需要时间 / (1f + 体质Config.当前体质总属性.炼丹速度 / 100f);
+    }
+
+    /// <summary>获取炼丹品质概率说明文本</summary>
+    public static string Get品质概率说明()
+    {
+        var sb = new System.Text.StringBuilder();
+        foreach (var kvp in 品质概率Dic)
+        {
+            sb.AppendLine($"{PropConfig.QualityNameDic[kvp.Key]}品: {kvp.Value}%");
+        }
+        return sb.ToString();
+    }
 }

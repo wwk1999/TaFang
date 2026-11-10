@@ -218,6 +218,100 @@ public class 坊市Config
     {
         return 仙石Config.Get仙石分解精华(阶数, qualityType) * 2;
     }
+
+    // ============ 新增：丹药/丹方的阶数×品质价格系统 ============
+
+    /// <summary>丹药按阶数的基础价（1-16阶，按丹药类型区分）</summary>
+    public static Dictionary<丹药类型, Dictionary<int, float>> 丹药阶数价格Dic = new Dictionary<丹药类型, Dictionary<int, float>>
+    {
+        { 丹药类型.战斗丹药, new Dictionary<int, float>
+            { {1,100},{2,300},{3,600},{4,1200},{5,2500},{6,5000},{7,10000},{8,20000},{9,40000},{10,80000},{11,160000},{12,320000},{13,640000},{14,1280000},{15,2560000},{16,5120000} } },
+        { 丹药类型.辅助丹药, new Dictionary<int, float>
+            { {1,200},{2,600},{3,1200},{4,2400},{5,5000},{6,10000},{7,20000},{8,40000},{9,80000},{10,160000},{11,320000},{12,640000},{13,1280000},{14,2560000},{15,5120000},{16,10240000} } },
+        { 丹药类型.根基丹药, new Dictionary<int, float>
+            { {1,500},{2,1500},{3,3000},{4,6000},{5,12500},{6,25000},{7,50000},{8,100000},{9,200000},{10,400000},{11,800000},{12,1600000},{13,3200000},{14,6400000},{15,12800000},{16,25600000} } },
+        { 丹药类型.造化丹药, new Dictionary<int, float>
+            { {1,2000},{2,6000},{3,12000},{4,24000},{5,50000},{6,100000},{7,200000},{8,400000},{9,800000},{10,1600000},{11,3200000},{12,6400000},{13,12800000},{14,25600000},{15,51200000},{16,102400000} } },
+    };
+
+    /// <summary>丹方按阶数的基础价（1-16阶）</summary>
+    public static Dictionary<丹药类型, Dictionary<int, float>> 丹方阶数价格Dic = new Dictionary<丹药类型, Dictionary<int, float>>
+    {
+        { 丹药类型.战斗丹药, new Dictionary<int, float>
+            { {1,1000},{2,3000},{3,6000},{4,12000},{5,25000},{6,50000},{7,100000},{8,200000},{9,400000},{10,800000},{11,1600000},{12,3200000},{13,6400000},{14,12800000},{15,25600000},{16,51200000} } },
+        { 丹药类型.辅助丹药, new Dictionary<int, float>
+            { {1,2000},{2,6000},{3,12000},{4,24000},{5,50000},{6,100000},{7,200000},{8,400000},{9,800000},{10,1600000},{11,3200000},{12,6400000},{13,12800000},{14,25600000},{15,51200000},{16,102400000} } },
+        { 丹药类型.根基丹药, new Dictionary<int, float>
+            { {1,5000},{2,15000},{3,30000},{4,60000},{5,125000},{6,250000},{7,500000},{8,1000000},{9,2000000},{10,4000000},{11,8000000},{12,16000000},{13,32000000},{14,64000000},{15,128000000},{16,256000000} } },
+        { 丹药类型.造化丹药, new Dictionary<int, float>
+            { {1,20000},{2,60000},{3,120000},{4,240000},{5,500000},{6,1000000},{7,2000000},{8,4000000},{9,8000000},{10,16000000},{11,32000000},{12,64000000},{13,128000000},{14,256000000},{15,512000000},{16,1024000000} } },
+    };
+
+    /// <summary>品质价格系数（丹药品质不固定时，丹药价格需×品质系数；丹方无品质概念所以不用）</summary>
+    public static Dictionary<QualityType, float> 丹方品质系数Dic = new Dictionary<QualityType, float>
+    {
+        { QualityType.黄品, 1 },
+        { QualityType.玄品, 1.5f },
+        { QualityType.地品, 2.5f },
+        { QualityType.天品, 4 },
+        { QualityType.宇品, 6 },
+        { QualityType.宙品, 10 },
+        { QualityType.洪品, 20 },
+        { QualityType.荒品, 50 },
+    };
+
+    /// <summary>坊市等级→丹方最高阶数（1-3级只能1阶，4-6级只能2阶，以此类推）</summary>
+    public static int Get丹方最高购买阶数()
+    {
+        int 等级 = PlayerData.S.建筑等级Dic[建筑Type.坊市];
+        return Math.Min(16, Math.Max(1, (等级 - 1) / 3 + 1)); // 每3级解锁一个新阶数段
+    }
+
+    /// <summary>丹药售价 = 阶数基础价 × 品质系数</summary>
+    public static float Get丹药阶数价格(丹药Type type, int 阶数, QualityType qualityType)
+    {
+        丹药类型 丹药类型 = 丹药Config.丹药类型Dic[type];
+        if (丹药阶数价格Dic.TryGetValue(丹药类型, out var 阶数Dic) && 阶数Dic.TryGetValue(阶数, out float 基础价))
+        {
+            丹方品质系数Dic.TryGetValue(qualityType, out float 系数);
+            return 基础价 * Math.Max(1, 系数);
+        }
+        return 0;
+    }
+
+    /// <summary>丹方售价 = 阶数基础价（丹方无品质概念）</summary>
+    public static float Get丹方阶数价格(丹药Type type, int 阶数)
+    {
+        丹药类型 丹药类型 = 丹药Config.丹药类型Dic[type];
+        if (丹方阶数价格Dic.TryGetValue(丹药类型, out var 阶数Dic) && 阶数Dic.TryGetValue(阶数, out float 基础价))
+            return 基础价;
+        return 0;
+    }
+
+    /// <summary>坊市丹药生成：阶数由坊市等级限定，品质最高天品（随机）</summary>
+    public static int 随机丹方阶数()
+    {
+        return Random.Range(1, Get丹方最高购买阶数() + 1);
+    }
+
+    /// <summary>坊市丹药品质随机（最高天品）</summary>
+    public static QualityType 随机丹药品质()
+    {
+        // 品质权重最高到天品（前4品质），后4品质权重0
+        var 权重 = new Dictionary<QualityType, float>
+        {
+            { QualityType.黄品, 45 }, { QualityType.玄品, 30 },
+            { QualityType.地品, 15 }, { QualityType.天品, 10 },
+        };
+        float random = Random.value * 100f;
+        float 累计 = 0;
+        foreach (var kvp in 权重)
+        {
+            累计 += kvp.Value;
+            if (random <= 累计) return kvp.Key;
+        }
+        return QualityType.黄品;
+    }
     
    
 
@@ -329,23 +423,7 @@ public class 坊市Config
             {
                 if (PlayerData.S.Get坊市丹药自动购买(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType))
                 {
-                    var 丹药类型 = 丹药Config.丹药类型Dic[PlayerData.S.坊市物品列表[i].丹药Type];
-                    float 价格 = 0;
-                    switch (丹药类型)
-                    {
-                        case 丹药类型.战斗丹药:
-                            价格=战斗丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                        case 丹药类型.辅助丹药:
-                            价格=辅助丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                        case 丹药类型.根基丹药:
-                            价格=根基丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                        case 丹药类型.造化丹药:
-                            价格=造化丹药价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                    }
+                    float 价格 = Get丹药阶数价格(PlayerData.S.坊市物品列表[i].丹药Type, PlayerData.S.坊市物品列表[i].阶数, PlayerData.S.坊市物品列表[i].QualityType) / (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
@@ -355,32 +433,16 @@ public class 坊市Config
                     PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
                     PlayerData.S.Set丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
-                    ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹药名Dic[PlayerData.S.坊市物品列表[i].丹药Type] + "·1阶",PlayerData.S.坊市物品列表[i].QualityType,1);
+                    ObserverModuleManager.S.SendEvent("SendUIToast", 丹药Config.丹药名Dic[PlayerData.S.坊市物品列表[i].丹药Type] + $"·{PlayerData.S.坊市物品列表[i].阶数}阶", PlayerData.S.坊市物品列表[i].QualityType, 1);
 
                 }
             }
 
-            if (PlayerData.S.坊市物品列表[i].丹方Type != 丹药Type.None&&!PlayerData.S.Get丹方解锁(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType)&&PlayerData.S.Get丹方数量(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType)<=0)
+            if (PlayerData.S.坊市物品列表[i].丹方Type != 丹药Type.None&&!PlayerData.S.Get丹方解锁(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].阶数)&&PlayerData.S.Get丹方数量(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].阶数)<=0)
             {
-                if (PlayerData.S.Get坊市丹方自动购买(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType))
+                if (PlayerData.S.Get坊市丹方自动购买(PlayerData.S.坊市物品列表[i].丹方Type))
                 {
-                    var 丹药类型 = 丹药Config.丹药类型Dic[PlayerData.S.坊市物品列表[i].丹方Type];
-                    float 价格 = 0;
-                    switch (丹药类型)
-                    {
-                        case 丹药类型.战斗丹药:
-                            价格=战斗丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                        case 丹药类型.辅助丹药:
-                            价格=辅助丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                        case 丹药类型.根基丹药:
-                            价格=根基丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                        case 丹药类型.造化丹药:
-                            价格=造化丹方价格Dic[PlayerData.S.坊市物品列表[i].QualityType]/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                            break;
-                    }
+                    float 价格 = Get丹方阶数价格(PlayerData.S.坊市物品列表[i].丹方Type, PlayerData.S.坊市物品列表[i].阶数) / (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
                     if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
@@ -388,11 +450,9 @@ public class 坊市Config
                     }
 
                     PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
-                    // 必须用 .丹方Type：丹方商品的丹药Type恒为None，
-                    // 旧写法把丹方数量记到 "None_黄品" 这个废 key 上，玩家花钱但丹方被吞
-                    PlayerData.S.Set丹方数量(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹方数量(PlayerData.S.坊市物品列表[i].丹方Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
+                    PlayerData.S.Set丹方数量(PlayerData.S.坊市物品列表[i].丹方Type, PlayerData.S.坊市物品列表[i].阶数, PlayerData.S.Get丹方数量(PlayerData.S.坊市物品列表[i].丹方Type, PlayerData.S.坊市物品列表[i].阶数) + 1);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
-                    ObserverModuleManager.S.SendEvent("SendUIToast",丹药Config.丹方名Dic[PlayerData.S.坊市物品列表[i].丹方Type],PlayerData.S.坊市物品列表[i].QualityType,1);
+                    ObserverModuleManager.S.SendEvent("SendUIToast", 丹药Config.丹方名Dic[PlayerData.S.坊市物品列表[i].丹方Type] + $"·{PlayerData.S.坊市物品列表[i].阶数}阶", QualityType.None, 1);
                 }
             }
         }
@@ -418,12 +478,16 @@ public class 坊市Config
                 坊市物品.仙石Type = (仙石Type)Random.Range(1, Enum.GetValues(typeof(仙石Type)).Length);
                 break;
             case 3:
-                坊市物品.QualityType = Get坊市物品品质();
-                坊市物品.丹药Type=(丹药Type)Random.Range(1, Enum.GetValues(typeof(丹药Type)).Length);
+                // 丹药：阶数由坊市等级限定，品质随机（最高天品）
+                坊市物品.丹药Type = (丹药Type)Random.Range(1, Enum.GetValues(typeof(丹药Type)).Length);
+                坊市物品.阶数 = 随机丹方阶数();
+                坊市物品.QualityType = 随机丹药品质();
                 break;
             case 4:
-                坊市物品.QualityType = Get坊市物品品质();
-                坊市物品.丹方Type=(丹药Type)Random.Range(1, Enum.GetValues(typeof(丹药Type)).Length);
+                // 丹方：只有Type+阶数，无品质概念
+                坊市物品.丹方Type = (丹药Type)Random.Range(1, Enum.GetValues(typeof(丹药Type)).Length);
+                坊市物品.阶数 = 随机丹方阶数();
+                坊市物品.QualityType = QualityType.None; // 丹方不再有品质字段
                 break;
         }
 

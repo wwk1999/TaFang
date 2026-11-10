@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class 丹药GridImage : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class 丹药GridImage : MonoBehaviour,  IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
      [Header("弹窗设置")]
     [Tooltip("弹窗预制体路径（相对于Resources文件夹）")]
@@ -69,8 +69,8 @@ public class 丹药GridImage : MonoBehaviour, IPointerClickHandler, IPointerEnte
         
         // 加载弹窗预制体
         GameObject popupPrefab = Resources.Load<GameObject>(popupPrefabPath);
-        // 在Canvas下创建弹窗
-        currentPopup = Instantiate(popupPrefab, targetCanvas.transform);
+        // 在Canvas下创建弹窗（Instantiate返回Object，必须强转GameObject）
+        currentPopup = Instantiate(popupPrefab, targetCanvas.transform) as GameObject;
         丹药信息弹窗 弹窗 = currentPopup.GetComponent<丹药信息弹窗>();
         弹窗.丹药Type = 丹药grid.丹药Type;
         弹窗.QualityType = 丹药grid.QualityType;
@@ -89,16 +89,15 @@ public class 丹药GridImage : MonoBehaviour, IPointerClickHandler, IPointerEnte
         DestroyPopup();
     }
 
-    /// <summary>右键请求丹药升阶，数量门槛与提示由升阶逻辑统一拦截</summary>
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            // 先收起悬停信息弹窗，避免它盖在升阶弹窗上
-            DestroyPopup();
-            ObserverModuleManager.S.SendEvent("丹药升阶", 丹药grid.丹药Type, 丹药grid.QualityType, 丹药grid.阶段);
-        }
-    }
+    // [废弃] 丹药升阶已移除
+    // public void OnPointerClick(PointerEventData eventData)
+    // {
+    //     if (eventData.button == PointerEventData.InputButton.Right)
+    //     {
+    //         DestroyPopup();
+    //         ObserverModuleManager.S.SendEvent("丹药升阶", 丹药grid.丹药Type, 丹药grid.QualityType, 丹药grid.阶段);
+    //     }
+    // }
     
     private void UpdatePopupPosition(Vector2 mousePosition)
     {

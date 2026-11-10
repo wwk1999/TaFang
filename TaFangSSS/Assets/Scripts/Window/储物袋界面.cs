@@ -22,7 +22,8 @@ public class 储物袋界面 : MonoBehaviour
    public 确认服用造化丹药弹窗 确认服用造化丹药弹窗;
    public 服用辅助丹药弹窗 服用辅助丹药弹窗;
    public 根基丹药服用弹窗 根基丹药服用弹窗;
-   public 丹药升阶弹窗 丹药升阶弹窗;
+   // [废弃] 丹药升阶弹窗已移除
+   // public 丹药升阶弹窗 丹药升阶弹窗;
    
    public 分解确认弹窗 分解确认弹窗;
    public Button 左箭头;
@@ -145,7 +146,7 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.UnRegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
       ObserverModuleManager.S.UnRegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.UnRegisterEvent("功法分解",功法分解);
-      ObserverModuleManager.S.UnRegisterEvent("丹药升阶",丹药升阶);
+      // ObserverModuleManager.S.UnRegisterEvent("丹药升阶",丹药升阶);
       ObserverModuleManager.S.UnRegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.UnRegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.UnRegisterEvent("刷新背包", 刷新背包);
@@ -160,29 +161,8 @@ public class 储物袋界面 : MonoBehaviour
       功法分解弹窗.gameObject.SetActive(true);
    }
 
-   public void 丹药升阶(object[] obj)
-   {
-      丹药Type type = (丹药Type)obj[0];
-      QualityType qualityType = (QualityType)obj[1];
-      int 阶段 = (int)obj[2];
-      // 升阶门槛：数量至少要够合成一次，不足只弹提示不开弹窗
-      if (PlayerData.S.Get丹药数量(type, qualityType, 阶段) < 丹药升阶弹窗.升阶消耗数量)
-      {
-         ObserverModuleManager.S.SendEvent("SendUIToast", 多语言Config.Get("丹药数量不足{0}个，无法升阶", 丹药升阶弹窗.升阶消耗数量));
-         return;
-      }
-      // 品质已到顶时不再开放升阶（黄品最高 1 阶，永远无法升阶）
-      if (阶段 >= PlayerData.Get丹药最高阶段(qualityType))
-      {
-         ObserverModuleManager.S.SendEvent("SendUIToast","该丹药已是最高阶段");
-         return;
-      }
-      丹药升阶弹窗.丹药Type = type;
-      丹药升阶弹窗.QualityType = qualityType;
-      丹药升阶弹窗.阶段数 = 阶段;
-      丹药升阶弹窗.SetItem();
-      丹药升阶弹窗.gameObject.SetActive(true);
-   }
+   // [废弃] 丹药升阶已移除（丹药品质由炼制随机决定，升阶逻辑废弃）
+   // public void 丹药升阶(object[] obj) { ... }
 
    public void 显示确认分解弹窗(object[] obj)
    {
@@ -237,8 +217,8 @@ public class 储物袋界面 : MonoBehaviour
    public void 显示使用丹方弹窗(object[] obj)
    {
       丹药Type type = (丹药Type)obj[0];
-      QualityType qualityType=(QualityType)obj[1];
-      丹方使用弹窗.qualityType = qualityType;
+      int 阶数 = (int)obj[1];
+      丹方使用弹窗.阶数 = 阶数;
       丹方使用弹窗.丹药Type = type;
       丹方使用弹窗.gameObject.SetActive(true);
    }
@@ -305,10 +285,10 @@ public class 储物袋界面 : MonoBehaviour
          {
             根基丹药服用弹窗.gameObject.SetActive(false);
          }
-         else if (丹药升阶弹窗.gameObject.activeSelf)
-         {
-            丹药升阶弹窗.gameObject.SetActive(false);
-         }
+         // else if (丹药升阶弹窗.gameObject.activeSelf)
+         // {
+         //    丹药升阶弹窗.gameObject.SetActive(false);
+         // }
          else if (丹方使用弹窗.gameObject.activeSelf)
          {
             丹方使用弹窗.gameObject.SetActive(false);
@@ -331,7 +311,7 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("服用辅助丹药弹窗",服用辅助丹药弹窗1);
       ObserverModuleManager.S.RegisterEvent("显示确认分解弹窗",显示确认分解弹窗);
       ObserverModuleManager.S.RegisterEvent("功法分解",功法分解);
-      ObserverModuleManager.S.RegisterEvent("丹药升阶",丹药升阶);
+      // ObserverModuleManager.S.RegisterEvent("丹药升阶",丹药升阶);
       ObserverModuleManager.S.RegisterEvent("增加修为",增加修为);
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("刷新背包", 刷新背包);
@@ -825,13 +805,13 @@ public class 储物袋界面 : MonoBehaviour
       }
 
       // 收集道具和丹方，按品质降序排序
-      var itemList = new List<(int quality, bool is丹方, PropType propType, 丹药Type 丹药Type, QualityType 丹方Quality)>();
+      var itemList = new List<(int quality, bool is丹方, PropType propType, 丹药Type 丹药Type, int 丹方阶数)>();
 
       foreach (var item in PlayerData.S.PropListDic)
       {
          if (item.Value > 0)
          {
-            itemList.Add(((int)PropConfig.GetProp品质(item.Key), false, item.Key, 0, QualityType.None));
+            itemList.Add(((int)PropConfig.GetProp品质(item.Key), false, item.Key, 0, 0));
          }
       }
 
@@ -840,12 +820,12 @@ public class 储物袋界面 : MonoBehaviour
          if (item.Value > 0)
          {
             var parts = item.Key.Split('_');
-            // "None" 也是合法枚举名，TryParse 会放行——必须显式排除，
-            // 否则旧 bug 写入的 "None_黄品" 会在材料页显示成 None 丹方
             if (parts.Length == 2 && Enum.TryParse(parts[0], out 丹药Type 丹药type) && 丹药type != 丹药Type.None
-                && Enum.TryParse(parts[1], out QualityType quality) && quality != QualityType.None)
+                && int.TryParse(parts[1], out int 阶数) && 阶数 >= 1 && 阶数 <= 16)
             {
-               itemList.Add(((int)quality, true, PropType.None, 丹药type, quality));
+               // 用阶数对应的材料品质做排序键（高阶排前面）
+               QualityType 材料品质 = 丹药Config.Get材料品质(阶数);
+               itemList.Add(((int)材料品质 * 16 + 阶数, true, PropType.None, 丹药type, 阶数));
             }
          }
       }
@@ -861,7 +841,7 @@ public class 储物袋界面 : MonoBehaviour
          {
             var 丹方grid = Instantiate(Resources.Load("Prefabs/Window/炼丹界面/丹方Grid"), BagContent.transform).GetComponent<丹方Grid>();
             丹方grid.丹药Type = entry.丹药Type;
-            丹方grid.QualityType = entry.丹方Quality;
+            丹方grid.阶数 = entry.丹方阶数;
             丹方grid.SetItem();
          }
          else

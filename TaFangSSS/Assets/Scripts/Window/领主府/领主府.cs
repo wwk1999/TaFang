@@ -664,14 +664,18 @@ public class 领主府 : MonoBehaviour
             
             var 当前最高炼丹品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 当前效果content.transform)
                .GetComponent<数值升级效果item>();
-            当前最高炼丹品质.info = "最高炼丹品质";
-            当前最高炼丹品质.count = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].最高炼制QualityType.ToString();
+            当前最高炼丹品质.info = "最高炼丹阶数";
+            int 当前炼丹室等级 = PlayerData.S.建筑等级Dic[建筑Type.炼丹室];
+            int 当前最高阶数 = Math.Min(16, Math.Max(1, (当前炼丹室等级 - 1) / 3 + 1));
+            当前最高炼丹品质.count = 当前最高阶数 + "阶";
             当前最高炼丹品质.SetItem();
             
             var 升级最高炼丹品质 = Instantiate(Resources.Load("Prefabs/Window/领主府/数值升级效果item"), 升级效果content.transform)
                .GetComponent<数值升级效果item>();
-            升级最高炼丹品质.info = "最高炼丹品质";
-            升级最高炼丹品质.count = 道场Config.炼丹室配置[1+PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].最高炼制QualityType.ToString();
+            升级最高炼丹品质.info = "最高炼丹阶数";
+            int 升级后炼丹室等级 = 1 + 当前炼丹室等级;
+            int 升级后最高阶数 = Math.Min(16, Math.Max(1, (升级后炼丹室等级 - 1) / 3 + 1));
+            升级最高炼丹品质.count = 升级后最高阶数 + "阶";
             升级最高炼丹品质.SetItem();
             break;
          

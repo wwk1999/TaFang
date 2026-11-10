@@ -696,152 +696,113 @@ public class StoreController : XSingleton<StoreController>
         {
             if (PlayerData.S.丹药炼制List[0].进度 >= 100)
             {
-                foreach (var item in 丹药Config.丹方Dic[PlayerData.S.丹药炼制List[0].丹药Type])
+                var 当前炼制 = PlayerData.S.丹药炼制List[0];
+                QualityType 材料品质 = 丹药Config.Get材料品质(当前炼制.阶数);
+                int 单种数量 = 丹药Config.Get单种材料数量(当前炼制.阶数);
+                bool 是造化丹药 = 丹药Config.丹药类型Dic[当前炼制.丹药Type] == 丹药类型.造化丹药;
+
+                // ========== 1. 材料校验 ==========
+                if (是造化丹药)
                 {
-                    if (PlayerData.S.丹药炼制List[0].黄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.黄品)
+                    // 造化丹药校验灵植库存
+                    if (丹药Config.造化丹药灵植Dic.TryGetValue(材料品质, out var 灵植Types))
                     {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.黄品) > 0)
+                        foreach (var lt in 灵植Types)
                         {
-                            continue;
+                            float 普通库存 = PlayerData.S.普通收获Dic.TryGetValue(lt, out var 普通数) ? 普通数 : 0;
+                            float 变异库存 = PlayerData.S.变异收获Dic.TryGetValue(lt, out var 变异数) ? 变异数 : 0;
+                            if ((int)MathF.Floor((普通库存 + 变异库存) / 单种数量) <= 0)
+                            {
+                                ObserverModuleManager.S.SendEvent("SendUIToast", "灵植数量不足,炼制终止");
+                                PlayerData.S.丹药炼制List.Clear();
+                                return;
+                            }
                         }
                     }
-                    if (PlayerData.S.丹药炼制List[0].玄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.玄品)
+                }
+                else
+                {
+                    // 普通丹药校验灵药库存（固定品质）
+                    foreach (var lt in 丹药Config.丹方Dic[当前炼制.丹药Type])
                     {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.玄品) > 0)
+                        if (PlayerData.S.Get灵药数量(lt, 材料品质) < 单种数量)
                         {
-                            continue;
+                            ObserverModuleManager.S.SendEvent("SendUIToast", "灵药数量不足,炼制终止");
+                            PlayerData.S.丹药炼制List.Clear();
+                            return;
                         }
                     }
-                    if (PlayerData.S.丹药炼制List[0].地 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.地品)
-                    {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.地品) > 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (PlayerData.S.丹药炼制List[0].天 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.天品)
-                    {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.天品) > 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (PlayerData.S.丹药炼制List[0].宇 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宇品)
-                    {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.宇品) > 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (PlayerData.S.丹药炼制List[0].宙 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宙品)
-                    {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.宙品) > 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (PlayerData.S.丹药炼制List[0].洪 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.洪品)
-                    {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.洪品) > 0)
-                        {
-                            continue;
-                        }
-                    }
-                    if (PlayerData.S.丹药炼制List[0].荒 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.荒品)
-                    {
-                        if (PlayerData.S.Get灵药数量(item, QualityType.荒品) > 0)
-                        {
-                            continue;
-                        }
-                    }
-                    ObserverModuleManager.S.SendEvent("SendUIToast","灵药数量不足,炼制终止");
-                    PlayerData.S.丹药炼制List.Clear();
-                    return;
                 }
 
-                foreach (var item in 丹药Config.丹方Dic[PlayerData.S.丹药炼制List[0].丹药Type])
+                // ========== 2. 扣材料 ==========
+                if (是造化丹药)
                 {
-                    // 扣减条件必须与上方校验一致：只扣数量>0的品质，否则会扣出负数
-                    if (PlayerData.S.丹药炼制List[0].黄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.黄品
-                        && PlayerData.S.Get灵药数量(item, QualityType.黄品) > 0)
+                    if (丹药Config.造化丹药灵植Dic.TryGetValue(材料品质, out var 灵植Types))
                     {
-                        PlayerData.S.Set灵药数量(item, QualityType.黄品, PlayerData.S.Get灵药数量(item, QualityType.黄品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].玄 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.玄品
-                        && PlayerData.S.Get灵药数量(item, QualityType.玄品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.玄品, PlayerData.S.Get灵药数量(item, QualityType.玄品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].地 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.地品
-                        && PlayerData.S.Get灵药数量(item, QualityType.地品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.地品, PlayerData.S.Get灵药数量(item, QualityType.地品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].天 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.天品
-                        && PlayerData.S.Get灵药数量(item, QualityType.天品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.天品, PlayerData.S.Get灵药数量(item, QualityType.天品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].宇 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宇品
-                        && PlayerData.S.Get灵药数量(item, QualityType.宇品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.宇品, PlayerData.S.Get灵药数量(item, QualityType.宇品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].宙 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.宙品
-                        && PlayerData.S.Get灵药数量(item, QualityType.宙品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.宙品, PlayerData.S.Get灵药数量(item, QualityType.宙品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].洪 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.洪品
-                        && PlayerData.S.Get灵药数量(item, QualityType.洪品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.洪品, PlayerData.S.Get灵药数量(item, QualityType.洪品)-1);
-                        continue;
-                    }
-                    if (PlayerData.S.丹药炼制List[0].荒 && PlayerData.S.丹药炼制List[0].丹药QualityType <= QualityType.荒品
-                        && PlayerData.S.Get灵药数量(item, QualityType.荒品) > 0)
-                    {
-                        PlayerData.S.Set灵药数量(item, QualityType.荒品, PlayerData.S.Get灵药数量(item, QualityType.荒品)-1);
-                        continue;
+                        foreach (var lt in 灵植Types)
+                        {
+                            // 优先扣普通，不够再扣变异
+                            float 普通库存 = PlayerData.S.普通收获Dic.TryGetValue(lt, out var 普通数) ? 普通数 : 0;
+                            float 普通扣除 = Math.Min(普通数, 单种数量);
+                            PlayerData.S.普通收获Dic[lt] = 普通库存 - 普通扣除;
+                            float 剩余需扣 = 单种数量 - 普通扣除;
+                            if (剩余需扣 > 0)
+                            {
+                                float 变异库存 = PlayerData.S.变异收获Dic.TryGetValue(lt, out var 变异数) ? 变异数 : 0;
+                                PlayerData.S.变异收获Dic[lt] = Math.Max(0, 变异库存 - 剩余需扣);
+                            }
+                        }
                     }
                 }
-               QualityType 成品品质 = PlayerData.S.丹药炼制List[0].丹药QualityType;
-               int 成品阶段 = 1;
-               if (Random.Range(0f, 100f) < 属性config.仙子总属性.提升品质概率)
-               {
-                   成品品质 = (QualityType)Mathf.Min((int)成品品质 + 1, (int)QualityType.荒品);
-               }
-               if (Random.Range(0f, 100f) < 属性config.仙子总属性.提升阶数概率)
-               {
-                   成品阶段 = 2;
-               }
-               int 出炉数量 = Random.Range(0f, 100f) < 属性config.仙子总属性.一炉双丹概率 ? 2 : 1;
-               PlayerData.S.Set丹药数量(PlayerData.S.丹药炼制List[0].丹药Type, 成品品质,
-                   PlayerData.S.Get丹药数量(PlayerData.S.丹药炼制List[0].丹药Type, 成品品质, 成品阶段) + 出炉数量, 成品阶段);
-               PlayerData.S.炼丹经验 += 丹药Config.Get炼制丹药经验(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].丹药QualityType);
-               PlayerData.S.任务完成字典[任务Type.炼制丹药] = true;
-               if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级])
-               {
-                   PlayerData.S.炼丹经验 -= 丹药Config.炼丹经验Dic[PlayerData.S.炼丹等级];
-                   PlayerData.S.炼丹等级++;
-               }
-               ObserverModuleManager.S.SendEvent("炼制刷新");
-                PlayerData.S.丹药炼制List[0].count--;
-                PlayerData.S.丹药炼制List[0].进度 = 0;
-                if (PlayerData.S.丹药炼制List[0].count <= 0)
+                else
+                {
+                    foreach (var lt in 丹药Config.丹方Dic[当前炼制.丹药Type])
+                    {
+                        int 当前库存 = PlayerData.S.Get灵药数量(lt, 材料品质);
+                        PlayerData.S.Set灵药数量(lt, 材料品质, 当前库存 - 单种数量);
+                    }
+                }
+
+                // ========== 3. 成品品质随机 ==========
+                QualityType 成品品质 = 丹药Config.随机品质();
+                // 仙子属性提升品质概率（在随机结果上再+1阶）
+                if (Random.Range(0f, 100f) < 属性config.仙子总属性.提升品质概率)
+                {
+                    成品品质 = (QualityType)Mathf.Min((int)成品品质 + 1, (int)QualityType.荒品);
+                }
+                // 仙子属性提升阶数概率：不再影响成品阶段，保持玩家选的阶数
+
+                // 一炉双丹概率
+                int 出炉数量 = Random.Range(0f, 100f) < 属性config.仙子总属性.一炉双丹概率 ? 2 : 1;
+
+                // ========== 4. 增加丹药库存 ==========
+                PlayerData.S.Set丹药数量(当前炼制.丹药Type, 成品品质,
+                    PlayerData.S.Get丹药数量(当前炼制.丹药Type, 成品品质, 当前炼制.阶数) + 出炉数量, 当前炼制.阶数);
+
+                // ========== 5. 炼丹经验 ==========
+                float 获得经验 = 丹药Config.Get炼制经验(当前炼制.丹药Type, 当前炼制.阶数);
+                PlayerData.S.炼丹经验 += (long)获得经验;
+                PlayerData.S.任务完成字典[任务Type.炼制丹药] = true;
+
+                // ========== 6. 炼丹等级升级 ==========
+                if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹等级经验Dic[PlayerData.S.炼丹等级])
+                {
+                    PlayerData.S.炼丹经验 -= 丹药Config.炼丹等级经验Dic[PlayerData.S.炼丹等级];
+                    PlayerData.S.炼丹等级++;
+                }
+
+                ObserverModuleManager.S.SendEvent("炼制刷新");
+                当前炼制.count--;
+                当前炼制.进度 = 0;
+                if (当前炼制.count <= 0)
                 {
                     PlayerData.S.丹药炼制List.RemoveAt(0);
                 }
             }
             else
             {
-                float 炼制需要秒数 = 丹药Config.Get炼制丹药需要时间(PlayerData.S.丹药炼制List[0].丹药Type,PlayerData.S.丹药炼制List[0].丹药QualityType);
+                // 炼制进度推进：按阶数取炼制时间
+                float 炼制需要秒数 = 丹药Config.Get炼制时间(PlayerData.S.丹药炼制List[0].丹药Type, PlayerData.S.丹药炼制List[0].阶数);
                 PlayerData.S.丹药炼制List[0].进度 += 10f / 炼制需要秒数;
             }
         }

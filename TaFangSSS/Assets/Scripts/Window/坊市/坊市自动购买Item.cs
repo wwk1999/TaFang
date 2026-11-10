@@ -26,7 +26,7 @@ public class 坊市自动购买Item : MonoBehaviour
             }
             if (丹方Type != 丹药Type.None)
             {
-                PlayerData.S.Set坊市丹方自动购买(丹方Type,QualityType,!PlayerData.S.Get坊市丹方自动购买(丹方Type,QualityType));
+                PlayerData.S.Set坊市丹方自动购买(丹方Type, !PlayerData.S.Get坊市丹方自动购买(丹方Type));
             }
             
             if (法器Type != 法器Type.None)
@@ -87,8 +87,8 @@ public class 坊市自动购买Item : MonoBehaviour
         }
         if (丹方Type != 丹药Type.None)
         {
-            string str = 丹方Type + "_" + QualityType;
-            if (PlayerData.S.坊市自动购买丹方配置[str])
+            // 丹方自动购买只按Type维度（丹方无品质概念）
+            if (PlayerData.S.坊市自动购买丹方配置.TryGetValue(丹方Type.ToString(), out bool value) && value)
             {
                 btn.image.sprite = ResourcesConfig.toggle亮;
             }
@@ -96,7 +96,7 @@ public class 坊市自动购买Item : MonoBehaviour
             {
                 btn.image.sprite = ResourcesConfig.toggle暗;
             }
-            text.text = PropConfig.QualityNameDic[QualityType] + 丹药Config.丹方名Dic[丹方Type];
+            text.text = 丹药Config.丹方名Dic[丹方Type] + "(全部阶)";
         }
     }
 }
