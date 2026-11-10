@@ -32,7 +32,7 @@ public class 丹方Grid : MonoBehaviour
     {
         QualityType 材料品质 = 丹药Config.Get材料品质(阶数);
         bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
-        icon.sprite = ResourcesConfig.Get丹药icon(丹药Type, 材料品质); // 丹方icon按阶数对应的材料品质取
+        icon.sprite = ResourcesConfig.Get丹方icon(丹药Type, 材料品质); // 丹方icon按阶数对应的材料品质取
         name.text = $"{多语言Config.Get(丹药Config.丹方名Dic[丹药Type])}·{阶数}阶";
         count.text = PlayerData.S.Get丹方数量(丹药Type, 阶数).ToString();
     }

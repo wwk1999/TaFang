@@ -176,6 +176,7 @@ public class 炼丹界面 : MonoBehaviour
     public void 刷新炼丹界面(object[] obj)
     {
         非炼制Show(HeroWindowController.S.当前炼丹显示Type, HeroWindowController.S.当前炼丹显示阶数);
+        刷新炼制数量();
     }
 
     public void 炼制刷新(object[] obj)

@@ -927,6 +927,7 @@ public class MainWindow : MonoBehaviour
         });
         招募卷Debug.onClick.AddListener(() =>
         {
+            PlayerData.S.炼丹等级 += 1;
             for (int i = 0; i < 100; i++)
             {
                 符文 符文 = 符文之地Config.Get品质符文(QualityType.宇品);
@@ -950,6 +951,17 @@ public class MainWindow : MonoBehaviour
             PlayerData.S.PropListDic[PropType.控制经验值] += 10000;
             PlayerData.S.PropListDic[PropType.射手经验值] += 10000;
             PlayerData.S.PropListDic[PropType.功德]+=100000000;
+
+            // 所有灵药每个品质 +100（用于炼丹测试）
+            foreach (灵药Type lt in Enum.GetValues(typeof(灵药Type)))
+            {
+                if (lt == 灵药Type.None) continue;
+                foreach (QualityType qt in Enum.GetValues(typeof(QualityType)))
+                {
+                    if (qt == QualityType.None) continue;
+                    PlayerData.S.Set灵药数量(lt, qt, PlayerData.S.Get灵药数量(lt, qt) + 100);
+                }
+            }
 
             PlayerData.S.PropListDic[PropType.铁2]++;
             PlayerData.S.PropListDic[PropType.石2]++;

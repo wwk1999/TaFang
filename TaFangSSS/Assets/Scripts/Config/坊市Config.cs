@@ -260,10 +260,10 @@ public class 坊市Config
         { QualityType.荒品, 50 },
     };
 
-    /// <summary>坊市等级→丹方最高阶数（1-3级只能1阶，4-6级只能2阶，以此类推）</summary>
+    /// <summary>当前坊市等级→丹方最高阶数（1-3级只能1阶，4-6级只能2阶，以此类推）</summary>
     public static int Get丹方最高购买阶数()
     {
-        int 等级 = PlayerData.S.建筑等级Dic[建筑Type.坊市];
+        int 等级 = PlayerData.S.坊市等级;
         return Math.Min(16, Math.Max(1, (等级 - 1) / 3 + 1)); // 每3级解锁一个新阶数段
     }
 
@@ -288,21 +288,40 @@ public class 坊市Config
         return 0;
     }
 
-    /// <summary>坊市丹药生成：阶数由坊市等级限定，品质最高天品（随机）</summary>
+    /// <summary>当前坊市等级→唯一阶数：1-3级=1阶，4-6级=2阶，每3级升一阶</summary>
     public static int 随机丹方阶数()
     {
-        return Random.Range(1, Get丹方最高购买阶数() + 1);
+        int 等级 = PlayerData.S.坊市等级;
+        return Math.Min(16, Math.Max(1, (等级 - 1) / 3 + 1));
     }
 
-    /// <summary>坊市丹药品质随机（最高天品）</summary>
+    /// <summary>坊市丹药品质权重（按坊市等级段，段=随机丹方阶数()，权重合计100；最高天品）</summary>
+    public static Dictionary<int, Dictionary<QualityType, float>> 坊市丹药品质权重Dic = new Dictionary<int, Dictionary<QualityType, float>>
+    {
+        { 1,  new Dictionary<QualityType, float> { { QualityType.黄品, 100 } } },
+        { 2,  new Dictionary<QualityType, float> { { QualityType.黄品, 80 }, { QualityType.玄品, 20 } } },
+        { 3,  new Dictionary<QualityType, float> { { QualityType.黄品, 60 }, { QualityType.玄品, 30 }, { QualityType.地品, 10 } } },
+        { 4,  new Dictionary<QualityType, float> { { QualityType.黄品, 40 }, { QualityType.玄品, 35 }, { QualityType.地品, 20 }, { QualityType.天品, 5 } } },
+        { 5,  new Dictionary<QualityType, float> { { QualityType.黄品, 30 }, { QualityType.玄品, 35 }, { QualityType.地品, 25 }, { QualityType.天品, 10 } } },
+        { 6,  new Dictionary<QualityType, float> { { QualityType.黄品, 20 }, { QualityType.玄品, 35 }, { QualityType.地品, 30 }, { QualityType.天品, 15 } } },
+        { 7,  new Dictionary<QualityType, float> { { QualityType.黄品, 15 }, { QualityType.玄品, 30 }, { QualityType.地品, 35 }, { QualityType.天品, 20 } } },
+        { 8,  new Dictionary<QualityType, float> { { QualityType.黄品, 12 }, { QualityType.玄品, 28 }, { QualityType.地品, 38 }, { QualityType.天品, 22 } } },
+        { 9,  new Dictionary<QualityType, float> { { QualityType.黄品, 10 }, { QualityType.玄品, 25 }, { QualityType.地品, 40 }, { QualityType.天品, 25 } } },
+        { 10, new Dictionary<QualityType, float> { { QualityType.黄品, 8 },  { QualityType.玄品, 22 }, { QualityType.地品, 42 }, { QualityType.天品, 28 } } },
+        { 11, new Dictionary<QualityType, float> { { QualityType.黄品, 6 },  { QualityType.玄品, 20 }, { QualityType.地品, 44 }, { QualityType.天品, 30 } } },
+        { 12, new Dictionary<QualityType, float> { { QualityType.黄品, 5 },  { QualityType.玄品, 18 }, { QualityType.地品, 45 }, { QualityType.天品, 32 } } },
+        { 13, new Dictionary<QualityType, float> { { QualityType.黄品, 4 },  { QualityType.玄品, 16 }, { QualityType.地品, 46 }, { QualityType.天品, 34 } } },
+        { 14, new Dictionary<QualityType, float> { { QualityType.黄品, 3 },  { QualityType.玄品, 14 }, { QualityType.地品, 47 }, { QualityType.天品, 36 } } },
+        { 15, new Dictionary<QualityType, float> { { QualityType.黄品, 2 },  { QualityType.玄品, 12 }, { QualityType.地品, 48 }, { QualityType.天品, 38 } } },
+        { 16, new Dictionary<QualityType, float> { { QualityType.黄品, 1 },  { QualityType.玄品, 10 }, { QualityType.地品, 49 }, { QualityType.天品, 40 } } },
+    };
+
+    /// <summary>坊市丹药品质随机：按当前坊市等级段取权重（最高天品）</summary>
     public static QualityType 随机丹药品质()
     {
-        // 品质权重最高到天品（前4品质），后4品质权重0
-        var 权重 = new Dictionary<QualityType, float>
-        {
-            { QualityType.黄品, 45 }, { QualityType.玄品, 30 },
-            { QualityType.地品, 15 }, { QualityType.天品, 10 },
-        };
+        int 段 = 随机丹方阶数();
+        if (!坊市丹药品质权重Dic.TryGetValue(段, out var 权重))
+            return QualityType.黄品;
         float random = Random.value * 100f;
         float 累计 = 0;
         foreach (var kvp in 权重)
@@ -431,7 +450,9 @@ public class 坊市Config
                     }
 
                     PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
-                    PlayerData.S.Set丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.Get丹药数量(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType)+1);
+                    var 丹药物品 = PlayerData.S.坊市物品列表[i];
+                    PlayerData.S.Set丹药数量(丹药物品.丹药Type, 丹药物品.QualityType,
+                        PlayerData.S.Get丹药数量(丹药物品.丹药Type, 丹药物品.QualityType, 丹药物品.阶数) + 1, 丹药物品.阶数);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
                     ObserverModuleManager.S.SendEvent("SendUIToast", 丹药Config.丹药名Dic[PlayerData.S.坊市物品列表[i].丹药Type] + $"·{PlayerData.S.坊市物品列表[i].阶数}阶", PlayerData.S.坊市物品列表[i].QualityType, 1);
 

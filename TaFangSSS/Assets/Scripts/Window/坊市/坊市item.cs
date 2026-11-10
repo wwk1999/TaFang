@@ -86,7 +86,7 @@ public class 坊市item : MonoBehaviour
                 }
 
                 PlayerData.S.PropListDic[PropType.灵魂] -= 价格value;
-                PlayerData.S.Set丹药数量(丹药Type, QualityType, PlayerData.S.Get丹药数量(丹药Type, QualityType) + 1);
+                PlayerData.S.Set丹药数量(丹药Type, QualityType, PlayerData.S.Get丹药数量(丹药Type, QualityType, 阶数) + 1, 阶数);
                 ObserverModuleManager.S.SendEvent("SendUIToast", "购买成功");
 
                 售空.gameObject.SetActive(true);
@@ -160,7 +160,7 @@ public class 坊市item : MonoBehaviour
             QualityType 材料品质 = 丹药Config.Get材料品质(阶数);
             name.text = $"{丹药Config.丹方名Dic[丹方Type]}·{阶数}阶";
             name.colorGradientPreset = ResourcesConfig.Get品质TMP(材料品质);
-            icon.sprite = ResourcesConfig.Get丹药icon(丹方Type, 材料品质); // 丹方icon按阶数对应的材料品质取
+            icon.sprite = ResourcesConfig.Get丹方icon(丹方Type, 材料品质); // 丹方icon按阶数对应的材料品质取
             bg.sprite = ResourcesConfig.Get传道背景框(材料品质);
             iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
             desc.text = 丹药Config.丹方DescDic[丹方Type];

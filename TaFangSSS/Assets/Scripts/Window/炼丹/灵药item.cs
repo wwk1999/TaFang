@@ -25,7 +25,7 @@ public class 灵药item : MonoBehaviour
         {
             // 造化丹药材料：显示灵植icon/名称，固定数量
             icon.gameObject.SetActive(true);
-            icon.sprite = ResourcesConfig.Get灵植成熟Sprite(灵植Type);
+            icon.sprite = ResourcesConfig.Get灵植收获Sprite(灵植Type);
             bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
             name.text = 灵植园Config.灵植名[灵植Type];
             float 普通库存 = PlayerData.S.普通收获Dic.TryGetValue(灵植Type, out var 普通数) ? 普通数 : 0;

@@ -1535,13 +1535,12 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
     }
 
     /// <summary>
-    /// 各品质丹药允许的最高阶段：黄品 1 阶、玄品 2 阶……洪品 7 阶，
-    /// 与枚举值一一对应；荒品特殊，最高 9 阶。
+    /// 丹药阶数上限：新炼丹体系下阶数(1-16)与品质互不相关，
+    /// 任何品质都可以有 1-16 阶，扫描/初始化库存时统一按 16 阶处理。
     /// </summary>
     public static int Get丹药最高阶段(QualityType quality)
     {
-        if (quality == QualityType.荒品) return 9;
-        return (int)quality;
+        return 丹药Config.丹药最高阶数;
     }
 
     public 丹药Type Get丹药Type(string str)

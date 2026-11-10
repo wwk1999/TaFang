@@ -66,6 +66,9 @@ public class 坊市窗口 : MonoBehaviour
             {
                 PlayerData.S.坊市等级--;
                 num.text = PlayerData.S.坊市等级.ToString();
+                // 坊市内容与当前选择的等级挂钩，切级后重新刷新商品
+                坊市Config.刷新坊市列表();
+                Show();
             }
         });
         右Button.onClick.AddListener(() =>
@@ -74,6 +77,8 @@ public class 坊市窗口 : MonoBehaviour
             {
                 PlayerData.S.坊市等级++;
                 num.text = PlayerData.S.坊市等级.ToString();
+                坊市Config.刷新坊市列表();
+                Show();
             }
         });
         exitButton.onClick.AddListener(() =>

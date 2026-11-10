@@ -79,7 +79,7 @@ public class 丹药信息 : MonoBehaviour
             {
                 var 文本引用 = i switch { 0 => 灵药1, 1 => 灵药2, 2 => 灵药3, _ => 灵药4 };
                 if (i < 灵药list.Count)
-                    文本引用.text = $"{PropConfig.QualityNameDic[材料品质]}品{丹药Config.灵药名Dic[灵药list[i]]} ×{丹药Config.Get单种材料数量(阶数)}";
+                    文本引用.text = $"{PropConfig.QualityNameDic[材料品质]}{丹药Config.灵药名Dic[灵药list[i]]} ×{丹药Config.Get单种材料数量(阶数)}";
                 else
                     文本引用.text = "";
             }

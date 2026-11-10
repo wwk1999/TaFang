@@ -324,174 +324,7 @@ public class 丹药Config
         { 丹药类型.造化丹药, "造化丹药" },
         { 丹药类型.辅助丹药, "辅助丹药" },
     };
-
-    // [废弃] 旧的按品质获取炼制经验接口，保留签名用于兼容
-    public static float Get炼制丹药经验(丹药Type type, QualityType qualityType)
-    {
-        return Get炼制经验(type, (int)qualityType); // 临时桥接：品质值作为阶数
-    }
-    public static Dictionary<QualityType, long> 战斗丹药经验Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 30 },
-        { QualityType.玄品, 100 },
-        { QualityType.地品, 300 },
-        { QualityType.天品, 1000 },
-        { QualityType.宇品, 3000 },
-        { QualityType.宙品, 10000 },
-        { QualityType.洪品, 30000 },
-        { QualityType.荒品, 100000 },
-    };
-
-    // [废弃] 旧的按品质获取炼制等级接口
-    public static long Get炼制丹药等级(丹药Type type, QualityType qualityType)
-    {
-        return Get炼丹等级要求(type, (int)qualityType); // 临时桥接
-    }
-    public static Dictionary<QualityType, long> 战斗丹药炼制等级Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 1 },
-        { QualityType.玄品, 5 },
-        { QualityType.地品, 10 },
-        { QualityType.天品, 17 },
-        { QualityType.宇品, 25 },
-        { QualityType.宙品, 35 },
-        { QualityType.洪品, 45 },
-        { QualityType.荒品, 60 },
-    };
     
-    public static Dictionary<QualityType, long> 辅助丹药炼制等级Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 3 },
-        { QualityType.玄品, 10 },
-        { QualityType.地品, 17 },
-        { QualityType.天品, 25 },
-        { QualityType.宇品, 35 },
-        { QualityType.宙品, 45 },
-        { QualityType.洪品, 60 },
-        { QualityType.荒品, 70 },
-    };
-    public static Dictionary<QualityType, long> 根基丹药炼制等级Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 6 },
-        { QualityType.玄品, 15 },
-        { QualityType.地品, 25 },
-        { QualityType.天品, 35 },
-        { QualityType.宇品, 45 },
-        { QualityType.宙品, 55 },
-        { QualityType.洪品, 65 },
-        { QualityType.荒品, 80 },
-    };
-    public static Dictionary<QualityType, long> 造化丹药炼制等级Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 10 },
-        { QualityType.玄品, 17 },
-        { QualityType.地品, 25 },
-        { QualityType.天品, 35 },
-        { QualityType.宇品, 45 },
-        { QualityType.宙品, 55 },
-        { QualityType.洪品, 70 },
-        { QualityType.荒品, 90 },
-    };
-    
-    
-    public static Dictionary<QualityType, float> 战斗丹药炼制时间Dic = new Dictionary<QualityType, float>()
-    {
-        { QualityType.黄品, 0.1f },
-        { QualityType.玄品, 0.2f },
-        { QualityType.地品, 0.3f },
-        { QualityType.天品, 0.4f },
-        { QualityType.宇品, 0.5f },
-        { QualityType.宙品, 0.6f },
-        { QualityType.洪品, 0.8f },
-        { QualityType.荒品, 1f },
-    };
-    
-    public static Dictionary<QualityType, float> 辅助丹药炼制时间Dic = new Dictionary<QualityType, float>()
-    {
-        { QualityType.黄品, 0.15f },
-        { QualityType.玄品, 0.3f },
-        { QualityType.地品, 0.45f },
-        { QualityType.天品, 0.6f },
-        { QualityType.宇品, 0.75f },
-        { QualityType.宙品, 0.9f },
-        { QualityType.洪品, 1.2f },
-        { QualityType.荒品, 1.5f },
-    };
-    public static Dictionary<QualityType, float> 根基丹药炼制时间Dic = new Dictionary<QualityType, float>()
-    {
-        { QualityType.黄品, 0.2f },
-        { QualityType.玄品, 0.4f },
-        { QualityType.地品, 0.6f },
-        { QualityType.天品, 0.8f },
-        { QualityType.宇品, 0.1f },
-        { QualityType.宙品, 1.2f },
-        { QualityType.洪品, 1.5f },
-        { QualityType.荒品, 1.8f },
-    };
-    public static Dictionary<QualityType, float> 造化丹药炼制时间Dic = new Dictionary<QualityType, float>()
-    {
-        { QualityType.黄品, 0.3f },
-        { QualityType.玄品, 0.6f },
-        { QualityType.地品, 0.9f },
-        { QualityType.天品, 1.2f },
-        { QualityType.宇品, 1.5f },
-        { QualityType.宙品, 1.8f },
-        { QualityType.洪品, 2.1f },
-        { QualityType.荒品, 2.5f },
-    };
-    
-    public static Dictionary<QualityType, long> 辅助丹药经验Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 50 },
-        { QualityType.玄品, 150 },
-        { QualityType.地品, 500 },
-        { QualityType.天品, 1500 },
-        { QualityType.宇品, 4500 },
-        { QualityType.宙品, 15000 },
-        { QualityType.洪品, 45000 },
-        { QualityType.荒品, 150000 },
-    };
-    
-    public static Dictionary<QualityType, long> 根基丹药经验Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 100 },
-        { QualityType.玄品, 300 },
-        { QualityType.地品, 1000 },
-        { QualityType.天品, 3000 },
-        { QualityType.宇品, 10000 },
-        { QualityType.宙品, 30000 },
-        { QualityType.洪品, 100000 },
-        { QualityType.荒品, 300000 },
-    };
-    public static Dictionary<QualityType, long> 造化丹药经验Dic = new Dictionary<QualityType, long>()
-    {
-        { QualityType.黄品, 300 },
-        { QualityType.玄品, 1000 },
-        { QualityType.地品, 3000 },
-        { QualityType.天品, 10000 },
-        { QualityType.宇品, 30000 },
-        { QualityType.宙品, 100000 },
-        { QualityType.洪品, 300000 },
-        { QualityType.荒品, 1000000 },
-    };
-
-    // [废弃] 旧的按品质+筛选计算最大炼制数量接口（现在数量固定按阶数算）
-    public static int Get最大炼制数量(丹药Type type, QualityType qualityType,bool 黄,bool 玄,bool 地,bool 天,bool 宇,bool 宙,bool 洪,bool 荒)
-    {
-        return int.MaxValue; // 现在不再靠品质筛选限制数量
-    }
-
-    // [废弃] 旧的按品质获取炼制时间接口
-    public static float Get炼制丹药需要时间(丹药Type type, QualityType qualityType)
-    {
-        return Get炼制时间(type, (int)qualityType); // 临时桥接
-    }
-
-    // [废弃] 旧的按品质获取灵药列表接口，改为按阶数取固定品质
-    public static List<灵药> Get炼制灵药(丹药Type type, QualityType qualityType)
-    {
-        return Get炼制灵药按阶数(type, (int)qualityType);
-    }
 
     /// <summary>按阶数获取固定品质的灵药列表（新接口）</summary>
     public static List<灵药> Get炼制灵药按阶数(丹药Type type, int 阶数)
@@ -639,311 +472,39 @@ public class 丹药Config
     /// <summary>获取丹药属性。1阶为基础值，每升一阶翻 丹药阶数倍数 倍（2阶2倍、3阶4倍……）</summary>
     public static 丹药属性 Get丹药属性(丹药Type type, QualityType qualityType, int 阶段 = 1)
     {
-        return Get丹药属性基础(type, qualityType) * (float)Math.Pow(丹药阶数倍数, 阶段 - 1);
+        float 值 = Get丹药值(type, qualityType, 阶段);
+        丹药属性 result = new 丹药属性();
+        switch (type)
+        {
+            case 丹药Type.火焰伤害: result.火焰伤害 = 值; break;
+            case 丹药Type.冰霜伤害: result.冰霜伤害 = 值; break;
+            case 丹药Type.雷电伤害: result.雷电伤害 = 值; break;
+            case 丹药Type.黑暗伤害: result.黑暗伤害 = 值; break;
+            case 丹药Type.物理伤害: result.物理伤害 = 值; break;
+            case 丹药Type.战士伤害: result.战士伤害 = 值; break;
+            case 丹药Type.法师伤害: result.法师伤害 = 值; break;
+            case 丹药Type.射手伤害: result.射手伤害 = 值; break;
+            case 丹药Type.控制伤害: result.控制伤害 = 值; break;
+            case 丹药Type.最终伤害: result.最终伤害 = 值; break;
+            case 丹药Type.修炼速度: result.修炼速度 = 值; break;
+            case 丹药Type.掉宝率: result.掉宝率 = 值; break;
+            case 丹药Type.英雄暴击伤害: result.英雄暴击伤害 = 值; break;
+            case 丹药Type.加跟脚: result.加跟脚 = 值; break;
+            case 丹药Type.英雄火焰伤害: result.英雄火焰伤害 = 值; break;
+            case 丹药Type.英雄冰霜伤害: result.英雄冰霜伤害 = 值; break;
+            case 丹药Type.英雄雷电伤害: result.英雄雷电伤害 = 值; break;
+            case 丹药Type.英雄黑暗伤害: result.英雄黑暗伤害 = 值; break;
+            case 丹药Type.英雄物理伤害: result.英雄物理伤害 = 值; break;
+            case 丹药Type.英雄最终伤害: result.英雄最终伤害 = 值; break;
+        }
+        return result;
     }
 
-    private static 丹药属性 Get丹药属性基础(丹药Type type, QualityType qualityType)
-{
-    丹药属性 丹药属性 = new 丹药属性();
-    switch (type)
-    {
-        // ========== 伤害类 ==========
-        case 丹药Type.火焰伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.火焰伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.火焰伤害 = 25; break;
-                case QualityType.地品: 丹药属性.火焰伤害 = 50; break;
-                case QualityType.天品: 丹药属性.火焰伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.火焰伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.火焰伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.火焰伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.火焰伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.冰霜伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.冰霜伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.冰霜伤害 = 25; break;
-                case QualityType.地品: 丹药属性.冰霜伤害 = 50; break;
-                case QualityType.天品: 丹药属性.冰霜伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.冰霜伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.冰霜伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.冰霜伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.冰霜伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.雷电伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.雷电伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.雷电伤害 = 25; break;
-                case QualityType.地品: 丹药属性.雷电伤害 = 50; break;
-                case QualityType.天品: 丹药属性.雷电伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.雷电伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.雷电伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.雷电伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.雷电伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.黑暗伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.黑暗伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.黑暗伤害 = 25; break;
-                case QualityType.地品: 丹药属性.黑暗伤害 = 50; break;
-                case QualityType.天品: 丹药属性.黑暗伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.黑暗伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.黑暗伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.黑暗伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.黑暗伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.物理伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.物理伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.物理伤害 = 25; break;
-                case QualityType.地品: 丹药属性.物理伤害 = 50; break;
-                case QualityType.天品: 丹药属性.物理伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.物理伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.物理伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.物理伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.物理伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.战士伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.战士伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.战士伤害 = 25; break;
-                case QualityType.地品: 丹药属性.战士伤害 = 50; break;
-                case QualityType.天品: 丹药属性.战士伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.战士伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.战士伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.战士伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.战士伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.射手伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.射手伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.射手伤害 = 25; break;
-                case QualityType.地品: 丹药属性.射手伤害 = 50; break;
-                case QualityType.天品: 丹药属性.射手伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.射手伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.射手伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.射手伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.射手伤害 = 3000; break;
-            }
-            break;
-
-        case 丹药Type.法师伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.法师伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.法师伤害 = 25; break;
-                case QualityType.地品: 丹药属性.法师伤害 = 50; break;
-                case QualityType.天品: 丹药属性.法师伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.法师伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.法师伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.法师伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.法师伤害 = 3000; break;
-            }
-            break;
-
-       
-
-        case 丹药Type.控制伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.控制伤害 = 10; break;
-                case QualityType.玄品: 丹药属性.控制伤害 = 25; break;
-                case QualityType.地品: 丹药属性.控制伤害 = 50; break;
-                case QualityType.天品: 丹药属性.控制伤害 = 100; break;
-                case QualityType.宇品: 丹药属性.控制伤害 = 200; break;
-                case QualityType.宙品: 丹药属性.控制伤害 = 500; break;
-                case QualityType.洪品: 丹药属性.控制伤害 = 1000; break;
-                case QualityType.荒品: 丹药属性.控制伤害 = 3000; break;
-            }
-            break;
-
-        // ========== 最终伤害 ==========
-        case 丹药Type.最终伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.最终伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.最终伤害 = 10; break;
-                case QualityType.地品: 丹药属性.最终伤害 = 25; break;
-                case QualityType.天品: 丹药属性.最终伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.最终伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.最终伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.最终伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.最终伤害 = 2000; break;
-            }
-            break;
-
-        // ========== 英雄类 ==========
-        case 丹药Type.英雄最终伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.英雄最终伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄最终伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄最终伤害 = 25; break;
-                case QualityType.天品: 丹药属性.英雄最终伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.英雄最终伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.英雄最终伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.英雄最终伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.英雄最终伤害 = 2000; break;
-            }
-            break;
-
-        case 丹药Type.英雄暴击伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.英雄暴击伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.英雄暴击伤害 = 10; break;
-                case QualityType.地品: 丹药属性.英雄暴击伤害 = 25; break;
-                case QualityType.天品: 丹药属性.英雄暴击伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.英雄暴击伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.英雄暴击伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.英雄暴击伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.英雄暴击伤害 = 2000; break;
-            }
-            break;
-
-        case 丹药Type.英雄火焰伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.火焰伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.火焰伤害 = 10; break;
-                case QualityType.地品: 丹药属性.火焰伤害 = 25; break;
-                case QualityType.天品: 丹药属性.火焰伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.火焰伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.火焰伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.火焰伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.火焰伤害 = 2000; break;
-            }
-            break;
-
-        case 丹药Type.英雄冰霜伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.冰霜伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.冰霜伤害 = 10; break;
-                case QualityType.地品: 丹药属性.冰霜伤害 = 25; break;
-                case QualityType.天品: 丹药属性.冰霜伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.冰霜伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.冰霜伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.冰霜伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.冰霜伤害 = 2000; break;
-            }
-            break;
-
-        case 丹药Type.英雄雷电伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.雷电伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.雷电伤害 = 10; break;
-                case QualityType.地品: 丹药属性.雷电伤害 = 25; break;
-                case QualityType.天品: 丹药属性.雷电伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.雷电伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.雷电伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.雷电伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.雷电伤害 = 2000; break;
-            }
-            break;
-
-        case 丹药Type.英雄黑暗伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.黑暗伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.黑暗伤害 = 10; break;
-                case QualityType.地品: 丹药属性.黑暗伤害 = 25; break;
-                case QualityType.天品: 丹药属性.黑暗伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.黑暗伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.黑暗伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.黑暗伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.黑暗伤害 = 2000; break;
-            }
-            break;
-
-        case 丹药Type.英雄物理伤害:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.物理伤害 = 5; break;
-                case QualityType.玄品: 丹药属性.物理伤害 = 10; break;
-                case QualityType.地品: 丹药属性.物理伤害 = 25; break;
-                case QualityType.天品: 丹药属性.物理伤害 = 50; break;
-                case QualityType.宇品: 丹药属性.物理伤害 = 100; break;
-                case QualityType.宙品: 丹药属性.物理伤害 = 200; break;
-                case QualityType.洪品: 丹药属性.物理伤害 = 500; break;
-                case QualityType.荒品: 丹药属性.物理伤害 = 2000; break;
-            }
-            break;
-
-        // ========== 掉宝率 ==========
-        case 丹药Type.掉宝率:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.掉宝率 = 10; break;
-                case QualityType.玄品: 丹药属性.掉宝率 = 20; break;
-                case QualityType.地品: 丹药属性.掉宝率 = 30; break;
-                case QualityType.天品: 丹药属性.掉宝率 = 50; break;
-                case QualityType.宇品: 丹药属性.掉宝率 = 80; break;
-                case QualityType.宙品: 丹药属性.掉宝率 = 120; break;
-                case QualityType.洪品: 丹药属性.掉宝率 = 180; break;
-                case QualityType.荒品: 丹药属性.掉宝率 = 300; break;
-            }
-            break;
-
-        // ========== 修炼速度 ==========
-        case 丹药Type.修炼速度:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.修炼速度 = 10; break;
-                case QualityType.玄品: 丹药属性.修炼速度 = 20; break;
-                case QualityType.地品: 丹药属性.修炼速度 = 30; break;
-                case QualityType.天品: 丹药属性.修炼速度 = 50; break;
-                case QualityType.宇品: 丹药属性.修炼速度 = 80; break;
-                case QualityType.宙品: 丹药属性.修炼速度 = 120; break;
-                case QualityType.洪品: 丹药属性.修炼速度 = 180; break;
-                case QualityType.荒品: 丹药属性.修炼速度 = 300; break;
-            }
-            break;
-
-        // ========== 加跟脚 ==========
-        case 丹药Type.加跟脚:
-            switch (qualityType)
-            {
-                case QualityType.黄品: 丹药属性.加跟脚 = 5; break;
-                case QualityType.玄品: 丹药属性.加跟脚 = 10; break;
-                case QualityType.地品: 丹药属性.加跟脚 = 20; break;
-                case QualityType.天品: 丹药属性.加跟脚 = 30; break;
-                case QualityType.宇品: 丹药属性.加跟脚 = 50; break;
-                case QualityType.宙品: 丹药属性.加跟脚 = 80; break;
-                case QualityType.洪品: 丹药属性.加跟脚 = 120; break;
-                case QualityType.荒品: 丹药属性.加跟脚 = 180; break;
-            }
-            break;
-    }
-
-    return 丹药属性;
-}
 
     /// <summary>获取丹药效果数值。1阶为基础值，每升一阶翻 丹药阶数倍数 倍</summary>
     public static float Get丹药值(丹药Type type, QualityType qualityType, int 阶段 = 1)
     {
-        return Get丹药值基础(type, qualityType) * (float)Math.Pow(丹药阶数倍数, 阶段 - 1)
-            * (1f + 属性config.仙子总属性.丹药效果 / 100f);
+        return Get丹药值基础(type, qualityType) * (float)Math.Pow(丹药阶数倍数, 阶段 - 1);
     }
 
     private static float Get丹药值基础(丹药Type type, QualityType qualityType)
@@ -1069,23 +630,6 @@ public class 丹药Config
         return count*(1f+体质Config.当前体质总属性.丹药效果/100f);
     }
 
-    public static float Get丹药价格(丹药Type 丹药Type, QualityType qualityType)
-    {
-        var 丹药类型 = 丹药类型Dic[丹药Type];
-        switch (丹药类型)
-        {
-            case 丹药类型.战斗丹药:
-                return 坊市Config.战斗丹药价格Dic[qualityType];
-            case 丹药类型.辅助丹药:
-                return 坊市Config.辅助丹药价格Dic[qualityType];
-            case 丹药类型.根基丹药:
-                return 坊市Config.根基丹药价格Dic[qualityType];
-            case 丹药类型.造化丹药:
-                return 坊市Config.造化丹药价格Dic[qualityType];
-        }
-
-        return 0;
-    }
     
     public static float Get丹药分解价格(丹药Type 丹药Type, QualityType qualityType, int 阶段 = 1)
     {
@@ -1107,23 +651,6 @@ public class 丹药Config
         return 0;
     }
     
-    public static float Get丹方价格(丹药Type 丹药Type, QualityType qualityType)
-    {
-        var 丹药类型 = 丹药类型Dic[丹药Type];
-        switch (丹药类型)
-        {
-            case 丹药类型.战斗丹药:
-                return 坊市Config.战斗丹方价格Dic[qualityType];
-            case 丹药类型.辅助丹药:
-                return 坊市Config.辅助丹方价格Dic[qualityType];
-            case 丹药类型.根基丹药:
-                return 坊市Config.根基丹方价格Dic[qualityType];
-            case 丹药类型.造化丹药:
-                return 坊市Config.造化丹方价格Dic[qualityType];
-        }
-
-        return 0;
-    }
 
     public static string Get丹药Desc(丹药Type 丹药Type, QualityType qualityType, int 阶段 = 1)
     {
@@ -1282,6 +809,9 @@ public class 丹药Config
     };
 
     // ============ 新增：按阶数维度的配置（替代旧的品质维度Dic） ============
+
+    /// <summary>丹药阶数上限：阶数与品质互相独立，任何品质都可存在 1-16 阶</summary>
+    public const int 丹药最高阶数 = 16;
 
     /// <summary>阶数→品质映射（每2阶一组：1-2黄/3-4玄/5-6地/7-8天/9-10宇/11-12宙/13-14洪/15-16荒）</summary>
     public static QualityType Get材料品质(int 阶数)
