@@ -6288,14 +6288,15 @@ public static Sprite 缚霞流光绫藏品;
 	}
 
 
-	/// <summary>按品质取丹方icon：首次调用时按丹药中文名从 Resources/Sprite/丹方icon/ 加载图集并缓存</summary>
-	public static Sprite Get丹方icon(丹药Type type, QualityType qualityType)
+	/// <summary>按阶数取丹方icon（Resources/Sprite/丹方icon/下按丹药中文名存图集，切片名_0~_15对应1~16阶）</summary>
+	public static Sprite Get丹方icon(丹药Type type, int 阶数)
 	{
-		if (type == 丹药Type.None || qualityType == QualityType.None) return null;
+		if (type == 丹药Type.None || 阶数 < 1 || 阶数 > 16) return null;
 		if (!丹方SpriteCache.TryGetValue(type, out var sprites) || sprites == null || sprites.Length == 0)
 		{
 			string name = 丹药Config.丹药名Dic.TryGetValue(type, out var n) ? n : type.ToString();
 			sprites = Resources.LoadAll<Sprite>($"Sprite/丹方icon/{name}");
+			// LoadAll 返回顺序不保证；按切片名尾部数字排序，确保 [0]=子图0、[15]=子图15
 			if (sprites != null && sprites.Length > 1)
 			{
 				System.Array.Sort(sprites, (a, b) =>
@@ -6307,8 +6308,7 @@ public static Sprite 缚霞流光绫藏品;
 			}
 			丹方SpriteCache[type] = sprites;
 		}
-		int idx = (int)qualityType - 1;
-		if (sprites != null && sprites.Length > idx) return sprites[idx];
+		if (sprites != null && sprites.Length >= 阶数) return sprites[阶数 - 1];
 		return null;
 	}
 

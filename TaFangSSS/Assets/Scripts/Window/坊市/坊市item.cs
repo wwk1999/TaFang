@@ -157,12 +157,12 @@ public class 坊市item : MonoBehaviour
                 售空.gameObject.SetActive(true);
                 标签text.text = "已拥有";
             }
-            QualityType 材料品质 = 丹药Config.Get材料品质(阶数);
+            QualityType 丹方品质 = 丹药Config.Get丹方品质(阶数);
             name.text = $"{丹药Config.丹方名Dic[丹方Type]}·{阶数}阶";
-            name.colorGradientPreset = ResourcesConfig.Get品质TMP(材料品质);
-            icon.sprite = ResourcesConfig.Get丹方icon(丹方Type, 材料品质); // 丹方icon按阶数对应的材料品质取
-            bg.sprite = ResourcesConfig.Get传道背景框(材料品质);
-            iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(材料品质);
+            name.colorGradientPreset = ResourcesConfig.Get品质TMP(丹方品质);
+            icon.sprite = ResourcesConfig.Get丹方icon(丹方Type, 阶数); // 丹方icon按阶数取
+            bg.sprite = ResourcesConfig.Get传道背景框(丹方品质);
+            iconBg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(丹方品质);
             desc.text = 丹药Config.丹方DescDic[丹方Type];
             价格.text = PlayerData.S.格式化数字(坊市Config.Get丹方阶数价格(丹方Type, 阶数) / (1f + 道场Config.供奉总属性.坊市价格减少 / 100f));
         }

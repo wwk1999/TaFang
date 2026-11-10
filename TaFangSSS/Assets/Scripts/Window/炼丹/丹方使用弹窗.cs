@@ -17,9 +17,9 @@ public class 丹方使用弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
-        QualityType 材料品质 = 丹药Config.Get材料品质(阶数);
+        QualityType 丹方品质 = 丹药Config.Get丹方品质(阶数);
         name.text = $"{多语言Config.Get(丹药Config.丹方名Dic[丹药Type])}·{阶数}阶";
-        name.colorGradientPreset = ResourcesConfig.Get品质TMP(材料品质);
+        name.colorGradientPreset = ResourcesConfig.Get品质TMP(丹方品质);
     }
 
     private void Start()

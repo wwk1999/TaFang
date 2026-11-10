@@ -820,6 +820,19 @@ public class 丹药Config
         return (QualityType)((阶数 - 1) / 2 + 1);
     }
 
+    /// <summary>阶数→丹方展示品质（1白/2绿/3蓝/4紫/5-6橙/7-8粉/9-10红/11-16彩）</summary>
+    public static QualityType Get丹方品质(int 阶数)
+    {
+        if (阶数 <= 1) return QualityType.黄品;
+        if (阶数 == 2) return QualityType.玄品;
+        if (阶数 == 3) return QualityType.地品;
+        if (阶数 == 4) return QualityType.天品;
+        if (阶数 <= 6) return QualityType.宇品;
+        if (阶数 <= 8) return QualityType.宙品;
+        if (阶数 <= 10) return QualityType.洪品;
+        return QualityType.荒品;
+    }
+
     /// <summary>阶数→单种材料数量（奇数阶1个，偶数阶3个：1阶1/2阶3/3阶1/4阶3...）</summary>
     public static int Get单种材料数量(int 阶数)
     {
