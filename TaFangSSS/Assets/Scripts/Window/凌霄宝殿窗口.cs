@@ -107,7 +107,6 @@ public class 凌霄宝殿窗口 : MonoBehaviour
                 return;
             }
             LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
-            LevelConfig.Is混沌虚空 = false;
             LevelConfig.当前主线关卡Type = HeroWindowController.S.当前凌霄宝殿Type;
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
             Scene Scene = SceneManager.GetSceneByName("LoadScene");

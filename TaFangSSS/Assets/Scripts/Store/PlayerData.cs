@@ -59,6 +59,11 @@ public class PlayerData : XSingleton<PlayerData>
     public 主线关卡Type 最大主线关卡=主线关卡Type.花果山;
     public 神物Type 最大神物关卡 = 神物Type.最终伤害;
     public int 混沌虚空最大层数 = 1;
+    public int 须弥宫最大层数 = 1;
+    public int 娲皇宫最大层数 = 1;
+    public int 玉虚宫最大层数 = 1;
+    public int 碧游宫最大层数 = 1;
+    public int 八景宫最大层数 = 1;
     public int 城墙等级 = 1;
     public int 招募积分 = 0;
     public float 关卡倍速 = 1;

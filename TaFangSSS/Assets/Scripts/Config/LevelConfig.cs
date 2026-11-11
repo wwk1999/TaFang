@@ -55,6 +55,12 @@ public enum 主线关卡Type
     大罗天,
     
     混沌虚空,
+    
+    须弥宫,
+    娲皇宫,
+    碧游宫,
+    玉虚宫,
+    八景宫,
 }
 public class LevelDiaoLuo
 {
@@ -121,8 +127,13 @@ public class LevelConfig : MonoBehaviour
     public static 符文之地Type 当前符文之地Type = 符文之地Type.青木林;
 
 
-    public static bool Is混沌虚空=false;
     public static int 战斗混沌虚空层数 = 1;
+    public static int 战斗须弥宫层数 = 1;
+    public static int 战斗娲皇宫层数 = 1;
+    public static int 战斗八景宫层数 = 1;
+    public static int 战斗玉虚宫层数 = 1;
+    public static int 战斗碧游宫层数 = 1;
+
 
     public static Dictionary<秘境type, 主线关卡Type> 秘境解锁Dic = new Dictionary<秘境type, 主线关卡Type>()
     {
@@ -170,7 +181,12 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.上清境禹余天, 70 },
         { 主线关卡Type.太清境大赤天, 70 },
         { 主线关卡Type.大罗天, 80 },
-        { 主线关卡Type.混沌虚空, 100 },
+        { 主线关卡Type.混沌虚空, 0 },
+        { 主线关卡Type.娲皇宫, 0 },
+        { 主线关卡Type.须弥宫, 0 },
+        { 主线关卡Type.碧游宫, 0 },
+        { 主线关卡Type.八景宫, 0 },
+        { 主线关卡Type.玉虚宫, 0 },
     };
     public static Dictionary<主线关卡Type, JingJieType> 主线关卡境界Dic = new Dictionary<主线关卡Type, JingJieType>()
     {
@@ -213,6 +229,12 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.太清境大赤天, JingJieType.准圣 },
         { 主线关卡Type.大罗天, JingJieType.圣人 },
         { 主线关卡Type.混沌虚空, JingJieType.太乙金仙 },
+        
+        { 主线关卡Type.须弥宫, JingJieType.大罗金仙 },
+        { 主线关卡Type.娲皇宫, JingJieType.大罗金仙 },
+        { 主线关卡Type.碧游宫, JingJieType.准圣 },
+        { 主线关卡Type.玉虚宫, JingJieType.准圣 },
+        { 主线关卡Type.八景宫, JingJieType.准圣 },
     };
    public static Dictionary<主线关卡Type, string> 主线关卡介绍Dic = new Dictionary<主线关卡Type, string>()
 {
@@ -257,6 +279,12 @@ public class LevelConfig : MonoBehaviour
     { 主线关卡Type.大罗天, "三界最高之玄境，包罗万象，超越一切时空。弥罗宫屹立于虚无之中，金光万道，乃圣贤最终归宿，得道者方至之地。" },
     
     { 主线关卡Type.混沌虚空, "大罗天外至深至玄之境，非天非地，非有非无。此处无光无暗，无始无终，只有一片原初的混沌之气翻涌不息。" },
+    
+    { 主线关卡Type.娲皇宫, "圣母遗迹，五色神石补天处。造化之气氤氲不散，万物在此孕生。入宫者可见天裂旧痕，得造化之力者能塑灵造物。" },
+    { 主线关卡Type.须弥宫, "佛门至高圣地，藏纳亿万经卷于须弥芥子之间。梵音洗心，莲台证道，一念顿悟可登菩提，亦可视作佛国入口。" },
+    { 主线关卡Type.玉虚宫, "阐教祖庭，玉清仙光照彻寰宇。三宝如意高悬演算天机，宫中玉阶千级，登顶者方可聆听元始真言，习得阐教正统仙法。" },
+    { 主线关卡Type.碧游宫, "截教道场，万仙来朝听讲大道。宫门大开，有教无类，无论披毛戴角皆可入内。截一线生机于绝境，悟者可得通天教主真传。" },
+    { 主线关卡Type.八景宫, "道祖清修之道场，八景玄光映照诸天万象。宫中无岁月，一炷香间可参无为大道，悟透者得道祖一缕玄机。" },
 };
 
 public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = new Dictionary<洞天关卡Item, SmallLevelInfo>()
@@ -944,6 +972,11 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
     { 主线关卡Type.太清境大赤天, new SmallLevelInfo() { NormalMonsterCount = 440, CreateNormalMonsterTime = 0.35f, EliteMonsterCount = 8 } },
     { 主线关卡Type.大罗天, new SmallLevelInfo() { NormalMonsterCount = 460, CreateNormalMonsterTime = 0.35f, EliteMonsterCount = 8 } },
     { 主线关卡Type.混沌虚空, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
+    { 主线关卡Type.娲皇宫, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
+    { 主线关卡Type.须弥宫, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
+    { 主线关卡Type.玉虚宫, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
+    { 主线关卡Type.碧游宫, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
+    { 主线关卡Type.八景宫, new SmallLevelInfo() { NormalMonsterCount = 500, CreateNormalMonsterTime = 0.3f, EliteMonsterCount = 10 } },
 
 };
     
@@ -1159,22 +1192,22 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
         { 主线关卡Type.欲界天, new List<MonsterTypeName>() { 
             MonsterTypeName.欲念魅妖, MonsterTypeName.幻音雀, MonsterTypeName.贪欲魔, MonsterTypeName.欲界天魔王 } },
         // 色界天
-        { 主线关卡Type.色界天, new List<MonsterTypeName>() { 
+        { 主线关卡Type.娲皇宫, new List<MonsterTypeName>() { 
             MonsterTypeName.色相天女, MonsterTypeName.光音天众, MonsterTypeName.形色尊者, MonsterTypeName.色界天主 } },
         // 无色天
         { 主线关卡Type.无色天, new List<MonsterTypeName>() { 
             MonsterTypeName.虚灵, MonsterTypeName.空无影, MonsterTypeName.太虚之魂, MonsterTypeName.无色天祖 } },
         // 四梵天
-        { 主线关卡Type.四梵天, new List<MonsterTypeName>() { 
+        { 主线关卡Type.须弥宫, new List<MonsterTypeName>() { 
             MonsterTypeName.梵天守卫, MonsterTypeName.净居天人, MonsterTypeName.善现尊者, MonsterTypeName.四梵天王 } },
         // 玉清境清微天
-        { 主线关卡Type.玉清境清微天, new List<MonsterTypeName>() { 
+        { 主线关卡Type.碧游宫, new List<MonsterTypeName>() { 
             MonsterTypeName.清微仙童, MonsterTypeName.玄光玉女, MonsterTypeName.玉清道卫, MonsterTypeName.魔元始天尊 } },
         // 上清境禹余天
-        { 主线关卡Type.上清境禹余天, new List<MonsterTypeName>() { 
+        { 主线关卡Type.玉虚宫, new List<MonsterTypeName>() { 
             MonsterTypeName.禹余灵官, MonsterTypeName.紫霞仙鹤, MonsterTypeName.上清剑侍, MonsterTypeName.魔灵宝天尊 } },
         // 太清境大赤天
-        { 主线关卡Type.太清境大赤天, new List<MonsterTypeName>() { 
+        { 主线关卡Type.八景宫, new List<MonsterTypeName>() { 
             MonsterTypeName.大赤丹童, MonsterTypeName.炉火精, MonsterTypeName.太清护卫, MonsterTypeName.魔老子 } },
         // 大罗天
         { 主线关卡Type.大罗天, new List<MonsterTypeName>() { 
@@ -2060,6 +2093,111 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
                     new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
                 }
             },
+            
+            {
+                主线关卡Type.须弥宫,
+                new HashSet<LevelDiaoLuo>()
+                {
+                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                }
+            },
+            
+            {
+                主线关卡Type.娲皇宫,
+                new HashSet<LevelDiaoLuo>()
+                {
+                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                }
+            },
+            
+            {
+                主线关卡Type.碧游宫,
+                new HashSet<LevelDiaoLuo>()
+                {
+                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                }
+            },
+            
+            {
+                主线关卡Type.玉虚宫,
+                new HashSet<LevelDiaoLuo>()
+                {
+                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                }
+            },
+            
+            {
+                主线关卡Type.八景宫,
+                new HashSet<LevelDiaoLuo>()
+                {
+                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
+                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
+                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
+                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
+                }
+            },
         };
 
    
@@ -2102,10 +2240,10 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
         { 主线关卡Type.太清境大赤天, "太清境大赤天" },
         { 主线关卡Type.大罗天, "大罗天" },
         { 主线关卡Type.混沌虚空, "混沌虚空" },
+        { 主线关卡Type.须弥宫, "须弥宫" },
+        { 主线关卡Type.娲皇宫, "娲皇宫" },
+        { 主线关卡Type.玉虚宫, "玉虚宫" },
+        { 主线关卡Type.八景宫, "八景宫" },
+        { 主线关卡Type.碧游宫, "碧游宫" },
     };
-
-    public static int Get混沌虚空通关奖励(int 层数)
-    {
-        return (层数 - 1) * 2 + 100;
-    }
 }

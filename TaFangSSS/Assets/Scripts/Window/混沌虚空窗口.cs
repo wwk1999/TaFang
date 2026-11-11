@@ -55,7 +55,6 @@ public class 混沌虚空窗口 : MonoBehaviour
             }
             LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
             LevelConfig.当前主线关卡Type = 主线关卡Type.混沌虚空;
-            LevelConfig.Is混沌虚空 = true;
             LevelConfig.战斗混沌虚空层数 = HeroWindowController.S.显示混沌虚空层数;
             ObserverModuleManager.S.SendEvent("播放BGM",false);
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);

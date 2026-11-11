@@ -330,7 +330,7 @@ public class MonsterBase : MonoBehaviour
          黑暗抗性 = 基础属性.黑暗抗性,
          雷电抗性 = 基础属性.雷电抗性,
       };
-      if (LevelConfig.Is混沌虚空)
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.混沌虚空)
       {
          return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗混沌虚空层数, item.MonsterType);
       }
@@ -1255,12 +1255,53 @@ public class MonsterBase : MonoBehaviour
                {
                   if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
                   {
-                     if (PlayerData.S.混沌虚空最大层数 == LevelConfig.战斗混沌虚空层数)
+                     if (PlayerData.S.混沌虚空最大层数 >=1000)
                      {
-                        //PlayerData.S.关卡修炼速度加成 += LevelConfig.Get混沌虚空通关奖励(LevelConfig.战斗混沌虚空层数);
+                        PlayerData.S.最大主线关卡++;
+                        ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
                      }
                   }
-                  else
+                  else if (LevelConfig.当前主线关卡Type == 主线关卡Type.须弥宫)
+                  {
+                     if (PlayerData.S.须弥宫最大层数 >=1000)
+                     {
+                        PlayerData.S.最大主线关卡++;
+                        ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+
+                     }
+                  }
+                  else if (LevelConfig.当前主线关卡Type == 主线关卡Type.娲皇宫)
+                  {
+                     if (PlayerData.S.娲皇宫最大层数 >=1000)
+                     {
+                        PlayerData.S.最大主线关卡++;
+                        ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+
+                     }
+                  }else if (LevelConfig.当前主线关卡Type == 主线关卡Type.碧游宫)
+                  {
+                     if (PlayerData.S.碧游宫最大层数 >=1000)
+                     {
+                        PlayerData.S.最大主线关卡++;
+                        ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+
+                     }
+                  }else if (LevelConfig.当前主线关卡Type == 主线关卡Type.玉虚宫)
+                  {
+                     if (PlayerData.S.玉虚宫最大层数 >=1000)
+                     {
+                        PlayerData.S.最大主线关卡++;
+                        ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+
+                     }
+                  }else if (LevelConfig.当前主线关卡Type == 主线关卡Type.八景宫)
+                  {
+                     if (PlayerData.S.八景宫最大层数 >=1000)
+                     {
+                        PlayerData.S.最大主线关卡++;
+                        ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
+                     }
+                  }else
                   {
                      PlayerData.S.关卡修炼速度加成 += LevelConfig.主线关卡通关奖励Dic[LevelConfig.当前主线关卡Type];
                      if (PlayerData.S.最大主线关卡 == 主线关卡Type.花果山)
@@ -1275,7 +1316,7 @@ public class MonsterBase : MonoBehaviour
                   
                   ObserverModuleManager.S.SendEvent("SendUIToast",$"恭喜解锁{LevelConfig.主线关卡NameDic[PlayerData.S.最大主线关卡]}");
                }
-               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.Is混沌虚空 && LevelConfig.战斗混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.混沌虚空 && LevelConfig.战斗混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
                {
                   PlayerData.S.混沌虚空最大层数++;
                }

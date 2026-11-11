@@ -165,7 +165,6 @@ public class 符文之地窗口 : MonoBehaviour
                 return;
             }
             LevelConfig.当前关卡类型 = 关卡类型.符文之地;
-            LevelConfig.Is混沌虚空 = false;
             LevelConfig.当前符文之地Type = HeroWindowController.S.当前符文之地Type;
             SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
             Scene Scene = SceneManager.GetSceneByName("LoadScene");

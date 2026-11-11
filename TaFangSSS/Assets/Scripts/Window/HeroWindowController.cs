@@ -33,6 +33,12 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 符文之地Type 当前符文之地Type;
 
     [NonSerialized] public int 显示混沌虚空层数 = 0; 
+    [NonSerialized] public int 显示须弥宫层数 = 0; 
+    [NonSerialized] public int 显示娲皇宫层数 = 0; 
+    [NonSerialized] public int 显示八景宫层数 = 0; 
+    [NonSerialized] public int 显示玉虚宫层数 = 0; 
+    [NonSerialized] public int 显示碧游宫层数 = 0; 
+
 
     //城墙
     [NonSerialized]public bool 城墙IsDrag = false;

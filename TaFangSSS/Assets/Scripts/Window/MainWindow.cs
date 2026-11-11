@@ -22,6 +22,12 @@ public enum 主页地图Type
 }
 public class MainWindow : MonoBehaviour
 {
+    public GameObject 须弥宫窗口;
+    public GameObject 娲皇宫窗口;
+    public GameObject 碧游宫窗口;
+    public GameObject 玉虚宫窗口;
+    public GameObject 八景宫窗口;
+
     public Button 反馈Button;
     public Button 任务栏Button;
     public GameObject 任务区域;
@@ -336,21 +342,29 @@ public class MainWindow : MonoBehaviour
     public void 显示主线关卡弹窗(object[] obj)
     {
         主线关卡Type 主线关卡Type = (主线关卡Type)obj[0];
-        主线关卡窗口.主线关卡Type = 主线关卡Type;
-        激活窗口(主线关卡窗口);
-        if (PlayerData.S.是否首次进入关卡)
+        if (主线关卡Type == 主线关卡Type.八景宫)
         {
-            主线关卡新手mask.gameObject.SetActive(true);
-            引导mask.SetActive(false);
-            对话框Text.text = "在这里可以看到关卡信息并进行丹药和神通的配置,让我们先配置一下英雄神通吧";
-            对话框.transform.localPosition=挑战trans.localPosition;
-            小手Animator.transform.localPosition=神通配置小手trans.localPosition;
-            神通配置Canvas.GetComponent<GraphicRaycaster>().enabled = true;
-            父canvas.GetComponent<GraphicRaycaster>().enabled = false;
-            花果山Canvas.overrideSorting = false;
-            花果山Canvas.GetComponent<GraphicRaycaster>().enabled = false;
-            神通配置Canvas.overrideSorting = true;
-            PlayerData.S.是否首次进入关卡 = false;
+            激活窗口(八景宫窗口);
+        }else if (主线关卡Type == 主线关卡Type.玉虚宫)
+        {
+            激活窗口(玉虚宫窗口);
+        }
+        else if (主线关卡Type == 主线关卡Type.碧游宫)
+        {
+            激活窗口(碧游宫窗口);
+        }
+        else if (主线关卡Type == 主线关卡Type.娲皇宫)
+        {
+            激活窗口(娲皇宫窗口);
+        }
+        else if (主线关卡Type == 主线关卡Type.须弥宫)
+        {
+            激活窗口(须弥宫窗口);
+        }
+        else
+        {
+            主线关卡窗口.主线关卡Type = 主线关卡Type;
+            激活窗口(主线关卡窗口);
         }
     }
     public void 新手引导神通配置(object[] obj)
@@ -485,7 +499,14 @@ public class MainWindow : MonoBehaviour
        
         if (主页地图Type > 最大主页地图Type())
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast","未解锁");
+            if (主页地图Type == 主页地图Type.天外天)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","三十三重天一千层后解锁");
+            }
+            else
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","未解锁");
+            }
             return;
         }
         翻页Tween?.Kill();
@@ -823,7 +844,7 @@ public class MainWindow : MonoBehaviour
         {
             PlayerData.S.青石 += 1000000;
             PlayerData.S.最大主线关卡++;
-            PlayerData.S.混沌虚空最大层数++;
+            PlayerData.S.混沌虚空最大层数+=1000;
             PlayerData.S.PropListDic[PropType.玉髓] += 100;
             PlayerData.S.PropListDic[PropType.玉髓] *= 10;
             

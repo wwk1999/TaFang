@@ -1,0 +1,192 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class 须弥宫窗口 : MonoBehaviour
+{
+    public Button 神通配置Button;
+
+    public GameObject 丹药content;
+
+    public GameObject 敌人Content;
+    public GameObject 掉落Content;
+    public Button 挑战Button;
+    public Button ExitButton;
+    public GameObject 关卡层数GameObject;
+    public TextMeshProUGUI PageNumText;
+    public Button 左箭头;
+    public Button 右箭头;
+    private int pagenum = 1;
+    public Toggle 重复挑战Toggle;
+    public Toggle 自动下一关Toggle;
+
+    private void Start()
+    {
+        ExitButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
+        神通配置Button.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("显示神通配置弹窗");
+        });
+        重复挑战Toggle.onValueChanged.AddListener(delegate
+        {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+            PlayerData.S.重复挑战 = 重复挑战Toggle.isOn;
+        });
+        自动下一关Toggle.onValueChanged.AddListener(delegate
+        {
+            ObserverModuleManager.S.SendEvent("播放音效",音效Type.Toggle);
+            PlayerData.S.是否自动下一关 = 自动下一关Toggle.isOn;
+        });
+        挑战Button.onClick.AddListener(() =>
+        {
+            Scene Scene1 = SceneManager.GetSceneByName("FightScene");
+            if (Scene1.IsValid() && Scene1.isLoaded)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","已在战斗中");
+                return;
+            }
+            LevelConfig.当前关卡类型 = 关卡类型.主线关卡;
+            LevelConfig.当前主线关卡Type = 主线关卡Type.须弥宫;
+            LevelConfig.战斗须弥宫层数 = HeroWindowController.S.显示须弥宫层数;
+            ObserverModuleManager.S.SendEvent("播放BGM",false);
+            SceneManager.LoadScene("LoadScene", LoadSceneMode.Additive);
+            Scene Scene = SceneManager.GetSceneByName("LoadScene");
+            if (Scene.IsValid() && Scene.isLoaded)
+            {
+                SceneManager.SetActiveScene(Scene);
+            }
+            WindowController.S.MainWindow.SetActive(false);
+            gameObject.SetActive(false);
+        });
+        左箭头.onClick.AddListener(() =>
+        {
+            if (pagenum == 1)
+            {
+                return;
+            }
+
+            pagenum--;
+            PageNumText.text = pagenum.ToString();
+            Show关卡层数(pagenum);
+        });
+        右箭头.onClick.AddListener(() =>
+        {
+            int 最大页数 = Mathf.CeilToInt(PlayerData.S.须弥宫最大层数 / 30f);
+            if (pagenum == 最大页数)
+            {
+                return;
+            }
+
+            pagenum++;
+            PageNumText.text = pagenum.ToString();
+            Show关卡层数(pagenum);
+        });
+    }
+
+    public void Show关卡层数(int pageNum)
+    {
+        int min=(pageNum - 1) * 30+1;
+        int max = Math.Min(PlayerData.S.须弥宫最大层数,pageNum*30);
+        foreach (Transform item in 关卡层数GameObject.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        for (int i = min; i <= max; i++)
+        {
+            var item = Instantiate(Resources.Load("Prefabs/Window/天外天/须弥宫格子item"), 关卡层数GameObject.transform)
+                .GetComponent<须弥宫格子item>();
+            item.层数 = i;
+            item.SetItem();
+        }
+    }
+
+    public void 须弥宫格子点击(object[] obj)
+    {
+        int count=(int)obj[0];
+        HeroWindowController.S.显示须弥宫层数 = count;
+    }
+
+    public void 刷新须弥宫窗口(object[] obj)
+    {
+    }
+    private void Awake()
+    {
+        ObserverModuleManager.S.RegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
+        ObserverModuleManager.S.RegisterEvent("刷新须弥宫窗口",刷新须弥宫窗口);
+        ObserverModuleManager.S.RegisterEvent("须弥宫格子点击",须弥宫格子点击);
+    }
+    public void 刷新战斗丹药(object[] obj)
+    {
+        Set丹药();
+    }
+    public void Set丹药()
+    {
+        foreach (Transform item in 丹药content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in PlayerData.S.战斗选择丹药Dic)
+        {
+            var 丹药item=Instantiate(Resources.Load("Prefabs/Window/炼丹界面/战斗丹药tem"),丹药content.transform).GetComponent<战斗丹药tem>();
+            丹药item.index = item.Key;
+            丹药item.SetItem();
+        }
+    }
+    private void OnDestroy()
+    {        
+        ObserverModuleManager.S.UnRegisterEvent("刷新战斗丹药",刷新战斗丹药);
+
+        ObserverModuleManager.S.UnRegisterEvent("刷新须弥宫窗口",刷新须弥宫窗口);
+        ObserverModuleManager.S.UnRegisterEvent("须弥宫格子点击",须弥宫格子点击);
+    }
+
+    private void OnEnable()
+    {
+        Set丹药();
+        重复挑战Toggle.isOn = PlayerData.S.重复挑战;
+        自动下一关Toggle.isOn = PlayerData.S.是否自动下一关;
+        int 最大页数 = Mathf.CeilToInt(PlayerData.S.须弥宫最大层数 / 30f);
+        Show关卡层数(最大页数);
+        PageNumText.text = 最大页数.ToString();
+        pagenum = 最大页数;
+        HeroWindowController.S.显示须弥宫层数 = PlayerData.S.须弥宫最大层数;
+        ObserverModuleManager.S.SendEvent("须弥宫格子点击",HeroWindowController.S.显示须弥宫层数);
+        foreach (Transform item in 敌人Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+        foreach (Transform item in 掉落Content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        foreach (var item in LevelConfig.LevelMonsterDic[主线关卡Type.须弥宫])
+        {
+            var MonsterItem=Instantiate(Resources.Load("Prefabs/Window/MonsterItem"),敌人Content.transform).GetComponent<MonsterItem>();
+            MonsterItem.MonsterTypeName = item;
+            RectTransform trans = MonsterItem.gameObject.GetComponent<RectTransform>();
+            trans.sizeDelta = new Vector2(70, 70);
+            MonsterItem.SetItem();
+        }
+
+        foreach (var item in LevelConfig.LevelDiaoLuoDic[主线关卡Type.混沌虚空])
+        {
+            var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/DiaoLuoItem"),掉落Content.transform).GetComponent<DiaoLuoItem>();
+            DiaoLuoItem.propType = item.PropType;
+            RectTransform trans = DiaoLuoItem.gameObject.GetComponent<RectTransform>();
+            trans.sizeDelta = new Vector2(70, 70);
+            DiaoLuoItem.SetItem();
+        }
+    }
+}
