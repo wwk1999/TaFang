@@ -18,6 +18,7 @@ public enum 主页地图Type
     西牛贺州,
     北俱芦洲,
     天庭,
+    天外天,
 }
 public class MainWindow : MonoBehaviour
 {
@@ -455,6 +456,11 @@ public class MainWindow : MonoBehaviour
 
     public 主页地图Type 最大主页地图Type()
     {
+        // 通关混沌虚空1000层后解锁天外天（通关一层后最大层数+1）
+        if (PlayerData.S.混沌虚空最大层数 >= 1001)
+        {
+            return 主页地图Type.天外天;
+        }
         if (PlayerData.S.最大主线关卡 >= 主线关卡Type.南天门)
         {
             return 主页地图Type.天庭;
@@ -475,7 +481,7 @@ public class MainWindow : MonoBehaviour
     }
     private void 翻页(主页地图Type 主页地图Type)
     {
-        if (主页地图Type < 主页地图Type.东胜神州 || 主页地图Type > 主页地图Type.天庭) return;
+        if (主页地图Type < 主页地图Type.东胜神州 || 主页地图Type > 主页地图Type.天外天) return;
        
         if (主页地图Type > 最大主页地图Type())
         {
