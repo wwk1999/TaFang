@@ -7999,6 +7999,11 @@ public static Sprite 缚霞流光绫藏品;
 		while (e.MoveNext()) { }
 	}
 
+	public static Sprite Get秘宝Sprite(秘宝地点 秘宝地点, 秘宝Type 秘宝Type, int 等级)
+	{
+		
+	}
+
 	/// <summary>
 	/// Chunked loading of all Resources assets: yields a frame every <c>chunk</c> load
 	/// statements and reports progress (0~1) via onProgress. Driven by StartLoadWindow
@@ -8007,8 +8012,231 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
-		须弥通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/1")[0];
-		须弥通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/1")[0];
+		须弥通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/3")[0];
+		须弥通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/3")[1];
+		须弥通神玉3= Resources.LoadAll<Sprite>("Sprite/天外天/3")[2];
+		须弥通神玉4= Resources.LoadAll<Sprite>("Sprite/天外天/3")[3];
+		
+		娲皇通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/1")[0];
+		娲皇通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/1")[1];
+		娲皇通神玉3= Resources.LoadAll<Sprite>("Sprite/天外天/1")[2];
+		娲皇通神玉4= Resources.LoadAll<Sprite>("Sprite/天外天/1")[3];
+		
+		八景通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/7")[8];
+		八景通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/7")[9];
+		八景通神玉3= Resources.LoadAll<Sprite>("Sprite/天外天/7")[10];
+		八景通神玉4= Resources.LoadAll<Sprite>("Sprite/天外天/7")[11];
+		
+		玉虚通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/9")[12];
+		玉虚通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/9")[13];
+		玉虚通神玉3= Resources.LoadAll<Sprite>("Sprite/天外天/9")[14];
+		玉虚通神玉4= Resources.LoadAll<Sprite>("Sprite/天外天/9")[15];
+		
+		碧游通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/5")[4];
+		碧游通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/5")[5];
+		碧游通神玉3= Resources.LoadAll<Sprite>("Sprite/天外天/5")[6];
+		碧游通神玉4= Resources.LoadAll<Sprite>("Sprite/天外天/5")[7];
+		
+		须弥五色石1= Resources.LoadAll<Sprite>("Sprite/天外天/3")[4];
+		须弥五色石2= Resources.LoadAll<Sprite>("Sprite/天外天/3")[5];
+		须弥五色石3= Resources.LoadAll<Sprite>("Sprite/天外天/3")[6];
+		须弥五色石4= Resources.LoadAll<Sprite>("Sprite/天外天/3")[7];
+		
+		娲皇五色石1= Resources.LoadAll<Sprite>("Sprite/天外天/1")[4];
+		娲皇五色石2= Resources.LoadAll<Sprite>("Sprite/天外天/1")[5];
+		娲皇五色石3= Resources.LoadAll<Sprite>("Sprite/天外天/1")[6];
+		娲皇五色石4= Resources.LoadAll<Sprite>("Sprite/天外天/1")[7];
+		
+		八景五色石1= Resources.LoadAll<Sprite>("Sprite/天外天/7")[12];
+		八景五色石2= Resources.LoadAll<Sprite>("Sprite/天外天/7")[13];
+		八景五色石3= Resources.LoadAll<Sprite>("Sprite/天外天/7")[14];
+		八景五色石4= Resources.LoadAll<Sprite>("Sprite/天外天/7")[15];
+		
+		玉虚五色石1= Resources.LoadAll<Sprite>("Sprite/天外天/10")[0];
+		玉虚五色石2= Resources.LoadAll<Sprite>("Sprite/天外天/10")[1];
+		玉虚五色石3= Resources.LoadAll<Sprite>("Sprite/天外天/10")[2];
+		玉虚五色石4= Resources.LoadAll<Sprite>("Sprite/天外天/10")[3];
+		
+		碧游五色石1= Resources.LoadAll<Sprite>("Sprite/天外天/5")[8];
+		碧游五色石2= Resources.LoadAll<Sprite>("Sprite/天外天/5")[9];
+		碧游五色石3= Resources.LoadAll<Sprite>("Sprite/天外天/5")[10];
+		碧游五色石4= Resources.LoadAll<Sprite>("Sprite/天外天/5")[11];
+		
+		须弥洞玄石1= Resources.LoadAll<Sprite>("Sprite/天外天/3")[8];
+		须弥洞玄石2= Resources.LoadAll<Sprite>("Sprite/天外天/3")[9];
+		须弥洞玄石3= Resources.LoadAll<Sprite>("Sprite/天外天/3")[10];
+		须弥洞玄石4= Resources.LoadAll<Sprite>("Sprite/天外天/3")[11];
+		
+		
+		娲皇洞玄石1= Resources.LoadAll<Sprite>("Sprite/天外天/1")[8];
+		娲皇洞玄石2= Resources.LoadAll<Sprite>("Sprite/天外天/1")[9];
+		娲皇洞玄石3= Resources.LoadAll<Sprite>("Sprite/天外天/1")[10];
+		娲皇洞玄石4= Resources.LoadAll<Sprite>("Sprite/天外天/1")[11];
+		
+		八景洞玄石1= Resources.LoadAll<Sprite>("Sprite/天外天/8")[0];
+		八景洞玄石2= Resources.LoadAll<Sprite>("Sprite/天外天/8")[1];
+		八景洞玄石3= Resources.LoadAll<Sprite>("Sprite/天外天/8")[2];
+		八景洞玄石4= Resources.LoadAll<Sprite>("Sprite/天外天/8")[3];
+		
+		玉虚洞玄石1= Resources.LoadAll<Sprite>("Sprite/天外天/10")[4];
+		玉虚洞玄石2= Resources.LoadAll<Sprite>("Sprite/天外天/10")[5];
+		玉虚洞玄石3= Resources.LoadAll<Sprite>("Sprite/天外天/10")[6];
+		玉虚洞玄石4= Resources.LoadAll<Sprite>("Sprite/天外天/10")[7];
+		
+		碧游洞玄石1= Resources.LoadAll<Sprite>("Sprite/天外天/5")[12];
+		碧游洞玄石2= Resources.LoadAll<Sprite>("Sprite/天外天/5")[13];
+		碧游洞玄石3= Resources.LoadAll<Sprite>("Sprite/天外天/5")[14];
+		碧游洞玄石4= Resources.LoadAll<Sprite>("Sprite/天外天/5")[15];
+		
+		须弥崩天印1= Resources.LoadAll<Sprite>("Sprite/天外天/3")[12];
+		须弥崩天印2= Resources.LoadAll<Sprite>("Sprite/天外天/3")[13];
+		须弥崩天印3= Resources.LoadAll<Sprite>("Sprite/天外天/3")[14];
+		须弥崩天印4= Resources.LoadAll<Sprite>("Sprite/天外天/3")[15];
+		
+		娲皇崩天印1= Resources.LoadAll<Sprite>("Sprite/天外天/1")[12];
+		娲皇崩天印2= Resources.LoadAll<Sprite>("Sprite/天外天/1")[13];
+		娲皇崩天印3= Resources.LoadAll<Sprite>("Sprite/天外天/1")[14];
+		娲皇崩天印4= Resources.LoadAll<Sprite>("Sprite/天外天/1")[15];
+		
+		八景崩天印1= Resources.LoadAll<Sprite>("Sprite/天外天/8")[4];
+		八景崩天印2= Resources.LoadAll<Sprite>("Sprite/天外天/8")[5];
+		八景崩天印3= Resources.LoadAll<Sprite>("Sprite/天外天/8")[6];
+		八景崩天印4= Resources.LoadAll<Sprite>("Sprite/天外天/8")[7];
+		
+		玉虚崩天印1= Resources.LoadAll<Sprite>("Sprite/天外天/10")[8];
+		玉虚崩天印2= Resources.LoadAll<Sprite>("Sprite/天外天/10")[9];
+		玉虚崩天印3= Resources.LoadAll<Sprite>("Sprite/天外天/10")[10];
+		玉虚崩天印4= Resources.LoadAll<Sprite>("Sprite/天外天/10")[11];
+		
+		碧游崩天印1= Resources.LoadAll<Sprite>("Sprite/天外天/6")[0];
+		碧游崩天印2= Resources.LoadAll<Sprite>("Sprite/天外天/6")[1];
+		碧游崩天印3= Resources.LoadAll<Sprite>("Sprite/天外天/6")[2];
+		碧游崩天印4= Resources.LoadAll<Sprite>("Sprite/天外天/6")[3];
+		
+		须弥寂灭轮1= Resources.LoadAll<Sprite>("Sprite/天外天/4")[0];
+		须弥寂灭轮2= Resources.LoadAll<Sprite>("Sprite/天外天/4")[1];
+		须弥寂灭轮3= Resources.LoadAll<Sprite>("Sprite/天外天/4")[2];
+		须弥寂灭轮4= Resources.LoadAll<Sprite>("Sprite/天外天/4")[3];
+		
+		娲皇寂灭轮1= Resources.LoadAll<Sprite>("Sprite/天外天/2")[0];
+		娲皇寂灭轮2= Resources.LoadAll<Sprite>("Sprite/天外天/2")[1];
+		娲皇寂灭轮3= Resources.LoadAll<Sprite>("Sprite/天外天/2")[2];
+		娲皇寂灭轮4= Resources.LoadAll<Sprite>("Sprite/天外天/2")[3];
+		
+		八景寂灭轮1= Resources.LoadAll<Sprite>("Sprite/天外天/8")[8];
+		八景寂灭轮2= Resources.LoadAll<Sprite>("Sprite/天外天/8")[9];
+		八景寂灭轮3= Resources.LoadAll<Sprite>("Sprite/天外天/8")[10];
+		八景寂灭轮4= Resources.LoadAll<Sprite>("Sprite/天外天/8")[11];
+		
+		玉虚寂灭轮1= Resources.LoadAll<Sprite>("Sprite/天外天/10")[12];
+		玉虚寂灭轮2= Resources.LoadAll<Sprite>("Sprite/天外天/10")[13];
+		玉虚寂灭轮3= Resources.LoadAll<Sprite>("Sprite/天外天/10")[14];
+		玉虚寂灭轮4= Resources.LoadAll<Sprite>("Sprite/天外天/10")[15];
+		
+		碧游寂灭轮1= Resources.LoadAll<Sprite>("Sprite/天外天/6")[4];
+		碧游寂灭轮2= Resources.LoadAll<Sprite>("Sprite/天外天/6")[5];
+		碧游寂灭轮3= Resources.LoadAll<Sprite>("Sprite/天外天/6")[6];
+		碧游寂灭轮4= Resources.LoadAll<Sprite>("Sprite/天外天/6")[7];
+		
+		须弥福缘石1= Resources.LoadAll<Sprite>("Sprite/天外天/4")[4];
+		须弥福缘石2= Resources.LoadAll<Sprite>("Sprite/天外天/4")[5];
+		须弥福缘石3= Resources.LoadAll<Sprite>("Sprite/天外天/4")[6];
+		须弥福缘石4= Resources.LoadAll<Sprite>("Sprite/天外天/4")[7];
+		
+		娲皇福缘石1= Resources.LoadAll<Sprite>("Sprite/天外天/2")[4];
+		娲皇福缘石2= Resources.LoadAll<Sprite>("Sprite/天外天/2")[5];
+		娲皇福缘石3= Resources.LoadAll<Sprite>("Sprite/天外天/2")[6];
+		娲皇福缘石4= Resources.LoadAll<Sprite>("Sprite/天外天/2")[7];
+		
+		八景福缘石1= Resources.LoadAll<Sprite>("Sprite/天外天/8")[12];
+		八景福缘石2= Resources.LoadAll<Sprite>("Sprite/天外天/8")[13];
+		八景福缘石3= Resources.LoadAll<Sprite>("Sprite/天外天/8")[14];
+		八景福缘石4= Resources.LoadAll<Sprite>("Sprite/天外天/8")[15];
+		
+		玉虚福缘石1= Resources.LoadAll<Sprite>("Sprite/天外天/11")[0];
+		玉虚福缘石2= Resources.LoadAll<Sprite>("Sprite/天外天/11")[1];
+		玉虚福缘石3= Resources.LoadAll<Sprite>("Sprite/天外天/11")[2];
+		玉虚福缘石4= Resources.LoadAll<Sprite>("Sprite/天外天/11")[3];
+		
+		碧游福缘石1= Resources.LoadAll<Sprite>("Sprite/天外天/6")[8];
+		碧游福缘石2= Resources.LoadAll<Sprite>("Sprite/天外天/6")[9];
+		碧游福缘石3= Resources.LoadAll<Sprite>("Sprite/天外天/6")[10];
+		碧游福缘石4= Resources.LoadAll<Sprite>("Sprite/天外天/6")[11];
+		
+		须弥造化根1= Resources.LoadAll<Sprite>("Sprite/天外天/4")[8];
+		须弥造化根2= Resources.LoadAll<Sprite>("Sprite/天外天/4")[9];
+		须弥造化根3= Resources.LoadAll<Sprite>("Sprite/天外天/4")[10];
+		须弥造化根4= Resources.LoadAll<Sprite>("Sprite/天外天/4")[11];
+		
+		娲皇造化根1= Resources.LoadAll<Sprite>("Sprite/天外天/2")[8];
+		娲皇造化根2= Resources.LoadAll<Sprite>("Sprite/天外天/2")[9];
+		娲皇造化根3= Resources.LoadAll<Sprite>("Sprite/天外天/2")[10];
+		娲皇造化根4= Resources.LoadAll<Sprite>("Sprite/天外天/2")[11];
+		
+		八景造化根1= Resources.LoadAll<Sprite>("Sprite/天外天/9")[0];
+		八景造化根2= Resources.LoadAll<Sprite>("Sprite/天外天/9")[1];
+		八景造化根3= Resources.LoadAll<Sprite>("Sprite/天外天/9")[2];
+		八景造化根4= Resources.LoadAll<Sprite>("Sprite/天外天/9")[3];
+		
+		玉虚造化根1= Resources.LoadAll<Sprite>("Sprite/天外天/11")[4];
+		玉虚造化根2= Resources.LoadAll<Sprite>("Sprite/天外天/11")[5];
+		玉虚造化根3= Resources.LoadAll<Sprite>("Sprite/天外天/11")[6];
+		玉虚造化根4= Resources.LoadAll<Sprite>("Sprite/天外天/11")[7];
+		
+		碧游造化根1= Resources.LoadAll<Sprite>("Sprite/天外天/6")[12];
+		碧游造化根2= Resources.LoadAll<Sprite>("Sprite/天外天/6")[13];
+		碧游造化根3= Resources.LoadAll<Sprite>("Sprite/天外天/6")[14];
+		碧游造化根4= Resources.LoadAll<Sprite>("Sprite/天外天/6")[15];
+		
+		须弥真灵种1= Resources.LoadAll<Sprite>("Sprite/天外天/4")[12];
+		须弥真灵种2= Resources.LoadAll<Sprite>("Sprite/天外天/4")[13];
+		须弥真灵种3= Resources.LoadAll<Sprite>("Sprite/天外天/4")[14];
+		须弥真灵种4= Resources.LoadAll<Sprite>("Sprite/天外天/4")[15];
+		
+		娲皇真灵种1= Resources.LoadAll<Sprite>("Sprite/天外天/2")[12];
+		娲皇真灵种2= Resources.LoadAll<Sprite>("Sprite/天外天/2")[13];
+		娲皇真灵种3= Resources.LoadAll<Sprite>("Sprite/天外天/2")[14];
+		娲皇真灵种4= Resources.LoadAll<Sprite>("Sprite/天外天/2")[15];
+		
+		八景真灵种1= Resources.LoadAll<Sprite>("Sprite/天外天/9")[4];
+		八景真灵种2= Resources.LoadAll<Sprite>("Sprite/天外天/9")[5];
+		八景真灵种3= Resources.LoadAll<Sprite>("Sprite/天外天/9")[6];
+		八景真灵种4= Resources.LoadAll<Sprite>("Sprite/天外天/9")[7];
+		
+		玉虚真灵种1= Resources.LoadAll<Sprite>("Sprite/天外天/11")[8];
+		玉虚真灵种2= Resources.LoadAll<Sprite>("Sprite/天外天/11")[9];
+		玉虚真灵种3= Resources.LoadAll<Sprite>("Sprite/天外天/11")[10];
+		玉虚真灵种4= Resources.LoadAll<Sprite>("Sprite/天外天/11")[11];
+		
+		碧游真灵种1= Resources.LoadAll<Sprite>("Sprite/天外天/7")[0];
+		碧游真灵种2= Resources.LoadAll<Sprite>("Sprite/天外天/7")[1];
+		碧游真灵种3= Resources.LoadAll<Sprite>("Sprite/天外天/7")[2];
+		碧游真灵种4= Resources.LoadAll<Sprite>("Sprite/天外天/7")[3];
+		
+		须弥转生珠1= Resources.LoadAll<Sprite>("Sprite/天外天/5")[0];
+		须弥转生珠2= Resources.LoadAll<Sprite>("Sprite/天外天/5")[1];
+		须弥转生珠3= Resources.LoadAll<Sprite>("Sprite/天外天/5")[2];
+		须弥转生珠4= Resources.LoadAll<Sprite>("Sprite/天外天/5")[3];
+		
+		娲皇转生珠1= Resources.LoadAll<Sprite>("Sprite/天外天/12")[0];
+		娲皇转生珠2= Resources.LoadAll<Sprite>("Sprite/天外天/12")[1];
+		娲皇转生珠3= Resources.LoadAll<Sprite>("Sprite/天外天/12")[2];
+		娲皇转生珠4= Resources.LoadAll<Sprite>("Sprite/天外天/12")[3];
+		
+		八景转生珠1= Resources.LoadAll<Sprite>("Sprite/天外天/9")[8];
+		八景转生珠2= Resources.LoadAll<Sprite>("Sprite/天外天/9")[9];
+		八景转生珠3= Resources.LoadAll<Sprite>("Sprite/天外天/9")[10];
+		八景转生珠4= Resources.LoadAll<Sprite>("Sprite/天外天/9")[11];
+		
+		玉虚转生珠1= Resources.LoadAll<Sprite>("Sprite/天外天/11")[12];
+		玉虚转生珠2= Resources.LoadAll<Sprite>("Sprite/天外天/11")[13];
+		玉虚转生珠3= Resources.LoadAll<Sprite>("Sprite/天外天/11")[14];
+		玉虚转生珠4= Resources.LoadAll<Sprite>("Sprite/天外天/11")[15];
+		
+		碧游转生珠1= Resources.LoadAll<Sprite>("Sprite/天外天/7")[4];
+		碧游转生珠2= Resources.LoadAll<Sprite>("Sprite/天外天/7")[5];
+		碧游转生珠3= Resources.LoadAll<Sprite>("Sprite/天外天/7")[6];
+		碧游转生珠4= Resources.LoadAll<Sprite>("Sprite/天外天/7")[7];
 
 		int loadedCount = 0;
 		大道背景框蓝= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[0];
