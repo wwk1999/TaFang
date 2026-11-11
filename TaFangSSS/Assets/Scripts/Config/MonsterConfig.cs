@@ -1839,6 +1839,77 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.混沌虚空, MonsterType = MonsterType.Boss },
     new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
+  
+  
+  // 须弥宫 (第33关)
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.须弥宫, MonsterType = MonsterType.Normal },
+    new MonsterAttribute() { Hp = 2261645, Attack = 226165, Defense = 113082, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.须弥宫, MonsterType = MonsterType.Elite },
+    new MonsterAttribute() { Hp = 22616450, Attack = 452330, Defense = 226164, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.须弥宫, MonsterType = MonsterType.Boss },
+    new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  
+  // 娲皇宫 (第33关)
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.娲皇宫, MonsterType = MonsterType.Normal },
+    new MonsterAttribute() { Hp = 2261645, Attack = 226165, Defense = 113082, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.娲皇宫, MonsterType = MonsterType.Elite },
+    new MonsterAttribute() { Hp = 22616450, Attack = 452330, Defense = 226164, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.娲皇宫, MonsterType = MonsterType.Boss },
+    new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  
+  // 碧游宫 (第33关)
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.碧游宫, MonsterType = MonsterType.Normal },
+    new MonsterAttribute() { Hp = 2261645, Attack = 226165, Defense = 113082, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.碧游宫, MonsterType = MonsterType.Elite },
+    new MonsterAttribute() { Hp = 22616450, Attack = 452330, Defense = 226164, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.碧游宫, MonsterType = MonsterType.Boss },
+    new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  
+  // 玉虚宫 (第33关)
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.玉虚宫, MonsterType = MonsterType.Normal },
+    new MonsterAttribute() { Hp = 2261645, Attack = 226165, Defense = 113082, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.玉虚宫, MonsterType = MonsterType.Elite },
+    new MonsterAttribute() { Hp = 22616450, Attack = 452330, Defense = 226164, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.玉虚宫, MonsterType = MonsterType.Boss },
+    new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  
+  // 八景宫 (第33关)
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.八景宫, MonsterType = MonsterType.Normal },
+    new MonsterAttribute() { Hp = 2261645, Attack = 226165, Defense = 113082, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.八景宫, MonsterType = MonsterType.Elite },
+    new MonsterAttribute() { Hp = 22616450, Attack = 452330, Defense = 226164, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
+  {
+    new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.八景宫, MonsterType = MonsterType.Boss },
+    new MonsterAttribute() { Hp = 226164500, Attack = 1130825, Defense = 565410, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+  },
 };
 
 public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterType type)

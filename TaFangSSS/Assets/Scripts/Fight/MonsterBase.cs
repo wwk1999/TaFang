@@ -334,6 +334,26 @@ public class MonsterBase : MonoBehaviour
       {
          return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗混沌虚空层数, item.MonsterType);
       }
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.须弥宫)
+      {
+         return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗须弥宫层数+1000, item.MonsterType);
+      }
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.娲皇宫)
+      {
+         return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗娲皇宫层数+2000, item.MonsterType);
+      }
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.碧游宫)
+      {
+         return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗碧游宫层数+3000, item.MonsterType);
+      }
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.玉虚宫)
+      {
+         return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗玉虚宫层数+4000, item.MonsterType);
+      }
+      if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.八景宫)
+      {
+         return MonsterConfig.Get三十三重天怪物属性(LevelConfig.战斗八景宫层数+5000, item.MonsterType);
+      }
       return 怪物属性;
    }
 
@@ -1319,6 +1339,28 @@ public class MonsterBase : MonoBehaviour
                if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.混沌虚空 && LevelConfig.战斗混沌虚空层数 == PlayerData.S.混沌虚空最大层数)
                {
                   PlayerData.S.混沌虚空最大层数++;
+               }
+               
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.须弥宫 && LevelConfig.战斗须弥宫层数 == PlayerData.S.须弥宫最大层数)
+               {
+                  PlayerData.S.须弥宫最大层数++;
+               }
+               
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.娲皇宫 && LevelConfig.战斗娲皇宫层数 == PlayerData.S.娲皇宫最大层数)
+               {
+                  PlayerData.S.娲皇宫最大层数++;
+               }
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.碧游宫 && LevelConfig.战斗碧游宫层数 == PlayerData.S.碧游宫最大层数)
+               {
+                  PlayerData.S.碧游宫最大层数++;
+               }
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.玉虚宫 && LevelConfig.战斗玉虚宫层数 == PlayerData.S.玉虚宫最大层数)
+               {
+                  PlayerData.S.玉虚宫最大层数++;
+               }
+               if (LevelConfig.当前关卡类型==关卡类型.主线关卡&&LevelConfig.当前主线关卡Type==主线关卡Type.八景宫 && LevelConfig.战斗八景宫层数 == PlayerData.S.八景宫最大层数)
+               {
+                  PlayerData.S.八景宫最大层数++;
                }
       }
       ObserverModuleManager.S.SendEvent("显示胜利弹窗");

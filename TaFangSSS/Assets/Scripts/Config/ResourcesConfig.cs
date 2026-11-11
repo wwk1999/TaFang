@@ -9,6 +9,35 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 须弥通神玉1;
+	public static Sprite 须弥通神玉2;
+	public static Sprite 须弥通神玉3;
+	public static Sprite 须弥通神玉4;
+	
+	public static Sprite 娲皇通神玉1;
+	public static Sprite 娲皇通神玉2;
+	public static Sprite 娲皇通神玉3;
+	public static Sprite 娲皇通神玉4;
+	
+	public static Sprite 八景通神玉1;
+	public static Sprite 八景通神玉2;
+	public static Sprite 八景通神玉3;
+	public static Sprite 八景通神玉4;
+	    
+	public static Sprite 玉虚通神玉1;
+	public static Sprite 玉虚通神玉2;
+	public static Sprite 玉虚通神玉3;
+	public static Sprite 玉虚通神玉4;
+	    
+	public static Sprite 碧游通神玉1;
+	public static Sprite 碧游通神玉2;
+	public static Sprite 碧游通神玉3;
+	public static Sprite 碧游通神玉4;
+	
+	
+	
+	
+	
 	public static Sprite 大道背景框蓝;
 	public static Sprite 大道背景框橙;
 	public static Sprite 大道背景框红;
