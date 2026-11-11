@@ -34,6 +34,206 @@ public class ResourcesConfig : MonoBehaviour
 	public static Sprite 碧游通神玉3;
 	public static Sprite 碧游通神玉4;
 	
+	public static Sprite 须弥五色石1;
+	public static Sprite 须弥五色石2;
+	public static Sprite 须弥五色石3;
+	public static Sprite 须弥五色石4;
+	
+	public static Sprite 娲皇五色石1;
+	public static Sprite 娲皇五色石2;
+	public static Sprite 娲皇五色石3;
+	public static Sprite 娲皇五色石4;
+	
+	public static Sprite 八景五色石1;
+	public static Sprite 八景五色石2;
+	public static Sprite 八景五色石3;
+	public static Sprite 八景五色石4;
+	
+	public static Sprite 玉虚五色石1;
+	public static Sprite 玉虚五色石2;
+	public static Sprite 玉虚五色石3;
+	public static Sprite 玉虚五色石4;
+	
+	public static Sprite 碧游五色石1;
+	public static Sprite 碧游五色石2;
+	public static Sprite 碧游五色石3;
+	public static Sprite 碧游五色石4;
+	
+	public static Sprite 须弥洞玄石1;
+	public static Sprite 须弥洞玄石2;
+	public static Sprite 须弥洞玄石3;
+	public static Sprite 须弥洞玄石4;
+	
+	public static Sprite 娲皇洞玄石1;
+	public static Sprite 娲皇洞玄石2;
+	public static Sprite 娲皇洞玄石3;
+	public static Sprite 娲皇洞玄石4;
+	
+	public static Sprite 八景洞玄石1;
+	public static Sprite 八景洞玄石2;
+	public static Sprite 八景洞玄石3;
+	public static Sprite 八景洞玄石4;
+	
+	public static Sprite 玉虚洞玄石1;
+	public static Sprite 玉虚洞玄石2;
+	public static Sprite 玉虚洞玄石3;
+	public static Sprite 玉虚洞玄石4;
+	
+	public static Sprite 碧游洞玄石1;
+	public static Sprite 碧游洞玄石2;
+	public static Sprite 碧游洞玄石3;
+	public static Sprite 碧游洞玄石4;
+	
+	public static Sprite 须弥崩天印1;
+	public static Sprite 须弥崩天印2;
+	public static Sprite 须弥崩天印3;
+	public static Sprite 须弥崩天印4;
+	
+	public static Sprite 娲皇崩天印1;
+	public static Sprite 娲皇崩天印2;
+	public static Sprite 娲皇崩天印3;
+	public static Sprite 娲皇崩天印4;
+	
+	public static Sprite 八景崩天印1;
+	public static Sprite 八景崩天印2;
+	public static Sprite 八景崩天印3;
+	public static Sprite 八景崩天印4;
+	
+	public static Sprite 玉虚崩天印1;
+	public static Sprite 玉虚崩天印2;
+	public static Sprite 玉虚崩天印3;
+	public static Sprite 玉虚崩天印4;
+	
+	public static Sprite 碧游崩天印1;
+	public static Sprite 碧游崩天印2;
+	public static Sprite 碧游崩天印3;
+	public static Sprite 碧游崩天印4;
+	
+	public static Sprite 须弥寂灭轮1;
+	public static Sprite 须弥寂灭轮2;
+	public static Sprite 须弥寂灭轮3;
+	public static Sprite 须弥寂灭轮4;
+	
+	public static Sprite 娲皇寂灭轮1;
+	public static Sprite 娲皇寂灭轮2;
+	public static Sprite 娲皇寂灭轮3;
+	public static Sprite 娲皇寂灭轮4;
+	
+	public static Sprite 八景寂灭轮1;
+	public static Sprite 八景寂灭轮2;
+	public static Sprite 八景寂灭轮3;
+	public static Sprite 八景寂灭轮4;
+	
+	public static Sprite 玉虚寂灭轮1;
+	public static Sprite 玉虚寂灭轮2;
+	public static Sprite 玉虚寂灭轮3;
+	public static Sprite 玉虚寂灭轮4;
+	
+	public static Sprite 碧游寂灭轮1;
+	public static Sprite 碧游寂灭轮2;
+	public static Sprite 碧游寂灭轮3;
+	public static Sprite 碧游寂灭轮4;
+	
+	public static Sprite 须弥福缘石1;
+	public static Sprite 须弥福缘石2;
+	public static Sprite 须弥福缘石3;
+	public static Sprite 须弥福缘石4;
+	
+	public static Sprite 娲皇福缘石1;
+	public static Sprite 娲皇福缘石2;
+	public static Sprite 娲皇福缘石3;
+	public static Sprite 娲皇福缘石4;
+	
+	public static Sprite 八景福缘石1;
+	public static Sprite 八景福缘石2;
+	public static Sprite 八景福缘石3;
+	public static Sprite 八景福缘石4;
+	
+	public static Sprite 玉虚福缘石1;
+	public static Sprite 玉虚福缘石2;
+	public static Sprite 玉虚福缘石3;
+	public static Sprite 玉虚福缘石4;
+	
+	public static Sprite 碧游福缘石1;
+	public static Sprite 碧游福缘石2;
+	public static Sprite 碧游福缘石3;
+	public static Sprite 碧游福缘石4;
+	
+	public static Sprite 须弥造化根1;
+	public static Sprite 须弥造化根2;
+	public static Sprite 须弥造化根3;
+	public static Sprite 须弥造化根4;
+	
+	public static Sprite 娲皇造化根1;
+	public static Sprite 娲皇造化根2;
+	public static Sprite 娲皇造化根3;
+	public static Sprite 娲皇造化根4;
+	
+	public static Sprite 八景造化根1;
+	public static Sprite 八景造化根2;
+	public static Sprite 八景造化根3;
+	public static Sprite 八景造化根4;
+	
+	public static Sprite 玉虚造化根1;
+	public static Sprite 玉虚造化根2;
+	public static Sprite 玉虚造化根3;
+	public static Sprite 玉虚造化根4;
+	
+	public static Sprite 碧游造化根1;
+	public static Sprite 碧游造化根2;
+	public static Sprite 碧游造化根3;
+	public static Sprite 碧游造化根4;
+	
+	public static Sprite 须弥真灵种1;
+	public static Sprite 须弥真灵种2;
+	public static Sprite 须弥真灵种3;
+	public static Sprite 须弥真灵种4;
+	
+	public static Sprite 娲皇真灵种1;
+	public static Sprite 娲皇真灵种2;
+	public static Sprite 娲皇真灵种3;
+	public static Sprite 娲皇真灵种4;
+	
+	public static Sprite 八景真灵种1;
+	public static Sprite 八景真灵种2;
+	public static Sprite 八景真灵种3;
+	public static Sprite 八景真灵种4;
+	
+	public static Sprite 玉虚真灵种1;
+	public static Sprite 玉虚真灵种2;
+	public static Sprite 玉虚真灵种3;
+	public static Sprite 玉虚真灵种4;
+	
+	public static Sprite 碧游真灵种1;
+	public static Sprite 碧游真灵种2;
+	public static Sprite 碧游真灵种3;
+	public static Sprite 碧游真灵种4;
+	
+	public static Sprite 须弥转生珠1;
+	public static Sprite 须弥转生珠2;
+	public static Sprite 须弥转生珠3;
+	public static Sprite 须弥转生珠4;
+	
+	public static Sprite 娲皇转生珠1;
+	public static Sprite 娲皇转生珠2;
+	public static Sprite 娲皇转生珠3;
+	public static Sprite 娲皇转生珠4;
+	
+	public static Sprite 八景转生珠1;
+	public static Sprite 八景转生珠2;
+	public static Sprite 八景转生珠3;
+	public static Sprite 八景转生珠4;
+	
+	public static Sprite 玉虚转生珠1;
+	public static Sprite 玉虚转生珠2;
+	public static Sprite 玉虚转生珠3;
+	public static Sprite 玉虚转生珠4;
+	
+	public static Sprite 碧游转生珠1;
+	public static Sprite 碧游转生珠2;
+	public static Sprite 碧游转生珠3;
+	public static Sprite 碧游转生珠4;
+	
 	
 	
 	
@@ -7807,6 +8007,9 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
+		须弥通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/1")[0];
+		须弥通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/1")[0];
+
 		int loadedCount = 0;
 		大道背景框蓝= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[0];
 		大道背景框橙= Resources.LoadAll<Sprite>("Sprite/悟道崖/大道背景框")[1];
