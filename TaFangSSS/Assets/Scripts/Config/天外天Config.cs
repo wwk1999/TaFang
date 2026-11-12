@@ -1,3 +1,5 @@
+using Config;
+
 public enum 秘宝地点
 {
     None,
@@ -20,6 +22,7 @@ public enum 秘宝Type
     加跟脚,
     加真灵,
     加轮回系数,
+    暴击次数,
 }
 
 public class 秘宝
@@ -30,7 +33,7 @@ public class 秘宝
 }
 public class 天外天Config
 {
-    public float Get秘宝值(int 等级, 秘宝Type 秘宝Type)
+    public static float Get秘宝值(int 等级, 秘宝Type 秘宝Type)
     {
         switch (秘宝Type)
         {
@@ -163,9 +166,161 @@ public class 天外天Config
 
         return 0;
     }
-
-    public string Get秘宝名(秘宝地点 秘宝地点, 秘宝Type 秘宝Type)
+    
+    public static float Get秘宝价格(int 等级, 秘宝Type 秘宝Type)
     {
+        switch (秘宝Type)
+        {
+            case 秘宝Type.暴击次数:
+                return 5000000;
+            case 秘宝Type.加全职业伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return 1000;
+                    case 2:
+                        return 5000;
+                    case 3:
+                        return 20000;
+                    case 4:
+                        return 100000;
+                }
+                break;
+            
+            case 秘宝Type.加全元素伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return 1000;
+                    case 2:
+                        return 5000;
+                    case 3:
+                        return 20000;
+                    case 4:
+                        return 100000;
+                }
+                break;
+            
+            case 秘宝Type.加暴击率:
+                switch (等级)
+                {
+                    case 1:
+                        return 1000;
+                    case 2:
+                        return 5000;
+                    case 3:
+                        return 20000;
+                    case 4:
+                        return 100000;
+                }
+                break;
+            
+            case 秘宝Type.加暴击伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return 1000;
+                    case 2:
+                        return 5000;
+                    case 3:
+                        return 20000;
+                    case 4:
+                        return 100000;
+                }
+                break;
+            
+            case 秘宝Type.加最终伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return 1000;
+                    case 2:
+                        return 5000;
+                    case 3:
+                        return 20000;
+                    case 4:
+                        return 100000;
+                }
+                break;
+            
+            case 秘宝Type.加掉宝:
+                switch (等级)
+                {
+                    case 1:
+                        return 10000;
+                    case 2:
+                        return 50000;
+                    case 3:
+                        return 200000;
+                    case 4:
+                        return 1000000;
+                }
+                break;
+            
+            case 秘宝Type.加跟脚:
+                switch (等级)
+                {
+                    case 1:
+                        return 10000;
+                    case 2:
+                        return 50000;
+                    case 3:
+                        return 200000;
+                    case 4:
+                        return 1000000;
+                }
+                break;
+            
+            case 秘宝Type.加真灵:
+                switch (等级)
+                {
+                    case 1:
+                        return 100000;
+                    case 2:
+                        return 500000;
+                    case 3:
+                        return 2000000;
+                    case 4:
+                        return 10000000;
+                }
+                break;
+            
+            case 秘宝Type.加轮回系数:
+                switch (等级)
+                {
+                    case 1:
+                        return 30000;
+                    case 2:
+                        return 150000;
+                    case 3:
+                        return 800000;
+                    case 4:
+                        return 3000000;
+                }
+                break;
+        }
+
+        return 0;
+    }
+
+    public static string Get秘宝名(秘宝地点 秘宝地点, 秘宝Type 秘宝Type)
+    {
+        if (秘宝Type == 秘宝Type.暴击次数)
+        {
+            switch (秘宝地点)
+            {
+                case 秘宝地点.八景宫:
+                    return "八景陨圣晶";
+                case 秘宝地点.须弥宫:
+                    return "须弥陨圣晶";
+                case 秘宝地点.娲皇宫:
+                    return "娲皇陨圣晶";
+                case 秘宝地点.玉虚宫:
+                    return "玉虚陨圣晶";
+                case 秘宝地点.碧游宫:
+                    return "碧游陨圣晶";
+            }
+        }
         switch (秘宝地点)
         {
             case 秘宝地点.须弥宫:
@@ -291,5 +446,146 @@ public class 天外天Config
         }
 
         return "";
+    }
+
+    public static QualityType Get秘宝品质(int 等级, 秘宝Type 秘宝Type)
+    {
+        switch (秘宝Type)
+        {
+            case 秘宝Type.暴击次数:
+                return QualityType.荒品;
+            case 秘宝Type.加全职业伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.天品;
+                    case 2:
+                        return QualityType.宇品;
+                    case 3:
+                        return QualityType.宙品;
+                    case 4:
+                        return QualityType.洪品;
+                }
+                break;
+            
+            case 秘宝Type.加全元素伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.天品;
+                    case 2:
+                        return QualityType.宇品;
+                    case 3:
+                        return QualityType.宙品;
+                    case 4:
+                        return QualityType.洪品;
+                }
+                break;
+            
+            case 秘宝Type.加暴击率:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.天品;
+                    case 2:
+                        return QualityType.宇品;
+                    case 3:
+                        return QualityType.宙品;
+                    case 4:
+                        return QualityType.洪品;
+                }
+                break;
+            
+            case 秘宝Type.加暴击伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.天品;
+                    case 2:
+                        return QualityType.宇品;
+                    case 3:
+                        return QualityType.宙品;
+                    case 4:
+                        return QualityType.洪品;
+                }
+                break;
+            
+            case 秘宝Type.加最终伤害:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.天品;
+                    case 2:
+                        return QualityType.宇品;
+                    case 3:
+                        return QualityType.宙品;
+                    case 4:
+                        return QualityType.洪品;
+                }
+                break;
+            
+            case 秘宝Type.加掉宝:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.宇品;
+                    case 2:
+                        return QualityType.宙品;
+                    case 3:
+                        return QualityType.洪品;
+                    case 4:
+                        return QualityType.荒品;
+                }
+                break;
+            
+            case 秘宝Type.加跟脚:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.宇品;
+                    case 2:
+                        return QualityType.宙品;
+                    case 3:
+                        return QualityType.洪品;
+                    case 4:
+                        return QualityType.荒品;
+                }
+                break;
+            
+            case 秘宝Type.加真灵:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.宇品;
+                    case 2:
+                        return QualityType.宙品;
+                    case 3:
+                        return QualityType.洪品;
+                    case 4:
+                        return QualityType.荒品;
+                }
+                break;
+            
+            case 秘宝Type.加轮回系数:
+                switch (等级)
+                {
+                    case 1:
+                        return QualityType.宇品;
+                    case 2:
+                        return QualityType.宙品;
+                    case 3:
+                        return QualityType.洪品;
+                    case 4:
+                        return QualityType.荒品;
+                }
+                break;
+        }
+        return QualityType.None;
+    }
+    public static float Get气运(int 关卡数)
+    {
+        float value = 100;
+        value += 10 * (关卡数 - 1);
+        return  value;
     }
 }

@@ -78,6 +78,12 @@ namespace Config
         
         轮回石,
         血晶,
+        
+        须弥气运,
+        娲皇气运,
+        八景气运,
+        玉虚气运,
+        碧游气运,
     }
     public enum PropType
     {
@@ -172,6 +178,12 @@ namespace Config
         
         轮回石,
         血晶,
+        
+        须弥气运,
+        娲皇气运,
+        八景气运,
+        玉虚气运,
+        碧游气运,
     }
 
     public enum QualityType
@@ -419,6 +431,16 @@ namespace Config
             return ResourcesConfig.轮回石;
         case 道具信息Type.血晶:
             return ResourcesConfig.血晶;
+        case 道具信息Type.须弥气运:
+            return ResourcesConfig.须弥气运;
+        case 道具信息Type.娲皇气运:
+            return ResourcesConfig.娲皇气运;
+        case 道具信息Type.玉虚气运:
+            return ResourcesConfig.玉虚气运;
+        case 道具信息Type.八景气运:
+            return ResourcesConfig.八景气运;
+        case 道具信息Type.碧游气运:
+            return ResourcesConfig.碧游气运;
         case 道具信息Type.道宝紫:
         case 道具信息Type.道宝橙:
         case 道具信息Type.道宝粉:
@@ -458,7 +480,12 @@ namespace Config
             // 法器材料不再按品质分，而是按阶数分，品质Dic中不再包含材料项
             // 道具信息Type.石1~石16、铁1~铁16、羽1~羽16、砂1~砂16 均不在此字典中
             { 道具信息Type.轮回石, QualityType.地品 },
-            { 道具信息Type.血晶, QualityType.地品 },
+            { 道具信息Type.须弥气运, QualityType.地品 },
+            { 道具信息Type.娲皇气运, QualityType.宇品 },
+            { 道具信息Type.玉虚气运, QualityType.宇品 },
+            { 道具信息Type.八景气运, QualityType.宇品 },
+            { 道具信息Type.碧游气运, QualityType.宇品 },
+            { 道具信息Type.血晶, QualityType.宇品 },
             { 道具信息Type.功德, QualityType.宇品 },
             { 道具信息Type.头盔锻造石, QualityType.地品 },
             { 道具信息Type.射手经验值, QualityType.地品 },
@@ -595,6 +622,12 @@ namespace Config
             { 道具信息Type.砂16, PropType.砂16 },
             { 道具信息Type.轮回石, PropType.轮回石 },
             { 道具信息Type.血晶, PropType.血晶 },
+            
+            { 道具信息Type.须弥气运, PropType.须弥气运 },
+            { 道具信息Type.娲皇气运, PropType.娲皇气运 },
+            { 道具信息Type.玉虚气运, PropType.玉虚气运 },
+            { 道具信息Type.碧游气运, PropType.碧游气运 },
+            { 道具信息Type.八景气运, PropType.八景气运 },
         };
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
@@ -707,6 +740,11 @@ namespace Config
             { PropType.砂16, 道具信息Type.砂16 },
             { PropType.轮回石, 道具信息Type.轮回石 },
             { PropType.血晶, 道具信息Type.血晶 },
+            { PropType.须弥气运, 道具信息Type.须弥气运 },
+            { PropType.娲皇气运, 道具信息Type.娲皇气运 },
+            { PropType.八景气运, 道具信息Type.八景气运 },
+            { PropType.玉虚气运, 道具信息Type.玉虚气运 },
+            { PropType.碧游气运, 道具信息Type.碧游气运 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -722,6 +760,11 @@ namespace Config
             // 通过 法器Config.Get法器材料Name(法器材料Type type, int 阶数) 动态获取，不再在此字典中硬编码
             { 道具信息Type.轮回石, "轮回石" },
             { 道具信息Type.血晶, "血晶" },
+            { 道具信息Type.须弥气运, "须弥气运" },
+            { 道具信息Type.娲皇气运, "娲皇气运" },
+            { 道具信息Type.八景气运, "八景气运" },
+            { 道具信息Type.玉虚气运, "玉虚气运" },
+            { 道具信息Type.碧游气运, "碧游气运" },
             { 道具信息Type.法器粉尘, "法器粉尘" },
             { 道具信息Type.功德, "功德" },
             { 道具信息Type.头盔锻造石, "头盔锻造石" },
@@ -833,6 +876,12 @@ namespace Config
 
             { 道具信息Type.轮回石, "轮回转世的关键材料,主线,符文,神物关卡掉落,三十三重天50层掉落2,200层3,500层4,1000层5," },
             { 道具信息Type.血晶, "灵兽洗髓和进化的关键材料,分解灵兽获得" },
+            
+            { 道具信息Type.须弥气运, "须弥宫气运之力,须弥宫获得,可兑换气运秘宝" },
+            { 道具信息Type.娲皇气运, "须弥宫气运之力,娲皇宫获得,可兑换气运秘宝" },
+            { 道具信息Type.八景气运, "须弥宫气运之力,八景宫获得,可兑换气运秘宝" },
+            { 道具信息Type.玉虚气运, "须弥宫气运之力,玉虚宫获得,可兑换气运秘宝" },
+            { 道具信息Type.碧游气运, "须弥宫气运之力,碧游宫获得,可兑换气运秘宝" },
         };
 
         
@@ -1001,6 +1050,16 @@ namespace Config
                     return ResourcesConfig.轮回石;
                 case PropType.血晶:
                     return ResourcesConfig.血晶;
+                case PropType.须弥气运:
+                    return ResourcesConfig.须弥气运;
+                case PropType.娲皇气运:
+                    return ResourcesConfig.娲皇气运;
+                case PropType.玉虚气运:
+                    return ResourcesConfig.玉虚气运;
+                case PropType.八景气运:
+                    return ResourcesConfig.八景气运;
+                case PropType.碧游气运:
+                    return ResourcesConfig.碧游气运;
                 case PropType.法器粉尘:
                     return ResourcesConfig.法器粉尘;
                 case PropType.全职业经验值:
@@ -1240,6 +1299,12 @@ namespace Config
 
             { PropType.轮回石, "轮回石" },
             { PropType.血晶, "血晶" },
+            
+            { PropType.须弥气运, "须弥气运" },
+            { PropType.娲皇气运, "娲皇气运" },
+            { PropType.玉虚气运, "玉虚气运" },
+            { PropType.八景气运, "八景气运" },
+            { PropType.碧游气运, "碧游气运" },
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
@@ -1253,6 +1318,12 @@ namespace Config
             { PropType.玉髓, QualityType.地品 },
             { PropType.轮回石, QualityType.地品 },
             { PropType.血晶, QualityType.地品 },
+            
+            { PropType.须弥气运, QualityType.宇品 },
+            { PropType.娲皇气运, QualityType.宇品 },
+            { PropType.八景气运, QualityType.宇品 },
+            { PropType.玉虚气运, QualityType.宇品 },
+            { PropType.碧游气运, QualityType.宇品 },
 
             // 法器材料品质 (石1~石16, 铁1~铁16, 羽1~羽16, 砂1~砂16)
             // 法器材料不再按品质分，而是按阶数分，PropQualityDic中不再包含材料项

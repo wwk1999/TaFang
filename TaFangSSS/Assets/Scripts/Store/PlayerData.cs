@@ -64,6 +64,7 @@ public class PlayerData : XSingleton<PlayerData>
     public int 玉虚宫最大层数 = 1;
     public int 碧游宫最大层数 = 1;
     public int 八景宫最大层数 = 1;
+
     public int 城墙等级 = 1;
     public int 招募积分 = 0;
     public float 关卡倍速 = 1;
@@ -2664,32 +2665,20 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         { PropType.砂15, 0 },
         { PropType.砂16, 0 },
         { PropType.轮回石, 0 },
-        { PropType.血晶, 0 },
+        { PropType.血晶, 0 }, 
+        
+        { PropType.须弥气运, 0 }, 
+        { PropType.娲皇气运, 0 },  
+        { PropType.玉虚气运, 0 },
+        { PropType.八景气运, 0 },
+        { PropType.碧游气运, 0 },
+
     };
 
-   
-
-    
-
-    public Dictionary<主线关卡Type, bool> LevelSmallJieSuoDic = new Dictionary<主线关卡Type, bool>()
+    public Dictionary<string,bool>秘宝解锁=new Dictionary<string, bool>()
     {
-        { 主线关卡Type.花果山, true },
-        { 主线关卡Type.水帘洞, false },
-        { 主线关卡Type.傲来国, false },
-        { 主线关卡Type.东海龙宫, false },
-        { 主线关卡Type.蓬莱仙岛, false },
-        { 主线关卡Type.五行山, false },
-        { 主线关卡Type.高老庄, false },
-        { 主线关卡Type.平顶山, false },
-        { 主线关卡Type.女儿国, false },
-        { 主线关卡Type.火焰山, false },
-        { 主线关卡Type.狮驼岭, false },
-        { 主线关卡Type.小雷音寺, false },
-        { 主线关卡Type.流沙河, false },
-        { 主线关卡Type.芭蕉洞, false },
-        { 主线关卡Type.冥府, false },
-
-    };
+        
+    }
     
     
     

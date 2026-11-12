@@ -9,6 +9,20 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 须弥气运;
+	public static Sprite 娲皇气运;
+	public static Sprite 八景气运;
+	public static Sprite 玉虚气运;
+	public static Sprite 碧游气运;
+	
+	public static Sprite 须弥陨圣晶;
+	public static Sprite 娲皇陨圣晶;
+	public static Sprite 八景陨圣晶;
+	public static Sprite 玉虚陨圣晶;
+	public static Sprite 碧游陨圣晶;
+
+
+	
 	public static Sprite 须弥通神玉1;
 	public static Sprite 须弥通神玉2;
 	public static Sprite 须弥通神玉3;
@@ -7999,9 +8013,134 @@ public static Sprite 缚霞流光绫藏品;
 		while (e.MoveNext()) { }
 	}
 
+	private static Sprite 取秘宝等级Sprite(Sprite 一级, Sprite 二级, Sprite 三级, Sprite 四级, int 等级)
+	{
+		switch (等级)
+		{
+			case 1: return 一级;
+			case 2: return 二级;
+			case 3: return 三级;
+			case 4: return 四级;
+			default: return null;
+		}
+	}
+
 	public static Sprite Get秘宝Sprite(秘宝地点 秘宝地点, 秘宝Type 秘宝Type, int 等级)
 	{
-		
+		if (秘宝Type == 秘宝Type.暴击次数)
+		{
+			switch (秘宝地点)
+			{
+				case 秘宝地点.须弥宫:
+					return 须弥陨圣晶;
+				case 秘宝地点.八景宫:
+					return 八景陨圣晶;
+				case 秘宝地点.碧游宫:
+					return 碧游陨圣晶;
+				case 秘宝地点.玉虚宫:
+					return 玉虚陨圣晶;
+				case 秘宝地点.娲皇宫:
+					return 娲皇陨圣晶;
+			}
+		}
+		switch (秘宝地点)
+		{
+			case 秘宝地点.须弥宫:
+				switch (秘宝Type)
+				{
+					case 秘宝Type.加全职业伤害: return 取秘宝等级Sprite(须弥通神玉1, 须弥通神玉2, 须弥通神玉3, 须弥通神玉4, 等级);
+					case 秘宝Type.加全元素伤害: return 取秘宝等级Sprite(须弥五色石1, 须弥五色石2, 须弥五色石3, 须弥五色石4, 等级);
+					case 秘宝Type.加暴击率: return 取秘宝等级Sprite(须弥洞玄石1, 须弥洞玄石2, 须弥洞玄石3, 须弥洞玄石4, 等级);
+					case 秘宝Type.加暴击伤害: return 取秘宝等级Sprite(须弥崩天印1, 须弥崩天印2, 须弥崩天印3, 须弥崩天印4, 等级);
+					case 秘宝Type.加最终伤害: return 取秘宝等级Sprite(须弥寂灭轮1, 须弥寂灭轮2, 须弥寂灭轮3, 须弥寂灭轮4, 等级);
+					case 秘宝Type.加掉宝: return 取秘宝等级Sprite(须弥福缘石1, 须弥福缘石2, 须弥福缘石3, 须弥福缘石4, 等级);
+					case 秘宝Type.加跟脚: return 取秘宝等级Sprite(须弥造化根1, 须弥造化根2, 须弥造化根3, 须弥造化根4, 等级);
+					case 秘宝Type.加真灵: return 取秘宝等级Sprite(须弥真灵种1, 须弥真灵种2, 须弥真灵种3, 须弥真灵种4, 等级);
+					case 秘宝Type.加轮回系数: return 取秘宝等级Sprite(须弥转生珠1, 须弥转生珠2, 须弥转生珠3, 须弥转生珠4, 等级);
+				}
+				break;
+
+			case 秘宝地点.娲皇宫:
+				switch (秘宝Type)
+				{
+					case 秘宝Type.加全职业伤害: return 取秘宝等级Sprite(娲皇通神玉1, 娲皇通神玉2, 娲皇通神玉3, 娲皇通神玉4, 等级);
+					case 秘宝Type.加全元素伤害: return 取秘宝等级Sprite(娲皇五色石1, 娲皇五色石2, 娲皇五色石3, 娲皇五色石4, 等级);
+					case 秘宝Type.加暴击率: return 取秘宝等级Sprite(娲皇洞玄石1, 娲皇洞玄石2, 娲皇洞玄石3, 娲皇洞玄石4, 等级);
+					case 秘宝Type.加暴击伤害: return 取秘宝等级Sprite(娲皇崩天印1, 娲皇崩天印2, 娲皇崩天印3, 娲皇崩天印4, 等级);
+					case 秘宝Type.加最终伤害: return 取秘宝等级Sprite(娲皇寂灭轮1, 娲皇寂灭轮2, 娲皇寂灭轮3, 娲皇寂灭轮4, 等级);
+					case 秘宝Type.加掉宝: return 取秘宝等级Sprite(娲皇福缘石1, 娲皇福缘石2, 娲皇福缘石3, 娲皇福缘石4, 等级);
+					case 秘宝Type.加跟脚: return 取秘宝等级Sprite(娲皇造化根1, 娲皇造化根2, 娲皇造化根3, 娲皇造化根4, 等级);
+					case 秘宝Type.加真灵: return 取秘宝等级Sprite(娲皇真灵种1, 娲皇真灵种2, 娲皇真灵种3, 娲皇真灵种4, 等级);
+					case 秘宝Type.加轮回系数: return 取秘宝等级Sprite(娲皇转生珠1, 娲皇转生珠2, 娲皇转生珠3, 娲皇转生珠4, 等级);
+				}
+				break;
+
+			case 秘宝地点.碧游宫:
+				switch (秘宝Type)
+				{
+					case 秘宝Type.加全职业伤害: return 取秘宝等级Sprite(碧游通神玉1, 碧游通神玉2, 碧游通神玉3, 碧游通神玉4, 等级);
+					case 秘宝Type.加全元素伤害: return 取秘宝等级Sprite(碧游五色石1, 碧游五色石2, 碧游五色石3, 碧游五色石4, 等级);
+					case 秘宝Type.加暴击率: return 取秘宝等级Sprite(碧游洞玄石1, 碧游洞玄石2, 碧游洞玄石3, 碧游洞玄石4, 等级);
+					case 秘宝Type.加暴击伤害: return 取秘宝等级Sprite(碧游崩天印1, 碧游崩天印2, 碧游崩天印3, 碧游崩天印4, 等级);
+					case 秘宝Type.加最终伤害: return 取秘宝等级Sprite(碧游寂灭轮1, 碧游寂灭轮2, 碧游寂灭轮3, 碧游寂灭轮4, 等级);
+					case 秘宝Type.加掉宝: return 取秘宝等级Sprite(碧游福缘石1, 碧游福缘石2, 碧游福缘石3, 碧游福缘石4, 等级);
+					case 秘宝Type.加跟脚: return 取秘宝等级Sprite(碧游造化根1, 碧游造化根2, 碧游造化根3, 碧游造化根4, 等级);
+					case 秘宝Type.加真灵: return 取秘宝等级Sprite(碧游真灵种1, 碧游真灵种2, 碧游真灵种3, 碧游真灵种4, 等级);
+					case 秘宝Type.加轮回系数: return 取秘宝等级Sprite(碧游转生珠1, 碧游转生珠2, 碧游转生珠3, 碧游转生珠4, 等级);
+				}
+				break;
+
+			case 秘宝地点.玉虚宫:
+				switch (秘宝Type)
+				{
+					case 秘宝Type.加全职业伤害: return 取秘宝等级Sprite(玉虚通神玉1, 玉虚通神玉2, 玉虚通神玉3, 玉虚通神玉4, 等级);
+					case 秘宝Type.加全元素伤害: return 取秘宝等级Sprite(玉虚五色石1, 玉虚五色石2, 玉虚五色石3, 玉虚五色石4, 等级);
+					case 秘宝Type.加暴击率: return 取秘宝等级Sprite(玉虚洞玄石1, 玉虚洞玄石2, 玉虚洞玄石3, 玉虚洞玄石4, 等级);
+					case 秘宝Type.加暴击伤害: return 取秘宝等级Sprite(玉虚崩天印1, 玉虚崩天印2, 玉虚崩天印3, 玉虚崩天印4, 等级);
+					case 秘宝Type.加最终伤害: return 取秘宝等级Sprite(玉虚寂灭轮1, 玉虚寂灭轮2, 玉虚寂灭轮3, 玉虚寂灭轮4, 等级);
+					case 秘宝Type.加掉宝: return 取秘宝等级Sprite(玉虚福缘石1, 玉虚福缘石2, 玉虚福缘石3, 玉虚福缘石4, 等级);
+					case 秘宝Type.加跟脚: return 取秘宝等级Sprite(玉虚造化根1, 玉虚造化根2, 玉虚造化根3, 玉虚造化根4, 等级);
+					case 秘宝Type.加真灵: return 取秘宝等级Sprite(玉虚真灵种1, 玉虚真灵种2, 玉虚真灵种3, 玉虚真灵种4, 等级);
+					case 秘宝Type.加轮回系数: return 取秘宝等级Sprite(玉虚转生珠1, 玉虚转生珠2, 玉虚转生珠3, 玉虚转生珠4, 等级);
+				}
+				break;
+
+			case 秘宝地点.八景宫:
+				switch (秘宝Type)
+				{
+					case 秘宝Type.加全职业伤害: return 取秘宝等级Sprite(八景通神玉1, 八景通神玉2, 八景通神玉3, 八景通神玉4, 等级);
+					case 秘宝Type.加全元素伤害: return 取秘宝等级Sprite(八景五色石1, 八景五色石2, 八景五色石3, 八景五色石4, 等级);
+					case 秘宝Type.加暴击率: return 取秘宝等级Sprite(八景洞玄石1, 八景洞玄石2, 八景洞玄石3, 八景洞玄石4, 等级);
+					case 秘宝Type.加暴击伤害: return 取秘宝等级Sprite(八景崩天印1, 八景崩天印2, 八景崩天印3, 八景崩天印4, 等级);
+					case 秘宝Type.加最终伤害: return 取秘宝等级Sprite(八景寂灭轮1, 八景寂灭轮2, 八景寂灭轮3, 八景寂灭轮4, 等级);
+					case 秘宝Type.加掉宝: return 取秘宝等级Sprite(八景福缘石1, 八景福缘石2, 八景福缘石3, 八景福缘石4, 等级);
+					case 秘宝Type.加跟脚: return 取秘宝等级Sprite(八景造化根1, 八景造化根2, 八景造化根3, 八景造化根4, 等级);
+					case 秘宝Type.加真灵: return 取秘宝等级Sprite(八景真灵种1, 八景真灵种2, 八景真灵种3, 八景真灵种4, 等级);
+					case 秘宝Type.加轮回系数: return 取秘宝等级Sprite(八景转生珠1, 八景转生珠2, 八景转生珠3, 八景转生珠4, 等级);
+				}
+				break;
+		}
+
+		return null;
+	}
+
+	public static Sprite Get气运icon(秘宝地点 地点)
+	{
+		switch (地点)
+		{
+			case 秘宝地点.须弥宫:
+				return 须弥气运;
+			case 秘宝地点.碧游宫:
+				return 碧游气运;
+			case 秘宝地点.娲皇宫:
+				return 娲皇气运;
+			case 秘宝地点.玉虚宫:
+				return 玉虚气运;
+			case 秘宝地点.八景宫:
+				return 八景气运;
+		}
+
+		return null;
 	}
 
 	/// <summary>
@@ -8012,6 +8151,18 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
+		须弥气运=Resources.Load("Sprite/天外天/须弥气运");
+		碧游气运=Resources.Load("Sprite/天外天/碧游气运");
+		娲皇气运=Resources.Load("Sprite/天外天/娲皇气运");
+		玉虚气运=Resources.Load("Sprite/天外天/玉虚气运");
+		八景气运=Resources.Load("Sprite/天外天/八景气运");
+		
+		须弥陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[3];
+		碧游陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[6];
+		娲皇陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[9];
+		玉虚陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[11];
+		八景陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[13];
+
 		须弥通神玉1= Resources.LoadAll<Sprite>("Sprite/天外天/3")[0];
 		须弥通神玉2= Resources.LoadAll<Sprite>("Sprite/天外天/3")[1];
 		须弥通神玉3= Resources.LoadAll<Sprite>("Sprite/天外天/3")[2];

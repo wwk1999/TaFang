@@ -2563,7 +2563,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         };
 
-        public Dictionary<PropType, float> PropListDic = new Dictionary<PropType, float>()
+       public Dictionary<PropType, float> PropListDic = new Dictionary<PropType, float>()
     {
         { PropType.全职业经验值, 0 },
         { PropType.功德, 0 },
@@ -2674,9 +2674,15 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         { PropType.砂15, 0 },
         { PropType.砂16, 0 },
         { PropType.轮回石, 0 },
-        { PropType.血晶, 0 },
-    };
+        { PropType.血晶, 0 }, 
+        
+        { PropType.须弥气运, 0 }, 
+        { PropType.娲皇气运, 0 },  
+        { PropType.玉虚气运, 0 },
+        { PropType.八景气运, 0 },
+        { PropType.碧游气运, 0 },
 
+    };
        
 
         public void CopyFromRuntime(PlayerData runtime)
