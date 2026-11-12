@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 八景宫窗口 : MonoBehaviour
 {
+    public Button 秘宝Button;
+    public GameObject 秘宝宝库;
     public Button 神通配置Button;
 
     public GameObject 丹药content;
@@ -27,6 +29,10 @@ public class 八景宫窗口 : MonoBehaviour
 
     private void Start()
     {
+        秘宝Button.onClick.AddListener(() =>
+        {
+            秘宝宝库.gameObject.SetActive(true);
+        });
         ExitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);

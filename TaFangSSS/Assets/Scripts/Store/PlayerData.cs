@@ -2875,11 +2875,19 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
 
     public bool Get秘宝解锁(秘宝Type 秘宝Type, 秘宝地点 秘宝地点, int 等级)
     {
-        
+        string key = 秘宝Type == 秘宝Type.暴击次数
+            ? $"{秘宝地点}_{秘宝Type}"
+            : $"{秘宝地点}_{秘宝Type}_{等级}";
+        return 秘宝解锁.TryGetValue(key, out bool value) && value;
     }
-    public bool Set秘宝解锁(秘宝Type 秘宝Type, 秘宝地点 秘宝地点, int 等级,bool flag)
+
+    public bool Set秘宝解锁(秘宝Type 秘宝Type, 秘宝地点 秘宝地点, int 等级, bool flag)
     {
-        
+        string key = 秘宝Type == 秘宝Type.暴击次数
+            ? $"{秘宝地点}_{秘宝Type}"
+            : $"{秘宝地点}_{秘宝Type}_{等级}";
+        秘宝解锁[key] = flag;
+        return flag;
     }
     
     

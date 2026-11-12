@@ -8151,11 +8151,11 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
-		须弥气运=Resources.Load("Sprite/天外天/须弥气运");
-		碧游气运=Resources.Load("Sprite/天外天/碧游气运");
-		娲皇气运=Resources.Load("Sprite/天外天/娲皇气运");
-		玉虚气运=Resources.Load("Sprite/天外天/玉虚气运");
-		八景气运=Resources.Load("Sprite/天外天/八景气运");
+		须弥气运=Resources.Load<Sprite>("Sprite/天外天/须弥气运");
+		碧游气运=Resources.Load<Sprite>("Sprite/天外天/碧游气运");
+		娲皇气运=Resources.Load<Sprite>("Sprite/天外天/娲皇气运");
+		玉虚气运=Resources.Load<Sprite>("Sprite/天外天/玉虚气运");
+		八景气运=Resources.Load<Sprite>("Sprite/天外天/八景气运");
 		
 		须弥陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[3];
 		碧游陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[6];
