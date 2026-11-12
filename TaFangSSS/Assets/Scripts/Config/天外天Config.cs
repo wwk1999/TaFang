@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Config;
 
 public enum 秘宝地点
@@ -25,6 +26,7 @@ public enum 秘宝Type
     暴击次数,
 }
 
+
 public class 秘宝
 {
     public 秘宝地点 秘宝地点;
@@ -33,6 +35,131 @@ public class 秘宝
 }
 public class 天外天Config
 {
+    public static float 秘宝总职业伤害=>Get秘宝总职业伤害();
+    public static float 秘宝总元素伤害=>Get秘宝总元素伤害();
+    public static float 秘宝总暴击率=>Get秘宝总暴击率();
+    public static float 秘宝总暴击伤害=>Get秘宝总暴击伤害();
+    public static float 秘宝总最终伤害=>Get秘宝总最终伤害();
+    public static float 秘宝总掉宝=>Get秘宝总掉宝();
+    public static float 秘宝总跟脚=>Get秘宝总跟脚();
+    public static float 秘宝总真灵=>Get秘宝总真灵();
+    public static float 秘宝总轮回系数=>Get秘宝总轮回系数();
+
+    public static float Get秘宝总职业伤害()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加全职业伤害);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加全职业伤害);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加全职业伤害);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加全职业伤害);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加全职业伤害);
+
+        return (1f + 须弥 / 100f) * (1f + 娲皇 / 100f) * (1f + 玉虚 / 100f) * (1f + 碧游 / 100f) * (1f + 八景 / 100f);
+    }
+    
+    public static float Get秘宝总元素伤害()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加全元素伤害);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加全元素伤害);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加全元素伤害);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加全元素伤害);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加全元素伤害);
+
+        return (1f + 须弥 / 100f) * (1f + 娲皇 / 100f) * (1f + 玉虚 / 100f) * (1f + 碧游 / 100f) * (1f + 八景 / 100f);
+    }
+    
+    public static float Get秘宝总暴击伤害()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加暴击伤害);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加暴击伤害);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加暴击伤害);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加暴击伤害);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加暴击伤害);
+
+        return (1f + 须弥 / 100f) * (1f + 娲皇 / 100f) * (1f + 玉虚 / 100f) * (1f + 碧游 / 100f) * (1f + 八景 / 100f);
+    }
+    
+    public static float Get秘宝总最终伤害()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加最终伤害);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加最终伤害);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加最终伤害);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加最终伤害);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加最终伤害);
+
+        return (1f + 须弥 / 100f) * (1f + 娲皇 / 100f) * (1f + 玉虚 / 100f) * (1f + 碧游 / 100f) * (1f + 八景 / 100f);
+    }
+    
+    public static float Get秘宝总跟脚()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加跟脚);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加跟脚);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加跟脚);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加跟脚);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加跟脚);
+
+        return (1f + 须弥 / 100f) * (1f + 娲皇 / 100f) * (1f + 玉虚 / 100f) * (1f + 碧游 / 100f) * (1f + 八景 / 100f);
+    }
+    
+    public static float Get秘宝总真灵()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加真灵);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加真灵);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加真灵);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加真灵);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加真灵);
+
+        return (1f + 须弥 / 100f) * (1f + 娲皇 / 100f) * (1f + 玉虚 / 100f) * (1f + 碧游 / 100f) * (1f + 八景 / 100f);
+    }
+    
+    public static float Get秘宝总暴击率()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加暴击率);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加暴击率);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加暴击率);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加暴击率);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加暴击率);
+
+        return 须弥+ 娲皇+ 玉虚+ 碧游+ 八景;
+    }
+    
+    public static float Get秘宝总掉宝()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加掉宝);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加掉宝);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加掉宝);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加掉宝);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加掉宝);
+
+        return (1f+须弥+ 娲皇+ 玉虚+ 碧游+ 八景)/100f;
+    }
+    
+    public static float Get秘宝总轮回系数()
+    {
+        float 须弥 = Get地点总加成(秘宝地点.须弥宫, 秘宝Type.加轮回系数);
+        float 娲皇 = Get地点总加成(秘宝地点.娲皇宫, 秘宝Type.加轮回系数);
+        float 玉虚 = Get地点总加成(秘宝地点.玉虚宫, 秘宝Type.加轮回系数);
+        float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加轮回系数);
+        float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加轮回系数);
+
+        return 须弥+ 娲皇+ 玉虚+ 碧游+ 八景;
+    }
+    
+    
+
+    public static float Get地点总加成(秘宝地点 秘宝地点,秘宝Type type)
+    {
+        float value = 0;
+        for (int i = 1; i <= 4; i++)
+        {
+            if (PlayerData.S.Get秘宝解锁(type, 秘宝地点, i))
+            {
+                value+=Get秘宝值(i, type);
+            }
+        }
+        return value;
+    }
+    public static List<float> 暴击次数满爆列表=new List<float>(){100,500,2000,5000,10000,20000,40000};
+    
     public static float Get秘宝值(int 等级, 秘宝Type 秘宝Type)
     {
         switch (秘宝Type)

@@ -106,7 +106,6 @@ public class JingJieConfig : MonoBehaviour
     };
 
     public static BigDouble 跟脚 => Get跟脚();
-    public static float 轮回系数 => 1+属性config.总属性.轮回系数*100f+体质Config.当前体质总属性.轮回系数;
     public static BigDouble Get跟脚()
     {
         BigDouble value = PlayerData.S.初始跟脚;
@@ -121,6 +120,7 @@ public class JingJieConfig : MonoBehaviour
             }
         }
         value*=(1+赌坊Config.Get藏品总跟脚倍数加成() / 100f);
+        value *= 天外天Config.秘宝总跟脚;
         return value;
     }
     public static Dictionary<JingJieType, float> 每年秒数Dic = new Dictionary<JingJieType, float>()
