@@ -118,8 +118,38 @@ public enum 秘境type
     符文之地,
     三十三重天,
 }
+public class 主线关卡掉落
+{
+    public float 洗练石;
+    public float 招募卷;
+    public float 高级招募卷;
+    public float 职业经验;
+    public float 锻造石;
+    public int 法器材料阶数;//法器材料和仙石默认掉落1个
+    public float 法器材料数量;
+    public int 仙石掉落阶数;
+    public float 仙石掉落数量;
+    public float 轮回石数量;
+    public float 气运;
+}
 public class LevelConfig : MonoBehaviour
 {
+    public static 主线关卡掉落 Get主线关卡掉落(主线关卡Type 主线关卡Type,int 层数)
+    {
+        主线关卡掉落 主线关卡掉落 = new 主线关卡掉落();
+        主线关卡掉落.洗练石 = Get主线关卡洗练石(主线关卡Type,层数);
+        主线关卡掉落.招募卷 = Get主线关卡招募卷数量();
+        主线关卡掉落.高级招募卷 = 1;
+        主线关卡掉落.职业经验 = Get主线关卡职业经验(主线关卡Type,层数);
+        主线关卡掉落.法器材料阶数 = Get主线法器仙石阶数(主线关卡Type,层数);
+        主线关卡掉落.法器材料数量 = Get主线法器材料数量(主线关卡Type,层数);
+        主线关卡掉落.仙石掉落阶数 = Get主线法器仙石阶数(主线关卡Type,层数);
+        主线关卡掉落.仙石掉落阶数 = Get主线法器仙石阶数(主线关卡Type,层数);
+        主线关卡掉落.仙石掉落数量 = Get主线关卡仙石数量();
+        主线关卡掉落.轮回石数量 = Get主线关卡轮回石(主线关卡Type,层数);
+        主线关卡掉落.气运 = Get主线关卡气运(主线关卡Type,层数);
+        return 主线关卡掉落;
+    }
     public static 关卡类型 当前关卡类型 = 关卡类型.主线关卡;
     public static 主线关卡Type 当前主线关卡Type = 主线关卡Type.花果山;
     public static QualityType 当前洞天QualityType = QualityType.黄品;
@@ -235,6 +265,38 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.碧游宫, JingJieType.准圣 },
         { 主线关卡Type.玉虚宫, JingJieType.准圣 },
         { 主线关卡Type.八景宫, JingJieType.准圣 },
+    };
+    
+    public static Dictionary<主线关卡Type, float> 主线关卡法器材料数量Dic = new Dictionary<主线关卡Type, float>()
+    {
+        { 主线关卡Type.花果山, 1 },
+        { 主线关卡Type.水帘洞, 2 }, 
+        { 主线关卡Type.蓬莱仙岛, 3 },
+        { 主线关卡Type.五行山, 4 },
+        { 主线关卡Type.傲来国, 1 },
+        { 主线关卡Type.高老庄, 2 },
+        { 主线关卡Type.女儿国, 3 },
+        { 主线关卡Type.小雷音寺, 4 },
+        { 主线关卡Type.平顶山, 1 },
+        { 主线关卡Type.火焰山, 2 },
+        { 主线关卡Type.芭蕉洞, 3 },
+        { 主线关卡Type.流沙河, 4 },
+        { 主线关卡Type.狮驼岭, 1 },
+        { 主线关卡Type.东海龙宫,2 },
+        { 主线关卡Type.冥府, 3 },
+        
+        { 主线关卡Type.南天门, 4 },
+        { 主线关卡Type.瑶池仙境, 5 },
+        { 主线关卡Type.斩妖台, 6 },
+        
+        
+        { 主线关卡Type.御马监, 1 },
+        { 主线关卡Type.蟠桃园, 2 },
+        
+        
+        { 主线关卡Type.兜率宫, 3 },
+        { 主线关卡Type.紫微宫, 4 },
+        { 主线关卡Type.昊天殿, 5 },
     };
    public static Dictionary<主线关卡Type, string> 主线关卡介绍Dic = new Dictionary<主线关卡Type, string>()
 {
@@ -1391,7 +1453,298 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
 
      return result;
  }
-   
+
+ public static float Get主线关卡洗练石(主线关卡Type 主线关卡Type,int 层数)
+ {
+     JingJieType jingJieType = 主线关卡境界Dic[主线关卡Type];
+     int value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value = (int)(jingJieType - 2);
+     }
+     else
+     {
+         if (主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+             value += 8 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.须弥宫)
+         {
+             value += 30 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.娲皇宫)
+         {
+             value += 50 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.碧游宫)
+         {
+             value += 70 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.玉虚宫)
+         {
+             value += 90 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.八景宫)
+         {
+             value += 110 + 层数 / 50;
+         }
+     }
+
+     return value;
+ }
+ 
+ public static float Get主线关卡锻造石(主线关卡Type 主线关卡Type,int 层数)
+ {
+     JingJieType jingJieType = 主线关卡境界Dic[主线关卡Type];
+     int value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value = (int)(jingJieType - 2);
+     }
+     else
+     {
+         if (主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+             value += 8 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.须弥宫)
+         {
+             value += 30 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.娲皇宫)
+         {
+             value += 50 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.碧游宫)
+         {
+             value += 70 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.玉虚宫)
+         {
+             value += 90 + 层数 / 50;
+         }else if (主线关卡Type == 主线关卡Type.八景宫)
+         {
+             value += 110 + 层数 / 50;
+         }
+     }
+
+     return value;
+ }
+ 
+ 
+ 
+ public static float Get主线关卡职业经验(主线关卡Type 主线关卡Type,int 层数)
+ {
+     JingJieType jingJieType = 主线关卡境界Dic[主线关卡Type];
+     int value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value = (int)(jingJieType - 2)*150;
+     }
+     else
+     {
+         if (主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+             value += 1200+ 层数 * 30;
+         }else if (主线关卡Type == 主线关卡Type.须弥宫)
+         {
+             value += 32000 + 层数 * 30;
+         }else if (主线关卡Type == 主线关卡Type.娲皇宫)
+         {
+             value += 65000 + 层数 * 30;
+         }else if (主线关卡Type == 主线关卡Type.碧游宫)
+         {
+             value += 100000 + 层数 * 30;
+         }else if (主线关卡Type == 主线关卡Type.玉虚宫)
+         {
+             value += 130000 + 层数 * 30;
+         }else if (主线关卡Type == 主线关卡Type.八景宫)
+         {
+             value += 160000 + 层数 * 30;
+         }
+     }
+
+     return value;
+ }
+ 
+ public static float Get主线关卡轮回石(主线关卡Type 主线关卡Type,int 层数)
+ {
+     int value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value = 1;
+     }
+     else
+     {
+         if (主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+             if (战斗混沌虚空层数 < 50)
+             {
+                 value = 1;
+             }else if (战斗混沌虚空层数 < 150)
+             {
+                 value = 2;
+             }else if (战斗混沌虚空层数 < 300)
+             {
+                 value = 3;
+             }else if (战斗混沌虚空层数 < 600)
+             {
+                 value = 4;
+             }
+             else if (战斗混沌虚空层数 < 1000)
+             {
+                 value = 5;
+             }
+             else
+             {
+                 value = 6 + (战斗混沌虚空层数 - 1000) / 500;
+             }
+         }else if (主线关卡Type == 主线关卡Type.须弥宫)
+         {
+             value = 6+ 层数  / 500;
+         }else if (主线关卡Type == 主线关卡Type.娲皇宫)
+         {
+             value = 8+ 层数  / 500;
+         }else if (主线关卡Type == 主线关卡Type.碧游宫)
+         {
+             value = 10+ 层数  / 500;
+         }else if (主线关卡Type == 主线关卡Type.玉虚宫)
+         {
+             value = 12+ 层数  / 500;
+         }else if (主线关卡Type == 主线关卡Type.八景宫)
+         {
+             value = 14+ 层数  / 500;
+         }
+     }
+
+     return value;
+ }
+ 
+ public static int Get主线法器仙石阶数(主线关卡Type 主线关卡Type,int 层数)
+ {
+     JingJieType jingJieType = 主线关卡境界Dic[主线关卡Type];
+     int value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value = 1 + ((int)jingJieType - 1) / 2;
+     }
+     else
+     {
+         if (主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+             if (战斗混沌虚空层数 < 150)
+             {
+                 value = 6;
+             }else if (战斗混沌虚空层数 < 500)
+             {
+                 value = 7;
+             }else if (战斗混沌虚空层数 < 1000)
+             {
+                 value = 8;
+             }
+             else
+             {
+                 value = 9 + (战斗混沌虚空层数 - 1000) / 1000;
+             }
+         }else if (主线关卡Type == 主线关卡Type.须弥宫)
+         {
+             value = 9+层数/1000;
+         }else if (主线关卡Type == 主线关卡Type.娲皇宫)
+         {
+             value = 10+层数/1000;
+         }else if (主线关卡Type == 主线关卡Type.碧游宫)
+         {
+             value = 11+层数/1000;
+         }else if (主线关卡Type == 主线关卡Type.玉虚宫)
+         {
+             value = 12+层数/1000;
+         }else if (主线关卡Type == 主线关卡Type.八景宫)
+         {
+             value = 13+层数/1000;
+         }
+     }
+
+     return value;
+ }
+
+ public static float Get主线关卡仙石数量()
+ {
+     return 2;
+ }
+
+ public static float Get主线关卡招募卷数量()
+ {
+     return 2;
+ }
+
+ public static float Get主线关卡气运(主线关卡Type 主线关卡Type,int 层数)
+ {
+     if (主线关卡Type < 主线关卡Type.须弥宫) return 0;
+     if (主线关卡Type == 主线关卡Type.须弥宫)
+     {
+         return 100 + (层数-1) * 10;
+     }
+     if (主线关卡Type == 主线关卡Type.娲皇宫)
+     {
+         return 100 + (层数-1) * 10;
+     }
+     if (主线关卡Type == 主线关卡Type.碧游宫)
+     {
+         return 100 + (层数-1) * 10;
+     }
+     if (主线关卡Type == 主线关卡Type.玉虚宫)
+     {
+         return 100 + (层数-1) * 10;
+     }
+     if (主线关卡Type == 主线关卡Type.八景宫)
+     {
+         return 100 + (层数-1) * 10;
+     }
+
+     return 0;
+ }
+ public static List<float> 仙石品质基础概率 = new List<float>() {4500,2500,1500,1000,400,89,10,1 };
+
+ public QualityType Get仙石品质()
+ {
+     float random = Random.Range(0, 10000);
+     random /= 属性config.总掉宝率;
+     if (random < 仙石品质基础概率[7])
+     {
+         return QualityType.荒品;
+     }
+     if (random < 仙石品质基础概率[6])
+     {
+         return QualityType.洪品;
+     }
+     if (random < 仙石品质基础概率[5])
+     {
+         return QualityType.宙品;
+     }
+     if (random < 仙石品质基础概率[4])
+     {
+         return QualityType.宇品;
+     }
+     if (random < 仙石品质基础概率[3])
+     {
+         return QualityType.天品;
+     }
+     if (random < 仙石品质基础概率[2])
+     {
+         return QualityType.地品;
+     }
+     if (random < 仙石品质基础概率[1])
+     {
+         return QualityType.玄品;
+     }
+     
+     return QualityType.黄品;
+ }
+ public static float Get主线法器材料数量(主线关卡Type 主线关卡Type,int 层数)
+ {
+     JingJieType jingJieType = 主线关卡境界Dic[主线关卡Type];
+     float value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value= 主线关卡法器材料数量Dic[主线关卡Type];
+     }
+     else
+     {
+         value = 2;
+     }
+     return value;
+ }
     public static Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
         new Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>>()
         {

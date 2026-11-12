@@ -9,6 +9,41 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 通用法器材料1;
+	public static Sprite 通用法器材料2;
+	public static Sprite 通用法器材料3;
+	public static Sprite 通用法器材料4;
+	public static Sprite 通用法器材料5;
+	public static Sprite 通用法器材料6;
+	public static Sprite 通用法器材料7;
+	public static Sprite 通用法器材料8;
+	public static Sprite 通用法器材料9;
+	public static Sprite 通用法器材料10;
+	public static Sprite 通用法器材料11;
+	public static Sprite 通用法器材料12;
+	public static Sprite 通用法器材料13;
+	public static Sprite 通用法器材料14;
+	public static Sprite 通用法器材料15;
+	public static Sprite 通用法器材料16;
+	
+	public static Sprite 通用仙石1;
+	public static Sprite 通用仙石2;
+	public static Sprite 通用仙石3;
+	public static Sprite 通用仙石4;
+	public static Sprite 通用仙石5;
+	public static Sprite 通用仙石6;
+	public static Sprite 通用仙石7;
+	public static Sprite 通用仙石8;
+	public static Sprite 通用仙石9;
+	public static Sprite 通用仙石10;
+	public static Sprite 通用仙石11;
+	public static Sprite 通用仙石12;
+	public static Sprite 通用仙石13;
+	public static Sprite 通用仙石14;
+	public static Sprite 通用仙石15;
+	public static Sprite 通用仙石16;
+
+
 	public static Sprite 须弥气运;
 	public static Sprite 娲皇气运;
 	public static Sprite 八景气运;
@@ -8143,6 +8178,89 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	public static Sprite Get通用法器材料(int 阶数)
+	{
+		switch (阶数)
+		{
+			case 1:
+				return 通用法器材料1;
+			case 2:
+				return 通用法器材料2;
+			case 3:
+				return 通用法器材料3;
+			case 4:
+				return 通用法器材料4;
+			case 5:
+				return 通用法器材料5;
+			case 6:
+				return 通用法器材料6;
+			case 7:
+				return 通用法器材料7;
+			case 8:
+				return 通用法器材料8;
+			case 9:
+				return 通用法器材料9;
+			case 10:
+				return 通用法器材料10;
+			case 11:
+				return 通用法器材料11;
+			case 12:
+				return 通用法器材料12;
+			case 13:
+				return 通用法器材料13;
+			case 14:
+				return 通用法器材料14;
+			case 15:
+				return 通用法器材料15;
+			case 16:
+				return 通用法器材料16;
+		}
+
+		return null;
+	}
+	
+	
+	public static Sprite Get通用仙石(int 阶数)
+	{
+		switch (阶数)
+		{
+			case 1:
+				return 通用仙石1;
+			case 2:
+				return 通用仙石2;
+			case 3:
+				return 通用仙石3;
+			case 4:
+				return 通用仙石4;
+			case 5:
+				return 通用仙石5;
+			case 6:
+				return 通用仙石6;
+			case 7:
+				return 通用仙石7;
+			case 8:
+				return 通用仙石8;
+			case 9:
+				return 通用仙石9;
+			case 10:
+				return 通用仙石10;
+			case 11:
+				return 通用仙石11;
+			case 12:
+				return 通用仙石12;
+			case 13:
+				return 通用仙石13;
+			case 14:
+				return 通用仙石14;
+			case 15:
+				return 通用仙石15;
+			case 16:
+				return 通用仙石16;
+		}
+
+		return null;
+	}
+
 	/// <summary>
 	/// Chunked loading of all Resources assets: yields a frame every <c>chunk</c> load
 	/// statements and reports progress (0~1) via onProgress. Driven by StartLoadWindow
@@ -8151,6 +8269,40 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
+		通用仙石1=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[0];
+		通用仙石2=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[1];
+		通用仙石3=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[2];
+		通用仙石4=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[3];
+		通用仙石5=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[4];
+		通用仙石6=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[5];
+		通用仙石7=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[6];
+		通用仙石8=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[7];
+		通用仙石9=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[8];
+		通用仙石10=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[9];
+		通用仙石11=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[10];
+		通用仙石12=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[11];
+		通用仙石13=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[12];
+		通用仙石14=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[13];
+		通用仙石15=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[14];
+		通用仙石16=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[15];
+		
+		通用法器材料1=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[0];
+		通用法器材料2=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[1];
+		通用法器材料3=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[2];
+		通用法器材料4=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[3];
+		通用法器材料5=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[4];
+		通用法器材料6=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[5];
+		通用法器材料7=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[6];
+		通用法器材料8=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[7];
+		通用法器材料9=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[8];
+		通用法器材料10=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[9];
+		通用法器材料11=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[10];
+		通用法器材料12=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[11];
+		通用法器材料13=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[12];
+		通用法器材料14=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[13];
+		通用法器材料15=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[14];
+		通用法器材料16=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[15];
+		
 		须弥气运=Resources.Load<Sprite>("Sprite/天外天/须弥气运");
 		碧游气运=Resources.Load<Sprite>("Sprite/天外天/碧游气运");
 		娲皇气运=Resources.Load<Sprite>("Sprite/天外天/娲皇气运");
