@@ -17,6 +17,7 @@ namespace Config
         法师经验值,
         洗练石,
         灵魂,
+        灵石,
         衣服锻造石,
         辅助经验值,
         鞋子锻造石,
@@ -85,6 +86,9 @@ namespace Config
         玉虚气运,
         碧游气运,
         
+        锻造石,
+        职业经验,
+        
         法器1,法器2,法器3,法器4,法器5,法器6,法器7,法器8,法器9,法器10,法器11,法器12,法器13,法器14,法器15,法器16,
         仙石1,仙石2,仙石3,仙石4,仙石5,仙石6,仙石7,仙石8,仙石9,仙石10,仙石11,仙石12,仙石13,仙石14,仙石15,仙石16,
     }
@@ -103,6 +107,7 @@ namespace Config
         法师经验值,
         洗练石,
         灵魂,
+        灵石,
         衣服锻造石,
         辅助经验值,
         鞋子锻造石,
@@ -187,6 +192,9 @@ namespace Config
         八景气运,
         玉虚气运,
         碧游气运,
+        
+        锻造石,
+        职业经验,
         
         法器1,法器2,法器3,法器4,法器5,法器6,法器7,法器8,法器9,法器10,法器11,法器12,法器13,法器14,法器15,法器16,
         仙石1,仙石2,仙石3,仙石4,仙石5,仙石6,仙石7,仙石8,仙石9,仙石10,仙石11,仙石12,仙石13,仙石14,仙石15,仙石16,
@@ -277,6 +285,8 @@ namespace Config
             return ResourcesConfig.洗练石;
         case 道具信息Type.灵魂:
             return ResourcesConfig.灵魂;
+        case 道具信息Type.灵石:
+            return ResourcesConfig.灵石;
         case 道具信息Type.衣服锻造石:
             return ResourcesConfig.衣服锻造石;
         case 道具信息Type.辅助经验值:
@@ -447,6 +457,74 @@ namespace Config
             return ResourcesConfig.八景气运;
         case 道具信息Type.碧游气运:
             return ResourcesConfig.碧游气运;
+        case 道具信息Type.锻造石:
+            return ResourcesConfig.锻造石;
+        case 道具信息Type.职业经验:
+            return ResourcesConfig.职业经验;
+        case 道具信息Type.法器1:
+            return ResourcesConfig.Get通用法器材料(1);
+        case 道具信息Type.法器2:
+            return ResourcesConfig.Get通用法器材料(2);
+        case 道具信息Type.法器3:
+            return ResourcesConfig.Get通用法器材料(3);
+        case 道具信息Type.法器4:
+            return ResourcesConfig.Get通用法器材料(4);
+        case 道具信息Type.法器5:
+            return ResourcesConfig.Get通用法器材料(5);
+        case 道具信息Type.法器6:
+            return ResourcesConfig.Get通用法器材料(6);
+        case 道具信息Type.法器7:
+            return ResourcesConfig.Get通用法器材料(7);
+        case 道具信息Type.法器8:
+            return ResourcesConfig.Get通用法器材料(8);
+        case 道具信息Type.法器9:
+            return ResourcesConfig.Get通用法器材料(9);
+        case 道具信息Type.法器10:
+            return ResourcesConfig.Get通用法器材料(10);
+        case 道具信息Type.法器11:
+            return ResourcesConfig.Get通用法器材料(11);
+        case 道具信息Type.法器12:
+            return ResourcesConfig.Get通用法器材料(12);
+        case 道具信息Type.法器13:
+            return ResourcesConfig.Get通用法器材料(13);
+        case 道具信息Type.法器14:
+            return ResourcesConfig.Get通用法器材料(14);
+        case 道具信息Type.法器15:
+            return ResourcesConfig.Get通用法器材料(15);
+        case 道具信息Type.法器16:
+            return ResourcesConfig.Get通用法器材料(16);
+        case 道具信息Type.仙石1:
+            return ResourcesConfig.Get通用仙石(1);
+        case 道具信息Type.仙石2:
+            return ResourcesConfig.Get通用仙石(2);
+        case 道具信息Type.仙石3:
+            return ResourcesConfig.Get通用仙石(3);
+        case 道具信息Type.仙石4:
+            return ResourcesConfig.Get通用仙石(4);
+        case 道具信息Type.仙石5:
+            return ResourcesConfig.Get通用仙石(5);
+        case 道具信息Type.仙石6:
+            return ResourcesConfig.Get通用仙石(6);
+        case 道具信息Type.仙石7:
+            return ResourcesConfig.Get通用仙石(7);
+        case 道具信息Type.仙石8:
+            return ResourcesConfig.Get通用仙石(8);
+        case 道具信息Type.仙石9:
+            return ResourcesConfig.Get通用仙石(9);
+        case 道具信息Type.仙石10:
+            return ResourcesConfig.Get通用仙石(10);
+        case 道具信息Type.仙石11:
+            return ResourcesConfig.Get通用仙石(11);
+        case 道具信息Type.仙石12:
+            return ResourcesConfig.Get通用仙石(12);
+        case 道具信息Type.仙石13:
+            return ResourcesConfig.Get通用仙石(13);
+        case 道具信息Type.仙石14:
+            return ResourcesConfig.Get通用仙石(14);
+        case 道具信息Type.仙石15:
+            return ResourcesConfig.Get通用仙石(15);
+        case 道具信息Type.仙石16:
+            return ResourcesConfig.Get通用仙石(16);
         case 道具信息Type.道宝紫:
         case 道具信息Type.道宝橙:
         case 道具信息Type.道宝粉:
@@ -491,6 +569,8 @@ namespace Config
             { 道具信息Type.玉虚气运, QualityType.宇品 },
             { 道具信息Type.八景气运, QualityType.宇品 },
             { 道具信息Type.碧游气运, QualityType.宇品 },
+            { 道具信息Type.锻造石, QualityType.地品 },
+            { 道具信息Type.职业经验, QualityType.地品 },
             { 道具信息Type.血晶, QualityType.宇品 },
             { 道具信息Type.功德, QualityType.宇品 },
             { 道具信息Type.头盔锻造石, QualityType.地品 },
@@ -501,8 +581,9 @@ namespace Config
             { 道具信息Type.招募卷, QualityType.地品 },
             { 道具信息Type.控制经验值, QualityType.地品 },
             { 道具信息Type.法师经验值, QualityType.地品 },
-            { 道具信息Type.洗练石, QualityType.宇品 },
+            { 道具信息Type.洗练石, QualityType.地品 },
             { 道具信息Type.灵魂, QualityType.地品 },
+            { 道具信息Type.灵石, QualityType.地品 },
             { 道具信息Type.衣服锻造石, QualityType.地品 },
             { 道具信息Type.辅助经验值, QualityType.地品 },
             { 道具信息Type.鞋子锻造石, QualityType.地品 },
@@ -531,6 +612,40 @@ namespace Config
             { 道具信息Type.城墙粉, QualityType.宙品 },
             { 道具信息Type.城墙红, QualityType.洪品 },
             { 道具信息Type.城墙彩, QualityType.荒品 },
+
+            // 通用法器/通用仙石：与法器共用同一张阶数→品质表（每2阶一个品质档位）
+            { 道具信息Type.法器1, QualityType.黄品 },
+            { 道具信息Type.法器2, QualityType.黄品 },
+            { 道具信息Type.法器3, QualityType.玄品 },
+            { 道具信息Type.法器4, QualityType.玄品 },
+            { 道具信息Type.法器5, QualityType.地品 },
+            { 道具信息Type.法器6, QualityType.地品 },
+            { 道具信息Type.法器7, QualityType.天品 },
+            { 道具信息Type.法器8, QualityType.天品 },
+            { 道具信息Type.法器9, QualityType.宇品 },
+            { 道具信息Type.法器10, QualityType.宇品 },
+            { 道具信息Type.法器11, QualityType.宙品 },
+            { 道具信息Type.法器12, QualityType.宙品 },
+            { 道具信息Type.法器13, QualityType.洪品 },
+            { 道具信息Type.法器14, QualityType.洪品 },
+            { 道具信息Type.法器15, QualityType.荒品 },
+            { 道具信息Type.法器16, QualityType.荒品 },
+            { 道具信息Type.仙石1, QualityType.黄品 },
+            { 道具信息Type.仙石2, QualityType.黄品 },
+            { 道具信息Type.仙石3, QualityType.玄品 },
+            { 道具信息Type.仙石4, QualityType.玄品 },
+            { 道具信息Type.仙石5, QualityType.地品 },
+            { 道具信息Type.仙石6, QualityType.地品 },
+            { 道具信息Type.仙石7, QualityType.天品 },
+            { 道具信息Type.仙石8, QualityType.天品 },
+            { 道具信息Type.仙石9, QualityType.宇品 },
+            { 道具信息Type.仙石10, QualityType.宇品 },
+            { 道具信息Type.仙石11, QualityType.宙品 },
+            { 道具信息Type.仙石12, QualityType.宙品 },
+            { 道具信息Type.仙石13, QualityType.洪品 },
+            { 道具信息Type.仙石14, QualityType.洪品 },
+            { 道具信息Type.仙石15, QualityType.荒品 },
+            { 道具信息Type.仙石16, QualityType.荒品 },
         };
         
         public static Dictionary<道具信息Type, PropType> 道具信息ToPropType = new Dictionary<道具信息Type, PropType>()
@@ -548,6 +663,7 @@ namespace Config
             { 道具信息Type.法师经验值, PropType.法师经验值 },
             { 道具信息Type.洗练石, PropType.洗练石 },
             { 道具信息Type.灵魂, PropType.灵魂 },
+            { 道具信息Type.灵石, PropType.灵石 },
             { 道具信息Type.衣服锻造石, PropType.衣服锻造石 },
             { 道具信息Type.辅助经验值, PropType.辅助经验值 },
             { 道具信息Type.鞋子锻造石, PropType.鞋子锻造石 },
@@ -634,6 +750,41 @@ namespace Config
             { 道具信息Type.玉虚气运, PropType.玉虚气运 },
             { 道具信息Type.碧游气运, PropType.碧游气运 },
             { 道具信息Type.八景气运, PropType.八景气运 },
+            { 道具信息Type.锻造石, PropType.锻造石 },
+            { 道具信息Type.职业经验, PropType.职业经验 },
+            // 通用法器 (1~16阶) 与 通用仙石 (1~16阶)
+            { 道具信息Type.法器1, PropType.法器1 },
+            { 道具信息Type.法器2, PropType.法器2 },
+            { 道具信息Type.法器3, PropType.法器3 },
+            { 道具信息Type.法器4, PropType.法器4 },
+            { 道具信息Type.法器5, PropType.法器5 },
+            { 道具信息Type.法器6, PropType.法器6 },
+            { 道具信息Type.法器7, PropType.法器7 },
+            { 道具信息Type.法器8, PropType.法器8 },
+            { 道具信息Type.法器9, PropType.法器9 },
+            { 道具信息Type.法器10, PropType.法器10 },
+            { 道具信息Type.法器11, PropType.法器11 },
+            { 道具信息Type.法器12, PropType.法器12 },
+            { 道具信息Type.法器13, PropType.法器13 },
+            { 道具信息Type.法器14, PropType.法器14 },
+            { 道具信息Type.法器15, PropType.法器15 },
+            { 道具信息Type.法器16, PropType.法器16 },
+            { 道具信息Type.仙石1, PropType.仙石1 },
+            { 道具信息Type.仙石2, PropType.仙石2 },
+            { 道具信息Type.仙石3, PropType.仙石3 },
+            { 道具信息Type.仙石4, PropType.仙石4 },
+            { 道具信息Type.仙石5, PropType.仙石5 },
+            { 道具信息Type.仙石6, PropType.仙石6 },
+            { 道具信息Type.仙石7, PropType.仙石7 },
+            { 道具信息Type.仙石8, PropType.仙石8 },
+            { 道具信息Type.仙石9, PropType.仙石9 },
+            { 道具信息Type.仙石10, PropType.仙石10 },
+            { 道具信息Type.仙石11, PropType.仙石11 },
+            { 道具信息Type.仙石12, PropType.仙石12 },
+            { 道具信息Type.仙石13, PropType.仙石13 },
+            { 道具信息Type.仙石14, PropType.仙石14 },
+            { 道具信息Type.仙石15, PropType.仙石15 },
+            { 道具信息Type.仙石16, PropType.仙石16 },
         };
         
         public static Dictionary<PropType, 道具信息Type> PropTypeTo道具信息 = new Dictionary<PropType, 道具信息Type>()
@@ -651,6 +802,7 @@ namespace Config
             { PropType.法师经验值, 道具信息Type.法师经验值 },
             { PropType.洗练石, 道具信息Type.洗练石 },
             { PropType.灵魂, 道具信息Type.灵魂 },
+            { PropType.灵石, 道具信息Type.灵石 },
             { PropType.衣服锻造石, 道具信息Type.衣服锻造石 },
             { PropType.辅助经验值, 道具信息Type.辅助经验值 },
             { PropType.鞋子锻造石, 道具信息Type.鞋子锻造石 },
@@ -751,6 +903,43 @@ namespace Config
             { PropType.八景气运, 道具信息Type.八景气运 },
             { PropType.玉虚气运, 道具信息Type.玉虚气运 },
             { PropType.碧游气运, 道具信息Type.碧游气运 },
+            
+            { PropType.锻造石, 道具信息Type.锻造石 },
+            { PropType.职业经验, 道具信息Type.职业经验 },
+
+            // 通用法器 (1~16阶) 与 通用仙石 (1~16阶)
+            { PropType.法器1, 道具信息Type.法器1 },
+            { PropType.法器2, 道具信息Type.法器2 },
+            { PropType.法器3, 道具信息Type.法器3 },
+            { PropType.法器4, 道具信息Type.法器4 },
+            { PropType.法器5, 道具信息Type.法器5 },
+            { PropType.法器6, 道具信息Type.法器6 },
+            { PropType.法器7, 道具信息Type.法器7 },
+            { PropType.法器8, 道具信息Type.法器8 },
+            { PropType.法器9, 道具信息Type.法器9 },
+            { PropType.法器10, 道具信息Type.法器10 },
+            { PropType.法器11, 道具信息Type.法器11 },
+            { PropType.法器12, 道具信息Type.法器12 },
+            { PropType.法器13, 道具信息Type.法器13 },
+            { PropType.法器14, 道具信息Type.法器14 },
+            { PropType.法器15, 道具信息Type.法器15 },
+            { PropType.法器16, 道具信息Type.法器16 },
+            { PropType.仙石1, 道具信息Type.仙石1 },
+            { PropType.仙石2, 道具信息Type.仙石2 },
+            { PropType.仙石3, 道具信息Type.仙石3 },
+            { PropType.仙石4, 道具信息Type.仙石4 },
+            { PropType.仙石5, 道具信息Type.仙石5 },
+            { PropType.仙石6, 道具信息Type.仙石6 },
+            { PropType.仙石7, 道具信息Type.仙石7 },
+            { PropType.仙石8, 道具信息Type.仙石8 },
+            { PropType.仙石9, 道具信息Type.仙石9 },
+            { PropType.仙石10, 道具信息Type.仙石10 },
+            { PropType.仙石11, 道具信息Type.仙石11 },
+            { PropType.仙石12, 道具信息Type.仙石12 },
+            { PropType.仙石13, 道具信息Type.仙石13 },
+            { PropType.仙石14, 道具信息Type.仙石14 },
+            { PropType.仙石15, 道具信息Type.仙石15 },
+            { PropType.仙石16, 道具信息Type.仙石16 },
         };
 
         public static Dictionary<道具信息Type, string> 道具信息NameDic = new Dictionary<道具信息Type, string>()
@@ -771,6 +960,8 @@ namespace Config
             { 道具信息Type.八景气运, "八景气运" },
             { 道具信息Type.玉虚气运, "玉虚气运" },
             { 道具信息Type.碧游气运, "碧游气运" },
+            { 道具信息Type.锻造石, "锻造石" },
+            { 道具信息Type.职业经验, "职业经验" },
             { 道具信息Type.法器粉尘, "法器粉尘" },
             { 道具信息Type.功德, "功德" },
             { 道具信息Type.头盔锻造石, "头盔锻造石" },
@@ -782,7 +973,8 @@ namespace Config
             { 道具信息Type.控制经验值, "控制经验值" },
             { 道具信息Type.法师经验值, "法师经验值" },
             { 道具信息Type.洗练石, "洗练石" },
-            { 道具信息Type.灵魂, "灵气" },
+            { 道具信息Type.灵魂, "灵魂" },
+            { 道具信息Type.灵石, "灵石" },
             { 道具信息Type.衣服锻造石, "衣服锻造石" },
             { 道具信息Type.辅助经验值, "辅助经验值" },
             { 道具信息Type.鞋子锻造石, "鞋子锻造石" },
@@ -811,6 +1003,41 @@ namespace Config
             { 道具信息Type.城墙粉, "宙品城墙法宝" },
             { 道具信息Type.城墙红, "洪品城墙法宝" },
             { 道具信息Type.城墙彩, "荒品城墙法宝" },
+
+            // 通用法器
+            { 道具信息Type.法器1, "一阶法器" },
+            { 道具信息Type.法器2, "二阶法器" },
+            { 道具信息Type.法器3, "三阶法器" },
+            { 道具信息Type.法器4, "四阶法器" },
+            { 道具信息Type.法器5, "五阶法器" },
+            { 道具信息Type.法器6, "六阶法器" },
+            { 道具信息Type.法器7, "七阶法器" },
+            { 道具信息Type.法器8, "八阶法器" },
+            { 道具信息Type.法器9, "九阶法器" },
+            { 道具信息Type.法器10, "十阶法器" },
+            { 道具信息Type.法器11, "十一阶法器" },
+            { 道具信息Type.法器12, "十二阶法器" },
+            { 道具信息Type.法器13, "十三阶法器" },
+            { 道具信息Type.法器14, "十四阶法器" },
+            { 道具信息Type.法器15, "十五阶法器" },
+            { 道具信息Type.法器16, "十六阶法器" },
+            // 通用仙石
+            { 道具信息Type.仙石1, "一阶仙石" },
+            { 道具信息Type.仙石2, "二阶仙石" },
+            { 道具信息Type.仙石3, "三阶仙石" },
+            { 道具信息Type.仙石4, "四阶仙石" },
+            { 道具信息Type.仙石5, "五阶仙石" },
+            { 道具信息Type.仙石6, "六阶仙石" },
+            { 道具信息Type.仙石7, "七阶仙石" },
+            { 道具信息Type.仙石8, "八阶仙石" },
+            { 道具信息Type.仙石9, "九阶仙石" },
+            { 道具信息Type.仙石10, "十阶仙石" },
+            { 道具信息Type.仙石11, "十一阶仙石" },
+            { 道具信息Type.仙石12, "十二阶仙石" },
+            { 道具信息Type.仙石13, "十三阶仙石" },
+            { 道具信息Type.仙石14, "十四阶仙石" },
+            { 道具信息Type.仙石15, "十五阶仙石" },
+            { 道具信息Type.仙石16, "十六阶仙石" },
         };
         
         public static Dictionary<道具信息Type, string> 道具信息InfoDic = new Dictionary<道具信息Type, string>()
@@ -826,7 +1053,8 @@ namespace Config
             { 道具信息Type.控制经验值, "提升控制英雄星级等级的关键材料,主线关卡掉落" },
             { 道具信息Type.法师经验值, "提升法师英雄星级等级的关键材料,主线关卡掉落" },
             { 道具信息Type.洗练石, "用于洗练重置装备附加词条的核心材料,主线关卡掉落" },
-            { 道具信息Type.灵魂, "洪荒世界中流通的通用货币" },
+            { 道具信息Type.灵魂, "升级灵矿场的关键材料,所有关卡掉落" },
+            { 道具信息Type.灵石, "用途广泛,洪荒世界的通用货币" },
             { 道具信息Type.衣服锻造石, "用于升级衣服装备的必备锻造材料,主线关卡掉落" },
             { 道具信息Type.辅助经验值, "提升辅助英雄星级等级的关键材料,主线关卡掉落" },
             { 道具信息Type.鞋子锻造石, "用于升级鞋子装备的必备锻造材料,主线关卡掉落" },
@@ -888,6 +1116,43 @@ namespace Config
             { 道具信息Type.八景气运, "须弥宫气运之力,八景宫获得,可兑换气运秘宝" },
             { 道具信息Type.玉虚气运, "须弥宫气运之力,玉虚宫获得,可兑换气运秘宝" },
             { 道具信息Type.碧游气运, "须弥宫气运之力,碧游宫获得,可兑换气运秘宝" },
+            { 道具信息Type.锻造石, "领主装备锻造石,可用来强化领主装备" },
+            { 道具信息Type.职业经验, "提升英雄境界的必须物品" },
+
+            // 通用法器
+            { 道具信息Type.法器1, "一阶法器材料，可以用来打造一阶法器" },
+            { 道具信息Type.法器2, "二阶法器材料，可以用来打造二阶法器" },
+            { 道具信息Type.法器3, "三阶法器材料，可以用来打造三阶法器" },
+            { 道具信息Type.法器4, "四阶法器材料，可以用来打造四阶法器" },
+            { 道具信息Type.法器5, "五阶法器材料，可以用来打造五阶法器" },
+            { 道具信息Type.法器6, "六阶法器材料，可以用来打造六阶法器" },
+            { 道具信息Type.法器7, "七阶法器材料，可以用来打造七阶法器" },
+            { 道具信息Type.法器8, "八阶法器材料，可以用来打造八阶法器" },
+            { 道具信息Type.法器9, "九阶法器材料，可以用来打造九阶法器" },
+            { 道具信息Type.法器10, "十阶法器材料，可以用来打造十阶法器" },
+            { 道具信息Type.法器11, "十一阶法器材料，可以用来打造十一阶法器" },
+            { 道具信息Type.法器12, "十二阶法器材料，可以用来打造十二阶法器" },
+            { 道具信息Type.法器13, "十三阶法器材料，可以用来打造十三阶法器" },
+            { 道具信息Type.法器14, "十四阶法器材料，可以用来打造十四阶法器" },
+            { 道具信息Type.法器15, "十五阶法器材料，可以用来打造十五阶法器" },
+            { 道具信息Type.法器16, "十六阶法器材料，可以用来打造十六阶法器" },
+            // 通用仙石
+            { 道具信息Type.仙石1, "一阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石2, "二阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石3, "三阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石4, "四阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石5, "五阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石6, "六阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石7, "七阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石8, "八阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石9, "九阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石10, "十阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石11, "十一阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石12, "十二阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石13, "十三阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石14, "十四阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石15, "十五阶仙石，可以镶嵌在法器上" },
+            { 道具信息Type.仙石16, "十六阶仙石，可以镶嵌在法器上" },
         };
 
         
@@ -919,7 +1184,6 @@ namespace Config
                     return ResourcesConfig.玄铁;
                 case PropType.玉髓:
                     return ResourcesConfig.玉髓;
-                
                 case PropType.石1:
                     return ResourcesConfig.Get法器材料Sprite(法器材料Type.石, 1);
                 case PropType.石2:
@@ -1066,6 +1330,10 @@ namespace Config
                     return ResourcesConfig.八景气运;
                 case PropType.碧游气运:
                     return ResourcesConfig.碧游气运;
+                case PropType.锻造石:
+                    return ResourcesConfig.锻造石;
+                case PropType.职业经验:
+                    return ResourcesConfig.职业经验;
                 case PropType.法器粉尘:
                     return ResourcesConfig.法器粉尘;
                 case PropType.全职业经验值:
@@ -1092,6 +1360,8 @@ namespace Config
                     return ResourcesConfig.洗练石;
                 case PropType.灵魂:
                     return ResourcesConfig.灵魂;
+                case PropType.灵石:
+                    return ResourcesConfig.灵石;
                 case PropType.衣服锻造石:
                     return ResourcesConfig.衣服锻造石;
                 case PropType.辅助经验值:
@@ -1186,6 +1456,74 @@ namespace Config
                 case PropType.盘古元神:
                     return ResourcesConfig.盘古平台;
 
+                // 通用法器 (1~16阶)
+                case PropType.法器1:
+                    return ResourcesConfig.Get通用法器材料(1);
+                case PropType.法器2:
+                    return ResourcesConfig.Get通用法器材料(2);
+                case PropType.法器3:
+                    return ResourcesConfig.Get通用法器材料(3);
+                case PropType.法器4:
+                    return ResourcesConfig.Get通用法器材料(4);
+                case PropType.法器5:
+                    return ResourcesConfig.Get通用法器材料(5);
+                case PropType.法器6:
+                    return ResourcesConfig.Get通用法器材料(6);
+                case PropType.法器7:
+                    return ResourcesConfig.Get通用法器材料(7);
+                case PropType.法器8:
+                    return ResourcesConfig.Get通用法器材料(8);
+                case PropType.法器9:
+                    return ResourcesConfig.Get通用法器材料(9);
+                case PropType.法器10:
+                    return ResourcesConfig.Get通用法器材料(10);
+                case PropType.法器11:
+                    return ResourcesConfig.Get通用法器材料(11);
+                case PropType.法器12:
+                    return ResourcesConfig.Get通用法器材料(12);
+                case PropType.法器13:
+                    return ResourcesConfig.Get通用法器材料(13);
+                case PropType.法器14:
+                    return ResourcesConfig.Get通用法器材料(14);
+                case PropType.法器15:
+                    return ResourcesConfig.Get通用法器材料(15);
+                case PropType.法器16:
+                    return ResourcesConfig.Get通用法器材料(16);
+
+                // 通用仙石 (1~16阶)
+                case PropType.仙石1:
+                    return ResourcesConfig.Get通用仙石(1);
+                case PropType.仙石2:
+                    return ResourcesConfig.Get通用仙石(2);
+                case PropType.仙石3:
+                    return ResourcesConfig.Get通用仙石(3);
+                case PropType.仙石4:
+                    return ResourcesConfig.Get通用仙石(4);
+                case PropType.仙石5:
+                    return ResourcesConfig.Get通用仙石(5);
+                case PropType.仙石6:
+                    return ResourcesConfig.Get通用仙石(6);
+                case PropType.仙石7:
+                    return ResourcesConfig.Get通用仙石(7);
+                case PropType.仙石8:
+                    return ResourcesConfig.Get通用仙石(8);
+                case PropType.仙石9:
+                    return ResourcesConfig.Get通用仙石(9);
+                case PropType.仙石10:
+                    return ResourcesConfig.Get通用仙石(10);
+                case PropType.仙石11:
+                    return ResourcesConfig.Get通用仙石(11);
+                case PropType.仙石12:
+                    return ResourcesConfig.Get通用仙石(12);
+                case PropType.仙石13:
+                    return ResourcesConfig.Get通用仙石(13);
+                case PropType.仙石14:
+                    return ResourcesConfig.Get通用仙石(14);
+                case PropType.仙石15:
+                    return ResourcesConfig.Get通用仙石(15);
+                case PropType.仙石16:
+                    return ResourcesConfig.Get通用仙石(16);
+
                 case PropType.None:
                 default:
                     return null;
@@ -1242,6 +1580,7 @@ namespace Config
             { PropType.法师经验值, "法师经验值" },
             { PropType.洗练石, "洗练石" },
             { PropType.灵魂, "灵魂" },
+            { PropType.灵石, "灵石" },
             { PropType.衣服锻造石, "衣服锻造石" },
             { PropType.辅助经验值, "辅助经验值" },
             { PropType.鞋子锻造石, "鞋子锻造石" },
@@ -1311,6 +1650,42 @@ namespace Config
             { PropType.玉虚气运, "玉虚气运" },
             { PropType.八景气运, "八景气运" },
             { PropType.碧游气运, "碧游气运" },
+            { PropType.锻造石, "锻造石" },
+            { PropType.职业经验, "职业经验" },
+            // 通用法器
+            { PropType.法器1, "一阶法器材料" },
+            { PropType.法器2, "二阶法器材料" },
+            { PropType.法器3, "三阶法器材料" },
+            { PropType.法器4, "四阶法器材料" },
+            { PropType.法器5, "五阶法器材料" },
+            { PropType.法器6, "六阶法器材料" },
+            { PropType.法器7, "七阶法器材料" },
+            { PropType.法器8, "八阶法器材料" },
+            { PropType.法器9, "九阶法器材料" },
+            { PropType.法器10, "十阶法器材料" },
+            { PropType.法器11, "十一阶法器材料" },
+            { PropType.法器12, "十二阶法器材料" },
+            { PropType.法器13, "十三阶法器材料" },
+            { PropType.法器14, "十四阶法器材料" },
+            { PropType.法器15, "十五阶法器材料" },
+            { PropType.法器16, "十六阶法器材料" },
+            // 通用仙石
+            { PropType.仙石1, "一阶仙石" },
+            { PropType.仙石2, "二阶仙石" },
+            { PropType.仙石3, "三阶仙石" },
+            { PropType.仙石4, "四阶仙石" },
+            { PropType.仙石5, "五阶仙石" },
+            { PropType.仙石6, "六阶仙石" },
+            { PropType.仙石7, "七阶仙石" },
+            { PropType.仙石8, "八阶仙石" },
+            { PropType.仙石9, "九阶仙石" },
+            { PropType.仙石10, "十阶仙石" },
+            { PropType.仙石11, "十一阶仙石" },
+            { PropType.仙石12, "十二阶仙石" },
+            { PropType.仙石13, "十三阶仙石" },
+            { PropType.仙石14, "十四阶仙石" },
+            { PropType.仙石15, "十五阶仙石" },
+            { PropType.仙石16, "十六阶仙石" },
         };
 
         public static Dictionary<PropType, QualityType> PropQualityDic = new Dictionary<PropType, QualityType>()
@@ -1331,11 +1706,13 @@ namespace Config
             { PropType.玉虚气运, QualityType.宇品 },
             { PropType.碧游气运, QualityType.宇品 },
 
+            { PropType.锻造石, QualityType.地品 },
+            { PropType.职业经验, QualityType.地品 },
             // 法器材料品质 (石1~石16, 铁1~铁16, 羽1~羽16, 砂1~砂16)
             // 法器材料不再按品质分，而是按阶数分，PropQualityDic中不再包含材料项
 
             { PropType.法器粉尘, QualityType.地品 },
-            { PropType.洗练石, QualityType.宇品 },
+            { PropType.洗练石, QualityType.地品 },
             { PropType.全职业经验值, QualityType.天品 },
             { PropType.射手经验值, QualityType.地品 },
             { PropType.战士经验值, QualityType.地品 },
@@ -1351,6 +1728,7 @@ namespace Config
             { PropType.招募卷, QualityType.地品 },
             { PropType.高级招募卷, QualityType.宇品 },
             { PropType.灵魂, QualityType.地品 },
+            { PropType.灵石, QualityType.地品 },
             { PropType.功德, QualityType.宇品 },
             // 白色 -> 黄
             { PropType.丹童元神, QualityType.黄品 },
@@ -1414,7 +1792,41 @@ namespace Config
             
             { PropType.鸿蒙法则, QualityType.荒品 },
             { PropType.力之法则, QualityType.荒品 },
-            
+
+            // 通用法器：1~2阶黄品、3~4阶玄品…15~16阶荒品
+            { PropType.法器1, QualityType.黄品 },
+            { PropType.法器2, QualityType.黄品 },
+            { PropType.法器3, QualityType.玄品 },
+            { PropType.法器4, QualityType.玄品 },
+            { PropType.法器5, QualityType.地品 },
+            { PropType.法器6, QualityType.地品 },
+            { PropType.法器7, QualityType.天品 },
+            { PropType.法器8, QualityType.天品 },
+            { PropType.法器9, QualityType.宇品 },
+            { PropType.法器10, QualityType.宇品 },
+            { PropType.法器11, QualityType.宙品 },
+            { PropType.法器12, QualityType.宙品 },
+            { PropType.法器13, QualityType.洪品 },
+            { PropType.法器14, QualityType.洪品 },
+            { PropType.法器15, QualityType.荒品 },
+            { PropType.法器16, QualityType.荒品 },
+            // 通用仙石：与法器同一套阶数→品质
+            { PropType.仙石1, QualityType.黄品 },
+            { PropType.仙石2, QualityType.黄品 },
+            { PropType.仙石3, QualityType.玄品 },
+            { PropType.仙石4, QualityType.玄品 },
+            { PropType.仙石5, QualityType.地品 },
+            { PropType.仙石6, QualityType.地品 },
+            { PropType.仙石7, QualityType.天品 },
+            { PropType.仙石8, QualityType.天品 },
+            { PropType.仙石9, QualityType.宇品 },
+            { PropType.仙石10, QualityType.宇品 },
+            { PropType.仙石11, QualityType.宙品 },
+            { PropType.仙石12, QualityType.宙品 },
+            { PropType.仙石13, QualityType.洪品 },
+            { PropType.仙石14, QualityType.洪品 },
+            { PropType.仙石15, QualityType.荒品 },
+            { PropType.仙石16, QualityType.荒品 },
         };
 
         /// <summary>

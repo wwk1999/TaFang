@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class 胜利弹窗 : MonoBehaviour
 {
@@ -153,7 +154,7 @@ public class 胜利弹窗 : MonoBehaviour
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item.Type = PropType.灵魂;
-            item.count = value.灵魂;
+            item.count = (int)value.灵魂;
             item.SetItem();
         }
 
@@ -195,7 +196,7 @@ public class 胜利弹窗 : MonoBehaviour
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item.Type = PropType.灵魂;
-            item.count = value.灵魂;
+            item.count = (int)value.灵魂;
             item.SetItem();
         }
     }
@@ -237,7 +238,7 @@ public class 胜利弹窗 : MonoBehaviour
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item.Type = PropType.灵魂;
-            item.count = value.灵魂;
+            item.count = (int)value.灵魂;
             item.SetItem();
         }
     }
@@ -339,95 +340,326 @@ public class 胜利弹窗 : MonoBehaviour
                 break;
         }
     }
+
+    public void 增加法器材料(法器材料Type 法器材料Type, int 阶数, float count)
+    {
+        switch (法器材料Type)
+        {
+            case 法器材料Type.石:
+                switch (阶数)
+                {
+                    case 1:
+                        PlayerData.S.PropListDic[PropType.石1] += count;
+                        break;
+                    case 2:
+                        PlayerData.S.PropListDic[PropType.石2] += count;
+                        break;
+                    case 3:
+                        PlayerData.S.PropListDic[PropType.石3] += count;
+                        break;
+                    case 4:
+                        PlayerData.S.PropListDic[PropType.石4] += count;
+                        break;
+                    case 5:
+                        PlayerData.S.PropListDic[PropType.石5] += count;
+                        break;
+                    case 6:
+                        PlayerData.S.PropListDic[PropType.石6] += count;
+                        break;
+                    case 7:
+                        PlayerData.S.PropListDic[PropType.石7] += count;
+                        break;
+                    case 8:
+                        PlayerData.S.PropListDic[PropType.石8] += count;
+                        break;
+                    case 9:
+                        PlayerData.S.PropListDic[PropType.石9] += count;
+                        break;
+                    case 10:
+                        PlayerData.S.PropListDic[PropType.石10] += count;
+                        break;
+                    case 11:
+                        PlayerData.S.PropListDic[PropType.石11] += count;
+                        break;
+                    case 12:
+                        PlayerData.S.PropListDic[PropType.石12] += count;
+                        break;
+                    case 13:
+                        PlayerData.S.PropListDic[PropType.石13] += count;
+                        break;
+                    case 14:
+                        PlayerData.S.PropListDic[PropType.石14] += count;
+                        break;
+                    case 15:
+                        PlayerData.S.PropListDic[PropType.石15] += count;
+                        break;
+                    case 16:
+                        PlayerData.S.PropListDic[PropType.石16] += count;
+                        break;
+                }
+                break;
+            
+            case 法器材料Type.羽:
+                switch (阶数)
+                {
+                    case 1:
+                        PlayerData.S.PropListDic[PropType.羽1] += count;
+                        break;
+                    case 2:
+                        PlayerData.S.PropListDic[PropType.羽2] += count;
+                        break;
+                    case 3:
+                        PlayerData.S.PropListDic[PropType.羽3] += count;
+                        break;
+                    case 4:
+                        PlayerData.S.PropListDic[PropType.羽4] += count;
+                        break;
+                    case 5:
+                        PlayerData.S.PropListDic[PropType.羽5] += count;
+                        break;
+                    case 6:
+                        PlayerData.S.PropListDic[PropType.羽6] += count;
+                        break;
+                    case 7:
+                        PlayerData.S.PropListDic[PropType.羽7] += count;
+                        break;
+                    case 8:
+                        PlayerData.S.PropListDic[PropType.羽8] += count;
+                        break;
+                    case 9:
+                        PlayerData.S.PropListDic[PropType.羽9] += count;
+                        break;
+                    case 10:
+                        PlayerData.S.PropListDic[PropType.羽10] += count;
+                        break;
+                    case 11:
+                        PlayerData.S.PropListDic[PropType.羽11] += count;
+                        break;
+                    case 12:
+                        PlayerData.S.PropListDic[PropType.羽12] += count;
+                        break;
+                    case 13:
+                        PlayerData.S.PropListDic[PropType.羽13] += count;
+                        break;
+                    case 14:
+                        PlayerData.S.PropListDic[PropType.羽14] += count;
+                        break;
+                    case 15:
+                        PlayerData.S.PropListDic[PropType.羽15] += count;
+                        break;
+                    case 16:
+                        PlayerData.S.PropListDic[PropType.羽16] += count;
+                        break;
+                }
+                break;
+            
+            
+            case 法器材料Type.砂:
+                switch (阶数)
+                {
+                    case 1:
+                        PlayerData.S.PropListDic[PropType.砂1] += count;
+                        break;
+                    case 2:
+                        PlayerData.S.PropListDic[PropType.砂2] += count;
+                        break;
+                    case 3:
+                        PlayerData.S.PropListDic[PropType.砂3] += count;
+                        break;
+                    case 4:
+                        PlayerData.S.PropListDic[PropType.砂4] += count;
+                        break;
+                    case 5:
+                        PlayerData.S.PropListDic[PropType.砂5] += count;
+                        break;
+                    case 6:
+                        PlayerData.S.PropListDic[PropType.砂6] += count;
+                        break;
+                    case 7:
+                        PlayerData.S.PropListDic[PropType.砂7] += count;
+                        break;
+                    case 8:
+                        PlayerData.S.PropListDic[PropType.砂8] += count;
+                        break;
+                    case 9:
+                        PlayerData.S.PropListDic[PropType.砂9] += count;
+                        break;
+                    case 10:
+                        PlayerData.S.PropListDic[PropType.砂10] += count;
+                        break;
+                    case 11:
+                        PlayerData.S.PropListDic[PropType.砂11] += count;
+                        break;
+                    case 12:
+                        PlayerData.S.PropListDic[PropType.砂12] += count;
+                        break;
+                    case 13:
+                        PlayerData.S.PropListDic[PropType.砂13] += count;
+                        break;
+                    case 14:
+                        PlayerData.S.PropListDic[PropType.砂14] += count;
+                        break;
+                    case 15:
+                        PlayerData.S.PropListDic[PropType.砂15] += count;
+                        break;
+                    case 16:
+                        PlayerData.S.PropListDic[PropType.砂16] += count;
+                        break;
+                }
+                break;
+            
+            
+            case 法器材料Type.铁:
+                switch (阶数)
+                {
+                    case 1:
+                        PlayerData.S.PropListDic[PropType.铁1] += count;
+                        break;
+                    case 2:
+                        PlayerData.S.PropListDic[PropType.铁2] += count;
+                        break;
+                    case 3:
+                        PlayerData.S.PropListDic[PropType.铁3] += count;
+                        break;
+                    case 4:
+                        PlayerData.S.PropListDic[PropType.铁4] += count;
+                        break;
+                    case 5:
+                        PlayerData.S.PropListDic[PropType.铁5] += count;
+                        break;
+                    case 6:
+                        PlayerData.S.PropListDic[PropType.铁6] += count;
+                        break;
+                    case 7:
+                        PlayerData.S.PropListDic[PropType.铁7] += count;
+                        break;
+                    case 8:
+                        PlayerData.S.PropListDic[PropType.铁8] += count;
+                        break;
+                    case 9:
+                        PlayerData.S.PropListDic[PropType.铁9] += count;
+                        break;
+                    case 10:
+                        PlayerData.S.PropListDic[PropType.铁10] += count;
+                        break;
+                    case 11:
+                        PlayerData.S.PropListDic[PropType.铁11] += count;
+                        break;
+                    case 12:
+                        PlayerData.S.PropListDic[PropType.铁12] += count;
+                        break;
+                    case 13:
+                        PlayerData.S.PropListDic[PropType.铁13] += count;
+                        break;
+                    case 14:
+                        PlayerData.S.PropListDic[PropType.铁14] += count;
+                        break;
+                    case 15:
+                        PlayerData.S.PropListDic[PropType.铁15] += count;
+                        break;
+                    case 16:
+                        PlayerData.S.PropListDic[PropType.铁16] += count;
+                        break;
+                }
+                break;
+        }
+    }
     public void 主线关卡结算()
     {
-        普通关卡胜利奖励 value = LevelConfig.Get主线胜利奖励();
-        float 轮回石数量 = 0;
-        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        int 层数 = 1;
+        switch (LevelConfig.当前主线关卡Type)
         {
-            if (LevelConfig.战斗混沌虚空层数 >= 1000)
-            {
-                轮回石数量= 5+(LevelConfig.战斗混沌虚空层数-1000)/500;
-            }
-            else if (LevelConfig.战斗混沌虚空层数 >= 500)
-            {
-                轮回石数量= 4;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 200)
-            {
-                轮回石数量= 3;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 50)
-            {
-                轮回石数量= 2;
-            }else
-            {
-                轮回石数量= 1;
-            }
+            case 主线关卡Type.混沌虚空:
+                层数 = LevelConfig.战斗混沌虚空层数;
+                break;
+            case 主线关卡Type.须弥宫:
+                层数 = LevelConfig.战斗须弥宫层数;
+                break;
+            case 主线关卡Type.娲皇宫:
+                层数 = LevelConfig.战斗娲皇宫层数;
+                break;
+            case 主线关卡Type.碧游宫:
+                层数 = LevelConfig.战斗碧游宫层数;
+                break;
+            case 主线关卡Type.玉虚宫:
+                层数 = LevelConfig.战斗玉虚宫层数;
+                break;
+            case 主线关卡Type.八景宫:
+                层数 = LevelConfig.战斗八景宫层数;
+                break;
         }
-        else
-        {
-            轮回石数量= 1;
-        }
+        主线关卡掉落 value = LevelConfig.Get主线关卡掉落(LevelConfig.当前主线关卡Type,层数);
+        float 轮回石数量 = value.轮回石数量;
         轮回石数量 += Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.轮回石] += 轮回石数量;
-        JingJieType 关卡JieType = LevelConfig.主线关卡境界Dic[LevelConfig.当前主线关卡Type];
-        if (LevelConfig.当前主线关卡Type == 主线关卡Type.混沌虚空)
+        float 灵魂 = value.灵魂 * Random.Range(0.8f, 1.2f);
+        float 洗练石 = value.洗练石 * Random.Range(0.8f, 1.2f);
+        float 射手经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
+        float 战士经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
+        float 辅助经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
+        float 法师经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
+        float 控制经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
+        float 衣服锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
+        float 头盔锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
+        float 护手锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
+        float 鞋子锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
+        float 项链锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
+        float 戒指锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
+        float 招募卷 = value.招募卷 * Random.Range(0.8f, 1.2f);
+        if (value.灵魂 > 0)
         {
-            if (PlayerData.S.是否自动下一关)
-            {
-                LevelConfig.战斗混沌虚空层数++;
-            }
-            ObserverModuleManager.S.SendEvent("刷新关卡层数");
-            if (LevelConfig.战斗混沌虚空层数 >= 800)
-            {
-                关卡JieType = JingJieType.鸿蒙;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 550)
-            {
-                关卡JieType = JingJieType.混元圣人;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 450)
-            {
-                关卡JieType = JingJieType.大道圣人;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 350)
-            {
-                关卡JieType = JingJieType.天道圣人;
-            }else if (LevelConfig.战斗混沌虚空层数 >= 250)
-            {
-                关卡JieType = JingJieType.圣人;
-            }
-            else if (LevelConfig.战斗混沌虚空层数 >= 180)
-            {
-                关卡JieType = JingJieType.准圣;
-            }
-            else if (LevelConfig.战斗混沌虚空层数 >= 100)
-            {
-                关卡JieType = JingJieType.大罗金仙;
-            }
-            else if (LevelConfig.战斗混沌虚空层数 >= 50)
-            {
-                关卡JieType = JingJieType.太乙金仙;
-            }
-            else 
-            {
-                关卡JieType = JingJieType.金仙;
-            }
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.灵魂;
+            item.count = (int)灵魂;
+            item.SetItem();
         }
         
-        var list = 法器Config.Get关卡法器材料掉落(关卡JieType);
-        foreach (var item in list)
-        {
-            string propName = item.法器材料Type.ToString() + item.阶数;
-            if (Enum.TryParse<PropType>(propName, out var propType))
-            {
-                PlayerData.S.PropListDic[propType]++;
-            }
-
-            var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item1.法器材料Type = item.法器材料Type;
-            item1.法器材料阶数 = item.阶数;
-            item1.SetItem();
-        }
-
-        var 仙石列表 = 仙石Config.Get关卡仙石掉落(关卡JieType);
+        
+        int 法器阶数 = value.法器材料阶数;
+        float 法器数量 = value.法器材料数量;
+        float 砂数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
+        float 铁数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
+        float 石数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
+        float 羽数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
+        增加法器材料(法器材料Type.石,法器阶数,石数量);
+        增加法器材料(法器材料Type.羽,法器阶数,羽数量);
+        增加法器材料(法器材料Type.铁,法器阶数,铁数量);
+        增加法器材料(法器材料Type.砂,法器阶数,砂数量);
+        
+        var 石 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        石.法器材料Type = 法器材料Type.石;
+        石.法器材料阶数= 法器阶数;
+        石.count = Math.Max(1,(int)石数量);
+        石.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
+        石.SetItem();
+        
+        var 铁 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        铁.法器材料Type = 法器材料Type.铁;
+        铁.法器材料阶数= 法器阶数;  
+        铁.count = Math.Max(1,(int)铁数量);
+        铁.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
+        铁.SetItem();
+        
+        var 羽 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        羽.法器材料Type = 法器材料Type.羽;
+        羽.法器材料阶数= 法器阶数;
+        羽.count = Math.Max(1,(int)羽数量);
+        羽.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
+        羽.SetItem();
+        
+        var 砂 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+            .GetComponent<胜利弹窗item>();
+        砂.法器材料Type = 法器材料Type.砂;
+        砂.法器材料阶数= 法器阶数;
+        砂.count = Math.Max(1,(int)砂数量);
+        砂.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
+        砂.SetItem();
+        
+        var 仙石列表 = 仙石Config.Get关卡仙石掉落(value);
         foreach (var item in 仙石列表)
         {
             PlayerData.S.仙石列表.Add(item);
@@ -438,26 +670,29 @@ public class 胜利弹窗 : MonoBehaviour
             item1.仙石阶数 = item.阶数;
             item1.SetItem();
         }
-        PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂;
-        PlayerData.S.PropListDic[PropType.洗练石] += value.洗练石;
-        PlayerData.S.PropListDic[PropType.射手经验值] += value.射手经验值;
-        PlayerData.S.PropListDic[PropType.战士经验值] += value.战士经验值;
-        PlayerData.S.PropListDic[PropType.辅助经验值] += value.辅助经验值;
-        PlayerData.S.PropListDic[PropType.法师经验值] += value.法师经验值;
-        PlayerData.S.PropListDic[PropType.控制经验值] += value.控制经验值;
-        PlayerData.S.PropListDic[PropType.衣服锻造石] += value.衣服锻造石;
-        PlayerData.S.PropListDic[PropType.头盔锻造石] += value.头盔锻造石;
-        PlayerData.S.PropListDic[PropType.护手锻造石] += value.护手锻造石;
-        PlayerData.S.PropListDic[PropType.鞋子锻造石] += value.鞋子锻造石;
-        PlayerData.S.PropListDic[PropType.项链锻造石] += value.项链锻造石;
-        PlayerData.S.PropListDic[PropType.戒指锻造石] += value.戒指锻造石;
-        PlayerData.S.PropListDic[PropType.招募卷] += value.招募卷;
+
+       
+
+        PlayerData.S.PropListDic[PropType.灵魂] += 灵魂;
+        PlayerData.S.PropListDic[PropType.洗练石] += 洗练石;
+        PlayerData.S.PropListDic[PropType.射手经验值] += 射手经验值;
+        PlayerData.S.PropListDic[PropType.战士经验值] += 战士经验值;
+        PlayerData.S.PropListDic[PropType.辅助经验值] += 辅助经验值;
+        PlayerData.S.PropListDic[PropType.法师经验值] += 法师经验值;
+        PlayerData.S.PropListDic[PropType.控制经验值] += 控制经验值;
+        PlayerData.S.PropListDic[PropType.衣服锻造石] += 衣服锻造石;
+        PlayerData.S.PropListDic[PropType.头盔锻造石] += 头盔锻造石;
+        PlayerData.S.PropListDic[PropType.护手锻造石] += 护手锻造石;
+        PlayerData.S.PropListDic[PropType.鞋子锻造石] += 鞋子锻造石;
+        PlayerData.S.PropListDic[PropType.项链锻造石] += 项链锻造石;
+        PlayerData.S.PropListDic[PropType.戒指锻造石] += 戒指锻造石;
+        PlayerData.S.PropListDic[PropType.招募卷] += 招募卷;
         PlayerData.S.PropListDic[PropType.高级招募卷] += value.高级招募卷;
 
         var item11 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
             .GetComponent<胜利弹窗item>();
         item11.Type = PropType.轮回石;
-        item11.count = (long)轮回石数量;
+        item11.count = (int)轮回石数量;
         item11.SetItem();
         
         if (value.高级招募卷 > 0)
@@ -465,135 +700,126 @@ public class 胜利弹窗 : MonoBehaviour
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item.Type = PropType.高级招募卷;
-            item.count = value.高级招募卷;
+            item.count = (int)value.高级招募卷;
             item.SetItem();
         }
-
-        if (value.灵魂 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.灵魂;
-            item.count = value.灵魂;
-            item.SetItem();
-        }
-
-        if (value.战士经验值 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.战士经验值;
-            item.count = value.战士经验值;
-            item.SetItem();
-        }
-
-        if (value.射手经验值 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.射手经验值;
-            item.count = value.射手经验值;
-            item.SetItem();
-        }
-
-        if (value.法师经验值 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.法师经验值;
-            item.count = value.法师经验值;
-            item.SetItem();
-        }
-
-        if (value.控制经验值 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.控制经验值;
-            item.count = value.控制经验值;
-            item.SetItem();
-        }
-
-        if (value.辅助经验值 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.辅助经验值;
-            item.count = value.辅助经验值;
-            item.SetItem();
-        }
-
-        if (value.衣服锻造石 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.衣服锻造石;
-            item.count = value.衣服锻造石;
-            item.SetItem();
-        }
-
-        if (value.头盔锻造石 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.头盔锻造石;
-            item.count = value.头盔锻造石;
-            item.SetItem();
-        }
-
-        if (value.护手锻造石 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.护手锻造石;
-            item.count = value.护手锻造石;
-            item.SetItem();
-        }
-
-        if (value.鞋子锻造石 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.鞋子锻造石;
-            item.count = value.鞋子锻造石;
-            item.SetItem();
-        }
-
-        if (value.戒指锻造石 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.戒指锻造石;
-            item.count = value.戒指锻造石;
-            item.SetItem();
-        }
-
-        if (value.项链锻造石 > 0)
-        {
-            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
-                .GetComponent<胜利弹窗item>();
-            item.Type = PropType.项链锻造石;
-            item.count = value.项链锻造石;
-            item.SetItem();
-        }
-
-        if (value.招募卷 > 0)
+        
+        if (招募卷 > 0)
         {
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item.Type = PropType.招募卷;
-            item.count = value.招募卷;
+            item.count = (int)招募卷;
             item.SetItem();
         }
 
-        if (value.洗练石 > 0)
+        if (洗练石 > 0)
         {
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
                 .GetComponent<胜利弹窗item>();
             item.Type = PropType.洗练石;
-            item.count = value.洗练石;
+            item.count = (int)洗练石;
+            item.SetItem();
+        }
+        
+
+        if (value.职业经验 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.战士经验值;
+            item.count = (int)战士经验值;
             item.SetItem();
         }
 
+        if (value.职业经验 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.法师经验值;
+            item.count = (int)法师经验值;
+            item.SetItem();
+        }
+
+        if (value.职业经验 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.射手经验值;
+            item.count = (int)射手经验值;
+            item.SetItem();
+        }
+
+        if (value.职业经验 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.控制经验值;
+            item.count = (int)控制经验值;
+            item.SetItem();
+        }
+
+        if (value.职业经验 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.辅助经验值;
+            item.count = (int)辅助经验值;
+            item.SetItem();
+        }
+
+        if (衣服锻造石 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.衣服锻造石;
+            item.count = (int)衣服锻造石;
+            item.SetItem();
+        }
+
+        if (护手锻造石 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.护手锻造石;
+            item.count = (int)护手锻造石;
+            item.SetItem();
+        }
+
+        if (戒指锻造石 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.戒指锻造石;
+            item.count = (int)戒指锻造石;
+            item.SetItem();
+        }
+
+        if (项链锻造石 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.项链锻造石;
+            item.count = (int)项链锻造石;
+            item.SetItem();
+        }
+
+        if (头盔锻造石 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.头盔锻造石;
+            item.count = (int)头盔锻造石;
+            item.SetItem();
+        }
+
+        if (鞋子锻造石 > 0)
+        {
+            var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
+                .GetComponent<胜利弹窗item>();
+            item.Type = PropType.鞋子锻造石;
+            item.count = (int)鞋子锻造石;
+            item.SetItem();
+        }
     }
 }

@@ -44,11 +44,7 @@ public class 仙石Config
         { 仙石Type.玄灵晶, "瑶池仙境万载花魂凝结，散发着玄奥灵光，可治愈万物。" },
         { 仙石Type.天罡石, "雷云深处历经千载孕育的紫核，引动九天雷霆，势不可挡。" },
     };
-    //掉落0-4件
-    public static List<float> 仙石掉落数量概率List = new List<float>()
-    {
-        30, 64, 5, 1, 0
-    };
+   
 
     public static List<float> 仙石重铸品质倍数List = new List<float>() { 1, 1.5f, 2, 3, 5, 8, 12, 20 };
     public static Dictionary<int, float> 仙石重铸消耗Dic = new Dictionary<int, float>()
@@ -255,25 +251,11 @@ public class 仙石Config
         仙石.list = Get仙石附加属性(仙石.阶数, qualityType);
         return 仙石;
     }
-    public static 仙石 单次仙石掉落(JingJieType jingJieType)
+    public static 仙石 单次仙石掉落(主线关卡掉落 主线关卡掉落)
     {
         // 先按境界抽阶数（掉落概率表每个境界16档，索引0=1阶），再按阶数抽品质
-        int 掉落阶数 = 1;
-        float count = 0;
-        float 阶数random = Random.Range(0, 100);
-        if (仙石掉落概率Dic.TryGetValue(jingJieType, out var 阶数概率表))
-        {
-            for (int i = 0; i < 阶数概率表.Count; i++)
-            {
-                count += 阶数概率表[i];
-                if (阶数random < count)
-                {
-                    掉落阶数 = i + 1;
-                    break;
-                }
-            }
-        }
-        QualityType 掉落品质 = Random品质(掉落阶数);
+        int 掉落阶数 = 主线关卡掉落.仙石掉落阶数;
+        QualityType 掉落品质 = LevelConfig.Get仙石品质();
         仙石 仙石 = new 仙石();
         仙石.阶数 = 掉落阶数;
         仙石.quality = 掉落品质;
@@ -281,22 +263,13 @@ public class 仙石Config
         仙石.list = Get仙石附加属性(掉落阶数, 掉落品质);
         return 仙石;
     }
-    public static List<仙石> Get关卡仙石掉落(JingJieType jingJieType)
+    public static List<仙石> Get关卡仙石掉落(主线关卡掉落 主线关卡掉落)
     {
-        int 掉落数量 = 0;
-        float count = 0;
-        float 数量random=Random.Range(0,100);
-        foreach (var item in 仙石掉落数量概率List)
-        {
-            count += item;
-            if (数量random < count) break;
-            掉落数量++;
-        }
-        掉落数量 = (int)(掉落数量*属性config.总掉宝率);
+        int 掉落数量 = 主线关卡掉落.仙石掉落数量;
         List<仙石> list = new List<仙石>();
         for (int i = 0; i < 掉落数量; i++)
         {
-            list.Add(单次仙石掉落(jingJieType));
+            list.Add(单次仙石掉落(主线关卡掉落));
         }
         return list;
     }

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>灵矿场 · 洪荒之刷宝成圣</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#171916;color:#efeee7}body{display:flex;flex-direction:column;font-family:"Microsoft YaHei",sans-serif}#frame{flex:1;min-height:0;display:grid;place-items:center;overflow:hidden}#wrap{position:relative;overflow:hidden}#stage{width:1920px;height:1080px;position:absolute;left:0;top:0;transform-origin:top left;overflow:hidden;background:#292821;color:#242421;font-family:KaiTi,STKaiti,SimSun,serif}#art{position:absolute;inset:0}
+button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:3px solid #dab872;outline-offset:3px}.hud{position:absolute}.ink{background:url("界面素材/大墨刷.png") center / 100% 100% no-repeat;color:#eee7d6;text-shadow:0 1px 2px #151411}.minorInk{background-image:url("界面素材/小墨刷.png")}
+h1{margin:0;top:0;left:712px;width:496px;height:92px;display:grid;place-items:center;font-size:62px;font-weight:bold;letter-spacing:8px;padding-left:8px}#info{top:15px;left:12px;width:463px;height:295px;background:url("界面素材/开采信息底.png") 50% / 100% 100% no-repeat;display:flex;flex-direction:column;margin:0;padding:12px 35px 18px 35px}#info h2{font-size:31px;letter-spacing:3px;width:225px;text-align:center;margin:0 0 1px -10px;padding:4px 0 3px}dl{margin:0 4px}dl div{display:grid;grid-template-columns:152px 1fr;align-items:center;height:36px;border-bottom:1px solid rgba(52,50,43,.3)}dl div:last-child{border:none}dt,dd{margin:0;font-size:24px;font-weight:600;white-space:nowrap}dd{font-weight:600;font-variant-numeric:tabular-nums}#spirit{right:83px;top:12px;width:343px;height:59px;display:flex;gap:15px;align-items:center;justify-content:center;font-size:28px;font-weight:600}#spirit img{width:41px;height:47px;object-fit:contain}#spirit b{font:600 29px Georgia,SimSun,serif;color:#fbedd3}#exit{right:13px;top:14px;border:0;width:53px;height:54px;background:transparent url("界面素材/关闭.png") center/contain no-repeat}
+#entries{bottom:7px;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:49px}.entry{background:none;color:#efe7d8;border:0;padding:0;width:170px;height:122px;display:flex;align-items:center;justify-content:flex-end;flex-direction:column;position:relative}.entry img{width:151px;height:94px;object-fit:contain;display:block}.entry span{font:600 32px KaiTi,STKaiti,serif;white-space:nowrap;letter-spacing:2px;height:42px;padding-top:2px;width:170px;margin-top:-7px;z-index:1}.entry:hover img,.entry:focus-visible img,#back:hover,#exit:hover{filter:drop-shadow(0 0 3px #efd598) drop-shadow(0 0 2px #e9d28a)}.entry:active{transform:translateY(2px)}#back{bottom:19px;left:16px;width:245px;height:80px;background:transparent url("界面素材/返回营地.png") center / contain no-repeat;color:#eee7d8;border:0;font-size:27px;letter-spacing:2px;font-weight:700;padding:0 1px 0 62px}
+#tools{margin:auto;max-width:100%;display:flex;gap:10px;align-items:center;justify-content:center;padding:8px 10px 10px;flex-wrap:wrap;font:14px "Microsoft YaHei",sans-serif;color:#d1d1c9}#tools :is(button,select){min-height:32px;background:#30322f;border:1px solid #5f6058;border-radius:3px;color:#f1f0e8;padding:4px 12px}#tools label{display:flex;gap:7px;align-items:center}#tools :is(button,select):hover{background:#41433d}#tools small{font-size:12px;color:#a6a99f}#stage.capture,#stage:fullscreen{margin:0}body.capture #tools{display:none}
+#secondary{position:absolute;inset:0;background:#171814e8;display:grid;place-items:center}#secondary[hidden]{display:none}#secondary img{max-width:100%;max-height:100%;object-fit:contain}#secondary button{position:absolute;bottom:23px;right:28px;font-size:25px;padding:8px 24px;border:1px solid #d4c4a8;color:#ede4cc;background:#272722}#message{position:absolute;inset:auto 10% 12%;text-align:center;color:white;font-size:30px}
+@media(max-width:750px){#tools{gap:4px;padding:5px}#tools small{display:none}#tools :is(button,select){padding:3px 6px}}
+</style></head><body>
+<main id="frame"><div id="wrap"><div id="stage"><canvas id="art" width="1920" height="1080" aria-label="矿洞洞壁与四层采掘剖面"></canvas>
+<section class="hud" id="info"><h2 class="ink minorInk">开采信息</h2><dl>
+<div><dt>当前层</dt><dd id="stratum"></dd></div><div><dt>当前米数</dt><dd id="depth"></dd></div><div><dt>下一层米数</dt><dd id="threshold"></dd></div><div><dt>当前灵矿</dt><dd id="ore"></dd></div><div><dt>挖掘速度</dt><dd>2.4 米/道年</dd></div><div><dt>灵气收益</dt><dd>120 /道年</dd></div></dl></section>
+<h1 class="hud ink">灵矿场</h1><div class="hud ink minorInk" id="spirit"><img src="界面素材/灵气.png" alt=""><span>当前灵气</span><b>12,860</b></div><button class="hud" id="exit" aria-label="关闭灵矿场"></button>
+<nav class="hud" id="entries" aria-label="灵矿场入口"></nav><button class="hud" id="back">返回营地</button>
+<section id="secondary" hidden aria-label="既有界面预览"><img alt=""><div id="message"></div><button type="button">返回灵矿场</button></section></div></div></main>
+<footer id="tools" aria-label="演示控制"><label>地层预览<select id="choose"></select></label><button id="auto">暂停开采</button><button id="dig">下挖一格</button><label>播放速度<select id="speed"><option value="1">1×</option><option value="3">3×</option></select></label><small>米数及收益为界面示例</small></footer>
+<script>
+'use strict';
+const names=['黑土浅层','岩石矿层','赤铜矿层','玄铁深层','金玉灵层','紫晶幻层','地火熔层','深渊暗层','归墟混元层','太初本源层'];
+const numerals=['一','二','三','四','五','六','七','八','九','十'];
+const $=id=>document.getElementById(id), canvas=$('art'),ctx=canvas.getContext('2d',{alpha:false});
+const W=1920,H=1080,ground=560,band=130,cycle=31/10;
+const ease=x=>x*x*(3-2*x),clip=x=>Math.max(0,Math.min(1,x));
+const parameters=new URLSearchParams(location.search);
+if(parameters.has('capture'))document.body.classList.add('capture');
+function fit(){const k=Math.min($('frame').clientWidth/W,$('frame').clientHeight/H);$('wrap').style.width=(W*k)+'px';$('wrap').style.height=(H*k)+'px';$('stage').style.transform='scale('+k+')'}
+new ResizeObserver(fit).observe($('frame'));fit();
+const choices=$('choose');names.forEach((name,i)=>choices.add(new Option('第'+numerals[i]+'层 · '+name,i)));
+const destinations={'招募':'界面素材/入口预览/招募.png','矿工':'../03_二级UI与弹窗/完整效果图_矿工管理_方格加深_1920x1080.png','矿洞':'界面素材/入口预览/矿洞.png','灵矿背包':'界面素材/入口预览/灵矿背包.png','营地':'界面素材/入口预览/营地.png'};
+const overlay=$('secondary');
+function navigate(name){
+ if(!window.dispatchEvent(new CustomEvent('mine:navigate',{detail:{destination:name},cancelable:true})))return;
+ const im=overlay.querySelector('img');$('message').textContent='';im.hidden=true;
+ im.onload=()=>im.hidden=false;im.onerror=()=>{$('message').textContent=name+'入口';im.hidden=true};
+ im.alt=name;im.src=destinations[name];overlay.hidden=false;overlay.querySelector('button').focus();
+}
+for(const name of ['招募','矿工','矿洞','灵矿背包']){
+ const button=document.createElement('button');button.className='entry';button.innerHTML='<img alt="" src="界面素材/入口_'+name+'.png"><span class="ink minorInk">'+name+'</span>';button.onclick=()=>navigate(name);$('entries').append(button);
+}
+$('back').onclick=$('exit').onclick=()=>navigate('营地');
+function closeOverlay(){overlay.hidden=true;$('back').focus()}overlay.querySelector('button').onclick=closeOverlay;
+window.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)closeOverlay()});
+const cache=new Map();
+const sharedWall=loadFile("场景素材/矿洞背景_上下循环.png");
+function loadFile(path){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error(path));im.src=path})}
+function artFor(i){
+ if(!cache.has(i)){const base='场景素材/'+String(i+1).padStart(2,'0')+'_'+names[i]+'/';
+ const filenames=['土层_A','土层_B','土层_C'];
+ if(i>=3)filenames.push('矿光_A','矿光_B','矿光_C');
+ cache.set(i,Promise.all([sharedWall,...filenames.map(n=>loadFile(base+n+'.png'))]).catch(e=>{cache.delete(i);throw e}))}return cache.get(i)
+}
+let manualStep=false,carriedWall=0,level=-1,pictures=null,completed=0,t=0,moving=false,auto=!parameters.has('capture'),idle=0,token=0,last=performance.now(),fade=1,prior=null,updating=false,transitionTarget=null;
+const shade=['#855e42','#8a8278','#b2714e','#6d7782','#928e64','#9a80a1','#ae6743','#587387','#797f69','#b6a396'];
+function updateStats(){
+ const knownStart=[36,100,1000][level],bound=[100,1000][level];
+ $('stratum').textContent='第'+numerals[level]+'层 · '+names[level];
+ $('depth').textContent=knownStart===undefined?'本层 '+completed+' 米':(knownStart+completed).toLocaleString('zh-CN')+' 米';
+ $('threshold').textContent=bound?bound.toLocaleString('zh-CN')+' 米':level===9?'最深层':'待配置';
+ $('ore').textContent=numerals[level]+'阶灵矿';choices.value=String(level);
+}
+function syncButtons(){$('auto').textContent=auto?'暂停开采':'自动开采';$('auto').setAttribute('aria-pressed',String(auto))}
+async function setLevel(next,animate=true){
+ if(!Number.isInteger(next)||next<0||next>=names.length)return;
+ const id=++token;updating=true;transitionTarget=next;
+ try{
+  const art=await artFor(next);if(id!==token)return;
+  if(animate&&pictures){prior=document.createElement('canvas');prior.width=W;prior.height=H;prior.getContext('2d').drawImage(canvas,0,0);fade=0}else{prior=null;fade=1}
+  if(pictures)carriedWall=(carriedWall+(completed+motion())*57)%(art[0].height*W/art[0].width);
+  level=next;pictures=art;completed=0;t=0;moving=false;idle=0;updateStats();draw();window.dispatchEvent(new CustomEvent('mine:stage',{detail:{index:next,name:names[next]}}));
+ }finally{if(id===token){updating=false;transitionTarget=null}}
+}
+function begin(){if(!pictures||moving||updating)return false;t=0;moving=true;idle=0;return true}
+function motion(){return moving?ease(clip((t-.48)/1.02)):0}
+function finish(){
+ manualStep=false;completed++;t=0;moving=false;idle=0;updateStats();window.dispatchEvent(new CustomEvent('mine:dug',{detail:{stage:level+1,steps:completed}}));
+ if((level===0&&36+completed===100)||(level===1&&100+completed===1000))setLevel(level+1)
+}
+function groundPath(cut){
+ const points=[433,759,1081,1436],stride=8;
+ ctx.beginPath();for(let x=0;x<=W;x+=stride){
+  const base=2.1*Math.sin(x*.015)+1.2*Math.sin(x*.047+.9)+.65*Math.sin(x*.095);
+  let dip=0;for(let j=0;j<points.length;j++){const d=(x-points[j]-14*Math.sin(completed+j*2.1))/(49+9*j);if(Math.abs(d)<1)dip+=(1-d*d)*(1-d*d)*(17+(j%2)*8)}
+  const y=ground+base+dip*cut;if(!x)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+ }
+}
+const reducedGlowMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let oreLightTime=0;
+let lastOreDraw=0;
+function draw(){
+ if(!pictures)return;
+ const p=motion(),wall=pictures[0],step=completed+p;
+ const tileH=wall.height*W/wall.width;
+ // The saved scanline is on a continuous piece of rock. Start on the cave vista.
+ const initial=tileH-65*(W/wall.width);
+ const shift=((initial+carriedWall+step*57)%tileH+tileH)%tileH;
+ ctx.save();ctx.beginPath();ctx.rect(0,0,W,ground+42);ctx.clip();
+ for(let y=-shift;y<ground+42;y+=tileH)ctx.drawImage(wall,0,y,W,tileH+.6);
+ ctx.restore();
+ const cut=moving?Math.min(1,t/.28)*(1-ease(clip((t-.5)/.72))):0;
+ ctx.save();groundPath(cut);ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.clip();
+ ctx.fillStyle=['#463c34','#55504b','#653d30','#394149','#565747','#504654','#51392e','#323f49','#414b43','#71625c'][level];ctx.fillRect(0,ground-8,W,H-ground+8);
+ // The outgoing strip is exhausted before its replacement opens at the bottom.
+ // Three persistent strata travel upward throughout the excavation.
+ const outgoing=p<.5,edgeHeight=(outgoing?1-2*p:2*p-1)*band,otherHeight=(4*band-edgeHeight)/3;
+ const spans=outgoing?[edgeHeight,otherHeight,otherHeight,otherHeight]:[otherHeight,otherHeight,otherHeight,edgeHeight];
+ let top=ground;
+ for(let i=0;i<4;i++){
+  const index=completed+i+(outgoing?0:1),key=index%3,mirrored=Math.floor(index/3)%2===1,span=spans[i];
+  if(span>.15){
+   const isEdge=(outgoing&&i===0)||(!outgoing&&i===3);
+   // Only a cropped portion of the spent/new strip is exposed; ore never squashes to a point.
+   const scaleY=isEdge?band/128:span/128;
+   const y=top-10*scaleY-(isEdge&&outgoing?band-span:0);
+   ctx.save();ctx.beginPath();ctx.rect(0,Math.max(ground-7,top-8),W,span+16);ctx.clip();
+   if(mirrored){ctx.translate(W,0);ctx.scale(-1,1)}
+   const stripHeight=148*scaleY+.65;
+   ctx.drawImage(pictures[1+key],0,y,W,stripHeight);
+   const emission=pictures[4+key];
+   if(emission){
+    const phase=oreLightTime*(2*Math.PI/(5.2-(level-3)*.14))+index*1.63;
+    const breath=reducedGlowMotion.matches ? .45 :.5-.5*Math.cos(phase);
+    ctx.globalCompositeOperation='lighter';
+    ctx.globalAlpha=.12+.67*breath;
+    ctx.drawImage(emission,0,y,W,stripHeight);
+   }
+   ctx.restore();
+  }
+  top+=span;
+ }ctx.restore();
+ groundPath(cut);ctx.strokeStyle='rgba(35,30,24,.83)';ctx.lineWidth=5;ctx.stroke();
+ ctx.save();ctx.translate(0,2.2);groundPath(cut);ctx.strokeStyle=shade[level];ctx.lineWidth=2.6;ctx.stroke();ctx.restore();
+ if(moving&&t<.85){
+  const origins=[433,759,1081,1436];
+  for(let j=0;j<4;j++)for(let k=0;k<3;k++){
+   const age=(t-.045*j-.037*k)/.62;if(age<=0||age>=1)continue;
+   const sign=((k+j)%2?1:-1),x=origins[j]+14*Math.sin(completed+j*2.1)+sign*(13+20*age+k*7),y=ground-3-(19+7*k)*Math.sin(Math.PI*age)+12*age;
+   ctx.save();ctx.translate(x,y);ctx.rotate(sign*age*1.1+k);ctx.globalAlpha=1-age*.88;ctx.fillStyle=shade[level];ctx.strokeStyle='#413c32';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(-4-k,-2);ctx.lineTo(k+3,-3);ctx.lineTo(k+5,1);ctx.lineTo(1,4);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();
+  }
+ }
+ if(prior&&fade<1){ctx.globalAlpha=1-ease(fade);ctx.drawImage(prior,0,0);ctx.globalAlpha=1}
+}
+function frame(now){
+ const dt=Math.min((now-last)/1000,.075);last=now;
+ if(pictures&&!updating&&overlay.hidden){
+  const v=Number($('speed').value),d=dt*v;
+  let repaint=false;
+  if(pictures.length>4&&!reducedGlowMotion.matches){
+   oreLightTime+=dt;
+   if(now-lastOreDraw>=1000/30){repaint=true;lastOreDraw=now}
+  }
+  if(fade<1){fade=Math.min(1,fade+dt/.5);repaint=true;if(fade===1)prior=null}
+  if(moving&&(auto||manualStep)){t+=d;if(t>=1.53)finish();repaint=true}
+  else if(auto&&!moving){idle+=d;if(idle>=cycle-1.53)begin()}
+  if(repaint)draw();
+ }
+ requestAnimationFrame(frame)
+}
+choices.onchange=()=>setLevel(Number(choices.value));$('auto').onclick=()=>{auto=!auto;manualStep=false;syncButtons()};$('dig').onclick=()=>{auto=false;manualStep=true;syncButtons();begin()};
+window.minePreview={setLevel,step:()=>{manualStep=true;return begin()},state:()=>({level,completed,moving,auto,phase:motion(),wallPhase:carriedWall+(completed+motion())*57,ready:!!pictures&&!updating,transitionTarget}),pause:()=>{auto=false;manualStep=false;syncButtons()}};
+syncButtons();window.mineReady=setLevel(0,false).catch(e=>{$('stratum').textContent='素材读取失败';console.error(e);throw e});
+requestAnimationFrame(frame);
+</script></body></html>

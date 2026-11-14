@@ -332,7 +332,7 @@ public class 法器Config
         if (阶数 < 1 || 阶数 > 16) return string.Empty;
         if (材料名称.TryGetValue(法器材料Type, out var names))
         {
-            return names[阶数 - 1];
+            return PlayerData.S.Get阶数string(阶数)+"·"+(names[阶数 - 1]);
         }
         return string.Empty;
     }

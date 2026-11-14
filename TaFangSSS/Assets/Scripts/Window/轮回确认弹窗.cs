@@ -28,7 +28,7 @@ public class 轮回确认弹窗 : MonoBehaviour
     private void 刷新文本()
     {
         轮回石count.text=(JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界]+PlayerData.S.轮回次数*10).ToString();
-        text.text = 多语言Config.Get("并永久保留{0}%当前跟脚作为轮回后的初始跟脚", JingJieConfig.轮回系数);
+        text.text = 多语言Config.Get("并永久保留{0}%当前跟脚作为轮回后的初始跟脚", 属性config.总属性.轮回系数*100f);
     }
 
     private void Start()
@@ -51,7 +51,7 @@ public class 轮回确认弹窗 : MonoBehaviour
             PlayerData.S.PropListDic[PropType.轮回石] -= JingJieConfig.轮回消耗Dic[PlayerData.S.当前轮回境界]+PlayerData.S.轮回次数*10;
             BigDouble 轮回前跟脚 = JingJieConfig.跟脚;
             PlayerData.S.当前体质 = 体质Config.Get轮回体质();
-            PlayerData.S.初始跟脚 += 轮回前跟脚 * JingJieConfig.轮回系数 / 100f;
+            PlayerData.S.初始跟脚 += 轮回前跟脚 * 属性config.总属性.轮回系数;
             for (int i = 1; i < Enum.GetValues(typeof(JingJieType)).Length; i++)
             {
                 PlayerData.S.当前轮回突破Dic[(JingJieType)i] = QualityType.None;

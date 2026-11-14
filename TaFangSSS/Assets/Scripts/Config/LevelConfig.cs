@@ -128,9 +128,10 @@ public class 主线关卡掉落
     public int 法器材料阶数;//法器材料和仙石默认掉落1个
     public float 法器材料数量;
     public int 仙石掉落阶数;
-    public float 仙石掉落数量;
+    public int 仙石掉落数量;
     public float 轮回石数量;
     public float 气运;
+    public float 灵魂;
 }
 public class LevelConfig : MonoBehaviour
 {
@@ -148,6 +149,9 @@ public class LevelConfig : MonoBehaviour
         主线关卡掉落.仙石掉落数量 = Get主线关卡仙石数量();
         主线关卡掉落.轮回石数量 = Get主线关卡轮回石(主线关卡Type,层数);
         主线关卡掉落.气运 = Get主线关卡气运(主线关卡Type,层数);
+        主线关卡掉落.灵魂 = Get主线灵魂数量(主线关卡Type, 层数);
+        主线关卡掉落.锻造石 = Get主线关卡锻造石(主线关卡Type, 层数);
+        主线关卡掉落.高级招募卷 = Get主线关卡高级招募卷数量();
         return 主线关卡掉落;
     }
     public static 关卡类型 当前关卡类型 = 关卡类型.主线关卡;
@@ -266,7 +270,37 @@ public class LevelConfig : MonoBehaviour
         { 主线关卡Type.玉虚宫, JingJieType.准圣 },
         { 主线关卡Type.八景宫, JingJieType.准圣 },
     };
-    
+    public static Dictionary<主线关卡Type, float> 主线关卡灵魂Dic = new Dictionary<主线关卡Type, float>()
+    {
+        { 主线关卡Type.花果山, 100 },
+        { 主线关卡Type.水帘洞, 120 }, 
+        { 主线关卡Type.蓬莱仙岛, 150 },
+        { 主线关卡Type.五行山, 180 },
+        { 主线关卡Type.傲来国, 230 },
+        { 主线关卡Type.高老庄, 280 },
+        { 主线关卡Type.女儿国, 350 },
+        { 主线关卡Type.小雷音寺, 420 },
+        { 主线关卡Type.平顶山, 500 },
+        { 主线关卡Type.火焰山, 600 },
+        { 主线关卡Type.芭蕉洞, 700 },
+        { 主线关卡Type.流沙河, 850 },
+        { 主线关卡Type.狮驼岭, 1000 },
+        { 主线关卡Type.东海龙宫,1200 },
+        { 主线关卡Type.冥府, 1400 },
+        
+        { 主线关卡Type.南天门, 1600 },
+        { 主线关卡Type.瑶池仙境, 1800 },
+        { 主线关卡Type.斩妖台, 2000 },
+        
+        
+        { 主线关卡Type.御马监, 2300 },
+        { 主线关卡Type.蟠桃园, 2600 },
+        
+        
+        { 主线关卡Type.兜率宫, 3000 },
+        { 主线关卡Type.紫微宫, 3500 },
+        { 主线关卡Type.昊天殿, 4000 },
+    };
     public static Dictionary<主线关卡Type, float> 主线关卡法器材料数量Dic = new Dictionary<主线关卡Type, float>()
     {
         { 主线关卡Type.花果山, 1 },
@@ -1304,155 +1338,9 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
        value.List = 灵物list;
        return value;
    }
-   public static 普通关卡胜利奖励 Get主线胜利奖励()
-   {
-       HashSet<LevelDiaoLuo> list = LevelDiaoLuoDic[当前主线关卡Type];
-       普通关卡胜利奖励 value = new 普通关卡胜利奖励();
-       float 高级招募卷random=Random.Range(0f, 100f);
-       if (高级招募卷random < 10 * (1f+道场Config.供奉总属性.高级招募卷掉率 / 100f))
-       {
-           float 获得两个招募卷random=Random.Range(0f, 100f);
-           if (获得两个招募卷random < 道场Config.供奉总属性.概率获得两个高级招募卷)
-           {
-               value.高级招募卷 = 1;
-           }
-           else
-           {
-               value.高级招募卷 = 1;
-           }
-       }
-       foreach (var item in list)
-       {
-           float min = item.minCount;
-           float max = item.maxCount;
-           if (当前主线关卡Type == 主线关卡Type.混沌虚空)
-           {
-               min = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).min;
-               max = Get混沌虚空奖励(战斗混沌虚空层数, item.PropType).max;
-           }
-           long random=(long)Random.Range(min,max);
-           switch (item.PropType)
-           {
-               case PropType.灵魂:
-                   value.灵魂 = (int)(random*(1f+道宝Config.羁绊灵气/100f)*(1f+属性config.灵气增幅));
-                   break;
-               case PropType.射手经验值:
-                   value.射手经验值 = random;
-                   break;
-               case PropType.法师经验值:
-                   value.法师经验值 = random;
-                   break;
-               case PropType.控制经验值:
-                   value.控制经验值 = random;
-                   break;
-               case PropType.战士经验值:
-                   value.战士经验值 = random;
-                   break;
-               case PropType.辅助经验值:
-                   value.辅助经验值 = random;
-                   break;
-               case PropType.衣服锻造石:
-                   value.衣服锻造石 = random;
-                   break;
-               case PropType.头盔锻造石:
-                   value.头盔锻造石 = random;
-                   break;
-               case PropType.鞋子锻造石:
-                   value.鞋子锻造石 = random;
-                   break;
-               case PropType.护手锻造石:
-                   value.护手锻造石 = random;
-                   break;
-               case PropType.戒指锻造石:
-                   value.戒指锻造石 = random;
-                   break;
-               case PropType.项链锻造石:
-                   value.项链锻造石 = random;
-                   break;
-               case PropType.招募卷:
-                   value.招募卷 = random;
-                   break;
-               case PropType.洗练石:
-                   value.洗练石 = random;
-                   break;
-           }
-       }
+   
 
-       return value;
-   }
-
-   public static int 混沌虚空每层灵魂数量 = 80;
-
-   public static minmax Get混沌虚空奖励(int 层数, PropType type)
- {
-     minmax result = new minmax();
-
-     
-     
-     // 基础值取自混沌虚空掉落表
-     LevelDiaoLuo baseItem = null;
-     foreach (var item in LevelDiaoLuoDic[主线关卡Type.混沌虚空])
-     {
-         if (item.PropType == type)
-         {
-             baseItem = item;
-             break;
-         }
-     }
-
-     if (baseItem == null)
-     {
-         return result;
-     }
-
-     result.min = baseItem.minCount;
-     result.max = baseItem.maxCount;
-
-     // 第1层为基础值，之后每加一层累加加成
-     int 加成层数 = 层数 - 1;
-     if (加成层数 <= 0)
-     {
-         return result;
-     }
-
-     switch (type)
-     {
-         // 每加一层 min/max +1500
-         case PropType.灵魂:
-             result.min += 加成层数 * 混沌虚空每层灵魂数量;
-             result.max += 加成层数 * 混沌虚空每层灵魂数量;
-             break;
-         // 每加一层 min/max +1000
-         // 经验值：每加一层 min/max +1000
-         case PropType.射手经验值:
-         case PropType.战士经验值:
-         case PropType.辅助经验值:
-         case PropType.控制经验值:
-         case PropType.法师经验值:
-         case PropType.全职业经验值:
-             result.min += 加成层数 * 100;
-             result.max += 加成层数 * 100;
-             break;
-         // 锻造石和招募卷：每10层 min/max +1
-         case PropType.衣服锻造石:
-         case PropType.头盔锻造石:
-         case PropType.鞋子锻造石:
-         case PropType.护手锻造石:
-         case PropType.项链锻造石:
-         case PropType.戒指锻造石:
-         case PropType.招募卷:
-             result.min += 加成层数 / 30;
-             result.max += 加成层数 / 30;
-             break;
-         // 洗练石和高级招募卷：每20层 min/max +1
-         case PropType.洗练石:
-             result.min += 加成层数 / 20;
-             result.max += 加成层数 / 20;
-             break;
-     }
-
-     return result;
- }
+  
 
  public static float Get主线关卡洗练石(主线关卡Type 主线关卡Type,int 层数)
  {
@@ -1658,7 +1546,25 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      return value;
  }
 
- public static float Get主线关卡仙石数量()
+ public static float Get主线关卡高级招募卷数量()
+ {
+     float value = 0;
+     float 高级招募卷random=Random.Range(0f, 100f);
+     if (高级招募卷random < 10 * (1f+道场Config.供奉总属性.高级招募卷掉率 / 100f))
+     {
+         float 获得两个招募卷random=Random.Range(0f, 100f);
+         if (获得两个招募卷random < 道场Config.供奉总属性.概率获得两个高级招募卷)
+         {
+             value= 2;
+         }
+         else
+         {
+             value=1;
+         }
+     }
+     return  value;
+ }
+ public static int Get主线关卡仙石数量()
  {
      return 2;
  }
@@ -1696,7 +1602,7 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
  }
  public static List<float> 仙石品质基础概率 = new List<float>() {4500,2500,1500,1000,400,89,10,1 };
 
- public QualityType Get仙石品质()
+ public static QualityType Get仙石品质()
  {
      float random = Random.Range(0, 10000);
      random /= 属性config.总掉宝率;
@@ -1745,813 +1651,45 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      }
      return value;
  }
-    public static Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>> LevelDiaoLuoDic =
-        new Dictionary<主线关卡Type, HashSet<LevelDiaoLuo>>()
-        {
-            {
-                主线关卡Type.花果山,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 100, minCount = 80, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.水帘洞,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 120, minCount = 100, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.蓬莱仙岛,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 150, minCount = 120, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.五行山,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 200, minCount = 150, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.傲来国,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 250, minCount = 200, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.高老庄,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 300, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 300, minCount = 250, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.女儿国,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 500, minCount = 400, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 350, minCount = 300, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.小雷音寺,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 400, minCount = 350, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            
-            {
-                主线关卡Type.平顶山,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 750, minCount = 600, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 600, minCount = 500, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 3, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.火焰山,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 750, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 700, minCount = 600, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 4, minCount = 4, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            
-            
-            {
-                主线关卡Type.芭蕉洞,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 900, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 900, minCount = 800, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 4, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            
-            
-            {
-                主线关卡Type.流沙河,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 1500, minCount = 1200, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 1200, minCount = 1000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 5, minCount = 5, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.狮驼岭,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 1800, minCount = 1500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 1400, minCount = 1200, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.东海龙宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 1600, minCount = 1400, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 5, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.冥府,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 2600, minCount = 2200, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 1800, minCount = 1600, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 1800, minCount = 1600, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 1800, minCount = 1600, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 1800, minCount = 1600, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 1800, minCount = 1600, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.南天门,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 3600, minCount = 3000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 2000, minCount = 1800, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 2200, minCount = 1800, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 6, minCount = 6, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.瑶池仙境,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 4200, minCount = 3600, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 2800, minCount = 2200, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.斩妖台,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 4800, minCount = 4200, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 3600, minCount = 2800, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 6, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.御马监,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 5400, minCount = 4800, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 4500, minCount = 3600, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 4500, minCount = 3600, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 4500, minCount = 3600, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 4500, minCount = 3600, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 4500, minCount = 3600, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.蟠桃园,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5400, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 4500, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.兜率宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 5500, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.紫微宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.灵魂 },
-
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 6500, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.昊天殿,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            
-            
-            
-            
-            
-            {
-                主线关卡Type.登天路,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 2, minCount = 2, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 5000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 5000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 5000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 5000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 5500, minCount = 5000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.欲界天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5500, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5500, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5500, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5500, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 6000, minCount = 5500, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.色界天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 6000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 6000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 6000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 6000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 6500, minCount = 6000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.无色天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 12000, minCount = 10000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6500, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6500, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6500, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6500, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 7000, minCount = 6500, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.四梵天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 14000, minCount = 12000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 2, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 8000, minCount = 7000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.上清境禹余天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 16000, minCount = 14000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 9000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.玉清境清微天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 18000, minCount = 16000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 9000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.太清境大赤天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 20000, minCount = 18000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 12000, minCount = 10000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 12000, minCount = 10000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 12000, minCount = 10000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 12000, minCount = 10000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 12000, minCount = 10000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 8, minCount = 8, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            {
-                主线关卡Type.大罗天,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 22000, minCount = 20000, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 3, minCount = 3, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 14000, minCount = 12000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 14000, minCount = 12000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 14000, minCount = 12000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 14000, minCount = 12000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 14000, minCount = 12000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 9, minCount = 9, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.混沌虚空,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.须弥宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.娲皇宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.碧游宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.玉虚宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-            
-            {
-                主线关卡Type.八景宫,
-                new HashSet<LevelDiaoLuo>()
-                {
-                    new LevelDiaoLuo() { maxCount = 9500, minCount = 8500, PropType = PropType.灵魂 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.洗练石 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.射手经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.战士经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.辅助经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.控制经验值 },
-                    new LevelDiaoLuo() { maxCount = 10000, minCount = 8000, PropType = PropType.法师经验值 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.衣服锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.头盔锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.鞋子锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.护手锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.项链锻造石 },
-                    new LevelDiaoLuo() { maxCount = 7, minCount = 7, PropType = PropType.戒指锻造石 },
-                    new LevelDiaoLuo() { maxCount = 1, minCount = 1, PropType = PropType.招募卷 },
-                }
-            },
-        };
+ 
+ public static float Get主线灵魂数量(主线关卡Type 主线关卡Type,int 层数)
+ {
+     JingJieType jingJieType = 主线关卡境界Dic[主线关卡Type];
+     float value = 0;
+     if (主线关卡Type < 主线关卡Type.混沌虚空)
+     {
+         value= 主线关卡灵魂Dic[主线关卡Type];
+     }
+     else
+     {
+         if (主线关卡Type == 主线关卡Type.混沌虚空)
+         {
+             value = 4000+(层数 - 1) * 50;
+         }
+         if (主线关卡Type == 主线关卡Type.须弥宫)
+         {
+             value = 45000+(层数 - 1) * 50;
+         }
+         if (主线关卡Type == 主线关卡Type.娲皇宫)
+         {
+             value = 100000+(层数 - 1) * 50;
+         }
+         if (主线关卡Type == 主线关卡Type.碧游宫)
+         {
+             value = 150000+(层数 - 1) * 50;
+         }
+         if (主线关卡Type == 主线关卡Type.玉虚宫)
+         {
+             value = 200000+(层数 - 1) * 50;
+         }
+         if (主线关卡Type == 主线关卡Type.八景宫)
+         {
+             value = 250000+(层数 - 1) * 50;
+         }
+     }
+     return value;
+ }
+   
 
    
 

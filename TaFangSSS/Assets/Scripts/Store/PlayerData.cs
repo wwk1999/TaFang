@@ -3033,6 +3033,29 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         "璞", "朴", "拙", "讷", "愚", "鲁", "淳", "素",
     };
 
+    public string Get阶数string(int num)
+    {
+        switch (num)
+        {
+            case 1:  return "一阶";
+            case 2:  return "二阶";
+            case 3:  return "三阶";
+            case 4:  return "四阶";
+            case 5:  return "五阶";
+            case 6:  return "六阶";
+            case 7:  return "七阶";
+            case 8:  return "八阶";
+            case 9:  return "九阶";
+            case 10: return "十阶";
+            case 11: return "十一阶";
+            case 12: return "十二阶";
+            case 13: return "十三阶";
+            case 14: return "十四阶";
+            case 15: return "十五阶";
+            case 16: return "十六阶";
+            default: return string.Empty; // 或 "未知" / throw new ArgumentOutOfRangeException
+        }
+    }
     public int Get数字阶数(BigDouble num)
     {
         // 0 或负数没有阶数

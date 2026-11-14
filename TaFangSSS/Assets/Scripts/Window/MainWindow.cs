@@ -1006,7 +1006,7 @@ public class MainWindow : MonoBehaviour
                 PlayerData.S.PropListDic[PropType.羽1]++;
                 PlayerData.S.PropListDic[PropType.砂1]++;
                 
-                仙石 仙石 = 仙石Config.单次仙石掉落(JingJieType.圣人);
+                仙石 仙石 = 仙石Config.单次仙石掉落(LevelConfig.Get主线关卡掉落(主线关卡Type.混沌虚空,1000));
                 PlayerData.S.仙石列表.Add(仙石);
             }
         });

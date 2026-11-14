@@ -9,6 +9,10 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 锻造石;
+	public static Sprite 职业经验;
+
+	
 	public static Sprite 通用法器材料1;
 	public static Sprite 通用法器材料2;
 	public static Sprite 通用法器材料3;
@@ -4647,6 +4651,7 @@ public static Sprite 缚霞流光绫藏品;
 	public static Sprite 洗练石;
 
 	public static Sprite 灵魂;
+	public static Sprite 灵石;
 
 	public static Sprite 衣服锻造石;
 
@@ -5447,6 +5452,7 @@ public static Sprite 缚霞流光绫藏品;
 			PropType.功德 => 功德, 
 			PropType.洗练石 => 洗练石, 
 			PropType.灵魂 => 灵魂, 
+			PropType.灵石 => 灵石, 
 			PropType.法师经验值 => 法师经验值, 
 			PropType.战士经验值 => 战士经验值, 
 			PropType.控制经验值 => 控制经验值, 
@@ -5533,6 +5539,40 @@ public static Sprite 缚霞流光绫藏品;
 			PropType.砂16 => Get法器材料Sprite(法器材料Type.砂, 16), 
 			PropType.轮回石 => 轮回石, 
 			PropType.血晶 => 血晶, 
+			PropType.法器1 => Get通用法器材料(1), 
+			PropType.法器2 => Get通用法器材料(2), 
+			PropType.法器3 => Get通用法器材料(3), 
+			PropType.法器4 => Get通用法器材料(4), 
+			PropType.法器5 => Get通用法器材料(5), 
+			PropType.法器6 => Get通用法器材料(6), 
+			PropType.法器7 => Get通用法器材料(7), 
+			PropType.法器8 => Get通用法器材料(8), 
+			PropType.法器9 => Get通用法器材料(9), 
+			PropType.法器10 => Get通用法器材料(10), 
+			PropType.法器11 => Get通用法器材料(11), 
+			PropType.法器12 => Get通用法器材料(12), 
+			PropType.法器13 => Get通用法器材料(13), 
+			PropType.法器14 => Get通用法器材料(14), 
+			PropType.法器15 => Get通用法器材料(15), 
+			PropType.法器16 => Get通用法器材料(16), 
+			PropType.仙石1 => Get通用仙石(1), 
+			PropType.仙石2 => Get通用仙石(2), 
+			PropType.仙石3 => Get通用仙石(3), 
+			PropType.仙石4 => Get通用仙石(4), 
+			PropType.仙石5 => Get通用仙石(5), 
+			PropType.仙石6 => Get通用仙石(6), 
+			PropType.仙石7 => Get通用仙石(7), 
+			PropType.仙石8 => Get通用仙石(8), 
+			PropType.仙石9 => Get通用仙石(9), 
+			PropType.仙石10 => Get通用仙石(10), 
+			PropType.仙石11 => Get通用仙石(11), 
+			PropType.仙石12 => Get通用仙石(12), 
+			PropType.仙石13 => Get通用仙石(13), 
+			PropType.仙石14 => Get通用仙石(14), 
+			PropType.仙石15 => Get通用仙石(15), 
+			PropType.仙石16 => Get通用仙石(16), 
+			PropType.锻造石=>锻造石,
+			PropType.职业经验=>职业经验,
 			_ => null, 
 		});
 	}
@@ -8269,6 +8309,9 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
+		
+		锻造石=Resources.Load<Sprite>("Sprite/DaoJu/锻造石");
+		职业经验=Resources.Load<Sprite>("Sprite/DaoJu/职业经验");
 		通用仙石1=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[0];
 		通用仙石2=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[1];
 		通用仙石3=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[2];
@@ -10655,6 +10698,7 @@ public static Sprite 缚霞流光绫藏品;
 		法师 = Resources.Load<Sprite>("Sprite/DaoJu/法师");
 		洗练石 = Resources.Load<Sprite>("Sprite/DaoJu/洗练石");
 		灵魂 = Resources.Load<Sprite>("Sprite/DaoJu/灵魂");
+		灵石 = Resources.Load<Sprite>("Sprite/DaoJu/灵石");
 		衣服锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/衣服锻造石");
 		辅助经验值 = Resources.Load<Sprite>("Sprite/DaoJu/辅助经验值");
 		辅助 = Resources.Load<Sprite>("Sprite/DaoJu/辅助");

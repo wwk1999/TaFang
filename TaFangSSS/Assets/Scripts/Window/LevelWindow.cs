@@ -58,13 +58,6 @@ public class LevelWindow : MonoBehaviour
             Monster.MonsterTypeName = item;
             Monster.SetItem();
         }
-        var DiaoLuoList = LevelConfig.LevelDiaoLuoDic[type];
-        foreach (var item in DiaoLuoList)
-        {
-            var Prop=Instantiate(Resources.Load<GameObject>("Prefabs/Window/DiaoLuoItem")).GetComponent<DiaoLuoItem>();
-            Prop.transform.SetParent(DiaoLuoContent.transform);
-            Prop.propType = item.PropType;
-            Prop.SetItem();
-        }
+       
     }
 }

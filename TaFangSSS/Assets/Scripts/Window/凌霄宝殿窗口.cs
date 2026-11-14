@@ -143,7 +143,7 @@ public class 凌霄宝殿窗口 : MonoBehaviour
             trans.sizeDelta = new Vector2(80, 80);
             MonsterItem.SetItem();
         }
-
+/*
         foreach (var item in LevelConfig.LevelDiaoLuoDic[Type])
         {
             var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/DiaoLuoItem"),掉落Content.transform).GetComponent<DiaoLuoItem>();
@@ -152,5 +152,6 @@ public class 凌霄宝殿窗口 : MonoBehaviour
             trans.sizeDelta = new Vector2(80, 80);
             DiaoLuoItem.SetItem();
         }
+        */
     }
 }

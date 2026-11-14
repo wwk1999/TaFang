@@ -144,6 +144,7 @@ public class 三十三重天窗口 : MonoBehaviour
             MonsterItem.SetItem();
         }
 
+        /*
         foreach (var item in LevelConfig.LevelDiaoLuoDic[Type])
         {
             var DiaoLuoItem=Instantiate(Resources.Load("Prefabs/Window/DiaoLuoItem"),掉落Content.transform).GetComponent<DiaoLuoItem>();
@@ -151,6 +152,6 @@ public class 三十三重天窗口 : MonoBehaviour
             RectTransform trans = DiaoLuoItem.gameObject.GetComponent<RectTransform>();
             trans.sizeDelta = new Vector2(80, 80);
             DiaoLuoItem.SetItem();
-        }
+        }*/
     }
 }

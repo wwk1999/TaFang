@@ -13,7 +13,7 @@ public class 胜利弹窗item : MonoBehaviour
     public TextMeshProUGUI CountText;
     public TextMeshProUGUI Name;
     [NonSerialized] public PropType Type;
-    [NonSerialized] public long count;
+    [NonSerialized] public int count;
     [NonSerialized] public QualityType 灵物QualityType=QualityType.None;
     [NonSerialized] public 法器Type 法器Type=法器Type.None;
     [NonSerialized] public QualityType 法器品质=QualityType.None;
@@ -35,7 +35,7 @@ public class 胜利弹窗item : MonoBehaviour
             法器材料QualityType = 法器Config.Get阶数对应品质(法器材料阶数);
             Name.text = 法器Config.Get法器材料Name(法器材料Type, 法器材料阶数);
             Name.colorGradientPreset = ResourcesConfig.Get品质TMP(法器材料QualityType);
-            CountText.text = "";
+            CountText.text = PlayerData.S.格式化数字(count);
             image.sprite=ResourcesConfig.Get法器材料Sprite(法器材料Type,法器材料阶数);
             bg.sprite=ResourcesConfig.Get道具背景框SpriteByQuality(法器材料QualityType);
             return;
