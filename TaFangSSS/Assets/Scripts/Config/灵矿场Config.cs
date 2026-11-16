@@ -118,6 +118,7 @@ public class 宝箱品质概率配置
 
 public class 矿工
 {
+    public QualityType QualityType;
     public string name;
     public 矿工类型 矿工类型;
     public int 阶数;
@@ -1472,6 +1473,24 @@ public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityT
         { 148, 2950.01f },
         { 149, 3113.85f },
         { 150, 3277.69f },
+    };
+
+    public static Dictionary<矿工类型, string> 矿工类型string = new Dictionary<矿工类型, string>()
+    {
+        { 矿工类型.多宝矿工, "多宝矿工" },
+        { 矿工类型.守脉矿工, "守脉矿工" },
+        { 矿工类型.疾行矿工, "疾行矿工" },
+        { 矿工类型.全脉矿工, "全脉矿工" },
+        { 矿工类型.秀灵矿工, "秀灵矿工" },
+    };
+
+    public static Dictionary<QualityType, string> 矿工品质string = new Dictionary<QualityType, string>()
+    {
+        { QualityType.黄品 ,"普通"},
+        { QualityType.地品 ,"稀有"},
+        { QualityType.宇品 ,"罕见"},
+        { QualityType.洪品 ,"神话"},
+        { QualityType.荒品 ,"永恒"},
     };
 
     public static Dictionary<int, 四维属性> 矿工阶数基础四维属性 = new Dictionary<int, 四维属性>()

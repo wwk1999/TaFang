@@ -24,7 +24,7 @@ public class PlayerData : XSingleton<PlayerData>
         DontDestroyOnLoad(gameObject);
     }
     //灵矿场
-    public float 当前米数;
+    public List<矿工> 当前招募矿工列表 = new List<矿工>();    public float 当前米数;
     public List<矿工> 矿工列表 = new List<矿工>();
     public int 矿洞矿工人数等级 = 1;
     public int 矿洞矿工阶数等级 = 1;

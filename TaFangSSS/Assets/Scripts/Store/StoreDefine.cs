@@ -14,6 +14,7 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public List<矿工> 当前招募矿工列表 = new List<矿工>();   
         public float 当前米数;
     public List<矿工> 矿工列表 = new List<矿工>();
     public int 矿洞矿工人数等级 = 1;
@@ -2930,10 +2931,12 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             当前前置参悟大道Type = runtime.当前前置参悟大道Type;
             当前任务列表 = runtime.当前任务列表;
             任务完成字典 = runtime.任务完成字典;
+            当前招募矿工列表 = runtime.当前招募矿工列表;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.当前招募矿工列表 = 当前招募矿工列表;
             runtime.当前米数=当前米数;
             runtime.矿工列表=矿工列表;
             runtime.矿洞矿工人数等级=矿洞矿工人数等级;

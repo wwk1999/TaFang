@@ -9,6 +9,17 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 灵矿场招募卡片白;
+	public static Sprite 灵矿场招募卡片蓝;
+	public static Sprite 灵矿场招募卡片橙;
+	public static Sprite 灵矿场招募卡片红;
+	public static Sprite 灵矿场招募卡片彩;
+
+	public static Sprite 灵矿场按钮亮;
+	public static Sprite 灵矿场按钮暗;
+	public static Sprite 灵矿场勾选框亮;
+	public static Sprite 灵矿场勾选框暗;
+
 	public static Sprite 锻造石;
 	public static Sprite 职业经验;
 
@@ -8301,6 +8312,25 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	public static Sprite Get灵矿场招募卡片(QualityType quality)
+	{
+		switch (quality)
+		{
+			case QualityType.黄品:
+				return 灵矿场招募卡片白;
+			case QualityType.地品:
+				return 灵矿场招募卡片蓝;
+			case QualityType.宇品:
+				return 灵矿场招募卡片橙;
+			case QualityType.洪品:
+				return 灵矿场招募卡片红;
+			case QualityType.荒品:
+				return 灵矿场招募卡片彩;
+		}
+
+		return null;
+	}
+
 	/// <summary>
 	/// Chunked loading of all Resources assets: yields a frame every <c>chunk</c> load
 	/// statements and reports progress (0~1) via onProgress. Driven by StartLoadWindow
@@ -8310,6 +8340,17 @@ public static Sprite 缚霞流光绫藏品;
 	{
 		const float totalItems = 2586f;
 		
+		灵矿场招募卡片白=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片白");
+		灵矿场招募卡片蓝=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片蓝");
+		灵矿场招募卡片橙=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片橙");
+		灵矿场招募卡片红=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片红");
+		灵矿场招募卡片彩=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片彩");
+
+		灵矿场按钮亮=Resources.Load<Sprite>("Sprite/灵矿场/按钮亮");
+		灵矿场按钮暗=Resources.Load<Sprite>("Sprite/灵矿场/按钮暗");
+		灵矿场勾选框亮=Resources.Load<Sprite>("Sprite/灵矿场/勾选框亮");
+		灵矿场勾选框暗=Resources.Load<Sprite>("Sprite/灵矿场/勾选框暗");
+
 		锻造石=Resources.Load<Sprite>("Sprite/DaoJu/锻造石");
 		职业经验=Resources.Load<Sprite>("Sprite/DaoJu/职业经验");
 		通用仙石1=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[0];
