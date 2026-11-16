@@ -2642,6 +2642,7 @@ public QualityType 当前轮回造化丹药QualityType = QualityType.None;
         { PropType.法师经验值, 0 },
         { PropType.洗练石, 0 },
         { PropType.灵魂, 0 },
+        { PropType.灵石, 0 },
         { PropType.衣服锻造石, 0 },
         { PropType.辅助经验值, 0 },
         { PropType.鞋子锻造石, 0 },

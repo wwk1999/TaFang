@@ -20,6 +20,7 @@ public class 道场 : MonoBehaviour
     public Button 双修殿;
     public Button 赌坊;
     public Button 悟道崖;
+    public Button 灵矿场;
 
     public GameObject 坊市窗口;
     private void Start()
@@ -38,7 +39,7 @@ public class 道场 : MonoBehaviour
         功德碑.image.alphaHitTestMinimumThreshold = 0.1f;
         赌坊.image.alphaHitTestMinimumThreshold = 0.1f;
         悟道崖.image.alphaHitTestMinimumThreshold = 0.1f;
-
+        灵矿场.image.alphaHitTestMinimumThreshold = 0.1f;
         领主府.onClick.AddListener(() =>
         {
             if (PlayerData.S.建筑等级Dic[建筑Type.领主府] == 0)
@@ -158,6 +159,11 @@ public class 道场 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","大乘境界解锁");
                 return;
             }
+        });
+        
+        灵矿场.onClick.AddListener(() =>
+        {
+            WindowController.S.打开窗口(WindowController.S.灵矿场Window);
         });
         聚贤阁.onClick.AddListener(() =>
         {

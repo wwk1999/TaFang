@@ -35,6 +35,7 @@ public class 主线关卡掉落信息弹窗 : MonoBehaviour
       bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(PropConfig.Get道具信息品质(type));
       icon.sprite = PropConfig.Get道具信息Sprite(type);
       name.text = PropConfig.Get道具信息Name(type);
+      name.colorGradientPreset = ResourcesConfig.Get品质TMP(PropConfig.Get道具信息品质(type));
       desc.text = PropConfig.Get道具信息Info(type);
       int min = (int)(count * 0.8f);
       int max = (int)(count * 1.2f);

@@ -273,7 +273,7 @@ public class 主线关卡窗口 : MonoBehaviour
          
          var 高级招募卷=Instantiate(Resources.Load("Prefabs/Window/DiaoLuoItem"),掉落Content.transform).GetComponent<DiaoLuoItem>();
          高级招募卷.propType = PropType.高级招募卷;
-         高级招募卷.count = 主线关卡掉落.高级招募卷;
+         高级招募卷.count = 1;
          高级招募卷.SetItem();
          
          var 招募卷=Instantiate(Resources.Load("Prefabs/Window/DiaoLuoItem"),掉落Content.transform).GetComponent<DiaoLuoItem>();

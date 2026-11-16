@@ -2630,6 +2630,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         { PropType.法师经验值, 0 },
         { PropType.洗练石, 0 },
         { PropType.灵魂, 0 },
+        { PropType.灵石, 0 },
         { PropType.衣服锻造石, 0 },
         { PropType.辅助经验值, 0 },
         { PropType.鞋子锻造石, 0 },

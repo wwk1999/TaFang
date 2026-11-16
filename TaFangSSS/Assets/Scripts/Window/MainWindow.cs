@@ -284,6 +284,8 @@ public class MainWindow : MonoBehaviour
         WindowController.S.悟道崖Window.gameObject.SetActive(false);
         WindowController.S.任务Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/任务/任务界面"));
         WindowController.S.任务Window.gameObject.SetActive(false);
+        WindowController.S.灵矿场Window=Instantiate(Resources.Load<GameObject>("Prefabs/Window/灵矿场/灵矿场界面"));
+        WindowController.S.灵矿场Window.gameObject.SetActive(false);
     }
 
     public void SetBuff()

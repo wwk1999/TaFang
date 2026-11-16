@@ -1348,13 +1348,13 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      int value = 0;
      if (主线关卡Type < 主线关卡Type.混沌虚空)
      {
-         value = (int)(jingJieType - 2);
+         value = (int)(jingJieType );
      }
      else
      {
          if (主线关卡Type == 主线关卡Type.混沌虚空)
          {
-             value += 8 + 层数 / 50;
+             value += 10 + 层数 / 50;
          }else if (主线关卡Type == 主线关卡Type.须弥宫)
          {
              value += 30 + 层数 / 50;
@@ -1382,13 +1382,13 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      int value = 0;
      if (主线关卡Type < 主线关卡Type.混沌虚空)
      {
-         value = (int)(jingJieType - 2);
+         value = (int)(jingJieType);
      }
      else
      {
          if (主线关卡Type == 主线关卡Type.混沌虚空)
          {
-             value += 8 + 层数 / 50;
+             value += 10 + 层数 / 50;
          }else if (主线关卡Type == 主线关卡Type.须弥宫)
          {
              value += 30 + 层数 / 50;
@@ -1418,13 +1418,13 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      int value = 0;
      if (主线关卡Type < 主线关卡Type.混沌虚空)
      {
-         value = (int)(jingJieType - 2)*150;
+         value = (int)(jingJieType)*150;
      }
      else
      {
          if (主线关卡Type == 主线关卡Type.混沌虚空)
          {
-             value += 1200+ 层数 * 30;
+             value += 1500+ 层数 * 30;
          }else if (主线关卡Type == 主线关卡Type.须弥宫)
          {
              value += 32000 + 层数 * 30;
