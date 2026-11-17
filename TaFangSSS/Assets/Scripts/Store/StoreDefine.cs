@@ -43,6 +43,13 @@ public class StoreDefine : XSingleton<StoreController>
 
     public List<矿工装备> 矿工装备列表 = new List<矿工装备>();
 
+    public Dictionary<宝箱品质, int> 宝箱Dic = new Dictionary<宝箱品质, int>()
+    {
+        { 宝箱品质.普通, 0 },
+        { 宝箱品质.卓越, 0 },
+        { 宝箱品质.至尊, 0 },
+    };
+
     public Dictionary<int, 宝物> 当前宝物 = new Dictionary<int, 宝物>()
     {
         { 1, null },{ 2, null },{ 3, null },{ 4, null },{ 5, null },{ 6, null },{ 7, null },{ 8, null },{ 9, null },{ 10, null },
@@ -2765,6 +2772,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         当前宝物 = runtime.当前宝物;
         宝物列表 = runtime.宝物列表;
         矿工装备列表 = runtime.矿工装备列表;
+        宝箱Dic = runtime.宝箱Dic;
         
         
             Name = runtime.Name;
@@ -2964,6 +2972,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             runtime.当前宝物 = 当前宝物;
             runtime.宝物列表 = 宝物列表;
             runtime.矿工装备列表 = 矿工装备列表;
+            runtime.宝箱Dic = 宝箱Dic;
             
             
             

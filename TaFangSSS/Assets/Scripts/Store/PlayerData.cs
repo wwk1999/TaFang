@@ -52,6 +52,23 @@ public class PlayerData : XSingleton<PlayerData>
 
     public List<矿工装备> 矿工装备列表 = new List<矿工装备>();
 
+    public Dictionary<宝箱品质, int> 宝箱Dic = new Dictionary<宝箱品质, int>()
+    {
+        { 宝箱品质.普通, 0 },
+        { 宝箱品质.卓越, 0 },
+        { 宝箱品质.至尊, 0 },
+    };
+
+    public int Get宝箱数量(宝箱品质 quality)
+    {
+        return 宝箱Dic[quality];
+    }
+
+    public void Set宝箱数量(宝箱品质 quality, int count)
+    {
+        宝箱Dic[quality] = count;
+    }
+
     public Dictionary<int, 宝物> 当前宝物 = new Dictionary<int, 宝物>()
     {
         { 1, null },{ 2, null },{ 3, null },{ 4, null },{ 5, null },{ 6, null },{ 7, null },{ 8, null },{ 9, null },{ 10, null },
@@ -82,23 +99,29 @@ public class PlayerData : XSingleton<PlayerData>
     
     public int Get宝物数量(宝物Type 宝物Type, QualityType qualityType)
     {
-        string str = 宝物Type + "_" + qualityType;
+        string str = 宝物Type + "_" + 品质键(qualityType);
         return 宝物列表[str];
     }
     public void Set宝物数量(宝物Type 宝物Type, QualityType qualityType,int count)
     {
-        string str = 宝物Type + "_" + qualityType;
+        string str = 宝物Type + "_" + 品质键(qualityType);
         宝物列表[str]=count;
     }
     public int Get灵矿数量(int 阶数, QualityType qualityType)
     {
-        string str = 阶数 + "_" + qualityType;
+        string str = 阶数 + "_" + 品质键(qualityType);
         return 灵矿Dic[str];
     }
     public void Set灵矿数量(int 阶数, QualityType qualityType,int count)
     {
-        string str = 阶数 + "_" + qualityType;
+        string str = 阶数 + "_" + 品质键(qualityType);
         灵矿Dic[str]=count;
+    }
+
+    // 灵矿Dic、宝物列表的历史键用的是“红品”，枚举里叫“洪品”，这里统一转换
+    public static string 品质键(QualityType qualityType)
+    {
+        return qualityType == QualityType.洪品 ? "红品" : qualityType.ToString();
     }
     
     
