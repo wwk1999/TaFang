@@ -956,6 +956,10 @@ public class MainWindow : MonoBehaviour
         });
         招募卷Debug.onClick.AddListener(() =>
         {
+            PlayerData.S.宝箱Dic[宝箱品质.普通] += 100;
+            PlayerData.S.宝箱Dic[宝箱品质.卓越] += 100;
+            PlayerData.S.宝箱Dic[宝箱品质.至尊] += 100;
+
             PlayerData.S.炼丹等级 += 1;
             for (int i = 0; i < 100; i++)
             {

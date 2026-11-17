@@ -40,6 +40,7 @@ public class 矿工背包弹窗 : MonoBehaviour
     public GameObject 品质下拉区域Content;
     public Button 排序品质Button;
     public Button 排序阶数Button;
+    public GameObject 右panel;
 
     private enum 背包类型
     {
@@ -83,6 +84,10 @@ public class 矿工背包弹窗 : MonoBehaviour
         刷新界面();
     }
 
+    public void 刷新矿工背包(object[] obj)
+    {
+        刷新界面();
+    }
     private void Start()
     {
         灵矿Button.onClick.AddListener(() => 切换类型(背包类型.灵矿));
@@ -124,7 +129,7 @@ public class 矿工背包弹窗 : MonoBehaviour
         分解Button.onClick.AddListener(分解当前选中);
         exitButton.onClick.AddListener(() => gameObject.SetActive(false));
         maskButton.onClick.AddListener(() => gameObject.SetActive(false));
-
+        ObserverModuleManager.S.RegisterEvent("刷新矿工背包",刷新矿工背包);
         ObserverModuleManager.S.RegisterEvent("矿工背包品质筛选", 矿工背包品质筛选);
         ObserverModuleManager.S.RegisterEvent("矿工背包阶数筛选", 矿工背包阶数筛选);
         ObserverModuleManager.S.RegisterEvent("灵矿Grid点击", 灵矿Grid点击);
@@ -138,6 +143,7 @@ public class 矿工背包弹窗 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("刷新矿工背包",刷新矿工背包);
         ObserverModuleManager.S.UnRegisterEvent("矿工背包品质筛选", 矿工背包品质筛选);
         ObserverModuleManager.S.UnRegisterEvent("矿工背包阶数筛选", 矿工背包阶数筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵矿Grid点击", 灵矿Grid点击);
@@ -424,15 +430,10 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         if (当前选中 == null)
         {
-            icon.sprite = null;
-            name.text = "";
-            标签.text = "";
-            描述.text = "";
-            品质.text = "";
-            数量.text = "";
+            右panel.SetActive(false);
             return;
         }
-
+        右panel.SetActive(true);
         数量.text = PlayerData.S.格式化数字(当前选中.数量);
         switch (当前选中.类型)
         {

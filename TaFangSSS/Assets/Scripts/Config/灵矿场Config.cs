@@ -266,6 +266,14 @@ public class 灵矿场Config
         }
         
     }
+
+    public static Dictionary<宝箱品质, string> 宝箱介绍 = new Dictionary<宝箱品质, string>()
+    {
+        { 宝箱品质.普通 ,"普通宝箱，最高可开出稀有品质物品"},
+        { 宝箱品质.卓越 ,"卓越宝箱，最高可开出神话品质物品"},
+        { 宝箱品质.至尊 ,"至尊宝箱，最高可开出永恒品质物品"},
+
+    };
     public static Dictionary<int, 灵矿配置> 灵矿配置表 = new Dictionary<int, 灵矿配置>()
     {
         {
@@ -640,13 +648,21 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
     public static float 无暇倍率 = 2;
 
     
-    public 矿工装备 生成矿工装备(int 阶数, QualityType qualityType)
+    public static 矿工装备 生成矿工装备(int 阶数, QualityType qualityType)
     {
         矿工装备 矿工装备 = new 矿工装备();
         矿工装备.QualityType = qualityType;
         矿工装备.阶数 = 阶数;
         矿工装备.矿工装备Type = (矿工装备Type)Random.Range(1, 5);
-        四维属性 基础四维属性 = 装备四维属性[阶数];
+        // 复制一份配置值，避免随机加成直接改到静态配置表
+        四维属性 配置四维 = 装备四维属性[阶数];
+        四维属性 基础四维属性 = new 四维属性()
+        {
+            挖掘速度 = 配置四维.挖掘速度,
+            固定收益 = 配置四维.固定收益,
+            挖宝时间 = 配置四维.挖宝时间,
+            成长速度 = 配置四维.成长速度,
+        };
         bool 挖掘速度无暇 = Random.Range(0f, 100f) < 1f;
         bool 成长速度无暇 = Random.Range(0f, 100f) < 1f;
         bool 挖宝速度无暇 = Random.Range(0f, 100f) < 1f;
@@ -865,7 +881,92 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
 
         return 名称表[阶数];
     }
+public static string Get装备介绍(矿工装备Type type, int 阶数)
+{
+    if (type == 矿工装备Type.None || 阶数 <= 0)
+        return string.Empty;
 
+    // 每种装备每一阶的独特介绍，索引 = 阶数（1~10 阶）
+    string[] 介绍表;
+    switch (type)
+    {
+        case 矿工装备Type.稿子:
+            介绍表 = new[]
+            {
+                "", // 0 阶占位
+                "一把锈迹斑斑的铁镐，勉强能敲开浅层矿脉，是每个矿工起步的伙伴。", // 1
+                "粗钢锻造的矿镐，刃口结实耐用，足以应付常见的岩石与矿层。", // 2
+                "玄铁打造的矿镐，沉重而锋利，破岩如切豆腐，深井作业也不在话下。", // 3
+                "以寒晶为刃的矿镐，镐身透着寒气，敲击时能震裂坚硬矿脉。", // 4
+                "灵银铸成的矿镐，隐隐有灵光流转，能感应地下矿脉的走向。", // 5
+                "赤炎矿镐，镐头炽热如焰，一击可熔开顽固矿层。", // 6
+                "星陨矿镐，以天外陨铁锻造，挥动时有星辉洒落，开山裂石。", // 7
+                "紫霄破岳镐，紫气缠绕，一镐落下可撼动山岳，是宗师级矿工的象征。", // 8
+                "太虚开天镐，镐身似有虚空之力，一挥便可开辟天地，掘穿万丈岩层。", // 9
+                "混沌辟地镐，传说中开天辟地之器，握于手中，山河矿脉皆可一念而破。", // 10
+            };
+            break;
+
+        case 矿工装备Type.衣服:
+            介绍表 = new[]
+            {
+                "",
+                "粗布缝制的矿衣，能挡些尘土碎石，聊胜于无。", // 1
+                "牛皮矿袍，耐磨抗刮，适合在碎石堆里摸爬滚打。", // 2
+                "玄铁矿甲，坚硬厚重，能抵御落石与矿洞中的意外冲击。", // 3
+                "寒晶矿袍，衣料沁凉，可隔绝地底酷热与矿火侵袭。", // 4
+                "灵银法袍，银纹流转，能抵御矿脉中溢出的浊气。", // 5
+                "赤炎矿衣，衣上隐有火纹，可抗高温与熔岩热浪。", // 6
+                "星陨战袍，陨铁丝织成，坚韧异常，星辉护体。", // 7
+                "紫霄灵甲，紫气护身，能挡下深层矿洞中的灵气冲击。", // 8
+                "太虚道袍，衣袂飘飘却坚不可摧，虚空之力护住周身。", // 9
+                "混沌不灭衣，传说穿之可避万劫，矿洞崩塌亦难伤分毫。", // 10
+            };
+            break;
+
+        case 矿工装备Type.护手:
+            介绍表 = new[]
+            {
+                "",
+                "麻布护手，简单裹住双手，防止磨破皮肉。", // 1
+                "皮革护手，柔韧贴合，握镐时更稳当。", // 2
+                "玄铁护手，铁甲护指，能挡住飞溅的碎石。", // 3
+                "寒晶护手，触手生凉，可缓解长时间挖矿的灼热。", // 4
+                "灵银护手，灵光附于指节，挥镐时更省力。", // 5
+                "赤炎护手，掌心隐有热力，握持炽热矿镐也不烫手。", // 6
+                "星陨护手，陨铁打造，坚固轻巧，挥动如风。", // 7
+                "紫霄灵纹护手，灵纹缠绕指间，可引导矿脉灵气。", // 8
+                "太虚缚龙护手，传说能缚住地底蛟龙之力，握力惊人。", // 9
+                "混沌擒天护手，一双手可擒天揽地，挖矿如探囊取物。", // 10
+            };
+            break;
+
+        case 矿工装备Type.罗盘:
+            介绍表 = new[]
+            {
+                "",
+                "木制寻脉盘，指针简陋，只能大概感知附近的矿脉。", // 1
+                "铜制寻脉盘，刻度清晰，能较准确地指出矿脉方向。", // 2
+                "玄铁定脉盘，盘身沉稳，可锁定地下矿脉的位置。", // 3
+                "寒晶探脉盘，晶针灵敏，能探知深层矿脉的寒意。", // 4
+                "灵银寻龙盘，银针游走如龙，善寻大矿脉。", // 5
+                "赤炎辨脉盘，以热辨矿，能区分不同矿种的脉络。", // 6
+                "星陨窥脉盘，借星辉窥探地脉，矿藏分布一目了然。", // 7
+                "紫霄通天盘，紫气通天，可感应方圆百里的矿脉走向。", // 8
+                "太虚定乾坤盘，盘转乾坤，能定地下矿脉之根本。", // 9
+                "混沌衍天盘，传说可衍算天地矿藏，一盘的指引胜过千军万马。", // 10
+            };
+            break;
+
+        default:
+            return string.Empty;
+    }
+
+    if (阶数 >= 介绍表.Length)
+        return 介绍表[介绍表.Length - 1]; // 超出上限取最高阶
+
+    return 介绍表[阶数];
+}
     public static Dictionary<int, 四维属性> 装备四维属性 = new Dictionary<int, 四维属性>()
     {
         { 1, new 四维属性() { 挖掘速度 = 10, 成长速度 = 10, 固定收益 = 10, 挖宝时间 = 10, } },
@@ -1717,7 +1818,71 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
 
     public static void 开宝箱(宝箱品质 品质)
     {
-        
+        if (PlayerData.S.Get宝箱数量(品质) <= 0)
+        {
+            return;
+        }
+
+        PlayerData.S.Set宝箱数量(品质, PlayerData.S.Get宝箱数量(品质) - 1);
+
+        // 宝箱品质决定开出物品的品质，再决定物品类型
+        QualityType 物品品质 = Roll宝箱物品品质(开宝箱品质配置[品质]);
+        宝箱物品Type 物品类型 = Roll宝箱物品类型();
+
+        // 第一层出第一阶，随当前土层提升
+        int 阶数 = Mathf.Clamp((int)Get当前层(), 1, 10);
+
+        switch (物品类型)
+        {
+            case 宝箱物品Type.灵矿:
+                PlayerData.S.Set灵矿数量(阶数, 物品品质, PlayerData.S.Get灵矿数量(阶数, 物品品质) + 1);
+                break;
+            case 宝箱物品Type.装备:
+                PlayerData.S.矿工装备列表.Add(生成矿工装备(阶数, 物品品质));
+                break;
+            case 宝箱物品Type.宝物:
+                var 随机宝物Type = (宝物Type)Random.Range(1, (int)宝物Type.升星效果 + 1);
+                PlayerData.S.Set宝物数量(随机宝物Type, 物品品质,
+                    PlayerData.S.Get宝物数量(随机宝物Type, 物品品质) + 1);
+                break;
+        }
+    }
+
+    private static QualityType Roll宝箱物品品质(List<float> 概率)
+    {
+        QualityType[] 品质列表 =
+        {
+            QualityType.黄品, QualityType.地品, QualityType.宇品, QualityType.洪品, QualityType.荒品,
+        };
+
+        float random = Random.Range(0f, 100f);
+        float 累计 = 0;
+        for (int i = 0; i < 品质列表.Length && i < 概率.Count; i++)
+        {
+            累计 += 概率[i];
+            if (random < 累计) return 品质列表[i];
+        }
+
+        return QualityType.黄品;
+    }
+
+    private static 宝箱物品Type Roll宝箱物品类型()
+    {
+        float 总概率 = 0;
+        foreach (var item in 开宝箱物品概率)
+        {
+            总概率 += item.Value;
+        }
+
+        float random = Random.Range(0f, 总概率);
+        float 累计 = 0;
+        foreach (var item in 开宝箱物品概率)
+        {
+            累计 += item.Value;
+            if (random < 累计) return item.Key;
+        }
+
+        return 宝箱物品Type.灵矿;
     }
     public static Dictionary<宝箱物品Type, float> 开宝箱物品概率 = new Dictionary<宝箱物品Type, float>()
     {
