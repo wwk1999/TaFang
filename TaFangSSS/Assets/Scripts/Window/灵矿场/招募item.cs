@@ -44,6 +44,7 @@ public class 招募item : MonoBehaviour
             PlayerData.S.矿工列表.Add(矿工);
             矿工.已被招募 = true;
             SetItem();
+            ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
             ObserverModuleManager.S.SendEvent("矿工招募");
         });
     }

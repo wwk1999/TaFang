@@ -198,26 +198,28 @@ public class 灵矿场Config
     {
         var 概率 = 矿工招募概率配置[PlayerData.S.矿洞矿工招募概率等级];
         PlayerData.S.当前招募矿工列表.Clear();
+        float count = 0;
         for (int i = 0; i < 5; i++)
         {
+            count += 概率.招募概率[4 - i];
             float random = Random.Range(0f, 100f);
-            if (random < 概率.招募概率[4])
+            if (random < count)
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.荒品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < 概率.招募概率[3])
+            }else if (random <count)
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.洪品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < 概率.招募概率[2])
+            }else if (random < count)
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.宇品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < 概率.招募概率[1])
+            }else if (random < count)
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.地品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < 概率.招募概率[0])
+            }else if (random < count)
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.黄品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
@@ -1669,16 +1671,16 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
     
     public static Dictionary<int, 矿工招募概率配置> 矿工招募概率配置 = new Dictionary<int, 矿工招募概率配置>()
     {
-        { 1, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 25, 0 ,0,0}, 升级灵魂 = 5000 } },
-        { 2, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 40, 0 ,0,0}, 升级灵魂 = 20000 } },
-        { 3, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 65, 10 ,0,0}, 升级灵魂 = 100000 } },
-        { 4, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 90, 20 ,0,0}, 升级灵魂 = 500000 } },
-        { 5, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 30 ,0,0}, 升级灵魂 = 3000000 } },
-        { 6, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 45 ,5,0}, 升级灵魂 = 15000000 } },
-        { 7, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 60 ,10,0}, 升级灵魂 = 80000000 } },
-        { 8, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 75 ,15,0}, 升级灵魂 = 300000000 } },
-        { 9, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 0, 100 ,21,1}, 升级灵魂 = 1500000000 } },
-        { 10, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 0, 100 ,27,2}, 升级灵魂 = 8000000000 } },
+        { 1, new 矿工招募概率配置() { 招募概率 = new List<float>() { 75, 25, 0 ,0,0}, 升级灵魂 = 5000 } },
+        { 2, new 矿工招募概率配置() { 招募概率 = new List<float>() { 60, 40, 0 ,0,0}, 升级灵魂 = 20000 } },
+        { 3, new 矿工招募概率配置() { 招募概率 = new List<float>() { 45, 55, 10 ,0,0}, 升级灵魂 = 100000 } },
+        { 4, new 矿工招募概率配置() { 招募概率 = new List<float>() { 10, 70, 20 ,0,0}, 升级灵魂 = 500000 } },
+        { 5, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 70, 30 ,0,0}, 升级灵魂 = 3000000 } },
+        { 6, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 55, 40 ,5,0}, 升级灵魂 = 15000000 } },
+        { 7, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 40, 50 ,10,0}, 升级灵魂 = 80000000 } },
+        { 8, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 25, 60 ,15,0}, 升级灵魂 = 300000000 } },
+        { 9, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 0, 79 ,20,1}, 升级灵魂 = 1500000000 } },
+        { 10, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 0, 73 ,25,2}, 升级灵魂 = 8000000000 } },
     };
 
     public static Dictionary<int, 矿工阶数上限配置> 矿工阶数上限配置 = new Dictionary<int, 矿工阶数上限配置>()

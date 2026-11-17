@@ -26,6 +26,11 @@ public class 矿工列表item : MonoBehaviour
         ObserverModuleManager.S.RegisterEvent("矿工列表item点击",矿工列表item点击);
         bg.onClick.AddListener(() =>
         {
+            if (阶数 > 灵矿场Config.矿工阶数上限配置[PlayerData.S.矿洞矿工阶数等级].阶数)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","矿洞等级不足");
+                return;
+            }
             HeroWindowController.S.灵矿场当前招募阶数 = 阶数;
             ObserverModuleManager.S.SendEvent("矿工列表item点击");
         });
