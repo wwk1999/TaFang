@@ -14,6 +14,11 @@ public class ResourcesConfig : MonoBehaviour
 	public static Sprite 灵矿场招募卡片橙;
 	public static Sprite 灵矿场招募卡片红;
 	public static Sprite 灵矿场招募卡片彩;
+	public static Sprite 灵矿场名册条目白;
+	public static Sprite 灵矿场名册条目蓝;
+	public static Sprite 灵矿场名册条目橙;
+	public static Sprite 灵矿场名册条目红;
+	public static Sprite 灵矿场名册条目彩;
 
 	public static Sprite 灵矿场按钮亮;
 	public static Sprite 灵矿场按钮暗;
@@ -8349,6 +8354,25 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	public static Sprite Get灵矿场名册条目(QualityType quality)
+	{
+		switch (quality)
+		{
+			case QualityType.黄品:
+				return 灵矿场名册条目白;
+			case QualityType.地品:
+				return 灵矿场名册条目蓝;
+			case QualityType.宇品:
+				return 灵矿场名册条目橙;
+			case QualityType.洪品:
+				return 灵矿场名册条目红;
+			case QualityType.荒品:
+				return 灵矿场名册条目彩;
+		}
+
+		return null;
+	}
+
 	public static Sprite Get矿工头像(矿工类型 type, int 阶数, QualityType quality)
 	{
 		return Get矿工Sprite(矿工头像SpriteCache, type, 阶数, quality);
@@ -8404,6 +8428,11 @@ public static Sprite 缚霞流光绫藏品;
 		灵矿场招募卡片橙=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片橙");
 		灵矿场招募卡片红=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片红");
 		灵矿场招募卡片彩=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片彩");
+		灵矿场名册条目白=Resources.Load<Sprite>("Sprite/灵矿场/名册条目白");
+		灵矿场名册条目蓝=Resources.Load<Sprite>("Sprite/灵矿场/名册条目蓝");
+		灵矿场名册条目橙=Resources.Load<Sprite>("Sprite/灵矿场/名册条目橙");
+		灵矿场名册条目红=Resources.Load<Sprite>("Sprite/灵矿场/名册条目红");
+		灵矿场名册条目彩=Resources.Load<Sprite>("Sprite/灵矿场/名册条目彩");
 		矿工头像SpriteCache = Load矿工Sprites("矿工头像");
 		矿工立绘SpriteCache = Load矿工Sprites("矿工立绘");
 
