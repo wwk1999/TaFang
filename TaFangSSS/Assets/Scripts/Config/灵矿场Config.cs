@@ -96,18 +96,22 @@ public class 矿工人数上限配置
     public int 人数;
     public float 升级灵魂;
 }
+public class 宝物佩戴上限配置
+{
+    public int 个数;
+    public float 升级灵魂;
+}
+
+public class 矿工招募概率配置
+{
+    public List<float> 招募概率 = new List<float>();
+    public float 升级灵魂;
+}
+
 public class 矿工阶数上限配置
 {
     public int 阶数;
     public float 升级灵魂;
-}
-
-public class 四维属性
-{
-    public float 挖掘速度;
-    public float 固定收益;
-    public float 挖宝时间;
-    public float 成长速度;
 }
 
 public class 宝箱品质概率配置
@@ -115,6 +119,14 @@ public class 宝箱品质概率配置
     public List<float> 宝箱概率 = new List<float>();
     public float 升级灵魂;
 }
+
+public class 四维属性
+ {
+     public float 挖掘速度;
+     public float 固定收益;
+     public float 挖宝时间;
+     public float 成长速度;
+ }
 
 public class 矿工
 {
@@ -127,6 +139,7 @@ public class 矿工
     public int 等级;
     public float 经验;
     public int 星级;
+    public bool 已被招募;
     public 矿工装备 罗盘=new 矿工装备();
     public 矿工装备 稿子=new 矿工装备();
     public 矿工装备 护手=new 矿工装备();
@@ -170,6 +183,47 @@ public class 灵矿场Config
             }
         }
         return 土层Type.太初本源层;
+    }
+
+    public static Dictionary<矿工词条类型, string> 矿工词条名 = new Dictionary<矿工词条类型, string>()
+    {
+        { 矿工词条类型.百分比加挖掘速度 ,"掘速如风"},
+        { 矿工词条类型.百分比加固定收益 ,"聚灵纳财"},
+        { 矿工词条类型.百分比加挖宝速度 ,"寻龙觅宝"},
+        { 矿工词条类型.百分比加成长速度 ,"悟道通玄"},
+
+    };
+
+    public static void 刷新招募列表(int 阶数)
+    {
+        var 概率 = 矿工招募概率配置[PlayerData.S.矿洞矿工招募概率等级];
+        PlayerData.S.当前招募矿工列表.Clear();
+        for (int i = 0; i < 5; i++)
+        {
+            float random = Random.Range(0f, 100f);
+            if (random < 概率.招募概率[4])
+            {
+                矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.荒品);
+                PlayerData.S.当前招募矿工列表.Add(矿工);
+            }else if (random < 概率.招募概率[3])
+            {
+                矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.洪品);
+                PlayerData.S.当前招募矿工列表.Add(矿工);
+            }else if (random < 概率.招募概率[2])
+            {
+                矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.宇品);
+                PlayerData.S.当前招募矿工列表.Add(矿工);
+            }else if (random < 概率.招募概率[1])
+            {
+                矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.地品);
+                PlayerData.S.当前招募矿工列表.Add(矿工);
+            }else if (random < 概率.招募概率[0])
+            {
+                矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.黄品);
+                PlayerData.S.当前招募矿工列表.Add(矿工);
+            }
+        }
+        
     }
     public static Dictionary<int, 灵矿配置> 灵矿配置表 = new Dictionary<int, 灵矿配置>()
     {
@@ -335,7 +389,7 @@ public static List<string> 矿工名称List = new List<string>()
     "子车奄息", "颛孙师儒", "巫马施仁", "公西赤诚", "漆雕开明", "乐正子春", "壤驷赤心", "公良孺子", "宰父守约", "谷梁赤文"
 };
 
-public static 宝物属性 当前宝物属性 => Get当前宝物属性();
+public static 宝物属性 当前总宝物属性 => Get当前宝物属性();
 public static 宝物属性 Get当前宝物属性()
 {
     宝物属性 宝物属性 = new 宝物属性();
@@ -413,9 +467,10 @@ public static string Get矿工名称(矿工类型 矿工类型)
         return 道场Config.女供奉名List[Random.Range(0, 道场Config.女供奉名List.Count)];
     }
 }
-public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityType qualityType)
+public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityType qualityType)
     {
         矿工 矿工 = new 矿工();
+        矿工.name = 矿工类型string[矿工类型];
         List<矿工词条类型> 矿工词条 = new List<矿工词条类型>();
         for (int i = 0; i < 3; i++)
         {
@@ -520,7 +575,10 @@ public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityT
         return 矿工;
     }
 
+    
     public static float 无暇倍率 = 2;
+
+    
     public 矿工装备 生成矿工装备(int 阶数, QualityType qualityType)
     {
         矿工装备 矿工装备 = new 矿工装备();
@@ -592,28 +650,28 @@ public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityT
         if (矿工.罗盘 != null) 装备四维属性 = 四维属性相加(装备四维属性,矿工.罗盘.基础四维);
         if (矿工.衣服 != null) 装备四维属性 = 四维属性相加(装备四维属性,矿工.衣服.基础四维);
         if (矿工.稿子 != null) 装备四维属性 = 四维属性相加(装备四维属性,矿工.稿子.基础四维);
-        装备四维属性.挖掘速度 *= (1f + 当前宝物属性.装备效果 / 100f);
-        装备四维属性.成长速度 *= (1f + 当前宝物属性.装备效果 / 100f);
-        装备四维属性.固定收益 *= (1f + 当前宝物属性.装备效果 / 100f);
-        装备四维属性.挖宝时间 *= (1f + 当前宝物属性.装备效果 / 100f);
+        装备四维属性.挖掘速度 *= (1f + 当前总宝物属性.装备效果 / 100f);
+        装备四维属性.成长速度 *= (1f + 当前总宝物属性.装备效果 / 100f);
+        装备四维属性.固定收益 *= (1f + 当前总宝物属性.装备效果 / 100f);
+        装备四维属性.挖宝时间 *= (1f + 当前总宝物属性.装备效果 / 100f);
         基础四维=四维属性相加(基础四维,装备四维属性);
-        基础四维.挖掘速度*= (1f + 当前宝物属性.加挖掘速度 / 100f);
-        基础四维.固定收益*= (1f + 当前宝物属性.加固定收益 / 100f);
-        基础四维.成长速度*= (1f + 当前宝物属性.加成长速度 / 100f);
-        基础四维.挖宝时间*= (1f + 当前宝物属性.加挖宝速度 / 100f);
+        基础四维.挖掘速度*= (1f + 当前总宝物属性.加挖掘速度 / 100f);
+        基础四维.固定收益*= (1f + 当前总宝物属性.加固定收益 / 100f);
+        基础四维.成长速度*= (1f + 当前总宝物属性.加成长速度 / 100f);
+        基础四维.挖宝时间*= (1f + 当前总宝物属性.加挖宝速度 / 100f);
         switch (矿工.矿工类型)
         {
             case 矿工类型.多宝矿工:
-                基础四维.挖宝时间*= (1f + 当前宝物属性.加多宝矿工挖宝时间 / 100f);
+                基础四维.挖宝时间*= (1f + 当前总宝物属性.加多宝矿工挖宝时间 / 100f);
                 break;
             case 矿工类型.秀灵矿工:
-                基础四维.挖宝时间*= (1f + 当前宝物属性.加秀灵矿工成长速度 / 100f);
+                基础四维.挖宝时间*= (1f + 当前总宝物属性.加秀灵矿工成长速度 / 100f);
                 break;
             case 矿工类型.守脉矿工:
-                基础四维.挖宝时间*= (1f + 当前宝物属性.加守脉矿工固定收益 / 100f);
+                基础四维.挖宝时间*= (1f + 当前总宝物属性.加守脉矿工固定收益 / 100f);
                 break;
             case 矿工类型.疾行矿工:
-                基础四维.挖宝时间*= (1f + 当前宝物属性.加疾行矿工挖掘速度 / 100f);
+                基础四维.挖宝时间*= (1f + 当前总宝物属性.加疾行矿工挖掘速度 / 100f);
                 break;
         }
 
@@ -1305,8 +1363,43 @@ public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityT
         { 10, 3000000 },
     };
 
+    public static float Get矿工价格(int 阶数, QualityType qualityType)
+    {
+        switch (qualityType)
+        {
+            case QualityType.黄品:
+                return 矿工基础招募价格[阶数] * 矿工品质价格倍数[0]/ (1 + 当前总宝物属性.招募价格 / 100f);
+            case QualityType.地品:
+                return 矿工基础招募价格[阶数] * 矿工品质价格倍数[1]/ (1 + 当前总宝物属性.招募价格 / 100f);
+            case QualityType.宇品:
+                return 矿工基础招募价格[阶数] * 矿工品质价格倍数[2]/ (1 + 当前总宝物属性.招募价格 / 100f);
+            case QualityType.洪品:
+                return 矿工基础招募价格[阶数] * 矿工品质价格倍数[3]/ (1 + 当前总宝物属性.招募价格 / 100f);
+            case QualityType.荒品:
+                return 矿工基础招募价格[阶数] * 矿工品质价格倍数[4];
+        }
+
+        return 0;
+    }
     public static List<float> 矿工品质价格倍数 = new List<float>() { 1, 2, 5, 15, 100 };
 
+    public static float Get刷新价格(int 阶数)
+    {
+        return 矿工基础刷新价格[阶数] / (1 + 当前总宝物属性.刷新价格降低 / 100f);
+    }
+    public static Dictionary<int, float> 矿工基础刷新价格 = new Dictionary<int, float>()
+    {
+        { 1, 100 },
+        { 2, 300 },
+        { 3, 1000 },
+        { 4, 3000 },
+        { 5, 10000 },
+        { 6, 30000 },
+        { 7, 100000 },
+        { 8, 300000 },
+        { 9, 1000000 },
+        { 10, 3000000 },
+    };
     public static Dictionary<int, float> 矿工基础招募价格 = new Dictionary<int, float>()
     {
         { 1, 300 },
@@ -1555,6 +1648,20 @@ public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityT
         { 9, new 宝箱品质概率配置() { 宝箱概率 = new List<float>() { 5, 90, 5 }, 升级灵魂 = 1500000000 } },
         { 10, new 宝箱品质概率配置() { 宝箱概率 = new List<float>() { 0, 94, 6 }, 升级灵魂 = 999999999999 } },
     };
+    
+    public static Dictionary<int, 矿工招募概率配置> 矿工招募概率配置 = new Dictionary<int, 矿工招募概率配置>()
+    {
+        { 1, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 25, 0 ,0,0}, 升级灵魂 = 5000 } },
+        { 2, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 40, 0 ,0,0}, 升级灵魂 = 20000 } },
+        { 3, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 65, 10 ,0,0}, 升级灵魂 = 100000 } },
+        { 4, new 矿工招募概率配置() { 招募概率 = new List<float>() { 100, 90, 20 ,0,0}, 升级灵魂 = 500000 } },
+        { 5, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 30 ,0,0}, 升级灵魂 = 3000000 } },
+        { 6, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 45 ,5,0}, 升级灵魂 = 15000000 } },
+        { 7, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 60 ,10,0}, 升级灵魂 = 80000000 } },
+        { 8, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 100, 75 ,15,0}, 升级灵魂 = 300000000 } },
+        { 9, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 0, 100 ,21,1}, 升级灵魂 = 1500000000 } },
+        { 10, new 矿工招募概率配置() { 招募概率 = new List<float>() { 0, 0, 100 ,27,2}, 升级灵魂 = 8000000000 } },
+    };
 
     public static Dictionary<int, 矿工阶数上限配置> 矿工阶数上限配置 = new Dictionary<int, 矿工阶数上限配置>()
     {
@@ -1567,6 +1674,21 @@ public 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, QualityT
         { 7, new 矿工阶数上限配置() { 阶数 = 7, 升级灵魂 = 80000000 } },
         { 8, new 矿工阶数上限配置() { 阶数 = 8, 升级灵魂 = 300000000 } },
         { 9, new 矿工阶数上限配置() { 阶数 = 9, 升级灵魂 = 1500000000 } },
+        { 10, new 矿工阶数上限配置() { 阶数 = 10, 升级灵魂 = 8000000000 } },
+    };
+    
+    public static Dictionary<int, 宝物佩戴上限配置> 宝物佩戴上限配置 = new Dictionary<int, 宝物佩戴上限配置>()
+    {
+        { 1, new 宝物佩戴上限配置() { 个数 = 1, 升级灵魂 = 5000 } },
+        { 2, new 宝物佩戴上限配置() { 个数 = 2, 升级灵魂 = 20000 } },
+        { 3, new 宝物佩戴上限配置() { 个数 = 3, 升级灵魂 = 100000 } },
+        { 4, new 宝物佩戴上限配置() { 个数 = 4, 升级灵魂 = 500000 } },
+        { 5, new 宝物佩戴上限配置() { 个数 = 5, 升级灵魂 = 3000000 } },
+        { 6, new 宝物佩戴上限配置() { 个数 = 6, 升级灵魂 = 15000000 } },
+        { 7, new 宝物佩戴上限配置() { 个数 = 7, 升级灵魂 = 80000000 } },
+        { 8, new 宝物佩戴上限配置() { 个数 = 8, 升级灵魂 = 300000000 } },
+        { 9, new 宝物佩戴上限配置() { 个数 = 9, 升级灵魂 = 1500000000 } },
+        { 10, new 宝物佩戴上限配置() { 个数 = 10, 升级灵魂 = 8000000000 } },
     };
 
     public static Dictionary<土层Type, float> 土层米数 = new Dictionary<土层Type, float>()

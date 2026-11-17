@@ -14,6 +14,11 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public bool 自动招募白;
+        public bool 自动招募蓝;
+        public bool 自动招募橙;
+        public bool 自动招募红;
+        public bool 自动招募彩;
         public List<矿工> 当前招募矿工列表 = new List<矿工>();   
         public float 当前米数;
     public List<矿工> 矿工列表 = new List<矿工>();
@@ -2742,8 +2747,13 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void CopyFromRuntime(PlayerData runtime)
         {
-        
-        
+
+            自动招募白 = runtime.自动招募白;
+            自动招募蓝 = runtime.自动招募蓝;
+            自动招募橙 = runtime.自动招募橙;
+            自动招募红 = runtime.自动招募红;
+            自动招募彩 = runtime.自动招募彩;
+
         当前米数=runtime.当前米数;
         矿工列表=runtime.矿工列表;
         矿洞矿工人数等级=runtime.矿洞矿工人数等级;
@@ -2936,6 +2946,12 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.自动招募白 = 自动招募白;
+            runtime.自动招募蓝 = 自动招募蓝;
+            runtime.自动招募橙 = 自动招募橙;
+            runtime.自动招募红 = 自动招募红;
+            runtime.自动招募彩 = 自动招募彩;
+            
             runtime.当前招募矿工列表 = 当前招募矿工列表;
             runtime.当前米数=当前米数;
             runtime.矿工列表=矿工列表;

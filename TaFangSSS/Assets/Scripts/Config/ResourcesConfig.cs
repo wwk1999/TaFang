@@ -20,6 +20,11 @@ public class ResourcesConfig : MonoBehaviour
 	public static Sprite 灵矿场勾选框亮;
 	public static Sprite 灵矿场勾选框暗;
 
+	public static Dictionary<矿工类型, Sprite[,]> 矿工头像SpriteCache = new Dictionary<矿工类型, Sprite[,]>();
+	public static Dictionary<矿工类型, Sprite[,]> 矿工立绘SpriteCache = new Dictionary<矿工类型, Sprite[,]>();
+	private static readonly QualityType[] 矿工品质Types = { QualityType.黄品, QualityType.地品, QualityType.宇品, QualityType.洪品, QualityType.荒品 };
+	private static readonly string[] 矿工品质后缀 = { "白", "蓝", "橙", "红", "彩" };
+
 	public static Sprite 锻造石;
 	public static Sprite 职业经验;
 
@@ -7036,6 +7041,19 @@ public static Sprite 缚霞流光绫藏品;
 			_ => null, 
 		});
 	}
+	
+	public static Sprite Get供奉特性标签(QualityType QualityType)
+	{
+		return (Sprite)(QualityType switch
+		{
+			QualityType.黄品 => 供奉特性标签白, 
+			QualityType.地品 => 供奉特性标签蓝, 
+			QualityType.宇品 => 供奉特性标签橙, 
+			QualityType.洪品 => 供奉特性标签红, 
+			QualityType.荒品 => 供奉特性标签彩, 
+			_ => null, 
+		});
+	}
 
 	public static Sprite Get供奉品质标签(供奉品质Type 供奉品质Type)
 	{
@@ -8331,6 +8349,47 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	public static Sprite Get矿工头像(矿工类型 type, int 阶数, QualityType quality)
+	{
+		return Get矿工Sprite(矿工头像SpriteCache, type, 阶数, quality);
+	}
+
+	public static Sprite Get矿工立绘(矿工类型 type, int 阶数, QualityType quality)
+	{
+		return Get矿工Sprite(矿工立绘SpriteCache, type, 阶数, quality);
+	}
+
+	private static Dictionary<矿工类型, Sprite[,]> Load矿工Sprites(string 资源目录)
+	{
+		Dictionary<矿工类型, Sprite[,]> cache = new Dictionary<矿工类型, Sprite[,]>();
+		for (int typeIndex = 1; typeIndex <= 5; typeIndex++)
+		{
+			矿工类型 type = (矿工类型)typeIndex;
+			string minerName = type.ToString();
+			Sprite[,] sprites = new Sprite[10, 矿工品质后缀.Length];
+			for (int 阶数 = 1; 阶数 <= 10; 阶数++)
+			{
+				string 阶数名 = 阶数.ToString("00") + "阶";
+				for (int qualityIndex = 0; qualityIndex < 矿工品质后缀.Length; qualityIndex++)
+				{
+					sprites[阶数 - 1, qualityIndex] = Resources.Load<Sprite>($"Sprite/灵矿场/{资源目录}/{minerName}/{阶数名}/{minerName}_{阶数名}_{矿工品质后缀[qualityIndex]}");
+				}
+			}
+			cache[type] = sprites;
+		}
+		return cache;
+	}
+
+	private static Sprite Get矿工Sprite(Dictionary<矿工类型, Sprite[,]> cache, 矿工类型 type, int 阶数, QualityType quality)
+	{
+		int qualityIndex = Array.IndexOf(矿工品质Types, quality);
+		if (阶数 < 1 || 阶数 > 10 || qualityIndex < 0 || !cache.TryGetValue(type, out Sprite[,] sprites))
+		{
+			return null;
+		}
+		return sprites[阶数 - 1, qualityIndex];
+	}
+
 	/// <summary>
 	/// Chunked loading of all Resources assets: yields a frame every <c>chunk</c> load
 	/// statements and reports progress (0~1) via onProgress. Driven by StartLoadWindow
@@ -8345,6 +8404,8 @@ public static Sprite 缚霞流光绫藏品;
 		灵矿场招募卡片橙=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片橙");
 		灵矿场招募卡片红=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片红");
 		灵矿场招募卡片彩=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片彩");
+		矿工头像SpriteCache = Load矿工Sprites("矿工头像");
+		矿工立绘SpriteCache = Load矿工Sprites("矿工立绘");
 
 		灵矿场按钮亮=Resources.Load<Sprite>("Sprite/灵矿场/按钮亮");
 		灵矿场按钮暗=Resources.Load<Sprite>("Sprite/灵矿场/按钮暗");
