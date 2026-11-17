@@ -329,7 +329,7 @@ public class 灵矿场Config
     public static float 装备随机最大区间 = 1f;
     public static float 其余矿工倍数 = 2f;
     public static float 均衡矿工倍数 = 1.25f;
-    public static float 词条概率 = 20;
+    public static float 词条概率 = 15;
 
 public static List<string> 矿工名称List = new List<string>()
 {
@@ -471,6 +471,7 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
     {
         矿工 矿工 = new 矿工();
         矿工.name = 矿工类型string[矿工类型];
+        矿工.QualityType = qualityType;
         List<矿工词条类型> 矿工词条 = new List<矿工词条类型>();
         for (int i = 0; i < 3; i++)
         {
@@ -480,7 +481,11 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
             }
         }
         矿工.词条列表 = 矿工词条;
-        四维属性 基础四维 = 矿工阶数基础四维属性[阶数];
+        四维属性 基础四维 = new 四维属性();
+        基础四维.挖掘速度=矿工阶数基础四维属性[阶数].挖掘速度;
+        基础四维.挖宝时间=矿工阶数基础四维属性[阶数].挖宝时间;
+        基础四维.成长速度=矿工阶数基础四维属性[阶数].成长速度;
+        基础四维.固定收益=矿工阶数基础四维属性[阶数].固定收益;
         float 词条挖掘速度 = 0;
         float 词条固定收益 = 0;
         float 词条挖宝速度 = 0;
@@ -503,10 +508,10 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
                     break;
             }
         }
-        基础四维.挖掘速度 *= 词条挖掘速度;
-        基础四维.固定收益 *= 词条固定收益;
-        基础四维.挖宝时间 *= 词条挖宝速度;
-        基础四维.成长速度 *= 词条成长速度;
+        基础四维.挖掘速度 *= (1f+词条挖掘速度/100f);
+        基础四维.固定收益 *= (1f+词条固定收益/100f);
+        基础四维.挖宝时间 *= (1f+词条挖宝速度/100f);
+        基础四维.成长速度 *= (1f+词条成长速度/100f);
         
         基础四维.固定收益 *= Random.Range(随机最小区间, 随机最大区间);
         基础四维.成长速度 *= Random.Range(随机最小区间, 随机最大区间);
@@ -711,25 +716,18 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
     public static List<float> 装备成长速度品质倍率 = new List<float>() { 1, 1.1f, 1.3f, 1.5f, 2f };
     public static List<float> 装备挖宝速度品质倍率 = new List<float>() { 1, 1.1f, 1.3f, 1.5f, 2f };
 
-    public enum 装备Type
-    {
-        None,
-        稿子,
-        衣服,
-        护手,
-        罗盘,
-    }
+  
 
-    public static string Get装备名称(装备Type type, int 阶数)
+    public static string Get装备名称(矿工装备Type type, int 阶数)
     {
-        if (type == 装备Type.None || 阶数 <= 0)
+        if (type == 矿工装备Type.None || 阶数 <= 0)
             return string.Empty;
 
         // 每种装备每一阶的独特名称，索引 = 阶数（1~10 阶）
         string[] 名称表;
         switch (type)
         {
-            case 装备Type.稿子:
+            case 矿工装备Type.稿子:
                 名称表 = new[]
                 {
                     "", // 0 阶占位
@@ -746,7 +744,7 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
                 };
                 break;
 
-            case 装备Type.衣服:
+            case 矿工装备Type.衣服:
                 名称表 = new[]
                 {
                     "",
@@ -763,7 +761,7 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
                 };
                 break;
 
-            case 装备Type.护手:
+            case 矿工装备Type.护手:
                 名称表 = new[]
                 {
                     "",
@@ -780,7 +778,7 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
                 };
                 break;
 
-            case 装备Type.罗盘:
+            case 矿工装备Type.罗盘:
                 名称表 = new[]
                 {
                     "",

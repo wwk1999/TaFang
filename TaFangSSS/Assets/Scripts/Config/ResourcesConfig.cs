@@ -19,10 +19,10 @@ public class ResourcesConfig : MonoBehaviour
 	public static Sprite 灵矿场名册条目橙;
 	public static Sprite 灵矿场名册条目红;
 	public static Sprite 灵矿场名册条目彩;
-	public static Sprite 矿工装备稿子;
-	public static Sprite 矿工装备衣服;
-	public static Sprite 矿工装备护手;
-	public static Sprite 矿工装备罗盘;
+	public static Sprite[] 矿工装备稿子;
+	public static Sprite[] 矿工装备衣服;
+	public static Sprite[] 矿工装备护手;
+	public static Sprite[] 矿工装备罗盘;
 
 	public static Sprite 灵矿场按钮亮;
 	public static Sprite 灵矿场按钮暗;
@@ -8377,21 +8377,40 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
-	public static Sprite Get矿工装备Sprite(矿工装备Type type)
+	public static Sprite Get矿工装备Sprite(矿工装备Type type, int 阶数)
 	{
+		if (阶数 < 1 || 阶数 > 10) return null;
+
+		Sprite[] sprites = null;
 		switch (type)
 		{
 			case 矿工装备Type.稿子:
-				return 矿工装备稿子;
+				sprites = 矿工装备稿子;
+				break;
 			case 矿工装备Type.衣服:
-				return 矿工装备衣服;
+				sprites = 矿工装备衣服;
+				break;
 			case 矿工装备Type.护手:
-				return 矿工装备护手;
+				sprites = 矿工装备护手;
+				break;
 			case 矿工装备Type.罗盘:
-				return 矿工装备罗盘;
+				sprites = 矿工装备罗盘;
+				break;
 		}
 
-		return null;
+		if (sprites == null || sprites.Length < 阶数) return null;
+		return sprites[阶数 - 1];
+	}
+
+	private static Sprite[] Load矿工装备Sprites(string 资源名称)
+	{
+		Sprite[] 全部Sprites = Resources.LoadAll<Sprite>("Sprite/灵矿场/矿工装备/" + 资源名称);
+		Sprite[] 阶数Sprites = new Sprite[10];
+		for (int i = 0; i < 阶数Sprites.Length && i < 全部Sprites.Length; i++)
+		{
+			阶数Sprites[i] = 全部Sprites[i];
+		}
+		return 阶数Sprites;
 	}
 
 	public static Sprite Get矿工头像(矿工类型 type, int 阶数, QualityType quality)
@@ -8454,10 +8473,10 @@ public static Sprite 缚霞流光绫藏品;
 		灵矿场名册条目橙=Resources.Load<Sprite>("Sprite/灵矿场/名册条目橙");
 		灵矿场名册条目红=Resources.Load<Sprite>("Sprite/灵矿场/名册条目红");
 		灵矿场名册条目彩=Resources.Load<Sprite>("Sprite/灵矿场/名册条目彩");
-		矿工装备稿子=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/稿子");
-		矿工装备衣服=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/衣服");
-		矿工装备护手=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/护手");
-		矿工装备罗盘=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/罗盘");
+		矿工装备稿子=Load矿工装备Sprites("稿子");
+		矿工装备衣服=Load矿工装备Sprites("衣服");
+		矿工装备护手=Load矿工装备Sprites("护手");
+		矿工装备罗盘=Load矿工装备Sprites("罗盘");
 		矿工头像SpriteCache = Load矿工Sprites("矿工头像");
 		矿工立绘SpriteCache = Load矿工Sprites("矿工立绘");
 

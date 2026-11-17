@@ -52,15 +52,15 @@ public class 招募item : MonoBehaviour
     {
         招募Button.gameObject.SetActive(!矿工.已被招募);
         已招募.gameObject.SetActive(矿工.已被招募);
-        灵魂.text = "灵魂"+灵矿场Config.Get矿工价格(矿工.阶数, 矿工.QualityType);
+        灵魂.text = "灵魂"+PlayerData.S.格式化数字(灵矿场Config.Get矿工价格(矿工.阶数, 矿工.QualityType));
         类型.text = 灵矿场Config.矿工类型string[矿工.矿工类型];
         标签.text = PlayerData.S.Get阶数string(矿工.阶数) + "·" + 灵矿场Config.矿工品质string[矿工.QualityType];
         icon.sprite = ResourcesConfig.Get矿工头像(矿工.矿工类型, 矿工.阶数, 矿工.QualityType);
         bg.sprite = ResourcesConfig.Get灵矿场招募卡片(矿工.QualityType);
-        挖掘速度.text = 矿工.基础四维.挖掘速度.ToString();
-        固定收益.text = 矿工.基础四维.固定收益.ToString();
-        成长速度.text = 矿工.基础四维.成长速度.ToString();
-        挖宝速度.text = 矿工.基础四维.挖宝时间.ToString();
+        挖掘速度.text = PlayerData.S.格式化数字(矿工.基础四维.挖掘速度);
+        固定收益.text = PlayerData.S.格式化数字(矿工.基础四维.固定收益);
+        成长速度.text = PlayerData.S.格式化数字(矿工.基础四维.成长速度);
+        挖宝速度.text = PlayerData.S.格式化数字(矿工.基础四维.挖宝时间);
         foreach (Transform item in 词条列表.transform)
         {
             Destroy(item.gameObject);

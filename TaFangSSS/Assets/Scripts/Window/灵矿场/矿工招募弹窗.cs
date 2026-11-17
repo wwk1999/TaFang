@@ -44,7 +44,7 @@ public class 矿工招募弹窗 : MonoBehaviour
 
     public void 矿工招募(object[] obj)
     {
-        矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级];
+        矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级].人数;
         灵魂.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
     }
 
@@ -53,8 +53,14 @@ public class 矿工招募弹窗 : MonoBehaviour
         ObserverModuleManager.S.UnRegisterEvent("矿工招募",矿工招募);
     }
 
+    public void 矿工列表item点击(object[] obj)
+    {
+        刷新灵魂.text = "灵魂"+PlayerData.S.格式化数字(灵矿场Config.Get刷新价格(HeroWindowController.S.灵矿场当前招募阶数));
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("矿工列表item点击",矿工列表item点击);
+
         ObserverModuleManager.S.RegisterEvent("矿工招募",矿工招募);
         exitButton.onClick.AddListener(() =>
         {
@@ -225,13 +231,15 @@ public class 矿工招募弹窗 : MonoBehaviour
                     break;
             }
         }
-        矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级];
+
+        PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+        矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级].人数;
         灵魂.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
     }
 
     public void Show自动招募()
     {
-        矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级];
+        矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级].人数;
         if (PlayerData.S.自动招募白)
         {
             自动招募普通.image.sprite = ResourcesConfig.灵矿场勾选框亮;
@@ -280,7 +288,7 @@ public class 矿工招募弹窗 : MonoBehaviour
 
     public void Show招募列表()
     {
-        刷新灵魂.text = PlayerData.S.格式化数字(灵矿场Config.Get刷新价格(HeroWindowController.S.灵矿场当前招募阶数));
+        刷新灵魂.text = "灵魂"+PlayerData.S.格式化数字(灵矿场Config.Get刷新价格(HeroWindowController.S.灵矿场当前招募阶数));
         foreach (Transform item in 招募列表.transform)
         {
             Destroy(item.gameObject);
