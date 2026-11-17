@@ -2,10 +2,9 @@ using System;
 using Config;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class 宝箱Grid : MonoBehaviour,IPointerClickHandler
+public class 宝箱Grid : MonoBehaviour
 {
     public Button bg;
     public Image icon;
@@ -55,16 +54,6 @@ public class 宝箱Grid : MonoBehaviour,IPointerClickHandler
                 return QualityType.荒品;
             default:
                 return QualityType.地品;
-        }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Right)
-        {
-            灵矿场Config.开宝箱(品质);
-            PlayerData.S.宝箱Dic[品质] --;
-            ObserverModuleManager.S.SendEvent("刷新矿工背包");
         }
     }
 }

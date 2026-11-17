@@ -24,7 +24,7 @@ public class 灵矿信息弹窗 : MonoBehaviour
         name.text = 灵矿配置.名称;
         品质.text = PropConfig.QualityNameDic[品质Type];
         info.text = 灵矿配置.介绍;
-        灵石.text = "灵石"+PlayerData.S.格式化数字(灵矿配置.价格);
+        灵石.text = "灵石"+PlayerData.S.格式化数字(灵矿场Config.Get灵矿价格(阶数, 品质Type));
     }
     
 }

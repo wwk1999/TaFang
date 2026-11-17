@@ -8,6 +8,12 @@ public class 宝箱GridImage : GridImageBase
     public 宝箱Grid 宝箱Grid;
 
     private bool 正在开宝箱;
+    private bool 按下Shift;
+
+    private void Update()
+    {
+        按下Shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+    }
 
     protected override string 默认弹窗路径
     {
@@ -31,8 +37,7 @@ public class 宝箱GridImage : GridImageBase
         if (宝箱Grid == null) return;
         if (正在开宝箱) return;
 
-        bool 按住Shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        if (!按住Shift)
+        if (!按下Shift)
         {
             开一个宝箱();
         }

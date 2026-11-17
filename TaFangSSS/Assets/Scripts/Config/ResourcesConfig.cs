@@ -8377,26 +8377,20 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
-	private static readonly Dictionary<string, Sprite> 灵矿SpriteCache = new Dictionary<string, Sprite>();
+	private static Sprite[] 灵矿Sprites;
 	private static Sprite[] 宝箱Sprites;
 	private static Sprite[] 宝物Sprites;
 
-	// 灵矿图标：Sprite/灵矿场/灵矿/{01阶}/灵矿_{01阶}_{白蓝橙红彩}
+	// 灵矿图标：Sprite/灵矿场/灵矿 图集，1-10阶分别对应 灵矿_0 ~ 灵矿_9
 	public static Sprite Get灵矿Sprite(int 阶数, QualityType quality)
 	{
 		if (阶数 < 1 || 阶数 > 10) return null;
 
-		int qualityIndex = Array.IndexOf(矿工品质Types, quality);
-		if (qualityIndex < 0) return null;
+		if (灵矿Sprites == null) 灵矿Sprites = LoadSprites按编号("Sprite/灵矿场/灵矿");
 
-		string 阶数名 = 阶数.ToString("00") + "阶";
-		string path = $"Sprite/灵矿场/灵矿/{阶数名}/灵矿_{阶数名}_{矿工品质后缀[qualityIndex]}";
-		if (!灵矿SpriteCache.TryGetValue(path, out Sprite sprite))
-		{
-			sprite = Resources.Load<Sprite>(path);
-			灵矿SpriteCache[path] = sprite;
-		}
-		return sprite;
+		int index = 阶数 - 1;
+		if (index < 0 || index >= 灵矿Sprites.Length) return null;
+		return 灵矿Sprites[index];
 	}
 
 	// 宝箱图标：Sprite/灵矿场/宝箱 图集，普通_0、卓越_1、至尊_2
