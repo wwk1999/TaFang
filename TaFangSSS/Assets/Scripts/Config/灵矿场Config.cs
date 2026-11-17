@@ -212,6 +212,126 @@ public class 灵矿场Config
         { 宝物Type.等级效果, "登天阶" },
         { 宝物Type.升星效果, "星辰砂" },
     };
+
+    public static float Get装备分解粉尘(int 阶数, QualityType qualityType)
+    {
+        阶数 = Mathf.Clamp(阶数, 1, 10);
+        float 基础 = 装备分解粉尘[阶数];
+        基础 *= 装备分解品质粉尘倍数[Get装备品质索引(qualityType)];
+        基础 *= (1f + 当前总宝物属性.装备分解增多 / 100f);
+        return 基础;
+    }
+
+   
+
+    // 装备/宝物只使用黄、地、宇、洪、荒五种品质，枚举值不连续，这里映射到 0~4
+    private static int Get装备品质索引(QualityType qualityType)
+    {
+        switch (qualityType)
+        {
+            case QualityType.地品:
+                return 1;
+            case QualityType.宇品:
+                return 2;
+            case QualityType.洪品:
+                return 3;
+            case QualityType.荒品:
+                return 4;
+            default:
+                return 0;
+        }
+    }
+    public static List<float>装备分解品质粉尘倍数=new List<float>(){1,2,4,10,30};
+    public static Dictionary<int, float> 装备分解粉尘 = new Dictionary<int, float>()
+    {
+        { 1, 100 },
+        { 2, 300 },
+        { 3, 1000 },
+        { 4, 3000 },
+        { 5, 10000 },
+        { 6, 30000 },
+        { 7, 100000 },
+        { 8, 300000 },
+        { 9, 1000000 },
+        { 10, 3000000 },
+    };
+    public static string Get宝物效果(宝物Type 宝物Type, QualityType qualityType)
+    {
+        if (宝物Type == 宝物Type.None) return string.Empty;
+
+        string 数值 = Get宝物属性(宝物Type, qualityType).ToString("0");
+        switch (宝物Type)
+        {
+            case 宝物Type.加挖掘速度:
+                return "所有矿工挖掘速度+" + 数值 + "%";
+            case 宝物Type.加固定收益:
+                return "所有矿工固定收益+" + 数值 + "%";
+            case 宝物Type.加挖宝速度:
+                return "所有矿工挖宝速度+" + 数值 + "%";
+            case 宝物Type.加成长速度:
+                return "所有矿工成长速度+" + 数值 + "%";
+
+            case 宝物Type.加秀灵矿工成长速度:
+                return "秀灵矿工成长速度+" + 数值 + "%";
+            case 宝物Type.加多宝矿工挖宝时间:
+                return "多宝矿工挖宝时间+" + 数值 + "%";
+            case 宝物Type.加守脉矿工固定收益:
+                return "守脉矿工固定收益+" + 数值 + "%";
+            case 宝物Type.加疾行矿工挖掘速度:
+                return "疾行矿工挖掘速度+" + 数值 + "%";
+
+            case 宝物Type.挖宝概率两个白:
+                return "挖宝时双白概率+" + 数值 + "%";
+            case 宝物Type.灵矿价格上涨:
+                return "灵矿出售价格+" + 数值 + "%";
+            case 宝物Type.装备效果:
+                return "矿工装备效果+" + 数值 + "%";
+            case 宝物Type.刷新价格降低:
+                return "招募刷新价格-" + 数值 + "%";
+            case 宝物Type.装备分解增多:
+                return "装备分解收益+" + 数值 + "%";
+            case 宝物Type.解雇增多:
+                return "解雇矿工返还+" + 数值 + "%";
+
+            case 宝物Type.招募价格:
+                return "招募矿工价格-" + 数值 + "%";
+            case 宝物Type.等级效果:
+                return "矿工等级效果+" + 数值 + "%";
+            case 宝物Type.升星效果:
+                return "矿工升星效果+" + 数值 + "%";
+        }
+
+        return string.Empty;
+    }
+    public static Dictionary<宝物Type, string> 宝物描述 = new Dictionary<宝物Type, string>()
+    {
+        { 宝物Type.None, "无" },
+
+        // ===== 基础增益 =====
+        { 宝物Type.加挖掘速度,     "古印蕴有穿山之能，佩戴后挖掘速度提升，破岩如穿纸。" },
+        { 宝物Type.加固定收益,     "盆底聚气生财，矿工固定收益提升，日进斗金。" },
+        { 宝物Type.加挖宝速度,     "镜照地脉，寻龙点穴，挖宝速度大幅提升。" },
+        { 宝物Type.加成长速度,     "珠中藏道，矿工悟性大增，成长速度提升。" },
+
+        // ===== 矿工专属 =====
+        { 宝物Type.加秀灵矿工成长速度, "灵露滋养，秀灵矿工成长速度提升，灵秀更胜往昔。" },
+        { 宝物Type.加多宝矿工挖宝时间, "塔镇多宝，多宝矿工挖宝时间延长，财源滚滚。" },
+        { 宝物Type.加守脉矿工固定收益, "符守地脉，守脉矿工固定收益提升，稳如磐石。" },
+        { 宝物Type.加疾行矿工挖掘速度, "靴踏疾风，疾行矿工挖掘速度提升，快若奔雷。" },
+
+        // ===== 挖宝与收益 =====
+        { 宝物Type.挖宝概率两个白,  "双璧合一，挖宝时更易一次得双白，好事成双。" },
+        { 宝物Type.灵矿价格上涨,    "金石点化，灵矿出售价格上涨，点石成金。" },
+        { 宝物Type.装备效果,        "鼎炼灵装，装备效果提升，器灵共鸣。" },
+        { 宝物Type.刷新价格降低,    "符省元宝，刷新价格降低，开源节流。" },
+        { 宝物Type.装备分解增多,    "炉归元材，装备分解所得增多，化零为整。" },
+        { 宝物Type.解雇增多,        "符散灵契，解雇返还增多，好聚好散。" },
+
+        // ===== 招募与成长 =====
+        { 宝物Type.招募价格,        "令牌聚贤，招募价格降低，广纳良才。" },
+        { 宝物Type.等级效果,        "阶登天梯，等级效果提升，步步登高。" },
+        { 宝物Type.升星效果,        "砂聚星辰，升星效果提升，星光璀璨。" },
+    };
     public static 土层Type Get当前层()
     {
         foreach (var item in 土层米数)
@@ -274,6 +394,13 @@ public class 灵矿场Config
         { 宝箱品质.至尊 ,"至尊宝箱，最高可开出永恒品质物品"},
 
     };
+
+    public static float Get灵矿价格(int 阶数, QualityType qualityType)
+    {
+        float 基础价格 = 灵矿配置表[阶数].价格;
+        基础价格 *= (1f+当前总宝物属性.灵矿价格上涨 / 100f);
+        return 基础价格;
+    }
     public static Dictionary<int, 灵矿配置> 灵矿配置表 = new Dictionary<int, 灵矿配置>()
     {
         {
@@ -1974,4 +2101,6 @@ public static string Get装备介绍(矿工装备Type type, int 阶数)
         { 土层Type.归墟混元层, "归墟混元层" },
         { 土层Type.太初本源层, "太初本源层" },
     };
+
+   
 }

@@ -438,31 +438,32 @@ public class 矿工背包弹窗 : MonoBehaviour
         switch (当前选中.类型)
         {
             case 背包类型.灵矿:
+                var 灵矿配置 = 灵矿场Config.灵矿配置表[当前选中.阶数];
                 icon.sprite = ResourcesConfig.Get灵矿Sprite(当前选中.阶数, 当前选中.品质);
-                name.text = "灵矿";
+                name.text = 灵矿配置.名称;
                 标签.text = "灵矿·" + PlayerData.S.Get阶数string(当前选中.阶数);
-                描述.text = "矿脉中采集的原矿，可出售换取灵石";
+                描述.text = 灵矿配置.介绍;
                 品质.text = PropConfig.QualityNameDic[当前选中.品质];
                 break;
             case 背包类型.装备:
                 icon.sprite = ResourcesConfig.Get矿工装备Sprite(当前选中.装备.矿工装备Type, 当前选中.装备.阶数);
                 name.text = 灵矿场Config.Get装备名称(当前选中.装备.矿工装备Type, 当前选中.装备.阶数);
                 标签.text = "装备·" + PlayerData.S.Get阶数string(当前选中.装备.阶数);
-                描述.text = "";
+                描述.text = 灵矿场Config.Get装备介绍(当前选中.装备.矿工装备Type, 当前选中.装备.阶数);
                 品质.text = PropConfig.QualityNameDic[当前选中.装备.QualityType];
                 break;
             case 背包类型.宝箱:
                 icon.sprite = ResourcesConfig.Get宝箱Sprite(当前选中.宝箱品质);
                 name.text = 当前选中.宝箱品质 + "宝箱";
                 标签.text = "宝箱";
-                描述.text = "";
+                描述.text = 灵矿场Config.宝箱介绍[当前选中.宝箱品质];
                 品质.text = 当前选中.宝箱品质.ToString();
                 break;
             case 背包类型.宝物:
                 icon.sprite = ResourcesConfig.Get宝物Sprite(当前选中.宝物.宝物Type);
                 name.text = 灵矿场Config.宝物名[当前选中.宝物.宝物Type];
                 标签.text = "宝物";
-                描述.text = "";
+                描述.text = 灵矿场Config.宝物描述[当前选中.宝物.宝物Type];
                 品质.text = PropConfig.QualityNameDic[当前选中.宝物.QualityType];
                 break;
         }
