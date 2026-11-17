@@ -8377,6 +8377,70 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	private static readonly Dictionary<string, Sprite> 灵矿SpriteCache = new Dictionary<string, Sprite>();
+	private static Sprite[] 宝箱Sprites;
+	private static Sprite[] 宝物Sprites;
+
+	// 灵矿图标：Sprite/灵矿场/灵矿/{01阶}/灵矿_{01阶}_{白蓝橙红彩}
+	public static Sprite Get灵矿Sprite(int 阶数, QualityType quality)
+	{
+		if (阶数 < 1 || 阶数 > 10) return null;
+
+		int qualityIndex = Array.IndexOf(矿工品质Types, quality);
+		if (qualityIndex < 0) return null;
+
+		string 阶数名 = 阶数.ToString("00") + "阶";
+		string path = $"Sprite/灵矿场/灵矿/{阶数名}/灵矿_{阶数名}_{矿工品质后缀[qualityIndex]}";
+		if (!灵矿SpriteCache.TryGetValue(path, out Sprite sprite))
+		{
+			sprite = Resources.Load<Sprite>(path);
+			灵矿SpriteCache[path] = sprite;
+		}
+		return sprite;
+	}
+
+	// 宝箱图标：Sprite/灵矿场/宝箱 图集，普通_0、卓越_1、至尊_2
+	public static Sprite Get宝箱Sprite(宝箱品质 quality)
+	{
+		if (宝箱Sprites == null) 宝箱Sprites = LoadSprites按编号("Sprite/灵矿场/宝箱");
+
+		int index = (int)quality;
+		if (index < 0 || index >= 宝箱Sprites.Length) return null;
+		return 宝箱Sprites[index];
+	}
+
+	// 宝物图标：宝物1 的 0~11 加宝物2 的 0~4，按宝物类型顺序排列
+	public static Sprite Get宝物Sprite(宝物Type type)
+	{
+		if (宝物Sprites == null)
+		{
+			Sprite[] 第一组 = LoadSprites按编号("Sprite/灵矿场/宝物1");
+			Sprite[] 第二组 = LoadSprites按编号("Sprite/灵矿场/宝物2");
+			宝物Sprites = new Sprite[第一组.Length + 第二组.Length];
+			Array.Copy(第一组, 0, 宝物Sprites, 0, 第一组.Length);
+			Array.Copy(第二组, 0, 宝物Sprites, 第一组.Length, 第二组.Length);
+		}
+
+		int index = (int)type - 1;
+		if (index < 0 || index >= 宝物Sprites.Length) return null;
+		return 宝物Sprites[index];
+	}
+
+	// 按资源名末尾的编号排序，保证 宝箱_0、宝箱_1 ... 的顺序
+	private static Sprite[] LoadSprites按编号(string path)
+	{
+		Sprite[] sprites = Resources.LoadAll<Sprite>(path);
+		Array.Sort(sprites, (a, b) => Get编号(a.name).CompareTo(Get编号(b.name)));
+		return sprites;
+	}
+
+	private static int Get编号(string name)
+	{
+		int index = name.LastIndexOf('_');
+		if (index < 0) return 0;
+		return int.TryParse(name.Substring(index + 1), out int number) ? number : 0;
+	}
+
 	public static Sprite Get矿工装备Sprite(矿工装备Type type, int 阶数)
 	{
 		if (阶数 < 1 || 阶数 > 10) return null;

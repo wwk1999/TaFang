@@ -20,6 +20,13 @@ public enum 矿工装备Type
     护手,
     罗盘,
 }
+
+public enum 宝箱品质
+{
+    普通,
+    卓越,
+    至尊,
+}
 public enum 矿工词条类型
 {
     None,
@@ -173,6 +180,30 @@ public class 宝物
 }
 public class 灵矿场Config
 {
+    public static Dictionary<宝物Type, string> 宝物名 = new Dictionary<宝物Type, string>()
+    {
+        { 宝物Type.None, "无" },
+        { 宝物Type.加挖掘速度, "穿山印" },
+        { 宝物Type.加固定收益, "聚宝盆" },
+        { 宝物Type.加挖宝速度, "寻龙镜" },
+        { 宝物Type.加成长速度, "悟道珠" },
+
+        { 宝物Type.加秀灵矿工成长速度, "秀灵露" },
+        { 宝物Type.加多宝矿工挖宝时间, "多宝塔" },
+        { 宝物Type.加守脉矿工固定收益, "守脉符" },
+        { 宝物Type.加疾行矿工挖掘速度, "疾行靴" },
+
+        { 宝物Type.挖宝概率两个白, "双宝璧" },
+        { 宝物Type.灵矿价格上涨, "点金石" },
+        { 宝物Type.装备效果, "铸灵鼎" },
+        { 宝物Type.刷新价格降低, "省元符" },
+        { 宝物Type.装备分解增多, "归元炉" },
+        { 宝物Type.解雇增多, "散灵符" },
+
+        { 宝物Type.招募价格, "聚贤令" },
+        { 宝物Type.等级效果, "登天阶" },
+        { 宝物Type.升星效果, "星辰砂" },
+    };
     public static 土层Type Get当前层()
     {
         foreach (var item in 土层米数)
