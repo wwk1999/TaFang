@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class 矿工装备背包itemImage : GridImageBase
 {
-    public 矿工装备背包item item;
+    public 矿工装备Grid item;
 
     protected override string 默认弹窗路径
     {

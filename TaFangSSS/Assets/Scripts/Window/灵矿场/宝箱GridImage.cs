@@ -1,11 +1,14 @@
 using System;
+using System.Collections;
+using Config;
 using UnityEngine;
 
 public class 宝箱GridImage : GridImageBase
 {
     public 宝箱Grid 宝箱Grid;
 
-    private bool shift=false;
+    private bool 正在开宝箱;
+
     protected override string 默认弹窗路径
     {
         get { return "Prefabs/Window/灵矿场/宝箱信息弹窗"; }
@@ -14,18 +17,6 @@ public class 宝箱GridImage : GridImageBase
     protected override bool 可显示
     {
         get { return 宝箱Grid != null; }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            shift = true;
-        }
-        else
-        {
-            shift = false;
-        }
     }
 
     protected override void 设置弹窗(GameObject 弹窗对象)
@@ -38,17 +29,44 @@ public class 宝箱GridImage : GridImageBase
     protected override void 右键点击()
     {
         if (宝箱Grid == null) return;
-        if (!shift)
+        if (正在开宝箱) return;
+
+        bool 按住Shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        if (!按住Shift)
         {
-            灵矿场Config.开宝箱(宝箱Grid.品质);
+            开一个宝箱();
         }
         else
         {
-            for (int i = 0; i < PlayerData.S.宝箱Dic[宝箱Grid.品质]; i++)
-            {
-                灵矿场Config.开宝箱(宝箱Grid.品质);
-            }
+            StartCoroutine(一键开宝箱());
         }
+    }
+
+    private void 开一个宝箱()
+    {
+        var r = 灵矿场Config.开宝箱(宝箱Grid.品质);
+        弹Toast(r.名称, r.品质);
         ObserverModuleManager.S.SendEvent("刷新矿工背包");
+    }
+
+    private IEnumerator 一键开宝箱()
+    {
+        正在开宝箱 = true;
+        // 先缓存总数，避免开宝箱过程中数量递减导致循环提前退出
+        int 数量 = PlayerData.S.Get宝箱数量(宝箱Grid.品质);
+        for (int i = 0; i < 数量; i++)
+        {
+            var r = 灵矿场Config.开宝箱(宝箱Grid.品质);
+            弹Toast(r.名称, r.品质);
+            ObserverModuleManager.S.SendEvent("刷新矿工背包");
+            yield return new WaitForSeconds(0.1f);
+        }
+        正在开宝箱 = false;
+    }
+
+    private void 弹Toast(string 名称, QualityType 品质)
+    {
+        if (string.IsNullOrEmpty(名称)) return;
+        ObserverModuleManager.S.SendEvent("SendUIToast", 名称, 品质, 1);
     }
 }

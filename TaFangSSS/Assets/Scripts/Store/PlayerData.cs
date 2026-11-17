@@ -61,7 +61,8 @@ public class PlayerData : XSingleton<PlayerData>
 
     public int Get宝箱数量(宝箱品质 quality)
     {
-        return 宝箱Dic[quality];
+        宝箱Dic.TryGetValue(quality, out int count);
+        return count;
     }
 
     public void Set宝箱数量(宝箱品质 quality, int count)
@@ -100,7 +101,8 @@ public class PlayerData : XSingleton<PlayerData>
     public int Get宝物数量(宝物Type 宝物Type, QualityType qualityType)
     {
         string str = 宝物Type + "_" + 品质键(qualityType);
-        return 宝物列表[str];
+        宝物列表.TryGetValue(str, out int count);
+        return count;
     }
     public void Set宝物数量(宝物Type 宝物Type, QualityType qualityType,int count)
     {
@@ -110,7 +112,8 @@ public class PlayerData : XSingleton<PlayerData>
     public int Get灵矿数量(int 阶数, QualityType qualityType)
     {
         string str = 阶数 + "_" + 品质键(qualityType);
-        return 灵矿Dic[str];
+        灵矿Dic.TryGetValue(str, out int count);
+        return count;
     }
     public void Set灵矿数量(int 阶数, QualityType qualityType,int count)
     {

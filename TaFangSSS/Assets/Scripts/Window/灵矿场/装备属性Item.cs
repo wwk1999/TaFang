@@ -27,6 +27,7 @@ public class 装备属性Item : MonoBehaviour
             进度条.fillAmount = 上限 <= 0f ? 0f : Mathf.Clamp01(数值 / 上限);
         }
 
-        进度百分比.text = (int)(数值 / 上限 * 100f) + "%";
+        float 比例 = 上限 <= 0f ? 0f : Mathf.Clamp01(数值 / 上限);
+        进度百分比.text = (int)(比例 * 100f) + "%";
     }
 }

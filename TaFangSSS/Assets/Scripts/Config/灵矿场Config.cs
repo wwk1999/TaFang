@@ -1943,11 +1943,11 @@ public static string Get装备介绍(矿工装备Type type, int 阶数)
         { 宝箱品质.至尊 ,new List<float>(){0,0,89,10,1}},
     };
 
-    public static void 开宝箱(宝箱品质 品质)
+    public static (string 名称, QualityType 品质) 开宝箱(宝箱品质 品质)
     {
         if (PlayerData.S.Get宝箱数量(品质) <= 0)
         {
-            return;
+            return (null, QualityType.黄品);
         }
 
         PlayerData.S.Set宝箱数量(品质, PlayerData.S.Get宝箱数量(品质) - 1);
@@ -1959,20 +1959,27 @@ public static string Get装备介绍(矿工装备Type type, int 阶数)
         // 第一层出第一阶，随当前土层提升
         int 阶数 = Mathf.Clamp((int)Get当前层(), 1, 10);
 
+        string 名称 = string.Empty;
         switch (物品类型)
         {
             case 宝箱物品Type.灵矿:
                 PlayerData.S.Set灵矿数量(阶数, 物品品质, PlayerData.S.Get灵矿数量(阶数, 物品品质) + 1);
+                名称 = 灵矿配置表[阶数].名称;
                 break;
             case 宝箱物品Type.装备:
-                PlayerData.S.矿工装备列表.Add(生成矿工装备(阶数, 物品品质));
+                var 装备 = 生成矿工装备(阶数, 物品品质);
+                PlayerData.S.矿工装备列表.Add(装备);
+                名称 = Get装备名称(装备.矿工装备Type, 阶数);
                 break;
             case 宝箱物品Type.宝物:
                 var 随机宝物Type = (宝物Type)Random.Range(1, (int)宝物Type.升星效果 + 1);
                 PlayerData.S.Set宝物数量(随机宝物Type, 物品品质,
                     PlayerData.S.Get宝物数量(随机宝物Type, 物品品质) + 1);
+                名称 = 宝物名[随机宝物Type];
                 break;
         }
+
+        return (名称, 物品品质);
     }
 
     private static QualityType Roll宝箱物品品质(List<float> 概率)
