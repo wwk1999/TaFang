@@ -178,6 +178,14 @@ public class 宝物
     public 宝物Type 宝物Type;
     public QualityType QualityType;
 }
+
+public enum 宝箱物品Type
+{
+    None,
+    灵矿,
+    装备,
+    宝物,
+}
 public class 灵矿场Config
 {
     public static Dictionary<宝物Type, string> 宝物名 = new Dictionary<宝物Type, string>()
@@ -1686,6 +1694,37 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
         { 31, new 矿工人数上限配置() { 人数 = 31, 升级灵魂 = 350000000 } },
     };
 
+    public static void Get宝箱()
+    {
+        var 概率 = 宝箱品质概率配置[PlayerData.S.矿洞宝箱品质概率等级].宝箱概率;
+        float random=Random.Range(0, 100f);
+        if (random < 概率[0])
+        {
+            PlayerData.S.宝箱Dic[宝箱品质.普通]++;
+        }else if (random < 概率[1]+概率[0])
+        {
+            PlayerData.S.宝箱Dic[宝箱品质.卓越]++;
+        }else 
+            PlayerData.S.宝箱Dic[宝箱品质.至尊]++;
+    }
+
+    public static Dictionary<宝箱品质, List<float>> 开宝箱品质配置 = new Dictionary<宝箱品质, List<float>>()
+    {
+        { 宝箱品质.普通 ,new List<float>(){70,30,0,0,0}},
+        { 宝箱品质.卓越 ,new List<float>(){0,67,30,3,0}},
+        { 宝箱品质.至尊 ,new List<float>(){0,0,89,10,1}},
+    };
+
+    public static void 开宝箱(宝箱品质 品质)
+    {
+        
+    }
+    public static Dictionary<宝箱物品Type, float> 开宝箱物品概率 = new Dictionary<宝箱物品Type, float>()
+    {
+        { 宝箱物品Type.灵矿 ,80},
+        { 宝箱物品Type.装备 ,15},
+        { 宝箱物品Type.宝物 ,5},
+    };
     public static Dictionary<int, 宝箱品质概率配置> 宝箱品质概率配置 = new Dictionary<int, 宝箱品质概率配置>()
     {
         { 1, new 宝箱品质概率配置() { 宝箱概率 = new List<float>() { 90, 10, 0 }, 升级灵魂 = 5000 } },
