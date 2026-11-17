@@ -390,6 +390,21 @@ public static List<string> 矿工名称List = new List<string>()
 };
 
 public static 宝物属性 当前总宝物属性 => Get当前宝物属性();
+public static float 星星加成 = 10;
+public static float 月亮加成 = 80;
+public static float 太阳加成 = 600;
+public static float 钻石加成 = 5000;
+
+public static float Get星级加成(int 星级)
+{
+    功法星级 功法星级 = 功法Config.Get功法星级(星级);
+    float value = 0;
+    value += 钻石加成 * 功法星级.钻石;
+    value += 太阳加成 * 功法星级.太阳;
+    value += 月亮加成 * 功法星级.月亮;
+    value += 星星加成 * 功法星级.星星;
+    return  value;
+}
 public static 宝物属性 Get当前宝物属性()
 {
     宝物属性 宝物属性 = new 宝物属性();
@@ -576,7 +591,7 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
         矿工.罗盘 = null;
         矿工.衣服 = null;
         矿工.阶数 = 阶数;
-        矿工.name = Get矿工名称(矿工类型);
+        矿工.name = 矿工类型string[矿工类型];
         return 矿工;
     }
 
@@ -679,6 +694,11 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
                 基础四维.挖宝时间*= (1f + 当前总宝物属性.加疾行矿工挖掘速度 / 100f);
                 break;
         }
+        基础四维.挖掘速度 *= 矿工等级挖掘固定倍率表[矿工.等级];
+        基础四维.固定收益 *= 矿工等级挖掘固定倍率表[矿工.等级];
+        
+        基础四维.挖掘速度 *=(1f+Get星级加成(矿工.星级)/100f);
+        基础四维.固定收益 *=(1f+Get星级加成(矿工.星级)/100f);
 
         return 基础四维;
     }
@@ -1411,8 +1431,8 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
         { 9, 3000000 },
         { 10, 9000000 },
     };
-
-    public static Dictionary<int, float> 矿工等级倍率表 = new Dictionary<int, float>()
+    
+    public static Dictionary<int, float> 矿工等级挖掘固定倍率表 = new Dictionary<int, float>()
     {
         { 1, 1 },
         { 2, 1.01f },

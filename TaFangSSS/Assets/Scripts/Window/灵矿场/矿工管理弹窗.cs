@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class 矿工管理弹窗 : MonoBehaviour
 {
+    public GameObject 矿工信息Content;
+    public TextMeshProUGUI 等级;
+    public TextMeshProUGUI 当前经验;
+    public TextMeshProUGUI 最大经验;
+    public Image 经验进度条;
     public Button exitButton;
     public Button maskButton;
     public GameObject 矿工列表;
@@ -149,13 +154,14 @@ public class 矿工管理弹窗 : MonoBehaviour
 
         if (当前矿工 == null)
         {
-            挖掘速度.text = "";
-            固定收益.text = "";
-            成长速度.text = "";
-            挖宝速度.text = "";
+            矿工信息Content.gameObject.SetActive(false);
             return;
         }
-
+        矿工信息Content.gameObject.SetActive(true);
+        等级.text = "LV."+当前矿工.等级;
+        当前经验.text = PlayerData.S.格式化数字(当前矿工.经验);
+        最大经验.text = PlayerData.S.格式化数字(灵矿场Config.矿工经验表[当前矿工.等级]);
+        经验进度条.fillAmount = 当前矿工.经验 / 灵矿场Config.矿工经验表[当前矿工.等级];
         四维属性 属性 = 灵矿场Config.Get矿工最终四维属性(当前矿工);
         挖掘速度.text = PlayerData.S.格式化数字(属性.挖掘速度);
         固定收益.text = PlayerData.S.格式化数字(属性.固定收益);
