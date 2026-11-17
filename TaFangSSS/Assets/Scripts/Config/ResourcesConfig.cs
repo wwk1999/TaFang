@@ -19,6 +19,10 @@ public class ResourcesConfig : MonoBehaviour
 	public static Sprite 灵矿场名册条目橙;
 	public static Sprite 灵矿场名册条目红;
 	public static Sprite 灵矿场名册条目彩;
+	public static Sprite 矿工装备稿子;
+	public static Sprite 矿工装备衣服;
+	public static Sprite 矿工装备护手;
+	public static Sprite 矿工装备罗盘;
 
 	public static Sprite 灵矿场按钮亮;
 	public static Sprite 灵矿场按钮暗;
@@ -8373,6 +8377,23 @@ public static Sprite 缚霞流光绫藏品;
 		return null;
 	}
 
+	public static Sprite Get矿工装备Sprite(矿工装备Type type)
+	{
+		switch (type)
+		{
+			case 矿工装备Type.稿子:
+				return 矿工装备稿子;
+			case 矿工装备Type.衣服:
+				return 矿工装备衣服;
+			case 矿工装备Type.护手:
+				return 矿工装备护手;
+			case 矿工装备Type.罗盘:
+				return 矿工装备罗盘;
+		}
+
+		return null;
+	}
+
 	public static Sprite Get矿工头像(矿工类型 type, int 阶数, QualityType quality)
 	{
 		return Get矿工Sprite(矿工头像SpriteCache, type, 阶数, quality);
@@ -8433,6 +8454,10 @@ public static Sprite 缚霞流光绫藏品;
 		灵矿场名册条目橙=Resources.Load<Sprite>("Sprite/灵矿场/名册条目橙");
 		灵矿场名册条目红=Resources.Load<Sprite>("Sprite/灵矿场/名册条目红");
 		灵矿场名册条目彩=Resources.Load<Sprite>("Sprite/灵矿场/名册条目彩");
+		矿工装备稿子=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/稿子");
+		矿工装备衣服=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/衣服");
+		矿工装备护手=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/护手");
+		矿工装备罗盘=Resources.Load<Sprite>("Sprite/灵矿场/矿工装备/罗盘");
 		矿工头像SpriteCache = Load矿工Sprites("矿工头像");
 		矿工立绘SpriteCache = Load矿工Sprites("矿工立绘");
 
