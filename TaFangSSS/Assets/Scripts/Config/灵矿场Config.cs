@@ -163,6 +163,7 @@ public class 矿工装备
     public bool 固定收益无暇;
     public bool 挖宝时间无暇;
     public bool 成长速度无暇;
+    public bool 锁;
 }
 
 public class 灵矿配置
@@ -395,10 +396,19 @@ public class 灵矿场Config
 
     };
 
+    public static Dictionary<QualityType, float> 灵矿品质倍率 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品 ,1},
+        { QualityType.地品 ,2},
+        { QualityType.宇品 ,4},
+        { QualityType.洪品 ,10},
+        { QualityType.荒品 ,30},
+    };
     public static float Get灵矿价格(int 阶数, QualityType qualityType)
     {
         float 基础价格 = 灵矿配置表[阶数].价格;
         基础价格 *= (1f+当前总宝物属性.灵矿价格上涨 / 100f);
+        基础价格*=灵矿品质倍率[qualityType];
         return 基础价格;
     }
     public static Dictionary<int, 灵矿配置> 灵矿配置表 = new Dictionary<int, 灵矿配置>()

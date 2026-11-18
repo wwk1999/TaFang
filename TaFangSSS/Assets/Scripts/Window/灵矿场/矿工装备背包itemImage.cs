@@ -24,6 +24,8 @@ public class 矿工装备背包itemImage : GridImageBase
     protected override void 右键点击()
     {
         if (item == null || item.矿工装备 == null) return;
+        item.矿工装备.锁 = !item.矿工装备.锁;
+        item.SetItem();
         ObserverModuleManager.S.SendEvent("矿工装备背包右键", item.矿工装备);
     }
 }

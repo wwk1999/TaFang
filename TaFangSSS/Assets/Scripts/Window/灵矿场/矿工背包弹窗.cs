@@ -71,6 +71,7 @@ public class 矿工背包弹窗 : MonoBehaviour
     private 背包类型 当前类型 = 背包类型.灵矿;
     private int 阶数筛选;
     private QualityType 品质筛选 = QualityType.None;
+    private int 宝箱品质筛选 = -1; // -1=所有，其余对应宝箱品质枚举值
     private int 排序类型; // 0 默认，1 品质，2 阶数
     private int 当前页 = 1;
     private 背包条目 当前选中;
@@ -131,6 +132,7 @@ public class 矿工背包弹窗 : MonoBehaviour
         maskButton.onClick.AddListener(() => gameObject.SetActive(false));
         ObserverModuleManager.S.RegisterEvent("刷新矿工背包",刷新矿工背包);
         ObserverModuleManager.S.RegisterEvent("矿工背包品质筛选", 矿工背包品质筛选);
+        ObserverModuleManager.S.RegisterEvent("矿工背包宝箱品质筛选", 矿工背包宝箱品质筛选);
         ObserverModuleManager.S.RegisterEvent("矿工背包阶数筛选", 矿工背包阶数筛选);
         ObserverModuleManager.S.RegisterEvent("灵矿Grid点击", 灵矿Grid点击);
         ObserverModuleManager.S.RegisterEvent("矿工装备Grid点击", 矿工装备Grid点击);
@@ -145,6 +147,7 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         ObserverModuleManager.S.UnRegisterEvent("刷新矿工背包",刷新矿工背包);
         ObserverModuleManager.S.UnRegisterEvent("矿工背包品质筛选", 矿工背包品质筛选);
+        ObserverModuleManager.S.UnRegisterEvent("矿工背包宝箱品质筛选", 矿工背包宝箱品质筛选);
         ObserverModuleManager.S.UnRegisterEvent("矿工背包阶数筛选", 矿工背包阶数筛选);
         ObserverModuleManager.S.UnRegisterEvent("灵矿Grid点击", 灵矿Grid点击);
         ObserverModuleManager.S.UnRegisterEvent("矿工装备Grid点击", 矿工装备Grid点击);
@@ -156,15 +159,19 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         foreach (Transform item in 阶数下拉区域Content.transform)
         {
+            item.gameObject.SetActive(false);
             Destroy(item.gameObject);
         }
 
         foreach (Transform item in 品质下拉区域Content.transform)
         {
+            item.gameObject.SetActive(false);
             Destroy(item.gameObject);
         }
 
-        for (int i = 0; i <= 10; i++)
+        // 阶数筛选：灵矿/装备为 所有+1~10阶，宝箱/宝物只有所有
+        int 最大阶数 = (当前类型 == 背包类型.灵矿 || 当前类型 == 背包类型.装备) ? 10 : 0;
+        for (int i = 0; i <= 最大阶数; i++)
         {
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Window/灵矿场/阶数Item");
             var item = Instantiate(prefab, 阶数下拉区域Content.transform).GetComponent<阶数Item>();
@@ -172,12 +179,53 @@ public class 矿工背包弹窗 : MonoBehaviour
             item.SetItem();
         }
 
-        for (int i = 0; i < Enum.GetValues(typeof(QualityType)).Length; i++)
+        GameObject 品质prefab = Resources.Load<GameObject>("Prefabs/Window/灵矿场/品质Item");
+        if (当前类型 == 背包类型.宝箱)
         {
-            GameObject prefab = Resources.Load<GameObject>("Prefabs/Window/灵矿场/品质Item");
-            var item = Instantiate(prefab, 品质下拉区域Content.transform).GetComponent<品质Item>();
-            item.QualityType = (QualityType)i;
-            item.SetItem();
+            // 宝箱品质筛选：所有/普通/卓越/至尊
+            创建品质Item(品质prefab, -1, "所有");
+            创建品质Item(品质prefab, (int)宝箱品质.普通, "普通");
+            创建品质Item(品质prefab, (int)宝箱品质.卓越, "卓越");
+            创建品质Item(品质prefab, (int)宝箱品质.至尊, "至尊");
+        }
+        else
+        {
+            // 灵矿/装备/宝物品质筛选：所有/普通/稀有/罕见/神话/永恒
+            创建品质Item(品质prefab, QualityType.None, "所有");
+            foreach (var 品质Type in 五种品质)
+            {
+                创建品质Item(品质prefab, 品质Type, Get品质显示名(品质Type));
+            }
+        }
+    }
+
+    private void 创建品质Item(GameObject prefab, QualityType 品质Type, string 显示名)
+    {
+        var item = Instantiate(prefab, 品质下拉区域Content.transform).GetComponent<品质Item>();
+        item.QualityType = 品质Type;
+        item.显示名 = 显示名;
+        item.SetItem();
+    }
+
+    private void 创建品质Item(GameObject prefab, int 宝箱品质值, string 显示名)
+    {
+        var item = Instantiate(prefab, 品质下拉区域Content.transform).GetComponent<品质Item>();
+        item.是宝箱 = true;
+        item.宝箱品质值 = 宝箱品质值;
+        item.显示名 = 显示名;
+        item.SetItem();
+    }
+
+    private static string Get品质显示名(QualityType 品质Type)
+    {
+        switch (品质Type)
+        {
+            case QualityType.黄品: return "普通";
+            case QualityType.地品: return "稀有";
+            case QualityType.宇品: return "罕见";
+            case QualityType.洪品: return "神话";
+            case QualityType.荒品: return "永恒";
+            default: return PropConfig.QualityNameDic[品质Type];
         }
     }
 
@@ -205,9 +253,11 @@ public class 矿工背包弹窗 : MonoBehaviour
         当前类型 = 类型;
         阶数筛选 = 0;
         品质筛选 = QualityType.None;
+        宝箱品质筛选 = -1;
         排序类型 = 0;
         当前页 = 1;
         当前选中 = null;
+        Init筛选();
         刷新界面();
     }
 
@@ -233,8 +283,9 @@ public class 矿工背包弹窗 : MonoBehaviour
         阶数筛选Button.GetComponentInChildren<TextMeshProUGUI>().text = 阶数筛选 == 0
             ? "所有"
             : PlayerData.S.Get阶数string(阶数筛选);
-        品质筛选Button.GetComponentInChildren<TextMeshProUGUI>().text =
-            品质筛选 == QualityType.None ? "所有" : PropConfig.QualityNameDic[品质筛选];
+        品质筛选Button.GetComponentInChildren<TextMeshProUGUI>().text = 当前类型 == 背包类型.宝箱
+            ? (宝箱品质筛选 < 0 ? "所有" : ((宝箱品质)宝箱品质筛选).ToString())
+            : (品质筛选 == QualityType.None ? "所有" : Get品质显示名(品质筛选));
         排序Button.GetComponentInChildren<TextMeshProUGUI>().text =
             排序类型 == 0 ? "所有" : 排序类型 == 1 ? "品质" : "阶数";
     }
@@ -306,6 +357,8 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         foreach (宝箱品质 品质Type in Enum.GetValues(typeof(宝箱品质)))
         {
+            if (宝箱品质筛选 >= 0 && (int)品质Type != 宝箱品质筛选) continue;
+
             int 数量 = PlayerData.S.Get宝箱数量(品质Type);
             if (数量 <= 0) continue;
 
@@ -345,17 +398,19 @@ public class 矿工背包弹窗 : MonoBehaviour
 
     private void 排序条目()
     {
-        if (排序类型 == 0) return;
-
         条目列表.Sort((a, b) =>
         {
             if (排序类型 == 2)
             {
                 int 阶数比较 = b.阶数.CompareTo(a.阶数);
                 if (阶数比较 != 0) return 阶数比较;
+                return b.品质.CompareTo(a.品质);
             }
 
-            return b.品质.CompareTo(a.品质);
+            // 默认/品质排序：品质降序，品质相同则阶数高的在前
+            int 品质比较 = b.品质.CompareTo(a.品质);
+            if (品质比较 != 0) return 品质比较;
+            return b.阶数.CompareTo(a.阶数);
         });
     }
 
@@ -485,6 +540,16 @@ public class 矿工背包弹窗 : MonoBehaviour
         if (!gameObject.activeInHierarchy) return;
 
         品质筛选 = (QualityType)obj[0];
+        当前页 = 1;
+        关闭下拉();
+        刷新界面();
+    }
+
+    private void 矿工背包宝箱品质筛选(object[] obj)
+    {
+        if (!gameObject.activeInHierarchy) return;
+
+        宝箱品质筛选 = (int)obj[0];
         当前页 = 1;
         关闭下拉();
         刷新界面();
