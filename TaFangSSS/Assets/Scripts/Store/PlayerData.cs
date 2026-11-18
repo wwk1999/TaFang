@@ -24,6 +24,10 @@ public class PlayerData : XSingleton<PlayerData>
         DontDestroyOnLoad(gameObject);
     }
     //灵矿场
+    public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
+    {
+        { 1, 0 }, { 2, 0 }, { 3, 0 }, { 4, 0 }, { 5, 0 }, { 6, 0 }, { 7, 0 }, { 8, 0 }, { 9, 0 }, { 10, 0 },
+    };
     public bool 自动招募白;
     public bool 自动招募蓝;
     public bool 自动招募橙;
@@ -51,6 +55,7 @@ public class PlayerData : XSingleton<PlayerData>
     };
 
     public float 矿工粉尘;
+    public float 宝物碎片;
     // 矿工装备分解筛选：品质5种(黄/地/宇/洪/荒)，阶数10种(1~10)，默认全选
     public bool[] 装备分解品质筛选 = new bool[] { true, true, true, true, true };
     public bool[] 装备分解阶数筛选 = new bool[] { true, true, true, true, true, true, true, true, true, true };

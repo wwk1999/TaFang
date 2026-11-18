@@ -14,6 +14,12 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public float 宝物碎片;
+
+        public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
+        {
+            { 1, 0 }, { 2, 0 }, { 3, 0 }, { 4, 0 }, { 5, 0 }, { 6, 0 }, { 7, 0 }, { 8, 0 }, { 9, 0 }, { 10, 0 },
+        };
         public float 矿工粉尘;
         public bool[] 装备分解品质筛选 = new bool[5];
         public bool[] 装备分解阶数筛选 = new bool[10];
@@ -2758,7 +2764,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void CopyFromRuntime(PlayerData runtime)
         {
-
+            宝物佩戴格子等级 = runtime.宝物佩戴格子等级;
             自动招募白 = runtime.自动招募白;
             自动招募蓝 = runtime.自动招募蓝;
             自动招募橙 = runtime.自动招募橙;
@@ -2957,10 +2963,13 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             矿工粉尘 = runtime.矿工粉尘;
             装备分解品质筛选 = (bool[])runtime.装备分解品质筛选.Clone();
             装备分解阶数筛选 = (bool[])runtime.装备分解阶数筛选.Clone();
+            runtime.宝物碎片 = 宝物碎片;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.宝物碎片 = 宝物碎片;
+            runtime.宝物佩戴格子等级 = 宝物佩戴格子等级;
             runtime.矿工粉尘 = 矿工粉尘;
             runtime.装备分解品质筛选 = (bool[])装备分解品质筛选.Clone();
             runtime.装备分解阶数筛选 = (bool[])装备分解阶数筛选.Clone();

@@ -223,6 +223,20 @@ public class 灵矿场Config
         return 基础;
     }
 
+    public static float Get宝物格子升级碎片(int 等级)
+    {
+        return 等级 + 1;
+    }
+
+    public static Dictionary<QualityType, float> 宝物分解碎片 = new Dictionary<QualityType, float>()
+    {
+        { QualityType.黄品 ,1},
+        { QualityType.地品 ,3},
+        { QualityType.宇品 ,6},
+        { QualityType.洪品 ,15},
+        { QualityType.荒品 ,50},
+    };
+
    
 
     // 装备/宝物只使用黄、地、宇、洪、荒五种品质，枚举值不连续，这里映射到 0~4
@@ -256,6 +270,20 @@ public class 灵矿场Config
         { 9, 1000000 },
         { 10, 3000000 },
     };
+    public static string Get总宝物效果(宝物Type 宝物Type)
+    {
+        if (宝物Type == 宝物Type.None) return string.Empty;
+        string str = "";
+        switch (宝物Type)
+        {
+            case 宝物Type.加挖掘速度:
+                str="所有矿工挖掘速度+"+(int)当前总宝物属性.加挖掘速度 + "%";
+                break;
+        }
+        
+        return str;
+    }
+
     public static string Get宝物效果(宝物Type 宝物Type, QualityType qualityType)
     {
         if (宝物Type == 宝物Type.None) return string.Empty;
@@ -282,7 +310,7 @@ public class 灵矿场Config
                 return "疾行矿工挖掘速度+" + 数值 + "%";
 
             case 宝物Type.挖宝概率两个白:
-                return "挖宝时双白概率+" + 数值 + "%";
+                return "挖宝时"+数值+"%概率一次挖出两个宝箱";
             case 宝物Type.灵矿价格上涨:
                 return "灵矿出售价格+" + 数值 + "%";
             case 宝物Type.装备效果:
@@ -601,55 +629,55 @@ public static 宝物属性 Get当前宝物属性()
             switch (item.Value.宝物Type)
             {
                 case 宝物Type.加挖掘速度:
-                    宝物属性.加挖掘速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加挖掘速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加固定收益:
-                    宝物属性.加固定收益+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加固定收益+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加挖宝速度:
-                    宝物属性.加挖宝速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加挖宝速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加成长速度:
-                    宝物属性.加成长速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加成长速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加秀灵矿工成长速度:
-                    宝物属性.加秀灵矿工成长速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加秀灵矿工成长速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加多宝矿工挖宝时间:
-                    宝物属性.加多宝矿工挖宝时间+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加多宝矿工挖宝时间+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加守脉矿工固定收益:
-                    宝物属性.加守脉矿工固定收益+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加守脉矿工固定收益+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.加疾行矿工挖掘速度:
-                    宝物属性.加疾行矿工挖掘速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.加疾行矿工挖掘速度+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.挖宝概率两个白:
-                    宝物属性.挖宝概率两个白+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.挖宝概率两个白+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.灵矿价格上涨:
-                    宝物属性.灵矿价格上涨+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.灵矿价格上涨+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.装备效果:
-                    宝物属性.装备效果+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.装备效果+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.刷新价格降低:
-                    宝物属性.刷新价格降低+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.刷新价格降低+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.装备分解增多:
-                    宝物属性.装备分解增多+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.装备分解增多+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.解雇增多:
-                    宝物属性.解雇增多+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.解雇增多+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.招募价格:
-                    宝物属性.招募价格+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.招募价格+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.等级效果:
-                    宝物属性.等级效果+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.等级效果+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
                 case 宝物Type.升星效果:
-                    宝物属性.升星效果+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType);
+                    宝物属性.升星效果+=Get宝物属性(item.Value.宝物Type,item.Value.QualityType)*(1f+PlayerData.S.宝物佩戴格子等级[item.Key]/100f);
                     break;
             }
         }
