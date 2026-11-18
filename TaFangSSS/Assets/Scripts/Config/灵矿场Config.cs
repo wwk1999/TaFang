@@ -344,7 +344,7 @@ public class 灵矿场Config
     }
 
     // 取汇总后的宝物属性值（对应 宝物属性 的字段）
-    private static float Get总宝物数值(宝物Type 宝物Type, 宝物属性 属性)
+    public static float Get总宝物数值(宝物Type 宝物Type, 宝物属性 属性)
     {
         switch (宝物Type)
         {
@@ -370,6 +370,20 @@ public class 灵矿场Config
             case 宝物Type.升星效果: return 属性.升星效果;
         }
         return 0;
+    }
+
+    // 灵矿场品质显示名：黄→普通、地→稀有、宇→罕见、洪→神话、荒→永恒
+    public static string Get品质显示名(QualityType qualityType)
+    {
+        switch (qualityType)
+        {
+            case QualityType.黄品: return "普通";
+            case QualityType.地品: return "稀有";
+            case QualityType.宇品: return "罕见";
+            case QualityType.洪品: return "神话";
+            case QualityType.荒品: return "永恒";
+            default: return PropConfig.QualityNameDic[qualityType];
+        }
     }
 
     public static string Get宝物效果(宝物Type 宝物Type, QualityType qualityType)

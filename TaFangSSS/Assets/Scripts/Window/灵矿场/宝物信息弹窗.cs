@@ -26,7 +26,7 @@ public class 宝物信息弹窗 : MonoBehaviour
         bg.sprite = ResourcesConfig.Get灵植背包格子(宝物.QualityType);
         图片.sprite = ResourcesConfig.Get宝物Sprite(宝物.宝物Type);
         name.text = 灵矿场Config.宝物名[宝物.宝物Type];
-        品质.text = PropConfig.QualityNameDic[宝物.QualityType];
+        品质.text = 灵矿场Config.Get品质显示名(宝物.QualityType);
         info.text = 灵矿场Config.宝物描述[宝物.宝物Type];
         效果.text = 灵矿场Config.Get宝物效果(宝物.宝物Type, 宝物.QualityType);
     }

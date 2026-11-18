@@ -36,6 +36,7 @@ public class 当前佩戴宝物Item : MonoBehaviour
          锁.gameObject.SetActive(false);
          强化button.gameObject.SetActive(true);
          等级.gameObject.SetActive(true);
+         等级.text="LV."+PlayerData.S.宝物佩戴格子等级[index];
          if (PlayerData.S.当前宝物[index] == null)
          {
             nameobj.gameObject.SetActive(false);
@@ -69,6 +70,8 @@ public class 当前佩戴宝物Item : MonoBehaviour
          PlayerData.S.宝物碎片 -= value;
          PlayerData.S.宝物佩戴格子等级[index]++;
          ObserverModuleManager.S.SendEvent("SendUIToast","升级成功");
+         ObserverModuleManager.S.SendEvent("升级宝物格子","升级成功");
+
          SetItem();
       });
    }
