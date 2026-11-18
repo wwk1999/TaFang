@@ -42,6 +42,10 @@ public class 矿工背包弹窗 : MonoBehaviour
     public Button 排序阶数Button;
     public GameObject 右panel;
 
+    public TextMeshProUGUI 灵石;
+    public Button 灵矿分解Button;
+    public Button 装备分解Button;
+    public GameObject 装备分解弹窗;
     private enum 背包类型
     {
         灵矿,
@@ -80,6 +84,7 @@ public class 矿工背包弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        灵石.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵石]);
         当前页 = 1;
         关闭下拉();
         刷新界面();
@@ -91,6 +96,10 @@ public class 矿工背包弹窗 : MonoBehaviour
     }
     private void Start()
     {
+        灵矿分解Button.onClick.AddListener(() =>
+        {
+            
+        });
         灵矿Button.onClick.AddListener(() => 切换类型(背包类型.灵矿));
         装备Button.onClick.AddListener(() => 切换类型(背包类型.装备));
         宝箱Button.onClick.AddListener(() => 切换类型(背包类型.宝箱));
@@ -263,6 +272,7 @@ public class 矿工背包弹窗 : MonoBehaviour
 
     private void 刷新界面()
     {
+        灵石.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵石]);
         刷新类型按钮();
         刷新筛选文字();
         收集条目();
@@ -272,6 +282,9 @@ public class 矿工背包弹窗 : MonoBehaviour
 
     private void 刷新类型按钮()
     {
+        灵矿分解Button.gameObject.SetActive(当前类型 == 背包类型.灵矿);
+        装备分解Button.gameObject.SetActive(当前类型 == 背包类型.装备);
+
         灵矿Button.image.sprite = 当前类型 == 背包类型.灵矿 ? ResourcesConfig.灵矿场按钮亮 : ResourcesConfig.灵矿场按钮暗;
         装备Button.image.sprite = 当前类型 == 背包类型.装备 ? ResourcesConfig.灵矿场按钮亮 : ResourcesConfig.灵矿场按钮暗;
         宝箱Button.image.sprite = 当前类型 == 背包类型.宝箱 ? ResourcesConfig.灵矿场按钮亮 : ResourcesConfig.灵矿场按钮暗;
