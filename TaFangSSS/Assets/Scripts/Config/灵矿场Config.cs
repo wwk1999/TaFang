@@ -213,7 +213,30 @@ public class 灵矿场Config
         { 宝物Type.等级效果, "登天阶" },
         { 宝物Type.升星效果, "星辰砂" },
     };
+    public static Dictionary<宝物Type, string> 宝物效果名 = new Dictionary<宝物Type, string>()
+    {
+        { 宝物Type.None, "无" },
+        { 宝物Type.加挖掘速度, "破石穿山" },
+        { 宝物Type.加固定收益, "坐享灵脉" },
+        { 宝物Type.加挖宝速度, "寻龙探宝" },
+        { 宝物Type.加成长速度, "悟道通玄" },
 
+        { 宝物Type.加秀灵矿工成长速度, "毓秀钟灵" },
+        { 宝物Type.加多宝矿工挖宝时间, "宝光长明" },
+        { 宝物Type.加守脉矿工固定收益, "守脉固元" },
+        { 宝物Type.加疾行矿工挖掘速度, "疾行如风" },
+
+        { 宝物Type.挖宝概率两个白, "双宝临门" },
+        { 宝物Type.灵矿价格上涨, "点石成金" },
+        { 宝物Type.装备效果, "器灵共鸣" },
+        { 宝物Type.刷新价格降低, "开源节流" },
+        { 宝物Type.装备分解增多, "化器归元" },
+        { 宝物Type.解雇增多, "散灵聚财" },
+
+        { 宝物Type.招募价格, "广纳贤才" },
+        { 宝物Type.等级效果, "登阶问道" },
+        { 宝物Type.升星效果, "星辉淬体" },
+    };
     public static float Get装备分解粉尘(int 阶数, QualityType qualityType)
     {
         阶数 = Mathf.Clamp(阶数, 1, 10);
@@ -273,15 +296,80 @@ public class 灵矿场Config
     public static string Get总宝物效果(宝物Type 宝物Type)
     {
         if (宝物Type == 宝物Type.None) return string.Empty;
-        string str = "";
+
+        var 属性 = 当前总宝物属性;
+        string 数值 = ((int)Get总宝物数值(宝物Type, 属性)).ToString();
         switch (宝物Type)
         {
             case 宝物Type.加挖掘速度:
-                str="所有矿工挖掘速度+"+(int)当前总宝物属性.加挖掘速度 + "%";
-                break;
+                return "所有矿工挖掘速度+" + 数值 + "%";
+            case 宝物Type.加固定收益:
+                return "所有矿工固定收益+" + 数值 + "%";
+            case 宝物Type.加挖宝速度:
+                return "所有矿工挖宝速度+" + 数值 + "%";
+            case 宝物Type.加成长速度:
+                return "所有矿工成长速度+" + 数值 + "%";
+
+            case 宝物Type.加秀灵矿工成长速度:
+                return "秀灵矿工成长速度+" + 数值 + "%";
+            case 宝物Type.加多宝矿工挖宝时间:
+                return "多宝矿工挖宝时间+" + 数值 + "%";
+            case 宝物Type.加守脉矿工固定收益:
+                return "守脉矿工固定收益+" + 数值 + "%";
+            case 宝物Type.加疾行矿工挖掘速度:
+                return "疾行矿工挖掘速度+" + 数值 + "%";
+
+            case 宝物Type.挖宝概率两个白:
+                return "挖宝时" + 数值 + "%概率一次挖出两个宝箱";
+            case 宝物Type.灵矿价格上涨:
+                return "灵矿出售价格+" + 数值 + "%";
+            case 宝物Type.装备效果:
+                return "矿工装备效果+" + 数值 + "%";
+            case 宝物Type.刷新价格降低:
+                return "招募刷新价格-" + 数值 + "%";
+            case 宝物Type.装备分解增多:
+                return "装备分解收益+" + 数值 + "%";
+            case 宝物Type.解雇增多:
+                return "解雇矿工返还+" + 数值 + "%";
+
+            case 宝物Type.招募价格:
+                return "招募矿工价格-" + 数值 + "%";
+            case 宝物Type.等级效果:
+                return "矿工等级效果+" + 数值 + "%";
+            case 宝物Type.升星效果:
+                return "矿工升星效果+" + 数值 + "%";
         }
-        
-        return str;
+
+        return string.Empty;
+    }
+
+    // 取汇总后的宝物属性值（对应 宝物属性 的字段）
+    private static float Get总宝物数值(宝物Type 宝物Type, 宝物属性 属性)
+    {
+        switch (宝物Type)
+        {
+            case 宝物Type.加挖掘速度: return 属性.加挖掘速度;
+            case 宝物Type.加固定收益: return 属性.加固定收益;
+            case 宝物Type.加挖宝速度: return 属性.加挖宝速度;
+            case 宝物Type.加成长速度: return 属性.加成长速度;
+
+            case 宝物Type.加秀灵矿工成长速度: return 属性.加秀灵矿工成长速度;
+            case 宝物Type.加多宝矿工挖宝时间: return 属性.加多宝矿工挖宝时间;
+            case 宝物Type.加守脉矿工固定收益: return 属性.加守脉矿工固定收益;
+            case 宝物Type.加疾行矿工挖掘速度: return 属性.加疾行矿工挖掘速度;
+
+            case 宝物Type.挖宝概率两个白: return 属性.挖宝概率两个白;
+            case 宝物Type.灵矿价格上涨: return 属性.灵矿价格上涨;
+            case 宝物Type.装备效果: return 属性.装备效果;
+            case 宝物Type.刷新价格降低: return 属性.刷新价格降低;
+            case 宝物Type.装备分解增多: return 属性.装备分解增多;
+            case 宝物Type.解雇增多: return 属性.解雇增多;
+
+            case 宝物Type.招募价格: return 属性.招募价格;
+            case 宝物Type.等级效果: return 属性.等级效果;
+            case 宝物Type.升星效果: return 属性.升星效果;
+        }
+        return 0;
     }
 
     public static string Get宝物效果(宝物Type 宝物Type, QualityType qualityType)
