@@ -35,12 +35,17 @@ public class 灵矿GridImage : GridImageBase
         if (!按下Shift)
         {
              PlayerData.S.Set灵矿数量(灵矿Grid.阶数值, 灵矿Grid.品质, PlayerData.S.Get灵矿数量(灵矿Grid.阶数值, 灵矿Grid.品质)-1);
-             PlayerData.S.PropListDic[PropType.灵石] += 灵矿场Config.Get灵矿价格(灵矿Grid.阶数值, 灵矿Grid.品质);
+             int 灵石 = (int)灵矿场Config.Get灵矿价格(灵矿Grid.阶数值, 灵矿Grid.品质);
+             PlayerData.S.PropListDic[PropType.灵石] += 灵石;
+             ObserverModuleManager.S.SendEvent("SendUIToast", $"分解灵矿 x1，获得灵石 {PlayerData.S.格式化数字(灵石)}");
         }
         else
         {
-            PlayerData.S.PropListDic[PropType.灵石] += 灵矿场Config.Get灵矿价格(灵矿Grid.阶数值, 灵矿Grid.品质)*PlayerData.S.Get灵矿数量(灵矿Grid.阶数值, 灵矿Grid.品质);
+            int 数量 = PlayerData.S.Get灵矿数量(灵矿Grid.阶数值, 灵矿Grid.品质);
+            int 灵石 = (int)(灵矿场Config.Get灵矿价格(灵矿Grid.阶数值, 灵矿Grid.品质) * 数量);
+            PlayerData.S.PropListDic[PropType.灵石] += 灵石;
             PlayerData.S.Set灵矿数量(灵矿Grid.阶数值, 灵矿Grid.品质, 0);
+            ObserverModuleManager.S.SendEvent("SendUIToast", $"分解灵矿 x{PlayerData.S.格式化数字(数量)}，获得灵石 {PlayerData.S.格式化数字(灵石)}");
         }
         ObserverModuleManager.S.SendEvent("刷新矿工背包");
         ObserverModuleManager.S.SendEvent("灵矿Grid右键", 灵矿Grid.阶数值, 灵矿Grid.品质);

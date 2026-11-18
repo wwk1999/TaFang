@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Config;
 using TMPro;
 using UnityEngine;
@@ -98,7 +99,11 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         灵矿分解Button.onClick.AddListener(() =>
         {
-            
+            一键分解所有灵矿();
+        });
+        装备分解Button.onClick.AddListener(() =>
+        {
+            装备分解弹窗.gameObject.SetActive(true);
         });
         灵矿Button.onClick.AddListener(() => 切换类型(背包类型.灵矿));
         装备Button.onClick.AddListener(() => 切换类型(背包类型.装备));
@@ -546,6 +551,39 @@ public class 矿工背包弹窗 : MonoBehaviour
         }
 
         ObserverModuleManager.S.SendEvent("矿工背包分解", 当前选中.类型.ToString(), 当前选中.装备, 当前选中.宝物);
+    }
+
+    private void 一键分解所有灵矿()
+    {
+        int 总灵石 = 0;
+        int 总灵矿数 = 0;
+        // ToList 拍平字典快照，避免遍历期间回写触发 Collection modified
+        foreach (var kv in PlayerData.S.灵矿Dic.ToList())
+        {
+            if (kv.Value <= 0) continue;
+
+            // 键格式："1_黄品" / "5_红品"（红品=洪品的历史兼容）
+            string[] parts = kv.Key.Split('_');
+            int 阶数 = int.Parse(parts[0]);
+            string 品质名 = parts[1];
+            QualityType 品质 = 品质名 == "红品" ? QualityType.洪品
+                : (QualityType)Enum.Parse(typeof(QualityType), 品质名);
+
+            总灵石 += (int)(灵矿场Config.Get灵矿价格(阶数, 品质) * kv.Value);
+            总灵矿数 += kv.Value;
+            PlayerData.S.灵矿Dic[kv.Key] = 0;
+        }
+
+        if (总灵矿数 == 0)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast", "没有可分解的灵矿");
+            return;
+        }
+
+        PlayerData.S.PropListDic[PropType.灵石] += 总灵石;
+        ObserverModuleManager.S.SendEvent("刷新矿工背包");
+        ObserverModuleManager.S.SendEvent("SendUIToast",
+            $"分解灵矿 x{PlayerData.S.格式化数字(总灵矿数)}，获得灵石 {PlayerData.S.格式化数字(总灵石)}");
     }
 
     private void 矿工背包品质筛选(object[] obj)

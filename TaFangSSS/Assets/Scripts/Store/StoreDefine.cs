@@ -14,6 +14,10 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public float 矿工粉尘;
+        public bool[] 装备分解品质筛选 = new bool[5];
+        public bool[] 装备分解阶数筛选 = new bool[10];
+
         public bool 自动招募白;
         public bool 自动招募蓝;
         public bool 自动招募橙;
@@ -2950,10 +2954,16 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             当前任务列表 = runtime.当前任务列表;
             任务完成字典 = runtime.任务完成字典;
             当前招募矿工列表 = runtime.当前招募矿工列表;
+            矿工粉尘 = runtime.矿工粉尘;
+            装备分解品质筛选 = (bool[])runtime.装备分解品质筛选.Clone();
+            装备分解阶数筛选 = (bool[])runtime.装备分解阶数筛选.Clone();
         }
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.矿工粉尘 = 矿工粉尘;
+            runtime.装备分解品质筛选 = (bool[])装备分解品质筛选.Clone();
+            runtime.装备分解阶数筛选 = (bool[])装备分解阶数筛选.Clone();
             runtime.自动招募白 = 自动招募白;
             runtime.自动招募蓝 = 自动招募蓝;
             runtime.自动招募橙 = 自动招募橙;

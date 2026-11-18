@@ -50,6 +50,10 @@ public class PlayerData : XSingleton<PlayerData>
         {"10_黄品",0},{"10_地品",0},{"10_宇品",0},{"10_红品",0},{"10_荒品",0},
     };
 
+    public float 矿工粉尘;
+    // 矿工装备分解筛选：品质5种(黄/地/宇/洪/荒)，阶数10种(1~10)，默认全选
+    public bool[] 装备分解品质筛选 = new bool[] { true, true, true, true, true };
+    public bool[] 装备分解阶数筛选 = new bool[] { true, true, true, true, true, true, true, true, true, true };
     public List<矿工装备> 矿工装备列表 = new List<矿工装备>();
 
     public Dictionary<宝箱品质, int> 宝箱Dic = new Dictionary<宝箱品质, int>()
