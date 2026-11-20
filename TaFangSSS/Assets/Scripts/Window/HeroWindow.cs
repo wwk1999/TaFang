@@ -47,13 +47,7 @@ public class HeroWindow : MonoBehaviour
          }
       }
 
-      if (PlayerData.S.是否首次进入英雄界面)
-      {
-         引导count++;
-         对话框Text.text = "已经出战成功啦,下面让我们进行第一场战斗吧！";
-         引导小手.gameObject.SetActive(false);
-         引导Button.gameObject.SetActive(true);
-      }
+    
       SetHeroListOrder();
    }
    public void ResetHeroPanel()
@@ -161,12 +155,15 @@ public class HeroWindow : MonoBehaviour
          {
             对话框.gameObject.SetActive(false);
             gameObject.SetActive(false);
-            PlayerData.S.是否首次进入英雄界面 = false;
-            ObserverModuleManager.S.SendEvent("关卡新手引导");
          }
         
       });
       ObserverModuleManager.S.RegisterEvent("交换英雄",交换英雄);
+      if (PlayerData.S.是否首次进入英雄界面)
+      {
+         ObserverModuleManager.S.SendEvent("剧情对话",20,false);
+         PlayerData.S.是否首次进入英雄界面 = false;
+      }
    }
 
    private void Update()
@@ -255,12 +252,7 @@ public class HeroWindow : MonoBehaviour
    private void OnEnable()
    {
       ExitButton.gameObject.SetActive(true);
-      if (PlayerData.S.是否首次进入英雄界面)
-      {
-         ExitButton.gameObject.SetActive(false);
-         对话框.gameObject.SetActive(true);
-         引导Button.gameObject.SetActive(true);
-      }
+     
       暴击伤害Text.text = 属性config.Get英雄暴击伤害增幅() + "%";
       ShowHeroList();
       ResetHeroPanel();

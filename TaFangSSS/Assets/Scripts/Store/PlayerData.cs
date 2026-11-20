@@ -23,6 +23,9 @@ public class PlayerData : XSingleton<PlayerData>
     {
         DontDestroyOnLoad(gameObject);
     }
+    //新手引导
+    public bool 是否首次进入游戏 = true;
+    public bool 是否首次进入英雄界面 = true;
     //灵矿场
     public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
     {
@@ -150,17 +153,12 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 是否加入愿望单 = false;
     public 符文之地Type 符文之地最大关卡 = 符文之地Type.青木林;
     public 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
-    public string Name = "修仙者";
+    public string Name = "叶凡";
     public JingJieType 历史最高境界 = JingJieType.练气;
     public JingJieType 当前轮回境界 = JingJieType.练气;
     public int 轮回次数 = 0;
     public BigDouble 初始跟脚 = 1;
-    public bool 是否首次进入游戏 = false;
-    public bool 是否首次进入主页面 = false;
-    public bool 是否首次进入英雄界面 = false;
-    public bool 是否首次进入关卡 = false;
-    public bool 是否首次通关关卡 = false;
-    public bool 是否首次配置神通 = false;
+  
 
     public float 灵兽蛋数量 = 10;
     public List<灵兽> 灵兽列表 = new List<灵兽>();

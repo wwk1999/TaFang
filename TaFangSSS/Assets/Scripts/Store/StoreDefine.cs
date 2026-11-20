@@ -14,6 +14,9 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public bool 是否首次进入游戏 = true;
+        public bool 是否首次进入英雄界面 = true;
+
         public float 宝物碎片;
 
         public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
@@ -104,7 +107,7 @@ public class StoreDefine : XSingleton<StoreController>
         public 神物Type 最大神物关卡 = 神物Type.最终伤害;
         public 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
 
-        public string Name = "修仙者";
+        public string Name = "叶凡";
         public JingJieType 历史最高境界 = JingJieType.练气;
         public JingJieType 当前轮回境界 = JingJieType.练气;
         public Dictionary<int, 孵化池> 孵化池列表 = new Dictionary<int, 孵化池>()
@@ -423,10 +426,6 @@ public List<任务Type> 当前任务列表 = new List<任务Type>();
 
     };
         public float Exp;
-        public bool 是否首次进入游戏 = false;
-        public bool 是否首次进入英雄界面 = false;
-        public bool 是否首次进入关卡 = false;
-        public bool 是否首次通关关卡 = false;
         
         public bool 灵兽分解性别所有 = false;
         public bool 灵兽分解性别公 = false;
@@ -2764,6 +2763,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void CopyFromRuntime(PlayerData runtime)
         {
+            是否首次进入游戏 = runtime.是否首次进入游戏;
+            是否首次进入英雄界面 = runtime.是否首次进入英雄界面;
             宝物佩戴格子等级 = runtime.宝物佩戴格子等级;
             自动招募白 = runtime.自动招募白;
             自动招募蓝 = runtime.自动招募蓝;
@@ -2855,13 +2856,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             战斗选择丹药Dic = runtime.战斗选择丹药Dic;
             辅助丹药BuffDic = runtime.辅助丹药BuffDic;
             长生道体年数 = runtime.长生道体年数;
-            是否首次进入游戏 = runtime.是否首次进入游戏;
-            是否首次进入主页面 = runtime.是否首次进入主页面;
-            是否首次进入英雄界面 = runtime.是否首次进入英雄界面;
-            是否首次进入关卡 = runtime.是否首次进入关卡;
-            是否首次通关关卡 = runtime.是否首次通关关卡;
+        
             神通配置List = runtime.神通配置List;
-            是否首次配置神通 = runtime.是否首次配置神通;
             英雄技能树Dic = runtime.英雄技能树Dic;
             主页地图Type = runtime.主页地图Type;
             符文之地最大关卡 = runtime.符文之地最大关卡;
@@ -2968,6 +2964,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.是否首次进入游戏 = 是否首次进入游戏;
+            runtime.是否首次进入英雄界面 = 是否首次进入英雄界面;
             runtime.宝物碎片 = 宝物碎片;
             runtime.宝物佩戴格子等级 = 宝物佩戴格子等级;
             runtime.矿工粉尘 = 矿工粉尘;
@@ -3065,11 +3063,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             runtime.战斗选择丹药Dic = 战斗选择丹药Dic;
             runtime.辅助丹药BuffDic = 辅助丹药BuffDic;
             runtime.长生道体年数 = 长生道体年数;
-            runtime.是否首次进入游戏 = 是否首次进入游戏;
-            runtime.是否首次进入主页面 = 是否首次进入主页面;
-            runtime.是否首次进入英雄界面 = 是否首次进入英雄界面;
-            runtime.是否首次进入关卡 = 是否首次进入关卡;
-            runtime.是否首次通关关卡 = 是否首次通关关卡;
+         
             runtime.灵植土地列表 = 灵植土地列表;
             // 保序去重：清理旧版本因 Newtonsoft Auto 追加 bug 已存进存档的重复英雄（如多个丹童）
             var 去重神通List = new List<HeroType>();
@@ -3083,7 +3077,6 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
                 }
             }
             runtime.神通配置List = 去重神通List;
-            runtime.是否首次配置神通 = 是否首次配置神通;
             runtime.英雄技能树Dic = 英雄技能树Dic;
             runtime.主页地图Type = 主页地图Type;
             runtime.符文之地最大关卡 = 符文之地最大关卡;

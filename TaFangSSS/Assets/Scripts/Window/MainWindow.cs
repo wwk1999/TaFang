@@ -466,7 +466,6 @@ public class MainWindow : MonoBehaviour
     public void 显示神通配置弹窗(object[] obj)
     {
         //打开弹窗时按引导标志同步mask状态，避免上次引导残留的activeSelf=true导致非引导时mask跟着显示
-        神通配置新手mask.gameObject.SetActive(PlayerData.S.是否首次配置神通);
         激活窗口(神通配置弹窗);
     }
 
@@ -553,6 +552,11 @@ public class MainWindow : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerData.S.是否首次进入游戏 )
+        {
+            ObserverModuleManager.S.SendEvent("剧情对话",1,true);
+            PlayerData.S.是否首次进入游戏 = false;
+        }
         if (!PlayerData.S.当前任务列表.Contains(任务Type.花果山) && !PlayerData.S.任务完成字典[任务Type.花果山])
         {
             任务Config.添加任务(任务Type.花果山);
@@ -591,10 +595,7 @@ public class MainWindow : MonoBehaviour
         ObserverModuleManager.S.SendEvent("刷新主页世界树收获弹窗");
         SetBuff();
         道场Config.更新供奉总属性();
-        if (PlayerData.S.是否首次进入主页面)
-        {
-            首次进入主页面引导();
-        }
+      
         新手攻略Button.onClick.AddListener(() =>
         {
             新手攻略.gameObject.SetActive(true);
@@ -940,18 +941,11 @@ public class MainWindow : MonoBehaviour
         });
         储物袋按钮.onClick.AddListener(() =>
         {
+            ObserverModuleManager.S.SendEvent("清除引导小手");
             WindowController.S.打开窗口(WindowController.S.储物袋Window);
         });
         英雄按钮.onClick.AddListener(() =>
         {
-            if (PlayerData.S.是否首次进入主页面)
-            {
-                对话框.gameObject.SetActive(false);
-                小手Animator.gameObject.SetActive(false);
-                英雄Canvas.overrideSorting = false;
-                父canvas.GetComponent<GraphicRaycaster>().enabled = true;
-                PlayerData.S.是否首次进入主页面 = false;
-            }
             WindowController.S.打开窗口(WindowController.S.英雄Window);
         });
         招募卷Debug.onClick.AddListener(() =>
@@ -1061,5 +1055,6 @@ public class MainWindow : MonoBehaviour
     private void OnEnable()
     {
         Init();
+        
     }
 }

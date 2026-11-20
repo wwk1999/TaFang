@@ -33,7 +33,6 @@ public class 首次进入界面 : MonoBehaviour
             else
             {
                 已经输入名称 = true;
-                PlayerData.S.是否首次进入游戏 = false;
                 确认Button.gameObject.SetActive(false);
                 名称text.gameObject.SetActive(false);
                 输入.gameObject.SetActive(false);

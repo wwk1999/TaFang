@@ -63,6 +63,7 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                     HeroWindowController.S.DragHero;
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
                 ObserverModuleManager.S.SendEvent("交换英雄",list);
+                ObserverModuleManager.S.SendEvent("清除引导小手");
             }
         }
     }

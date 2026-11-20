@@ -54,7 +54,7 @@ public class StartLoadWindow : MonoBehaviour
       yield return StartCoroutine(QueueController.S.Init藏品百科itemQueue());
 
       // 阶段2（80~100%）：异步加载目标场景（首次进入进新手引导场景，否则进主界面 UIScene）
-      string 目标场景 = PlayerData.S.是否首次进入游戏 ? "FirstScene" : "UIScene";
+      string 目标场景 = "UIScene";
       AsyncOperation async = SceneManager.LoadSceneAsync(目标场景, LoadSceneMode.Single);
       async.allowSceneActivation = false;
       while (async.progress < 0.9f)
