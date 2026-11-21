@@ -12,9 +12,20 @@ public class 矿工装备背包item : MonoBehaviour
     public GameObject 选中;
     public TextMeshProUGUI name;
     [NonSerialized] public 矿工装备 矿工装备;
+    public GameObject 矿工;
+    public TextMeshProUGUI 矿工名;
 
     public void SetItem()
     {
+        if (矿工装备.矿工 == null)
+        {
+            矿工.gameObject.SetActive(false);
+        }
+        else
+        {
+            矿工.gameObject.SetActive(true);
+            矿工名.text = 矿工装备.矿工.name;
+        }
         name.text = 灵矿场Config.Get装备名称(矿工装备.矿工装备Type, 矿工装备.阶数);
         bg.image.sprite = ResourcesConfig.Get灵植背包格子(矿工装备.QualityType);
         icon.sprite = ResourcesConfig.Get矿工装备Sprite(矿工装备.矿工装备Type, 矿工装备.阶数);

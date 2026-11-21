@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class 装备信息弹窗 : MonoBehaviour
 {
     public Image bg;                       // 图片/bg，品质背景框
-    public Image icon;                     // 图片/icon
+    public Image icon;      
+    public TextMeshProUGUI 阶数;
+    // 图片/icon
     public TextMeshProUGUI name;
     public TextMeshProUGUI 类型count;       // 装备类型
     public TextMeshProUGUI info;
@@ -24,6 +26,7 @@ public class 装备信息弹窗 : MonoBehaviour
             return;
         }
 
+        阶数.text = PlayerData.S.Get阶数string(矿工装备.阶数);
         bg.sprite = ResourcesConfig.Get灵植背包格子(矿工装备.QualityType);
         icon.sprite = ResourcesConfig.Get矿工装备Sprite(矿工装备.矿工装备Type, 矿工装备.阶数);
         name.text = 灵矿场Config.Get装备名称(矿工装备.矿工装备Type, 矿工装备.阶数);

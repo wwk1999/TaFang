@@ -167,7 +167,7 @@ public class 宝物弹窗 : MonoBehaviour
             }
             foreach (var item in PlayerData.S.当前宝物)
             {
-                if (item.Value == null)
+                if (item.Value == null) 
                 {
                     PlayerData.S.当前宝物[item.Key]=new 宝物(){宝物Type = 当前选择宝物Type,QualityType =  QualityType1};
                     PlayerData.S.Set宝物数量(当前选择宝物Type,QualityType1,PlayerData.S.Get宝物数量(当前选择宝物Type,QualityType1)-1);

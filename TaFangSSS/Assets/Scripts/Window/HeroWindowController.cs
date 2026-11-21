@@ -133,6 +133,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public 任务Type 当前显示任务Type;
     
     [NonSerialized] public int 灵矿场当前招募阶数=1;
+    [NonSerialized] public 矿工 矿工管理弹窗当前矿工=null;
 
 
     // 当前自定义光标贴图（从图集抠出来的小图），替换时销毁避免泄漏

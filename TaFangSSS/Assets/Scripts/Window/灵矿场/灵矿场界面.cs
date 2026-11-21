@@ -69,6 +69,7 @@ public class 灵矿场界面 : MonoBehaviour
     public void 刷新开采信息(object[] obj)
     {
         Show开采信息();
+        Show背景土层();
     }
 
     private void OnDestroy()

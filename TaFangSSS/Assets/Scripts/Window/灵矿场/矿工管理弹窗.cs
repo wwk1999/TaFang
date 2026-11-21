@@ -47,6 +47,7 @@ public class 矿工管理弹窗 : MonoBehaviour
         if (!PlayerData.S.矿工列表.Contains(当前矿工))
         {
             当前矿工 = PlayerData.S.矿工列表.Count > 0 ? PlayerData.S.矿工列表[0] : null;
+            HeroWindowController.S.矿工管理弹窗当前矿工 = 当前矿工;
         }
         刷新界面();
     }
@@ -199,6 +200,12 @@ public class 矿工管理弹窗 : MonoBehaviour
             }
         }
 
+        当前列表.Sort((a, b) =>
+        {
+            int 品质比较 = b.QualityType.CompareTo(a.QualityType);
+            return 品质比较 != 0 ? 品质比较 : b.阶数.CompareTo(a.阶数);
+        });
+
         int 总页数 = Mathf.Max(1, Mathf.CeilToInt(当前列表.Count / (float)每页个数));
         当前页数 = Mathf.Clamp(当前页数, 1, 总页数);
         foreach (Transform item in 背包.transform)
@@ -244,6 +251,7 @@ public class 矿工管理弹窗 : MonoBehaviour
         矿工 miner = obj[0] as 矿工;
         if (miner == null || !PlayerData.S.矿工列表.Contains(miner)) return;
         当前矿工 = miner;
+        HeroWindowController.S.矿工管理弹窗当前矿工 = 当前矿工;
         Show当前装备();
         Show矿工信息();
     }
@@ -262,9 +270,21 @@ public class 矿工管理弹窗 : MonoBehaviour
     {
         if (当前矿工 == null || 装备 == null || 装备.矿工装备Type == 矿工装备Type.None) return;
         if (!PlayerData.S.矿工装备列表.Contains(装备)) return;
+        if (Get装备(当前矿工, 装备.矿工装备Type) == 装备) return;
+
+        // 同一件装备只能被一名矿工佩戴，先从其他矿工身上卸下。
+        foreach (var miner in PlayerData.S.矿工列表)
+        {
+            if (miner == null || miner == 当前矿工) continue;
+            if (Get装备(miner, 装备.矿工装备Type) != 装备) continue;
+            Set装备(miner, 装备.矿工装备Type, null);
+        }
 
         // 直接替换对应部位，旧装备仍保留在已获得装备列表中。
+        矿工装备 旧装备 = Get装备(当前矿工, 装备.矿工装备Type);
+        if (旧装备 != null) 旧装备.矿工 = null;
         Set装备(当前矿工, 装备.矿工装备Type, 装备);
+        装备.矿工 = 当前矿工;
         当前选择矿工装备 = null;
         Show当前装备();
         Show矿工信息();
@@ -284,7 +304,8 @@ public class 矿工管理弹窗 : MonoBehaviour
         if (Get装备(miner, 装备.矿工装备Type) != 装备) return;
 
         // 装备列表保存全部已获得装备，卸下时只清空对应部位。
-        Set装备(miner, 装备.矿工装备Type, new 矿工装备());
+        Set装备(miner, 装备.矿工装备Type, null);
+        装备.矿工 = null;
 
         if (当前矿工 == miner)
         {

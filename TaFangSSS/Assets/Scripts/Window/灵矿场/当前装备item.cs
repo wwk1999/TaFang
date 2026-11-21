@@ -24,7 +24,7 @@ public class 当前装备item : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(矿工装备.QualityType);
+        bg.sprite = ResourcesConfig.Get灵植背包格子(矿工装备.QualityType);
         icon.sprite = ResourcesConfig.Get矿工装备Sprite(矿工装备.矿工装备Type,矿工装备.阶数);
         阶数.text = PlayerData.S.Get阶数string(矿工装备.阶数);
         name.text = 矿工装备.矿工装备Type.ToString();
