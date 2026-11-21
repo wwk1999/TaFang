@@ -16,7 +16,9 @@ public class StoreDefine : XSingleton<StoreController>
     {
         public bool 是否首次进入游戏 = true;
         public bool 是否首次进入英雄界面 = true;
-
+        public bool 是否首次进入储物袋 = true;
+        public bool 是否首次进入灵矿场 = true;
+        public bool 是否首次进入领主府 = true;
         public float 宝物碎片;
 
         public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
@@ -2763,6 +2765,9 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void CopyFromRuntime(PlayerData runtime)
         {
+            是否首次进入领主府 = runtime.是否首次进入领主府;
+            是否首次进入储物袋 = runtime.是否首次进入储物袋;
+            是否首次进入灵矿场 = runtime.是否首次进入灵矿场;
             是否首次进入游戏 = runtime.是否首次进入游戏;
             是否首次进入英雄界面 = runtime.是否首次进入英雄界面;
             宝物佩戴格子等级 = runtime.宝物佩戴格子等级;
@@ -2964,6 +2969,9 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.是否首次进入领主府 = 是否首次进入领主府;
+            runtime.是否首次进入储物袋 = 是否首次进入储物袋;
+            runtime.是否首次进入灵矿场 = 是否首次进入灵矿场;
             runtime.是否首次进入游戏 = 是否首次进入游戏;
             runtime.是否首次进入英雄界面 = 是否首次进入英雄界面;
             runtime.宝物碎片 = 宝物碎片;

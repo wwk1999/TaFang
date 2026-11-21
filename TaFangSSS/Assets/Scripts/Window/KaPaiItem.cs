@@ -83,6 +83,11 @@ public class KaPaiItem : MonoBehaviour,IPointerDownHandler
    {
       bg.onClick.AddListener(() =>
       {
+         if (PlayerData.S.是否首次进入英雄界面 == true)
+         {
+            ObserverModuleManager.S.SendEvent("SendUIToast","请先完成新手引导，上阵一名英雄");
+            return;
+         }
          ObserverModuleManager.S.SendEvent("英雄详情界面",heroType);
       });
       合成mask.onClick.AddListener(() =>

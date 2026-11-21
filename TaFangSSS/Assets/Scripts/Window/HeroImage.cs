@@ -64,6 +64,7 @@ public class HeroImage : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
                 ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
                 ObserverModuleManager.S.SendEvent("交换英雄",list);
                 ObserverModuleManager.S.SendEvent("清除引导小手");
+                PlayerData.S.是否首次进入英雄界面 = false;
             }
         }
     }

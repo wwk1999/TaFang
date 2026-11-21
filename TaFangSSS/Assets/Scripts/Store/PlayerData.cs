@@ -26,6 +26,9 @@ public class PlayerData : XSingleton<PlayerData>
     //新手引导
     public bool 是否首次进入游戏 = true;
     public bool 是否首次进入英雄界面 = true;
+    public bool 是否首次进入储物袋 = true;
+    public bool 是否首次进入灵矿场 = true;
+    public bool 是否首次进入领主府 = true;
     //灵矿场
     public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
     {

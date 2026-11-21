@@ -16,6 +16,22 @@ public class 新手引导对话 : MonoBehaviour
     public TextMeshProUGUI 主角文本;
     public TextMeshProUGUI 仙子文本;
     public TextMeshProUGUI 旁白文本;
+    
+    public GameObject 低阶对话框;
+    public TextMeshProUGUI 低阶主角名;
+    public TextMeshProUGUI 低阶主角文本;
+    
+    public GameObject 中阶对话框;
+    public TextMeshProUGUI 中阶主角名;
+    public TextMeshProUGUI 中阶主角文本;
+    
+    public GameObject 高阶对话框;
+    public TextMeshProUGUI 高阶主角名;
+    public TextMeshProUGUI 高阶主角文本;
+    
+    public GameObject 道祖对话框;
+    public TextMeshProUGUI 道祖主角名;
+    public TextMeshProUGUI 道祖主角文本;
     private int index;
     public bool 主页;
     
@@ -24,7 +40,7 @@ public class 新手引导对话 : MonoBehaviour
         index = (int)obj[0];
         bool 在主页=(bool)obj[1];
         if (主页 != 在主页) return;
-        对话 对话 = 新手引导剧情Config.对话[index-1];
+        对话 对话 = 新手引导剧情Config.对话Dic[index];
         if (对话.index > 0)
         {
             mask.SetActive(true);
@@ -34,23 +50,81 @@ public class 新手引导对话 : MonoBehaviour
                 仙子对话框.gameObject.SetActive(false);
                 学生对话框.gameObject.SetActive(true);
                 旁白对话框.gameObject.SetActive(false);
-
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
                 主角名.text = PlayerData.S.Name;
-                主角文本.text=新手引导剧情Config.对话[index-1].text;
+                主角文本.text=对话.text;
             }
             else if(对话.人物Type == 人物Type.仙子)
             {
                 仙子对话框.gameObject.SetActive(true);
                 学生对话框.gameObject.SetActive(false);
                 旁白对话框.gameObject.SetActive(false);
-                仙子文本.text=新手引导剧情Config.对话[index-1].text;
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
+                仙子文本.text=对话.text;
             }
-            else
+            else if(对话.人物Type == 人物Type.旁白)
             {
                 仙子对话框.gameObject.SetActive(false);
                 学生对话框.gameObject.SetActive(false);
                 旁白对话框.gameObject.SetActive(true);
-                旁白文本.text=新手引导剧情Config.对话[index-1].text;
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
+                旁白文本.text=对话.text;
+            }else if (对话.人物Type == 人物Type.低阶)
+            {
+                仙子对话框.gameObject.SetActive(false);
+                学生对话框.gameObject.SetActive(false);
+                旁白对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(true);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
+                低阶主角名.text = PlayerData.S.Name;
+                低阶主角文本.text=对话.text;
+            }
+            else if (对话.人物Type == 人物Type.中阶)
+            {
+                仙子对话框.gameObject.SetActive(false);
+                学生对话框.gameObject.SetActive(false);
+                旁白对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(true);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
+                中阶主角名.text = PlayerData.S.Name;
+                中阶主角文本.text=对话.text;
+            }
+            else if (对话.人物Type == 人物Type.高阶)
+            {
+                仙子对话框.gameObject.SetActive(false);
+                学生对话框.gameObject.SetActive(false);
+                旁白对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(true);
+                道祖对话框.gameObject.SetActive(false);
+                高阶主角名.text = PlayerData.S.Name;
+                高阶主角文本.text=对话.text;
+            }
+            else if (对话.人物Type == 人物Type.道祖)
+            {
+                仙子对话框.gameObject.SetActive(false);
+                学生对话框.gameObject.SetActive(false);
+                旁白对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(true);
+                道祖主角名.text = PlayerData.S.Name;
+                道祖主角文本.text=对话.text;
             }
         }
     }
@@ -66,7 +140,7 @@ public class 新手引导对话 : MonoBehaviour
         {
             if (index > 0)
             {
-                ObserverModuleManager.S.SendEvent("剧情对话",新手引导剧情Config.对话[index-1].next,主页);
+                ObserverModuleManager.S.SendEvent("剧情对话",新手引导剧情Config.对话Dic[index].next,主页);
             }else if (index == 0)
             {
                 点击Button.gameObject.SetActive(false);

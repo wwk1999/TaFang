@@ -68,6 +68,11 @@ public class 灵矿场界面 : MonoBehaviour
 
     private void Start()
     {
+        if (PlayerData.S.是否首次进入灵矿场)
+        {
+            ObserverModuleManager.S.SendEvent("剧情对话",200,false);
+            PlayerData.S.是否首次进入灵矿场=false;
+        }
         详情Button.onClick.AddListener(() =>
         {
             详情界面.SetActive(false);

@@ -161,8 +161,7 @@ public class HeroWindow : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("交换英雄",交换英雄);
       if (PlayerData.S.是否首次进入英雄界面)
       {
-         ObserverModuleManager.S.SendEvent("剧情对话",20,false);
-         PlayerData.S.是否首次进入英雄界面 = false;
+         ObserverModuleManager.S.SendEvent("剧情对话",50,false);
       }
    }
 

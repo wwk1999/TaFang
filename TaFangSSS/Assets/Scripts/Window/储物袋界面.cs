@@ -316,6 +316,11 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("刷新装备", 刷新装备);
       ObserverModuleManager.S.RegisterEvent("刷新背包", 刷新背包);
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
+      if (PlayerData.S.是否首次进入储物袋)
+      {
+         ObserverModuleManager.S.SendEvent("剧情对话",100,false);
+         PlayerData.S.是否首次进入储物袋 = false;
+      }
       轮回按钮.onClick.AddListener(() =>
       {
          if (PlayerData.S.当前轮回境界 < JingJieType.合体)
