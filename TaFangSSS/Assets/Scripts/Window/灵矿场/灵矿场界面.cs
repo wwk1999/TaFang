@@ -66,8 +66,19 @@ public class 灵矿场界面 : MonoBehaviour
         Show开采信息();
     }
 
+    public void 刷新开采信息(object[] obj)
+    {
+        Show开采信息();
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("刷新开采信息",刷新开采信息);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("刷新开采信息",刷新开采信息);
         if (PlayerData.S.是否首次进入灵矿场)
         {
             ObserverModuleManager.S.SendEvent("剧情对话",200,false);
@@ -143,7 +154,7 @@ public class 灵矿场界面 : MonoBehaviour
     public void Show开采信息()
     {
         当前层.text = 灵矿场Config.土层名称[灵矿场Config.Get当前层()];
-        当前米.text = PlayerData.S.当前米数 + "米";
+        当前米.text = PlayerData.S.格式化数字(PlayerData.S.灵矿场当前米数) + "米";
         下一层米数.text = 灵矿场Config.土层米数[灵矿场Config.Get当前层() + 1] + "米";
         当前灵矿.text = 灵矿场Config.灵矿配置表[(int)灵矿场Config.Get当前层()].名称;
         挖掘速度.text = PlayerData.S.格式化数字(灵矿场Config.Get总挖掘速度())+"/每道年";

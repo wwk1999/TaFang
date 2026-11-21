@@ -38,7 +38,7 @@ public class 多语言Text : MonoBehaviour
         if (!_text.enableAutoSizing)
         {
             float 当前字号 = _text.fontSize;
-            if (当前字号 < 1f) 当前字号 = _text.fontSizeMax >= 1f ? _text.fontSizeMax : 36f;
+            if (当前字号 < 1f) 当前字号 = _text.fontSizeMax >= 1f ? _text.fontSizeMax : 70f;
             _text.fontSizeMax = Mathf.Max(12f, 当前字号);
             _text.fontSizeMin = 12f;
             _text.enableAutoSizing = true;

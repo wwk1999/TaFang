@@ -29,8 +29,17 @@ public class 矿工管理item : MonoBehaviour
         Set功法星级();
     }
 
-    private void Start()
+    public void 矿工改名(object[] obj)
     {
+        矿工 item = obj[0] as 矿工;
+        if (item == 矿工)
+        {
+            SetItem();
+        }
+    }
+    private void Start()
+    {        
+        ObserverModuleManager.S.RegisterEvent("矿工改名", 矿工改名);
         ObserverModuleManager.S.RegisterEvent("矿工管理Item点击", 矿工管理Item点击);
         bg.onClick.AddListener(() =>
         {
@@ -50,6 +59,7 @@ public class 矿工管理item : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("矿工改名", 矿工改名);
         ObserverModuleManager.S.UnRegisterEvent("矿工管理Item点击", 矿工管理Item点击);
     }
 

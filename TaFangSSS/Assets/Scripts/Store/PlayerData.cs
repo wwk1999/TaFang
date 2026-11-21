@@ -39,7 +39,8 @@ public class PlayerData : XSingleton<PlayerData>
     public bool 自动招募橙;
     public bool 自动招募红;
     public bool 自动招募彩;
-    public List<矿工> 当前招募矿工列表 = new List<矿工>();    public float 当前米数;
+    public List<矿工> 当前招募矿工列表 = new List<矿工>();    
+    public float 灵矿场当前米数;
     public List<矿工> 矿工列表 = new List<矿工>();
     public int 矿洞矿工人数等级 = 1;
     public int 矿洞矿工阶数等级 = 1;

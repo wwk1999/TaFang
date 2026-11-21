@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class 矿工管理弹窗 : MonoBehaviour
 {
+    public 矿工改名弹窗 矿工改名弹窗;
     public GameObject 矿工信息Content;
     public TextMeshProUGUI 等级;
     public TextMeshProUGUI 当前经验;
@@ -50,8 +51,15 @@ public class 矿工管理弹窗 : MonoBehaviour
         刷新界面();
     }
 
+    public void 显示矿工改名弹窗(object[] obj)
+    {
+        矿工改名弹窗.矿工 = obj[0] as 矿工;
+        矿工改名弹窗.gameObject.SetActive(true);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("显示矿工改名弹窗",显示矿工改名弹窗);
         ObserverModuleManager.S.RegisterEvent("矿工管理Item点击", 矿工管理Item点击);
         ObserverModuleManager.S.RegisterEvent("矿工装备背包Item点击", 矿工装备背包Item点击);
         ObserverModuleManager.S.RegisterEvent("佩戴矿工装备", 佩戴矿工装备);
@@ -81,6 +89,7 @@ public class 矿工管理弹窗 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("显示矿工改名弹窗",显示矿工改名弹窗);
         ObserverModuleManager.S.UnRegisterEvent("矿工管理Item点击", 矿工管理Item点击);
         ObserverModuleManager.S.UnRegisterEvent("矿工装备背包Item点击", 矿工装备背包Item点击);
         ObserverModuleManager.S.UnRegisterEvent("佩戴矿工装备", 佩戴矿工装备);

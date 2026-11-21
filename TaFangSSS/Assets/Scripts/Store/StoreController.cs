@@ -528,8 +528,8 @@ public class StoreController : XSingleton<StoreController>
                 ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);
             }
 
-           
-            
+
+            灵矿场();
             //炼制丹药();
             参悟大道();
             增加道场资源();
@@ -543,6 +543,52 @@ public class StoreController : XSingleton<StoreController>
         }
     }
 
+    public void 灵矿场()
+    {
+        灵矿场挖掘();
+        灵矿场固定收益();
+        灵矿场矿工挖宝();
+        灵矿场矿工成长();
+        ObserverModuleManager.S.SendEvent("刷新开采信息");
+    }
+
+    public void 灵矿场挖掘()
+    {
+        float 每秒挖掘速度 = 灵矿场Config.Get总挖掘速度() / 属性config.每年秒数;
+        PlayerData.S.灵矿场当前米数 += 每秒挖掘速度;
+    }
+
+    public void 灵矿场矿工挖宝()
+    {
+        foreach (var item in PlayerData.S.矿工列表)
+        {
+            item.当前挖宝时间 += 1f / 属性config.每年秒数;
+            if (item.当前挖宝时间 >= 灵矿场Config.Get矿工挖宝箱时间(item))
+            {
+                灵矿场Config.矿工挖宝();
+                item.当前挖宝时间 = 0;
+            }
+        }
+    }
+    
+    public void 灵矿场矿工成长()
+    {
+        foreach (var item in PlayerData.S.矿工列表)
+        {
+            item.经验 += 灵矿场Config.Get矿工每道年增加经验(item) / 属性config.每年秒数;
+            if (item.经验 >= 灵矿场Config.矿工经验表[item.等级])
+            {
+                item.经验 -= 灵矿场Config.矿工经验表[item.等级];
+                item.等级++;
+            }
+        }
+    }
+
+    public void 灵矿场固定收益()
+    {
+        float 每秒固定收益 = 灵矿场Config.Get总固定收益() / 属性config.每年秒数;
+        PlayerData.S.PropListDic[PropType.灵石] += 每秒固定收益;
+    }
     public void 解锁大道()
     {
         foreach (var item in 悟道崖Config.大道配置)

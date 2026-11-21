@@ -2777,7 +2777,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             自动招募红 = runtime.自动招募红;
             自动招募彩 = runtime.自动招募彩;
 
-        当前米数=runtime.当前米数;
+        当前米数=runtime.灵矿场当前米数;
         矿工列表=runtime.矿工列表;
         矿洞矿工人数等级=runtime.矿洞矿工人数等级;
         矿洞矿工阶数等级=runtime.矿洞矿工阶数等级;
@@ -2986,7 +2986,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             runtime.自动招募彩 = 自动招募彩;
             
             runtime.当前招募矿工列表 = 当前招募矿工列表;
-            runtime.当前米数=当前米数;
+            runtime.灵矿场当前米数=当前米数;
             runtime.矿工列表=矿工列表;
             runtime.矿洞矿工人数等级=矿洞矿工人数等级;
             runtime.矿洞矿工阶数等级=矿洞矿工阶数等级;

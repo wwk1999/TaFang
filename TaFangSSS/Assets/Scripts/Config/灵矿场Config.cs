@@ -151,6 +151,7 @@ public class 矿工
     public 矿工装备 稿子=new 矿工装备();
     public 矿工装备 护手=new 矿工装备();
     public 矿工装备 衣服=new 矿工装备();
+    public float 当前挖宝时间 = 0;
 }
 
 public class 矿工装备
@@ -467,7 +468,7 @@ public class 灵矿场Config
     {
         foreach (var item in 土层米数)
         {
-            if (PlayerData.S.当前米数 < item.Value)
+            if (PlayerData.S.灵矿场当前米数 < item.Value)
             {
                 return  item.Key-1;
             }
@@ -488,28 +489,26 @@ public class 灵矿场Config
     {
         var 概率 = 矿工招募概率配置[PlayerData.S.矿洞矿工招募概率等级];
         PlayerData.S.当前招募矿工列表.Clear();
-        float count = 0;
         for (int i = 0; i < 5; i++)
         {
-            count += 概率.招募概率[4 - i];
             float random = Random.Range(0f, 100f);
-            if (random < count)
+            if (random < 概率.招募概率[4])
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.荒品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random <count)
+            }else if (random < 概率.招募概率[4]+概率.招募概率[3])
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.洪品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < count)
+            }else if (random < 概率.招募概率[4]+概率.招募概率[3]+概率.招募概率[2])
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.宇品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < count)
+            }else if (random < 概率.招募概率[1]+概率.招募概率[2]+概率.招募概率[3]+概率.招募概率[4])
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.地品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
-            }else if (random < count)
+            }else 
             {
                 矿工 矿工 = 生成招募矿工((矿工类型)Random.Range(1,6),阶数, QualityType.黄品);
                 PlayerData.S.当前招募矿工列表.Add(矿工);
@@ -720,6 +719,33 @@ public static float Get星级加成(int 星级)
     value += 月亮加成 * 功法星级.月亮;
     value += 星星加成 * 功法星级.星星;
     return  value;
+}
+
+public static float Get矿工挖宝箱时间(矿工 矿工)
+{
+    var 属性 = Get矿工最终四维属性(矿工);
+    return 基础挖宝箱年数 / (1f + 属性.挖宝时间 / 100f);
+}
+public static float Get矿工每道年增加经验(矿工 矿工)
+{
+    var 属性 = Get矿工最终四维属性(矿工);
+    return 基础每道年增加经验 * (1f + 属性.成长速度 / 100f);
+}
+public static void 矿工挖宝()
+{
+    var 宝箱概率 = 宝箱品质概率配置[PlayerData.S.矿洞宝箱品质概率等级];
+    float random = Random.Range(0, 100f);
+    if (random < 宝箱概率.宝箱概率[2])
+    {
+        PlayerData.S.Set宝箱数量(宝箱品质.至尊, PlayerData.S.Get宝箱数量(宝箱品质.至尊)+1);
+    }else if (random < 宝箱概率.宝箱概率[2] + 宝箱概率.宝箱概率[1])
+    {
+        PlayerData.S.Set宝箱数量(宝箱品质.卓越, PlayerData.S.Get宝箱数量(宝箱品质.卓越)+1);
+    }
+    else
+    {
+        PlayerData.S.Set宝箱数量(宝箱品质.普通, PlayerData.S.Get宝箱数量(宝箱品质.普通)+1);
+    }
 }
 public static 宝物属性 Get当前宝物属性()
 {
