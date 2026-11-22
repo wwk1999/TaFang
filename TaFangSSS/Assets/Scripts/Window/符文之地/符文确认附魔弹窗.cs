@@ -39,6 +39,8 @@ public class 符文确认附魔弹窗 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("刷新符文附魔Panel");
             ObserverModuleManager.S.SendEvent("SendUIToast","附魔成功");
             PlayerData.S.任务完成字典[任务Type.符文附魔] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             gameObject.SetActive(false);
         });
     }

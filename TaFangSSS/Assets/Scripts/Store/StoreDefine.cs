@@ -357,7 +357,6 @@ public List<任务Type> 当前任务列表 = new List<任务Type>();
         {任务Type.符文融合,false},
         {任务Type.符文洗练,false},
         {任务Type.炼制丹药,false},
-        {任务Type.丹药升阶,false},
         {任务Type.种植一个灵植,false},
         {任务Type.施一次肥,false},
         {任务Type.收获一次,false},

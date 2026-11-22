@@ -35,6 +35,8 @@ public class 传道item : MonoBehaviour
                         return;
                     }
                     PlayerData.S.任务完成字典[任务Type.获取一本功法] = true;
+                    ObserverModuleManager.S.SendEvent("刷新任务栏");
+
 
                     long 传道次数 = 1;
                     if (PlayerData.S.传道所有)
@@ -68,6 +70,8 @@ public class 传道item : MonoBehaviour
                         }
                     }
                     PlayerData.S.任务完成字典[任务Type.获取一本功法] = true;
+                    ObserverModuleManager.S.SendEvent("刷新任务栏");
+
 
                     StartCoroutine(传道(传道次数));
                     ObserverModuleManager.S.SendEvent("刷新主页面");

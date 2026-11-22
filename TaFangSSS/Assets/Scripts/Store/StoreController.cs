@@ -353,6 +353,8 @@ public class StoreController : XSingleton<StoreController>
                 {
                     灵兽坊Config.Get孵化灵兽(item.Value.父, item.Value.母);
                     PlayerData.S.任务完成字典[任务Type.灵兽孵化] = true;
+                    ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                     item.Value.当前道年 = 0;
                 }
             }
@@ -611,10 +613,14 @@ public class StoreController : XSingleton<StoreController>
                     if (item.Value.大道等级Type == 大道等级Type.上等大道)
                     {
                         PlayerData.S.任务完成字典[任务Type.解锁上等大道] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                     }
                     else if (item.Value.大道等级Type == 大道等级Type.至尊大道)
                     {
                         PlayerData.S.任务完成字典[任务Type.解锁至尊大道] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                     }
                 }
             }
@@ -719,6 +725,8 @@ public class StoreController : XSingleton<StoreController>
                 // 打造完成提示，并刷新背包法器列表
                 //ObserverModuleManager.S.SendEvent("SendUIToast", 法器Config.Get法器Name(当前打造.法器Type, 当前打造.阶数), 成品品质, 1);
                 PlayerData.S.任务完成字典[任务Type.打造一件法器] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 ObserverModuleManager.S.SendEvent("刷新背包");
                 PlayerData.S.打造List[0].count--;
                 PlayerData.S.打造List[0].进度 = 0;
@@ -829,6 +837,8 @@ public class StoreController : XSingleton<StoreController>
                 float 获得经验 = 丹药Config.Get炼制经验(当前炼制.丹药Type, 当前炼制.阶数);
                 PlayerData.S.炼丹经验 += (long)获得经验;
                 PlayerData.S.任务完成字典[任务Type.炼制丹药] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
 
                 // ========== 6. 炼丹等级升级 ==========
                 if (PlayerData.S.炼丹经验 >= 丹药Config.炼丹等级经验Dic[PlayerData.S.炼丹等级])
@@ -931,6 +941,8 @@ public class StoreController : XSingleton<StoreController>
                         ObserverModuleManager.S.SendEvent("刷新通天塔窗口");
                         ObserverModuleManager.S.SendEvent("通天塔英雄派遣Item刷新");
                         PlayerData.S.任务完成字典[任务Type.通天塔寻宝] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
 
                     }
                 }
@@ -1000,6 +1012,8 @@ public class StoreController : XSingleton<StoreController>
                         ObserverModuleManager.S.SendEvent("刷新世界树窗口");
                         ObserverModuleManager.S.SendEvent("世界树英雄派遣Item刷新");
                         PlayerData.S.任务完成字典[任务Type.九幽血海寻宝] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                     }
                 }
             }
@@ -1074,6 +1088,8 @@ public class StoreController : XSingleton<StoreController>
                         ObserverModuleManager.S.SendEvent("刷新血海窗口");
                         ObserverModuleManager.S.SendEvent("血海英雄派遣Item刷新");
                         PlayerData.S.任务完成字典[任务Type.世界树寻宝] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                     }
                 }
             }

@@ -179,6 +179,8 @@ public class 胜利弹窗 : MonoBehaviour
             item.SetItem();
             PlayerData.S.最大神物关卡++;
             PlayerData.S.任务完成字典[任务Type.远古遗迹掉落神物] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         }
         var item1 = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
             .GetComponent<胜利弹窗item>();
@@ -209,6 +211,8 @@ public class 胜利弹窗 : MonoBehaviour
             }
         }
         PlayerData.S.任务完成字典[任务Type.通关一次符文之地] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         符文之地关卡胜利奖励 value = 符文之地Config.Get符文之地奖励();
         PlayerData.S.PropListDic[PropType.轮回石] += 1 + Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.灵魂] += value.灵魂*(1f+属性config.灵气增幅)*(1f+属性config.灵气增幅);
@@ -244,27 +248,43 @@ public class 胜利弹窗 : MonoBehaviour
         {
             case 主线关卡Type.花果山:
                 PlayerData.S.任务完成字典[任务Type.花果山] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.水帘洞:
                 PlayerData.S.任务完成字典[任务Type.水帘洞] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.蓬莱仙岛:
                 PlayerData.S.任务完成字典[任务Type.蓬莱仙岛] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.五行山:
                 PlayerData.S.任务完成字典[任务Type.五行山] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.傲来国:
                 PlayerData.S.任务完成字典[任务Type.傲来国] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.高老庄:
                 PlayerData.S.任务完成字典[任务Type.高老庄] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.女儿国:
                 PlayerData.S.任务完成字典[任务Type.女儿国] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.小雷音寺:
                 PlayerData.S.任务完成字典[任务Type.小雷音寺] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 break;
             case 主线关卡Type.平顶山:
                 PlayerData.S.任务完成字典[任务Type.平顶山] = true;
@@ -334,6 +354,8 @@ public class 胜利弹窗 : MonoBehaviour
                 }
                 break;
         }
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
     }
 
     public void 增加法器材料(法器材料Type 法器材料Type, int 阶数, float count)
@@ -588,19 +610,19 @@ public class 胜利弹窗 : MonoBehaviour
         轮回石数量 += Mathf.RoundToInt(属性config.仙子总属性.轮回石掉落数量增加);
         PlayerData.S.PropListDic[PropType.轮回石] += 轮回石数量;
         float 灵魂 = value.灵魂 * Random.Range(0.8f, 1.2f);
-        float 洗练石 = value.洗练石 * Random.Range(0.8f, 1.2f);
+        float 洗练石 = value.洗练石;
         float 射手经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
         float 战士经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
         float 辅助经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
         float 法师经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
         float 控制经验值 = value.职业经验 * Random.Range(0.8f, 1.2f);
-        float 衣服锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
-        float 头盔锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
-        float 护手锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
-        float 鞋子锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
-        float 项链锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
-        float 戒指锻造石 = value.锻造石 * Random.Range(0.8f, 1.2f);
-        float 招募卷 = value.招募卷 * Random.Range(0.8f, 1.2f);
+        float 衣服锻造石 = value.锻造石 ;
+        float 头盔锻造石 = value.锻造石 ;
+        float 护手锻造石 = value.锻造石 ;
+        float 鞋子锻造石 = value.锻造石 ;
+        float 项链锻造石 = value.锻造石 ;
+        float 戒指锻造石 = value.锻造石 ;
+        float 招募卷 = value.招募卷 ;
         if (value.灵魂 > 0)
         {
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/胜利弹窗Item"), Content.transform)
@@ -613,10 +635,10 @@ public class 胜利弹窗 : MonoBehaviour
         
         int 法器阶数 = value.法器材料阶数;
         float 法器数量 = value.法器材料数量;
-        float 砂数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
-        float 铁数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
-        float 石数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
-        float 羽数量 = 法器数量 * Random.Range(0.8f, 1.2f)*属性config.总掉宝率;
+        float 砂数量 = 法器数量 *属性config.总掉宝率;
+        float 铁数量 = 法器数量 *属性config.总掉宝率;
+        float 石数量 = 法器数量 *属性config.总掉宝率;
+        float 羽数量 = 法器数量 *属性config.总掉宝率;
         增加法器材料(法器材料Type.石,法器阶数,石数量);
         增加法器材料(法器材料Type.羽,法器阶数,羽数量);
         增加法器材料(法器材料Type.铁,法器阶数,铁数量);
@@ -626,7 +648,7 @@ public class 胜利弹窗 : MonoBehaviour
             .GetComponent<胜利弹窗item>();
         石.法器材料Type = 法器材料Type.石;
         石.法器材料阶数= 法器阶数;
-        石.count = Math.Max(1,(int)石数量);
+        石.count = (int)石数量;
         石.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
         石.SetItem();
         
@@ -634,7 +656,7 @@ public class 胜利弹窗 : MonoBehaviour
             .GetComponent<胜利弹窗item>();
         铁.法器材料Type = 法器材料Type.铁;
         铁.法器材料阶数= 法器阶数;  
-        铁.count = Math.Max(1,(int)铁数量);
+        铁.count = (int)铁数量;
         铁.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
         铁.SetItem();
         
@@ -642,7 +664,7 @@ public class 胜利弹窗 : MonoBehaviour
             .GetComponent<胜利弹窗item>();
         羽.法器材料Type = 法器材料Type.羽;
         羽.法器材料阶数= 法器阶数;
-        羽.count = Math.Max(1,(int)羽数量);
+        羽.count = (int)羽数量;
         羽.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
         羽.SetItem();
         
@@ -650,7 +672,7 @@ public class 胜利弹窗 : MonoBehaviour
             .GetComponent<胜利弹窗item>();
         砂.法器材料Type = 法器材料Type.砂;
         砂.法器材料阶数= 法器阶数;
-        砂.count = Math.Max(1,(int)砂数量);
+        砂.count = (int)砂数量;
         砂.法器材料QualityType = 法器Config.Get阶数对应品质(法器阶数);
         砂.SetItem();
         

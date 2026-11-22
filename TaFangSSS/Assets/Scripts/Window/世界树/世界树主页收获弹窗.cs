@@ -68,6 +68,8 @@ public class 世界树主页收获弹窗 : MonoBehaviour
             gameObject.SetActive(false);
             刷新主页世界树收获弹窗(null);
             PlayerData.S.任务完成字典[任务Type.九幽血海寻宝] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         });
         刷新主页世界树收获弹窗(null);
     }

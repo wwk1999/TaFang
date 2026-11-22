@@ -96,6 +96,8 @@ public class 突破确认弹窗 : MonoBehaviour
                 {
                     case JingJieType.筑基:
                         PlayerData.S.任务完成字典[任务Type.筑基] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                         break;
                     case JingJieType.金丹:
                         PlayerData.S.任务完成字典[任务Type.金丹] = true;
@@ -154,6 +156,8 @@ public class 突破确认弹窗 : MonoBehaviour
                         break;
                 }
             }
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             ObserverModuleManager.S.SendEvent("突破成功");

@@ -10,6 +10,7 @@ public class 任务item : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
     public Button bg;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI 类别;
     public TextMeshProUGUI desc;
     public GameObject 勾;
     public GameObject mask;
@@ -17,7 +18,8 @@ public class 任务item : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     public void SetItem()
     {
         任务类型 任务类型 = 任务Config.任务配置[任务Type].任务类型;
-        string str = 任务类型 == 任务类型.主线任务 ? "主线" : "支线";
+        string str = 任务类型 == 任务类型.主线任务 ? "[主线]" : "[支线]";
+        类别.text= str;
         name.text = 任务Config.任务配置[任务Type].任务名;
         desc.text = 任务Config.任务配置[任务Type].任务目标;
         勾.SetActive(PlayerData.S.任务完成字典[任务Type]);

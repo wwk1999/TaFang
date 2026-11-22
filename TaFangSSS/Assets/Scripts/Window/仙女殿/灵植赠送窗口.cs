@@ -127,6 +127,8 @@ public class 灵植赠送窗口 : MonoBehaviour
 
         发送赠送Toast(灵植Type, 是否变异, 1, 获得好感);
         PlayerData.S.任务完成字典[任务Type.赠送灵植] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         刷新主界面();
     }
 
@@ -144,6 +146,8 @@ public class 灵植赠送窗口 : MonoBehaviour
         Show背包();
         发送赠送Toast(灵植Type, 是否变异, 份数, 总好感);
         PlayerData.S.任务完成字典[任务Type.赠送灵植] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         刷新主界面();
     }
 

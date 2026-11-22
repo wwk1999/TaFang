@@ -55,6 +55,8 @@ public class 坊市item : MonoBehaviour
                 售空.gameObject.SetActive(true);
                 PlayerData.S.坊市物品列表[index].是否被购买 = true;
                 PlayerData.S.任务完成字典[任务Type.坊市购买物品] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             }
 
             if (仙石Type != 仙石Type.None)
@@ -74,6 +76,8 @@ public class 坊市item : MonoBehaviour
                 售空.gameObject.SetActive(true);
                 PlayerData.S.坊市物品列表[index].是否被购买 = true;
                 PlayerData.S.任务完成字典[任务Type.坊市购买物品] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             }
 
             if (丹药Type != 丹药Type.None)
@@ -92,6 +96,8 @@ public class 坊市item : MonoBehaviour
                 售空.gameObject.SetActive(true);
                 PlayerData.S.坊市物品列表[index].是否被购买 = true;
                 PlayerData.S.任务完成字典[任务Type.坊市购买物品] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             }
 
             if (丹方Type != 丹药Type.None)
@@ -110,6 +116,8 @@ public class 坊市item : MonoBehaviour
                 售空.gameObject.SetActive(true);
                 PlayerData.S.坊市物品列表[index].是否被购买 = true;
                 PlayerData.S.任务完成字典[任务Type.坊市购买物品] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             }
         });
     }

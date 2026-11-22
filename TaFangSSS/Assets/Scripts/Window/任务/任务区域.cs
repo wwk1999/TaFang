@@ -58,6 +58,7 @@ public class 任务区域 : MonoBehaviour
    private void Start()
    {
       ObserverModuleManager.S.RegisterEvent("刷新任务栏",刷新任务栏);
+      Show();
       箭头Button.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);

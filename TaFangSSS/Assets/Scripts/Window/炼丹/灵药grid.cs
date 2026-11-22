@@ -18,7 +18,7 @@ public class 灵药grid : MonoBehaviour
 
     public void SetItem()
     {
-        bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(QualityType);
+        bg.sprite = ResourcesConfig.Get灵植背包格子(QualityType);
         icon.sprite = ResourcesConfig.Get灵药Icon(灵药Type,QualityType);
         艺术字.sprite = ResourcesConfig.Get艺术字(QualityType);
         name.text = 多语言Config.Get(丹药Config.灵药名Dic[灵药Type]);

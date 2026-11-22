@@ -62,6 +62,8 @@ public class 通天塔主页收获弹窗 : MonoBehaviour
             刷新主页通天塔收获弹窗(null);
             gameObject.SetActive(false);
             PlayerData.S.任务完成字典[任务Type.通天塔寻宝] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         });
         刷新主页通天塔收获弹窗(null);
     }

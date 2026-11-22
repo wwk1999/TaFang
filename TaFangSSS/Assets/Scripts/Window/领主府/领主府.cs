@@ -307,6 +307,8 @@ public class 领主府 : MonoBehaviour
                PlayerData.S.任务完成字典[任务Type.升级功德碑] = true;
                break;
          }
+         ObserverModuleManager.S.SendEvent("刷新任务栏");
+
          if (HeroWindowController.S.当前显示建筑Type == 建筑Type.灵兽坊)
          {
             PlayerData.S.孵化池列表.Add(PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type],new 孵化池(){index=PlayerData.S.建筑等级Dic[HeroWindowController.S.当前显示建筑Type]});

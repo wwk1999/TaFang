@@ -36,6 +36,9 @@ public class ResourcesConfig : MonoBehaviour
 
 	public static Sprite 锻造石;
 	public static Sprite 职业经验;
+	public static Sprite 法器精华;
+	public static Sprite 矿工精华;
+	public static Sprite 矿工精魄;
 
 	
 	public static Sprite 通用法器材料1;
@@ -1637,6 +1640,12 @@ public static Sprite 缚霞流光绫藏品;
 	public static Sprite 女供奉30;
 
 	public static Dictionary<符文Type, Sprite[]> 符文SpriteCache = new Dictionary<符文Type, Sprite[]>();
+
+	// 道具图标：Sprite/DaoJu/道具 切图，索引 0~15 依次为 道具_0~道具_15
+	public static Sprite[] 道具Sprites;
+
+	// 道具2图标：Sprite/DaoJu/道具2 切图，索引 0~15 依次为 道具2_0~道具2_15
+	public static Sprite[] 道具2Sprites;
 
 	// 赌坊道具图标：Sprite/赌坊icon/道具 切图，索引 0~15 依次为 道具_0~道具_15
 	public static Sprite[] 赌坊道具Sprites;
@@ -5494,6 +5503,7 @@ public static Sprite 缚霞流光绫藏品;
 			PropType.高级招募卷 => 高级招募卷, 
 			PropType.法器粉尘 => 法器粉尘, 
 			PropType.仙石精华 => 仙石精华, 
+			PropType.法器精华 => 法器精华, 
 			PropType.符箓 => 符箓, 
 			PropType.矿石 => 矿石, 
 			PropType.玄铁 => 玄铁, 
@@ -5564,6 +5574,11 @@ public static Sprite 缚霞流光绫藏品;
 			PropType.砂16 => Get法器材料Sprite(法器材料Type.砂, 16), 
 			PropType.轮回石 => 轮回石, 
 			PropType.血晶 => 血晶, 
+			PropType.须弥气运 => 须弥气运, 
+			PropType.娲皇气运 => 娲皇气运, 
+			PropType.八景气运 => 八景气运, 
+			PropType.玉虚气运 => 玉虚气运, 
+			PropType.碧游气运 => 碧游气运, 
 			PropType.法器1 => Get通用法器材料(1), 
 			PropType.法器2 => Get通用法器材料(2), 
 			PropType.法器3 => Get通用法器材料(3), 
@@ -5598,6 +5613,8 @@ public static Sprite 缚霞流光绫藏品;
 			PropType.仙石16 => Get通用仙石(16), 
 			PropType.锻造石=>锻造石,
 			PropType.职业经验=>职业经验,
+			PropType.矿工精华=>矿工精华,
+			PropType.矿工精魄=>矿工精魄,
 			_ => null, 
 		});
 	}
@@ -7598,6 +7615,34 @@ public static Sprite 缚霞流光绫藏品;
 		});
 	}
 
+	/// <summary>按序号取道具图标（0 起，对应 Sprite/DaoJu/道具 切图 道具_0~道具_15），首次调用时加载</summary>
+	public static Sprite Get道具Sprite(int 索引)
+	{
+		if (道具Sprites == null || 道具Sprites.Length == 0)
+		{
+			道具Sprites = Load阶数Sprites("Sprite/DaoJu/道具");
+		}
+		if (索引 < 0 || 索引 >= 道具Sprites.Length)
+		{
+			return null;
+		}
+		return 道具Sprites[索引];
+	}
+
+	/// <summary>按序号取道具2图标（0 起，对应 Sprite/DaoJu/道具2 切图 道具2_0~道具2_15），首次调用时加载</summary>
+	public static Sprite Get道具2Sprite(int 索引)
+	{
+		if (道具2Sprites == null || 道具2Sprites.Length == 0)
+		{
+			道具2Sprites = Load阶数Sprites("Sprite/DaoJu/道具2");
+		}
+		if (索引 < 0 || 索引 >= 道具2Sprites.Length)
+		{
+			return null;
+		}
+		return 道具2Sprites[索引];
+	}
+
 	/// <summary>按序号取赌坊道具图标（0 起，对应切图 道具_0~道具_15），首次调用时加载</summary>
 	public static Sprite Get赌坊道具Sprite(int 索引)
 	{
@@ -8543,8 +8588,8 @@ public static Sprite 缚霞流光绫藏品;
 		灵矿场勾选框亮=Resources.Load<Sprite>("Sprite/灵矿场/勾选框亮");
 		灵矿场勾选框暗=Resources.Load<Sprite>("Sprite/灵矿场/勾选框暗");
 
-		锻造石=Resources.Load<Sprite>("Sprite/DaoJu/锻造石");
-		职业经验=Resources.Load<Sprite>("Sprite/DaoJu/职业经验");
+		锻造石=Get道具Sprite(11);
+		职业经验=Get道具Sprite(12);
 		通用仙石1=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[0];
 		通用仙石2=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[1];
 		通用仙石3=Resources.LoadAll<Sprite>("Sprite/仙石/仙石")[2];
@@ -8579,11 +8624,11 @@ public static Sprite 缚霞流光绫藏品;
 		通用法器材料15=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[14];
 		通用法器材料16=Resources.LoadAll<Sprite>("Sprite/法器材料/法器材料")[15];
 		
-		须弥气运=Resources.Load<Sprite>("Sprite/天外天/须弥气运");
-		碧游气运=Resources.Load<Sprite>("Sprite/天外天/碧游气运");
-		娲皇气运=Resources.Load<Sprite>("Sprite/天外天/娲皇气运");
-		玉虚气运=Resources.Load<Sprite>("Sprite/天外天/玉虚气运");
-		八景气运=Resources.Load<Sprite>("Sprite/天外天/八景气运");
+		须弥气运=Get道具Sprite(6);
+		碧游气运=Get道具Sprite(10);
+		娲皇气运=Get道具Sprite(7);
+		玉虚气运=Get道具Sprite(9);
+		八景气运=Get道具Sprite(8);
 		
 		须弥陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[3];
 		碧游陨圣晶=Resources.LoadAll<Sprite>("Sprite/天外天/陨圣晶")[6];
@@ -9687,7 +9732,7 @@ public static Sprite 缚霞流光绫藏品;
 		太阳 = Resources.Load<Sprite>("Sprite/星级icon/太阳");
 		钻石 = Resources.Load<Sprite>("Sprite/星级icon/钻石");
 		轮回石 = Resources.Load<Sprite>("Sprite/DaoJu/轮回石");
-		血晶 = Resources.Load<Sprite>("Sprite/DaoJu/血晶");
+		血晶 = Get道具Sprite(5);
 		材料SpriteCache[法器材料Type.铁] = Load阶数Sprites("Sprite/法器材料/铁");
 		材料SpriteCache[法器材料Type.石] = Load阶数Sprites("Sprite/法器材料/石");
 		材料SpriteCache[法器材料Type.羽] = Load阶数Sprites("Sprite/法器材料/羽");
@@ -10132,8 +10177,9 @@ public static Sprite 缚霞流光绫藏品;
 		大道圣人 = Resources.Load<Sprite>("Sprite/境界/大道圣人");
 		混元圣人 = Resources.Load<Sprite>("Sprite/境界/混元圣人");
 		法器粉尘 = Resources.Load<Sprite>("Sprite/法器/粉尘");
-		仙石精华 = Resources.Load<Sprite>("Sprite/仙石/精华");
-		符箓 = Resources.Load<Sprite>("Sprite/符文/符箓");
+		法器精华 = Get道具Sprite(2);
+		仙石精华 = Get道具Sprite(3);
+		符箓 = Get道具Sprite(4);
 		古朴按钮亮 = Resources.Load<Sprite>("Sprite/按钮/古朴按钮亮");
 		古朴按钮暗 = Resources.Load<Sprite>("Sprite/按钮/古朴按钮暗");
 		孔背景框 = Resources.Load<Sprite>("Sprite/按钮/孔背景框");
@@ -10490,7 +10536,7 @@ public static Sprite 缚霞流光绫藏品;
 		混元圣人粉 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人粉");
 		混元圣人红 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人红");
 		混元圣人彩 = Resources.Load<Sprite>("Sprite/突破灵物/混元圣人彩");
-		功法经验 = Resources.Load<Sprite>("Sprite/DaoJu/功法经验");
+		功法经验 = Get道具Sprite(1);
 		传道背景框彩 = Resources.Load<Sprite>("Sprite/传道/背景框彩");
 		传道背景框橙 = Resources.Load<Sprite>("Sprite/传道/背景框橙");
 		传道背景框白 = Resources.Load<Sprite>("Sprite/传道/背景框白");
@@ -10913,31 +10959,33 @@ public static Sprite 缚霞流光绫藏品;
 		精英怪背景框 = Resources.Load<Sprite>("Sprite/怪物背景框/精英怪背景框");
 		Boss背景框 = Resources.Load<Sprite>("Sprite/怪物背景框/boss背景框");
 		全职业经验值 = Resources.Load<Sprite>("Sprite/DaoJu/全职业经验值");
-		功德 = Resources.Load<Sprite>("Sprite/DaoJu/功德");
-		头盔锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/头盔锻造石");
-		射手经验值 = Resources.Load<Sprite>("Sprite/DaoJu/射手经验值");
+		功德 = Get道具2Sprite(0);
+		头盔锻造石 = Get道具2Sprite(1);
+		射手经验值 = Get道具2Sprite(2);
 		loadedCount = 2400;
 		if (onProgress != null) onProgress(loadedCount / totalItems);
 		yield return null;
 		射手 = Resources.Load<Sprite>("Sprite/DaoJu/射手");
-		戒指锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/戒指锻造石");
-		战士经验值 = Resources.Load<Sprite>("Sprite/DaoJu/战士经验值");
+		戒指锻造石 = Get道具2Sprite(3);
+		战士经验值 = Get道具2Sprite(4);
 		战士 = Resources.Load<Sprite>("Sprite/DaoJu/战士");
-		护手锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/护手锻造石");
-		招募卷 = Resources.Load<Sprite>("Sprite/DaoJu/招募卷");
-		控制经验值 = Resources.Load<Sprite>("Sprite/DaoJu/控制经验值");
-		法师经验值 = Resources.Load<Sprite>("Sprite/DaoJu/法师经验值");
+		护手锻造石 = Get道具2Sprite(5);
+		招募卷 = Get道具2Sprite(6);
+		控制经验值 = Get道具2Sprite(7);
+		法师经验值 = Get道具2Sprite(8);
 		控制 = Resources.Load<Sprite>("Sprite/DaoJu/控制");
 		法师 = Resources.Load<Sprite>("Sprite/DaoJu/法师");
-		洗练石 = Resources.Load<Sprite>("Sprite/DaoJu/洗练石");
-		灵魂 = Resources.Load<Sprite>("Sprite/DaoJu/灵魂");
-		灵石 = Resources.Load<Sprite>("Sprite/DaoJu/灵石");
-		衣服锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/衣服锻造石");
-		辅助经验值 = Resources.Load<Sprite>("Sprite/DaoJu/辅助经验值");
+		洗练石 = Get道具2Sprite(9);
+		灵魂 = Get道具2Sprite(10);
+		灵石 = Get道具Sprite(0);
+		矿工精华 = Get道具Sprite(14);
+		矿工精魄 = Get道具Sprite(15);
+		衣服锻造石 = Get道具2Sprite(11);
+		辅助经验值 = Get道具2Sprite(12);
 		辅助 = Resources.Load<Sprite>("Sprite/DaoJu/辅助");
-		鞋子锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/鞋子锻造石");
-		项链锻造石 = Resources.Load<Sprite>("Sprite/DaoJu/项链锻造石");
-		高级招募卷 = Resources.Load<Sprite>("Sprite/DaoJu/高级招募卷");
+		鞋子锻造石 = Get道具2Sprite(13);
+		项链锻造石 = Get道具2Sprite(14);
+		高级招募卷 = Get道具2Sprite(15);
 		花果山 = Resources.Load<Sprite>("Sprite/新地图icon/花果山");
 		水帘洞 = Resources.Load<Sprite>("Sprite/新地图icon/水帘洞");
 		傲来国 = Resources.Load<Sprite>("Sprite/新地图icon/傲来国");

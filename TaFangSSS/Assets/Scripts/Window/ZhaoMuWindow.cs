@@ -227,6 +227,8 @@ public class ZhaoMuWindow : MonoBehaviour
 
          ResetCount();
          PlayerData.S.任务完成字典[任务Type.招募] = true;
+         ObserverModuleManager.S.SendEvent("刷新任务栏");
+
       });
       
       
@@ -294,6 +296,8 @@ public class ZhaoMuWindow : MonoBehaviour
          }
          ResetCount();
          PlayerData.S.任务完成字典[任务Type.招募] = true;
+         ObserverModuleManager.S.SendEvent("刷新任务栏");
+
       });
    }
 }

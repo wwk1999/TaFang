@@ -206,6 +206,8 @@ public class 符文熔炼panel : MonoBehaviour
             HeroWindowController.S.符文熔炼选择4 = null;
 
             PlayerData.S.任务完成字典[任务Type.符文重铸] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             Show();
         });
     }

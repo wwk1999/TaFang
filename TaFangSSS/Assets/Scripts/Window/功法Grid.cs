@@ -27,7 +27,7 @@ public class 功法Grid : MonoBehaviour, IPointerClickHandler
     public void SetItem()
     {
         name.text = 多语言Config.Get(功法Config.功法名Dic[功法Type]);
-        bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(功法Config.功法TypeQualityDic[功法Type]);
+        bg.sprite = ResourcesConfig.Get灵植背包格子(功法Config.功法TypeQualityDic[功法Type]);
         count.text=PlayerData.S.功法数量Dic[功法Type].ToString();
         icon.sprite = ResourcesConfig.Get功法Sprite(功法Type);
     }

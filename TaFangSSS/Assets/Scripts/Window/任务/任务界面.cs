@@ -221,7 +221,6 @@ public class 任务界面 : MonoBehaviour
                 break;
             case 任务Type.合体:
                 任务Config.添加任务(任务Type.赠送灵植);
-                任务Config.添加任务(任务Type.丹药升阶);
                 任务Config.添加任务(任务Type.轮回);
                 任务Config.添加任务(任务Type.大乘);
                 break;

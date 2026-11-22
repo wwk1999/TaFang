@@ -130,7 +130,7 @@ public class 天外天Config
         float 碧游 = Get地点总加成(秘宝地点.碧游宫, 秘宝Type.加掉宝);
         float 八景 = Get地点总加成(秘宝地点.八景宫, 秘宝Type.加掉宝);
 
-        return (1f+须弥+ 娲皇+ 玉虚+ 碧游+ 八景)/100f;
+        return (100f+须弥+ 娲皇+ 玉虚+ 碧游+ 八景)/100f;
     }
     
     public static float Get秘宝总轮回系数()

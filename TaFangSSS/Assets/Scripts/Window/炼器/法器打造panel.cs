@@ -98,8 +98,8 @@ public class 法器打造panel : MonoBehaviour
         材料1bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[0]);
         材料2bg.sprite = ResourcesConfig.Get道具背景框Sprite(list[1]);
         材料1icon.sprite = ResourcesConfig.GetPropSprite(list[0]);
-        材料1Count.text = PlayerData.S.PropListDic[list[0]].ToString();
-        材料2Count.text = PlayerData.S.PropListDic[list[1]].ToString();
+        材料1Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[list[0]]);
+        材料2Count.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[list[1]]);
         材料2icon.sprite = ResourcesConfig.GetPropSprite(list[1]);
         icon.sprite = ResourcesConfig.Get法器Sprite(HeroWindowController.S.法器打造法器Type, HeroWindowController.S.法器打造法器阶数);
         艺术字.sprite = ResourcesConfig.Get艺术字(法器Config.Get阶数对应品质(HeroWindowController.S.法器打造法器阶数));

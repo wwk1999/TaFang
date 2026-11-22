@@ -67,12 +67,16 @@ public class 土地item : MonoBehaviour
          PlayerData.S.变异收获Dic[当前土地.灵植Type] += (int)产量;
          收获Image.sprite = ResourcesConfig.Get灵植变异收获Sprite(当前土地.灵植Type);
          PlayerData.S.任务完成字典[任务Type.收获一次变异灵植] = true;
+         ObserverModuleManager.S.SendEvent("刷新任务栏");
+
       }
       else
       {
          PlayerData.S.普通收获Dic[当前土地.灵植Type] += (int)产量;
          收获Image.sprite = ResourcesConfig.Get灵植收获Sprite(当前土地.灵植Type);
          PlayerData.S.任务完成字典[任务Type.收获一次] = true;
+         ObserverModuleManager.S.SendEvent("刷新任务栏");
+
       }
       当前土地.灵植Type = 灵植Type.None;
       当前土地.植物成长阶段Type = 植物成长阶段Type.None;
@@ -158,6 +162,8 @@ public class 土地item : MonoBehaviour
             当前土地.变异 = false;
             ObserverModuleManager.S.SendEvent("SendUIToast", "播种成功");
             PlayerData.S.任务完成字典[任务Type.种植一个灵植] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             GetComponentInParent<灵植园界面>().刷新土地();
             return;
          }
@@ -211,6 +217,8 @@ public class 土地item : MonoBehaviour
 
             ObserverModuleManager.S.SendEvent("SendUIToast", "施肥成功");
             PlayerData.S.任务完成字典[任务Type.施一次肥] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             GetComponentInParent<灵植园界面>().刷新土地();
             return;
          }

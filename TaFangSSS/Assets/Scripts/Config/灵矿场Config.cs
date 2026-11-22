@@ -1083,10 +1083,10 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
         float 挖掘速度 = 0;
         foreach (var item in PlayerData.S.矿工列表)
         {
-            挖掘速度+=Get矿工最终四维属性(item).挖掘速度;
+            挖掘速度+=基础每道年挖掘米数 *(1f+Get矿工最终四维属性(item).挖掘速度/100f);
         }
 
-        return 基础每道年挖掘米数 * (1f + 挖掘速度 / 100f);
+        return 挖掘速度;
     }
     
     public static float Get总固定收益()
@@ -1094,10 +1094,10 @@ public static 矿工 生成招募矿工(矿工类型 矿工类型, int 阶数, Q
         float 固定收益 = 0;
         foreach (var item in PlayerData.S.矿工列表)
         {
-            固定收益+=Get矿工最终四维属性(item).固定收益;
+            固定收益+=基础每道年固定收益 *(1f+Get矿工最终四维属性(item).固定收益/100f);
         }
 
-        return 基础每道年固定收益 * (1f + 固定收益 / 100f);
+        return 固定收益;
     }
     public static List<float> 普通宝箱品质概率 = new List<float>() { 80, 20, 0, 0, 0 };
     public static List<float> 卓越宝箱品质概率 = new List<float>() { 17, 60, 20, 3, 0 };

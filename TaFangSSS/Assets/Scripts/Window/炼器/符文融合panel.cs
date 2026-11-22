@@ -304,6 +304,8 @@ public class 符文融合panel : MonoBehaviour
             销毁符文(副);
             ObserverModuleManager.S.SendEvent("SendUIToast", "融合成功");
             PlayerData.S.任务完成字典[任务Type.符文融合] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
         }
         else
         {

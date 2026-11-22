@@ -66,6 +66,8 @@ public class 轮回确认弹窗 : MonoBehaviour
             ObserverModuleManager.S.SendEvent("刷新人物信息");
             ObserverModuleManager.S.SendEvent("刷新背包");
             PlayerData.S.任务完成字典[任务Type.轮回] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+
             gameObject.SetActive(false);
         });
     }

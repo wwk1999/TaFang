@@ -563,6 +563,8 @@ public class 英雄详情界面 : MonoBehaviour
                 }
                 HeroWindowController.S.英雄详情界面当前选择法器.HeroType=当前heroType;
                 PlayerData.S.任务完成字典[任务Type.装备一件法器] = true;
+                ObserverModuleManager.S.SendEvent("刷新任务栏");
+
                 Show当前法器();
                 Show法器背包();
     }
