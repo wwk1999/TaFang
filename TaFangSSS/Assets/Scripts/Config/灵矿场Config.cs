@@ -191,6 +191,29 @@ public enum 宝箱物品Type
 }
 public class 灵矿场Config
 {
+    public static List<minmax> 矿工位置 = new List<minmax>()
+    {
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 300, max = 0 },
+        new minmax() { min = -300, max = 0 },
+        new minmax() { min = 600, max = 0 },
+        new minmax() { min = -600, max = 0 },
+        new minmax() { min = 880, max = 0 },
+        new minmax() { min = -880, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+        new minmax() { min = 0, max = 0 },
+    };
     public static Dictionary<宝物Type, string> 宝物名 = new Dictionary<宝物Type, string>()
     {
         { 宝物Type.None, "无" },

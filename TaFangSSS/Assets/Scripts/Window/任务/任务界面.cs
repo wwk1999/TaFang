@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Config;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class 任务界面 : MonoBehaviour
         name.text = 类型 + 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].任务名;
         目标.text = 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].任务目标;
         详情.text = 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].任务详情;
-        灵气.text = "灵气X" + 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].灵气;
+        灵气.text = "灵魂X" + 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].灵气;
     }
 
     public void 刷新列表()
@@ -81,7 +82,8 @@ public class 任务界面 : MonoBehaviour
         完成任务按钮.onClick.AddListener(() =>
         {
             添加任务();
-            ObserverModuleManager.S.SendEvent("SendUIToast","任务完成,获得灵气X"+任务Config.任务配置[HeroWindowController.S.当前显示任务Type].灵气);
+            PlayerData.S.PropListDic[PropType.灵魂] += 任务Config.任务配置[HeroWindowController.S.当前显示任务Type].灵气;
+            ObserverModuleManager.S.SendEvent("SendUIToast","任务完成,获得灵魂X"+任务Config.任务配置[HeroWindowController.S.当前显示任务Type].灵气);
             PlayerData.S.当前任务列表.Remove(HeroWindowController.S.当前显示任务Type);
             HeroWindowController.S.当前显示任务Type = 任务Type.None;
             ObserverModuleManager.S.SendEvent("刷新任务栏");

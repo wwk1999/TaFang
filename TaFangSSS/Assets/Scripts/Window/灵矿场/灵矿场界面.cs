@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Config;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class 灵矿场界面 : MonoBehaviour
 {
+    public GameObject 矿工content;
     public Button exitButton;
     public Button 详情Button;
     public TextMeshProUGUI 灵石Count;
@@ -61,6 +64,7 @@ public class 灵矿场界面 : MonoBehaviour
 
     private void OnEnable()
     {
+        Show矿工();
         刷新灵石();
         Show背景土层();
         Show开采信息();
@@ -68,17 +72,89 @@ public class 灵矿场界面 : MonoBehaviour
 
     public void 刷新开采信息(object[] obj)
     {
+        刷新灵石();
         Show开采信息();
         Show背景土层();
     }
 
+    public void Show矿工()
+    {
+        foreach (Transform item in 矿工content.transform)
+        {
+            Destroy(item.gameObject);
+        }
+
+        List<矿工item> 矿工item列表 = new List<矿工item>();
+        foreach (var item in PlayerData.S.矿工列表)
+        {
+            var 矿工 = Instantiate(Resources.Load("Prefabs/Window/灵矿场/矿工item"), 矿工content.transform)
+                .GetComponent<矿工item>();
+            矿工.矿工 = item;
+            矿工.SetItem();
+            矿工item列表.Add(矿工);
+        }
+
+        Set矿工随机位置(矿工item列表);
+    }
+
+    private void Set矿工随机位置(List<矿工item> items)
+    {
+        const float 左边界 = -900f;
+        const float 右边界 = 900f;
+        const float 最小间距 = 100f;
+
+        int 数量 = items.Count;
+        if (数量 == 0) return;
+
+        float 总宽度 = 右边界 - 左边界;
+        float 可用宽度 = 总宽度 - (数量 - 1) * 最小间距;
+
+        // 人数过多，无法保证最小间距时退化为均匀分布
+        if (可用宽度 < 0)
+        {
+            float 间距 = 总宽度 / Mathf.Max(1, 数量 - 1);
+            for (int i = 0; i < 数量; i++)
+            {
+                items[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(左边界 + i * 间距, 0);
+            }
+            return;
+        }
+
+        // 在剩余空间内随机偏移并排序，保证相邻 x 间距不小于 100
+        float[] 偏移 = new float[数量];
+        for (int i = 0; i < 数量; i++)
+        {
+            偏移[i] = Random.Range(0f, 可用宽度);
+        }
+        Array.Sort(偏移);
+
+        for (int i = 0; i < 数量; i++)
+        {
+            float x = 左边界 + i * 最小间距 + 偏移[i];
+            items[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(x, 0);
+        }
+    }
+
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("矿工解雇",矿工解雇);
+        ObserverModuleManager.S.UnRegisterEvent("矿工招募",矿工招募);
         ObserverModuleManager.S.UnRegisterEvent("刷新开采信息",刷新开采信息);
     }
 
+    public void 矿工招募(object[] obj)
+    {
+        Show矿工();
+    }
+
+    public void 矿工解雇(object[] obj)
+    {
+        Show矿工();
+    }
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("矿工解雇",矿工解雇);
+        ObserverModuleManager.S.RegisterEvent("矿工招募",矿工招募);
         ObserverModuleManager.S.RegisterEvent("刷新开采信息",刷新开采信息);
         if (PlayerData.S.是否首次进入灵矿场)
         {

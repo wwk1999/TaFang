@@ -137,6 +137,8 @@ public class 矿工管理弹窗 : MonoBehaviour
             Show矿工列表();
             Show当前装备();
             Show背包();
+            ObserverModuleManager.S.SendEvent("矿工解雇");
+
             ObserverModuleManager.S.SendEvent("SendUIToast","解雇成功");
         });
     }

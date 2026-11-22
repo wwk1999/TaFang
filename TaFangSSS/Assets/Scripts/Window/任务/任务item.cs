@@ -18,7 +18,7 @@ public class 任务item : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
     {
         任务类型 任务类型 = 任务Config.任务配置[任务Type].任务类型;
         string str = 任务类型 == 任务类型.主线任务 ? "主线" : "支线";
-        name.text = str+任务Config.任务配置[任务Type].任务名;
+        name.text = 任务Config.任务配置[任务Type].任务名;
         desc.text = 任务Config.任务配置[任务Type].任务目标;
         勾.SetActive(PlayerData.S.任务完成字典[任务Type]);
     }
