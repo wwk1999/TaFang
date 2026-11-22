@@ -2277,5 +2277,84 @@ public static string Get装备介绍(矿工装备Type type, int 阶数)
         { 土层Type.太初本源层, "太初本源层" },
     };
 
-   
+    public static float Get矿工升星价格(int 阶数, QualityType qualityType)
+    {
+        float 基础 = 基础升星碎片[阶数];
+        switch (qualityType)
+        {
+            case QualityType.黄品:
+                基础*=升星品质倍数[0];
+                break;
+            case QualityType.地品:
+                基础*=升星品质倍数[1];
+                break;
+            case QualityType.宇品:
+                基础*=升星品质倍数[2];
+                break;
+            case QualityType.洪品:
+                基础*=升星品质倍数[3];
+                break;
+            case QualityType.荒品:
+                基础*=升星品质倍数[4];
+                break;
+        }
+
+        return 基础;
+    }
+    
+    public static float Get矿工分解价格(int 阶数, QualityType qualityType)
+    {
+        float 基础 = 基础矿工分解碎片[阶数];
+        switch (qualityType)
+        {
+            case QualityType.黄品:
+                基础*=升星品质倍数[0];
+                break;
+            case QualityType.地品:
+                基础*=升星品质倍数[1];
+                break;
+            case QualityType.宇品:
+                基础*=升星品质倍数[2];
+                break;
+            case QualityType.洪品:
+                基础*=升星品质倍数[3];
+                break;
+            case QualityType.荒品:
+                基础*=升星品质倍数[4];
+                break;
+        }
+        return 基础;
+    }
+
+    public static List<float> 升星品质倍数 = new List<float>() { 1,2,4,8,15};
+
+    public static Dictionary<int, float> 基础升星碎片 = new Dictionary<int, float>()
+    {
+        {1,100},
+        {2,300},
+        {3,1000},
+        {4,3000},
+        {5,10000},
+        {6,30000},
+        {7,100000},
+        {8,300000},
+        {9,1000000},
+        {10,3000000},
+    };
+    
+    public static Dictionary<int, float> 基础矿工分解碎片 = new Dictionary<int, float>()
+    {
+        {1,30},
+        {2,100},
+        {3,300},
+        {4,1000},
+        {5,3000},
+        {6,10000},
+        {7,30000},
+        {8,100000},
+        {9,300000},
+        {10,1000000},
+    };
+
+
 }

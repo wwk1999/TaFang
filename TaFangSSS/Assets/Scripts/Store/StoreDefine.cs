@@ -20,6 +20,7 @@ public class StoreDefine : XSingleton<StoreController>
         public bool 是否首次进入灵矿场 = true;
         public bool 是否首次进入领主府 = true;
         public float 宝物碎片;
+        public float 矿工碎片;//矿工分解
 
         public Dictionary<int, int> 宝物佩戴格子等级 = new Dictionary<int, int>()
         {
@@ -2964,11 +2965,13 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
             矿工粉尘 = runtime.矿工粉尘;
             装备分解品质筛选 = (bool[])runtime.装备分解品质筛选.Clone();
             装备分解阶数筛选 = (bool[])runtime.装备分解阶数筛选.Clone();
-            runtime.宝物碎片 = 宝物碎片;
+            宝物碎片 = runtime.宝物碎片;
+            矿工碎片 = runtime.矿工碎片;
         }
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.矿工碎片 = 矿工碎片;
             runtime.是否首次进入领主府 = 是否首次进入领主府;
             runtime.是否首次进入储物袋 = 是否首次进入储物袋;
             runtime.是否首次进入灵矿场 = 是否首次进入灵矿场;

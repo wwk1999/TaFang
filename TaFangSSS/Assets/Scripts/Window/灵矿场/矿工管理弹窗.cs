@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class 矿工管理弹窗 : MonoBehaviour
 {
+    public Button 升星Button;
+    public Button 解雇Button;
+
+    public TextMeshProUGUI 矿工升星碎片;
+    public TextMeshProUGUI 矿工分解碎片;
+
     public 矿工改名弹窗 矿工改名弹窗;
     public GameObject 矿工信息Content;
     public TextMeshProUGUI 等级;
@@ -85,6 +91,53 @@ public class 矿工管理弹窗 : MonoBehaviour
             if (当前页数 >= 总页数) return;
             当前页数++;
             Show背包();
+        });
+        升星Button.onClick.AddListener(() =>
+        {
+            if (当前矿工 == null) return;
+            float 价格 = 灵矿场Config.Get矿工升星价格(当前矿工.阶数, 当前矿工.QualityType);
+            if (PlayerData.S.矿工碎片 < 价格)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","矿工碎片不足");
+                return;
+            }
+
+            PlayerData.S.矿工碎片 -= 价格;
+            当前矿工.星级++;
+            Show矿工信息();
+            ObserverModuleManager.S.SendEvent("矿工升星",当前矿工);
+            ObserverModuleManager.S.SendEvent("SendUIToast","升星成功");
+        });
+        
+        解雇Button.onClick.AddListener(() =>
+        {
+            if (当前矿工 == null) return;
+            if (当前矿工.护手 != null)
+            {
+                当前矿工.护手.矿工 = null;
+            }
+            if (当前矿工.稿子 != null)
+            {
+                当前矿工.稿子.矿工 = null;
+            }
+            if (当前矿工.罗盘 != null)
+            {
+                当前矿工.罗盘.矿工 = null;
+            }
+            if (当前矿工.衣服 != null)
+            {
+                当前矿工.衣服.矿工 = null;
+            }
+            float 价格 = 灵矿场Config.Get矿工分解价格(当前矿工.阶数, 当前矿工.QualityType);
+            PlayerData.S.矿工碎片 += 价格;
+            PlayerData.S.矿工列表.Remove(当前矿工);
+            当前矿工 = null;
+            HeroWindowController.S.矿工管理弹窗当前矿工 = null;
+            Show矿工信息();
+            Show矿工列表();
+            Show当前装备();
+            Show背包();
+            ObserverModuleManager.S.SendEvent("SendUIToast","解雇成功");
         });
     }
 
@@ -167,6 +220,9 @@ public class 矿工管理弹窗 : MonoBehaviour
             矿工信息Content.gameObject.SetActive(false);
             return;
         }
+
+        矿工升星碎片.text = PlayerData.S.格式化数字(灵矿场Config.Get矿工升星价格(当前矿工.阶数, 当前矿工.QualityType));
+        矿工分解碎片.text = PlayerData.S.格式化数字(灵矿场Config.Get矿工分解价格(当前矿工.阶数, 当前矿工.QualityType));
         矿工信息Content.gameObject.SetActive(true);
         等级.text = "LV."+当前矿工.等级;
         当前经验.text = PlayerData.S.格式化数字(当前矿工.经验);

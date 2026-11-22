@@ -61,7 +61,9 @@ public class PlayerData : XSingleton<PlayerData>
         {"10_黄品",0},{"10_地品",0},{"10_宇品",0},{"10_红品",0},{"10_荒品",0},
     };
 
-    public float 矿工粉尘;
+    public float 矿工粉尘;//矿工装备
+    public float 矿工碎片;//矿工分解
+
     public float 宝物碎片;
     // 矿工装备分解筛选：品质5种(黄/地/宇/洪/荒)，阶数10种(1~10)，默认全选
     public bool[] 装备分解品质筛选 = new bool[] { true, true, true, true, true };

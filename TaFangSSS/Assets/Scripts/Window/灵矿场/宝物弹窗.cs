@@ -165,9 +165,10 @@ public class 宝物弹窗 : MonoBehaviour
                 ObserverModuleManager.S.SendEvent("SendUIToast","宝物数量不足");
                 return;
             }
+            int 已解锁槽位数 = 灵矿场Config.宝物佩戴上限配置[PlayerData.S.矿洞宝物佩戴上限].个数;
             foreach (var item in PlayerData.S.当前宝物)
             {
-                if (item.Value == null) 
+                if (item.Key <= 已解锁槽位数 && item.Value == null)
                 {
                     PlayerData.S.当前宝物[item.Key]=new 宝物(){宝物Type = 当前选择宝物Type,QualityType =  QualityType1};
                     PlayerData.S.Set宝物数量(当前选择宝物Type,QualityType1,PlayerData.S.Get宝物数量(当前选择宝物Type,QualityType1)-1);
