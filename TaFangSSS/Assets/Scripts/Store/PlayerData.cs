@@ -23,6 +23,48 @@ public class PlayerData : XSingleton<PlayerData>
     {
         DontDestroyOnLoad(gameObject);
     }
+
+    public bool 是否解锁破限 = false;
+    public Dictionary<JingJieType, int> 破限次数 = new Dictionary<JingJieType, int>()
+    {
+        { JingJieType.练气 ,0},
+        { JingJieType.筑基 ,0},
+        { JingJieType.金丹 ,0},
+        { JingJieType.元婴 ,0},
+        { JingJieType.化神 ,0},
+        { JingJieType.合体 ,0},
+        { JingJieType.大乘 ,0},
+        { JingJieType.天仙 ,0},
+        { JingJieType.玄仙 ,0},
+        { JingJieType.金仙 ,0},
+        { JingJieType.太乙金仙 ,0},
+        { JingJieType.大罗金仙 ,0},
+        { JingJieType.准圣 ,0},
+        { JingJieType.圣人 ,0},
+        { JingJieType.天道圣人 ,0},
+        { JingJieType.大道圣人 ,0},
+        { JingJieType.混元圣人 ,0},
+    };
+    public Dictionary<JingJieType, int> 荒品突破次数 = new Dictionary<JingJieType, int>()
+    {
+        { JingJieType.练气 ,0},
+        { JingJieType.筑基 ,0},
+        { JingJieType.金丹 ,0},
+        { JingJieType.元婴 ,0},
+        { JingJieType.化神 ,0},
+        { JingJieType.合体 ,0},
+        { JingJieType.大乘 ,0},
+        { JingJieType.天仙 ,0},
+        { JingJieType.玄仙 ,0},
+        { JingJieType.金仙 ,0},
+        { JingJieType.太乙金仙 ,0},
+        { JingJieType.大罗金仙 ,0},
+        { JingJieType.准圣 ,0},
+        { JingJieType.圣人 ,0},
+        { JingJieType.天道圣人 ,0},
+        { JingJieType.大道圣人 ,0},
+        { JingJieType.混元圣人 ,0},
+    };
     //新手引导
     public bool 是否首次进入游戏 = true;
     public bool 是否首次进入英雄界面 = true;

@@ -44,6 +44,10 @@ public class 突破确认弹窗 : MonoBehaviour
             PlayerData.S.当前轮回突破Dic[PlayerData.S.当前轮回境界] = QualityType;
             PlayerData.S.Set灵物数量(PlayerData.S.当前轮回境界,QualityType,PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界,QualityType)-1);
             PlayerData.S.当前轮回境界++;
+            if (QualityType == QualityType.荒品)
+            {
+                PlayerData.S.是否解锁破限 = true;
+            }
             if (PlayerData.S.当前轮回境界 > PlayerData.S.历史最高境界)
             {
                 PlayerData.S.历史最高境界 = PlayerData.S.当前轮回境界;

@@ -14,8 +14,8 @@ public class 储物袋界面 : MonoBehaviour
    public Button 详情Button;
    public GameObject 详情GameObject;
 
-   public Button 超脱Button;
-
+   public Button 破限Button;
+   public GameObject 破限弹窗;
    public 轮回确认弹窗 轮回确认弹窗;
    public Button 轮回按钮;
    public 丹方使用弹窗 丹方使用弹窗;
@@ -330,13 +330,15 @@ public class 储物袋界面 : MonoBehaviour
          }
          轮回确认弹窗.gameObject.SetActive(true);
       });
-      超脱Button.onClick.AddListener(() =>
+      破限Button.onClick.AddListener(() =>
       {
-         if (PlayerData.S.当前轮回境界 < JingJieType.圣人)
+         if (!PlayerData.S.是否解锁破限)
          {
-            ObserverModuleManager.S.SendEvent("SendUIToast","圣人期解锁超脱");
-            return;
+            ObserverModuleManager.S.SendEvent("SendUIToast","任一境界荒品突破解锁破限");
+            //return;
          }
+
+         破限弹窗.gameObject.SetActive(true);
       });
       详情Button.onClick.AddListener(() =>
       {

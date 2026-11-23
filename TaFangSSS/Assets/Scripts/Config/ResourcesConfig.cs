@@ -9,6 +9,10 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 破限按钮亮;
+	public static Sprite 破限按钮暗;
+
+	
 	public static Sprite 灵矿场招募卡片白;
 	public static Sprite 灵矿场招募卡片蓝;
 	public static Sprite 灵矿场招募卡片橙;
@@ -8583,6 +8587,9 @@ public static Sprite 缚霞流光绫藏品;
 	{
 		const float totalItems = 2586f;
 		
+		破限按钮亮=Resources.LoadAll<Sprite>("Sprite/DaoJu/破限境界按钮")[0];
+		破限按钮暗=Resources.LoadAll<Sprite>("Sprite/DaoJu/破限境界按钮")[1];
+
 		灵矿场招募卡片白=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片白");
 		灵矿场招募卡片蓝=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片蓝");
 		灵矿场招募卡片橙=Resources.Load<Sprite>("Sprite/灵矿场/招募卡片橙");

@@ -135,6 +135,7 @@ public class HeroWindowController:XSingleton<HeroWindowController>
     [NonSerialized] public int 灵矿场当前招募阶数=1;
     [NonSerialized] public 矿工 矿工管理弹窗当前矿工=null;
 
+    [NonSerialized] public JingJieType 破限弹窗境界;
 
     // 当前自定义光标贴图（从图集抠出来的小图），替换时销毁避免泄漏
     private static Texture2D 当前光标贴图;

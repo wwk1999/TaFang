@@ -31,6 +31,48 @@ public enum JingJieType
 
 public class JingJieConfig : MonoBehaviour
 {
+    public static float Get破限灵魂(JingJieType jingJieType, int 破限次数)
+    {
+        float 基础 = 破限灵魂[jingJieType];
+        基础 *= 破限次数灵魂倍数列表[破限次数];
+        return 基础;
+    }
+
+    public static float Get总破限真灵倍数()
+    {
+        float value = 1;
+        for (int i = 1; i <= (int)JingJieType.混元圣人; i++)
+        {
+            if (PlayerData.S.破限次数[(JingJieType)i] != 0)
+            {
+                value *= 破限真灵倍数列表[PlayerData.S.破限次数[(JingJieType)i]];
+            }
+        }
+        return value;
+    }
+    public static List<int> 破限荒品次数列表 = new List<int>() {1,3,6,10,15,22,35,50,70,100};
+    public static List<float> 破限真灵倍数列表 = new List<float>() {1,1.2f,1.5f,2,2.8f,4,5.7f,8,11f,15,20};
+    public static List<float> 破限次数灵魂倍数列表 = new List<float>() {1,2,3,5,8,12,18,25,35,50};
+    public static Dictionary<JingJieType, float> 破限灵魂 = new Dictionary<JingJieType, float>()
+    {
+        { JingJieType.练气, 10000 },
+        { JingJieType.筑基, 20000 },
+        { JingJieType.金丹, 30000 },
+        { JingJieType.元婴, 40000 },
+        { JingJieType.化神, 50000 },
+        { JingJieType.合体, 70000 },
+        { JingJieType.大乘, 100000 },
+        { JingJieType.天仙, 150000 },
+        { JingJieType.玄仙, 200000 },
+        { JingJieType.金仙, 250000 },
+        { JingJieType.太乙金仙, 300000 },
+        { JingJieType.大罗金仙, 400000 },
+        { JingJieType.准圣, 500000 },
+        { JingJieType.圣人, 700000 },
+        { JingJieType.天道圣人, 1000000 },
+        { JingJieType.大道圣人, 1500000 },
+        { JingJieType.混元圣人, 2000000 },
+    };
     public static Dictionary<JingJieType, int> 轮回消耗Dic =
         new Dictionary<JingJieType, int>()
 

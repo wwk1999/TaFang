@@ -14,6 +14,47 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public bool 是否解锁破限 = false;
+        public Dictionary<JingJieType, int> 破限次数 = new Dictionary<JingJieType, int>()
+        {
+            { JingJieType.练气 ,0},
+            { JingJieType.筑基 ,0},
+            { JingJieType.金丹 ,0},
+            { JingJieType.元婴 ,0},
+            { JingJieType.化神 ,0},
+            { JingJieType.合体 ,0},
+            { JingJieType.大乘 ,0},
+            { JingJieType.天仙 ,0},
+            { JingJieType.玄仙 ,0},
+            { JingJieType.金仙 ,0},
+            { JingJieType.太乙金仙 ,0},
+            { JingJieType.大罗金仙 ,0},
+            { JingJieType.准圣 ,0},
+            { JingJieType.圣人 ,0},
+            { JingJieType.天道圣人 ,0},
+            { JingJieType.大道圣人 ,0},
+            { JingJieType.混元圣人 ,0},
+        };
+        public Dictionary<JingJieType, int> 荒品突破次数 = new Dictionary<JingJieType, int>()
+        {
+            { JingJieType.练气 ,0},
+            { JingJieType.筑基 ,0},
+            { JingJieType.金丹 ,0},
+            { JingJieType.元婴 ,0},
+            { JingJieType.化神 ,0},
+            { JingJieType.合体 ,0},
+            { JingJieType.大乘 ,0},
+            { JingJieType.天仙 ,0},
+            { JingJieType.玄仙 ,0},
+            { JingJieType.金仙 ,0},
+            { JingJieType.太乙金仙 ,0},
+            { JingJieType.大罗金仙 ,0},
+            { JingJieType.准圣 ,0},
+            { JingJieType.圣人 ,0},
+            { JingJieType.天道圣人 ,0},
+            { JingJieType.大道圣人 ,0},
+            { JingJieType.混元圣人 ,0},
+        };
         public bool 是否首次进入游戏 = true;
         public bool 是否首次进入英雄界面 = true;
         public bool 是否首次进入储物袋 = true;
@@ -2765,6 +2806,9 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void CopyFromRuntime(PlayerData runtime)
         {
+            是否解锁破限 = runtime.是否解锁破限;
+            破限次数 = runtime.破限次数;
+            荒品突破次数 = runtime.荒品突破次数;
             是否首次进入领主府 = runtime.是否首次进入领主府;
             是否首次进入储物袋 = runtime.是否首次进入储物袋;
             是否首次进入灵矿场 = runtime.是否首次进入灵矿场;
@@ -2970,6 +3014,9 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.是否解锁破限 = 是否解锁破限;
+            runtime.破限次数 = 破限次数;
+            runtime.荒品突破次数 = 荒品突破次数;
             runtime.矿工碎片 = 矿工碎片;
             runtime.是否首次进入领主府 = 是否首次进入领主府;
             runtime.是否首次进入储物袋 = 是否首次进入储物袋;

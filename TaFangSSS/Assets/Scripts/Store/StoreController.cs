@@ -530,7 +530,7 @@ public class StoreController : XSingleton<StoreController>
                 ObserverModuleManager.S.SendEvent("增加修为",JingJieConfig.每秒增加修为);
             }
 
-
+            悟道崖灵石消耗();
             灵矿场();
             //炼制丹药();
             参悟大道();
@@ -547,12 +547,27 @@ public class StoreController : XSingleton<StoreController>
 
     public void 悟道崖灵石消耗()
     {
-        if (PlayerData.S.PropListDic[PropType.灵石] <= 悟道崖Config.悟道崖灵石消耗[悟道崖Config.大道配置[PlayerData.S.当前前置参悟大道Type].大道等级Type]/属性config.每年秒数)
+        // 没有在参悟大道时不消耗灵石
+        if (PlayerData.S.当前参悟大道Type == 大道Type.None) return;
+
+        // 实际加经验的可能是递归到的前置大道，优先按前置大道的等阶计算消耗
+        大道Type 消耗大道 = PlayerData.S.当前前置参悟大道Type != 大道Type.None
+            ? PlayerData.S.当前前置参悟大道Type
+            : PlayerData.S.当前参悟大道Type;
+        float 每秒消耗 = 悟道崖Config.悟道崖灵石消耗[悟道崖Config.大道配置[消耗大道].大道等级Type] / 属性config.每年秒数;
+
+        if (PlayerData.S.PropListDic[PropType.灵石] < 每秒消耗)
         {
             ObserverModuleManager.S.SendEvent("SendUIToast","悟道崖灵石不足，参悟大道中止");
             //终止参悟大道
+            PlayerData.S.当前参悟大道Type = 大道Type.None;
+            PlayerData.S.当前前置参悟大道Type = 大道Type.None;
+            ObserverModuleManager.S.SendEvent("刷新悟道崖界面");
+            ObserverModuleManager.S.SendEvent("刷新悟道崖当前悟道界面");
+            return;
         }
-        PlayerData.S.PropListDic[PropType.灵石]-=悟道崖Config.悟道崖灵石消耗[悟道崖Config.大道配置[PlayerData.S.当前前置参悟大道Type].大道等级Type]/属性config.每年秒数;
+
+        PlayerData.S.PropListDic[PropType.灵石]-=每秒消耗;
     }
     public void 灵矿场()
     {
