@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -7,8 +8,8 @@ using UnityEngine.UI;
 
 public class 按钮交互 : MonoBehaviour,IPointerDownHandler,IPointerEnterHandler,IPointerExitHandler
 {
-    public float 按钮进入scale = 1.1f;
-    public float 按钮点击scale = 1.2f;
+    [NonSerialized]public float 按钮进入scale = 1.1f;
+    [NonSerialized]public float 按钮点击scale = 1.2f;
     public Sprite 进入图片;
     public Sprite 离开图片;
 

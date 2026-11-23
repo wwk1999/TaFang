@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 public class 赌坊界面 : MonoBehaviour
 {
     public Button 开仓1000次Button;
-    public TextMeshProUGUI 开仓1000次平均灵气;
+    public TextMeshProUGUI 开仓1000次平均灵石;
 
     public Button 藏品仓库;
     public GameObject 藏品仓库Obj;
@@ -38,7 +38,7 @@ public class 赌坊界面 : MonoBehaviour
 
     public TextMeshProUGUI 当前轮数;
     public TextMeshProUGUI 仓库价格;
-    public TextMeshProUGUI 当前灵气;
+    public TextMeshProUGUI 当前灵石;
     public TextMeshProUGUI 藏品总价值;
     public Button 更换赌坊maskbutton;
 
@@ -262,16 +262,16 @@ public class 赌坊界面 : MonoBehaviour
         if (当前轮数 != null) 当前轮数.text = 存档.轮数.ToString();
         if (仓库价格 != null) 仓库价格.text = PlayerData.S.格式化数字(计算价格());
 
-        // 藏品总价值：开仓（买下）后显示本仓藏品的总灵气价值；换仓/重新生成仓库后重置为 0
+        // 藏品总价值：开仓（买下）后显示本仓藏品的总灵石价值；换仓/重新生成仓库后重置为 0
         if (藏品总价值 != null)
         {
             藏品总价值.text = 存档.已买下
-                ? PlayerData.S.格式化数字(计算仓库藏品总灵气())
+                ? PlayerData.S.格式化数字(计算仓库藏品总灵石())
                 : "0";
         }
 
-        string 灵气 = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
-        if (当前灵气 != null) 当前灵气.text = 灵气;
+        string 灵石 = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵石]);
+        if (当前灵石 != null) 当前灵石.text = 灵石;
     }
 
     private void 刷新按钮()
@@ -573,8 +573,8 @@ public class 赌坊界面 : MonoBehaviour
         return config.首仓价格 * 倍数;
     }
 
-    /// <summary>当前仓库内所有藏品的灵气价值总和（与买下时返还的灵气一致）</summary>
-    private static float 计算仓库藏品总灵气()
+    /// <summary>当前仓库内所有藏品的灵石价值总和（与买下时返还的灵石一致）</summary>
+    private static float 计算仓库藏品总灵石()
     {
         float 总和 = 0f;
         foreach (赌坊藏品存档 藏品 in PlayerData.S.赌坊存档.藏品列表)
@@ -685,16 +685,16 @@ public class 赌坊界面 : MonoBehaviour
         if (存档.已买下) return;
 
         float 价格 = 计算价格();
-        if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
+        if (PlayerData.S.PropListDic[PropType.灵石] < 价格)
         {
-            提示("灵气不足");
+            提示("灵石不足");
             return;
         }
 
-        PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+        PlayerData.S.PropListDic[PropType.灵石] -= 价格;
 
-        // 仓内藏品入库的同时统计灵气价值总和，买下后加回给玩家
-        float 藏品灵气总和 = 计算仓库藏品总灵气();
+        // 仓内藏品入库的同时统计灵石价值总和，买下后加回给玩家
+        float 藏品灵石总和 = 计算仓库藏品总灵石();
         foreach (赌坊藏品存档 藏品 in 存档.藏品列表)
         {
             if (!PlayerData.S.藏品仓库Dic.ContainsKey(藏品.藏品Type))
@@ -705,7 +705,7 @@ public class 赌坊界面 : MonoBehaviour
             PlayerData.S.藏品仓库Dic[藏品.藏品Type]++;
         }
 
-        PlayerData.S.PropListDic[PropType.灵魂] += 藏品灵气总和;
+        PlayerData.S.PropListDic[PropType.灵石] += 藏品灵石总和;
 
         存档.已买下 = true;
 
@@ -717,7 +717,7 @@ public class 赌坊界面 : MonoBehaviour
         提示("买下成功");
     }
 
-    /// <summary>调试：真实逻辑模拟开仓 10000 次（不扣灵气、不写存档、不渲染），显示平均每仓藏品灵气</summary>
+    /// <summary>调试：真实逻辑模拟开仓 10000 次（不扣灵石、不写存档、不渲染），显示平均每仓藏品灵石</summary>
     private void 调试开仓10000次()
     {
         if (藏品背包 == null) return;
@@ -728,7 +728,7 @@ public class 赌坊界面 : MonoBehaviour
         藏品背包.行数 = 行;
         藏品背包.列数 = 列;
 
-        double 总灵气 = 0;
+        double 总灵石 = 0;
         for (int n = 0; n < 次数; n++)
         {
             藏品背包.开始生成(0);
@@ -775,17 +775,17 @@ public class 赌坊界面 : MonoBehaviour
                 }
             }
 
-            float 本仓灵气 = 0;
+            float 本仓灵石 = 0;
             foreach (藏品Type type in 本仓)
             {
-                if (赌坊Config.藏品价格Dic.TryGetValue(type, out float 价格)) 本仓灵气 += 价格;
+                if (赌坊Config.藏品价格Dic.TryGetValue(type, out float 价格)) 本仓灵石 += 价格;
             }
 
-            总灵气 += 本仓灵气;
+            总灵石 += 本仓灵石;
         }
 
-        float 平均 = (float)(总灵气 / 次数);
-        if (开仓1000次平均灵气 != null) 开仓1000次平均灵气.text = PlayerData.S.格式化数字(平均);
+        float 平均 = (float)(总灵石 / 次数);
+        if (开仓1000次平均灵石 != null) 开仓1000次平均灵石.text = PlayerData.S.格式化数字(平均);
 
         // 模拟重置了占用表并销毁了已渲染藏品，按未改动的存档重新渲染恢复界面
         渲染藏品();
@@ -810,9 +810,9 @@ public class 赌坊界面 : MonoBehaviour
         }
 
         float 价格 = 赌坊Config.Get道具价格(存档.当前赌坊Type, type);
-        if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
+        if (PlayerData.S.PropListDic[PropType.灵石] < 价格)
         {
-            提示("灵气不足");
+            提示("灵石不足");
             return;
         }
 
@@ -857,7 +857,7 @@ public class 赌坊界面 : MonoBehaviour
             }
         }
 
-        PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+        PlayerData.S.PropListDic[PropType.灵石] -= 价格;
         存档.本轮已用道具 = type;
 
         刷新信息();

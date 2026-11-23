@@ -116,7 +116,7 @@ public class 领主府 : MonoBehaviour
       });
       升级按钮.onClick.AddListener(() =>
       {
-         float 需要灵气 = 0;
+         float 需要灵石 = 0;
          float 需要矿石 = 0;
          float 需要玄铁 = 0;
          float 需要玉髓 = 0;
@@ -128,7 +128,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要灵气;
+               需要灵石 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要灵石;
                需要矿石 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要矿石;
                需要玄铁 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玄铁;
                需要玉髓 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]].升级需要玉髓;
@@ -139,7 +139,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要灵气;
+               需要灵石 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要灵石;
                需要矿石 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要矿石;
                需要玄铁 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要玄铁;
                需要玉髓 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]].升级需要玉髓;
@@ -150,7 +150,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要灵气;
+               需要灵石 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要灵石;
                需要矿石 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要矿石;
                需要玄铁 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要玄铁;
                需要玉髓 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]].升级需要玉髓;
@@ -161,7 +161,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要灵气;
+               需要灵石 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要灵石;
                需要矿石 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要矿石;
                需要玄铁 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要玄铁;
                需要玉髓 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]].升级需要玉髓;
@@ -173,7 +173,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要灵气;
+               需要灵石 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要灵石;
                需要矿石 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要矿石;
                需要玄铁 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要玄铁;
                需要玉髓 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]].升级需要玉髓;
@@ -185,7 +185,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要灵气;
+               需要灵石 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要灵石;
                需要矿石 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要矿石;
                需要玄铁 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要玄铁;
                需要玉髓 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]].升级需要玉髓;
@@ -197,7 +197,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要灵气;
+               需要灵石 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要灵石;
                需要矿石 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要矿石;
                需要玄铁 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要玄铁;
                需要玉髓 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]].升级需要玉髓;
@@ -209,7 +209,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要灵气;
+               需要灵石 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要灵石;
                需要矿石 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要矿石;
                需要玄铁 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要玄铁;
                需要玉髓 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]].升级需要玉髓;
@@ -222,7 +222,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要灵气;
+               需要灵石 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要灵石;
                需要矿石 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要矿石;
                需要玄铁 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要玄铁;
                需要玉髓 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]].升级需要玉髓;
@@ -235,7 +235,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要灵气;
+               需要灵石 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要灵石;
                需要矿石 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要矿石;
                需要玄铁 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要玄铁;
                需要玉髓 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]].升级需要玉髓;
@@ -247,7 +247,7 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要灵气;
+               需要灵石 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要灵石;
                需要矿石 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要矿石;
                需要玄铁 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要玄铁;
                需要玉髓 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]].升级需要玉髓;
@@ -259,16 +259,16 @@ public class 领主府 : MonoBehaviour
                   ObserverModuleManager.S.SendEvent("SendUIToast","已达最高等级");
                   return;
                }
-               需要灵气 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要灵气;
+               需要灵石 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要灵石;
                需要矿石 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要矿石;
                需要玄铁 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要玄铁;
                需要玉髓 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]].升级需要玉髓;
                break;
          }
 
-         if (PlayerData.S.PropListDic[PropType.灵魂] < 需要灵气)
+         if (PlayerData.S.PropListDic[PropType.灵石] < 需要灵石)
          {
-            ObserverModuleManager.S.SendEvent("SendUIToast","灵气不足");
+            ObserverModuleManager.S.SendEvent("SendUIToast","灵石不足");
             return;
          }
          if (PlayerData.S.PropListDic[PropType.矿石] < 需要矿石)
@@ -287,7 +287,7 @@ public class 领主府 : MonoBehaviour
             return;
          }
 
-         PlayerData.S.PropListDic[PropType.灵魂] -= 需要灵气;
+         PlayerData.S.PropListDic[PropType.灵石] -= 需要灵石;
          PlayerData.S.PropListDic[PropType.矿石] -= 需要矿石;
          PlayerData.S.PropListDic[PropType.玄铁]-= 需要玄铁;
          PlayerData.S.PropListDic[PropType.玉髓] -= 需要玉髓;
@@ -536,82 +536,82 @@ public class 领主府 : MonoBehaviour
          case 建筑Type.矿场:
             {
                var 配置 = 道场Config.矿场配置[PlayerData.S.建筑等级Dic[建筑Type.矿场]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.玄铁洞:
             {
                var 配置 = 道场Config.玄铁洞配置[PlayerData.S.建筑等级Dic[建筑Type.玄铁洞]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.地脉:
             {
                var 配置 = 道场Config.地脉配置[PlayerData.S.建筑等级Dic[建筑Type.地脉]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.功德碑:
             {
                var 配置 = 道场Config.功德碑配置[PlayerData.S.建筑等级Dic[建筑Type.功德碑]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.聚贤阁:
             {
                var 配置 = 道场Config.聚贤阁配置[PlayerData.S.建筑等级Dic[建筑Type.聚贤阁]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.灵兽坊:
          {
             var 配置 = 道场Config.灵兽坊配置[PlayerData.S.建筑等级Dic[建筑Type.灵兽坊]];
-            添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+            添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
             break;
          }
          case 建筑Type.炼丹室:
             {
                var 配置 = 道场Config.炼丹室配置[PlayerData.S.建筑等级Dic[建筑Type.炼丹室]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.炼器室:
             {
                var 配置 = 道场Config.炼器室配置[PlayerData.S.建筑等级Dic[建筑Type.炼器室]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.领主府:
             {
                var 配置 = 道场Config.领主府配置[PlayerData.S.建筑等级Dic[建筑Type.领主府]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.灵植园:
             {
                var 配置 = 道场Config.灵植园配置[PlayerData.S.建筑等级Dic[建筑Type.灵植园]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.坊市:
             {
                var 配置 = 道场Config.坊市配置[PlayerData.S.建筑等级Dic[建筑Type.坊市]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
          case 建筑Type.仙女阁:
             {
                var 配置 = 道场Config.仙女殿配置[PlayerData.S.建筑等级Dic[建筑Type.仙女阁]];
-               添加升级材料item(配置.升级需要灵气, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
+               添加升级材料item(配置.升级需要灵石, 配置.升级需要矿石, 配置.升级需要玄铁, 配置.升级需要玉髓);
                break;
             }
       }
    }
 
    
-   private void 添加升级材料item(float 灵气, float 矿石, float 玄铁, float 玉髓)
+   private void 添加升级材料item(float 灵石, float 矿石, float 玄铁, float 玉髓)
    {
-      if (灵气 > 0) 创建升级材料item(升级材料Type.灵气, 灵气);
+      if (灵石 > 0) 创建升级材料item(升级材料Type.灵石, 灵石);
       if (矿石 > 0) 创建升级材料item(升级材料Type.矿石, 矿石);
       if (玄铁 > 0) 创建升级材料item(升级材料Type.玄铁, 玄铁);
       if (玉髓 > 0) 创建升级材料item(升级材料Type.玉髓, 玉髓);

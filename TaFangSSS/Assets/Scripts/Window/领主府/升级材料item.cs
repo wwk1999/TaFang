@@ -18,8 +18,8 @@ public class 升级材料item : MonoBehaviour
         countText.text = PlayerData.S.格式化数字(count);
         switch (升级材料Type)
         {
-            case 升级材料Type.灵气:
-                name.text = "灵气";
+            case 升级材料Type.灵石:
+                name.text = "灵石";
                 icon.sprite = ResourcesConfig.灵魂;
                 break;
             case 升级材料Type.矿石:

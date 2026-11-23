@@ -658,8 +658,8 @@ public class 灵矿场Config
         },
     };
 
-    public static float 基础挖宝箱年数 = 3f;
-    public static float 基础每道年固定收益 = 10000;
+    public static float 基础挖宝箱年数 = 0.1f;
+    public static float 基础每道年固定收益 = 1000;
     public static float 基础每道年挖掘米数 = 100;
     public static float 基础每道年增加经验 = 100;
     public static float 随机最小区间 = 0.7f;
@@ -669,6 +669,20 @@ public class 灵矿场Config
     public static float 其余矿工倍数 = 2f;
     public static float 均衡矿工倍数 = 1.25f;
     public static float 词条概率 = 15;
+
+    public static Dictionary<int, float> 土层挖宝时间倍数 = new Dictionary<int, float>()
+    {
+        { 1, 1 },
+        { 2, 2 },
+        { 3, 3.2f },
+        { 4, 4.5f },
+        { 5, 6 },
+        { 6, 8f },
+        { 7, 10f },
+        { 8, 13f },
+        { 9, 16f },
+        { 10, 20f },
+    };
 
 public static List<string> 矿工名称List = new List<string>()
 {
@@ -748,7 +762,7 @@ public static float Get星级加成(int 星级)
 public static float Get矿工挖宝箱时间(矿工 矿工)
 {
     var 属性 = Get矿工最终四维属性(矿工);
-    return 基础挖宝箱年数 / (1f + 属性.挖宝时间 / 100f);
+    return 基础挖宝箱年数*土层挖宝时间倍数[(int)Get当前层()] / (1f + 属性.挖宝时间 / 100f);
 }
 public static float Get矿工每道年增加经验(矿工 矿工)
 {

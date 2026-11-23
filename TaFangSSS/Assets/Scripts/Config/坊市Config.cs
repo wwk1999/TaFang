@@ -404,13 +404,13 @@ public class 坊市Config
                     var item = PlayerData.S.坊市物品列表[i];
                     float value = Get法器价格(item.阶数) /
                                   (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
-                    if (PlayerData.S.PropListDic[PropType.灵魂] < value)
+                    if (PlayerData.S.PropListDic[PropType.灵石] < value)
                     {
-                        ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
+                        ObserverModuleManager.S.SendEvent("SendUIToat","灵石不足,自动购买失败");
                         return;
                     }
 
-                    PlayerData.S.PropListDic[PropType.灵魂] -= value;
+                    PlayerData.S.PropListDic[PropType.灵石] -= value;
                     法器 法器 = 法器Config.Get坊市法器(item.法器Type, item.QualityType, item.阶数);
                     PlayerData.S.法器列表.Add(法器);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
@@ -423,13 +423,13 @@ public class 坊市Config
                 if (PlayerData.S.Get坊市仙石自动购买(PlayerData.S.坊市物品列表[i].仙石Type))
                 {
                     float value =Get仙石价格(PlayerData.S.坊市物品列表[i].阶数, PlayerData.S.坊市物品列表[i].QualityType)/(1f+道场Config.供奉总属性.坊市价格减少/100f);
-                    if (PlayerData.S.PropListDic[PropType.灵魂] < value)
+                    if (PlayerData.S.PropListDic[PropType.灵石] < value)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
-                    PlayerData.S.PropListDic[PropType.灵魂] -= value;
+                    PlayerData.S.PropListDic[PropType.灵石] -= value;
                     仙石 仙石 = 仙石Config.Get坊市仙石(PlayerData.S.坊市物品列表[i].仙石Type,PlayerData.S.坊市物品列表[i].QualityType,PlayerData.S.坊市物品列表[i].阶数);
                     PlayerData.S.仙石列表.Add(仙石);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
@@ -443,13 +443,13 @@ public class 坊市Config
                 if (PlayerData.S.Get坊市丹药自动购买(PlayerData.S.坊市物品列表[i].丹药Type,PlayerData.S.坊市物品列表[i].QualityType))
                 {
                     float 价格 = Get丹药阶数价格(PlayerData.S.坊市物品列表[i].丹药Type, PlayerData.S.坊市物品列表[i].阶数, PlayerData.S.坊市物品列表[i].QualityType) / (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
-                    if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
+                    if (PlayerData.S.PropListDic[PropType.灵石] < 价格)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
-                    PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+                    PlayerData.S.PropListDic[PropType.灵石] -= 价格;
                     var 丹药物品 = PlayerData.S.坊市物品列表[i];
                     PlayerData.S.Set丹药数量(丹药物品.丹药Type, 丹药物品.QualityType,
                         PlayerData.S.Get丹药数量(丹药物品.丹药Type, 丹药物品.QualityType, 丹药物品.阶数) + 1, 丹药物品.阶数);
@@ -464,13 +464,13 @@ public class 坊市Config
                 if (PlayerData.S.Get坊市丹方自动购买(PlayerData.S.坊市物品列表[i].丹方Type))
                 {
                     float 价格 = Get丹方阶数价格(PlayerData.S.坊市物品列表[i].丹方Type, PlayerData.S.坊市物品列表[i].阶数) / (1f + 道场Config.供奉总属性.坊市价格减少 / 100f);
-                    if (PlayerData.S.PropListDic[PropType.灵魂] < 价格)
+                    if (PlayerData.S.PropListDic[PropType.灵石] < 价格)
                     {
                         ObserverModuleManager.S.SendEvent("SendUIToat","灵气不足,自动购买失败");
                         return;
                     }
 
-                    PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
+                    PlayerData.S.PropListDic[PropType.灵石] -= 价格;
                     PlayerData.S.Set丹方数量(PlayerData.S.坊市物品列表[i].丹方Type, PlayerData.S.坊市物品列表[i].阶数, PlayerData.S.Get丹方数量(PlayerData.S.坊市物品列表[i].丹方Type, PlayerData.S.坊市物品列表[i].阶数) + 1);
                     PlayerData.S.坊市物品列表[i].是否被购买 = true;
                     ObserverModuleManager.S.SendEvent("SendUIToast", 丹药Config.丹方名Dic[PlayerData.S.坊市物品列表[i].丹方Type] + $"·{PlayerData.S.坊市物品列表[i].阶数}阶", QualityType.None, 1);

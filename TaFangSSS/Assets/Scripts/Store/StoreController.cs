@@ -545,6 +545,15 @@ public class StoreController : XSingleton<StoreController>
         }
     }
 
+    public void 悟道崖灵石消耗()
+    {
+        if (PlayerData.S.PropListDic[PropType.灵石] <= 悟道崖Config.悟道崖灵石消耗[悟道崖Config.大道配置[PlayerData.S.当前前置参悟大道Type].大道等级Type]/属性config.每年秒数)
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","悟道崖灵石不足，参悟大道中止");
+            //终止参悟大道
+        }
+        PlayerData.S.PropListDic[PropType.灵石]-=悟道崖Config.悟道崖灵石消耗[悟道崖Config.大道配置[PlayerData.S.当前前置参悟大道Type].大道等级Type]/属性config.每年秒数;
+    }
     public void 灵矿场()
     {
         灵矿场挖掘();

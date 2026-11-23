@@ -172,6 +172,14 @@ public class 大道等级固定奖励
 }
 public class 悟道崖Config
 {
+    public static Dictionary<大道等级Type, float> 悟道崖灵石消耗 = new Dictionary<大道等级Type, float>()
+    {
+        { 大道等级Type.None,0},
+        { 大道等级Type.基础大道,100000},
+        { 大道等级Type.上等大道,1000000},
+        { 大道等级Type.至尊大道,10000000},
+        { 大道等级Type.本源大道,100000000},
+    };
     public static Dictionary<大道等级Type, QualityType> 大道等级品质 = new Dictionary<大道等级Type, QualityType>()
     {
         { 大道等级Type.基础大道 ,QualityType.地品},

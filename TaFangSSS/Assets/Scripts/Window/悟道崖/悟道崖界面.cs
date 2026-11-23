@@ -13,6 +13,7 @@ public class 悟道崖界面 : MonoBehaviour
 
     public Button exitButton;
     public TextMeshProUGUI 修炼速度;
+    public TextMeshProUGUI 灵石消耗;
     public Image 当前参悟Bg;
     public Image 当前参悟icon;
     public TextMeshProUGUI 当前参悟名;
@@ -48,6 +49,7 @@ public class 悟道崖界面 : MonoBehaviour
 
     public void Show当前参悟区域()
     {
+        灵石消耗.text = "灵石消耗："+PlayerData.S.格式化数字(悟道崖Config.悟道崖灵石消耗[悟道崖Config.大道配置[PlayerData.S.当前前置参悟大道Type].大道等级Type]) + "/每道年";
         修炼速度.text = "修炼速度："+PlayerData.S.格式化数字(JingJieConfig.每秒增加修为 * 属性config.每年秒数) + "/每道年";
         if (PlayerData.S.当前前置参悟大道Type == 大道Type.None)
         {

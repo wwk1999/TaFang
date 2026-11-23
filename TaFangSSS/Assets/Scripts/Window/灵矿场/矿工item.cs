@@ -35,16 +35,22 @@ public class 矿工item : MonoBehaviour
     name.text = "LV."+ 矿工.等级+" "+矿工.name;
     name.colorGradientPreset = ResourcesConfig.Get品质TMP(矿工.QualityType);
 
-    float 最大经验 = 灵矿场Config.矿工经验表[矿工.等级];
-    进度条.fillAmount = 最大经验 <= 0 ? 0 : Mathf.Clamp01(矿工.经验 / 最大经验);
-
+    刷新挖宝进度();
     Set矿工动画(矿工类型, 阶数, 矿工.QualityType);
     Set功法星级();
   }
 
   private void Update()
   {
-    进度条.fillAmount=
+    刷新挖宝进度();
+  }
+
+  /// <summary>进度条显示当前挖宝进度，随挖宝时间实时刷新</summary>
+  private void 刷新挖宝进度()
+  {
+    if (矿工 == null || 进度条 == null) return;
+    float 总时间 = 灵矿场Config.Get矿工挖宝箱时间(矿工);
+    进度条.fillAmount = 总时间 <= 0 ? 0 : Mathf.Clamp01(矿工.当前挖宝时间 / 总时间);
   }
 
   private void Set矿工动画(矿工类型 类型, int 阶数, QualityType 品质)
