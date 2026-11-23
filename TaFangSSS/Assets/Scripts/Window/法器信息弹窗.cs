@@ -21,6 +21,8 @@ public class 法器信息弹窗 : MonoBehaviour
       info.品质 = 法器.品质;
       info.阶数 = 法器.阶数;
       info.SetItem();
+      
+      Instantiate(Resources.Load("Prefabs/Window/词条属性"), content.transform);
 
       foreach (var item in 法器.list)
       {
@@ -35,44 +37,18 @@ public class 法器信息弹窗 : MonoBehaviour
       if (法器.符文 != null&&法器.符文.type!=符文Type.None)
       {
          var item=Instantiate(Resources.Load("Prefabs/Window/法器符文信息"), content.transform).GetComponent<法器符文信息>();
-         item.符文 = 法器.符文;
+         item.法器 = 法器;
          item.SetItem();
-      }
-
-      for (int i = 1; i < Enum.GetValues(typeof(仙石Type)).Length; i++)
-      {
-         int 数量 = 仙石Config.Get法器仙石数量(法器, (仙石Type)i);
-         if (数量 >= 4)
-         {
-            var item=Instantiate(Resources.Load("Prefabs/Window/仙石羁绊item"), content.transform).GetComponent<仙石羁绊item>();
-            item.仙石Type = (仙石Type)i;
-            item.数量 = 4;
-            item.SetItem();
-         }
-         if (数量 >= 6)
-         {
-            var item=Instantiate(Resources.Load("Prefabs/Window/仙石羁绊item"), content.transform).GetComponent<仙石羁绊item>();
-            item.仙石Type = (仙石Type)i;
-            item.数量 = 6;
-            item.SetItem();
-         }
-         if (数量 >= 8)
-         {
-            var item=Instantiate(Resources.Load("Prefabs/Window/仙石羁绊item"), content.transform).GetComponent<仙石羁绊item>();
-            item.仙石Type = (仙石Type)i;
-            item.数量 = 8;
-            item.SetItem();
-         }
       }
       
       var 魂器 = Instantiate(Resources.Load("Prefabs/Window/法器魂器"), content.transform).GetComponent<法器魂器>();
       魂器.法器 = 法器;
       魂器.SetItem();
       
-      var 法器孔item = Instantiate(Resources.Load("Prefabs/Window/法器孔item"), content.transform).GetComponent<法器孔item>();
-      法器孔item.list = 法器.仙石list;
-      法器孔item.SetItem();
+      var 法器仙石 = Instantiate(Resources.Load("Prefabs/Window/法器信息仙石"), content.transform).GetComponent<法器信息仙石>();
+      法器仙石.法器 = 法器;
+      法器仙石.SetItem();
       
-      var tip = Instantiate(Resources.Load("Prefabs/Window/tip"), content.transform);
+      //var tip = Instantiate(Resources.Load("Prefabs/Window/tip"), content.transform);
    }
 }

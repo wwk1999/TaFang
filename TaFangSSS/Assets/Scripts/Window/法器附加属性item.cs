@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using Config;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class 法器附加属性item : MonoBehaviour
 {
@@ -16,9 +18,11 @@ public class 法器附加属性item : MonoBehaviour
    public TextMeshProUGUI text;
    public TextMeshProUGUI countText;
    public TextMeshProUGUI 无暇text;
+   public Image icon;
 
    public void SetItem()
    {
+       icon.sprite=ResourcesConfig.Get属性iconSprite((int)(法器附加属性Type-1));
       无暇text.gameObject.SetActive(无暇);
       无暇text.colorGradientPreset = ResourcesConfig.Get品质TMP(QualityType);
       // 词条只存基础值，品质倍率统一在此乘算展示，与Get法器属性保持同一数值口径

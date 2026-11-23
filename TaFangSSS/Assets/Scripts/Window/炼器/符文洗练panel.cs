@@ -250,7 +250,7 @@ public class 符文洗练panel : MonoBehaviour
             艺术字.sprite = ResourcesConfig.Get艺术字(符文.quality);
             nameText.text = 符文Config.符文名Dic[符文.type];
             icon.sprite = ResourcesConfig.Get符文Sprite(符文.type, 符文.quality);
-            符文效果.text = 符文Config.符文效果Dic[符文.type];
+            符文效果.text = 符文Config.Get符文描述(符文.type);
             if (符文.type == 符文Type.击杀怪物获得神通能量)
             {
                 符文数值.text = 符文.count.ToString("F2");

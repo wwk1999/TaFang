@@ -2,29 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class 法器符文信息 : MonoBehaviour
 {
-    public TextMeshProUGUI name;
-    public TextMeshProUGUI desc;
-    public TextMeshProUGUI count;
-    [NonSerialized] public 符文 符文;
+   public GameObject content;
+   [NonSerialized] public 法器 法器;
 
-    public void SetItem()
-    {
-        name.text = 符文Config.符文名Dic[符文.type];
-        desc.text = 符文Config.符文效果Dic[符文.type];
-        if (HeroWindowController.S.熔炼后符文 != null)
-        {
-            if (HeroWindowController.S.熔炼后符文.type == 符文Type.击杀怪物获得神通能量)
-            {
-                count.text = 符文.count.ToString("F2");
-            }
-            else
-            {
-                count.text = 符文.count.ToString("F1") + "%";
-            }
-        }
-    }
+   public void SetItem()
+   {
+      foreach (Transform child in content.transform)
+      {
+         Destroy(child.gameObject);
+      }
+
+      Instantiate(Resources.Load("Prefabs/Window/符文标题"), content.transform);
+      var item=Instantiate(Resources.Load("Prefabs/Window/法器信息符文item"), content.transform).GetComponent<法器信息符文item>();
+      item.count = 法器.符文.count;
+      item.符文Type = 法器.符文.type;
+      item.QualityType=法器.符文.quality;
+      item.无暇 = 法器.符文.无暇;
+      item.SetItem();
+      
+      if (法器.符文.融合)
+      {
+         var item1=Instantiate(Resources.Load("Prefabs/Window/法器信息符文item"), content.transform).GetComponent<法器信息符文item>();
+         item1.count = 法器.符文.融合count;
+         item1.符文Type = 法器.符文.融合type;
+         item1.QualityType=法器.符文.融合quality;
+         item1.无暇 = 法器.符文.融合无暇;
+         item1.SetItem();
+      }
+   }
 }

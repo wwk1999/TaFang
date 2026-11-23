@@ -42,6 +42,11 @@ public class 矿工item : MonoBehaviour
     Set功法星级();
   }
 
+  private void Update()
+  {
+    进度条.fillAmount=
+  }
+
   private void Set矿工动画(矿工类型 类型, int 阶数, QualityType 品质)
   {
     bool 六阶以上 = 阶数 > 5;

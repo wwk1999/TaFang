@@ -31,7 +31,7 @@ public class 符文融合信息弹窗 : MonoBehaviour
         name.text = 符文Config.符文名Dic[符文.type];
         品质.text=PropConfig.QualityNameDic[符文.quality];
         品质.colorGradientPreset = ResourcesConfig.Get品质TMP(符文.quality);
-        效果1.text=符文Config.符文效果Dic[符文.type];
+        效果1.text=符文Config.Get符文描述(符文.type);
         if (符文.type == 符文Type.击杀怪物获得神通能量)
         {
             数值1.text = 符文.count.ToString("F2");
@@ -43,7 +43,7 @@ public class 符文融合信息弹窗 : MonoBehaviour
         
         无暇2.gameObject.SetActive(符文.融合无暇);
         无暇2.colorGradientPreset = ResourcesConfig.Get品质TMP(符文.quality);
-        效果2.text=符文Config.符文效果Dic[符文.融合type];
+        效果2.text=符文Config.Get符文描述(符文.融合type);
         if (符文.type == 符文Type.击杀怪物获得神通能量)
         {
             数值2.text = 符文.融合count.ToString("F2");

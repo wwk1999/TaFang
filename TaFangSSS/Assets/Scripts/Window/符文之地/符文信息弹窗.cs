@@ -27,7 +27,7 @@ public class 符文信息弹窗 : MonoBehaviour
         name.text = 符文Config.符文名Dic[符文.type];
         品质.text=PropConfig.QualityNameDic[符文.quality];
         品质.colorGradientPreset = ResourcesConfig.Get品质TMP(符文.quality);
-        效果.text=符文Config.符文效果Dic[符文.type];
+        效果.text=符文Config.Get符文效果(符文.type,符文.count);
         if (符文.type == 符文Type.击杀怪物获得神通能量)
         {
             数值.text = 符文.count.ToString("F2");

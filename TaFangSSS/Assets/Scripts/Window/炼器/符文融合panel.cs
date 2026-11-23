@@ -251,7 +251,7 @@ public class 符文融合panel : MonoBehaviour
         if (!有符文) return;
 
         icon.sprite = ResourcesConfig.Get符文Sprite(符文.type, 符文.quality);
-        效果.text = "效果：" + 符文Config.符文效果Dic[符文.type];
+        效果.text = "效果：" + 符文Config.Get符文描述(符文.type);
         数值.text = 数值文本(符文);
         无暇.text = 符文.无暇 ? "无暇" : "";
     }
@@ -301,6 +301,7 @@ public class 符文融合panel : MonoBehaviour
             主.融合type = 副.type;
             主.融合count = 副.count;
             主.融合无暇 = 副.无暇;
+            主.融合quality=副.quality;
             销毁符文(副);
             ObserverModuleManager.S.SendEvent("SendUIToast", "融合成功");
             PlayerData.S.任务完成字典[任务Type.符文融合] = true;

@@ -121,7 +121,7 @@ public class 符文熔炼panel : MonoBehaviour
             
             符文名.text = 符文Config.符文名Dic[HeroWindowController.S.熔炼后符文.type];
             符文名.colorGradientPreset = ResourcesConfig.Get品质TMP(HeroWindowController.S.熔炼后符文.quality);
-            符文效果.text = 符文Config.符文效果Dic[HeroWindowController.S.熔炼后符文.type];
+            符文效果.text = 符文Config.Get符文描述(HeroWindowController.S.熔炼后符文.type);
             if (HeroWindowController.S.熔炼后符文.type == 符文Type.击杀怪物获得神通能量)
             {
                 符文数值.text = HeroWindowController.S.熔炼后符文.count.ToString("F2");
