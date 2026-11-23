@@ -14,6 +14,8 @@ public class 法器infoItem : MonoBehaviour
     public Image bg;
     public Image icon;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI 品质text;
+
     public TextMeshProUGUI desc;
     public TextMeshProUGUI 职业;
     public GameObject tip;
@@ -21,12 +23,13 @@ public class 法器infoItem : MonoBehaviour
 
     public void SetItem()
     {
+        品质text.text = PropConfig.QualityNameDic[品质];
+        品质text.colorGradientPreset = ResourcesConfig.Get品质TMP(品质);
         基础属性count.text = 法器Config.Get法器基础伤害(阶数, 品质) + "%";
         tip.gameObject.SetActive(法器Config.法器职业Dic[法器Type]==ZhiYeType.辅助);
         bg.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(品质);
         icon.sprite = ResourcesConfig.Get法器Sprite(法器Type, 阶数);
         name.text = 法器Config.Get法器Name(法器Type, 阶数);
-        name.colorGradientPreset = ResourcesConfig.Get品质TMP(品质);
         desc.text=法器Config.法器descDic[法器Type];
         职业.text=HeroConfig.Get职业Name(法器Config.法器职业Dic[法器Type]);
     }

@@ -1647,6 +1647,9 @@ public static Sprite 缚霞流光绫藏品;
 	// 道具2图标：Sprite/DaoJu/道具2 切图，索引 0~15 依次为 道具2_0~道具2_15
 	public static Sprite[] 道具2Sprites;
 
+	// 属性图标：Sprite/DaoJu/属性icon 切图，索引 0~15 依次为 属性icon_0~属性icon_15
+	public static Sprite[] 属性iconSprites;
+
 	// 赌坊道具图标：Sprite/赌坊icon/道具 切图，索引 0~15 依次为 道具_0~道具_15
 	public static Sprite[] 赌坊道具Sprites;
 
@@ -7641,6 +7644,20 @@ public static Sprite 缚霞流光绫藏品;
 			return null;
 		}
 		return 道具2Sprites[索引];
+	}
+
+	/// <summary>按序号取属性图标（0 起，对应 Sprite/DaoJu/属性icon 切图 属性icon_0~属性icon_15），首次调用时加载</summary>
+	public static Sprite Get属性iconSprite(int 索引)
+	{
+		if (属性iconSprites == null || 属性iconSprites.Length == 0)
+		{
+			属性iconSprites = Load阶数Sprites("Sprite/DaoJu/属性icon");
+		}
+		if (索引 < 0 || 索引 >= 属性iconSprites.Length)
+		{
+			return null;
+		}
+		return 属性iconSprites[索引];
 	}
 
 	/// <summary>按序号取赌坊道具图标（0 起，对应切图 道具_0~道具_15），首次调用时加载</summary>

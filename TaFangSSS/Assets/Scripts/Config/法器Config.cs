@@ -730,6 +730,47 @@ public class 法器Config
         { 法器附加属性Type.黑暗穿透, "黑暗穿透" },
     };
 
+    // ==================== 附加属性图标 ====================
+    // 对应 Sprite/DaoJu/属性icon 切图 属性icon_0~属性icon_15
+    public static Dictionary<法器附加属性Type, int> 法器附加属性Icon索引 = new Dictionary<法器附加属性Type, int>()
+    {
+        { 法器附加属性Type.暴击率, 0 },
+        { 法器附加属性Type.暴击伤害, 1 },
+        { 法器附加属性Type.火焰伤害, 2 },
+        { 法器附加属性Type.雷电伤害, 3 },
+        { 法器附加属性Type.黑暗伤害, 4 },
+        { 法器附加属性Type.冰霜伤害, 5 },
+        { 法器附加属性Type.物理伤害, 6 },
+        { 法器附加属性Type.最终伤害, 7 },
+        { 法器附加属性Type.普通怪增伤, 8 },
+        { 法器附加属性Type.精英怪增伤, 9 },
+        { 法器附加属性Type.首领怪增伤, 10 },
+        { 法器附加属性Type.黑暗穿透, 11 },
+        { 法器附加属性Type.火焰穿透, 12 },
+        { 法器附加属性Type.冰霜穿透, 13 },
+        { 法器附加属性Type.物理穿透, 14 },
+        { 法器附加属性Type.雷电穿透, 15 },
+    };
+
+    /// <summary>法器附加属性名称（None 为「无属性」）</summary>
+    public static string Get法器附加属性Name(法器附加属性Type type)
+    {
+        return 法器附加属性Desc.TryGetValue(type, out var name) ? name : string.Empty;
+    }
+
+    /// <summary>法器附加属性图标，None 返回 null</summary>
+    public static Sprite Get法器附加属性Icon(法器附加属性Type type)
+    {
+        return 法器附加属性Icon索引.TryGetValue(type, out int 索引) ? ResourcesConfig.Get属性iconSprite(索引) : null;
+    }
+
+    /// <summary>词条显示文本，如 "暴击率 +12.0%"</summary>
+    public static string Get法器附加属性描述(法器附加属性Type type, float count)
+    {
+        if (type == 法器附加属性Type.None) return string.Empty;
+        return Get法器附加属性Name(type) + " +" + count.ToString("F1") + "%";
+    }
+
     // ==================== 消耗/分解（阶数基础值 × 品质倍数） ====================
     // 键为1~16阶；数组索引 0=黄品 … 7=荒品
     public static List<float> 法器洗练品质倍数消耗 = new List<float>() { 1, 1.5f, 2f, 3, 5, 8, 12, 20 };
