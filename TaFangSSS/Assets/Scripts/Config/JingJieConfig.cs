@@ -123,23 +123,23 @@ public class JingJieConfig : MonoBehaviour
         { QualityType.洪品, 2.2f },
         { QualityType.荒品, 3f },
     };
-    public static Dictionary<JingJieType, int> JingJieAttributeDic =
-        new Dictionary<JingJieType, int>()
+    public static Dictionary<JingJieType, float> JingJieAttributeDic =
+        new Dictionary<JingJieType, float>()
 
     {
         { JingJieType.练气,50},
         { JingJieType.筑基,80},
-        { JingJieType.金丹,120},
-        { JingJieType.元婴,180},
-        { JingJieType.化神,250},
-        { JingJieType.合体,400},
-        { JingJieType.大乘,600},
-        { JingJieType.天仙,900},
-        { JingJieType.玄仙,1400},
-        { JingJieType.金仙,2100},
-        { JingJieType.太乙金仙,3000},
-        { JingJieType.大罗金仙,5000},
-        { JingJieType.准圣,8000},
+        { JingJieType.金丹,150},
+        { JingJieType.元婴,300},
+        { JingJieType.化神,600},
+        { JingJieType.合体,1500},
+        { JingJieType.大乘,5000},
+        { JingJieType.天仙,20000},
+        { JingJieType.玄仙,100000},
+        { JingJieType.金仙,1000000},
+        { JingJieType.太乙金仙,30000000},
+        { JingJieType.大罗金仙,3000000000},
+        { JingJieType.准圣,3000000000000},
         { JingJieType.圣人,12000},
         { JingJieType.天道圣人,20000},
         { JingJieType.大道圣人,30000},

@@ -15,10 +15,12 @@ public class 突破item : MonoBehaviour
     public TextMeshProUGUI 灵物名;
     public TextMeshProUGUI 功德count;
     public Button 突破Button;
+    public TextMeshProUGUI count;
     [NonSerialized]public QualityType quality;
     
     public void SetItem()
     {
+        count.text=PlayerData.S.Get灵物数量(PlayerData.S.当前轮回境界, quality).ToString();
         背景框.sprite = ResourcesConfig.Get传道背景框(quality);
         突破name.text = PropConfig.QualityNameDic[quality] + "突破";
         突破name.colorGradientPreset=ResourcesConfig.Get品质TMP(quality);
