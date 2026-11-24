@@ -22,7 +22,7 @@ public class StartLoadWindow : MonoBehaviour
       "炼器镶嵌符文可以大幅提升战力~",
       "灵植园种出的灵植可以炼制丹药~",
       "通天塔层数越高奖励越丰厚~",
-      "记得去领主府收取每日供奉收益~",
+      "记得去领主府升级建筑哟~",
    };
 
    private const float 资源阶段占比 = 0.8f;   // ResourcesConfig 分帧加载占进度条 0~80%

@@ -61,6 +61,8 @@ public class 多语言管理器 : MonoBehaviour
     private static void 尝试挂载(TMP_Text 文本)
     {
         if (文本 == null) return;
+        // 战斗伤害数字使用世界坐标字号，不参与多语言及自动字号处理
+        if (文本.GetComponentInParent<伤害数字>() != null) return;
         if (文本.GetComponent<多语言Text>() != null) return;
         // 下拉框/输入框内部文本由控件自己管理，跳过
         if (文本.GetComponentInParent<TMP_Dropdown>() != null) return;

@@ -51,6 +51,7 @@ public class 突破确认弹窗 : MonoBehaviour
             if (PlayerData.S.当前轮回境界 > PlayerData.S.历史最高境界)
             {
                 PlayerData.S.历史最高境界 = PlayerData.S.当前轮回境界;
+                ObserverModuleManager.S.SendEvent("刷新建筑解锁");
                 if (PlayerData.S.历史最高境界 == JingJieType.筑基)
                 {
                     PlayerData.S.建筑等级Dic[建筑Type.领主府] = 1;

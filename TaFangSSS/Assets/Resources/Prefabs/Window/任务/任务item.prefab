@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &80519196446942329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208992540140348917}
+  - component: {fileID: 5932540377230494229}
+  - component: {fileID: 4163564819064231140}
+  m_Layer: 0
+  m_Name: "\u6A2A\u7EBF"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &208992540140348917
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80519196446942329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8435947288685635619}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.4377, y: -45.375916}
+  m_SizeDelta: {x: 327.45, y: 2.1165}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5932540377230494229
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80519196446942329}
+  m_CullTransparentMesh: 1
+--- !u!114 &4163564819064231140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80519196446942329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2ac4383898576e84d8759aa66a60e6ab, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &2242650113253514147
 GameObject:
   m_ObjectHideFlags: 0
@@ -17,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &38721935201250681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.4353027, y: 0}
+  m_SizeDelta: {x: -2.8706, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8982170380595503723
 CanvasRenderer:
@@ -58,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24528301, g: 0.22291441, b: 0.22291441, a: 0.5568628}
+  m_Color: {r: 0.24528301, g: 0.22291441, b: 0.22291441, a: 0.4392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -113,6 +188,7 @@ RectTransform:
   - {fileID: 3762620872655735581}
   - {fileID: 3443428444296477421}
   - {fileID: 727641169865096821}
+  - {fileID: 208992540140348917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -381,6 +457,7 @@ GameObject:
   - component: {fileID: 620723174534115585}
   - component: {fileID: 5405149788829365544}
   - component: {fileID: 184620674203579311}
+  - component: {fileID: 4118645494239418475}
   m_Layer: 0
   m_Name: name
   m_TagString: Untagged
@@ -504,6 +581,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4118645494239418475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839309132711902661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929441e3e588f7f48bc175151c832015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u7B80\u4F53\u4E2D\u6587\u539F\u6587": 
 --- !u!1 &4683490111578759638
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +605,7 @@ GameObject:
   - component: {fileID: 727641169865096821}
   - component: {fileID: 6146998072651704067}
   - component: {fileID: 684539407951355450}
+  - component: {fileID: 8843826661340014396}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -638,6 +729,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8843826661340014396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4683490111578759638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929441e3e588f7f48bc175151c832015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u7B80\u4F53\u4E2D\u6587\u539F\u6587": 
 --- !u!1 &8081576246302515972
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +753,7 @@ GameObject:
   - component: {fileID: 5467888315596241372}
   - component: {fileID: 4486369141219740857}
   - component: {fileID: 1455300053280917875}
+  - component: {fileID: 3406499135111912602}
   m_Layer: 0
   m_Name: "\u7C7B\u522B"
   m_TagString: Untagged
@@ -772,3 +877,16 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3406499135111912602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081576246302515972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929441e3e588f7f48bc175151c832015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "\u7B80\u4F53\u4E2D\u6587\u539F\u6587": 

@@ -20,7 +20,6 @@ public class 当前装备item : MonoBehaviour, IPointerClickHandler
             bg.sprite = ResourcesConfig.灵植背包格子空;
             icon.gameObject.SetActive(false);
             阶数.gameObject.SetActive(false);
-            name.gameObject.SetActive(false);
             return;
         }
 
@@ -31,7 +30,6 @@ public class 当前装备item : MonoBehaviour, IPointerClickHandler
         name.colorGradientPreset = ResourcesConfig.Get品质TMP(矿工装备.QualityType);
         icon.gameObject.SetActive(true);
         阶数.gameObject.SetActive(true);
-        name.gameObject.SetActive(true);
     }
 
     public void OnPointerClick(PointerEventData eventData)

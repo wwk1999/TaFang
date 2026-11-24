@@ -1,4 +1,5 @@
 using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -28,20 +29,52 @@ public class StoreController : XSingleton<StoreController>
     private float 法器打造当前时间 = 0;
     // 后台保存状态：0=空闲 1=序列化/落盘中；防重入、导出与退出同步都靠它
     private int 正在后台保存 = 0;
+    // 写盘繁忙时登记的补存请求，由主线程 Update 在当前写盘结束后补上
+    private int 保存待补 = 0;
+    // 后台写盘开始时间（UTC），用于看门狗超时复位
+    private DateTime 后台保存开始时间 = DateTime.MinValue;
+    // 每次保存的代数：用于生成唯一临时文件，并阻止卡住的旧任务覆盖新档
+    private int 保存代数 = 0;
+    // 最近一次通过校验的存档道龄，用于“道龄只增不减”保护
+    private int 上次存盘道龄年 = -1;
+    private float 上次存盘道龄S = -1f;
+    // 是否已成功读档：读档成功前禁止自动保存/退出覆盖，避免默认数据覆盖正常存档
+    private bool 已成功读档 = false;
 
      public void SaveStoreData(StoreDefine.StoreData data = null)
     {
         try
         {
-            // 先检查是否有后台落盘在进行：忙则跳过本次序列化，
-            // 避免主线程白白卡几百毫秒又丢弃结果
-            if (Interlocked.CompareExchange(ref 正在后台保存, 1, 0) != 0)
+            // 关键：不管磁盘写盘是否繁忙，先把当前运行时数据同步到内存快照，
+            // 避免 StoreData 长期停留在旧状态。
+            // 这里用 G() 而不是 S()：PlayerData 已被销毁时不能自动创建一个默认实例并写盘。
+            var playerData = PlayerData.G();
+            if (playerData == null)
             {
+                Debug.LogError("[存盘] PlayerData 不存在，跳过本次存盘（保留磁盘现有存档）");
                 return;
             }
 
             StoreData = data ?? StoreData ?? new StoreDefine.StoreData();
-            StoreData.Player.CopyFromRuntime(PlayerData.S);
+            StoreData.Player.CopyFromRuntime(playerData);
+
+            // 写盘前记录关键字段，并校验道龄只增不减；明显回退时拒绝覆盖正常存档
+            if (!校验并记录存盘数据("存盘", StoreData.Player))
+            {
+                return;
+            }
+
+            // 上一次后台写盘还没结束：登记补存，由主线程 Update 在写完后补上
+            if (Interlocked.CompareExchange(ref 正在后台保存, 1, 0) != 0)
+            {
+                Volatile.Write(ref 保存待补, 1);
+                Debug.Log("[存盘] 上一次写盘未完成，已登记补存");
+                return;
+            }
+
+            后台保存开始时间 = DateTime.UtcNow;
+            var 本次保存代数 = Interlocked.Increment(ref 保存代数);
+
             var settings = new JsonSerializerSettings
             {
                 PreserveReferencesHandling = PreserveReferencesHandling.Objects,
@@ -74,13 +107,21 @@ public class StoreController : XSingleton<StoreController>
             }
 
             var savePath = SavePath;
-            var tmpPath = TmpPath;
+            // 每次保存使用独立的临时文件，避免看门狗复位后新旧任务同时写同一个 .tmp
+            var tmpPath = SavePath + "." + 本次保存代数 + ".tmp";
             var bakPath = BakPath;
 
             Task.Run(() =>
             {
                 try
                 {
+                    // 卡住的旧任务（看门狗复位后）不允许再覆盖新档
+                    if (本次保存代数 != Volatile.Read(ref 保存代数))
+                    {
+                        Debug.LogWarning($"[存盘] 丢弃过期保存任务 #{本次保存代数}");
+                        return;
+                    }
+
                     File.WriteAllBytes(tmpPath, jsonBytes);
 
                     // 落盘校验：临时文件大小必须 > 0，否则不替换主档，防止空文件覆盖正常存档
@@ -88,6 +129,12 @@ public class StoreController : XSingleton<StoreController>
                     if (tmpInfo.Length == 0)
                     {
                         Debug.LogError("[存盘失败] 临时文件为空，跳过替换主档");
+                        return;
+                    }
+
+                    if (本次保存代数 != Volatile.Read(ref 保存代数))
+                    {
+                        Debug.LogWarning($"[存盘] 丢弃过期保存任务 #{本次保存代数}（写盘前）");
                         return;
                     }
 
@@ -124,7 +171,19 @@ public class StoreController : XSingleton<StoreController>
                 }
                 finally
                 {
-                    Volatile.Write(ref 正在后台保存, 0);
+                    try
+                    {
+                        if (File.Exists(tmpPath)) File.Delete(tmpPath);
+                    }
+                    catch
+                    {
+                        // 清理临时文件失败不影响存档
+                    }
+                    // 只有当前代数的任务才允许清除繁忙标志，避免旧任务的 finally 误清新任务的标志
+                    if (本次保存代数 == Volatile.Read(ref 保存代数))
+                    {
+                        Volatile.Write(ref 正在后台保存, 0);
+                    }
                 }
             });
         }
@@ -133,6 +192,30 @@ public class StoreController : XSingleton<StoreController>
             Volatile.Write(ref 正在后台保存, 0);
             Debug.LogError($"[存盘失败] SaveStoreData 异常: {e}");
         }
+    }
+
+    /// <summary>
+    /// 写盘前记录关键字段，并校验道龄只增不减（道龄只会增加，不会减少）。
+    /// 明显回退通常意味着退出时 PlayerData 已被默认实例替换，此时拒绝覆盖正常存档。
+    /// </summary>
+    private bool 校验并记录存盘数据(string 来源, StoreDefine.PlayData p)
+    {
+        Debug.Log($"[{来源}] 写入前 道龄={p.道龄年}年+{p.道龄S:F1}S, 境界={p.当前轮回境界}, Name={p.Name}");
+
+        if (上次存盘道龄年 >= 0)
+        {
+            bool 回退 = p.道龄年 < 上次存盘道龄年 ||
+                        (p.道龄年 == 上次存盘道龄年 && p.道龄S + 0.01f < 上次存盘道龄S);
+            if (回退)
+            {
+                Debug.LogError($"[{来源}] 道龄回退（{上次存盘道龄年}年+{上次存盘道龄S:F1}S -> {p.道龄年}年+{p.道龄S:F1}S），拒绝覆盖");
+                return false;
+            }
+        }
+
+        上次存盘道龄年 = p.道龄年;
+        上次存盘道龄S = p.道龄S;
+        return true;
     }
 
     public bool GetStoreIsEmpty()
@@ -173,22 +256,36 @@ public class StoreController : XSingleton<StoreController>
         // 直接走同步落盘（不走后台 Task.Run），避免进程被杀时后台任务来不及写完。
         try
         {
+            // 先等后台写盘结束，避免退出后还有旧快照在写
+            等待后台保存完成(5f);
+
+            // 本次没有成功读档，说明运行时数据不可信（可能是默认新档），禁止覆盖磁盘存档
+            if (!已成功读档)
+            {
+                Debug.LogError("[退出存盘] 本次未成功读档，保留磁盘现有存档，跳过本次覆盖");
+                return;
+            }
+
             // 关键：用 G() 而非 S()。XSingleton 在 Editor 的 OnApplicationQuit 里
             // 会 DestroyImmediate 单例，若 PlayerData 已被销毁，S() 会自动 new 一个
             // 全默认值的 PlayerData，把默认值写进存档 → 下次进游戏进度从 0 开始。
-            // G() 不自动创建，已销毁则返回 null，此时沿用 StoreData 里上一次定时存盘的快照。
+            // G() 不自动创建；已销毁时直接跳过，绝不能用旧 StoreData 覆盖磁盘存档。
             var playerData = PlayerData.G();
-            if (playerData != null)
+            if (playerData == null)
             {
-                StoreData = StoreData ?? new StoreDefine.StoreData();
-                StoreData.Player.CopyFromRuntime(playerData);
-            }
-            else if (StoreData == null)
-            {
-                // 既没有 PlayerData 也没有 StoreData，无法存盘
-                Debug.LogWarning("[退出存盘] PlayerData 与 StoreData 均为空，跳过存盘");
+                Debug.LogError("[退出存盘] PlayerData 已销毁，保留磁盘现有存档，跳过本次覆盖");
                 return;
             }
+
+            StoreData = StoreData ?? new StoreDefine.StoreData();
+            StoreData.Player.CopyFromRuntime(playerData);
+
+            // 写盘前记录关键字段，并校验道龄只增不减
+            if (!校验并记录存盘数据("退出存盘", StoreData.Player))
+            {
+                return;
+            }
+
 
             var settings = new JsonSerializerSettings
             {
@@ -213,12 +310,14 @@ public class StoreController : XSingleton<StoreController>
                 return;
             }
             var savePath = SavePath;
-            var tmpPath = TmpPath;
+            var 本次保存代数 = Interlocked.Increment(ref 保存代数);
+            var tmpPath = SavePath + "." + 本次保存代数 + ".tmp";
             var bakPath = BakPath;
             File.WriteAllBytes(tmpPath, jsonBytes);
             if (new FileInfo(tmpPath).Length == 0)
             {
                 Debug.LogError("[退出存盘] 临时文件为空，跳过替换");
+                try { File.Delete(tmpPath); } catch { }
                 return;
             }
             if (File.Exists(savePath))
@@ -240,6 +339,15 @@ public class StoreController : XSingleton<StoreController>
             else
             {
                 File.Move(tmpPath, savePath);
+            }
+
+            // 成功后临时文件已被 Replace/Move 消费；失败时清理残留
+            try
+            {
+                if (File.Exists(tmpPath)) File.Delete(tmpPath);
+            }
+            catch
+            {
             }
         }
         catch (System.Exception e)
@@ -477,6 +585,9 @@ public class StoreController : XSingleton<StoreController>
     }
     private void Update()
     {
+        // 后台写盘看门狗 + 补存：避免一次卡死的写盘导致后续所有保存被永久跳过
+        刷新后台保存状态();
+
         timer+=Time.unscaledDeltaTime;
         if (timer >= 1f/(1+道宝Config.羁绊寻宝速度/100f))
         {
@@ -541,6 +652,34 @@ public class StoreController : XSingleton<StoreController>
         if (CurrentTime >= StoreTime)
         {
             CurrentTime = 0;
+            // 读档成功前禁止自动保存，避免默认数据把正常存档覆盖掉
+            if (已成功读档)
+            {
+                SaveStoreData();
+            }
+            else
+            {
+                Debug.LogWarning("[存盘] 尚未成功读档，跳过本次自动保存");
+            }
+        }
+    }
+
+    /// <summary>
+    /// 主线程每帧调用：后台写盘超时看门狗 + 执行补存。
+    /// </summary>
+    private void 刷新后台保存状态()
+    {
+        if (Volatile.Read(ref 正在后台保存) == 1 &&
+            (DateTime.UtcNow - 后台保存开始时间).TotalSeconds > 10)
+        {
+            Debug.LogError("[存盘] 后台写盘超过10秒未完成，强制复位保存标志");
+            Volatile.Write(ref 正在后台保存, 0);
+        }
+
+        if (Volatile.Read(ref 保存待补) == 1 && Volatile.Read(ref 正在后台保存) == 0)
+        {
+            Volatile.Write(ref 保存待补, 0);
+            Debug.Log("[存盘] 执行补存");
             SaveStoreData();
         }
     }
@@ -1190,6 +1329,7 @@ public class StoreController : XSingleton<StoreController>
 
     public void LoadStoreData()
     {
+        已成功读档 = false;
         // 依次尝试：主档 → 备份档（.bak，断电/损坏时的救命稻草）→ 全新档
         if (TryLoad(SavePath))
         {
@@ -1199,6 +1339,7 @@ public class StoreController : XSingleton<StoreController>
             // 这里在加载阶段就自愈，玩家更新到新版本后启动一次即可恢复正常保存。
             清除存档只读属性(SavePath);
             清除存档只读属性(BakPath);
+            已成功读档 = true;
             return;
         }
 
@@ -1209,6 +1350,7 @@ public class StoreController : XSingleton<StoreController>
             清除存档只读属性(BakPath);
             // 立即把恢复的数据写回主档，避免下次启动再次走备份
             SaveStoreData(StoreData);
+            已成功读档 = true;
             return;
         }
 
@@ -1216,6 +1358,7 @@ public class StoreController : XSingleton<StoreController>
         StoreData = new StoreDefine.StoreData();
         StoreData.Player.CopyFromRuntime(PlayerData.S);
         SaveStoreData(StoreData);
+        已成功读档 = true;
     }
 
     /// <summary>
@@ -1258,6 +1401,9 @@ public class StoreController : XSingleton<StoreController>
             if (data?.Player == null) return false;
             StoreData = data;
             StoreData.Player.ApplyToRuntime(PlayerData.S);
+            // 以读到的存档作为“道龄只增不减”的基线
+            上次存盘道龄年 = data.Player.道龄年;
+            上次存盘道龄S = data.Player.道龄S;
             // 历史存档可能存在负数资源（如石白=-2导致打造数量显示为负），读档时统一清理
             var 负数keys = new List<PropType>();
             foreach (var kv in PlayerData.S.PropListDic)

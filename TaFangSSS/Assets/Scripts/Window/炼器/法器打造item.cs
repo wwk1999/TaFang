@@ -10,6 +10,7 @@ public class 法器打造item : MonoBehaviour
    public Button bg;
    public Image icon;
    public TextMeshProUGUI name;
+   public TextMeshProUGUI 阶数text;
    public GameObject gou;
    public TextMeshProUGUI count;
    public GameObject mask;
@@ -40,6 +41,7 @@ public class 法器打造item : MonoBehaviour
 
    public void SetItem()
    {
+      阶数text.text = PlayerData.S.Get阶数string(阶数);
       bg.image.sprite = ResourcesConfig.Get道具背景框SpriteByQuality(法器Config.Get阶数对应品质(阶数));
       icon.sprite = ResourcesConfig.Get法器Sprite(法器Type, 阶数);
       name.text = 法器Config.Get法器Name(法器Type, 阶数);

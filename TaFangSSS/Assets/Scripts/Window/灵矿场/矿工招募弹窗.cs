@@ -110,7 +110,6 @@ public class 矿工招募弹窗 : MonoBehaviour
             return;
         }
         灵矿场Config.刷新招募列表(HeroWindowController.S.灵矿场当前招募阶数);
-        Show招募列表();
         foreach (var item in PlayerData.S.当前招募矿工列表)
         {
             switch (item.QualityType)
@@ -133,6 +132,7 @@ public class 矿工招募弹窗 : MonoBehaviour
 
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
+                        item.已被招募 = true;
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -156,6 +156,7 @@ public class 矿工招募弹窗 : MonoBehaviour
 
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
+                        item.已被招募 = true;
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -179,6 +180,7 @@ public class 矿工招募弹窗 : MonoBehaviour
 
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
+                        item.已被招募 = true;
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -202,6 +204,7 @@ public class 矿工招募弹窗 : MonoBehaviour
 
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
+                        item.已被招募 = true;
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -225,13 +228,14 @@ public class 矿工招募弹窗 : MonoBehaviour
 
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
+                        item.已被招募 = true;
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
                     break;
             }
         }
-
+        Show招募列表();
         PlayerData.S.PropListDic[PropType.灵魂] -= 价格;
         矿工人数.text = PlayerData.S.矿工列表.Count + "/" + 灵矿场Config.矿工人数上限配置[PlayerData.S.矿洞矿工人数等级].人数;
         灵魂.text = PlayerData.S.格式化数字(PlayerData.S.PropListDic[PropType.灵魂]);
