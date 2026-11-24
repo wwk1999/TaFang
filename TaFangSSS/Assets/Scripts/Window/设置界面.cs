@@ -49,7 +49,6 @@ public class 设置界面 : MonoBehaviour
 
    public void Start()
    {
-      多语言工具.翻译窗口(transform);
       初始化语言Dropdown();
       Set开关();
       元素人人为我.onClick.AddListener(() =>

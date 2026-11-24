@@ -17,48 +17,49 @@ namespace Config
         public static Dictionary<PropType, int> 招募商店价格Dic = new Dictionary<PropType, int>()
         {
             // 黄品价格 = 5
-            { PropType.丹童元神, 5 },
-            { PropType.土地元神, 5 },
-            { PropType.河伯元神, 5 },
-            { PropType.瑶池仙女元神, 5 },
+            { PropType.丹童元神, 10 },
+            { PropType.土地元神, 10 },
+            { PropType.河伯元神, 10 },
+            { PropType.瑶池仙女元神, 10 },
 
             // 玄品价格 = 10
-            { PropType.石敢当元神, 10 },
-            { PropType.玄女元神, 10 },
-            { PropType.龟丞相元神, 10 },
-            { PropType.太白金星元神, 10 },
+            { PropType.石敢当元神, 30 },
+            { PropType.玄女元神, 30 },
+            { PropType.龟丞相元神, 30 },
+            { PropType.太白金星元神, 30 },
 
             // 地品价格 = 20
-            { PropType.多闻天王元神, 30 },
-            { PropType.广目天王元神, 30 },
-            { PropType.雷震子元神, 30 },
-            { PropType.月老元神, 30 },
+            { PropType.多闻天王元神, 100 },
+            { PropType.广目天王元神, 100 },
+            { PropType.雷震子元神, 100 },
+            { PropType.月老元神, 100 },
 
             // 天品价格 = 40
-            { PropType.嫦娥元神, 150 },
-            { PropType.杨戬元神, 150 },
-            { PropType.妲己元神, 150 },
-            { PropType.牛魔王元神, 150 },
+            { PropType.嫦娥元神, 300 },
+            { PropType.杨戬元神, 300 },
+            { PropType.妲己元神, 300 },
+            { PropType.牛魔王元神, 300 },
 
             // 宇品价格 = 80
-            { PropType.哪吒元神, 500 },
-            { PropType.孙悟空元神, 500 },
-            { PropType.碧霄元神, 500 },
-            { PropType.琼霄元神, 500 },
+            { PropType.哪吒元神, 1000 },
+            { PropType.孙悟空元神, 1000 },
+            { PropType.碧霄元神, 1000 },
+            { PropType.琼霄元神, 1000 },
 
             // 宙品价格 = 160
-            { PropType.羲和元神, 2000 },
-            { PropType.常羲元神, 2000 },
-            { PropType.后羿元神, 2000 },
-            { PropType.云霄元神, 2000 },
+            { PropType.羲和元神, 5000 },
+            { PropType.常羲元神, 5000 },
+            { PropType.后羿元神, 5000 },
+            { PropType.云霄元神, 5000 },
 
             // 洪品价格 = 320
-            { PropType.女娲元神, 5000 },
-            { PropType.老子元神, 5000 },
-            { PropType.通天元神, 5000 },
-            { PropType.元始元神, 5000 },
-            { PropType.盘古元神, 12000 },
-            { PropType.鸿钧元神, 12000 },
+            { PropType.女娲元神, 15000 },
+            { PropType.老子元神, 15000 },
+            { PropType.通天元神, 15000 },
+            { PropType.元始元神, 15000 },
+            
+            { PropType.盘古元神, 100000 },
+            { PropType.鸿钧元神, 100000 },
         };
         
         public static Dictionary<JingJieType, List<ZhaoMuItem>> ZhaoMuGaiLvNormalDic =

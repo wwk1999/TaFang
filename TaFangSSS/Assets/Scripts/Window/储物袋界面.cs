@@ -544,7 +544,7 @@ public class 储物袋界面 : MonoBehaviour
       Set经验SLider();
       Set境界();
       // 放在最后：连同刚实例化出来的 Grid 一起自动挂载多语言组件
-      多语言工具.翻译窗口(transform);
+     
    }
 
    private void OnDisable()
@@ -677,7 +677,6 @@ public class 储物袋界面 : MonoBehaviour
             Show符文();
             break;
       }
-      多语言工具.翻译窗口(transform);
    }
    // 材料+丹方总数算最大页数，与 ShowProp 的收集口径一致
    public int Get材料最大页数()
