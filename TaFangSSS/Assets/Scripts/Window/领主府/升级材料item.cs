@@ -20,7 +20,7 @@ public class 升级材料item : MonoBehaviour
         {
             case 升级材料Type.灵石:
                 name.text = "灵石";
-                icon.sprite = ResourcesConfig.灵魂;
+                icon.sprite = ResourcesConfig.灵石;
                 break;
             case 升级材料Type.矿石:
                 name.text = "矿石";

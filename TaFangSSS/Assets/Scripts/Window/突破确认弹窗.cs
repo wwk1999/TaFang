@@ -59,12 +59,20 @@ public class 突破确认弹窗 : MonoBehaviour
                     ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
                     ObserverModuleManager.S.SendEvent("剧情对话",320,false);
                 }
-                
+
+                foreach (var item in 道场Config.建筑解锁字典)
+                {
+                    if (PlayerData.S.历史最高境界 == item.Value)
+                    {
+                        if (PlayerData.S.建筑等级Dic[item.Key] == 0)
+                        {
+                            PlayerData.S.建筑等级Dic[item.Key] = 1;
+                            ObserverModuleManager.S.SendEvent("SendUIToast",道场Config.Get道场建筑名(item.Key)+"已解锁");
+                        }
+                    }
+                }
                 if (PlayerData.S.历史最高境界 == JingJieType.金丹)
                 {
-                    PlayerData.S.建筑等级Dic[建筑Type.领主府] = 1;
-                    PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] = 1;
-                    PlayerData.S.建筑等级Dic[建筑Type.坊市] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","领主府已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","坊市已解锁");
@@ -73,15 +81,12 @@ public class 突破确认弹窗 : MonoBehaviour
                 
                 if (PlayerData.S.历史最高境界 == JingJieType.元婴)
                 {
-                    PlayerData.S.建筑等级Dic[建筑Type.炼丹室] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","炼丹室已解锁");
                     ObserverModuleManager.S.SendEvent("剧情对话",400,false);
                 }
                 
                 if (PlayerData.S.历史最高境界 == JingJieType.化神)
                 {
-                    PlayerData.S.建筑等级Dic[建筑Type.灵植园] = 1;
-                    PlayerData.S.建筑等级Dic[建筑Type.仙女阁] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵植园已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","仙女阁已解锁");
                     ObserverModuleManager.S.SendEvent("剧情对话",500,false);
@@ -90,7 +95,6 @@ public class 突破确认弹窗 : MonoBehaviour
                 
                 if (PlayerData.S.历史最高境界 == JingJieType.合体)
                 {
-                    PlayerData.S.建筑等级Dic[建筑Type.灵兽坊] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵兽坊已解锁");
                     ObserverModuleManager.S.SendEvent("剧情对话",600,false);
 

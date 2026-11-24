@@ -32,13 +32,13 @@ public class 洞天掉宝概率弹窗 : MonoBehaviour
     {
         体质Count.text = 体质Config.当前体质总属性.掉宝率 + "%";
         丹药Count.text = 属性config.Get丹药掉宝率() + "%";
-        三十三重天Count.text = PlayerData.S.混沌虚空最大层数 + "%";
+        三十三重天Count.text = (PlayerData.S.混沌虚空最大层数-1) + "%";
         foreach (Transform child in Content.transform)
         {
             Destroy(child.gameObject);
         }
         int index = 0;
-        foreach (var item in 灵物突破Config.灵物掉落概率Dic[LevelConfig.当前洞天QualityType])
+        foreach (var item in 灵物突破Config.灵物基础掉落概率Dic[LevelConfig.当前洞天QualityType])
         {
             index++;
             if (item != 0)
@@ -46,7 +46,7 @@ public class 洞天掉宝概率弹窗 : MonoBehaviour
                 var 概率item = Instantiate(Resources.Load("Prefabs/Window/概率Item"), Content.transform)
                     .GetComponent<招募概率item>();
                 概率item.QualityType=(QualityType)index;
-                概率item.Count = item * 属性config.总掉宝率;
+                概率item.Count = item * 属性config.总掉宝率*灵物突破Config.灵物掉落倍率[PlayerData.S.当前轮回境界];
                 概率item.SetItem();
             }
         }

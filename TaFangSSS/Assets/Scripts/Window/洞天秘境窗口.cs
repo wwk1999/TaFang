@@ -152,7 +152,7 @@ public class 洞天秘境窗口 : MonoBehaviour
         RectTransform trans2 = 灵魂item.gameObject.GetComponent<RectTransform>();
         trans2.sizeDelta = new Vector2(80, 80);
         灵魂item.SetItem();
-        var list = 灵物突破Config.灵物掉落概率Dic[LevelConfig.当前洞天QualityType];
+        var list = 灵物突破Config.灵物基础掉落概率Dic[LevelConfig.当前洞天QualityType];
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i] == 0) continue;

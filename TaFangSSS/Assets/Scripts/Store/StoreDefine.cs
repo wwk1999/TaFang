@@ -14,6 +14,7 @@ public class StoreDefine : XSingleton<StoreController>
 
     public class PlayData
     {
+        public bool 自动释放神通 = true;
         public bool 是否解锁破限 = false;
         public Dictionary<JingJieType, int> 破限次数 = new Dictionary<JingJieType, int>()
         {
@@ -2806,6 +2807,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void CopyFromRuntime(PlayerData runtime)
         {
+            自动释放神通 = runtime.自动释放神通;
             是否解锁破限 = runtime.是否解锁破限;
             破限次数 = runtime.破限次数;
             荒品突破次数 = runtime.荒品突破次数;
@@ -3014,6 +3016,7 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
 
         public void ApplyToRuntime(PlayerData runtime)
         {
+            runtime.自动释放神通 =自动释放神通;
             runtime.是否解锁破限 = 是否解锁破限;
             runtime.破限次数 = 破限次数;
             runtime.荒品突破次数 = 荒品突破次数;

@@ -1375,8 +1375,27 @@ public class 灵物突破Config
             }
         },
     };
-
-    public static Dictionary<QualityType, List<float>> 灵物掉落概率Dic = new Dictionary<QualityType, List<float>>()
+    public static Dictionary<JingJieType, float> 灵物掉落倍率 = new Dictionary<JingJieType, float>()
+    {
+        { JingJieType.练气, 1 },
+        { JingJieType.筑基, 0.9f },
+        { JingJieType.金丹, 0.8f },
+        { JingJieType.元婴, 0.7f },
+        { JingJieType.化神, 0.6f },
+        { JingJieType.合体, 0.5f },
+        { JingJieType.大乘, 0.4f },
+        { JingJieType.天仙, 0.3f },
+        { JingJieType.玄仙, 0.2f },
+        { JingJieType.金仙, 0.15f },
+        { JingJieType.太乙金仙, 0.1f },
+        { JingJieType.大罗金仙, 0.05f },
+        { JingJieType.准圣, 0.02f },
+        { JingJieType.圣人, 700000 },
+        { JingJieType.天道圣人, 1000000 },
+        { JingJieType.大道圣人, 1500000 },
+        { JingJieType.混元圣人, 2000000 },
+    };
+    public static Dictionary<QualityType, List<float>> 灵物基础掉落概率Dic = new Dictionary<QualityType, List<float>>()
     {
         { QualityType.黄品, new List<float>() { 50, 0, 0, 0, 0, 0, 0, 0 } },
         { QualityType.玄品, new List<float>() { 70, 30, 0, 0, 0, 0, 0, 0 } },
@@ -1385,6 +1404,6 @@ public class 灵物突破Config
         { QualityType.宇品, new List<float>() { 0, 15, 40, 30, 15, 0, 0, 0 } },
         { QualityType.宙品, new List<float>() { 0, 10, 25, 30, 25, 10, 0, 0 } },
         { QualityType.洪品, new List<float>() { 0, 0, 10, 25, 40, 20, 5, 0 } },
-        { QualityType.荒品, new List<float>() { 0, 0, 0, 18.8f, 40, 30, 10, 1.2f } },
+        { QualityType.荒品, new List<float>() { 0, 0, 0, 19f, 40, 30, 10, 1f } },
     };
 }

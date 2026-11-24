@@ -24,6 +24,7 @@ public class PlayerData : XSingleton<PlayerData>
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool 自动释放神通 = true;
     public bool 是否解锁破限 = false;
     public Dictionary<JingJieType, int> 破限次数 = new Dictionary<JingJieType, int>()
     {

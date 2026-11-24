@@ -19,6 +19,8 @@ public enum 建筑Type
     灵兽坊,
     仙女阁,
     灵植园,
+    悟道崖,
+    赌坊,
 }
 
 public enum 升级材料Type
@@ -1571,6 +1573,20 @@ public class 道场Config
         { 148, new 建筑配置() { 等级 = 148, 数值 = 380000000, 升级需要灵石 = 0, 升级需要矿石 = 0, 升级需要玄铁 = 0, 升级需要玉髓 = 300000000000 } },
         { 149, new 建筑配置() { 等级 = 149, 数值 = 400000000, 升级需要灵石 = 0, 升级需要矿石 = 0, 升级需要玄铁 = 0, 升级需要玉髓 = 300000000000 } },
         { 150, new 建筑配置() { 等级 = 150, 数值 = 420000000, 升级需要灵石 = 0, 升级需要矿石 = 0, 升级需要玄铁 = 0, 升级需要玉髓 = 300000000000 } },
+    };
 
+    public static Dictionary<建筑Type, JingJieType> 建筑解锁字典 = new Dictionary<建筑Type, JingJieType>()
+    {
+        { 建筑Type.领主府, JingJieType.筑基 },
+        { 建筑Type.聚贤阁, JingJieType.筑基 },
+        
+        { 建筑Type.坊市, JingJieType.金丹 },
+        
+        { 建筑Type.炼丹室, JingJieType.元婴 },
+        { 建筑Type.灵植园, JingJieType.化神 },
+        { 建筑Type.灵兽坊, JingJieType.合体 },
+        { 建筑Type.赌坊, JingJieType.大乘 },
+        { 建筑Type.仙女阁, JingJieType.天仙 },
+        { 建筑Type.悟道崖, JingJieType.玄仙 },
     };
 }

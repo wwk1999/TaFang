@@ -60,38 +60,9 @@ public class MainWindow : MonoBehaviour
     private Tween 翻页Tween;    
     private 主页地图Type 主页地图Type = 主页地图Type.东胜神州;
     private float 当前Left;   // 用一个 float 跟踪，避免 int 取整导致跳变
-
-    public GameObject 神通配置新手mask;
-    public Canvas 退出神通Canvas;
-    public Transform 退出神通小手trans;
-    public Transform 添加神通trans;
-    public Transform 添加神通小手trans;
-    public Canvas 添加神通Canvas;
-    public Transform 神通配置小手trans;
-    public Canvas 神通配置Canvas;
-    public GameObject 主线关卡新手mask;
     public 神通配置弹窗 神通配置弹窗;
-    public Button 主线关卡exitbuttton;
-    public Transform 挑战trans;
-    public Transform 挑战小手trans;
-    public Canvas 挑战Canvas;
-    public Transform 关卡trans;
-    public Transform 关卡小手trans;
-    public Canvas 花果山Canvas;
-    public Canvas 父canvas;
-    public Transform 英雄Trans;
-    public Transform 英雄小手Trans;
-    public Canvas 英雄Canvas;
-    public Transform 初始Trans;
-    public Transform 修为Trans;
-    public Transform 修为小手Trans;
-    public Canvas 修为Canvas;
-    public Animator 小手Animator;
-    public GameObject 对话框;
-    public GameObject 引导mask;
-    public TextMeshProUGUI 对话框Text;
-    public Button 引导Button;
-    public Image mask;
+    
+  
     public GameObject BuffContent;
     public 丹药选择弹窗 丹药选择弹窗;
     public Button 远古遗迹按钮;
@@ -159,14 +130,7 @@ public class MainWindow : MonoBehaviour
     public GameObject 不周山收获弹窗;
 
     private int 引导count = 0;
-    public void 首次进入主页面引导()
-    {
-        对话框.transform.localPosition = 初始Trans.localPosition;
-        引导mask.gameObject.SetActive(true);
-        对话框.gameObject.SetActive(true);
-        对话框Text.text = "欢迎道友进入洪荒,共修大道。";
-        引导Button.gameObject.SetActive(true);
-    }
+   
     
     public void Show道场和地图()
     {
@@ -371,37 +335,10 @@ public class MainWindow : MonoBehaviour
             激活窗口(主线关卡窗口);
         }
     }
-    public void 新手引导神通配置(object[] obj)
-    {
-        主线关卡新手mask.gameObject.SetActive(false);
-        对话框Text.text = "每个英雄释放神通都需要较长的冷却和神通能量,在这里可以配置神通的释放顺序,点击添加按钮配置英雄神通吧。";
-        对话框.transform.localPosition=添加神通trans.localPosition;
-        小手Animator.transform.localPosition=添加神通小手trans.localPosition;
-        添加神通Canvas.GetComponent<GraphicRaycaster>().enabled = true;
-        父canvas.GetComponent<GraphicRaycaster>().enabled = false;
-        添加神通Canvas.overrideSorting = true;
-        神通配置新手mask.gameObject.SetActive(true);
-    }
+    
 
-    public void 退出神通配置(object[] obj)
-    {
-        对话框.transform.localPosition=挑战trans.localPosition;
-        主线关卡新手mask.gameObject.SetActive(true);
-        神通配置新手mask.gameObject.SetActive(false);
-        对话框Text.text = "点击挑战按钮开始战斗吧！";
-        小手Animator.transform.localPosition=挑战小手trans.localPosition;
-        神通配置Canvas.overrideSorting = false;
-        挑战Canvas.overrideSorting = true;
-    }
-    public void 新手引导添加神通(object[] obj)
-    {
-        对话框Text.text = "现在我们退出去进行第一场战斗吧!";
-        小手Animator.transform.localPosition=退出神通小手trans.localPosition;
-        退出神通Canvas.GetComponent<GraphicRaycaster>().enabled = true;
-        添加神通Canvas.overrideSorting = false;
-        退出神通Canvas.overrideSorting = true;
-        神通配置新手mask.gameObject.SetActive(true);
-    }
+   
+  
     
     public void 显示凌霄宝殿弹窗(object[] obj)
     {
@@ -416,11 +353,7 @@ public class MainWindow : MonoBehaviour
    
     private void OnDestroy()
     {        
-        ObserverModuleManager.S.UnRegisterEvent("退出神通配置",退出神通配置);
-        ObserverModuleManager.S.UnRegisterEvent("新手引导添加神通",新手引导添加神通);
-        ObserverModuleManager.S.UnRegisterEvent("新手引导神通配置",新手引导神通配置);
-        ObserverModuleManager.S.UnRegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
-        ObserverModuleManager.S.UnRegisterEvent("关卡新手引导",关卡新手引导);
+       ObserverModuleManager.S.UnRegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.UnRegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.UnRegisterEvent("刷新主页面",刷新主页面);
@@ -452,18 +385,7 @@ public class MainWindow : MonoBehaviour
         SetBuff();
     }
 
-    public void 关卡新手引导(object[] obj)
-    {
-        对话框.gameObject.SetActive(true);
-        引导mask.gameObject.SetActive(true);
-        小手Animator.gameObject.SetActive(true);
-        对话框Text.text = "让我们进入第一个主线关卡花果山进行战斗吧。";
-        对话框.transform.localPosition=关卡trans.localPosition;
-        小手Animator.transform.localPosition=关卡小手trans.localPosition;
-        父canvas.GetComponent<GraphicRaycaster>().enabled = false;
-        花果山Canvas.GetComponent<GraphicRaycaster>().enabled = true;
-        花果山Canvas.overrideSorting = true;
-    }
+   
 
     public void 显示神通配置弹窗(object[] obj)
     {
@@ -576,13 +498,8 @@ public class MainWindow : MonoBehaviour
         {
             任务区域.gameObject.SetActive(true);
         });
-        神通配置新手mask.gameObject.SetActive(false);
         设置秘境点击像素();
-        ObserverModuleManager.S.RegisterEvent("退出神通配置",退出神通配置);
-        ObserverModuleManager.S.RegisterEvent("新手引导添加神通",新手引导添加神通);
-        ObserverModuleManager.S.RegisterEvent("新手引导神通配置",新手引导神通配置);
-        ObserverModuleManager.S.RegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
-        ObserverModuleManager.S.RegisterEvent("关卡新手引导",关卡新手引导);
+       ObserverModuleManager.S.RegisterEvent("显示神通配置弹窗",显示神通配置弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新主页Buff",刷新主页Buff);
         ObserverModuleManager.S.RegisterEvent("显示丹药选择弹窗",显示丹药选择弹窗);
         ObserverModuleManager.S.RegisterEvent("刷新主页面",刷新主页面);
@@ -664,31 +581,6 @@ public class MainWindow : MonoBehaviour
             }
         });
         返回战斗按钮.gameObject.SetActive(false);
-        引导Button.onClick.AddListener(() =>
-        {
-            if (引导count == 0)
-            {
-                引导count++;
-                修为Canvas.overrideSorting = true;
-                对话框.transform.localPosition = 修为Trans.localPosition;
-                对话框Text.text = "这里可以看到当前的境界和修为,境界是一切的基础,修为随着时间缓慢增长,当修为满时就可以在储物袋界面进行突破啦。";
-                小手Animator.gameObject.SetActive(true);
-                小手Animator.gameObject.transform.localPosition=修为小手Trans.localPosition;
-            }
-            else if (引导count == 1)
-            {
-                引导count++;
-                修为Canvas.overrideSorting = false;
-                对话框.transform.localPosition = 英雄Trans.localPosition;
-                对话框Text.text = "接下来我们去英雄界面上场英雄吧";
-                小手Animator.gameObject.transform.localPosition=英雄小手Trans.localPosition;
-                英雄Canvas.overrideSorting = true;
-                英雄Canvas.GetComponent<GraphicRaycaster>().enabled = true;
-                父canvas.GetComponent<GraphicRaycaster>().enabled = false;
-            }
-        });
-        mask.gameObject.SetActive(true);
-        mask.DOFade(0, 1.3f);
         灵物Debug.onClick.AddListener(() =>
         {
             for (int i = (int)JingJieType.练气; i <= (int)JingJieType.混元圣人; i++)

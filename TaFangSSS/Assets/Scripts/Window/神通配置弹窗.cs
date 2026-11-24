@@ -14,6 +14,7 @@ public class 神通配置弹窗 : MonoBehaviour
     public Button 删除Button;
     public Button ExitButton;
     public Button maskButton;
+    public Toggle 自动释放Toggle;
 
     public void 刷新神通列表()
     {
@@ -56,6 +57,8 @@ public class 神通配置弹窗 : MonoBehaviour
                 break;
             }
         }
+
+        自动释放Toggle.isOn = PlayerData.S.自动释放神通;
         刷新英雄列表();
         刷新神通列表();
         ObserverModuleManager.S.SendEvent("神通配置item点击",HeroWindowController.S.当前神通配置选择英雄);
@@ -63,6 +66,10 @@ public class 神通配置弹窗 : MonoBehaviour
 
     private void Start()
     {
+        自动释放Toggle.onValueChanged.AddListener(delegate
+        {
+            PlayerData.S.自动释放神通=自动释放Toggle.isOn;
+        });
         添加Button.onClick.AddListener(() =>
         {
             if (HeroWindowController.S.当前神通配置选择英雄 == HeroType.None)
