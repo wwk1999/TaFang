@@ -9,6 +9,10 @@ using Random = UnityEngine.Random;
 
 public class ResourcesConfig : MonoBehaviour
 {
+	public static Sprite 灵矿场锁;
+	public static Sprite 灵矿场解锁;
+
+
 	public static Sprite 破限按钮亮;
 	public static Sprite 破限按钮暗;
 
@@ -8586,6 +8590,8 @@ public static Sprite 缚霞流光绫藏品;
 	public static IEnumerator InitAsync(System.Action<float> onProgress)
 	{
 		const float totalItems = 2586f;
+		灵矿场锁=Resources.Load<Sprite>("Sprite/灵矿场/锁");
+		灵矿场解锁=Resources.Load<Sprite>("Sprite/灵矿场/解锁");
 		
 		破限按钮亮=Resources.LoadAll<Sprite>("Sprite/DaoJu/破限境界按钮")[0];
 		破限按钮暗=Resources.LoadAll<Sprite>("Sprite/DaoJu/破限境界按钮")[1];

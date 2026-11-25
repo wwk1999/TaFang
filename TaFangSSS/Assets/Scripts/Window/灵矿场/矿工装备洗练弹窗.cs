@@ -20,7 +20,15 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
     public TextMeshProUGUI 当前矿工粉尘;
     public TextMeshProUGUI 需要矿工粉尘;
     public Button 洗练Button;
+    public Button maskButton;
 
+    public Button 挖掘速度锁;
+    public Button 固定收益锁;
+    public Button 成长速度锁;
+    public Button 挖宝速度锁;
+
+    public 矿工装备洗练无暇提示弹窗 矿工装备洗练无暇提示弹窗;
+    
     [NonSerialized] public 矿工装备 矿工装备;
 
     private void OnEnable()
@@ -28,10 +36,79 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
         SetItem();
     }
 
+    public void 矿工装备确认洗练(object[] obj)
+    {
+        SetItem();
+    }
+
+    private void OnDestroy()
+    {
+        ObserverModuleManager.S.UnRegisterEvent("矿工装备确认洗练",矿工装备确认洗练);
+    }
+
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("矿工装备确认洗练",矿工装备确认洗练);
+        Canvas.ForceUpdateCanvases();
+        挖掘速度锁.onClick.AddListener(() =>
+        {
+            矿工装备.挖掘速度洗练锁 = !矿工装备.挖掘速度洗练锁;
+            SetItem();
+        });
+        固定收益锁.onClick.AddListener(() =>
+        {
+            矿工装备.固定收益洗练锁 = !矿工装备.固定收益洗练锁;
+            SetItem();
+        });
+        成长速度锁.onClick.AddListener(() =>
+        {
+            矿工装备.成长速度洗练锁 = !矿工装备.成长速度洗练锁;
+            SetItem();
+        });
+        挖宝速度锁.onClick.AddListener(() =>
+        {
+            矿工装备.挖宝时间洗练锁 = !矿工装备.挖宝时间洗练锁;
+            SetItem();
+        });
+        maskButton.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
+        });
         洗练Button.onClick.AddListener(() =>
         {
+            var 价格=灵矿场Config.Get装备洗练粉尘(矿工装备.阶数, 矿工装备.QualityType) * Math.Pow(2, Get锁个数(矿工装备));
+            if (PlayerData.S.矿工粉尘 < 价格)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","矿工粉尘不足");
+                return;
+            }
+            
+            if (!矿工装备.挖掘速度洗练锁 && 矿工装备.挖掘速度无暇)
+            {
+                矿工装备洗练无暇提示弹窗.矿工装备 = 矿工装备;
+                矿工装备洗练无暇提示弹窗.gameObject.SetActive(true);
+                return;
+            }
+            if (!矿工装备.固定收益洗练锁 && 矿工装备.固定收益无暇)
+            {
+                矿工装备洗练无暇提示弹窗.矿工装备 = 矿工装备;
+                矿工装备洗练无暇提示弹窗.gameObject.SetActive(true);
+                return;
+            }
+            if (!矿工装备.成长速度洗练锁 && 矿工装备.成长速度无暇)
+            {
+                矿工装备洗练无暇提示弹窗.矿工装备 = 矿工装备;
+                矿工装备洗练无暇提示弹窗.gameObject.SetActive(true);
+                return;
+            }
+            if (!矿工装备.挖宝时间洗练锁 && 矿工装备.挖宝时间无暇)
+            {
+                矿工装备洗练无暇提示弹窗.矿工装备 = 矿工装备;
+                矿工装备洗练无暇提示弹窗.gameObject.SetActive(true);
+                return;
+            }
+
+            PlayerData.S.矿工粉尘 -= (float)价格;
         // 复制一份配置值，避免随机加成直接改到静态配置表
         四维属性 配置四维 = 灵矿场Config.装备四维属性[矿工装备.阶数];
         四维属性 基础四维属性 = new 四维属性()
@@ -80,11 +157,16 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
         if (成长速度无暇) 基础四维属性.成长速度 *= 灵矿场Config.无暇倍率;
         if (固定收益无暇) 基础四维属性.固定收益 *= 灵矿场Config.无暇倍率;
         if (挖宝速度无暇) 基础四维属性.挖宝时间 *= 灵矿场Config.无暇倍率;
-        矿工装备.固定收益无暇 = 固定收益无暇;
-        矿工装备.成长速度无暇 = 成长速度无暇;
-        矿工装备.挖掘速度无暇 = 挖掘速度无暇;
-        矿工装备.挖宝时间无暇 = 挖宝速度无暇;
-        矿工装备.基础四维 = 基础四维属性;
+        if(!矿工装备.固定收益洗练锁)矿工装备.固定收益无暇 = 固定收益无暇;
+        if(!矿工装备.成长速度洗练锁)矿工装备.成长速度无暇 = 成长速度无暇;
+        if(!矿工装备.挖掘速度洗练锁)矿工装备.挖掘速度无暇 = 挖掘速度无暇;
+        if(!矿工装备.挖宝时间洗练锁)矿工装备.挖宝时间无暇 = 挖宝速度无暇;
+        
+        if(!矿工装备.固定收益洗练锁)矿工装备.基础四维.固定收益 = 基础四维属性.固定收益;
+        if(!矿工装备.成长速度洗练锁)矿工装备.基础四维.成长速度 = 基础四维属性.成长速度;
+        if(!矿工装备.挖掘速度洗练锁)矿工装备.基础四维.挖掘速度 = 基础四维属性.挖掘速度;
+        if(!矿工装备.挖宝时间洗练锁)矿工装备.基础四维.挖宝时间 = 基础四维属性.挖宝时间;
+
         SetItem();
         });
     }
@@ -97,7 +179,12 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
             return;
         }
 
-        需要矿工粉尘.text = PlayerData.S.格式化数字(灵矿场Config.Get装备洗练粉尘(矿工装备.阶数, 矿工装备.QualityType));
+        挖掘速度锁.image.sprite = 矿工装备.挖掘速度洗练锁 ? ResourcesConfig.灵矿场锁:ResourcesConfig.灵矿场解锁;
+        固定收益锁.image.sprite = 矿工装备.固定收益洗练锁 ? ResourcesConfig.灵矿场锁:ResourcesConfig.灵矿场解锁;
+        成长速度锁.image.sprite = 矿工装备.成长速度洗练锁 ? ResourcesConfig.灵矿场锁:ResourcesConfig.灵矿场解锁;
+        挖宝速度锁.image.sprite = 矿工装备.挖宝时间洗练锁 ? ResourcesConfig.灵矿场锁:ResourcesConfig.灵矿场解锁;
+
+        需要矿工粉尘.text = PlayerData.S.格式化数字(灵矿场Config.Get装备洗练粉尘(矿工装备.阶数, 矿工装备.QualityType)*Math.Pow(2,Get锁个数(矿工装备)));
         当前矿工粉尘.text = PlayerData.S.格式化数字(PlayerData.S.矿工粉尘);
         阶数.text = PlayerData.S.Get阶数string(矿工装备.阶数);
         bg.sprite = ResourcesConfig.Get灵植背包格子(矿工装备.QualityType);
@@ -108,6 +195,15 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
         Set属性();
     }
 
+    private int Get锁个数(矿工装备 装备)
+    {
+        int value = 0;
+        if (装备.挖掘速度洗练锁) value += 1;
+        if (装备.固定收益洗练锁) value += 1;
+        if (装备.成长速度洗练锁) value += 1;
+        if (装备.挖宝时间洗练锁) value += 1;
+        return value;
+    }
     private void Set属性()
     {
         四维属性 四维 = 矿工装备.基础四维 ?? new 四维属性();
@@ -131,10 +227,10 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
 
         return new float[]
         {
-            配置.挖掘速度 * 随机上限 ,
-            配置.固定收益 * 随机上限 ,
-            配置.挖宝时间 * 随机上限 ,
-            配置.成长速度 * 随机上限 ,
+            配置.挖掘速度 * 随机上限 *灵矿场Config.品质倍率[索引],
+            配置.固定收益 * 随机上限 *灵矿场Config.品质倍率[索引],
+            配置.挖宝时间 * 随机上限 *灵矿场Config.品质倍率[索引],
+            配置.成长速度 * 随机上限 *灵矿场Config.品质倍率[索引],
         };
     }
 

@@ -46,7 +46,9 @@ public class 矿工背包弹窗 : MonoBehaviour
     public TextMeshProUGUI 灵石;
     public Button 灵矿分解Button;
     public Button 装备分解Button;
+    public Button 装备洗练Button;
     public GameObject 装备分解弹窗;
+    public 矿工装备洗练弹窗 装备洗练弹窗;
     private enum 背包类型
     {
         灵矿,
@@ -104,6 +106,16 @@ public class 矿工背包弹窗 : MonoBehaviour
         装备分解Button.onClick.AddListener(() =>
         {
             装备分解弹窗.gameObject.SetActive(true);
+        });
+        装备洗练Button.onClick.AddListener(() =>
+        {
+            if (当前选中.装备 == null)
+            {
+                ObserverModuleManager.S.SendEvent("SendUIToast","未选中装备");
+                return;
+            }
+            装备洗练弹窗.矿工装备 = 当前选中.装备;
+            装备洗练弹窗.gameObject.SetActive(true);
         });
         灵矿Button.onClick.AddListener(() => 切换类型(背包类型.灵矿));
         装备Button.onClick.AddListener(() => 切换类型(背包类型.装备));
@@ -289,6 +301,7 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         灵矿分解Button.gameObject.SetActive(当前类型 == 背包类型.灵矿);
         装备分解Button.gameObject.SetActive(当前类型 == 背包类型.装备);
+        装备洗练Button.gameObject.SetActive(当前类型 == 背包类型.装备);
 
         灵矿Button.image.sprite = 当前类型 == 背包类型.灵矿 ? ResourcesConfig.灵矿场按钮亮 : ResourcesConfig.灵矿场按钮暗;
         装备Button.image.sprite = 当前类型 == 背包类型.装备 ? ResourcesConfig.灵矿场按钮亮 : ResourcesConfig.灵矿场按钮暗;

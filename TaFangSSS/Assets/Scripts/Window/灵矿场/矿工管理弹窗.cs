@@ -37,7 +37,7 @@ public class 矿工管理弹窗 : MonoBehaviour
     public Button 左翻页;
     public Button 右翻页;
     public TextMeshProUGUI 页数;
-
+    public TextMeshProUGUI 矿工碎片;
     private const int 每页个数 = 20;
     private readonly List<矿工装备> 当前列表 = new List<矿工装备>();
     private 矿工装备Type 当前类型 = 矿工装备Type.None;
@@ -47,6 +47,7 @@ public class 矿工管理弹窗 : MonoBehaviour
 
     private void OnEnable()
     {
+        矿工碎片.text = PlayerData.S.格式化数字(PlayerData.S.矿工碎片);
         当前类型 = 矿工装备Type.None;
         当前页数 = 1;
         当前选择矿工装备 = null;
@@ -105,6 +106,7 @@ public class 矿工管理弹窗 : MonoBehaviour
             PlayerData.S.矿工碎片 -= 价格;
             当前矿工.星级++;
             Show矿工信息();
+            矿工碎片.text = PlayerData.S.格式化数字(PlayerData.S.矿工碎片);
             ObserverModuleManager.S.SendEvent("矿工升星",当前矿工);
             ObserverModuleManager.S.SendEvent("SendUIToast","升星成功");
         });
@@ -137,8 +139,8 @@ public class 矿工管理弹窗 : MonoBehaviour
             Show矿工列表();
             Show当前装备();
             Show背包();
+            矿工碎片.text = PlayerData.S.格式化数字(PlayerData.S.矿工碎片);
             ObserverModuleManager.S.SendEvent("矿工解雇");
-
             ObserverModuleManager.S.SendEvent("SendUIToast","解雇成功");
         });
     }

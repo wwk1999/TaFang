@@ -93,6 +93,7 @@ public class 矿工管理item : MonoBehaviour
         {
             var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/技能树/功法星级item"), 星级.transform)
                 .GetComponent<功法星级item>();
+            item.GetComponent<RectTransform>().sizeDelta = new Vector2(20, 20);
             item.功法星级Type = type;
             item.SetItem();
         }

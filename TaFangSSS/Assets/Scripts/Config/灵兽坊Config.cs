@@ -235,7 +235,7 @@ public class 灵兽坊Config
         { 血脉Type.卓越, 80f },
         { 血脉Type.完美, 120f },
         { 血脉Type.绝品, 200f },
-        { 血脉Type.至尊, 370f },
+        { 血脉Type.至尊, 400f },
     };
     public static Dictionary<血脉Type, float> 血脉孵化时间基础倍数 = new Dictionary<血脉Type, float>()
     {
