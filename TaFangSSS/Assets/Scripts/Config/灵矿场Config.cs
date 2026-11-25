@@ -270,6 +270,15 @@ public class 灵矿场Config
         基础 *= (1f + 当前总宝物属性.装备分解增多 / 100f);
         return 基础;
     }
+    
+    public static float Get装备洗练粉尘(int 阶数, QualityType qualityType)
+    {
+        阶数 = Mathf.Clamp(阶数, 1, 10);
+        float 基础 = 装备洗练粉尘[阶数];
+        基础 *= 装备分解品质粉尘倍数[Get装备品质索引(qualityType)];
+        return 基础;
+    }
+
 
     public static float Get宝物格子升级碎片(int 等级)
     {
@@ -317,6 +326,20 @@ public class 灵矿场Config
         { 8, 300000 },
         { 9, 1000000 },
         { 10, 3000000 },
+    };
+    
+    public static Dictionary<int, float> 装备洗练粉尘 = new Dictionary<int, float>()
+    {
+        { 1, 30 },
+        { 2, 100 },
+        { 3, 300 },
+        { 4, 1000 },
+        { 5, 3000 },
+        { 6, 10000 },
+        { 7, 30000 },
+        { 8, 100000 },
+        { 9, 300000 },
+        { 10, 1000000 },
     };
     public static string Get总宝物效果(宝物Type 宝物Type)
     {
@@ -664,8 +687,8 @@ public class 灵矿场Config
     public static float 基础每道年增加经验 = 100;
     public static float 随机最小区间 = 0.7f;//矿工
     public static float 随机最大区间 = 1.3f;
-    public static float 装备随机最小区间 = 0.7f;//装备
-    public static float 装备随机最大区间 = 1.3f;
+    public static float 装备随机最小区间 = 0.65f;//装备
+    public static float 装备随机最大区间 = 1.35f;
     public static float 其余矿工倍数 = 2f;
     public static float 均衡矿工倍数 = 1.25f;
     public static float 词条概率 = 15;
@@ -1828,20 +1851,7 @@ public static string Get装备介绍(矿工装备Type type, int 阶数)
         { 149, 7437485000 },
         { 150, 7968734000 },
     };
-
-    public static Dictionary<int, float> 矿工基础分解精华 = new Dictionary<int, float>()
-    {
-        { 1, 100 },
-        { 2, 300 },
-        { 3, 1000 },
-        { 4, 3000 },
-        { 5, 10000 },
-        { 6, 30000 },
-        { 7, 100000 },
-        { 8, 300000 },
-        { 9, 1000000 },
-        { 10, 3000000 },
-    };
+    
 
     public static float Get矿工价格(int 阶数, QualityType qualityType)
     {
