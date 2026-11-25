@@ -4,13 +4,35 @@ public enum 详情Type
 {
     None,
     储物袋详情,
+    灵矿场详情,
+    领主府详情,
+    赌坊详情,
+    英雄界面详情,
+    英雄详情详情,
+    灵植园详情,
+    灵兽坊详情,
+    炼丹详情,
+    炼器详情,
+    仙女殿详情,
+    悟道崖详情,
 }
 public class 详情Config
 {
-    public Dictionary<详情Type,List<string>>详情列表=new Dictionary<详情Type, List<string>>()
+    public static Dictionary<详情Type, List<string>> 详情列表 = new Dictionary<详情Type, List<string>>()
     {
-        
-    }
+        { 详情Type.储物袋详情, 储物袋详情List },
+        { 详情Type.灵矿场详情, 灵矿场详情List },
+        { 详情Type.领主府详情, 领主府详情List },
+        { 详情Type.赌坊详情, 赌坊详情List },
+        { 详情Type.英雄界面详情, 英雄界面详情List },
+        { 详情Type.英雄详情详情, 英雄详情详情List },
+        { 详情Type.灵植园详情, 灵植园详情List },
+        { 详情Type.灵兽坊详情, 灵兽坊详情List },
+        { 详情Type.炼丹详情, 炼丹详情List },
+        { 详情Type.炼器详情, 炼器详情List },
+        { 详情Type.仙女殿详情, 仙女殿详情List },
+        { 详情Type.悟道崖详情, 悟道崖详情List },
+    };
     public static List<string> 储物袋详情List = new List<string>()
     {
          "1.突破境界：修为会随道年时间自动增长，初始1道年=600S,境界越高流速越快，修为满了之后在储物袋进行突破。突破境界需要对应境界的灵物，灵物在东胜神州的洞天福地里获得。" ,
