@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class 炼器界面 : MonoBehaviour
 {
+    public Button 详情Button;
+    public GameObject 详情界面;
     public Button exitButton;
     public Button 仙石镶嵌Button;
     public Button 法器洗练Button;
@@ -159,6 +161,10 @@ public class 炼器界面 : MonoBehaviour
 
     private void Start()
     {
+        详情Button.onClick.AddListener(() =>
+        {
+            详情界面.SetActive(true);
+        });
         exitButton.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);

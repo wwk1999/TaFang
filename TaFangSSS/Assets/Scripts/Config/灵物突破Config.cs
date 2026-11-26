@@ -137,96 +137,105 @@ public class 灵物突破Config
         {
             new 洞天怪物Item() { JingJieType = JingJieType.化神, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 15000, Attack = 600, Defense = 200, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.化神, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 150000, Attack = 1000, Defense = 300, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.化神, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 1500000, Attack = 1500, Defense = 550, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.合体, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 500000, Attack = 1200, Defense = 600, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.合体, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 5000000, Attack = 1800, Defense = 900, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.合体, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50000000, Attack = 5000, Defense = 1800,物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大乘, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 5000000, Attack = 2500, Defense = 1200, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
+            new MonsterAttribute()
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大乘, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 50000000, Attack = 4000, Defense = 2000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
+            new MonsterAttribute()
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大乘, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 500000000, Attack = 10000, Defense = 4000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
+            new MonsterAttribute()
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.狮驼岭,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
         
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000000, Attack = 10000, Defense = 4000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+            new MonsterAttribute()
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3000000000, Attack = 20000, Defense = 8000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+            new MonsterAttribute()
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天仙, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 30000000000, Attack = 40000, Defense = 15000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+            new MonsterAttribute()
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
+        
         {
             new 洞天怪物Item() { JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 5000000000, Attack = 30000, Defense = 12000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50000000000, Attack = 60000, Defense = 18000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.玄仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 500000000000, Attack = 120000, Defense = 40000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
+        
+        
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 300000000000, Attack = 120000, Defense = 40000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 3000000000000, Attack = 200000, Defense = 60000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 30000000000000, Attack = 400000, Defense = 120000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
@@ -234,123 +243,124 @@ public class 灵物突破Config
         {
             new 洞天怪物Item() { JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
-
+        
+        
+        
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.准圣, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.准圣, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Hp*10, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.准圣, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Hp*100, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
+        
         {
             new 洞天怪物Item() { JingJieType = JingJieType.圣人, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.圣人, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Hp*10, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Hp*100, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
-
 
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天道圣人, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天道圣人, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Hp*10, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.天道圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Hp*100, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
-
 
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大道圣人, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大道圣人, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Hp*10, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大道圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Hp*100, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.混元圣人, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.混元圣人, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Hp*10, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.混元圣人, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = 50, Attack = 6, Defense = 5, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+                { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Hp*100, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.平顶山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
         },
     };
 

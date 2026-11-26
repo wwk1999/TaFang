@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class 灵植园界面 : MonoBehaviour
 {
+    public Button 详情Button;
+    public GameObject 详情界面;
     public TextMeshProUGUI 等级;
     public Image 等级进度条;
 
@@ -41,6 +43,10 @@ public class 灵植园界面 : MonoBehaviour
     {
         ObserverModuleManager.S.RegisterEvent("Set青石", Set青石);
         ObserverModuleManager.S.RegisterEvent("刷新灵植园", 灵植生长刷新);
+        详情Button.onClick.AddListener(() =>
+        {
+            详情界面.gameObject.SetActive(true);
+        });
         种植Button.onClick.AddListener(() =>
         {
             HeroWindowController.S.重置选择状态();

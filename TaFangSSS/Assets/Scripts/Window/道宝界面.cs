@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class 道宝界面 : MonoBehaviour
 {
+    public Button 详情Button1;
+    public GameObject 详情界面;
     public Button exitButton;
     public GameObject content;
     public Button 羁绊Button;
@@ -68,6 +70,10 @@ public class 道宝界面 : MonoBehaviour
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("显示道宝详情弹窗",显示道宝详情弹窗);
+        详情Button1.onClick.AddListener(() =>
+        {
+            详情界面.SetActive(true);
+        });
         羁绊Button.onClick.AddListener(() =>
         {
             羁绊弹窗.gameObject.SetActive(true);

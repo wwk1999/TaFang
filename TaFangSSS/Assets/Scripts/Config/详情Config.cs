@@ -15,6 +15,8 @@ public enum 详情Type
     炼器详情,
     仙女殿详情,
     悟道崖详情,
+    道宝详情,
+    城墙详情,
 }
 public class 详情Config
 {
@@ -115,6 +117,16 @@ public class 详情Config
         "1.参悟大道：前置大道足够才会解锁后续高等级的大道，当参悟高等级大道时前置等级不足时会自动参悟前置大道，当前置大道等级足够时会继续参悟所选大道。" ,
     };
     
+    public static List<string>道宝详情List = new List<string>()
+    {
+        "1.道宝：道宝会增加修炼速度，修炼速度可以提高每道年修为增长速度和悟道崖参悟大道速度，道宝在南赡部洲的九幽血海里寻宝获得。" ,
+    };
+    
+    public static List<string>城墙详情List = new List<string>()
+    {
+        "1.城墙法宝：城墙法宝在东胜神州的通天塔寻宝获得，宙品以上有特殊效果，城墙每10级一个品质可以解锁一个城墙法宝栏位。" ,
+    };
+    
     
     public static Dictionary<详情Type, List<string>> 详情列表 = new Dictionary<详情Type, List<string>>()
     {
@@ -130,5 +142,7 @@ public class 详情Config
         { 详情Type.炼器详情, 炼器详情List },
         { 详情Type.仙女殿详情, 仙女殿详情List },
         { 详情Type.悟道崖详情, 悟道崖详情List },
+        { 详情Type.道宝详情, 道宝详情List },
+        { 详情Type.城墙详情, 城墙详情List },
     };
 }

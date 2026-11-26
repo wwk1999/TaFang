@@ -10,9 +10,10 @@ using Random = UnityEngine.Random;
 
 public class 灵矿场界面 : MonoBehaviour
 {
+    public Button 详情Button;
+    public GameObject 详情界面;
     public GameObject 矿工content;
     public Button exitButton;
-    public Button 详情Button;
     public TextMeshProUGUI 灵石Count;
 
     //开采信息
@@ -38,7 +39,6 @@ public class 灵矿场界面 : MonoBehaviour
     public GameObject 矿洞界面;
     public GameObject 背包界面;
     public GameObject 宝物界面;
-    public GameObject 详情界面;
     //背景
     public GameObject 背景1;
     public GameObject 背景2;
@@ -163,7 +163,7 @@ public class 灵矿场界面 : MonoBehaviour
         }
         详情Button.onClick.AddListener(() =>
         {
-            详情界面.SetActive(false);
+            详情界面.SetActive(true);
         });
         exitButton.onClick.AddListener(() =>
         {

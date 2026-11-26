@@ -20,6 +20,8 @@ public enum 英雄详情界面显示类型
 }
 public class 英雄详情界面 : MonoBehaviour
 {
+    public Button 详情Button1;
+   public GameObject 详情界面;
     //法器
     public GameObject 当前法器Content;
     public Button 武器Button;
@@ -157,6 +159,14 @@ public class 英雄详情界面 : MonoBehaviour
         神通能量.text = HeroConfig.英雄神通配置Dic[当前heroType].能量.ToString();
         神通介绍.text = HeroConfig.Hero神通InfoDic[当前heroType];
         神通icon.sprite = ResourcesConfig.Get英雄神通icon(当前heroType);
+    }
+
+    private void Start()
+    {
+        详情Button1.onClick.AddListener(() =>
+        {
+            详情界面.SetActive(true);
+        });
     }
 
     public void Show英雄属性()

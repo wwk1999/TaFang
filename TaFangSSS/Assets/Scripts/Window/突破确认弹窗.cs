@@ -166,7 +166,7 @@ public class 突破确认弹窗 : MonoBehaviour
                 }
             }
             ObserverModuleManager.S.SendEvent("刷新任务栏");
-
+            ObserverModuleManager.S.SendEvent("刷新建筑交互");
             PlayerData.S.Exp = 0;
             ObserverModuleManager.S.SendEvent("播放音效",音效Type.成功);
             ObserverModuleManager.S.SendEvent("突破成功");

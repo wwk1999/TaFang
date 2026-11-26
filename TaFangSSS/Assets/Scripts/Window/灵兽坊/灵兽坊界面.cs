@@ -10,6 +10,9 @@ using Random = UnityEngine.Random;
 
 public class 灵兽坊界面 : MonoBehaviour
 {
+    public Button 详情Button;
+    public GameObject 详情界面;
+    
     public 灵兽洗髓无暇提示弹窗 灵兽洗髓无暇提示弹窗;
     private bool 当前显示灵兽 = true;
     public Button 灵兽Button;
@@ -509,6 +512,10 @@ public class 灵兽坊界面 : MonoBehaviour
 
         Init筛选();
         Init孵化筛选();
+        详情Button.onClick.AddListener(() =>
+        {
+            详情界面.gameObject.SetActive(true);
+        });
         结束孵化Button.onClick.AddListener(() =>
         {
             if (HeroWindowController.S.当前选择孵化池 != null && HeroWindowController.S.当前选择孵化池.孵化中&&HeroWindowController.S.当前选择孵化池.父 != null &&

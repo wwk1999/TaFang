@@ -30,12 +30,18 @@ public class 仙女殿界面 : MonoBehaviour
 
     public GameObject 等级列表Content;
     public GameObject 灵植列表Content;
+    public Button 详情Button;
+    public GameObject 详情界面;
 
     [NonSerialized] public 仙子Type 当前选择仙子 = 仙子Type.None;
 
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("仙女Item点击", 仙女Item点击);
+        详情Button.onClick.AddListener(() =>
+        {
+            详情界面.gameObject.SetActive(true);
+        });
         退出按钮.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);

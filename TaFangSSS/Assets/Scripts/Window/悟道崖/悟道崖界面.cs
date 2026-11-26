@@ -26,6 +26,9 @@ public class 悟道崖界面 : MonoBehaviour
     
     public GameObject 悟道区域;
     public GameObject 果位列表;
+    
+    public Button 详情Button;
+    public GameObject 详情界面;
 
     public void 大道item点击(object[] obj)
     {
@@ -40,6 +43,10 @@ public class 悟道崖界面 : MonoBehaviour
     private void Start()
     {
         ObserverModuleManager.S.RegisterEvent("刷新悟道崖界面",大道item点击);
+        详情Button.onClick.AddListener(() =>
+        {
+            详情界面.gameObject.SetActive(true);
+        });
         exitButton.onClick.AddListener(() =>
             {
                 gameObject.SetActive(false);

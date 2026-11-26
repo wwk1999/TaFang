@@ -12,6 +12,8 @@ using Image = UnityEngine.UI.Image;
 
 public class HeroWindow : MonoBehaviour
 {
+   public Button 详情Button;
+   public GameObject 详情界面;
    public 功法装备弹窗 功法装备弹窗;
    public GameObject 对话框;
    public TextMeshProUGUI 对话框Text;
@@ -139,6 +141,10 @@ public class HeroWindow : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("升星刷新", 升星刷新);
       ObserverModuleManager.S.RegisterEvent("英雄详情弹窗",英雄详情弹窗Show);
       var s = HeroWindowController.S;
+      详情Button.onClick.AddListener(() =>
+      {
+         详情界面.SetActive(true);
+      });
       ExitButton.onClick.AddListener(() =>
       {
          gameObject.SetActive(false);

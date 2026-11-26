@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class 领主府 : MonoBehaviour
 {
+   public Button 详情Button;
+   public GameObject 详情界面;
    public Button 退出按钮;
    private bool 显示供奉 = true;
    public Button 供奉按钮;
@@ -74,6 +76,10 @@ public class 领主府 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("刷新",刷新城主府);
 
       ObserverModuleManager.S.RegisterEvent("刷新领主府",刷新城主府);
+      详情Button.onClick.AddListener(() =>
+      {
+         详情界面.SetActive(true);
+      });
       if (PlayerData.S.是否首次进入领主府)
       {
          ObserverModuleManager.S.SendEvent("剧情对话",300,新手对话Type.领主府);

@@ -47,8 +47,8 @@ public class 新手引导对话 : MonoBehaviour
     public void 剧情对话(object[] obj)
     {
         index = (int)obj[0];
-        bool 新手对话Type=(bool)obj[1];
-        if (新手对话Type != 新手对话Type) return;
+        新手对话Type 新手对话Type1=(新手对话Type)obj[1];
+        if (新手对话Type != 新手对话Type1) return;
         对话 对话 = 新手引导剧情Config.对话Dic[index];
         if (对话.index > 0)
         {
@@ -156,6 +156,10 @@ public class 新手引导对话 : MonoBehaviour
                 mask.SetActive(false);
                 仙子对话框.SetActive(false);
                 学生对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
                 旁白对话框.gameObject.SetActive(false);
             }else if (index == -1)
             {
@@ -163,6 +167,10 @@ public class 新手引导对话 : MonoBehaviour
                 mask.SetActive(false);
                 仙子对话框.SetActive(false);
                 学生对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
                 旁白对话框.gameObject.SetActive(false);
                 ObserverModuleManager.S.SendEvent("引导mask",引导maskType.英雄按钮);
             }else if (index == -2)
@@ -171,6 +179,10 @@ public class 新手引导对话 : MonoBehaviour
                 mask.SetActive(false);
                 仙子对话框.SetActive(false);
                 学生对话框.gameObject.SetActive(false);
+                低阶对话框.gameObject.SetActive(false);
+                中阶对话框.gameObject.SetActive(false);
+                高阶对话框.gameObject.SetActive(false);
+                道祖对话框.gameObject.SetActive(false);
                 旁白对话框.gameObject.SetActive(false);
                 ObserverModuleManager.S.SendEvent("引导mask",引导maskType.英雄上阵);
             }

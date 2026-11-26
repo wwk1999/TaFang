@@ -75,7 +75,6 @@ public class JingJieConfig : MonoBehaviour
     };
     public static Dictionary<JingJieType, int> 轮回消耗Dic =
         new Dictionary<JingJieType, int>()
-
         {
             { JingJieType.合体,50},
             { JingJieType.大乘,100},
