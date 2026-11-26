@@ -22,7 +22,7 @@ public class 仙石信息弹窗 : MonoBehaviour
         info.QualityType = 仙石.quality;
         info.阶数 = 仙石.阶数;
         info.SetItem();
-
+        Instantiate(Resources.Load("Prefabs/Window/词条属性"), content.transform);
         foreach (var item in 仙石.list)
         {
             var 附加属性item=Instantiate(Resources.Load("Prefabs/Window/法器附加属性item"),content.transform).GetComponent<法器附加属性item>();

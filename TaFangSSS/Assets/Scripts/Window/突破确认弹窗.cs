@@ -58,7 +58,7 @@ public class 突破确认弹窗 : MonoBehaviour
                     PlayerData.S.建筑等级Dic[建筑Type.聚贤阁] = 1;
                     ObserverModuleManager.S.SendEvent("SendUIToast","领主府已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
-                    ObserverModuleManager.S.SendEvent("剧情对话",320,false);
+                    ObserverModuleManager.S.SendEvent("剧情对话",320,新手对话Type.储物袋);
                 }
 
                 foreach (var item in 道场Config.建筑解锁字典)
@@ -77,27 +77,27 @@ public class 突破确认弹窗 : MonoBehaviour
                     ObserverModuleManager.S.SendEvent("SendUIToast","领主府已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","聚贤阁已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","坊市已解锁");
-                    ObserverModuleManager.S.SendEvent("剧情对话",350,false);
+                    ObserverModuleManager.S.SendEvent("剧情对话",350,新手对话Type.储物袋);
                 }
                 
                 if (PlayerData.S.历史最高境界 == JingJieType.元婴)
                 {
                     ObserverModuleManager.S.SendEvent("SendUIToast","炼丹室已解锁");
-                    ObserverModuleManager.S.SendEvent("剧情对话",400,false);
+                    ObserverModuleManager.S.SendEvent("剧情对话",400,新手对话Type.储物袋);
                 }
                 
                 if (PlayerData.S.历史最高境界 == JingJieType.化神)
                 {
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵植园已解锁");
                     ObserverModuleManager.S.SendEvent("SendUIToast","仙女阁已解锁");
-                    ObserverModuleManager.S.SendEvent("剧情对话",500,false);
+                    ObserverModuleManager.S.SendEvent("剧情对话",500,新手对话Type.储物袋);
 
                 }
                 
                 if (PlayerData.S.历史最高境界 == JingJieType.合体)
                 {
                     ObserverModuleManager.S.SendEvent("SendUIToast","灵兽坊已解锁");
-                    ObserverModuleManager.S.SendEvent("剧情对话",600,false);
+                    ObserverModuleManager.S.SendEvent("剧情对话",600,新手对话Type.储物袋);
 
                 }
 
@@ -121,31 +121,31 @@ public class 突破确认弹窗 : MonoBehaviour
                         PlayerData.S.任务完成字典[任务Type.合体] = true;
                         break;
                     case JingJieType.大乘:
-                        ObserverModuleManager.S.SendEvent("剧情对话",700,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",700,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.大乘] = true;
                         break;
                     case JingJieType.天仙:
-                        ObserverModuleManager.S.SendEvent("剧情对话",800,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",800,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.天仙] = true;
                         break;
                     case JingJieType.玄仙:
-                        ObserverModuleManager.S.SendEvent("剧情对话",900,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",900,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.玄仙] = true;
                         break;
                     case JingJieType.金仙:
-                        ObserverModuleManager.S.SendEvent("剧情对话",1000,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",1000,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.金仙] = true;
                         break;
                     case JingJieType.太乙金仙:
-                        ObserverModuleManager.S.SendEvent("剧情对话",1100,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",1100,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.太乙金仙] = true;
                         break;
                     case JingJieType.大罗金仙:
-                        ObserverModuleManager.S.SendEvent("剧情对话",1200,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",1200,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.大罗金仙] = true;
                         break;
                     case JingJieType.准圣:
-                        ObserverModuleManager.S.SendEvent("剧情对话",1300,false);
+                        ObserverModuleManager.S.SendEvent("剧情对话",1300,新手对话Type.储物袋);
                         PlayerData.S.任务完成字典[任务Type.准圣] = true;
                         break;
                     case JingJieType.圣人:

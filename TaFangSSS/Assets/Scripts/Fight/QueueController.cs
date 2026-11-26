@@ -223,6 +223,7 @@ public class QueueController:XSingleton<QueueController>
         {
             SceneManager.SetActiveScene(loadScene);
         }
+        ObserverModuleManager.S.SendEvent("设置护盾");
     }
 
     /// <summary>

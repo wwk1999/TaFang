@@ -12,6 +12,7 @@ public enum 新手对话Type
     储物袋,
     灵矿场,
     领主府,
+    英雄界面,
 }
 public class 新手引导对话 : MonoBehaviour
 {

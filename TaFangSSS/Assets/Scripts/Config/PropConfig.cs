@@ -241,8 +241,17 @@ namespace Config
         }
         public static bool Prop是否为法器材料(PropType propType)
         {
+            // 法器材料命名固定为"前缀+阶数"（如 石16、铁3、羽7、砂12），
+            // 必须整串校验，否则"石敢当元神"这类以"石"开头的人物道具会被误判为材料
             string name = propType.ToString();
-            return name.StartsWith("石") || name.StartsWith("铁") || name.StartsWith("羽") || name.StartsWith("砂");
+            if (name.Length < 2) return false;
+            char 前缀 = name[0];
+            if (前缀 != '石' && 前缀 != '铁' && 前缀 != '羽' && 前缀 != '砂') return false;
+            for (int i = 1; i < name.Length; i++)
+            {
+                if (!char.IsDigit(name[i])) return false;
+            }
+            return true;
         }
 
         /// <summary>

@@ -517,7 +517,7 @@ public static Dictionary<Monster特性Type, float> 怪物速度Dic = new Diction
     // 五行山
     { MonsterTypeName.山石精, true },
     { MonsterTypeName.土蝼, false },
-    { MonsterTypeName.五行山神, false },
+    { MonsterTypeName.五行山神, true },
 
     // 高老庄
     { MonsterTypeName.野猪精, false },
@@ -1433,11 +1433,11 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
   // 傲来国 (第5关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.傲来国, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 400, Attack = 50, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 500, Attack = 50, Defense = 20, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.傲来国, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 4000, Attack = 100, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 5000, Attack = 100, Defense = 40, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.傲来国, MonsterType = MonsterType.Boss },
@@ -1447,15 +1447,15 @@ public static Dictionary<主线关卡怪物Item, MonsterAttribute> 主线关卡�
   // 高老庄 (第6关)
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.高老庄, MonsterType = MonsterType.Normal },
-    new MonsterAttribute() { Hp = 600, Attack = 60, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 800, Attack = 60, Defense = 30, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.高老庄, MonsterType = MonsterType.Elite },
-    new MonsterAttribute() { Hp = 6000, Attack = 120, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 8000, Attack = 120, Defense = 60, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
   {
     new 主线关卡怪物Item() { 主线关卡Type = 主线关卡Type.高老庄, MonsterType = MonsterType.Boss },
-    new MonsterAttribute() { Hp = 40000, Attack = 300, Defense = 80, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
+    new MonsterAttribute() { Hp = 50000, Attack = 300, Defense = 80, 物理抗性 = 0, 冰霜抗性 = 0, 火焰抗性 = 0, 黑暗抗性 = 0, 雷电抗性 = 0 }
   },
 
   // 女儿国 (第7关)

@@ -478,7 +478,7 @@ public class MainWindow : MonoBehaviour
     {
         if (PlayerData.S.是否首次进入游戏 )
         {
-            ObserverModuleManager.S.SendEvent("剧情对话",1,true);
+            ObserverModuleManager.S.SendEvent("剧情对话",1,新手对话Type.主界面);
             PlayerData.S.是否首次进入游戏 = false;
         }
         if (!PlayerData.S.当前任务列表.Contains(任务Type.花果山) && !PlayerData.S.任务完成字典[任务Type.花果山])

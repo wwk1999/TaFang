@@ -76,7 +76,7 @@ public class 领主府 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("刷新领主府",刷新城主府);
       if (PlayerData.S.是否首次进入领主府)
       {
-         ObserverModuleManager.S.SendEvent("剧情对话",300,false);
+         ObserverModuleManager.S.SendEvent("剧情对话",300,新手对话Type.领主府);
          PlayerData.S.是否首次进入领主府 = false;
       }
       退出按钮.onClick.AddListener(() =>

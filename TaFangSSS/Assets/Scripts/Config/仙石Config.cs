@@ -215,7 +215,7 @@ public class 仙石Config
     public static List<法器附加属性值> Get仙石附加属性(int 阶数, QualityType qualityType)
     {
         List<法器附加属性值> list = new List<法器附加属性值>();
-        int 数量 = (int)qualityType;
+        int 数量 = 3;
         阶数 = Mathf.Clamp(阶数, 1, 16);
         for (int i = 0; i < 数量; i++)
         {

@@ -318,7 +318,7 @@ public class 储物袋界面 : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("突破成功", 突破成功);
       if (PlayerData.S.是否首次进入储物袋)
       {
-         ObserverModuleManager.S.SendEvent("剧情对话",100,false);
+         ObserverModuleManager.S.SendEvent("剧情对话",100,新手对话Type.储物袋);
          PlayerData.S.是否首次进入储物袋 = false;
       }
       轮回按钮.onClick.AddListener(() =>
