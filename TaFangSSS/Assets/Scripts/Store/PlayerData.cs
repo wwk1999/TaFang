@@ -408,6 +408,12 @@ public class PlayerData : XSingleton<PlayerData>
         {任务Type.解锁至尊大道,false},
         {任务Type.开灵兽蛋,false},
         {任务Type.灵兽孵化,false},
+        
+        {任务Type.招募矿工,false},
+        {任务Type.开宝箱,false},
+        {任务Type.洗练矿工装备,false},
+        {任务Type.升级矿洞,false},
+        {任务Type.佩戴宝物,false},
     };
 
     public Dictionary<大道Type, 大道> 大道配置 = new Dictionary<大道Type, 大道>()

@@ -166,7 +166,8 @@ public class 矿工装备洗练弹窗 : MonoBehaviour
         if(!矿工装备.成长速度洗练锁)矿工装备.基础四维.成长速度 = 基础四维属性.成长速度;
         if(!矿工装备.挖掘速度洗练锁)矿工装备.基础四维.挖掘速度 = 基础四维属性.挖掘速度;
         if(!矿工装备.挖宝时间洗练锁)矿工装备.基础四维.挖宝时间 = 基础四维属性.挖宝时间;
-
+        PlayerData.S.任务完成字典[任务Type.洗练矿工装备] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
         SetItem();
         });
     }

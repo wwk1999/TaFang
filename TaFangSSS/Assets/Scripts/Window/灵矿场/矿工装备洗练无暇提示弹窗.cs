@@ -81,6 +81,8 @@ public class 矿工装备洗练无暇提示弹窗 : MonoBehaviour
         if(!矿工装备.挖宝时间洗练锁)矿工装备.基础四维.挖宝时间 = 基础四维属性.挖宝时间;
         gameObject.SetActive(false);
         ObserverModuleManager.S.SendEvent("矿工装备确认洗练");
+        PlayerData.S.任务完成字典[任务Type.洗练矿工装备] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
       });
    }
    private int Get锁个数(矿工装备 装备)

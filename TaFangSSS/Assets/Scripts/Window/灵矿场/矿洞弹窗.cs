@@ -117,6 +117,8 @@ public class 矿洞弹窗 : MonoBehaviour
 
         PlayerData.S.矿洞矿工人数等级 = 等级 + 1;
         刷新界面();
+        PlayerData.S.任务完成字典[任务Type.升级矿洞] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
     }
 
     private void 刷新矿工阶数上限()
@@ -147,6 +149,8 @@ public class 矿洞弹窗 : MonoBehaviour
 
         PlayerData.S.矿洞矿工阶数等级 = 等级 + 1;
         刷新界面();
+        PlayerData.S.任务完成字典[任务Type.升级矿洞] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
     }
 
     private void 刷新宝物佩戴上限()
@@ -177,6 +181,8 @@ public class 矿洞弹窗 : MonoBehaviour
 
         PlayerData.S.矿洞宝物佩戴上限 = 等级 + 1;
         刷新界面();
+        PlayerData.S.任务完成字典[任务Type.升级矿洞] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
     }
 
     private void 刷新招募刷新概率()
@@ -217,6 +223,8 @@ public class 矿洞弹窗 : MonoBehaviour
 
         PlayerData.S.矿洞矿工招募概率等级 = 等级 + 1;
         刷新界面();
+        PlayerData.S.任务完成字典[任务Type.升级矿洞] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
     }
 
     private void 刷新宝箱品质概率()
@@ -253,6 +261,8 @@ public class 矿洞弹窗 : MonoBehaviour
 
         PlayerData.S.矿洞宝箱品质概率等级 = 等级 + 1;
         刷新界面();
+        PlayerData.S.任务完成字典[任务Type.升级矿洞] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
     }
 
     private static string 概率文本(List<float> 概率列表, int index)

@@ -8551,6 +8551,11 @@ public static Sprite 缚霞流光绫藏品;
 		return Get矿工Sprite(矿工立绘SpriteCache, type, 阶数, quality);
 	}
 
+	/// <summary>
+	/// 按新结构加载矿工头像/立绘：每个"矿工类型+品质"对应一张 SpriteSheet，
+	/// SpriteSheet 内含 10 个切图，索引 0~9 依次对应 1~10 阶。
+	/// 资源路径模板：Sprite/灵矿场/{资源目录}/{minerName}{品质后缀}
+	/// </summary>
 	private static Dictionary<矿工类型, Sprite[,]> Load矿工Sprites(string 资源目录)
 	{
 		Dictionary<矿工类型, Sprite[,]> cache = new Dictionary<矿工类型, Sprite[,]>();
@@ -8559,12 +8564,13 @@ public static Sprite 缚霞流光绫藏品;
 			矿工类型 type = (矿工类型)typeIndex;
 			string minerName = type.ToString();
 			Sprite[,] sprites = new Sprite[10, 矿工品质后缀.Length];
-			for (int 阶数 = 1; 阶数 <= 10; 阶数++)
+			for (int qualityIndex = 0; qualityIndex < 矿工品质后缀.Length; qualityIndex++)
 			{
-				string 阶数名 = 阶数.ToString("00") + "阶";
-				for (int qualityIndex = 0; qualityIndex < 矿工品质后缀.Length; qualityIndex++)
+				// 新路径：Sprite/灵矿场/{资源目录}/疾行矿工白  (Resources 会自动匹配同名 SpriteSheet)
+				Sprite[] 切图 = Resources.LoadAll<Sprite>($"Sprite/灵矿场/{资源目录}/{minerName}{矿工品质后缀[qualityIndex]}");
+				for (int 阶数 = 1; 阶数 <= 10 && 阶数 - 1 < 切图.Length; 阶数++)
 				{
-					sprites[阶数 - 1, qualityIndex] = Resources.Load<Sprite>($"Sprite/灵矿场/{资源目录}/{minerName}/{阶数名}/{minerName}_{阶数名}_{矿工品质后缀[qualityIndex]}");
+					sprites[阶数 - 1, qualityIndex] = 切图[阶数 - 1];
 				}
 			}
 			cache[type] = sprites;

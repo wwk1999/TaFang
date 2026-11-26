@@ -5,6 +5,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum 新手对话Type
+{
+    None,
+    主界面,
+    储物袋,
+    灵矿场,
+    领主府,
+}
 public class 新手引导对话 : MonoBehaviour
 {
     public GameObject mask;
@@ -33,13 +41,13 @@ public class 新手引导对话 : MonoBehaviour
     public TextMeshProUGUI 道祖主角名;
     public TextMeshProUGUI 道祖主角文本;
     private int index;
-    public bool 主页;
+    public 新手对话Type 新手对话Type;
     
     public void 剧情对话(object[] obj)
     {
         index = (int)obj[0];
-        bool 在主页=(bool)obj[1];
-        if (主页 != 在主页) return;
+        bool 新手对话Type=(bool)obj[1];
+        if (新手对话Type != 新手对话Type) return;
         对话 对话 = 新手引导剧情Config.对话Dic[index];
         if (对话.index > 0)
         {
@@ -140,7 +148,7 @@ public class 新手引导对话 : MonoBehaviour
         {
             if (index > 0)
             {
-                ObserverModuleManager.S.SendEvent("剧情对话",新手引导剧情Config.对话Dic[index].next,主页);
+                ObserverModuleManager.S.SendEvent("剧情对话",新手引导剧情Config.对话Dic[index].next,新手对话Type);
             }else if (index == 0)
             {
                 点击Button.gameObject.SetActive(false);

@@ -104,6 +104,7 @@ public class 任务界面 : MonoBehaviour
             case 任务Type.花果山:
                 任务Config.添加任务(任务Type.筑基);
                 任务Config.添加任务(任务Type.水帘洞);
+                任务Config.添加任务(任务Type.招募矿工);
                 break;
             case 任务Type.水帘洞:
                 任务Config.添加任务(任务Type.获取一本功法);
@@ -309,6 +310,18 @@ public class 任务界面 : MonoBehaviour
             
             case 任务Type.开灵兽蛋:
                 任务Config.添加任务(任务Type.灵兽孵化);
+                break;
+            case 任务Type.招募矿工:
+                任务Config.添加任务(任务Type.开宝箱);
+                break;
+            case 任务Type.开宝箱:
+                任务Config.添加任务(任务Type.洗练矿工装备);
+                break;
+            case 任务Type.洗练矿工装备:
+                任务Config.添加任务(任务Type.升级矿洞);
+                break;
+            case 任务Type.升级矿洞:
+                任务Config.添加任务(任务Type.佩戴宝物);
                 break;
         }
     }

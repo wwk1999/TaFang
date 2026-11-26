@@ -2198,7 +2198,8 @@ public static string Get装备介绍(矿工装备Type type, int 阶数)
                 名称 = 宝物名[随机宝物Type];
                 break;
         }
-
+        PlayerData.S.任务完成字典[任务Type.开宝箱] = true;
+        ObserverModuleManager.S.SendEvent("刷新任务栏");
         return (名称, 物品品质);
     }
 

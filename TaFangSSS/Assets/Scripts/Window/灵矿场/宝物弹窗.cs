@@ -178,6 +178,8 @@ public class 宝物弹窗 : MonoBehaviour
                     return;
                 }
             }
+            PlayerData.S.任务完成字典[任务Type.佩戴宝物] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
             ObserverModuleManager.S.SendEvent("SendUIToast","宝物佩戴已满");
         });
     }

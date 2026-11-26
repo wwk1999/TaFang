@@ -133,6 +133,8 @@ public class 矿工招募弹窗 : MonoBehaviour
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
                         item.已被招募 = true;
+                        PlayerData.S.任务完成字典[任务Type.招募矿工] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -157,6 +159,8 @@ public class 矿工招募弹窗 : MonoBehaviour
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
                         item.已被招募 = true;
+                        PlayerData.S.任务完成字典[任务Type.招募矿工] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -181,6 +185,8 @@ public class 矿工招募弹窗 : MonoBehaviour
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
                         item.已被招募 = true;
+                        PlayerData.S.任务完成字典[任务Type.招募矿工] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -205,6 +211,8 @@ public class 矿工招募弹窗 : MonoBehaviour
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
                         item.已被招募 = true;
+                        PlayerData.S.任务完成字典[任务Type.招募矿工] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }
@@ -229,6 +237,8 @@ public class 矿工招募弹窗 : MonoBehaviour
                         PlayerData.S.PropListDic[PropType.灵魂] -= 灵魂;
                         PlayerData.S.矿工列表.Add(item);
                         item.已被招募 = true;
+                        PlayerData.S.任务完成字典[任务Type.招募矿工] = true;
+                        ObserverModuleManager.S.SendEvent("刷新任务栏");
                         ObserverModuleManager.S.SendEvent("SendUIToast","招募成功");
 
                     }

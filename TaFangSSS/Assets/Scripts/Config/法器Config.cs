@@ -1126,11 +1126,11 @@ public class 法器Config
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=9}, new minmax(){min = 1000, max = 1500}},
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=10}, new minmax(){min = 1500, max = 2200}},
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=11}, new minmax(){min = 2200, max = 3200}},
-        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=12}, new minmax(){min = 3200, max = 4600}}, 
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=13}, new minmax(){min = 4600, max = 6500}},
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=14}, new minmax(){min = 6500, max = 9000}},
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=15}, new minmax(){min = 9000, max = 12000}},
-        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}},
+        { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.冰霜伤害, 阶数=16}, new minmax(){min = 12000, max = 16000}}, 
 
         // ===== 火焰伤害 =====
         { new 法器附加属性品质type(){法器附加属性Type = 法器附加属性Type.火焰伤害, 阶数=1}, new minmax(){min = 5, max = 10}},
