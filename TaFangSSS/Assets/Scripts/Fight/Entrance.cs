@@ -114,11 +114,18 @@ public class Entrance : MonoBehaviour
    {
        Set血条();
    }
+
+   // 原地重开（重复挑战）不会重载 FightScene，由 FightController.重置场景 通知刷新血条
+   public void 刷新城墙血条(object[] obj)
+   {
+       Set血条();
+   }
    private void OnDestroy()
    {
        ObserverModuleManager.S.UnRegisterEvent("显示FightWindow",显示FightWindow);
       ObserverModuleManager.S.UnRegisterEvent("围栏受击",围栏受击);
       ObserverModuleManager.S.UnRegisterEvent("设置护盾",设置护盾);
+      ObserverModuleManager.S.UnRegisterEvent("刷新城墙血条",刷新城墙血条);
    }
 
    public void 显示FightWindow(object[] obj)
@@ -132,6 +139,7 @@ public class Entrance : MonoBehaviour
       ObserverModuleManager.S.RegisterEvent("显示FightWindow",显示FightWindow);
       ObserverModuleManager.S.RegisterEvent("围栏受击",围栏受击);
       ObserverModuleManager.S.RegisterEvent("设置护盾",设置护盾);
+      ObserverModuleManager.S.RegisterEvent("刷新城墙血条",刷新城墙血条);
       地图Type type = Get地图Type();
       ObserverModuleManager.S.SendEvent("设置地图",type);
       InitRenWu();

@@ -1845,11 +1845,15 @@ public class FightController : XSingleton<FightController>
         当前冰冻间隔 = 0;
         城墙无敌Time = 0;
         城墙当前生命值 = 缓存城墙最大生命值;
+        城墙护盾值 = (float)(城墙Config.开局护盾值 / 100f * 缓存城墙最大生命值);
         总杀怪增伤 = 0;
         NormalMonsterCount = 0;
         EliteMonsterCount = 0;
         KillMonsterCount = 0;
         战斗结束 = false;
+        // 原地重开（重复挑战）不会重载 FightScene，血条不会走 Entrance.Start 初始化，
+        // 必须主动通知刷新，否则血条仍停在上一次战斗结束时的血量
+        ObserverModuleManager.S.SendEvent("刷新城墙血条");
     }
 
     public void CreateNormalMonster()

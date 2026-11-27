@@ -93,7 +93,6 @@ public class MainWindow : MonoBehaviour
     public TextMeshProUGUI 玄铁;
     public TextMeshProUGUI 玉髓;
 
-    public Button 招募Btn;
     public Button 招募卷Debug;
     public Button 英雄按钮;
     public Button 储物袋按钮;
@@ -916,10 +915,6 @@ public class MainWindow : MonoBehaviour
                 PlayerData.S.仙石列表.Add(仙石);
             }
         });
-        招募Btn.onClick.AddListener(() =>
-        {
-            WindowController.S.打开窗口(WindowController.S.招募Window);
-        });
     }
 
     private void Update()
@@ -961,6 +956,5 @@ public class MainWindow : MonoBehaviour
     private void OnEnable()
     {
         Init();
-        
     }
 }

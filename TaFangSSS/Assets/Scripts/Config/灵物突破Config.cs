@@ -1406,7 +1406,7 @@ public class 灵物突破Config
     };
     public static Dictionary<QualityType, List<float>> 灵物基础掉落概率Dic = new Dictionary<QualityType, List<float>>()
     {
-        { QualityType.黄品, new List<float>() { 50, 0, 0, 0, 0, 0, 0, 0 } },
+        { QualityType.黄品, new List<float>() { 70, 0, 0, 0, 0, 0, 0, 0 } },
         { QualityType.玄品, new List<float>() { 70, 30, 0, 0, 0, 0, 0, 0 } },
         { QualityType.地品, new List<float>() { 35, 50, 25, 0, 0, 0, 0, 0 } },
         { QualityType.天品, new List<float>() { 10, 30, 40, 20, 0, 0, 0, 0 } },
