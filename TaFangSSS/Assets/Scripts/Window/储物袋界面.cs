@@ -335,7 +335,7 @@ public class 储物袋界面 : MonoBehaviour
          if (!PlayerData.S.是否解锁破限)
          {
             ObserverModuleManager.S.SendEvent("SendUIToast","任一境界荒品突破解锁破限");
-            //return;
+            return;
          }
 
          破限弹窗.gameObject.SetActive(true);
