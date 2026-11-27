@@ -695,7 +695,7 @@ public static Dictionary<灵兽Type, string> 灵兽介绍 = new Dictionary<灵�
 
     public static List<float> 灵兽蛋概率 = new List<float>()
     {
-        6783.9f,2500,500,100,20,5f,1f,0.1f
+        6873.9f,2500,500,100,20,5f,1f,0.1f
     };
 
 }

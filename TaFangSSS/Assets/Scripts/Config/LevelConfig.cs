@@ -1457,42 +1457,38 @@ public static Dictionary<洞天关卡Item, SmallLevelInfo> 洞天LevelInfos = ne
      {
          if (主线关卡Type == 主线关卡Type.混沌虚空)
          {
-             if (战斗混沌虚空层数 < 50)
+             if (战斗混沌虚空层数 < 100)
              {
                  value = 1;
-             }else if (战斗混沌虚空层数 < 150)
-             {
-                 value = 2;
              }else if (战斗混沌虚空层数 < 300)
              {
-                 value = 3;
+                 value = 2;
              }else if (战斗混沌虚空层数 < 600)
+             {
+                 value = 3;
+             }else if (战斗混沌虚空层数 < 1000)
              {
                  value = 4;
              }
-             else if (战斗混沌虚空层数 < 1000)
-             {
-                 value = 5;
-             }
              else
              {
-                 value = 6 + (战斗混沌虚空层数 - 1000) / 500;
+                 value = 5 + (战斗混沌虚空层数 - 1000) / 1000;
              }
          }else if (主线关卡Type == 主线关卡Type.须弥宫)
          {
-             value = 6+ 层数  / 500;
+             value = 5+ 层数  / 1000;
          }else if (主线关卡Type == 主线关卡Type.娲皇宫)
          {
-             value = 8+ 层数  / 500;
+             value = 6+ 层数  / 1000;
          }else if (主线关卡Type == 主线关卡Type.碧游宫)
          {
-             value = 10+ 层数  / 500;
+             value = 7+ 层数  / 1000;
          }else if (主线关卡Type == 主线关卡Type.玉虚宫)
          {
-             value = 12+ 层数  / 500;
+             value = 8+ 层数  / 1000;
          }else if (主线关卡Type == 主线关卡Type.八景宫)
          {
-             value = 14+ 层数  / 500;
+             value = 9+ 层数  / 1000;
          }
      }
 

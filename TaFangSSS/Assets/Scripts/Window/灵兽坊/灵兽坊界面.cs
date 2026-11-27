@@ -1009,6 +1009,14 @@ public class 灵兽坊界面 : MonoBehaviour
                 index++;
             }
 
+            // 灵兽蛋概率列表总和为 9910（不足 10000），随机值落在 9910~10000 的尾段时
+            // 循环不会命中任何品质，qualityType 会保持 None，进而在 灵兽品质List[None] 取字典时报 KeyNotFoundException
+            // 尾段（0.9%）回退为最低品质黄品
+            if (qualityType == QualityType.None)
+            {
+                qualityType = QualityType.黄品;
+            }
+
             灵兽 灵兽 = 灵兽坊Config.砸蛋获得灵兽(qualityType);
             if (砸蛋字典.ContainsKey(灵兽.灵兽Type))
             {

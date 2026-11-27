@@ -277,7 +277,7 @@ public class 阴阳殿Config
     public static int Get好感度升级经验(int 等级)
     {
         if (等级 < 0) 等级 = 0;
-        return 等级 * 等级 ;
+        return 等级 * 等级*10 ;
     }
 
     /// <summary>非百分比属性：显示为纯数值，其余属性统一按百分比显示</summary>

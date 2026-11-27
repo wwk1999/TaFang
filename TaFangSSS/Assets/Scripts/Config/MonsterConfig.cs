@@ -1933,8 +1933,8 @@ public static MonsterAttribute Get三十三重天怪物属性(int count,MonsterT
   // 每层乘法成长用 Pow10 换底（1.2^n = 10^(n·log10(1.2))）：
   // Math.Pow(1.5, n) 在 n>1700 时本身就会超出 double 变 Infinity，必须走大数幂
   基础攻击力 *= BigDouble.Pow10((count - 1) * Math.Log10(1.1));
-  基础防御 *= BigDouble.Pow10((count - 1) * Math.Log10(1.2));
-  基础生命 *= BigDouble.Pow10((count - 1) * Math.Log10(1.8));
+  基础防御 *= BigDouble.Pow10((count - 1) * Math.Log10(1.25));
+  基础生命 *= BigDouble.Pow10((count - 1) * Math.Log10(3));
   if (count > 10)
   {
     基础抗性 = 80;

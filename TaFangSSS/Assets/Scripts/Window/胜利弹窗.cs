@@ -26,6 +26,8 @@ public class 胜利弹窗 : MonoBehaviour
         });
         AgainButtn.onClick.AddListener(() =>
         {
+            // 开启自动下一关时，手动再战也进入下一层
+            if (PlayerData.S.是否自动下一关) 进入下一关();
             // 卸载战斗场景后 additive 重走 LoadScene→FightScene 流程，常驻 UIScene 不动
             QueueController.S.重开战斗();
         });
@@ -37,13 +39,45 @@ public class 胜利弹窗 : MonoBehaviour
         if (PlayerData.S.重复挑战)
         {
             重复挑战Time += Time.unscaledDeltaTime;
-            战斗Text.text = "重复挑战:" + (int)(2f - 重复挑战Time);
+            战斗Text.text = (PlayerData.S.是否自动下一关 ? "自动下一关:" : "重复挑战:") + (int)(2f - 重复挑战Time);
             if (2f - 重复挑战Time < 0)
             {
+               // 勾选自动下一关时，先把当前战斗层数推进一层再原地重置
+               if (PlayerData.S.是否自动下一关) 进入下一关();
                ObserverModuleManager.S.SendEvent("关卡重置");
                gameObject.SetActive(false);
             }
         }
+    }
+
+    /// <summary>把当前战斗层数推进一层（仅限六座天外天层数关卡），并刷新战斗界面层数显示</summary>
+    private static void 进入下一关()
+    {
+        if (LevelConfig.当前关卡类型 != 关卡类型.主线关卡) return;
+        switch (LevelConfig.当前主线关卡Type)
+        {
+            case 主线关卡Type.混沌虚空:
+                LevelConfig.战斗混沌虚空层数 = Math.Min(LevelConfig.战斗混沌虚空层数 + 1, PlayerData.S.混沌虚空最大层数);
+                break;
+            case 主线关卡Type.须弥宫:
+                LevelConfig.战斗须弥宫层数 = Math.Min(LevelConfig.战斗须弥宫层数 + 1, PlayerData.S.须弥宫最大层数);
+                break;
+            case 主线关卡Type.娲皇宫:
+                LevelConfig.战斗娲皇宫层数 = Math.Min(LevelConfig.战斗娲皇宫层数 + 1, PlayerData.S.娲皇宫最大层数);
+                break;
+            case 主线关卡Type.碧游宫:
+                LevelConfig.战斗碧游宫层数 = Math.Min(LevelConfig.战斗碧游宫层数 + 1, PlayerData.S.碧游宫最大层数);
+                break;
+            case 主线关卡Type.玉虚宫:
+                LevelConfig.战斗玉虚宫层数 = Math.Min(LevelConfig.战斗玉虚宫层数 + 1, PlayerData.S.玉虚宫最大层数);
+                break;
+            case 主线关卡Type.八景宫:
+                LevelConfig.战斗八景宫层数 = Math.Min(LevelConfig.战斗八景宫层数 + 1, PlayerData.S.八景宫最大层数);
+                break;
+            default:
+                return;
+        }
+        ObserverModuleManager.S.SendEvent("刷新关卡层数");
     }
     
      public void 刷新战斗丹药()
