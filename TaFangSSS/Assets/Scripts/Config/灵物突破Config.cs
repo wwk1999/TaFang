@@ -242,34 +242,34 @@ public class 灵物突破Config
         {
             new 洞天怪物Item() { JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.太乙金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
 
 
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Normal },
             new MonsterAttribute()
-                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(5000,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Elite },
             new MonsterAttribute()
-                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(5000,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 洞天怪物Item() { JingJieType = JingJieType.大罗金仙, MonsterType = MonsterType.Boss },
             new MonsterAttribute()
-                { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
+                { Hp = MonsterConfig.Get三十三重天怪物属性(5000,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         
         

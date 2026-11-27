@@ -209,7 +209,7 @@ public class PlayerData : XSingleton<PlayerData>
     public BigDouble 初始跟脚 = 1;
   
 
-    public float 灵兽蛋数量 = 10;
+    public float 灵兽蛋数量 = 5;
     public List<灵兽> 灵兽列表 = new List<灵兽>();
     public float Exp;
     public int 当前出战编队 = 1;

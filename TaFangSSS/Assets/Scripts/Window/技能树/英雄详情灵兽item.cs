@@ -23,7 +23,10 @@ public class 英雄详情灵兽item : MonoBehaviour
       bg.onClick.AddListener(() =>
       {
          if (灵兽 == null) return;
-       
+
+            // 记录该灵兽原先佩戴的英雄，用于后续解除其佩戴状态
+            HeroType 原佩戴英雄 = 灵兽.HeroType;
+
             // 一个英雄只能携带一只灵兽：先把当前英雄已装备的灵兽卸下
             var 灵兽列表 = PlayerData.S.灵兽列表;
             for (int i = 0; i < 灵兽列表.Count; i++)
@@ -33,6 +36,15 @@ public class 英雄详情灵兽item : MonoBehaviour
                   灵兽列表[i].HeroType = HeroType.None;
                }
             }
+
+            // 一只灵兽只能被一名英雄佩戴：若已被其他英雄佩戴，则解除原英雄的佩戴
+            if (原佩戴英雄 != HeroType.None && 原佩戴英雄 != HeroType
+                && PlayerData.S.HeroDataDic.TryGetValue(原佩戴英雄, out var 原英雄数据)
+                && 原英雄数据.灵兽 == 灵兽)
+            {
+               原英雄数据.灵兽 = null;
+            }
+
             灵兽.HeroType = HeroType;
             PlayerData.S.HeroDataDic[HeroType].灵兽 = 灵兽;
          ObserverModuleManager.S.SendEvent("刷新英雄详情界面");

@@ -821,10 +821,10 @@ public class 悟道崖Config
 
     public static Dictionary<大道等级Type, float> 大道经验 = new Dictionary<大道等级Type, float>()
     {
-        { 大道等级Type.基础大道 ,1},
-        { 大道等级Type.上等大道 ,10},
-        { 大道等级Type.至尊大道 ,100},
-        { 大道等级Type.本源大道 ,1000},
+        { 大道等级Type.基础大道 ,30000},
+        { 大道等级Type.上等大道 ,1000000},
+        { 大道等级Type.至尊大道 ,100000000},
+        { 大道等级Type.本源大道 ,10000000000},
     };
     
     public static Dictionary<大道等级Type, 大道等级固定奖励> 大道等级奖励 = new Dictionary<大道等级Type, 大道等级固定奖励>()

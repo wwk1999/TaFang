@@ -135,7 +135,7 @@ public class 矿工装备分解弹窗 : MonoBehaviour
         float 预估 = 计算预估粉尘();
     }
 
-    /// <summary>遍历矿工装备列表，按筛选条件计算总粉尘（含跳过锁）</summary>
+    /// <summary>遍历矿工装备列表，按筛选条件计算总粉尘（含跳过锁与已穿戴装备）</summary>
     private float 计算预估粉尘()
     {
         float 总计 = 0;
@@ -143,6 +143,7 @@ public class 矿工装备分解弹窗 : MonoBehaviour
         {
             if (装备 == null) continue;
             if (装备.锁) continue;
+            if (装备.矿工 != null) continue;
             if (!品质勾选(装备.QualityType)) continue;
             if (!阶数勾选(装备.阶数)) continue;
             总计 += 灵矿场Config.Get装备分解粉尘(装备.阶数, 装备.QualityType);
@@ -162,6 +163,7 @@ public class 矿工装备分解弹窗 : MonoBehaviour
             var 装备 = PlayerData.S.矿工装备列表[i];
             if (装备 == null) continue;
             if (装备.锁) continue;
+            if (装备.矿工 != null) continue;
             if (!品质勾选(装备.QualityType)) continue;
             if (!阶数勾选(装备.阶数)) continue;
 

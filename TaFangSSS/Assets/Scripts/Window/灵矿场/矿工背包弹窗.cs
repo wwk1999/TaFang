@@ -97,8 +97,15 @@ public class 矿工背包弹窗 : MonoBehaviour
     {
         刷新界面();
     }
+
+    public void 宝物分解(object[] obj)
+    {
+        刷新界面();
+    }
+    
     private void Start()
     {
+        ObserverModuleManager.S.RegisterEvent("宝物分解",宝物分解);
         灵矿分解Button.onClick.AddListener(() =>
         {
             一键分解所有灵矿();
@@ -171,6 +178,7 @@ public class 矿工背包弹窗 : MonoBehaviour
 
     private void OnDestroy()
     {
+        ObserverModuleManager.S.UnRegisterEvent("宝物分解",宝物分解);
         ObserverModuleManager.S.UnRegisterEvent("刷新矿工背包",刷新矿工背包);
         ObserverModuleManager.S.UnRegisterEvent("矿工背包品质筛选", 矿工背包品质筛选);
         ObserverModuleManager.S.UnRegisterEvent("矿工背包宝箱品质筛选", 矿工背包宝箱品质筛选);

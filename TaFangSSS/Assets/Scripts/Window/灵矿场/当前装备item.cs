@@ -20,6 +20,7 @@ public class 当前装备item : MonoBehaviour, IPointerClickHandler
             bg.sprite = ResourcesConfig.灵植背包格子空;
             icon.gameObject.SetActive(false);
             阶数.gameObject.SetActive(false);
+            name.text = 矿工装备.矿工装备Type.ToString();
             return;
         }
 
