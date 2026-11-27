@@ -493,6 +493,8 @@ public class PlayerData : XSingleton<PlayerData>
         { 建筑Type.灵兽坊, 0 },
         { 建筑Type.仙女阁, 0 },
         { 建筑Type.灵植园, 0 },
+        { 建筑Type.赌坊, 0 },
+        { 建筑Type.悟道崖, 0 },
     };
 
     /// <summary>仙女数据：仙子Type→仙女，解锁后好感度等级默认为1</summary>

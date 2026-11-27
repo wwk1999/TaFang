@@ -1614,8 +1614,8 @@ public class 道场Config
     {
         { JingJieType.练气 ,"筑基解锁领主府，聚贤阁"},
         { JingJieType.筑基 ,"金丹解锁坊市"},
-        { JingJieType.金丹 ,"元婴解锁炼丹室"},
-        { JingJieType.元婴 ,"化神解锁灵植园"},
+        { JingJieType.金丹 ,"元婴解锁灵植园"},
+        { JingJieType.元婴 ,"化神解锁炼丹室"},
         { JingJieType.化神 ,"合体解锁灵兽坊"},
         { JingJieType.合体 ,"大乘解锁赌坊"},
         { JingJieType.大乘 ,"天仙解锁双修殿"},
@@ -1628,9 +1628,9 @@ public class 道场Config
         { 建筑Type.聚贤阁, JingJieType.筑基 },
         
         { 建筑Type.坊市, JingJieType.金丹 },
+        { 建筑Type.灵植园, JingJieType.元婴 },
+        { 建筑Type.炼丹室, JingJieType.化神 },
         
-        { 建筑Type.炼丹室, JingJieType.元婴 },
-        { 建筑Type.灵植园, JingJieType.化神 },
         { 建筑Type.灵兽坊, JingJieType.合体 },
         { 建筑Type.赌坊, JingJieType.大乘 },
         { 建筑Type.仙女阁, JingJieType.天仙 },

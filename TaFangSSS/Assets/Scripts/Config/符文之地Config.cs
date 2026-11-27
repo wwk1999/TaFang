@@ -297,15 +297,15 @@ public class 符文之地Config
     {
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.青木林, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e8f, Attack = 5000, Defense = 3000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.青木林, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e9f, Attack = 10000, Defense = 5000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.青木林, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e10f, Attack = 20000, Defense = 10000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         
         
@@ -314,136 +314,140 @@ public class 符文之地Config
 
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.赤炎窟, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e10f, Attack = 10000, Defense = 5000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.赤炎窟, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e11f, Attack = 30000, Defense = 10000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.赤炎窟, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e12f, Attack = 50000, Defense = 20000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.冥府,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
+
 
 
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.黑风谷, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e12f, Attack = 30000, Defense = 10000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.黑风谷, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e13f, Attack = 50000, Defense = 20000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.黑风谷, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e14f, Attack = 100000, Defense = 50000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.瑶池仙境,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
+
         
         
 
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.玄水深渊, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e14f, Attack = 50000, Defense = 30000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.玄水深渊, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e15f, Attack = 100000, Defense = 50000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.玄水深渊, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e16f, Attack = 200000, Defense = 100000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.御马监,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
-        
-        
+
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.紫雷泽, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e16f, Attack = 100000, Defense = 50000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.紫雷泽, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e17f, Attack = 200000, Defense = 100000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.紫雷泽, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e18f, Attack = 400000, Defense = 200000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.兜率宫,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
+
 
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.白骨荒原, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e18f, Attack = 200000, Defense = 100000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.白骨荒原, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e19f, Attack = 400000, Defense = 200000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.白骨荒原, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e20f, Attack = 800000, Defense = 400000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Boss}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
+
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.金戈壁, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e20f, Attack = 400000, Defense = 200000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Normal).Defense, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.金戈壁, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e21f, Attack = 500000, Defense = 400000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Elite).Defense, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.金戈壁, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e22f, Attack = 1000000, Defense = 800000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Boss).Defense, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
-        
+
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e22f, Attack = 8000000, Defense = 400000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Normal).Defense, 物理抗性 = 85, 冰霜抗性 = 85, 火焰抗性 = 85, 黑暗抗性 = 85, 雷电抗性 = 85 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e23f, Attack = 10000000, Defense = 800000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Elite).Defense, 物理抗性 = 85, 冰霜抗性 = 85, 火焰抗性 = 85, 黑暗抗性 = 85, 雷电抗性 = 85 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.幻梦泽, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e24f, Attack = 20000000, Defense = 1600000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Boss).Defense, 物理抗性 = 85, 冰霜抗性 = 85, 火焰抗性 = 85, 黑暗抗性 = 85, 雷电抗性 = 85 }
         },
-        
+
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e26f, Attack = 160000000, Defense = 800000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e27f, Attack = 200000000, Defense = 1600000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.混沌墟, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e28f, Attack = 400000000, Defense = 3200000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(300,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
+
         
         
         
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e32f, Attack = 3200000000, Defense = 1600000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Normal).Defense, 物理抗性 = 95, 冰霜抗性 = 95, 火焰抗性 = 95, 黑暗抗性 = 95, 雷电抗性 = 95 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e33f, Attack = 4000000000, Defense = 3200000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Elite).Defense, 物理抗性 = 95, 冰霜抗性 = 95, 火焰抗性 = 95, 黑暗抗性 = 95, 雷电抗性 = 95 }
         },
         {
             new 符文之地关卡怪物Item() { 符文之地Type = 符文之地Type.天道台, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e34f, Attack = 8000000000, Defense = 6400000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(1000,MonsterType.Boss).Defense, 物理抗性 = 95, 冰霜抗性 = 95, 火焰抗性 = 95, 黑暗抗性 = 95, 雷电抗性 = 95 }
         },
     };
     

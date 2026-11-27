@@ -82,7 +82,7 @@ public class 神物Config
         { 神物Type.暴击爆伤, 60 },
         { 神物Type.二次暴击, 1 },
         { 神物Type.轮回次数加伤, 10 },
-        { 神物Type.轮回系数, 0.5f },
+        { 神物Type.轮回系数, 0.2f },
         { 神物Type.时间流速加快, 30 },
     };
 
@@ -295,55 +295,58 @@ public class 神物Config
     {
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.最终伤害, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 300000, Attack = 1000, Defense = 500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.最终伤害, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3000000, Attack = 1500, Defense = 800, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.最终伤害, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 30000000, Attack = 4000, Defense = 1500, 物理抗性 = 20, 冰霜抗性 = 20, 火焰抗性 = 20, 黑暗抗性 = 20, 雷电抗性 = 20 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.火焰山,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
+        
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.冷却缩减, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3000000, Attack = 2000, Defense = 1000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.冷却缩减, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 30000000, Attack = 3000, Defense = 1500, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.冷却缩减, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 300000000, Attack = 8000, Defense = 3000, 物理抗性 = 30, 冰霜抗性 = 30, 火焰抗性 = 30, 黑暗抗性 = 30, 雷电抗性 = 30 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.芭蕉洞,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
 
+        
+        
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全元素增伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e7f, Attack = 5000, Defense = 2000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全元素增伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e8f, Attack = 10000, Defense = 3000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全元素增伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e9f, Attack = 20000, Defense = 6000, 物理抗性 = 40, 冰霜抗性 = 40, 火焰抗性 = 40, 黑暗抗性 = 40, 雷电抗性 = 40 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.流沙河,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素我为人人, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e8f, Attack = 10000, Defense = 4000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素我为人人, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e9f, Attack = 20000, Defense = 6000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素我为人人, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e10f, Attack = 40000, Defense = 8000, 物理抗性 = 50, 冰霜抗性 = 50, 火焰抗性 = 50, 黑暗抗性 = 50, 雷电抗性 = 50 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.东海龙宫,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         
         
@@ -351,15 +354,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e9f, Attack = 20000, Defense = 8000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e10f, Attack = 40000, Defense = 12000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.元素人人为我, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e11f, Attack = 80000, Defense = 16000, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.南天门,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         
         
@@ -367,15 +370,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全职业增伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e10f, Attack = 40000, Defense = 16000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全职业增伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e11f, Attack = 80000, Defense = 24000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.全职业增伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e12f, Attack = 160000, Defense = 32000, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.斩妖台,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 60, 冰霜抗性 = 60, 火焰抗性 = 60, 黑暗抗性 = 60, 雷电抗性 = 60 }
         },
         
         
@@ -384,15 +387,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业我为人人, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e11f, Attack = 80000, Defense = 32000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业我为人人, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e12f, Attack = 160000, Defense = 48000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业我为人人, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e13f, Attack = 320000, Defense = 64000, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.蟠桃园,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 65, 冰霜抗性 = 65, 火焰抗性 = 65, 黑暗抗性 = 65, 雷电抗性 = 65 }
         },
         
         
@@ -401,15 +404,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业人人为我, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e12f, Attack = 80000, Defense = 64000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Normal}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Normal}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Normal}].Defense, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业人人为我, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e13f, Attack = 160000, Defense = 96000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Defense, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.职业人人为我, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e14f, Attack = 320000, Defense = 128000, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
+            new MonsterAttribute() { Hp = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Elite}].Hp, Attack = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Boss}].Attack, Defense = MonsterConfig.主线关卡怪物属性Dic[new 主线关卡怪物Item(){主线关卡Type = 主线关卡Type.昊天殿,MonsterType = MonsterType.Boss}].Defense, 物理抗性 = 70, 冰霜抗性 = 70, 火焰抗性 = 70, 黑暗抗性 = 70, 雷电抗性 = 70 }
         },
         
         
@@ -417,15 +420,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.暴击爆伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e13f, Attack = 160000, Defense = 100000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Normal).Defense, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.暴击爆伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e14f, Attack = 300000, Defense = 200000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Elite).Defense, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.暴击爆伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e15f, Attack = 600000, Defense = 400000, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(20,MonsterType.Boss).Defense, 物理抗性 = 75, 冰霜抗性 = 75, 火焰抗性 = 75, 黑暗抗性 = 75, 雷电抗性 = 75 }
         },
         
         
@@ -434,15 +437,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.二次暴击, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e14f, Attack = 400000, Defense = 200000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Normal).Defense, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.二次暴击, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e15f, Attack = 600000, Defense = 400000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Elite).Defense, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.二次暴击, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e16f, Attack = 800000, Defense = 800000, 物理抗性 = 83, 冰霜抗性 = 83, 火焰抗性 = 83, 黑暗抗性 = 83, 雷电抗性 = 83 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(50,MonsterType.Boss).Defense, 物理抗性 = 80, 冰霜抗性 = 80, 火焰抗性 = 80, 黑暗抗性 = 80, 雷电抗性 = 80 }
         },
 
         
@@ -452,15 +455,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回次数加伤, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e15f, Attack = 800000, Defense = 400000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Normal).Defense, 物理抗性 = 85, 冰霜抗性 = 85, 火焰抗性 = 85, 黑暗抗性 = 85, 雷电抗性 = 85 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回次数加伤, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e16f, Attack = 1200000, Defense = 800000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Elite).Defense, 物理抗性 = 85, 冰霜抗性 = 85, 火焰抗性 = 85, 黑暗抗性 = 85, 雷电抗性 = 85 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回次数加伤, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e17f, Attack = 1600000, Defense = 1600000, 物理抗性 = 86, 冰霜抗性 = 86, 火焰抗性 = 86, 黑暗抗性 = 86, 雷电抗性 = 86 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(100,MonsterType.Boss).Defense, 物理抗性 = 85, 冰霜抗性 = 85, 火焰抗性 = 85, 黑暗抗性 = 85, 雷电抗性 = 85 }
         },
         
         
@@ -469,15 +472,15 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回系数, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e16f, Attack = 1600000, Defense = 800000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Normal).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回系数, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e17f, Attack = 2000000, Defense = 1600000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Elite).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.轮回系数, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e18f, Attack = 4000000, Defense = 3200000, 物理抗性 = 89, 冰霜抗性 = 89, 火焰抗性 = 89, 黑暗抗性 = 89, 雷电抗性 = 89 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(200,MonsterType.Boss).Defense, 物理抗性 = 90, 冰霜抗性 = 90, 火焰抗性 = 90, 黑暗抗性 = 90, 雷电抗性 = 90 }
         },
         
         
@@ -485,16 +488,17 @@ public class 神物Config
 
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.时间流速加快, MonsterType = MonsterType.Normal },
-            new MonsterAttribute() { Hp = 3e17f, Attack = 3200000, Defense = 1600000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Normal).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Normal).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Normal).Defense, 物理抗性 = 95, 冰霜抗性 = 95, 火焰抗性 = 95, 黑暗抗性 = 95, 雷电抗性 = 95 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.时间流速加快, MonsterType = MonsterType.Elite },
-            new MonsterAttribute() { Hp = 3e18f, Attack = 4000000, Defense = 3200000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Elite).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Elite).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Elite).Defense, 物理抗性 = 95, 冰霜抗性 = 95, 火焰抗性 = 95, 黑暗抗性 = 95, 雷电抗性 = 95 }
         },
         {
             new 遗迹关卡怪物Item() { 神物Type = 神物Type.时间流速加快, MonsterType = MonsterType.Boss },
-            new MonsterAttribute() { Hp = 3e19f, Attack = 8000000, Defense = 6400000, 物理抗性 = 92, 冰霜抗性 = 92, 火焰抗性 = 92, 黑暗抗性 = 92, 雷电抗性 = 92 }
+            new MonsterAttribute() { Hp = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Boss).Hp, Attack = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Boss).Attack, Defense = MonsterConfig.Get三十三重天怪物属性(400,MonsterType.Boss).Defense, 物理抗性 = 95, 冰霜抗性 = 95, 火焰抗性 = 95, 黑暗抗性 = 95, 雷电抗性 = 95 }
         },
+        
     };
 
 }

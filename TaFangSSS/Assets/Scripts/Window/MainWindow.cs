@@ -48,6 +48,8 @@ public class MainWindow : MonoBehaviour
     public Button 返回战斗按钮;
     public Button 洪荒世界按钮;
     public Button 返回道场按钮;
+    public Button 诸天战场按钮;
+    public Button 内世界按钮;
     public GameObject 道场;
     public GameObject 地图;
     private bool 显示道场=false;
@@ -463,6 +465,8 @@ public class MainWindow : MonoBehaviour
     {
         洪荒世界按钮.image.alphaHitTestMinimumThreshold = 0.1f;
         返回道场按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        内世界按钮.image.alphaHitTestMinimumThreshold = 0.1f;
+        诸天战场按钮.image.alphaHitTestMinimumThreshold = 0.1f;
         洞天秘境按钮.image.alphaHitTestMinimumThreshold = 0.1f;
         通天塔.image.alphaHitTestMinimumThreshold = 0.1f;
         世界树.image.alphaHitTestMinimumThreshold = 0.1f;
@@ -538,6 +542,14 @@ public class MainWindow : MonoBehaviour
             }
             显示道场 = true;
             Show道场和地图();
+        });
+        内世界按钮.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","证道后解锁");
+        });
+        诸天战场按钮.onClick.AddListener(() =>
+        {
+            ObserverModuleManager.S.SendEvent("SendUIToast","证道后解锁");
         });
         导出存档Button.onClick.AddListener(() =>
         {

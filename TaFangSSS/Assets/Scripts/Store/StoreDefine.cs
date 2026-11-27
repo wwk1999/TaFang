@@ -880,6 +880,8 @@ public Dictionary<仙石Type, bool> 坊市自动购买仙石配置 = new Diction
         { 建筑Type.灵兽坊, 0 },
         { 建筑Type.仙女阁, 0 },
         { 建筑Type.灵植园, 0 },
+        { 建筑Type.赌坊, 0 },
+        { 建筑Type.悟道崖, 0 },
     };
 
         public Dictionary<仙子Type, 仙女> 仙女Dic = 阴阳殿Config.创建默认仙女Dic();

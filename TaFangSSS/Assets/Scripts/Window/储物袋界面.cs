@@ -457,7 +457,7 @@ public class 储物袋界面 : MonoBehaviour
          }
          if (PlayerData.S.当前轮回境界 >= JingJieType.金仙)
          {
-            ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版,欢迎在群里反馈问题,别忘了加愿望单哦");
+            ObserverModuleManager.S.SendEvent("SendUIToast","感谢您的试玩,敬请期待正式版,欢迎反馈问题,别忘了加愿望单哦");
             return;
          }
          if (PlayerData.S.Exp < JingJieConfig.升级需要年数Dic[PlayerData.S.当前轮回境界] * 200)
