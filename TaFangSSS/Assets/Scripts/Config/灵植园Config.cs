@@ -124,48 +124,6 @@ public class 灵植效果
 public class 灵植园Config
 {
     public static float 变异倍数 = 10;
-    public static Dictionary<灵植Type, 灵植效果> 灵植效果 = new Dictionary<灵植Type, 灵植效果>()
-    {
-        { 灵植Type.紫云英, new 灵植效果(){战士伤害=1} },
-        { 灵植Type.曜日葵, new 灵植效果(){射手伤害=1} },
-        { 灵植Type.幻音铃, new 灵植效果(){控制伤害=1} },
-        { 灵植Type.幻紫玫, new 灵植效果(){法师伤害=1} },
-        
-        { 灵植Type.九幽紫, new 灵植效果(){黑暗伤害=2} },
-        { 灵植Type.赤焰百合, new 灵植效果(){火焰伤害=2} },
-        { 灵植Type.碧海螺, new 灵植效果(){雷电伤害=2} },
-        { 灵植Type.粉面佛莲, new 灵植效果(){物理伤害=2}},
-        { 灵植Type.紫幽草, new 灵植效果(){冰霜伤害=2} },
-        
-        { 灵植Type.三生花, new 灵植效果(){最终伤害= 3} },
-        { 灵植Type.向阳花, new 灵植效果(){暴击伤害= 3} },
-        { 灵植Type.白玉玲, new 灵植效果(){暴击率= 1} },
-        { 灵植Type.赤阳花, new 灵植效果(){城墙生命值= 5} },
-        { 灵植Type.寒星兰, new 灵植效果(){城墙防御= 5} },
-        
-        { 灵植Type.赤霞花, new 灵植效果(){战士伤害=10} },
-        { 灵植Type.惊雷子, new 灵植效果(){法师伤害=10} },
-        { 灵植Type.幽兰铃, new 灵植效果(){射手伤害=10} },
-        { 灵植Type.空谷幽兰, new 灵植效果(){控制伤害=10} },
-        
-        { 灵植Type.醉仙球, new 灵植效果(){黑暗伤害=20} },
-        { 灵植Type.醉仙菌, new 灵植效果(){火焰伤害=20} },
-        { 灵植Type.太素花, new 灵植效果(){物理伤害=20} },
-        { 灵植Type.灵犀铃, new 灵植效果(){冰霜伤害=20} },
-        { 灵植Type.血菩提, new 灵植效果(){雷电伤害=20} },
-        
-        { 灵植Type.紫晶铃, new 灵植效果(){职业伤害=50} },
-        { 灵植Type.招财草, new 灵植效果(){元素伤害=50} },
-        { 灵植Type.粉霞仙,new 灵植效果(){灵气增幅= 1} },
-        { 灵植Type.黄龙掌, new 灵植效果(){功德增幅= 1} },
-        { 灵植Type.玄冰魄, new 灵植效果(){修炼速度= 10} },
-        
-        { 灵植Type.修罗花, new 灵植效果(){跟脚= 10} },
-        { 灵植Type.金乌葵, new 灵植效果(){掉宝率= 1} },
-        { 灵植Type.幻樱木, new 灵植效果(){时间流速= 1}},
-        
-        { 灵植Type.白玉莲, new 灵植效果(){真灵= 10}},
-    };
     
     /// <summary>每种灵植（普通/变异各自独立）最多可服用次数</summary>
     public const int 最大服用次数 = 100;
@@ -239,10 +197,10 @@ public class 灵植园Config
 
     public static Dictionary<土地Type, float> 土地升级消耗 = new Dictionary<土地Type, float>()
     {
-        { 土地Type.普通土地 ,100},
-        { 土地Type.黑土地 ,1000},
-        { 土地Type.紫土地 ,10000},
-        { 土地Type.金土地 ,100000},
+        { 土地Type.普通土地 ,1000},
+        { 土地Type.黑土地 ,50000},
+        { 土地Type.紫土地 ,10000000},
+        { 土地Type.金土地 ,1000000000},
     };
     
     public static Dictionary<QualityType, float> 延时肥料数值 = new Dictionary<QualityType, float>()
@@ -305,33 +263,31 @@ public class 灵植园Config
         { 灵植Type.赤焰百合, QualityType.玄品 },
         { 灵植Type.碧海螺, QualityType.玄品 },
         { 灵植Type.粉面佛莲, QualityType.玄品 },
-
-        // 地品（4个）
         { 灵植Type.紫幽草, QualityType.玄品 },
+        
+        
         { 灵植Type.三生花, QualityType.地品 },
         { 灵植Type.向阳花, QualityType.地品 },
         { 灵植Type.白玉玲, QualityType.地品 },
-
-        // 天品（4个）
         { 灵植Type.赤阳花, QualityType.地品 },
         { 灵植Type.寒星兰, QualityType.地品 },
+        
+        
         { 灵植Type.赤霞花, QualityType.天品 },
         { 灵植Type.惊雷子, QualityType.天品 },
-
-        // 宇品（4个）
         { 灵植Type.幽兰铃, QualityType.天品 },
         { 灵植Type.空谷幽兰, QualityType.天品 },
+        
+        
         { 灵植Type.醉仙球, QualityType.宇品 },
         { 灵植Type.醉仙菌, QualityType.宇品 },
-
-        // 宙品（4个）
         { 灵植Type.太素花, QualityType.宇品 },
         { 灵植Type.灵犀铃, QualityType.宇品 },
         { 灵植Type.血菩提, QualityType.宇品 },
         
+        
+        
         { 灵植Type.紫晶铃, QualityType.宙品 },
-
-        // 洪品（4个）
         { 灵植Type.招财草, QualityType.宙品 },
         { 灵植Type.粉霞仙, QualityType.宙品 },
         { 灵植Type.黄龙掌, QualityType.宙品 },
@@ -341,6 +297,8 @@ public class 灵植园Config
         { 灵植Type.修罗花, QualityType.洪品 },
         { 灵植Type.金乌葵, QualityType.洪品 },
         { 灵植Type.幻樱木, QualityType.洪品 },
+        
+        
         
         { 灵植Type.白玉莲, QualityType.荒品 },
     };
@@ -352,41 +310,316 @@ public class 灵植园Config
         { 灵植Type.曜日葵, 10 },
         { 灵植Type.幻音铃, 10 },
         { 灵植Type.幻紫玫, 10 },
+        
+        { 灵植Type.九幽紫, 30 },
+        { 灵植Type.赤焰百合, 40 },
+        { 灵植Type.碧海螺, 50 },
+        { 灵植Type.粉面佛莲, 60 },
+        { 灵植Type.紫幽草, 80 },
+        
+        
+        { 灵植Type.三生花, 200 },
+        { 灵植Type.向阳花, 250 },
+        { 灵植Type.白玉玲, 300 },
+        { 灵植Type.赤阳花, 350 },
+        { 灵植Type.寒星兰, 400 },
+        
+        
+        { 灵植Type.赤霞花, 1000 },
+        { 灵植Type.惊雷子, 1500 },
+        { 灵植Type.幽兰铃, 2000 },
+        { 灵植Type.空谷幽兰, 2500 },
+        
+        
+        { 灵植Type.醉仙球, 6000 },
+        { 灵植Type.醉仙菌, 7000 },
+        { 灵植Type.太素花, 8000 },
+        { 灵植Type.灵犀铃, 9000 },
+        { 灵植Type.血菩提, 10000 },
+        
+        
+        { 灵植Type.紫晶铃, 30000 },
+        { 灵植Type.招财草, 40000 },
+        { 灵植Type.粉霞仙, 50000 },
+        { 灵植Type.黄龙掌, 60000 },
+        { 灵植Type.玄冰魄, 80000 },
 
-        { 灵植Type.九幽紫, 15 },
-        { 灵植Type.赤焰百合, 15 },
-        { 灵植Type.碧海螺, 15 },
-        { 灵植Type.粉面佛莲, 15 },
+        
+        { 灵植Type.修罗花, 200000 },
+        { 灵植Type.金乌葵, 250000 },
+        { 灵植Type.幻樱木, 300000 },
+        
+        
+        { 灵植Type.白玉莲, 1000000 },
+    };
+    
+    
+    public static Dictionary<灵植Type, 灵植效果> 灵植效果 = new Dictionary<灵植Type, 灵植效果>()
+    {
+        { 灵植Type.紫云英, new 灵植效果(){战士伤害=2} },
+        { 灵植Type.曜日葵, new 灵植效果(){射手伤害=2} },
+        { 灵植Type.幻音铃, new 灵植效果(){控制伤害=2} },
+        { 灵植Type.幻紫玫, new 灵植效果(){法师伤害=2} },
+        
+        { 灵植Type.九幽紫, new 灵植效果(){黑暗伤害=5} },
+        { 灵植Type.赤焰百合, new 灵植效果(){火焰伤害=5} },
+        { 灵植Type.碧海螺, new 灵植效果(){雷电伤害=5} },
+        { 灵植Type.粉面佛莲, new 灵植效果(){物理伤害=5}},
+        { 灵植Type.紫幽草, new 灵植效果(){冰霜伤害=5} },
+        
+        { 灵植Type.三生花, new 灵植效果(){最终伤害= 10} },
+        { 灵植Type.向阳花, new 灵植效果(){暴击伤害= 10} },
+        { 灵植Type.白玉玲, new 灵植效果(){暴击率= 2} },
+        { 灵植Type.赤阳花, new 灵植效果(){城墙生命值= 15} },
+        { 灵植Type.寒星兰, new 灵植效果(){城墙防御= 15} },
+        
+        { 灵植Type.赤霞花, new 灵植效果(){战士伤害=50} },
+        { 灵植Type.惊雷子, new 灵植效果(){法师伤害=50} },
+        { 灵植Type.幽兰铃, new 灵植效果(){射手伤害=50} },
+        { 灵植Type.空谷幽兰, new 灵植效果(){控制伤害=50} },
+        
+        { 灵植Type.醉仙球, new 灵植效果(){黑暗伤害=200} },
+        { 灵植Type.醉仙菌, new 灵植效果(){火焰伤害=200} },
+        { 灵植Type.太素花, new 灵植效果(){物理伤害=200} },
+        { 灵植Type.灵犀铃, new 灵植效果(){冰霜伤害=200} },
+        { 灵植Type.血菩提, new 灵植效果(){雷电伤害=200} },
+        
+        { 灵植Type.紫晶铃, new 灵植效果(){职业伤害=500} },
+        { 灵植Type.招财草, new 灵植效果(){元素伤害=500} },
+        { 灵植Type.粉霞仙,new 灵植效果(){灵气增幅= 10} },
+        { 灵植Type.黄龙掌, new 灵植效果(){功德增幅= 10} },
+        { 灵植Type.玄冰魄, new 灵植效果(){修炼速度= 100} },
+        
+        { 灵植Type.修罗花, new 灵植效果(){跟脚= 100} },
+        { 灵植Type.金乌葵, new 灵植效果(){掉宝率= 3} },
+        { 灵植Type.幻樱木, new 灵植效果(){时间流速= 3}},
+        
+        { 灵植Type.白玉莲, new 灵植效果(){真灵= 20}},
+    };
+    
+    public static Dictionary<灵植Type, float> 灵植成熟时间Dic = new Dictionary<灵植Type, float>()
+    {
+        { 灵植Type.紫云英, 2 },
+        { 灵植Type.曜日葵, 2.5f },
+        { 灵植Type.幻音铃, 3f },
+        { 灵植Type.幻紫玫, 3.5f },
+        
+        { 灵植Type.九幽紫, 6f },
+        { 灵植Type.赤焰百合, 7f },
+        { 灵植Type.碧海螺, 8f },
+        { 灵植Type.粉面佛莲, 9f },
+        { 灵植Type.紫幽草, 10f },
+        
+        { 灵植Type.三生花, 20f },
+        { 灵植Type.向阳花, 22f },
+        { 灵植Type.白玉玲, 24f },
+        { 灵植Type.赤阳花, 26f },
+        { 灵植Type.寒星兰, 28f },
+        
+        { 灵植Type.赤霞花, 60f },
+        { 灵植Type.惊雷子, 70f },
+        { 灵植Type.幽兰铃, 80f },
+        { 灵植Type.空谷幽兰, 90f },
+        
+        { 灵植Type.醉仙球, 200f },
+        { 灵植Type.醉仙菌, 240f },
+        { 灵植Type.太素花, 280f },
+        { 灵植Type.灵犀铃, 320f },
+        { 灵植Type.血菩提, 360f },
+        
+        { 灵植Type.紫晶铃, 700f },
+        { 灵植Type.招财草, 800f },
+        { 灵植Type.粉霞仙, 900f },
+        { 灵植Type.黄龙掌, 1000f },
+        { 灵植Type.玄冰魄, 1100f },
+        
+        { 灵植Type.修罗花, 2500f },
+        { 灵植Type.金乌葵, 3000f },
+        { 灵植Type.幻樱木, 3500f },
+        
+        { 灵植Type.白玉莲, 10000f },
+    };
+    
+    public static Dictionary<灵植Type, float> 灵植收获青石Dic = new Dictionary<灵植Type, float>()
+    {
+        { 灵植Type.紫云英, 20 },
+        { 灵植Type.曜日葵, 25 },
+        { 灵植Type.幻音铃, 30 },
+        { 灵植Type.幻紫玫, 40 },
+        
+        { 灵植Type.九幽紫, 100 },
+        { 灵植Type.赤焰百合, 140 },
+        { 灵植Type.碧海螺, 180 },
+        { 灵植Type.粉面佛莲, 220 },
+        { 灵植Type.紫幽草, 260 },
+        
+        { 灵植Type.三生花, 600 },
+        { 灵植Type.向阳花, 700 },
+        { 灵植Type.白玉玲, 800 },
+        { 灵植Type.赤阳花, 900 },
+        { 灵植Type.寒星兰, 1000 },
+        
+        { 灵植Type.赤霞花, 2500 },
+        { 灵植Type.惊雷子, 3000 },
+        { 灵植Type.幽兰铃, 3500 },
+        { 灵植Type.空谷幽兰, 4000 },
+        
+        { 灵植Type.醉仙球, 10000 },
+        { 灵植Type.醉仙菌, 12000 },
+        { 灵植Type.太素花, 14000 },
+        { 灵植Type.灵犀铃, 16000 },
+        { 灵植Type.血菩提, 18000 },
+        
+        { 灵植Type.紫晶铃, 40000 },
+        { 灵植Type.招财草, 50000 },
+        { 灵植Type.粉霞仙, 60000 },
+        { 灵植Type.黄龙掌, 70000 },
+        { 灵植Type.玄冰魄, 80000 },
+        
+        { 灵植Type.修罗花, 200000 },
+        { 灵植Type.金乌葵, 300000 },
+        { 灵植Type.幻樱木, 400000 },
+        
+        { 灵植Type.白玉莲, 1000000 },
+    };
 
-        { 灵植Type.紫幽草, 20 },
-        { 灵植Type.三生花, 20 },
-        { 灵植Type.向阳花, 20 },
-        { 灵植Type.白玉玲, 20 },
+    public static float Get肥料价格(肥料Type type, QualityType qualityType)
+    {
+        switch (type)
+        {
+            case 肥料Type.提速:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 10;
+                    case QualityType.玄品:
+                        return 50;
+                    case QualityType.地品:
+                        return 300;
+                    case QualityType.天品:
+                        return 1250;
+                    case QualityType.宇品:
+                        return 5000;
+                    case QualityType.宙品:
+                        return 20000;
+                    case QualityType.洪品:
+                        return 100000;
+                    case QualityType.荒品:
+                        return 300000;
+                }
+                break;
+            
+            case 肥料Type.增产:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 10;
+                    case QualityType.玄品:
+                        return 50;
+                    case QualityType.地品:
+                        return 300;
+                    case QualityType.天品:
+                        return 1250;
+                    case QualityType.宇品:
+                        return 5000;
+                    case QualityType.宙品:
+                        return 20000;
+                    case QualityType.洪品:
+                        return 100000;
+                    case QualityType.荒品:
+                        return 300000;
+                }
+                break;
+            
+            case 肥料Type.延时:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 5;
+                    case QualityType.玄品:
+                        return 10;
+                    case QualityType.地品:
+                        return 20;
+                    case QualityType.天品:
+                        return 40;
+                    case QualityType.宇品:
+                        return 80;
+                    case QualityType.宙品:
+                        return 150;
+                    case QualityType.洪品:
+                        return 300;
+                    case QualityType.荒品:
+                        return 600;
+                }
+                break;
+            
+            case 肥料Type.异化:
+                switch (qualityType)
+                {
+                    case QualityType.黄品:
+                        return 30;
+                    case QualityType.玄品:
+                        return 200;
+                    case QualityType.地品:
+                        return 1000;
+                    case QualityType.天品:
+                        return 3000;
+                    case QualityType.宇品:
+                        return 12000;
+                    case QualityType.宙品:
+                        return 50000;
+                    case QualityType.洪品:
+                        return 300000;
+                    case QualityType.荒品:
+                        return 1000000;
+                }
+                break;
+        }
 
-        { 灵植Type.赤阳花, 30 },
-        { 灵植Type.寒星兰, 30 },
-        { 灵植Type.赤霞花, 30 },
-        { 灵植Type.惊雷子, 30 },
-
-        { 灵植Type.幽兰铃, 40 },
-        { 灵植Type.空谷幽兰, 40 },
-        { 灵植Type.醉仙球, 40 },
-        { 灵植Type.醉仙菌, 40 },
-
-        { 灵植Type.太素花, 60 },
-        { 灵植Type.灵犀铃, 60 },
-        { 灵植Type.血菩提, 60 },
-        { 灵植Type.紫晶铃, 60 },
-
-        { 灵植Type.招财草, 80 },
-        { 灵植Type.粉霞仙, 80 },
-        { 灵植Type.黄龙掌, 80 },
-        { 灵植Type.玄冰魄, 80 },
-
-        { 灵植Type.修罗花, 120 },
-        { 灵植Type.金乌葵, 120 },
-        { 灵植Type.幻樱木, 120 },
-        { 灵植Type.白玉莲, 120 },
+        return 0;
+    }
+    
+    public static Dictionary<灵植Type, float> 灵植价格Dic = new Dictionary<灵植Type, float>()
+    {
+        { 灵植Type.紫云英, 5 },
+        { 灵植Type.曜日葵, 10 },
+        { 灵植Type.幻音铃, 15 },
+        { 灵植Type.幻紫玫, 20 },
+        
+        { 灵植Type.九幽紫, 25 },
+        { 灵植Type.赤焰百合, 30 },
+        { 灵植Type.碧海螺, 35 },
+        { 灵植Type.粉面佛莲, 40 },
+        { 灵植Type.紫幽草, 50 },
+        
+        { 灵植Type.三生花, 150 },
+        { 灵植Type.向阳花, 200 },
+        { 灵植Type.白玉玲, 250 },
+        { 灵植Type.赤阳花, 300 },
+        { 灵植Type.寒星兰, 350 },
+        
+        { 灵植Type.赤霞花, 600 },
+        { 灵植Type.惊雷子, 700 },
+        { 灵植Type.幽兰铃, 800 },
+        { 灵植Type.空谷幽兰, 900 },
+        
+        { 灵植Type.醉仙球, 2500 },
+        { 灵植Type.醉仙菌, 3000 },
+        { 灵植Type.太素花, 3500 },
+        { 灵植Type.灵犀铃, 4000 },
+        { 灵植Type.血菩提, 4500 },
+        
+        { 灵植Type.紫晶铃, 10000 },
+        { 灵植Type.招财草, 12000 },
+        { 灵植Type.粉霞仙, 14000 },
+        { 灵植Type.黄龙掌, 18000 },
+        { 灵植Type.玄冰魄, 20000 },
+        
+        { 灵植Type.修罗花, 50000 },
+        { 灵植Type.金乌葵, 60000 },
+        { 灵植Type.幻樱木, 70000 },
+        
+        { 灵植Type.白玉莲, 250000 },
     };
 
     public static Dictionary<灵植Type, int> 灵植解锁等级Dic = new Dictionary<灵植Type, int>()
@@ -400,27 +633,26 @@ public class 灵植园Config
         { 灵植Type.赤焰百合, 16 },
         { 灵植Type.碧海螺, 19 },
         { 灵植Type.粉面佛莲, 22 },
-        
         { 灵植Type.紫幽草, 25 },
+        
         { 灵植Type.三生花, 28 },
         { 灵植Type.向阳花, 31 },
         { 灵植Type.白玉玲, 34 },
-        
         { 灵植Type.赤阳花, 37 },
         { 灵植Type.寒星兰, 40 },
+        
         { 灵植Type.赤霞花, 43 },
         { 灵植Type.惊雷子, 46 },
-        
         { 灵植Type.幽兰铃, 49 },
         { 灵植Type.空谷幽兰, 52 },
+        
         { 灵植Type.醉仙球, 55 },
         { 灵植Type.醉仙菌, 58 },
-        
         { 灵植Type.太素花, 61 },
         { 灵植Type.灵犀铃, 64 },
         { 灵植Type.血菩提, 67 },
-        { 灵植Type.紫晶铃, 70 },
         
+        { 灵植Type.紫晶铃, 70 },
         { 灵植Type.招财草, 73 },
         { 灵植Type.粉霞仙, 76 },
         { 灵植Type.黄龙掌, 79 },
@@ -429,277 +661,11 @@ public class 灵植园Config
         { 灵植Type.修罗花, 85 },
         { 灵植Type.金乌葵, 90 },
         { 灵植Type.幻樱木, 95 },
+        
         { 灵植Type.白玉莲, 100 },
     };
-
-    public static Dictionary<灵植Type, float> 灵植好感度Dic = new Dictionary<灵植Type, float>()
-    {
-        { 灵植Type.紫云英, 10 },
-        { 灵植Type.曜日葵, 12f },
-        { 灵植Type.幻音铃, 15f },
-        { 灵植Type.幻紫玫, 20f },
-        
-        { 灵植Type.九幽紫, 30f },
-        { 灵植Type.赤焰百合, 40f },
-        { 灵植Type.碧海螺, 50f },
-        { 灵植Type.粉面佛莲, 60f },
-        { 灵植Type.紫幽草, 60f },
-        
-        { 灵植Type.三生花, 80f },
-        { 灵植Type.向阳花, 100f },
-        { 灵植Type.白玉玲, 120f },
-        { 灵植Type.赤阳花, 150f },
-        { 灵植Type.寒星兰, 130f },
-        
-        { 灵植Type.赤霞花, 170f },
-        { 灵植Type.惊雷子, 200f },
-        { 灵植Type.幽兰铃, 250f },
-        { 灵植Type.空谷幽兰, 300f },
-        
-        { 灵植Type.醉仙球, 350f },
-        { 灵植Type.醉仙菌, 400f },
-        { 灵植Type.太素花, 500f },
-        { 灵植Type.灵犀铃, 600f },
-        { 灵植Type.血菩提, 700f },
-        
-        { 灵植Type.紫晶铃, 800f },
-        { 灵植Type.招财草, 800f },
-        { 灵植Type.粉霞仙, 1000f },
-        { 灵植Type.黄龙掌, 1200f },
-        { 灵植Type.玄冰魄, 1400f },
-        
-        { 灵植Type.修罗花, 1500f },
-        { 灵植Type.金乌葵, 2000f },
-        { 灵植Type.幻樱木, 2500f },
-        
-        { 灵植Type.白玉莲, 5000f },
-    };
     
-    public static Dictionary<灵植Type, float> 灵植成熟时间Dic = new Dictionary<灵植Type, float>()
-    {
-        { 灵植Type.紫云英, 1 },
-        { 灵植Type.曜日葵, 1.2f },
-        { 灵植Type.幻音铃, 1.5f },
-        { 灵植Type.幻紫玫, 2f },
-        
-        { 灵植Type.九幽紫, 3f },
-        { 灵植Type.赤焰百合, 4f },
-        { 灵植Type.碧海螺, 5f },
-        { 灵植Type.粉面佛莲, 6f },
-        { 灵植Type.紫幽草, 6f },
-        
-        { 灵植Type.三生花, 8f },
-        { 灵植Type.向阳花, 10f },
-        { 灵植Type.白玉玲, 12f },
-        { 灵植Type.赤阳花, 15f },
-        { 灵植Type.寒星兰, 13f },
-        
-        { 灵植Type.赤霞花, 17f },
-        { 灵植Type.惊雷子, 20f },
-        { 灵植Type.幽兰铃, 25f },
-        { 灵植Type.空谷幽兰, 30f },
-        
-        { 灵植Type.醉仙球, 35f },
-        { 灵植Type.醉仙菌, 40f },
-        { 灵植Type.太素花, 50f },
-        { 灵植Type.灵犀铃, 60f },
-        { 灵植Type.血菩提, 70f },
-        
-        { 灵植Type.紫晶铃, 80f },
-        { 灵植Type.招财草, 80f },
-        { 灵植Type.粉霞仙, 100f },
-        { 灵植Type.黄龙掌, 120f },
-        { 灵植Type.玄冰魄, 140f },
-        
-        { 灵植Type.修罗花, 150f },
-        { 灵植Type.金乌葵, 200f },
-        { 灵植Type.幻樱木, 250f },
-        
-        { 灵植Type.白玉莲, 500f },
-    };
     
-    public static Dictionary<灵植Type, float> 灵植收获青石Dic = new Dictionary<灵植Type, float>()
-    {
-        { 灵植Type.紫云英, 20 },
-        { 灵植Type.曜日葵, 25 },
-        { 灵植Type.幻音铃, 30 },
-        { 灵植Type.幻紫玫, 40 },
-        
-        { 灵植Type.九幽紫, 50 },
-        { 灵植Type.赤焰百合, 60 },
-        { 灵植Type.碧海螺, 70 },
-        { 灵植Type.粉面佛莲, 80 },
-        
-        { 灵植Type.紫幽草, 100 },
-        { 灵植Type.三生花, 120 },
-        { 灵植Type.向阳花, 140 },
-        { 灵植Type.白玉玲, 160 },
-        
-        { 灵植Type.赤阳花, 200 },
-        { 灵植Type.寒星兰, 230 },
-        { 灵植Type.赤霞花, 260 },
-        { 灵植Type.惊雷子, 300 },
-        
-        { 灵植Type.幽兰铃, 350 },
-        { 灵植Type.空谷幽兰, 400 },
-        { 灵植Type.醉仙球, 450 },
-        { 灵植Type.醉仙菌, 500 },
-        
-        { 灵植Type.太素花, 600 },
-        { 灵植Type.灵犀铃, 700 },
-        { 灵植Type.血菩提, 800 },
-        { 灵植Type.紫晶铃, 900 },
-        
-        { 灵植Type.招财草, 1000 },
-        { 灵植Type.粉霞仙, 1300 },
-        { 灵植Type.黄龙掌, 1600 },
-        { 灵植Type.玄冰魄, 1900 },
-        
-        { 灵植Type.修罗花, 2500 },
-        { 灵植Type.金乌葵, 3000 },
-        { 灵植Type.幻樱木, 3500 },
-        { 灵植Type.白玉莲, 6000 },
-    };
-
-    public static float Get肥料价格(肥料Type type, QualityType qualityType)
-    {
-        switch (type)
-        {
-            case 肥料Type.提速:
-                switch (qualityType)
-                {
-                    case QualityType.黄品:
-                        return 5;
-                    case QualityType.玄品:
-                        return 10;
-                    case QualityType.地品:
-                        return 20;
-                    case QualityType.天品:
-                        return 40;
-                    case QualityType.宇品:
-                        return 80;
-                    case QualityType.宙品:
-                        return 150;
-                    case QualityType.洪品:
-                        return 300;
-                    case QualityType.荒品:
-                        return 600;
-                }
-                break;
-            
-            case 肥料Type.增产:
-                switch (qualityType)
-                {
-                    case QualityType.黄品:
-                        return 5;
-                    case QualityType.玄品:
-                        return 10;
-                    case QualityType.地品:
-                        return 20;
-                    case QualityType.天品:
-                        return 40;
-                    case QualityType.宇品:
-                        return 80;
-                    case QualityType.宙品:
-                        return 150;
-                    case QualityType.洪品:
-                        return 300;
-                    case QualityType.荒品:
-                        return 600;
-                }
-                break;
-            
-            case 肥料Type.延时:
-                switch (qualityType)
-                {
-                    case QualityType.黄品:
-                        return 2;
-                    case QualityType.玄品:
-                        return 5;
-                    case QualityType.地品:
-                        return 10;
-                    case QualityType.天品:
-                        return 15;
-                    case QualityType.宇品:
-                        return 20;
-                    case QualityType.宙品:
-                        return 30;
-                    case QualityType.洪品:
-                        return 40;
-                    case QualityType.荒品:
-                        return 50;
-                }
-                break;
-            
-            case 肥料Type.异化:
-                switch (qualityType)
-                {
-                    case QualityType.黄品:
-                        return 10;
-                    case QualityType.玄品:
-                        return 20;
-                    case QualityType.地品:
-                        return 40;
-                    case QualityType.天品:
-                        return 80;
-                    case QualityType.宇品:
-                        return 150;
-                    case QualityType.宙品:
-                        return 300;
-                    case QualityType.洪品:
-                        return 600;
-                    case QualityType.荒品:
-                        return 1000;
-                }
-                break;
-        }
-
-        return 0;
-    }
-    
-    public static Dictionary<灵植Type, float> 灵植价格Dic = new Dictionary<灵植Type, float>()
-    {
-        { 灵植Type.紫云英, 10 },
-        { 灵植Type.曜日葵, 12 },
-        { 灵植Type.幻音铃, 15 },
-        { 灵植Type.幻紫玫, 20 },
-        
-        { 灵植Type.九幽紫, 25 },
-        { 灵植Type.赤焰百合, 30 },
-        { 灵植Type.碧海螺, 35 },
-        { 灵植Type.粉面佛莲, 40 },
-        
-        { 灵植Type.紫幽草, 50 },
-        { 灵植Type.三生花, 60 },
-        { 灵植Type.向阳花, 70 },
-        { 灵植Type.白玉玲, 80 },
-        
-        { 灵植Type.赤阳花, 100 },
-        { 灵植Type.寒星兰, 115 },
-        { 灵植Type.赤霞花, 130 },
-        { 灵植Type.惊雷子, 150 },
-        
-        { 灵植Type.幽兰铃, 175 },
-        { 灵植Type.空谷幽兰, 200 },
-        { 灵植Type.醉仙球, 225 },
-        { 灵植Type.醉仙菌, 250 },
-        
-        { 灵植Type.太素花, 300 },
-        { 灵植Type.灵犀铃, 350 },
-        { 灵植Type.血菩提, 400 },
-        { 灵植Type.紫晶铃, 450 },
-        
-        { 灵植Type.招财草, 500 },
-        { 灵植Type.粉霞仙, 650 },
-        { 灵植Type.黄龙掌, 800 },
-        { 灵植Type.玄冰魄, 950 },
-        
-        { 灵植Type.修罗花, 1250 },
-        { 灵植Type.金乌葵, 1500 },
-        { 灵植Type.幻樱木, 1750 },
-        { 灵植Type.白玉莲, 2500 },
-    };
-
     public static Dictionary<int, float> 灵植园等级经验 = new Dictionary<int, float>()
     {
         {1,100},
@@ -712,106 +678,107 @@ public class 灵植园Config
         {8,240},
         {9,260},
         
-        {10,280},
-        {11,320},
-        {12,360},
-        {13,400},
-        {14,440},
-        {15,480},
-        {16,520},
-        {17,560},
-        {18,600},
-        {19,640},
-        {20,680},
+        {10,300},
+        {11,400},
+        {12,500},
+        {13,600},
+        {14,700},
+        {15,800},
+        {16,900},
+        {17,1000},
+        {18,1100},
+        {19,1200},
+        {20,1300},
         
-        {21,720},
-        {22,760},
-        {23,840},
-        {24,920},
-        {25,1000},
-        {26,1080},
-        {27,1160},
-        {28,1240},
-        {29,1320},
+        {21,1800},
+        {22,2000},
+        {23,2200},
+        {24,2400},
+        {25,2600},
+        {26,2800},
+        {27,3000},
+        {28,3200},
+        {29,3400},
         
-        {30,1400},
-        {31,1480},
-        {32,1560},
-        {33,1640},
-        {34,1720},
-        {35,1900},
-        {36,2100},
-        {37,2300},
-        {38,2500},
-        {39,2700},
+        {30,4000},
+        {31,5000},
+        {32,6000},
+        {33,7000},
+        {34,8000},
+        {35,9000},
+        {36,10000},
+        {37,11000},
+        {38,12000},
+        {39,13000},
         
-        {40,2900},
-        {41,3100},
-        {42,3300},
-        {43,3500},
-        {44,4000},
-        {45,4500},
-        {46,5000},
-        {47,5500},
-        {48,6000},
-        {49,6500},
+        {40,15000},
+        {41,20000},
+        {42,25000},
+        {43,30000},
+        {44,35000},
+        {45,45000},
+        {46,50000},
+        {47,55000},
+        {48,60000},
+        {49,65000},
         
-        {50,7000},
-        {51,7500},
-        {52,8000},
-        {53,9000},
-        {54,10000},
-        {55,11000},
-        {56,12000},
-        {57,13000},
-        {58,14000},
-        {59,15000},
+        {50,80000},
+        {51,100000},
+        {52,120000},
+        {53,140000},
+        {54,160000},
+        {55,180000},
+        {56,200000},
+        {57,220000},
+        {58,240000},
+        {59,260000},
         
-        {60,17000},
-        {61,19000},
-        {62,21000},
-        {63,23000},
-        {64,25000},
-        {65,27000},
-        {66,29000},
-        {67,32000},
-        {68,35000},
-        {69,38000},
         
-        {70,41000},
-        {71,45000},
-        {72,50000},
-        {73,55000},
-        {74,60000},
-        {75,65000},
-        {76,70000},
-        {77,75000},
-        {78,80000},
-        {79,90000},
+        {60,300000},
+        {61,400000},
+        {62,500000},
+        {63,600000},
+        {64,700000},
+        {65,800000},
+        {66,900000},
+        {67,1000000},
+        {68,1100000},
+        {69,1200000},
         
-        {80,100000},
-        {81,110000},
-        {82,120000},
-        {83,140000},
-        {84,160000},
-        {85,180000},
-        {86,200000},
-        {87,230000},
-        {88,260000},
-        {89,290000},
+        {70,1500000},
+        {71,2000000},
+        {72,2500000},
+        {73,3000000},
+        {74,3500000},
+        {75,4000000},
+        {76,4500000},
+        {77,5000000},
+        {78,5500000},
+        {79,6000000},
         
-        {90,320000},
-        {91,360000},
-        {92,400000},
-        {93,450000},
-        {94,500000},
-        {95,600000},
-        {96,700000},
-        {97,800000},
-        {98,900000},
-        {99,1000000},
+        {80,8000000},
+        {81,12000000},
+        {82,16000000},
+        {83,20000000},
+        {84,25000000},
+        {85,30000000},
+        {86,35000000},
+        {87,40000000},
+        {88,45000000},
+        {89,50000000},
         
-        {100,2000000},
+        {90,70000000},
+        {91,100000000},
+        {92,130000000},
+        {93,160000000},
+        {94,190000000},
+        {95,220000000},
+        {96,250000000},
+        {97,280000000},
+        {98,310000000},
+        {99,350000000},
+        
+        {100,999999999999},
         
     };
 
@@ -823,40 +790,40 @@ public class 灵植园Config
         { 灵植Type.幻音铃, 30 },
         { 灵植Type.幻紫玫, 40 },
         
-        { 灵植Type.九幽紫, 50 },
-        { 灵植Type.赤焰百合, 60 },
-        { 灵植Type.碧海螺, 70 },
-        { 灵植Type.粉面佛莲, 80 },
+        { 灵植Type.九幽紫, 100 },
+        { 灵植Type.赤焰百合, 140 },
+        { 灵植Type.碧海螺, 180 },
+        { 灵植Type.粉面佛莲, 220 },
+        { 灵植Type.紫幽草, 260 },
         
-        { 灵植Type.紫幽草, 100 },
-        { 灵植Type.三生花, 120 },
-        { 灵植Type.向阳花, 140 },
-        { 灵植Type.白玉玲, 160 },
+        { 灵植Type.三生花, 600 },
+        { 灵植Type.向阳花, 700 },
+        { 灵植Type.白玉玲, 800 },
+        { 灵植Type.赤阳花, 900 },
+        { 灵植Type.寒星兰, 1000 },
         
-        { 灵植Type.赤阳花, 200 },
-        { 灵植Type.寒星兰, 230 },
-        { 灵植Type.赤霞花, 260 },
-        { 灵植Type.惊雷子, 290 },
+        { 灵植Type.赤霞花, 2500 },
+        { 灵植Type.惊雷子, 3000 },
+        { 灵植Type.幽兰铃, 3500 },
+        { 灵植Type.空谷幽兰, 4000 },
         
-        { 灵植Type.幽兰铃, 350 },
-        { 灵植Type.空谷幽兰, 400 },
-        { 灵植Type.醉仙球, 450 },
-        { 灵植Type.醉仙菌, 500 },
+        { 灵植Type.醉仙球, 10000 },
+        { 灵植Type.醉仙菌, 12000 },
+        { 灵植Type.太素花, 14000 },
+        { 灵植Type.灵犀铃, 16000 },
+        { 灵植Type.血菩提, 18000 },
         
-        { 灵植Type.太素花, 600 },
-        { 灵植Type.灵犀铃, 700 },
-        { 灵植Type.血菩提, 800 },
-        { 灵植Type.紫晶铃, 900 },
+        { 灵植Type.紫晶铃, 40000 },
+        { 灵植Type.招财草, 50000 },
+        { 灵植Type.粉霞仙, 60000 },
+        { 灵植Type.黄龙掌, 70000 },
+        { 灵植Type.玄冰魄, 80000 },
         
-        { 灵植Type.招财草, 1000 },
-        { 灵植Type.粉霞仙, 1300 },
-        { 灵植Type.黄龙掌, 1600 },
-        { 灵植Type.玄冰魄, 1900 },
+        { 灵植Type.修罗花, 200000 },
+        { 灵植Type.金乌葵, 300000 },
+        { 灵植Type.幻樱木, 400000 },
         
-        { 灵植Type.修罗花, 2000 },
-        { 灵植Type.金乌葵, 2500 },
-        { 灵植Type.幻樱木, 3000 },
-        { 灵植Type.白玉莲, 5000 },
+        { 灵植Type.白玉莲, 1000000 },
     };
     
     public static Dictionary<灵植Type, float> 灵植产量Dic = new Dictionary<灵植Type, float>()
@@ -899,7 +866,7 @@ public class 灵植园Config
         { 灵植Type.修罗花, 12f },
         { 灵植Type.金乌葵, 14f },
         { 灵植Type.幻樱木, 16f },
-        { 灵植Type.白玉莲, 18f },
+        { 灵植Type.白玉莲, 15f },
     };
 
     public static Dictionary<int, minmax> 植物位置Dic = new Dictionary<int, minmax>()

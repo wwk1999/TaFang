@@ -10,6 +10,7 @@ public class 当前装备item : MonoBehaviour, IPointerClickHandler
     public Image icon;
     public TextMeshProUGUI 阶数;
     public TextMeshProUGUI name;
+    [NonSerialized] public 矿工装备Type 矿工装备Type;
     [NonSerialized] public 矿工 矿工;
     [NonSerialized] public 矿工装备 矿工装备;
 
@@ -20,7 +21,7 @@ public class 当前装备item : MonoBehaviour, IPointerClickHandler
             bg.sprite = ResourcesConfig.灵植背包格子空;
             icon.gameObject.SetActive(false);
             阶数.gameObject.SetActive(false);
-            name.text = 矿工装备.矿工装备Type.ToString();
+            name.text = 矿工装备Type.ToString();
             return;
         }
 

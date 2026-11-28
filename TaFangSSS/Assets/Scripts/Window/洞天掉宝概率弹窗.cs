@@ -46,7 +46,7 @@ public class 洞天掉宝概率弹窗 : MonoBehaviour
                 var 概率item = Instantiate(Resources.Load("Prefabs/Window/概率Item"), Content.transform)
                     .GetComponent<招募概率item>();
                 概率item.QualityType=(QualityType)index;
-                概率item.Count = item * 属性config.总掉宝率*灵物突破Config.灵物掉落倍率[PlayerData.S.当前轮回境界];
+                概率item.Count = Math.Min(100,item * 属性config.总掉宝率*灵物突破Config.灵物掉落倍率[PlayerData.S.当前轮回境界]);
                 概率item.SetItem();
             }
         }

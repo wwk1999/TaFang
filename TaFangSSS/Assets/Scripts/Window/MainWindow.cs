@@ -750,6 +750,7 @@ public class MainWindow : MonoBehaviour
         });
         主线关卡Debug.onClick.AddListener(() =>
         {
+            PlayerData.S.灵兽蛋数量 += 100;
             PlayerData.S.青石 += 1000000;
             PlayerData.S.最大主线关卡++;
             PlayerData.S.混沌虚空最大层数+=1000;

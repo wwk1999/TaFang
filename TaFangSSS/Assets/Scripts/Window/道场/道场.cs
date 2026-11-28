@@ -86,9 +86,9 @@ public class 道场 : MonoBehaviour
         
         灵植园.onClick.AddListener(() =>
         {
-            if (PlayerData.S.历史最高境界 < JingJieType.化神)
+            if (PlayerData.S.历史最高境界 < JingJieType.元婴)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
+                ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
                 return;
             }
             WindowController.S.打开窗口(WindowController.S.灵植园Window);
@@ -150,9 +150,9 @@ public class 道场 : MonoBehaviour
         });
         炼丹室.onClick.AddListener(() =>
         {
-            if (PlayerData.S.历史最高境界 < JingJieType.元婴)
+            if (PlayerData.S.历史最高境界 < JingJieType.化神)
             {
-                ObserverModuleManager.S.SendEvent("SendUIToast","元婴境界解锁");
+                ObserverModuleManager.S.SendEvent("SendUIToast","化神境界解锁");
                 return;
             }
             WindowController.S.打开窗口(WindowController.S.炼丹Window);

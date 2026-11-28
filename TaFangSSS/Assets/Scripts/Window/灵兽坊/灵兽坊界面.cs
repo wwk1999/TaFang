@@ -93,6 +93,8 @@ public class 灵兽坊界面 : MonoBehaviour
     public TextMeshProUGUI 当前血晶;
 
     private int 当前砸蛋数量 = 0;
+    // 砸蛋进行中（含结算后 toast 逐帧弹出）的防重入标记，避免连点叠加开蛋
+    private bool 正在砸蛋 = false;
     private int 背包页数 = 1;
     private const int 每页灵兽数 = 28;
     private readonly List<灵兽> 筛选列表 = new List<灵兽>();
@@ -990,58 +992,77 @@ public class 灵兽坊界面 : MonoBehaviour
 
     public IEnumerator 砸蛋()
     {
-        Dictionary<灵兽Type, int> 砸蛋字典 = new Dictionary<灵兽Type, int>();
-        for (int i = 0; i < 当前砸蛋数量; i++)
+        // 防重入：上一批还在跑（含 toast 逐帧弹出）时忽略重复点击，避免叠加开蛋
+        if (正在砸蛋) yield break;
+        正在砸蛋 = true;
+        try
         {
-            QualityType qualityType = QualityType.None;
-            var random = Random.Range(0, 10000f);
-            float count = 0;
-            int index = 0;
-            foreach (var item in 灵兽坊Config.灵兽蛋概率)
+            // 数量缓存到局部变量并按当前蛋数夹紧，避免循环过程中读取被改动的字段脏值
+            int 开蛋数量 = Math.Min(当前砸蛋数量, (int)PlayerData.S.灵兽蛋数量);
+            if (开蛋数量 <= 0)
             {
-                count += item;
-                if (random <= count)
+                ObserverModuleManager.S.SendEvent("SendUIToast", "没有可砸的灵兽蛋");
+                yield break;
+            }
+
+            // 关键：先扣蛋、再重置选择数量，最后才生成灵兽。
+            // 之前扣蛋和清零都写在循环之后，一旦循环中途抛异常（如品质为 None 取字典），
+            // 就会跳过扣蛋与清零，导致蛋不消耗、数量不清零，重复点击无限叠加开出的灵兽。
+            PlayerData.S.灵兽蛋数量 -= 开蛋数量;
+            当前砸蛋数量 = 0;
+            Show灵蛋信息();
+
+            Dictionary<灵兽Type, int> 砸蛋字典 = new Dictionary<灵兽Type, int>();
+            for (int i = 0; i < 开蛋数量; i++)
+            {
+                QualityType qualityType = QualityType.None;
+                var random = Random.Range(0, 10000f);
+                float count = 0;
+                int index = 0;
+                foreach (var item in 灵兽坊Config.灵兽蛋概率)
                 {
-                    qualityType = (QualityType)(index + 1);
-                    break;
+                    count += item;
+                    if (random <= count)
+                    {
+                        qualityType = (QualityType)(index + 1);
+                        break;
+                    }
+                    index++;
                 }
 
-                index++;
+                // 灵兽蛋概率表总和为 9910（不足 10000），随机值落在尾段时品质保持 None，
+                // 回退为最低品质黄品，避免按 None 取字典抛 KeyNotFoundException
+                if (qualityType == QualityType.None)
+                {
+                    qualityType = QualityType.黄品;
+                }
+
+                灵兽 灵兽 = 灵兽坊Config.砸蛋获得灵兽(qualityType);
+                if (砸蛋字典.ContainsKey(灵兽.灵兽Type))
+                {
+                    砸蛋字典[灵兽.灵兽Type]++;
+                }
+                else
+                {
+                    砸蛋字典[灵兽.灵兽Type] = 1;
+                }
+                PlayerData.S.灵兽列表.Add(灵兽);
             }
 
-            // 灵兽蛋概率列表总和为 9910（不足 10000），随机值落在 9910~10000 的尾段时
-            // 循环不会命中任何品质，qualityType 会保持 None，进而在 灵兽品质List[None] 取字典时报 KeyNotFoundException
-            // 尾段（0.9%）回退为最低品质黄品
-            if (qualityType == QualityType.None)
-            {
-                qualityType = QualityType.黄品;
-            }
+            PlayerData.S.任务完成字典[任务Type.开灵兽蛋] = true;
+            ObserverModuleManager.S.SendEvent("刷新任务栏");
+            Show灵兽背包();
 
-            灵兽 灵兽 = 灵兽坊Config.砸蛋获得灵兽(qualityType);
-            if (砸蛋字典.ContainsKey(灵兽.灵兽Type))
+            foreach (var item in 砸蛋字典)
             {
-                砸蛋字典[灵兽.灵兽Type]++;
+                ObserverModuleManager.S.SendEvent("SendUIToast", 灵兽坊Config.灵兽名[item.Key], 灵兽坊Config.灵兽品质[item.Key],
+                    item.Value);
+                yield return new WaitForSeconds(0.1f);
             }
-            else
-            {
-                砸蛋字典[灵兽.灵兽Type] = 1;
-            }
-
-            PlayerData.S.灵兽列表.Add(灵兽);
         }
-
-        PlayerData.S.灵兽蛋数量 -= 当前砸蛋数量;
-        PlayerData.S.任务完成字典[任务Type.开灵兽蛋] = true;
-        ObserverModuleManager.S.SendEvent("刷新任务栏");
-
-        当前砸蛋数量 = 0;
-        Show灵蛋信息();
-        Show灵兽背包();
-        foreach (var item in 砸蛋字典)
+        finally
         {
-            ObserverModuleManager.S.SendEvent("SendUIToast", 灵兽坊Config.灵兽名[item.Key], 灵兽坊Config.灵兽品质[item.Key],
-                item.Value);
-            yield return new WaitForSeconds(0.1f);
+            正在砸蛋 = false;
         }
     }
     

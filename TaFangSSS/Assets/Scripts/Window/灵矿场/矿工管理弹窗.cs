@@ -208,6 +208,7 @@ public class 矿工管理弹窗 : MonoBehaviour
         var item = Instantiate(Resources.Load<GameObject>("Prefabs/Window/灵矿场/当前装备item"), 当前装备.transform)
             .GetComponent<当前装备item>();
         item.矿工 = 当前矿工;
+        item.矿工装备Type = type;
         item.矿工装备 = Get装备(当前矿工, type);
         item.SetItem();
     }

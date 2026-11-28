@@ -1408,11 +1408,11 @@ public class 灵物突破Config
     {
         { QualityType.黄品, new List<float>() { 70, 0, 0, 0, 0, 0, 0, 0 } },
         { QualityType.玄品, new List<float>() { 70, 30, 0, 0, 0, 0, 0, 0 } },
-        { QualityType.地品, new List<float>() { 35, 50, 25, 0, 0, 0, 0, 0 } },
-        { QualityType.天品, new List<float>() { 10, 30, 40, 20, 0, 0, 0, 0 } },
-        { QualityType.宇品, new List<float>() { 0, 15, 40, 30, 15, 0, 0, 0 } },
-        { QualityType.宙品, new List<float>() { 0, 10, 25, 30, 25, 10, 0, 0 } },
-        { QualityType.洪品, new List<float>() { 0, 0, 10, 25, 40, 20, 5, 0 } },
-        { QualityType.荒品, new List<float>() { 0, 0, 0, 19f, 40, 30, 10, 1f } },
+        { QualityType.地品, new List<float>() { 80, 50, 25, 0, 0, 0, 0, 0 } },
+        { QualityType.天品, new List<float>() { 90, 60, 40, 20, 0, 0, 0, 0 } },
+        { QualityType.宇品, new List<float>() { 100, 70, 40, 30, 15, 0, 0, 0 } },
+        { QualityType.宙品, new List<float>() { 120, 80, 50, 30, 25, 10, 0, 0 } },
+        { QualityType.洪品, new List<float>() { 150, 100, 60, 40, 40, 20, 5, 0 } },
+        { QualityType.荒品, new List<float>() { 200, 120, 80, 60f, 50, 30, 10, 1f } },
     };
 }
